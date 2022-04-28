@@ -17,8 +17,10 @@ struct ContentView: View {
                 .ignoresSafeArea()
             
             VStack {
-                ClockView(setTo: 5, countdown: true, callback: callbackExample)
-                ClockView(setTo: 55, countdown: false)
+                ClockView.simpleCountup
+                ClockView.simpleCountdown
+                ClockView(setTo: 5, isCountdown: true, callback: callbackExample)
+                ClockView(setTo: 55, isCountdown: false)
             }
         }
     }

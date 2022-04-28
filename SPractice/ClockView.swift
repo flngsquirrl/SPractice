@@ -23,32 +23,60 @@ struct ClockNumber: View {
 struct ClockView: View {
     
     @State private var timeInSeconds: Int
-    @State private var countdown: Bool
-    private var callback: () -> Void = {}
+    @State private var isCountdown: Bool
+    
+    private var callback: (() -> Void)? = nil
     
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
-    init(setTo timeInSeconds: Int, countdown: Bool) {
+    private static let maxMinutesPart = 60
+    private static let maxSecondsPart = 60
+    private static let maxReachedImageName = "infinity"
+    
+    public static let simpleCountdown = ClockView(setTo: 130, isCountdown: true)
+    public static let simpleCountup = ClockView(setTo: 33, isCountdown: false)
+    
+    init(setTo timeInSeconds: Int, isCountdown: Bool) {
         self.timeInSeconds = timeInSeconds
-        self.countdown = countdown
+        self.isCountdown = isCountdown
     }
     
-    init(setTo timeInSeconds: Int, countdown: Bool, callback: @escaping () -> Void) {
+    init(setTo timeInSeconds: Int, isCountdown: Bool, callback: @escaping () -> Void) {
         self.timeInSeconds = timeInSeconds
-        self.countdown = countdown
+        self.isCountdown = isCountdown
         self.callback = callback
     }
     
     var secondsPart: Int {
-        timeInSeconds % 60
+        timeInSeconds % ClockView.maxSecondsPart
     }
     
     var minutesPart: Int {
-        timeInSeconds / 60
+        timeInSeconds / ClockView.maxSecondsPart
     }
     
-    var displayInfinity: Bool {
-        minutesPart == 60
+    var minutesFirstDigit: Int {
+        minutesPart / 10
+    }
+    
+    var minutesSecondDigit: Int {
+        minutesPart % 10
+    }
+    
+    var secondsFirstDigit: Int {
+        secondsPart / 10
+    }
+    
+    var secondsSecondDigit: Int {
+        secondsPart % 10
+    }
+    
+    var countdownFinished: Bool {
+        isCountdown && timeInSeconds == 0
+    }
+    
+    var countupReachedMax: Bool {
+        !isCountdown && minutesPart == ClockView.maxMinutesPart
     }
     
     var body: some View {
@@ -58,35 +86,44 @@ struct ClockView: View {
                 .frame(width: 230, height: 70)
             
             Group {
-                if displayInfinity {
-                    Image(systemName: "infinity")
+                if countupReachedMax {
+                    Image(systemName: ClockView.maxReachedImageName)
                         .font(.title.weight(.semibold))
                 } else {
                     HStack(spacing: 0) {
-                        ClockNumber(number: minutesPart / 10)
+                        ClockNumber(number: minutesFirstDigit)
                             .padding(2)
-                        ClockNumber(number: minutesPart % 10)
+                        ClockNumber(number: minutesSecondDigit)
                             .padding(2)
                         Text(":")
                             .foregroundColor(.gray)
                             .padding(10)
-                        ClockNumber(number: secondsPart / 10)
+                        ClockNumber(number: secondsFirstDigit)
                             .padding(2)
-                        ClockNumber(number: secondsPart % 10)
+                        ClockNumber(number: secondsSecondDigit)
                             .padding(2)
                     }
                 }
             }
             .onReceive(timer) { _ in
-                // TODO: check this condition
-                if countdown && timeInSeconds == 0 {
-                    stopTimer()
-                    callback()
-                } else {
-                    timeInSeconds = countdown ? timeInSeconds - 1 : timeInSeconds + 1
-                }
+                processTimerTick()
             }
             
+        }
+    }
+    
+    func processTimerTick() {
+        if countdownFinished || countupReachedMax {
+            processStopClock()
+        } else {
+            timeInSeconds = isCountdown ? timeInSeconds - 1 : timeInSeconds + 1
+        }
+    }
+    
+    func processStopClock() {
+        stopTimer()
+        if let callback = callback {
+            callback()
         }
     }
     
@@ -100,7 +137,7 @@ struct ClockView_Previews: PreviewProvider {
         ZStack {
             Color.orange
                 .ignoresSafeArea()
-            ClockView(setTo: 95, countdown: true)
+            ClockView(setTo: 95, isCountdown: true)
         }
     }
 }
