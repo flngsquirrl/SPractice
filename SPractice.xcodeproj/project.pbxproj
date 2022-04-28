@@ -15,6 +15,7 @@
 		C9A0CFEA281AB32B000CF439 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFE9281AB32B000CF439 /* Task.swift */; };
 		C9A0CFEC281AB382000CF439 /* Excercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFEB281AB382000CF439 /* Excercise.swift */; };
 		C9A0CFEE281AB484000CF439 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFED281AB484000CF439 /* Program.swift */; };
+		C9A0CFF2281B3733000CF439 /* ExcerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFF1281B3733000CF439 /* ExcerciseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		C9A0CFE9281AB32B000CF439 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		C9A0CFEB281AB382000CF439 /* Excercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Excercise.swift; sourceTree = "<group>"; };
 		C9A0CFED281AB484000CF439 /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
+		C9A0CFF1281B3733000CF439 /* ExcerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				C9A0CFEF281AB554000CF439 /* model */,
 				C95011C628196FFD0043EC75 /* SPracticeApp.swift */,
 				C95011C828196FFD0043EC75 /* ContentView.swift */,
+				C9A0CFF1281B3733000CF439 /* ExcerciseView.swift */,
 				C95011D42819703D0043EC75 /* ClockView.swift */,
 				C95011CA28196FFE0043EC75 /* Assets.xcassets */,
 				C95011CC28196FFE0043EC75 /* Preview Content */,
@@ -160,6 +163,7 @@
 				C9A0CFEA281AB32B000CF439 /* Task.swift in Sources */,
 				C95011C928196FFD0043EC75 /* ContentView.swift in Sources */,
 				C9A0CFEE281AB484000CF439 /* Program.swift in Sources */,
+				C9A0CFF2281B3733000CF439 /* ExcerciseView.swift in Sources */,
 				C95011D52819703D0043EC75 /* ClockView.swift in Sources */,
 				C9A0CFEC281AB382000CF439 /* Excercise.swift in Sources */,
 				C95011C728196FFD0043EC75 /* SPracticeApp.swift in Sources */,

@@ -21,7 +21,7 @@ struct Excercise {
 
 }
 
-enum ExcerciseType {
+enum ExcerciseType: String {
     case flow
     case timer
     case tabata
