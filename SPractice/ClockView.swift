@@ -31,7 +31,7 @@ struct ClockView: View {
     
     private static let maxMinutesPart = 60
     private static let maxSecondsPart = 60
-    private static let maxReachedImageName = "infinity"
+    private static let countupImageName = "infinity"
     
     public static let simpleCountdown = ClockView(setTo: 130, isCountdown: true)
     public static let simpleCountup = ClockView(setTo: 33, isCountdown: false)
@@ -76,7 +76,15 @@ struct ClockView: View {
     }
     
     var countupReachedMax: Bool {
-        !isCountdown && minutesPart == ClockView.maxMinutesPart
+        isCountup && minutesPart == ClockView.maxMinutesPart
+    }
+    
+    var isCountup: Bool {
+        !isCountdown
+    }
+    
+    var isCountingUp: Bool {
+        !countupReachedMax
     }
     
     var body: some View {
@@ -86,9 +94,19 @@ struct ClockView: View {
                 .frame(width: 230, height: 70)
             
             Group {
-                if countupReachedMax {
-                    Image(systemName: ClockView.maxReachedImageName)
-                        .font(.title.weight(.semibold))
+                if isCountup {
+                    ZStack{
+                        Image(systemName: ClockView.countupImageName)
+                            .font(.title.weight(.semibold))
+                        HStack {
+                            Spacer()
+                            Spacer()
+                            if (isCountingUp) {
+                                Text("\(minutesFirstDigit)\(minutesSecondDigit):\(secondsFirstDigit)\(secondsSecondDigit)")
+                            }
+                            Spacer()
+                        }
+                    }
                 } else {
                     HStack(spacing: 0) {
                         ClockNumber(number: minutesFirstDigit)
@@ -137,7 +155,7 @@ struct ClockView_Previews: PreviewProvider {
         ZStack {
             Color.orange
                 .ignoresSafeArea()
-            ClockView(setTo: 95, isCountdown: true)
+            ClockView.simpleCountup
         }
     }
 }
