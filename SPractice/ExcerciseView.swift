@@ -26,6 +26,10 @@ struct ExcerciseView: View {
 
 struct ExcerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        ExcerciseView(excercise: Excercise.catCow)
+        ZStack {
+            Color.orange
+                .ignoresSafeArea()
+            ExcerciseView(excercise: Excercise.catCow)
+        }
     }
 }
