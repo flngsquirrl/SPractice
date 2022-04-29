@@ -5,6 +5,7 @@
 //  Created by Yuliya Charniak on 27.04.22.
 //
 
+import Combine
 import SwiftUI
 
 struct ClockNumber: View {
@@ -22,30 +23,19 @@ struct ClockNumber: View {
 
 struct ClockView: View {
     
-    @State private var timeInSeconds: Int
-    @State private var isCountdown: Bool
+    @State var timeInSeconds: Int
+    @State var isCountdown: Bool
+    var onFinished: (() -> Void)?
     
-    private var callback: (() -> Void)? = nil
-    
-    private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    private let timer = Timer.publish(every: 1, on: .main, in: .common)
+    @State private var timerSubscription: Cancellable?
     
     private static let maxMinutesPart = 60
     private static let maxSecondsPart = 60
     private static let countupImageName = "infinity"
     
-    public static let simpleCountdown = ClockView(setTo: 130, isCountdown: true)
-    public static let simpleCountup = ClockView(setTo: 33, isCountdown: false)
-    
-    init(setTo timeInSeconds: Int, isCountdown: Bool) {
-        self.timeInSeconds = timeInSeconds
-        self.isCountdown = isCountdown
-    }
-    
-    init(setTo timeInSeconds: Int, isCountdown: Bool, callback: @escaping () -> Void) {
-        self.timeInSeconds = timeInSeconds
-        self.isCountdown = isCountdown
-        self.callback = callback
-    }
+    public static let simpleCountdown = ClockView(timeInSeconds: 130, isCountdown: true)
+    public static let simpleCountup = ClockView(timeInSeconds: 33, isCountdown: false)
     
     var secondsPart: Int {
         timeInSeconds % ClockView.maxSecondsPart
@@ -132,21 +122,27 @@ struct ClockView: View {
     
     func processTimerTick() {
         if countdownFinished || countupReachedMax {
-            processStopClock()
+            processCountFinished()
         } else {
             timeInSeconds = isCountdown ? timeInSeconds - 1 : timeInSeconds + 1
         }
     }
     
-    func processStopClock() {
-        stopTimer()
-        if let callback = callback {
-            callback()
+    func processCountFinished() {
+        stop()
+        if let onFinished = onFinished {
+            onFinished()
         }
     }
     
-    func stopTimer() {
-        timer.upstream.connect().cancel()
+    func start() -> some View {
+        timerSubscription = timer.connect()
+        return self
+    }
+    
+    func stop() -> some View {
+        timerSubscription?.cancel()
+        return self
     }
 }
 

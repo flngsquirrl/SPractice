@@ -18,7 +18,7 @@ struct ExerciseView: View {
             
             Text("\(exercise.type.rawValue)")
             
-            ClockView(setTo: exercise.tasks[0].duration!, isCountdown: true)
+            ClockView(timeInSeconds: exercise.tasks[0].duration!, isCountdown: true).start()
             Text("\(exercise.tasks[0].name)")
         }
     }

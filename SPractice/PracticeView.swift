@@ -9,7 +9,13 @@ import SwiftUI
 
 struct PracticeView: View {
     var body: some View {
-        ExerciseView(exercise: Exercise.catCow)
+        VStack {
+            Spacer()
+            ExerciseView(exercise: Exercise.catCow)
+            Spacer()
+            PlayerView()
+            Spacer()
+        }
     }
 }
 

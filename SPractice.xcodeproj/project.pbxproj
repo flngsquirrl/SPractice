@@ -21,6 +21,8 @@
 		C9A0CFF9281BD896000CF439 /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFF8281BD896000CF439 /* TaskType.swift */; };
 		C9A0CFFB281BD8AC000CF439 /* ExerciseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFFA281BD8AC000CF439 /* ExerciseType.swift */; };
 		C9A0CFFF281BDDEA000CF439 /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFFE281BDDEA000CF439 /* PracticeView.swift */; };
+		C9A0D001281BE4C8000CF439 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D000281BE4C8000CF439 /* PlayerView.swift */; };
+		C9A0D003281C03F5000CF439 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D002281C03F5000CF439 /* Clock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		C9A0CFF8281BD896000CF439 /* TaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskType.swift; sourceTree = "<group>"; };
 		C9A0CFFA281BD8AC000CF439 /* ExerciseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseType.swift; sourceTree = "<group>"; };
 		C9A0CFFE281BDDEA000CF439 /* PracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeView.swift; sourceTree = "<group>"; };
+		C9A0D000281BE4C8000CF439 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		C9A0D002281C03F5000CF439 /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,7 @@
 				C95011C628196FFD0043EC75 /* SPracticeApp.swift */,
 				C95011C828196FFD0043EC75 /* ContentView.swift */,
 				C9A0CFFE281BDDEA000CF439 /* PracticeView.swift */,
+				C9A0D000281BE4C8000CF439 /* PlayerView.swift */,
 				C9A0CFF1281B3733000CF439 /* ExerciseView.swift */,
 				C95011D42819703D0043EC75 /* ClockView.swift */,
 				C95011CA28196FFE0043EC75 /* Assets.xcassets */,
@@ -101,6 +106,7 @@
 				C9A0CFE9281AB32B000CF439 /* Task.swift */,
 				C9A0CFF8281BD896000CF439 /* TaskType.swift */,
 				C9A0CFFA281BD8AC000CF439 /* ExerciseType.swift */,
+				C9A0D002281C03F5000CF439 /* Clock.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -182,8 +188,10 @@
 				C9A0CFEE281AB484000CF439 /* Program.swift in Sources */,
 				C9A0CFFB281BD8AC000CF439 /* ExerciseType.swift in Sources */,
 				C9A0CFF2281B3733000CF439 /* ExerciseView.swift in Sources */,
+				C9A0D001281BE4C8000CF439 /* PlayerView.swift in Sources */,
 				C9A0CFFF281BDDEA000CF439 /* PracticeView.swift in Sources */,
 				C9A0CFF7281BD815000CF439 /* ExerciseTemplate.swift in Sources */,
+				C9A0D003281C03F5000CF439 /* Clock.swift in Sources */,
 				C95011D52819703D0043EC75 /* ClockView.swift in Sources */,
 				C9A0CFEC281AB382000CF439 /* Exercise.swift in Sources */,
 				C95011C728196FFD0043EC75 /* SPracticeApp.swift in Sources */,
