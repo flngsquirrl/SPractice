@@ -10,6 +10,7 @@ import SwiftUI
 struct ExerciseView: View {
     
     var exercise: Exercise
+    var clock: Clock = Clock.simpleCountdown
     
     var body: some View {
         VStack {
@@ -18,8 +19,11 @@ struct ExerciseView: View {
             
             Text("\(exercise.type.rawValue)")
             
-            ClockView(timeInSeconds: exercise.tasks[0].duration!, isCountdown: true).start()
+            ClockView(clock: clock)
+            
             Text("\(exercise.tasks[0].name)")
+        }.onAppear() {
+            clock.start()
         }
     }
 }
