@@ -13,13 +13,13 @@
 		C95011CE28196FFE0043EC75 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C95011CD28196FFE0043EC75 /* Preview Assets.xcassets */; };
 		C95011D52819703D0043EC75 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95011D42819703D0043EC75 /* ClockView.swift */; };
 		C9A0CFEA281AB32B000CF439 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFE9281AB32B000CF439 /* Task.swift */; };
-		C9A0CFEC281AB382000CF439 /* Excercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFEB281AB382000CF439 /* Excercise.swift */; };
+		C9A0CFEC281AB382000CF439 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFEB281AB382000CF439 /* Exercise.swift */; };
 		C9A0CFEE281AB484000CF439 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFED281AB484000CF439 /* Program.swift */; };
-		C9A0CFF2281B3733000CF439 /* ExcerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFF1281B3733000CF439 /* ExcerciseView.swift */; };
+		C9A0CFF2281B3733000CF439 /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFF1281B3733000CF439 /* ExerciseView.swift */; };
 		C9A0CFF5281BD588000CF439 /* ProgramTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFF4281BD588000CF439 /* ProgramTemplate.swift */; };
-		C9A0CFF7281BD815000CF439 /* ExcerciseTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFF6281BD815000CF439 /* ExcerciseTemplate.swift */; };
+		C9A0CFF7281BD815000CF439 /* ExerciseTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFF6281BD815000CF439 /* ExerciseTemplate.swift */; };
 		C9A0CFF9281BD896000CF439 /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFF8281BD896000CF439 /* TaskType.swift */; };
-		C9A0CFFB281BD8AC000CF439 /* ExcerciseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFFA281BD8AC000CF439 /* ExcerciseType.swift */; };
+		C9A0CFFB281BD8AC000CF439 /* ExerciseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFFA281BD8AC000CF439 /* ExerciseType.swift */; };
 		C9A0CFFF281BDDEA000CF439 /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFFE281BDDEA000CF439 /* PracticeView.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,13 +31,13 @@
 		C95011CD28196FFE0043EC75 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C95011D42819703D0043EC75 /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		C9A0CFE9281AB32B000CF439 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		C9A0CFEB281AB382000CF439 /* Excercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Excercise.swift; sourceTree = "<group>"; };
+		C9A0CFEB281AB382000CF439 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		C9A0CFED281AB484000CF439 /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
-		C9A0CFF1281B3733000CF439 /* ExcerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseView.swift; sourceTree = "<group>"; };
+		C9A0CFF1281B3733000CF439 /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
 		C9A0CFF4281BD588000CF439 /* ProgramTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramTemplate.swift; sourceTree = "<group>"; };
-		C9A0CFF6281BD815000CF439 /* ExcerciseTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseTemplate.swift; sourceTree = "<group>"; };
+		C9A0CFF6281BD815000CF439 /* ExerciseTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTemplate.swift; sourceTree = "<group>"; };
 		C9A0CFF8281BD896000CF439 /* TaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskType.swift; sourceTree = "<group>"; };
-		C9A0CFFA281BD8AC000CF439 /* ExcerciseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseType.swift; sourceTree = "<group>"; };
+		C9A0CFFA281BD8AC000CF439 /* ExerciseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseType.swift; sourceTree = "<group>"; };
 		C9A0CFFE281BDDEA000CF439 /* PracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,7 +75,7 @@
 				C95011C628196FFD0043EC75 /* SPracticeApp.swift */,
 				C95011C828196FFD0043EC75 /* ContentView.swift */,
 				C9A0CFFE281BDDEA000CF439 /* PracticeView.swift */,
-				C9A0CFF1281B3733000CF439 /* ExcerciseView.swift */,
+				C9A0CFF1281B3733000CF439 /* ExerciseView.swift */,
 				C95011D42819703D0043EC75 /* ClockView.swift */,
 				C95011CA28196FFE0043EC75 /* Assets.xcassets */,
 				C95011CC28196FFE0043EC75 /* Preview Content */,
@@ -95,12 +95,12 @@
 			isa = PBXGroup;
 			children = (
 				C9A0CFF4281BD588000CF439 /* ProgramTemplate.swift */,
-				C9A0CFF6281BD815000CF439 /* ExcerciseTemplate.swift */,
+				C9A0CFF6281BD815000CF439 /* ExerciseTemplate.swift */,
 				C9A0CFED281AB484000CF439 /* Program.swift */,
-				C9A0CFEB281AB382000CF439 /* Excercise.swift */,
+				C9A0CFEB281AB382000CF439 /* Exercise.swift */,
 				C9A0CFE9281AB32B000CF439 /* Task.swift */,
 				C9A0CFF8281BD896000CF439 /* TaskType.swift */,
-				C9A0CFFA281BD8AC000CF439 /* ExcerciseType.swift */,
+				C9A0CFFA281BD8AC000CF439 /* ExerciseType.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -180,12 +180,12 @@
 				C9A0CFF9281BD896000CF439 /* TaskType.swift in Sources */,
 				C95011C928196FFD0043EC75 /* ContentView.swift in Sources */,
 				C9A0CFEE281AB484000CF439 /* Program.swift in Sources */,
-				C9A0CFFB281BD8AC000CF439 /* ExcerciseType.swift in Sources */,
-				C9A0CFF2281B3733000CF439 /* ExcerciseView.swift in Sources */,
+				C9A0CFFB281BD8AC000CF439 /* ExerciseType.swift in Sources */,
+				C9A0CFF2281B3733000CF439 /* ExerciseView.swift in Sources */,
 				C9A0CFFF281BDDEA000CF439 /* PracticeView.swift in Sources */,
-				C9A0CFF7281BD815000CF439 /* ExcerciseTemplate.swift in Sources */,
+				C9A0CFF7281BD815000CF439 /* ExerciseTemplate.swift in Sources */,
 				C95011D52819703D0043EC75 /* ClockView.swift in Sources */,
-				C9A0CFEC281AB382000CF439 /* Excercise.swift in Sources */,
+				C9A0CFEC281AB382000CF439 /* Exercise.swift in Sources */,
 				C95011C728196FFD0043EC75 /* SPracticeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

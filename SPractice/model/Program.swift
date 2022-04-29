@@ -10,7 +10,7 @@ import Foundation
 struct Program {
     let id: UUID
     let name: String
-    let excercises: Array<Excercise>
+    let exercises: Array<Exercise>
     
-    static let personal = Program(id: UUID(), name: "Personal", excercises: [Excercise.catCow, Excercise.rest, Excercise.surjaNamascar, Excercise.rest, Excercise.vasihsthasana])
+    static let personal = Program(id: UUID(), name: "Personal", exercises: [Exercise.catCow, Exercise.rest, Exercise.surjaNamascar, Exercise.rest, Exercise.vasihsthasana])
 }

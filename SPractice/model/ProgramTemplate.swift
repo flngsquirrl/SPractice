@@ -11,5 +11,5 @@ struct ProgramTemplate {
     let id = UUID()
     var name: String
     var useRest: Bool = true
-    var excercises: Array<Excercise>
+    var exercises: Array<Exercise>
 }

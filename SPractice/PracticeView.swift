@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PracticeView: View {
     var body: some View {
-        ExcerciseView(excercise: Excercise.catCow)
+        ExerciseView(exercise: Exercise.catCow)
     }
 }
 
