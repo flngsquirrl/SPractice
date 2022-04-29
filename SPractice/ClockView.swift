@@ -5,7 +5,6 @@
 //  Created by Yuliya Charniak on 27.04.22.
 //
 
-import Combine
 import SwiftUI
 
 struct ClockNumber: View {
