@@ -16,6 +16,10 @@
 		C9A0CFEC281AB382000CF439 /* Excercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFEB281AB382000CF439 /* Excercise.swift */; };
 		C9A0CFEE281AB484000CF439 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFED281AB484000CF439 /* Program.swift */; };
 		C9A0CFF2281B3733000CF439 /* ExcerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFF1281B3733000CF439 /* ExcerciseView.swift */; };
+		C9A0CFF5281BD588000CF439 /* ProgramTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFF4281BD588000CF439 /* ProgramTemplate.swift */; };
+		C9A0CFF7281BD815000CF439 /* ExcerciseTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFF6281BD815000CF439 /* ExcerciseTemplate.swift */; };
+		C9A0CFF9281BD896000CF439 /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFF8281BD896000CF439 /* TaskType.swift */; };
+		C9A0CFFB281BD8AC000CF439 /* ExcerciseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFFA281BD8AC000CF439 /* ExcerciseType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +33,10 @@
 		C9A0CFEB281AB382000CF439 /* Excercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Excercise.swift; sourceTree = "<group>"; };
 		C9A0CFED281AB484000CF439 /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
 		C9A0CFF1281B3733000CF439 /* ExcerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseView.swift; sourceTree = "<group>"; };
+		C9A0CFF4281BD588000CF439 /* ProgramTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramTemplate.swift; sourceTree = "<group>"; };
+		C9A0CFF6281BD815000CF439 /* ExcerciseTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseTemplate.swift; sourceTree = "<group>"; };
+		C9A0CFF8281BD896000CF439 /* TaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskType.swift; sourceTree = "<group>"; };
+		C9A0CFFA281BD8AC000CF439 /* ExcerciseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,9 +91,13 @@
 		C9A0CFEF281AB554000CF439 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				C9A0CFF4281BD588000CF439 /* ProgramTemplate.swift */,
+				C9A0CFF6281BD815000CF439 /* ExcerciseTemplate.swift */,
 				C9A0CFED281AB484000CF439 /* Program.swift */,
 				C9A0CFEB281AB382000CF439 /* Excercise.swift */,
 				C9A0CFE9281AB32B000CF439 /* Task.swift */,
+				C9A0CFF8281BD896000CF439 /* TaskType.swift */,
+				C9A0CFFA281BD8AC000CF439 /* ExcerciseType.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -160,10 +172,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9A0CFF5281BD588000CF439 /* ProgramTemplate.swift in Sources */,
 				C9A0CFEA281AB32B000CF439 /* Task.swift in Sources */,
+				C9A0CFF9281BD896000CF439 /* TaskType.swift in Sources */,
 				C95011C928196FFD0043EC75 /* ContentView.swift in Sources */,
 				C9A0CFEE281AB484000CF439 /* Program.swift in Sources */,
+				C9A0CFFB281BD8AC000CF439 /* ExcerciseType.swift in Sources */,
 				C9A0CFF2281B3733000CF439 /* ExcerciseView.swift in Sources */,
+				C9A0CFF7281BD815000CF439 /* ExcerciseTemplate.swift in Sources */,
 				C95011D52819703D0043EC75 /* ClockView.swift in Sources */,
 				C9A0CFEC281AB382000CF439 /* Excercise.swift in Sources */,
 				C95011C728196FFD0043EC75 /* SPracticeApp.swift in Sources */,

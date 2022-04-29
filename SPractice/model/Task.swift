@@ -9,9 +9,21 @@ import Foundation
 
 struct Task {
     let id = UUID()
-    var type: TaskType
-    var name: String
-    var duration: Int?
+    let type: TaskType
+    let name: String
+    let duration: Int?
+    
+    init(type: TaskType, name: String, duration: Int) {
+        self.type = type
+        self.name = name
+        self.duration = duration
+    }
+    
+    init(type: TaskType, name: String) {
+        self.type = type
+        self.name = name
+        self.duration = nil
+    }
     
     static let activity60 = Task(type: .activity, name: "activity", duration: 60)
     
@@ -24,9 +36,4 @@ struct Task {
     
     static let restService10 = Task(type: .rest, name: "rest", duration: 10)
     static let activityFlow = Task(type: .activity, name: "activity")
-}
-
-enum TaskType {
-    case activity
-    case rest
 }
