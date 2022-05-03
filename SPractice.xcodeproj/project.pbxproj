@@ -23,6 +23,7 @@
 		C9A0CFFF281BDDEA000CF439 /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFFE281BDDEA000CF439 /* PracticeView.swift */; };
 		C9A0D001281BE4C8000CF439 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D000281BE4C8000CF439 /* PlayerView.swift */; };
 		C9A0D003281C03F5000CF439 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D002281C03F5000CF439 /* Clock.swift */; };
+		C9A0D00628211901000CF439 /* NewExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D00528211901000CF439 /* NewExerciseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		C9A0CFFE281BDDEA000CF439 /* PracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeView.swift; sourceTree = "<group>"; };
 		C9A0D000281BE4C8000CF439 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		C9A0D002281C03F5000CF439 /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
+		C9A0D00528211901000CF439 /* NewExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExerciseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				C9A0CFEF281AB554000CF439 /* model */,
+				C9A0D004282118C8000CF439 /* exercise */,
 				C95011C628196FFD0043EC75 /* SPracticeApp.swift */,
 				C95011C828196FFD0043EC75 /* ContentView.swift */,
 				C9A0CFFE281BDDEA000CF439 /* PracticeView.swift */,
@@ -109,6 +112,14 @@
 				C9A0D002281C03F5000CF439 /* Clock.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		C9A0D004282118C8000CF439 /* exercise */ = {
+			isa = PBXGroup;
+			children = (
+				C9A0D00528211901000CF439 /* NewExerciseView.swift */,
+			);
+			path = exercise;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +194,7 @@
 			files = (
 				C9A0CFF5281BD588000CF439 /* ProgramTemplate.swift in Sources */,
 				C9A0CFEA281AB32B000CF439 /* Task.swift in Sources */,
+				C9A0D00628211901000CF439 /* NewExerciseView.swift in Sources */,
 				C9A0CFF9281BD896000CF439 /* TaskType.swift in Sources */,
 				C95011C928196FFD0043EC75 /* ContentView.swift in Sources */,
 				C9A0CFEE281AB484000CF439 /* Program.swift in Sources */,
