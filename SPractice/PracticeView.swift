@@ -16,6 +16,8 @@ struct PracticeView: View {
             PlayerView()
             Spacer()
         }
+        .navigationTitle("Personal")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
