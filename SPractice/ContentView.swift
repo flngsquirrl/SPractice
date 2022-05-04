@@ -9,16 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        NewExerciseView()
-//        ZStack {
-//            LinearGradient(gradient: Gradient(stops: [
-//                    .init(color: .orange, location: 0.3),
-//                    .init(color: .black, location: 1),
-//                ]), startPoint: .top, endPoint: .bottom)
-//                .ignoresSafeArea()
-//
-//            PracticeView()
-//        }
+        ZStack {
+            LinearGradient(gradient: Gradient(stops: [
+                    .init(color: .orange, location: 0.3),
+                    .init(color: .black, location: 1),
+                ]), startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea()
+
+            ProgramsView()
+        }
     }
     
     func callbackExample() {
