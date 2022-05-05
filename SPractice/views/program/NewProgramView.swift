@@ -10,13 +10,18 @@ import SwiftUI
 struct NewProgramView: View {
     
     @State var name = ""
-    @State var addRest = false
+    @State var addRest = true
     @State var exercises: [ExerciseTemplate]
     
     var body: some View {
         Form {
             TextField("Program name", text: $name)
-            Toggle("Add rest intervals", isOn: $addRest)
+            
+            Section {
+                Toggle("Add rest intervals", isOn: $addRest)
+            } footer: {
+                Text("Having rest between execises lets you take a deep breath and prepare for the upcoming exercise properly")
+            }
             
             Section("Exercises") {
                 List {
