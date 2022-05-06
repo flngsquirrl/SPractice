@@ -24,6 +24,10 @@ class SettingsItem: ObservableObject, Codable {
         self.value = value
         self.enabled = enabled
     }
+    
+    convenience init(from item: SettingsItem) {
+        self.init(type: item.type, value: item.value, enabled: item.enabled)
+    }
 
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)

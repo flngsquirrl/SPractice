@@ -8,11 +8,12 @@
 import Foundation
 import SwiftUI
 
-class Settings: ObservableObject {
+class Settings {
     
-    @Published var items: [SettingsItem]
+    var items: [SettingsItem] = []
     
     init() {
+        //UserDefaults.standard.removeObject(forKey: "settings")
         if let savedItems = UserDefaults.standard.data(forKey: "settings") {
             let decoder = JSONDecoder()
             
@@ -22,7 +23,7 @@ class Settings: ObservableObject {
             }
         }
         
-        items = Settings.defaults
+        items = getDefaults()
     }
     
     func getItem(withType type: SettingsItemType) -> SettingsItem? {
@@ -46,13 +47,21 @@ class Settings: ObservableObject {
             }
         }
     }
+    
+    func getDefaults() -> [SettingsItem] {
+        var result: [SettingsItem] = []
+        for item in Settings.defaults {
+            result.append(SettingsItem(from: item))
+        }
+        return result
+    }
 }
 
 extension Settings {
-    static let defaults: [SettingsItem] = [SettingsItem(type: .tabata_warmup, value: 10),
-                                           SettingsItem(type: .tabata_activity, value: 20),
-                                           SettingsItem(type: .tabata_rest, value: 10),
-                                           SettingsItem(type: .tabata_cooldown, value: 10),
-                                           SettingsItem(type: .tabata_repetitions, value: 8),
-                                           SettingsItem(type: .general_rest, value: 10)]
+    static private let defaults: [SettingsItem] = [SettingsItem(type: .tabata_warmup, value: 10),
+                                                   SettingsItem(type: .tabata_activity, value: 20),
+                                                   SettingsItem(type: .tabata_rest, value: 10),
+                                                   SettingsItem(type: .tabata_cooldown, value: 10),
+                                                   SettingsItem(type: .tabata_repetitions, value: 8),
+                                                   SettingsItem(type: .general_rest, value: 10)]
 }

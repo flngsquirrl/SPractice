@@ -49,7 +49,7 @@ extension SettingsItemView {
 }
 
 struct SettingsView: View {
-    @StateObject private var settings = Settings()
+    private var settings = Settings()
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
