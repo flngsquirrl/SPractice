@@ -26,8 +26,11 @@ class Settings {
         items = getDefaults()
     }
     
-    func getItem(withType type: SettingsItemType) -> SettingsItem? {
-        items.first(where: {$0.type == type})
+    func getItem(with type: SettingsItem.SettingsType) -> SettingsItem {
+        guard let item = items.first(where: {$0.type == type}) else {
+            fatalError("Reading the setting of type \(type) has failed")
+        }
+        return item
     }
     
     func save() {

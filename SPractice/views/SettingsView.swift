@@ -36,14 +36,14 @@ struct SettingsItemView: View {
 }
 
 extension SettingsItemView {
-    static let switchableSettings: [SettingsItemType] = [.tabata_warmup, .tabata_cooldown]
-    static let withToggle: [SettingsItemType] = [.tabata_warmup, .tabata_activity, .tabata_rest, .tabata_cooldown]
+    static let withToggleEnabled: [SettingsItem.SettingsType] = [.tabata_warmup, .tabata_cooldown]
+    static let withToggle: [SettingsItem.SettingsType] = [.tabata_warmup, .tabata_activity, .tabata_rest, .tabata_cooldown]
     
-    func isDisabled(type: SettingsItemType) -> Bool {
-        !SettingsItemView.switchableSettings.contains(item.type)
+    func isDisabled(type: SettingsItem.SettingsType) -> Bool {
+        !SettingsItemView.withToggleEnabled.contains(item.type)
     }
     
-    func isWithToggle(type: SettingsItemType) -> Bool {
+    func isWithToggle(type: SettingsItem.SettingsType) -> Bool {
         SettingsItemView.withToggle.contains(item.type)
     }
 }
@@ -56,8 +56,8 @@ struct SettingsView: View {
         NavigationView {
             Form {
                 Section {
-                    ForEach(SettingsItemType.tabata_interval_sequence, id: \.self) { type in
-                        SettingsItemView(for: settings.getItem(withType: type)!, in: 0..<60)
+                    ForEach(SettingsItem.SettingsType.tabata_interval_sequence, id: \.self) { type in
+                        SettingsItemView(for: settings.getItem(with: type), in: 0..<60)
                     }
                 } header: {
                     Text("Tabata intervals")
@@ -66,7 +66,7 @@ struct SettingsView: View {
                 }
                 
                 Section {
-                    SettingsItemView(for: settings.getItem(withType: .tabata_repetitions)!, in: 1..<17)
+                    SettingsItemView(for: settings.getItem(with: .tabata_repetitions), in: 1..<17)
                 } header: {
                     Text("Tabata exercise")
                 } footer: {
@@ -74,7 +74,7 @@ struct SettingsView: View {
                 }
                 
                 Section {
-                    SettingsItemView(for: settings.getItem(withType: .general_rest)!, in: 0..<60)
+                    SettingsItemView(for: settings.getItem(with: .general_rest), in: 0..<60)
                 } header: {
                     Text("Rest")
                 } footer: {
@@ -85,7 +85,7 @@ struct SettingsView: View {
             .navigationTitle("Settings")
             .toolbar {
                 HStack {
-                    Button("Restore defaults") {
+                    Button("Reset") {
                         settings.restoreDefaults()
                         settings.save()
                     }
