@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PracticeView: View {
+    let program: Program
     var body: some View {
         VStack {
             Spacer()
@@ -16,7 +17,7 @@ struct PracticeView: View {
             PlayerView()
             Spacer()
         }
-        .navigationTitle("Personal")
+        .navigationTitle(program.name)
         .navigationBarTitleDisplayMode(.inline)
     }
 }
@@ -24,9 +25,12 @@ struct PracticeView: View {
 struct PracticeView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            Color.orange
-                .ignoresSafeArea()
-            PracticeView()
+            LinearGradient(gradient: Gradient(stops: [
+                .init(color: .orange, location: 0.3),
+                .init(color: .black, location: 1),
+            ]), startPoint: .top, endPoint: .bottom)
+            .ignoresSafeArea()
+            PracticeView(program: Program.personal)
         }
     }
 }

@@ -17,12 +17,16 @@ struct ProgramsView: View {
             ForEach(programs, id: \.self) { program in
                 HStack {
                     Button() {
-                        // todo open practice view
+                        
                     } label: {
-                        Image(systemName: "play.circle")
+                        Image(systemName: "play.rectangle")
+                            .font(.title)
+                    }
+                    .onTapGesture {
+                        // todo: play practice
                     }
                     NavigationLink {
-                        PracticeView()
+                        PracticeView(program: Program.personal)
                     } label: {
                         HStack {
                             Text("\(program)")
