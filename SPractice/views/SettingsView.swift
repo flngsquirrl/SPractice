@@ -8,32 +8,43 @@
 import SwiftUI
 
 struct SettingsItemView: View {
-    @ObservedObject var settings: Settings
-    @State private var item: SettingsItem
+    @ObservedObject private var item: SettingsItem
+    private var range: Range<Int>
     
-    init(for item: SettingsItem, of settings: Settings) {
+    init(for item: SettingsItem, in range: Range<Int>) {
         self.item = item
-        self.settings = settings
+        self.range = range
     }
     
     var body: some View {
         HStack {
-            Text("\(item.type.rawValue) \(item.value)")
+            if (isWithToggle(type: item.type)) {
+                Toggle("Is enabled?", isOn: $item.enabled).labelsHidden()
+                    .disabled(isDisabled(type: item.type))
+            }
+            Text("\(item.type.rawValue)")
             Spacer()
             Picker("\(item.type.rawValue) duration", selection: $item.value) {
-                ForEach(0..<60) {
+                ForEach(range, id: \.self) {
                     Text("\($0)")
-                }
-            }
-            .onChange(of: item.value) { _ in
-                let updatedItem = item
-                if let index = settings.items.firstIndex(of: item) {
-                    settings.items[index] = updatedItem
                 }
             }
             .labelsHidden()
             .pickerStyle(.menu)
         }
+    }
+}
+
+extension SettingsItemView {
+    static let switchableSettings: [SettingsItemType] = [.tabata_warmup, .tabata_cooldown]
+    static let withToggle: [SettingsItemType] = [.tabata_warmup, .tabata_activity, .tabata_rest, .tabata_cooldown]
+    
+    func isDisabled(type: SettingsItemType) -> Bool {
+        !SettingsItemView.switchableSettings.contains(item.type)
+    }
+    
+    func isWithToggle(type: SettingsItemType) -> Bool {
+        SettingsItemView.withToggle.contains(item.type)
     }
 }
 
@@ -44,23 +55,30 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             Form {
-//                Section {
-//                    ForEach(SettingsItemType.tabata_interval_sequence, id: \.self) { type in
-//                        SettingsItemView(for: settings.getItem(withType: type)!, of: settings)
-//                    }
-//                    SettingsItemView(for: settings.getItem(withType: .tabata_cycles)!, of: settings)
-//                } header: {
-//                    Text("Tabata")
-//                } footer: {
-//                    Text("Adjust the settings the way that suit your needs")
-//                }
+                Section {
+                    ForEach(SettingsItemType.tabata_interval_sequence, id: \.self) { type in
+                        SettingsItemView(for: settings.getItem(withType: type)!, in: 0..<60)
+                    }
+                } header: {
+                    Text("Tabata intervals")
+                } footer: {
+                    Text("These intervals compose one full Tabata cycle")
+                }
                 
                 Section {
-                    SettingsItemView(for: settings.getItem(withType: .general_rest)!, of: settings)
+                    SettingsItemView(for: settings.getItem(withType: .tabata_repetitions)!, in: 1..<17)
+                } header: {
+                    Text("Tabata exercise")
+                } footer: {
+                    Text("Number of activity+rest sequences to run during one Tabata exercise")
+                }
+                
+                Section {
+                    SettingsItemView(for: settings.getItem(withType: .general_rest)!, in: 0..<60)
                 } header: {
                     Text("Rest")
                 } footer: {
-                    Text("You can use a rest interval to take a deep breath and prepare for the next exercise")
+                    Text("You can use rest intervals to take a deep breath and prepare for the next exercise")
                 }
                 
             }

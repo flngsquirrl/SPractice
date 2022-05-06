@@ -117,9 +117,9 @@
 				C9A0CFF8281BD896000CF439 /* TaskType.swift */,
 				C9A0CFFA281BD8AC000CF439 /* ExerciseType.swift */,
 				C9A0D002281C03F5000CF439 /* Clock.swift */,
-				C9A0D0122823FE57000CF439 /* SettingsItemType.swift */,
 				C9A0D0142823FF87000CF439 /* Settings.swift */,
 				C9A0D016282408C4000CF439 /* SettingsItem.swift */,
+				C9A0D0122823FE57000CF439 /* SettingsItemType.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";

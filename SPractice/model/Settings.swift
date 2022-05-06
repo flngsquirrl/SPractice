@@ -25,13 +25,6 @@ class Settings: ObservableObject {
         items = Settings.defaults
     }
     
-    static let defaults: [SettingsItem] = [SettingsItem(type: .tabata_warmup, value: 10),
-                                           SettingsItem(type: .tabata_activity, value: 20),
-                                           SettingsItem(type: .tabata_rest, value: 10),
-                                           SettingsItem(type: .tabata_cooldown, value: 10),
-                                           SettingsItem(type: .tabata_cycles, value: 8),
-                                           SettingsItem(type: .general_rest, value: 10)]
-    
     func getItem(withType type: SettingsItemType) -> SettingsItem? {
         items.first(where: {$0.type == type})
     }
@@ -45,6 +38,21 @@ class Settings: ObservableObject {
     }
     
     func restoreDefaults() {
-        items = Settings.defaults
+        for item in items {
+            let defaultItem = Settings.defaults.first(where: {$0.type == item.type})
+            if let defaultItem = defaultItem {
+                item.value = defaultItem.value
+                item.enabled = defaultItem.enabled
+            }
+        }
     }
+}
+
+extension Settings {
+    static let defaults: [SettingsItem] = [SettingsItem(type: .tabata_warmup, value: 10),
+                                           SettingsItem(type: .tabata_activity, value: 20),
+                                           SettingsItem(type: .tabata_rest, value: 10),
+                                           SettingsItem(type: .tabata_cooldown, value: 10),
+                                           SettingsItem(type: .tabata_repetitions, value: 8),
+                                           SettingsItem(type: .general_rest, value: 10)]
 }
