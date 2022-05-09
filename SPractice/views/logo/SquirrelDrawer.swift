@@ -46,7 +46,7 @@ struct SquirrelDrawer {
         var path = Path()
 
         path.move(to: CGPoint(x: rect.width * 0.5, y: rect.height * 0.15))
-        path.addLine(to: CGPoint(x: rect.width * 0.5, y: rect.height))
+        path.addLine(to: CGPoint(x: rect.width * 0.5, y: rect.height * 1.07))
         
         return path
     }
