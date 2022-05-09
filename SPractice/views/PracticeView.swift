@@ -10,26 +10,27 @@ import SwiftUI
 struct PracticeView: View {
     let program: Program
     var body: some View {
-        VStack {
-            Spacer()
-            ExerciseView(exercise: Exercise.catCow)
-            Spacer()
-            PlayerView()
-            Spacer()
+        ZStack {
+            Color.lightBright
+                .ignoresSafeArea()
+            VStack {
+                Spacer()
+                ExerciseView(exercise: Exercise.catCow)
+                Spacer()
+                PlayerView()
+                Spacer()
+            }
+            .navigationTitle(program.name)
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .navigationTitle(program.name)
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 struct PracticeView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(stops: [
-                .init(color: .orange, location: 0.3),
-                .init(color: .black, location: 1),
-            ]), startPoint: .top, endPoint: .bottom)
-            .ignoresSafeArea()
+            Color.lightBright
+                .ignoresSafeArea()
             PracticeView(program: Program.personal)
         }
     }

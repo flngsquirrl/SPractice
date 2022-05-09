@@ -20,6 +20,7 @@ struct ExerciseView: View {
             Text("\(exercise.type.rawValue)")
             
             ClockView(clock: clock)
+                .frame(width: 320, height: 120)
             
             Text("\(exercise.tasks[0].name)")
         }.onAppear() {
@@ -31,7 +32,7 @@ struct ExerciseView: View {
 struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            Color.orange
+            Color.lightBright
                 .ignoresSafeArea()
             ExerciseView(exercise: Exercise.catCow)
         }

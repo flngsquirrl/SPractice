@@ -8,61 +8,27 @@
 import SwiftUI
 
 struct PlayerButton: View {
-    let isImage: Bool
-    let systemImageName: String?
-    let label: String?
-    var note: String?
+    let systemImageName: String
     let onClick: () -> Void
     
     @State var disabled: Bool = false
     
-    init(systemImageName: String, onClick: @escaping () -> Void) {
-        self.systemImageName = systemImageName
-        self.isImage = true
-        self.label = nil
-        self.note = nil
-        self.onClick = onClick
-    }
-    
-    init(systemImageName: String, note: String, onClick: @escaping () -> Void) {
-        self.systemImageName = systemImageName
-        self.isImage = true
-        self.note = note
-        self.label = nil
-        self.onClick = onClick
-    }
-    
-    init(label: String, onClick: @escaping () -> Void) {
-        self.systemImageName = nil
-        self.label = label
-        self.isImage = false
-        self.note = nil
-        self.onClick = onClick
-    }
+    private let mainFont: Font = .title.weight(.semibold)
+    private let noteFont: Font = .body.weight(.semibold)
     
     var body: some View {
         VStack {
             Button() { onClick() }
             label: {
-                if isImage {
-                    Image(systemName: systemImageName!)
-                        .font(.title.weight(.semibold))
-                        .foregroundColor(disabled ? .gray : .black)
-                } else {
-                    Text(label!)
-                        .font(.title.weight(.semibold))
-                        .foregroundColor(disabled ? .gray : .black)
-                }
+                Image(systemName: systemImageName)
             }
             .disabled(disabled)
-            .padding(20)
-            .frame(width: isImage ? 80 : nil, height: 50)
-            .background(.white)
+            .padding(10)
+            .frame(width: 90, height: 60)
+            .font(mainFont)
+            .foregroundColor(disabled ? .gray : .lightForeground)
+            .background(.darkBackground)
             .clipShape(RoundedRectangle(cornerRadius: 5))
-            
-            if let note = note {
-                Text("\(note)")
-            }
         }
     }
     
@@ -86,29 +52,34 @@ struct PlayerView: View {
     var finishClicked: () -> Void = {}
     
     var body: some View {
-        VStack {
-            HStack {
-                PlayerButton(systemImageName: "backward.fill", note: "previous") {
-                    backwardClicked()
-                }
-                if (isPlaying) {
-                    PlayerButton(systemImageName: "pause.fill", note: " ") {
-                        isPlaying.toggle()
-                        pauseClicked()
-                    }
-                } else {
-                    PlayerButton(systemImageName: "play.fill", note: " ") {
-                        isPlaying.toggle()
-                        playClicked()
-                    }
-                }
-                PlayerButton(systemImageName: "forward.fill", note: "next") {
-                    forwardClicked()
-                }
-            }
+        ZStack {
+            RoundedRectangle(cornerRadius: 5)
+                .fill(.lightForeground)
+                .frame(width: 320, height: 160)
             
-            PlayerButton(label: "Finish") {
-                finishClicked()
+            VStack {
+                HStack {
+                    PlayerButton(systemImageName: "backward.fill") {
+                        backwardClicked()
+                    }
+                    if (isPlaying) {
+                        PlayerButton(systemImageName: "pause.fill") {
+                            isPlaying.toggle()
+                            pauseClicked()
+                        }
+                    } else {
+                        PlayerButton(systemImageName: "play.fill") {
+                            isPlaying.toggle()
+                            playClicked()
+                        }
+                    }
+                    PlayerButton(systemImageName: "forward.fill") {
+                        forwardClicked()
+                    }
+                }
+                PlayerButton(systemImageName: "stop.fill") {
+                    finishClicked()
+                }
             }
         }
     }
@@ -117,7 +88,7 @@ struct PlayerView: View {
 struct PlayerView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            Color.orange
+            Color.lightBright
                 .ignoresSafeArea()
             PlayerView()
         }
