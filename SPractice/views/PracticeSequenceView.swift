@@ -18,7 +18,7 @@ struct PracticeSequenceView: View {
             Spacer()
         }
         .padding(15)
-        .background(.lightForeground)
+        .background(.creamy)
         .clipShape(RoundedRectangle(cornerRadius: 5))
     }
 }
@@ -26,7 +26,7 @@ struct PracticeSequenceView: View {
 struct PracticeSequenceView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            Color.lightBright
+            Color.lightOrange
                 .ignoresSafeArea()
             PracticeSequenceView()
                 .frame(width: 320)

@@ -34,7 +34,7 @@
 		C9A0D01E28280E77000CF439 /* SquirrelInWheelLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D01D28280E77000CF439 /* SquirrelInWheelLogo.swift */; };
 		C9A0D02028280F13000CF439 /* SquirrelInWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D01F28280F13000CF439 /* SquirrelInWheel.swift */; };
 		C9A0D02228280F3E000CF439 /* RightWing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D02128280F3E000CF439 /* RightWing.swift */; };
-		C9A0D024282813F2000CF439 /* ShapeStyle-Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D023282813F2000CF439 /* ShapeStyle-Color.swift */; };
+		C9A0D024282813F2000CF439 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D023282813F2000CF439 /* ColorTheme.swift */; };
 		C9A0D027282A613A000CF439 /* PracticeSequenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D026282A613A000CF439 /* PracticeSequenceView.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +67,7 @@
 		C9A0D01D28280E77000CF439 /* SquirrelInWheelLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquirrelInWheelLogo.swift; sourceTree = "<group>"; };
 		C9A0D01F28280F13000CF439 /* SquirrelInWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquirrelInWheel.swift; sourceTree = "<group>"; };
 		C9A0D02128280F3E000CF439 /* RightWing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightWing.swift; sourceTree = "<group>"; };
-		C9A0D023282813F2000CF439 /* ShapeStyle-Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShapeStyle-Color.swift"; sourceTree = "<group>"; };
+		C9A0D023282813F2000CF439 /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		C9A0D026282A613A000CF439 /* PracticeSequenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeSequenceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,7 +165,7 @@
 				C9A0CFFE281BDDEA000CF439 /* PracticeView.swift */,
 				C9A0D000281BE4C8000CF439 /* PlayerView.swift */,
 				C9A0D0102823DF22000CF439 /* SettingsView.swift */,
-				C9A0D023282813F2000CF439 /* ShapeStyle-Color.swift */,
+				C9A0D023282813F2000CF439 /* ColorTheme.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -278,7 +278,7 @@
 				C9A0D001281BE4C8000CF439 /* PlayerView.swift in Sources */,
 				C9A0D00C282290BB000CF439 /* NewProgramView.swift in Sources */,
 				C9A0CFFF281BDDEA000CF439 /* PracticeView.swift in Sources */,
-				C9A0D024282813F2000CF439 /* ShapeStyle-Color.swift in Sources */,
+				C9A0D024282813F2000CF439 /* ColorTheme.swift in Sources */,
 				C9A0CFF7281BD815000CF439 /* ExerciseTemplate.swift in Sources */,
 				C9A0D0152823FF87000CF439 /* Settings.swift in Sources */,
 				C9A0D003281C03F5000CF439 /* Clock.swift in Sources */,

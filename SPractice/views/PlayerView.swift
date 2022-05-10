@@ -19,9 +19,9 @@ struct PlayerButton: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 5)
-                .fill(.lightForeground)
+                .fill(.creamy)
                 .frame(width: 100, height: 70)
-                .shadow(color: .darkForeground, radius: 2)
+                .shadow(color: .darkNavy, radius: 2)
                 
             
             VStack {
@@ -33,11 +33,11 @@ struct PlayerButton: View {
                 .padding(10)
                 .frame(width: 94, height: 64)
                 .font(mainFont)
-                .foregroundColor(disabled ? .gray : .lightForeground)
-                .background(.darkBackground)
+                .foregroundColor(disabled ? .gray : .creamy)
+                .background(.lightNavy)
                 .clipShape(RoundedRectangle(cornerRadius: 5))
             }
-            .overlay(RoundedRectangle(cornerRadius: 5).stroke(.darkForeground, style: StrokeStyle(lineWidth: 1)))
+            .overlay(RoundedRectangle(cornerRadius: 5).stroke(.darkNavy, style: StrokeStyle(lineWidth: 1)))
         }
     }
     
@@ -92,7 +92,7 @@ struct PlayerView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 5)
-                .fill(.lightBright)
+                .fill(.lightOrange)
                 .frame(width: 320, height: 200)
             
             PlayerView()

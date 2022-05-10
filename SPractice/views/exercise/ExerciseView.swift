@@ -32,7 +32,7 @@ struct ExerciseView: View {
 struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            Color.lightBright
+            Color.lightOrange
                 .ignoresSafeArea()
             ExerciseView(exercise: Exercise.catCow)
         }

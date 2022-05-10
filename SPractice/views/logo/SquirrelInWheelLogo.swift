@@ -11,8 +11,8 @@ struct SquirrelInWheelLogo: View {
     
     var color: Color = .white
     var gragient = LinearGradient(gradient: Gradient(stops: [
-        .init(color: .lightBright, location: 0),
-        .init(color: .darkBright, location: 1),
+        .init(color: .lightOrange, location: 0),
+        .init(color: .darkOrange, location: 1),
     ]), startPoint: .top, endPoint: .bottom)
     
     var body: some View {

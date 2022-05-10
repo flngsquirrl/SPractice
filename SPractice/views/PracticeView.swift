@@ -40,8 +40,8 @@ struct PracticeView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             LinearGradient(gradient: Gradient(stops: [
-                .init(color: .lightBright, location: 0),
-                .init(color: .lightForeground, location: 1),
+                .init(color: .lightOrange, location: 0),
+                .init(color: .creamy, location: 1),
             ]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             PracticeView(program: Program.personal)
