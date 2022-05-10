@@ -11,11 +11,21 @@ struct PracticeView: View {
     let program: Program
     var body: some View {
         ZStack {
-            Color.lightBright
-                .ignoresSafeArea()
+//            Color.lightBright
+//                .ignoresSafeArea()
+            
+//            SquirrelInWheel()
+//                .stroke(.lightBright, style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
+//                .opacity(0.2)
+//                .frame(width: 500, height: 500)
+//                .offset(y: 000)
+                
+            
             VStack {
                 Spacer()
                 ExerciseView(exercise: Exercise.catCow)
+                PracticeSequenceView()
+                    .frame(width: 320)
                 Spacer()
                 PlayerView()
                 Spacer()
@@ -29,7 +39,10 @@ struct PracticeView: View {
 struct PracticeView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            Color.lightBright
+            LinearGradient(gradient: Gradient(stops: [
+                .init(color: .lightBright, location: 0),
+                .init(color: .lightForeground, location: 1),
+            ]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             PracticeView(program: Program.personal)
         }
