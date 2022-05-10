@@ -21,41 +21,38 @@ struct ClockView: View {
     
     var body: some View {
         GeometryReader { geo in
-            ZStack {
-                RoundedRectangle(cornerRadius: 5)
-                    .fill(.lightForeground)
-                
-                Group {
-                    if clock.isCountup {
-                        ZStack{
-                            Image(systemName: ClockView.countupImageName)
-                                .font(mainFont)
-                                .foregroundColor(.darkBright)
-                                .scaleEffect(2)
-                            HStack {
-                                if (clock.isCountingUp) {
-                                    Text("\(clock.minutesFirstDigit)\(clock.minutesSecondDigit):\(clock.secondsFirstDigit)\(clock.secondsSecondDigit)")
-                                        .foregroundColor(.darkBright)
-                                        .font(noteFont)
-                                }
+            Group {
+                if clock.isCountup {
+                    ZStack {
+                        Image(systemName: ClockView.countupImageName)
+                            .font(mainFont)
+                            .foregroundColor(.darkBright)
+                            .scaleEffect(2)
+                        
+                            if (clock.isCountingUp) {
+                                Text("\(clock.minutesFirstDigit)\(clock.minutesSecondDigit):\(clock.secondsFirstDigit)\(clock.secondsSecondDigit)")
+                                    .foregroundColor(.darkBright)
+                                    .font(noteFont)
+                                    .offset(x: geo.size.width * 0.37, y: geo.size.height * 0.25)
                             }
-                            .offset(x: geo.size.width * 0.37, y: geo.size.height * 0.25)
-                        }
-                    } else {
-                        HStack(spacing: 4) {
-                            ClockNumber(number: clock.minutesFirstDigit)
-                            ClockNumber(number: clock.minutesSecondDigit)
-                            Text(":")
-                                .foregroundColor(.darkForeground)
-                                .font(mainFont)
-                                .padding(8)
-                            ClockNumber(number: clock.secondsFirstDigit)
-                            ClockNumber(number: clock.secondsSecondDigit)
-                        }
+                     }
+                } else {
+                    HStack(spacing: 4) {
+                        ClockNumber(number: clock.minutesFirstDigit)
+                        ClockNumber(number: clock.minutesSecondDigit)
+                        Text(":")
+                            .foregroundColor(.darkBright)
+                            .font(mainFont)
+                            .padding(8)
+                        ClockNumber(number: clock.secondsFirstDigit)
+                        ClockNumber(number: clock.secondsSecondDigit)
                     }
                 }
             }
+            .frame(width: geo.size.width, height: geo.size.height)
         }
+        .background(.lightForeground)
+        .clipShape(RoundedRectangle(cornerRadius: 5))
     }
     
     struct ClockNumber: View {
@@ -68,6 +65,7 @@ struct ClockView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 5))
                 .font(.largeTitle.weight(.semibold))
                 .foregroundStyle(.lightForeground)
+            
         }
     }
 }
