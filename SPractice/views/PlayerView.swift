@@ -17,18 +17,27 @@ struct PlayerButton: View {
     private let noteFont: Font = .body.weight(.semibold)
     
     var body: some View {
-        VStack {
-            Button() { onClick() }
-            label: {
-                Image(systemName: systemImageName)
+        ZStack {
+            RoundedRectangle(cornerRadius: 5)
+                .fill(.lightForeground)
+                .frame(width: 100, height: 70)
+                .shadow(color: .darkForeground, radius: 2)
+                
+            
+            VStack {
+                Button() { onClick() }
+                label: {
+                    Image(systemName: systemImageName)
+                }
+                .disabled(disabled)
+                .padding(10)
+                .frame(width: 94, height: 64)
+                .font(mainFont)
+                .foregroundColor(disabled ? .gray : .lightForeground)
+                .background(.darkBackground)
+                .clipShape(RoundedRectangle(cornerRadius: 5))
             }
-            .disabled(disabled)
-            .padding(10)
-            .frame(width: 90, height: 60)
-            .font(mainFont)
-            .foregroundColor(disabled ? .gray : .lightForeground)
-            .background(.darkBackground)
-            .clipShape(RoundedRectangle(cornerRadius: 5))
+            .overlay(RoundedRectangle(cornerRadius: 5).stroke(.darkForeground, style: StrokeStyle(lineWidth: 1)))
         }
     }
     
@@ -52,34 +61,28 @@ struct PlayerView: View {
     var finishClicked: () -> Void = {}
     
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 5)
-                .fill(.lightForeground)
-                .frame(width: 320, height: 160)
-            
-            VStack {
-                HStack {
-                    PlayerButton(systemImageName: "backward.fill") {
-                        backwardClicked()
+        VStack {
+            HStack {
+                PlayerButton(systemImageName: "backward.fill") {
+                    backwardClicked()
+                }
+                if (isPlaying) {
+                    PlayerButton(systemImageName: "pause.fill") {
+                        isPlaying.toggle()
+                        pauseClicked()
                     }
-                    if (isPlaying) {
-                        PlayerButton(systemImageName: "pause.fill") {
-                            isPlaying.toggle()
-                            pauseClicked()
-                        }
-                    } else {
-                        PlayerButton(systemImageName: "play.fill") {
-                            isPlaying.toggle()
-                            playClicked()
-                        }
-                    }
-                    PlayerButton(systemImageName: "forward.fill") {
-                        forwardClicked()
+                } else {
+                    PlayerButton(systemImageName: "play.fill") {
+                        isPlaying.toggle()
+                        playClicked()
                     }
                 }
-                PlayerButton(systemImageName: "stop.fill") {
-                    finishClicked()
+                PlayerButton(systemImageName: "forward.fill") {
+                    forwardClicked()
                 }
+            }
+            PlayerButton(systemImageName: "stop.fill") {
+                finishClicked()
             }
         }
     }
@@ -88,8 +91,10 @@ struct PlayerView: View {
 struct PlayerView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            Color.lightBright
-                .ignoresSafeArea()
+            RoundedRectangle(cornerRadius: 5)
+                .fill(.lightBright)
+                .frame(width: 320, height: 200)
+            
             PlayerView()
         }
     }
