@@ -8,31 +8,65 @@
 import SwiftUI
 
 struct PracticeView: View {
-    let program: Program
+    @State var practice: Practice
+    @StateObject var playerState = PlayerState()
+    
     var body: some View {
-        ZStack {
-//            Color.lightBright
-//                .ignoresSafeArea()
-            
-//            SquirrelInWheel()
-//                .stroke(.lightBright, style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
-//                .opacity(0.2)
-//                .frame(width: 500, height: 500)
-//                .offset(y: 000)
-                
-            
-            VStack {
-                Spacer()
-                ExerciseView(exercise: Exercise.catCow)
-                PracticeSequenceView()
-                    .frame(width: 320)
-                Spacer()
-                PlayerView()
-                Spacer()
+        VStack {
+            Spacer()
+            ExerciseView(exercise: practice.currentExercise)
+            //PracticeSequenceView()
+            Spacer()
+            PlayerView(state: playerState) {
+                startPractice()
+            } pauseClicked: {
+                pausePractice()
+            } backwardClicked: {
+                moveToPreviousExercise()
+            } forwardClicked: {
+                moveToNextExercise()
+            } stopClicked: {
+                finishPractice()
             }
-            .navigationTitle(program.name)
-            .navigationBarTitleDisplayMode(.inline)
+
+            Spacer()
         }
+        .frame(width: 320)
+        .navigationTitle(practice.program.name)
+        .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    func startPractice() {
+        practice.start()
+        updatePlayerState()
+    }
+    
+    func pausePractice() {
+        practice.pause()
+        updatePlayerState()
+    }
+    
+    func moveToNextExercise() {
+        practice.moveToNextExercise()
+        updatePlayerState()
+    }
+    
+    func moveToPreviousExercise() {
+        practice.moveToPreviousExercise()
+        updatePlayerState()
+    }
+    
+    func finishPractice() {
+        practice.finish()
+        updatePlayerState()
+    }
+    
+    func updatePlayerState() {
+        playerState.isPlayEnabled = !practice.isRunning && !practice.isFinished
+        playerState.isPauseEnabled = practice.isRunning && !practice.isFinished
+        playerState.isBackwardEnabled = !practice.isFirstExercise && !practice.isFinished
+        playerState.isForwardEnabled = !practice.isLastExercise && !practice.isFinished
+        playerState.isStopEnabled = practice.isInProgress && !practice.isFinished
     }
 }
 
@@ -44,7 +78,7 @@ struct PracticeView_Previews: PreviewProvider {
                 .init(color: .creamy, location: 1),
             ]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
-            PracticeView(program: Program.personal)
+            PracticeView(practice: Practice(for: Program.personal))
         }
     }
 }

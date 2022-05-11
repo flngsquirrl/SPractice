@@ -26,7 +26,7 @@ struct ProgramsView: View {
                         // todo: play practice
                     }
                     NavigationLink {
-                        PracticeView(program: Program.personal)
+                        PracticeView(practice: Practice(for: Program.personal))
                     } label: {
                         HStack {
                             Text("\(program)")

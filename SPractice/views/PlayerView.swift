@@ -10,8 +10,7 @@ import SwiftUI
 struct PlayerButton: View {
     let systemImageName: String
     let onClick: () -> Void
-    
-    @State var disabled: Bool = false
+    let isEnabled: Bool
     
     private let mainFont: Font = .title.weight(.semibold)
     private let noteFont: Font = .body.weight(.semibold)
@@ -29,61 +28,61 @@ struct PlayerButton: View {
                 label: {
                     Image(systemName: systemImageName)
                 }
-                .disabled(disabled)
+                .disabled(!isEnabled)
                 .padding(10)
                 .frame(width: 94, height: 64)
                 .font(mainFont)
-                .foregroundColor(disabled ? .gray : .creamy)
+                .foregroundColor(isEnabled ? .creamy : .gray)
                 .background(.lightNavy)
                 .clipShape(RoundedRectangle(cornerRadius: 5))
             }
             .overlay(RoundedRectangle(cornerRadius: 5).stroke(.darkNavy, style: StrokeStyle(lineWidth: 1)))
         }
     }
-    
-    func disable() {
-        disabled = true
-    }
-    
-    func enable() {
-        disabled = false
-    }
 }
 
 struct PlayerView: View {
     
-    @State private var isPlaying = false
+    @ObservedObject private var state: PlayerState
     
-    var backwardClicked: () -> Void = {}
-    var playClicked: () -> Void = {}
-    var pauseClicked: () -> Void = {}
-    var forwardClicked: () -> Void = {}
-    var finishClicked: () -> Void = {}
+    private let backwardClicked: () -> Void
+    private let playClicked: () -> Void
+    private let pauseClicked: () -> Void
+    private let forwardClicked: () -> Void
+    private let stopClicked: () -> Void
+    
+    init(state: PlayerState, playClicked: @escaping () -> Void = {}, pauseClicked: @escaping () -> Void = {}, backwardClicked: @escaping () -> Void = {}, forwardClicked: @escaping () -> Void = {}, stopClicked: @escaping () -> Void = {}) {
+        self.state = state
+        self.backwardClicked = backwardClicked
+        self.forwardClicked = forwardClicked
+        self.playClicked = playClicked
+        self.pauseClicked = pauseClicked
+        self.stopClicked = stopClicked
+    }
+    
+    func onPauseClicked() {
+        state.isPlaying.toggle()
+        pauseClicked()
+    }
+    
+    func onPlayClicked() {
+        state.isPlaying.toggle()
+        playClicked()
+    }
     
     var body: some View {
         VStack {
             HStack {
-                PlayerButton(systemImageName: "backward.fill") {
-                    backwardClicked()
-                }
-                if (isPlaying) {
-                    PlayerButton(systemImageName: "pause.fill") {
-                        isPlaying.toggle()
-                        pauseClicked()
-                    }
+                PlayerButton(systemImageName: "backward.fill", onClick: backwardClicked, isEnabled: state.isBackwardEnabled)
+                
+                if (state.isPlaying) {
+                    PlayerButton(systemImageName: "pause.fill", onClick: onPauseClicked, isEnabled: state.isPauseEnabled)
                 } else {
-                    PlayerButton(systemImageName: "play.fill") {
-                        isPlaying.toggle()
-                        playClicked()
-                    }
+                    PlayerButton(systemImageName: "play.fill", onClick: onPlayClicked, isEnabled: state.isPlayEnabled)
                 }
-                PlayerButton(systemImageName: "forward.fill") {
-                    forwardClicked()
-                }
+                PlayerButton(systemImageName: "forward.fill", onClick: forwardClicked, isEnabled: state.isForwardEnabled)
             }
-            PlayerButton(systemImageName: "stop.fill") {
-                finishClicked()
-            }
+            PlayerButton(systemImageName: "stop.fill", onClick: stopClicked, isEnabled: state.isStopEnabled)
         }
     }
 }
@@ -95,7 +94,7 @@ struct PlayerView_Previews: PreviewProvider {
                 .fill(.lightOrange)
                 .frame(width: 320, height: 200)
             
-            PlayerView()
+            PlayerView(state: PlayerState())
         }
     }
 }
