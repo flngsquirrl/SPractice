@@ -11,8 +11,9 @@ import Foundation
 class Clock: ObservableObject {
     
     @Published var timeInSeconds: Int
-    let isCountdown: Bool
-    let onFinished: (() -> Void)?
+    @Published var isCountdown: Bool
+    
+    var onFinished: (() -> Void)?
     
     private let timer = Timer.publish(every: 1, on: .main, in: .common)
     private var timerSubscription: Cancellable?
@@ -23,7 +24,7 @@ class Clock: ObservableObject {
     public static let simpleCountdown = Clock(setTo: 130)
     public static let simpleCountup = Clock(setTo: 33, isCountdown: false)
     
-    init(setTo timeInSeconds: Int, isCountdown: Bool = true, onFinished: (() -> Void)? = nil) {
+    init(setTo timeInSeconds: Int = 0, isCountdown: Bool = false, onFinished: (() -> Void)? = nil) {
         self.timeInSeconds = timeInSeconds
         self.isCountdown = isCountdown
         self.onFinished = onFinished
@@ -93,5 +94,11 @@ class Clock: ObservableObject {
     
     func stop() {
         timerSubscription?.cancel()
+    }
+    
+    func reset(to timeInSeconds: Int = 0, isCountdown: Bool = false) {
+        stop()
+        self.timeInSeconds = timeInSeconds
+        self.isCountdown = isCountdown
     }
 }

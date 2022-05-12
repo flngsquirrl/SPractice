@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ClockView: View {
     
-    @StateObject var clock: Clock
+    @ObservedObject var clock: Clock
     
     private static let countupImageName = "infinity"
     

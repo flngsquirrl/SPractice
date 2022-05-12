@@ -1,5 +1,5 @@
 //
-//  PlayerProperties.swift
+//  Player.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 11.05.22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PlayerState: ObservableObject {
+class Player: ObservableObject {
     
     @Published var isPlaying = false
     

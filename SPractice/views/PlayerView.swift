@@ -43,7 +43,7 @@ struct PlayerButton: View {
 
 struct PlayerView: View {
     
-    @ObservedObject private var state: PlayerState
+    @ObservedObject private var player: Player
     
     private let backwardClicked: () -> Void
     private let playClicked: () -> Void
@@ -51,8 +51,8 @@ struct PlayerView: View {
     private let forwardClicked: () -> Void
     private let stopClicked: () -> Void
     
-    init(state: PlayerState, playClicked: @escaping () -> Void = {}, pauseClicked: @escaping () -> Void = {}, backwardClicked: @escaping () -> Void = {}, forwardClicked: @escaping () -> Void = {}, stopClicked: @escaping () -> Void = {}) {
-        self.state = state
+    init(player: Player, playClicked: @escaping () -> Void = {}, pauseClicked: @escaping () -> Void = {}, backwardClicked: @escaping () -> Void = {}, forwardClicked: @escaping () -> Void = {}, stopClicked: @escaping () -> Void = {}) {
+        self.player = player
         self.backwardClicked = backwardClicked
         self.forwardClicked = forwardClicked
         self.playClicked = playClicked
@@ -61,28 +61,28 @@ struct PlayerView: View {
     }
     
     func onPauseClicked() {
-        state.isPlaying.toggle()
+        player.isPlaying.toggle()
         pauseClicked()
     }
     
     func onPlayClicked() {
-        state.isPlaying.toggle()
+        player.isPlaying.toggle()
         playClicked()
     }
     
     var body: some View {
         VStack {
             HStack {
-                PlayerButton(systemImageName: "backward.fill", onClick: backwardClicked, isEnabled: state.isBackwardEnabled)
+                PlayerButton(systemImageName: "backward.fill", onClick: backwardClicked, isEnabled: player.isBackwardEnabled)
                 
-                if (state.isPlaying) {
-                    PlayerButton(systemImageName: "pause.fill", onClick: onPauseClicked, isEnabled: state.isPauseEnabled)
+                if (player.isPlaying) {
+                    PlayerButton(systemImageName: "pause.fill", onClick: onPauseClicked, isEnabled: player.isPauseEnabled)
                 } else {
-                    PlayerButton(systemImageName: "play.fill", onClick: onPlayClicked, isEnabled: state.isPlayEnabled)
+                    PlayerButton(systemImageName: "play.fill", onClick: onPlayClicked, isEnabled: player.isPlayEnabled)
                 }
-                PlayerButton(systemImageName: "forward.fill", onClick: forwardClicked, isEnabled: state.isForwardEnabled)
+                PlayerButton(systemImageName: "forward.fill", onClick: forwardClicked, isEnabled: player.isForwardEnabled)
             }
-            PlayerButton(systemImageName: "stop.fill", onClick: stopClicked, isEnabled: state.isStopEnabled)
+            PlayerButton(systemImageName: "stop.fill", onClick: stopClicked, isEnabled: player.isStopEnabled)
         }
     }
 }
@@ -94,7 +94,7 @@ struct PlayerView_Previews: PreviewProvider {
                 .fill(.lightOrange)
                 .frame(width: 320, height: 200)
             
-            PlayerView(state: PlayerState())
+            PlayerView(player: Player())
         }
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 struct ExerciseView: View {
     
     var exercise: Exercise
-    var clock: Clock = Clock.simpleCountdown
+    @ObservedObject var clock: Clock
     
     var body: some View {
         VStack {
@@ -23,8 +23,6 @@ struct ExerciseView: View {
                 .frame(width: 320, height: 120)
             
             Text("\(exercise.tasks[0].name)")
-        }.onAppear() {
-            clock.start()
         }
     }
 }
@@ -34,7 +32,7 @@ struct ExerciseView_Previews: PreviewProvider {
         ZStack {
             Color.lightOrange
                 .ignoresSafeArea()
-            ExerciseView(exercise: Exercise.catCow)
+            ExerciseView(exercise: Exercise.catCow, clock: Clock.simpleCountdown)
         }
     }
 }

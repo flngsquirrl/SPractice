@@ -37,7 +37,7 @@
 		C9A0D024282813F2000CF439 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D023282813F2000CF439 /* ColorTheme.swift */; };
 		C9A0D027282A613A000CF439 /* PracticeSequenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D026282A613A000CF439 /* PracticeSequenceView.swift */; };
 		C9A0D029282BD603000CF439 /* Practice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D028282BD603000CF439 /* Practice.swift */; };
-		C9A0D02B282BE586000CF439 /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D02A282BE586000CF439 /* PlayerState.swift */; };
+		C9A0D02B282BE586000CF439 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D02A282BE586000CF439 /* Player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,7 +72,7 @@
 		C9A0D023282813F2000CF439 /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		C9A0D026282A613A000CF439 /* PracticeSequenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeSequenceView.swift; sourceTree = "<group>"; };
 		C9A0D028282BD603000CF439 /* Practice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Practice.swift; sourceTree = "<group>"; };
-		C9A0D02A282BE586000CF439 /* PlayerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerState.swift; sourceTree = "<group>"; };
+		C9A0D02A282BE586000CF439 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +136,7 @@
 				C9A0D0142823FF87000CF439 /* Settings.swift */,
 				C9A0D016282408C4000CF439 /* SettingsItem.swift */,
 				C9A0D028282BD603000CF439 /* Practice.swift */,
-				C9A0D02A282BE586000CF439 /* PlayerState.swift */,
+				C9A0D02A282BE586000CF439 /* Player.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -266,7 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9A0D02B282BE586000CF439 /* PlayerState.swift in Sources */,
+				C9A0D02B282BE586000CF439 /* Player.swift in Sources */,
 				C9A0CFF5281BD588000CF439 /* ProgramTemplate.swift in Sources */,
 				C9A0CFEA281AB32B000CF439 /* Task.swift in Sources */,
 				C9A0D027282A613A000CF439 /* PracticeSequenceView.swift in Sources */,

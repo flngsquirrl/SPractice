@@ -7,9 +7,11 @@
 
 import Foundation
 
-struct Practice {
+class Practice: ObservableObject {
     
     let program: Program
+    let clock: Clock
+    var player: Player
     
     var isRunning = false
     var isInProgress = false
@@ -17,10 +19,15 @@ struct Practice {
     
     init(for program: Program) {
         self.program = program
+        self.clock = Clock()
+        self.player = Player()
+        
+        clock.onFinished = { self.processCountingFinished() }
+        setClock()
     }
     
-    var currentExerciseIndex = 0
-    var currentTaskIndex = 0
+    @Published var currentExerciseIndex = 0
+    @Published var currentTaskIndex = 0
     
     var isFirstExercise: Bool {
         currentExerciseIndex == 0
@@ -42,24 +49,91 @@ struct Practice {
         currentExercise.tasks[currentTaskIndex]
     }
     
-    mutating func start() {
+    func run() {
+        if !isInProgress {
+            start()
+        }
+        
+        startClock()
         isRunning = true
+        updatePlayerState()
+    }
+    
+    func start() {
+        setClock()
         isInProgress = true
     }
     
-    mutating func pause() {
+    func pause() {
+        stopClock()
         isRunning = false
+        updatePlayerState()
     }
     
-    mutating func finish() {
+    func finish() {
+        stopClock()
         isFinished = true
+        updatePlayerState()
     }
     
-    mutating func moveToNextExercise() {
+    func resetTiming() {
+        stopClock()
+        setClock()
+        
+        if isRunning {
+            startClock()
+        }
+    }
+    
+    func moveToNextExercise() {
         currentExerciseIndex += 1
+        currentTaskIndex = 0
+        resetTiming()
+        updatePlayerState()
     }
     
-    mutating func moveToPreviousExercise() {
+    func moveToPreviousExercise() {
         currentExerciseIndex -= 1
+        currentTaskIndex = 0
+        resetTiming()
+        updatePlayerState()
     }
+    
+    func moveToNextTask() {
+        currentTaskIndex += 1
+        resetTiming()
+    }
+    
+    func processCountingFinished() {
+        if isLastTask {
+            moveToNextExercise()
+        } else {
+            moveToNextTask()
+        }
+    }
+    
+    func setClock() {
+        if let duration = currentTask.duration {
+            clock.reset(to: duration, isCountdown: true)
+        } else {
+            clock.reset()
+        }
+    }
+    
+    func startClock() {
+        clock.start()
+    }
+    
+    func stopClock() {
+        clock.stop()
+    }
+    
+    func updatePlayerState() {
+        player.isPlayEnabled = !isRunning && !isFinished
+        player.isPauseEnabled = isRunning && !isFinished
+        player.isBackwardEnabled = !isFirstExercise && !isFinished
+        player.isForwardEnabled = !isLastExercise && !isFinished
+        player.isStopEnabled = isInProgress && !isFinished
+    }
+    
 }
