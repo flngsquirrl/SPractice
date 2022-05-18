@@ -21,7 +21,7 @@ class Clock: ObservableObject {
     private static let maxMinutesPart = 60
     private static let maxSecondsPart = 60
     
-    public static let simpleCountdown = Clock(setTo: 130)
+    public static let simpleCountdown = Clock(setTo: 130, isCountdown: true)
     public static let simpleCountup = Clock(setTo: 33, isCountdown: false)
     
     init(setTo timeInSeconds: Int = 0, isCountdown: Bool = false, onFinished: (() -> Void)? = nil) {
