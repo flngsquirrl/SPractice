@@ -43,19 +43,20 @@ struct ProgramsView: View {
         }
         .navigationTitle("Programs")
         .toolbar {
-            HStack {
-                Button() {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button("Settings") {
                     showSettings = true
-                } label: {
-                    Image(systemName: "gearshape.fill")
                 }
-                
-                Spacer()
-                
+//                label: {
+//                    Image(systemName: "gearshape.fill")
+//                }
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Add") {
                     // todo open add new program
                 }
-                
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
                 EditButton()
             }
         }
