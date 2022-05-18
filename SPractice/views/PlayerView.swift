@@ -32,7 +32,7 @@ struct PlayerButton: View {
                         .font(mainFont)
                         .foregroundColor(isEnabled ? .creamy : .gray)
                         .background(.lightNavy)
-                        .contentShape(RoundedRectangle(cornerRadius: 5))
+                        .clipShape(RoundedRectangle(cornerRadius: 5))
                 }
                 .disabled(!isEnabled)
                 
