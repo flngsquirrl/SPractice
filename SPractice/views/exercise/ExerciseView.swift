@@ -9,20 +9,19 @@ import SwiftUI
 
 struct ExerciseView: View {
     
-    var exercise: Exercise
-    @ObservedObject var clock: Clock
+    @ObservedObject var practice: Practice
     
     var body: some View {
         VStack {
-            Text("\(exercise.name)")
+            Text("\(practice.currentExercise.name)")
                 .font(.largeTitle.bold())
             
-            Text("\(exercise.type.rawValue)")
+            Text("\(practice.currentExercise.type.rawValue)")
             
-            ClockView(clock: clock)
+            ClockView(clock: practice.clock)
                 .frame(width: 320, height: 120)
             
-            Text("\(exercise.tasks[0].name)")
+            Text("\(practice.currentTask.name)")
         }
     }
 }
@@ -32,7 +31,7 @@ struct ExerciseView_Previews: PreviewProvider {
         ZStack {
             Color.lightOrange
                 .ignoresSafeArea()
-            ExerciseView(exercise: Exercise.catCow, clock: Clock.simpleCountdown)
+            ExerciseView(practice: Practice(for: Program.personal))
         }
     }
 }

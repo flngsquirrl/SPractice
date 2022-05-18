@@ -15,7 +15,7 @@ struct PracticeView: View {
     var body: some View {
         VStack {
             Spacer()
-            ExerciseView(exercise: practice.currentExercise, clock: practice.clock)
+            ExerciseView(practice: practice)
             //PracticeSequenceView()
             Spacer()
             PlayerView(player: practice.player) {
