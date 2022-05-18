@@ -27,14 +27,15 @@ struct PlayerButton: View {
                 Button() { onClick() }
                 label: {
                     Image(systemName: systemImageName)
+                        .padding(10)
+                        .frame(width: 94, height: 64)
+                        .font(mainFont)
+                        .foregroundColor(isEnabled ? .creamy : .gray)
+                        .background(.lightNavy)
+                        .contentShape(RoundedRectangle(cornerRadius: 5))
                 }
                 .disabled(!isEnabled)
-                .padding(10)
-                .frame(width: 94, height: 64)
-                .font(mainFont)
-                .foregroundColor(isEnabled ? .creamy : .gray)
-                .background(.lightNavy)
-                .clipShape(RoundedRectangle(cornerRadius: 5))
+                
             }
             .overlay(RoundedRectangle(cornerRadius: 5).stroke(.darkNavy, style: StrokeStyle(lineWidth: 1)))
         }
