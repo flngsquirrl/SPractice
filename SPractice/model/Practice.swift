@@ -14,7 +14,7 @@ class Practice: ObservableObject {
     var player: Player
     
     var isRunning = false
-    var isInProgress = false
+    var isStarted = false
     var isFinished = false
     
     init(for program: Program) {
@@ -50,7 +50,7 @@ class Practice: ObservableObject {
     }
     
     func run() {
-        if !isInProgress {
+        if !isStarted {
             start()
         }
         
@@ -61,7 +61,7 @@ class Practice: ObservableObject {
     
     func start() {
         setClock()
-        isInProgress = true
+        isStarted = true
     }
     
     func pause() {
@@ -106,7 +106,11 @@ class Practice: ObservableObject {
     
     func processCountingFinished() {
         if isLastTask {
-            moveToNextExercise()
+            if isLastExercise {
+                finish()
+            } else {
+                moveToNextExercise()
+            }
         } else {
             moveToNextTask()
         }
@@ -133,7 +137,7 @@ class Practice: ObservableObject {
         player.isPauseEnabled = isRunning && !isFinished
         player.isBackwardEnabled = !isFirstExercise && !isFinished
         player.isForwardEnabled = !isLastExercise && !isFinished
-        player.isStopEnabled = isInProgress && !isFinished
+        player.isStopEnabled = isStarted && !isFinished
     }
     
 }
