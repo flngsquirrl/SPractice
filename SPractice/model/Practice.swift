@@ -15,7 +15,7 @@ class Practice: ObservableObject {
     
     var isRunning = false
     var isStarted = false
-    var isFinished = false
+    var isCompleted = false
     
     init(for program: Program) {
         self.program = program
@@ -71,9 +71,13 @@ class Practice: ObservableObject {
     }
     
     func finish() {
-        stopClock()
-        isFinished = true
+        cancel()
+        isCompleted = true
         updatePlayerState()
+    }
+    
+    func cancel() {
+        stopClock()
     }
     
     func resetTiming() {
@@ -133,11 +137,11 @@ class Practice: ObservableObject {
     }
     
     func updatePlayerState() {
-        player.isPlayEnabled = !isRunning && !isFinished
-        player.isPauseEnabled = isRunning && !isFinished
-        player.isBackwardEnabled = !isFirstExercise && !isFinished
-        player.isForwardEnabled = !isLastExercise && !isFinished
-        player.isStopEnabled = isStarted && !isFinished
+        player.isPlayEnabled = !isRunning && !isCompleted
+        player.isPauseEnabled = isRunning && !isCompleted
+        player.isBackwardEnabled = !isFirstExercise && !isCompleted
+        player.isForwardEnabled = !isLastExercise && !isCompleted
+        player.isStopEnabled = isStarted && !isCompleted
     }
     
 }

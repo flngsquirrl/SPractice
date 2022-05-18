@@ -32,6 +32,7 @@ struct PracticeView: View {
 
             Spacer()
         }
+        .onDisappear(perform: cancelPractice)
         .frame(width: 320)
         .navigationTitle(practice.program.name)
         .navigationBarTitleDisplayMode(.inline)
@@ -55,6 +56,10 @@ struct PracticeView: View {
     
     func finishPractice() {
         practice.finish()
+    }
+    
+    func cancelPractice() {
+        practice.cancel()
     }
 }
 

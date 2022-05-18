@@ -15,7 +15,7 @@ class Clock: ObservableObject {
     
     var onFinished: (() -> Void)?
     
-    private let timer = Timer.publish(every: 1, on: .main, in: .common)
+    private static let timer = Timer.publish(every: 1, on: .main, in: .common)
     private var timerSubscription: Cancellable?
     
     private static let maxMinutesPart = 60
@@ -86,7 +86,7 @@ class Clock: ObservableObject {
     }
     
     func start() {
-        timerSubscription = timer.autoconnect()
+        timerSubscription = Clock.timer.autoconnect()
             .sink { _ in
                 self.processTimerTick()
             }
