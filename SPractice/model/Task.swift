@@ -8,21 +8,16 @@
 import Foundation
 
 struct Task {
-    let id = UUID()
+    let id: UUID
     let type: TaskType
     let name: String
     let duration: Int?
     
-    init(type: TaskType, name: String, duration: Int) {
+    init(type: TaskType, name: String, duration: Int? = nil) {
+        self.id = UUID()
         self.type = type
         self.name = name
         self.duration = duration
-    }
-    
-    init(type: TaskType, name: String) {
-        self.type = type
-        self.name = name
-        self.duration = nil
     }
     
     static let activity60 = Task(type: .activity, name: "activity", duration: 60)
