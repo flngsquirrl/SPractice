@@ -19,11 +19,12 @@ class Practice: ObservableObject {
     
     init(for program: Program) {
         self.program = program
-        self.clock = Clock()
-        self.player = Player()
         
-        clock.onFinished = { self.processCountingFinished() }
-        setClock()
+        self.player = Player()
+        self.clock = Clock()
+        
+        prepareClock()
+        preparePlayer()
     }
     
     @Published var currentExerciseIndex = 0
@@ -120,6 +121,11 @@ class Practice: ObservableObject {
         }
     }
     
+    func prepareClock() {
+        clock.onFinished = { self.processCountingFinished() }
+        setClock()
+    }
+    
     func setClock() {
         if let duration = currentTask.duration {
             clock.reset(to: duration, isCountdown: true)
@@ -142,6 +148,14 @@ class Practice: ObservableObject {
         player.isBackwardEnabled = !isFirstExercise && !isCompleted
         player.isForwardEnabled = !isLastExercise && !isCompleted
         player.isStopEnabled = isStarted && !isCompleted
+    }
+    
+    func preparePlayer() {
+        player.onBackwardClicked = moveToPreviousExercise
+        player.onForwardClicked = moveToNextExercise
+        player.onPlayClicked = run
+        player.onPauseClicked = pause
+        player.onStopClicked = finish
     }
     
 }

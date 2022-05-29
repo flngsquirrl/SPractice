@@ -10,30 +10,19 @@ import SwiftUI
 
 struct PracticeView: View {
     
-    @StateObject var practice: Practice
+    @ObservedObject var practice: Practice
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             Spacer()
             ExerciseView(practice: practice)
             //PracticeSequenceView()
             Spacer()
-            PlayerView(player: practice.player) {
-                playPractice()
-            } pauseClicked: {
-                pausePractice()
-            } backwardClicked: {
-                moveToPreviousExercise()
-            } forwardClicked: {
-                moveToNextExercise()
-            } stopClicked: {
-                finishPractice()
-            }
-
+            PlayerView(player: practice.player)
             Spacer()
         }
         .onDisappear(perform: cancelPractice)
-        .frame(width: 320)
+        //.frame(width: 320)
         .navigationTitle(practice.program.name)
         .navigationBarTitleDisplayMode(.inline)
     }
@@ -67,7 +56,7 @@ struct PracticeView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             LinearGradient(gradient: Gradient(stops: [
-                .init(color: .lightOrange, location: 0),
+                .init(color: .lightOrange, location: 0.4),
                 .init(color: .creamy, location: 1),
             ]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PlayerButton: View {
     let systemImageName: String
-    let onClick: () -> Void
+    let onClick: (() -> Void)?
     let isEnabled: Bool
     
     private let mainFont: Font = .title.weight(.semibold)
@@ -24,7 +24,7 @@ struct PlayerButton: View {
                 
             
             VStack {
-                Button() { onClick() }
+                Button() { onClick?() }
                 label: {
                     Image(systemName: systemImageName)
                         .padding(10)
@@ -46,44 +46,23 @@ struct PlayerView: View {
     
     @ObservedObject private var player: Player
     
-    private let backwardClicked: () -> Void
-    private let playClicked: () -> Void
-    private let pauseClicked: () -> Void
-    private let forwardClicked: () -> Void
-    private let stopClicked: () -> Void
-    
-    init(player: Player, playClicked: @escaping () -> Void = {}, pauseClicked: @escaping () -> Void = {}, backwardClicked: @escaping () -> Void = {}, forwardClicked: @escaping () -> Void = {}, stopClicked: @escaping () -> Void = {}) {
+    init(player: Player) {
         self.player = player
-        self.backwardClicked = backwardClicked
-        self.forwardClicked = forwardClicked
-        self.playClicked = playClicked
-        self.pauseClicked = pauseClicked
-        self.stopClicked = stopClicked
-    }
-    
-    func onPauseClicked() {
-        player.isPlaying.toggle()
-        pauseClicked()
-    }
-    
-    func onPlayClicked() {
-        player.isPlaying.toggle()
-        playClicked()
     }
     
     var body: some View {
         VStack {
             HStack {
-                PlayerButton(systemImageName: "backward.fill", onClick: backwardClicked, isEnabled: player.isBackwardEnabled)
+                PlayerButton(systemImageName: "backward.fill", onClick: player.backwardClicked, isEnabled: player.isBackwardEnabled)
                 
                 if (player.isPlaying) {
-                    PlayerButton(systemImageName: "pause.fill", onClick: onPauseClicked, isEnabled: player.isPauseEnabled)
+                    PlayerButton(systemImageName: "pause.fill", onClick: player.pauseClicked, isEnabled: player.isPauseEnabled)
                 } else {
-                    PlayerButton(systemImageName: "play.fill", onClick: onPlayClicked, isEnabled: player.isPlayEnabled)
+                    PlayerButton(systemImageName: "play.fill", onClick: player.playClicked, isEnabled: player.isPlayEnabled)
                 }
-                PlayerButton(systemImageName: "forward.fill", onClick: forwardClicked, isEnabled: player.isForwardEnabled)
+                PlayerButton(systemImageName: "forward.fill", onClick: player.forwardClicked, isEnabled: player.isForwardEnabled)
             }
-            PlayerButton(systemImageName: "stop.fill", onClick: stopClicked, isEnabled: player.isStopEnabled)
+            PlayerButton(systemImageName: "stop.fill", onClick: player.stopClicked, isEnabled: player.isStopEnabled)
         }
     }
 }
