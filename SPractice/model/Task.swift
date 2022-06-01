@@ -8,6 +8,12 @@
 import Foundation
 
 struct Task {
+    
+    enum TaskType {
+        case activity
+        case rest
+    }
+    
     let id: UUID
     let type: TaskType
     let name: String

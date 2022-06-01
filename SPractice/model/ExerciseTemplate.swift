@@ -9,7 +9,7 @@ import Foundation
 
 struct ExerciseTemplate: Identifiable {
     let id = UUID()
-    var type: ExerciseType
+    var type: Exercise.ExerciseType
     var name: String
     var isService: Bool = false
     var duration: Int? // for timer only

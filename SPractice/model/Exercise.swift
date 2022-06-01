@@ -8,6 +8,13 @@
 import Foundation
 
 struct Exercise {
+    
+    enum ExerciseType: String, CaseIterable {
+        case flow
+        case timer
+        case tabata
+    }
+    
     let id: UUID
     let type: ExerciseType
     let name: String
@@ -17,5 +24,4 @@ struct Exercise {
     static let surjaNamascar = Exercise(id: UUID(), type: .flow, name: "Surja Namascar", tasks: [Task.activityFlow])
     static let vasihsthasana = Exercise(id: UUID(), type: .tabata, name: "Vasihsthasana", tasks: [Task.restTabataWarmUp, Task.activityTabata1, Task.restTabata1, Task.activityTabata2, Task.restTabata2, Task.restTabataCoolDown])
     static let rest = Exercise(id: UUID(), type: .timer, name: "Rest", tasks: [Task.restService10])
-
 }
