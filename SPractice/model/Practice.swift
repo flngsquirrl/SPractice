@@ -11,11 +11,14 @@ class Practice: ObservableObject {
     
     let program: Program
     let clock: Clock
-    var player: Player
+    let player: Player
     
     var isRunning = false
     var isStarted = false
     var isCompleted = false
+    
+    @Published var currentExerciseIndex = 0
+    @Published var currentTaskIndex = 0
     
     init(for program: Program) {
         self.program = program
@@ -26,9 +29,6 @@ class Practice: ObservableObject {
         prepareClock()
         preparePlayer()
     }
-    
-    @Published var currentExerciseIndex = 0
-    @Published var currentTaskIndex = 0
     
     var isFirstExercise: Bool {
         currentExerciseIndex == 0
