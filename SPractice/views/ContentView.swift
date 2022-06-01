@@ -10,13 +10,9 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationView {
-//                LinearGradient(gradient: Gradient(stops: [
-//                        .init(color: .orange, location: 0.3),
-//                        .init(color: .black, location: 1),
-//                    ]), startPoint: .top, endPoint: .bottom)
-//                    .ignoresSafeArea()
             ProgramsView()
         }
+        .accentColor(.lightNavy)
     }
     
     func callbackExample() {
