@@ -26,22 +26,15 @@ struct ClockView: View {
                     ZStack {
                         Image(systemName: ClockView.countupImageName)
                             .font(mainFont)
-                            .foregroundColor(.darkOrange)
+                            .foregroundColor(.lightOrange)
                             .scaleEffect(2)
-                        
-                            if (clock.isCountingUp) {
-                                Text("\(clock.minutesFirstDigit)\(clock.minutesSecondDigit):\(clock.secondsFirstDigit)\(clock.secondsSecondDigit)")
-                                    .foregroundColor(.darkOrange)
-                                    .font(noteFont)
-                                    .offset(x: geo.size.width * 0.37, y: geo.size.height * 0.25)
-                            }
                      }
                 } else {
                     HStack(spacing: 4) {
                         ClockNumber(number: clock.minutesFirstDigit)
                         ClockNumber(number: clock.minutesSecondDigit)
                         Text(":")
-                            .foregroundColor(.darkOrange)
+                            .foregroundColor(.lightOrange)
                             .font(mainFont)
                             .padding(8)
                         ClockNumber(number: clock.secondsFirstDigit)
@@ -52,7 +45,7 @@ struct ClockView: View {
             .frame(width: geo.size.width, height: geo.size.height)
         }
         .background(.creamy)
-        .clipShape(RoundedRectangle(cornerRadius: 5))
+        .clipShape(RoundedRectangle(cornerRadius: 12))
     }
     
     struct ClockNumber: View {
@@ -61,8 +54,8 @@ struct ClockView: View {
         var body: some View {
             Text("\(number)")
                 .frame(width: 50, height: 80)
-                .background(.darkOrange)
-                .clipShape(RoundedRectangle(cornerRadius: 5))
+                .background(.lightOrange)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
                 .font(.largeTitle.weight(.semibold))
                 .foregroundStyle(.creamy)
             
@@ -73,7 +66,7 @@ struct ClockView: View {
 struct ClockView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            Color.lightOrange
+            Color.lightNavy
                 .ignoresSafeArea()
             VStack {
                 ClockView.simpleCountup

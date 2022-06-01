@@ -15,21 +15,28 @@ struct ExerciseView: View {
         VStack {
             Text("\(practice.currentExercise.name)")
                 .font(.largeTitle.bold())
+                .foregroundColor(.creamy)
             
             Text("\(practice.currentExercise.type.rawValue)")
+                .font(.body.bold())
+                .foregroundColor(.creamy)
             
             ClockView(clock: practice.clock)
                 .frame(width: 320, height: 120)
             
             Text("\(practice.currentTask.name)")
+                .font(.body.bold())
+                .foregroundColor(.creamy)
         }
+        .padding(30)
+        .frame(maxWidth: .infinity)
     }
 }
 
 struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            Color.lightOrange
+            Color.lightNavy
                 .ignoresSafeArea()
             ExerciseView(practice: Practice(for: Program.personal))
         }

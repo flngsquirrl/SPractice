@@ -14,11 +14,12 @@ extension ShapeStyle where Self == Color {
     }
 
     static var lightNavy: Color {
-        Color(red: 32/255, green: 83/255, blue: 117/255)
+        Color(red: 28/255, green: 80/255, blue: 112/255)
+            .opacity(0.8)
     }
     
     static var lightOrange: Color {
-        Color(red: 255/255, green: 141/255, blue: 41/255)
+        Color(red: 216/255, green: 153/255, blue: 91/255)
     }
     
     static var darkOrange: Color {

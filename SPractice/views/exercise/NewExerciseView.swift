@@ -10,7 +10,7 @@ import SwiftUI
 struct NewExerciseView: View {
     
     @State private var name: String = ""
-    @State private var type: ExerciseType = .timer
+    @State private var type: Exercise.ExerciseType = .timer
     @State private var minutes: Int = 1
     @State private var seconds: Int = 0
     
@@ -19,7 +19,7 @@ struct NewExerciseView: View {
             TextField("Exercise name", text: $name)
             
             Picker("Exercise type", selection: $type) {
-                ForEach(ExerciseType.allCases, id: \.self) {
+                ForEach(Exercise.ExerciseType.allCases, id: \.self) {
                     Text($0.rawValue)
                 }
             }

@@ -13,13 +13,21 @@ struct PracticeView: View {
     @ObservedObject var practice: Practice
     
     var body: some View {
-        VStack(spacing: 0) {
-            Spacer()
-            ExerciseView(practice: practice)
-            //PracticeSequenceView()
-            Spacer()
-            PlayerView(player: practice.player)
-            Spacer()
+        ZStack {
+            LinearGradient(gradient: Gradient(stops: [
+                .init(color: .lightNavy, location: 0.3),
+                .init(color: .creamy, location: 1),
+            ]), startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea()
+            
+            VStack(spacing: 0) {
+                Spacer()
+                ExerciseView(practice: practice)
+                //PracticeSequenceView()
+                Spacer()
+                PlayerView(player: practice.player)
+                Spacer()
+            }
         }
         .onDisappear(perform: cancelPractice)
         //.frame(width: 320)
@@ -56,7 +64,7 @@ struct PracticeView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             LinearGradient(gradient: Gradient(stops: [
-                .init(color: .lightOrange, location: 0.4),
+                .init(color: .lightNavy, location: 0.3),
                 .init(color: .creamy, location: 1),
             ]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()

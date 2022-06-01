@@ -17,27 +17,20 @@ struct PlayerButton: View {
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 5)
-                .fill(.creamy)
-                .frame(width: 100, height: 70)
-                .shadow(color: .darkNavy, radius: 2)
-                
-            
             VStack {
                 Button() { onClick?() }
                 label: {
                     Image(systemName: systemImageName)
-                        .padding(10)
-                        .frame(width: 94, height: 64)
+                        //.padding(12)
+                        .frame(width: 97, height: 80)
                         .font(mainFont)
                         .foregroundColor(isEnabled ? .creamy : .gray)
                         .background(.lightNavy)
-                        .clipShape(RoundedRectangle(cornerRadius: 5))
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
                 }
+                .padding(3)
                 .disabled(!isEnabled)
-                
             }
-            .overlay(RoundedRectangle(cornerRadius: 5).stroke(.darkNavy, style: StrokeStyle(lineWidth: 1)))
         }
     }
 }
@@ -70,8 +63,11 @@ struct PlayerView: View {
 struct PlayerView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
+            Color.creamy
+                .ignoresSafeArea()
+            
             RoundedRectangle(cornerRadius: 5)
-                .fill(.lightOrange)
+                .stroke(.lightNavy)
                 .frame(width: 320, height: 200)
             
             PlayerView(player: Player())
