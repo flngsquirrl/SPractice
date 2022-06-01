@@ -12,6 +12,13 @@ class Settings {
     
     var items: [SettingsItem] = []
     
+    static private let defaults: [SettingsItem] = [SettingsItem(type: .tabata_warmup, value: 10),
+                                                   SettingsItem(type: .tabata_activity, value: 20),
+                                                   SettingsItem(type: .tabata_rest, value: 10),
+                                                   SettingsItem(type: .tabata_cooldown, value: 10),
+                                                   SettingsItem(type: .tabata_repetitions, value: 8),
+                                                   SettingsItem(type: .general_rest, value: 10)]
+    
     init() {
         //UserDefaults.standard.removeObject(forKey: "settings")
         if let savedItems = UserDefaults.standard.data(forKey: "settings") {
@@ -46,7 +53,6 @@ class Settings {
             let defaultItem = Settings.defaults.first(where: {$0.type == item.type})
             if let defaultItem = defaultItem {
                 item.value = defaultItem.value
-                item.enabled = defaultItem.enabled
             }
         }
     }
@@ -58,13 +64,4 @@ class Settings {
         }
         return result
     }
-}
-
-extension Settings {
-    static private let defaults: [SettingsItem] = [SettingsItem(type: .tabata_warmup, value: 10),
-                                                   SettingsItem(type: .tabata_activity, value: 20),
-                                                   SettingsItem(type: .tabata_rest, value: 10),
-                                                   SettingsItem(type: .tabata_cooldown, value: 10),
-                                                   SettingsItem(type: .tabata_repetitions, value: 8),
-                                                   SettingsItem(type: .general_rest, value: 10)]
 }

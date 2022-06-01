@@ -18,10 +18,6 @@ struct SettingsItemView: View {
     
     var body: some View {
         HStack {
-            if (isWithToggle(type: item.type)) {
-                Toggle("Is enabled?", isOn: $item.enabled).labelsHidden()
-                    .disabled(isDisabled(type: item.type))
-            }
             Text("\(item.type.rawValue)")
             Spacer()
             Picker("\(item.type.rawValue) duration", selection: $item.value) {
@@ -35,19 +31,6 @@ struct SettingsItemView: View {
     }
 }
 
-extension SettingsItemView {
-    static let withToggleEnabled: [SettingsItem.SettingsType] = [.tabata_warmup, .tabata_cooldown]
-    static let withToggle: [SettingsItem.SettingsType] = [.tabata_warmup, .tabata_activity, .tabata_rest, .tabata_cooldown]
-    
-    func isDisabled(type: SettingsItem.SettingsType) -> Bool {
-        !SettingsItemView.withToggleEnabled.contains(item.type)
-    }
-    
-    func isWithToggle(type: SettingsItem.SettingsType) -> Bool {
-        SettingsItemView.withToggle.contains(item.type)
-    }
-}
-
 struct SettingsView: View {
     private var settings = Settings()
     @Environment(\.dismiss) var dismiss
@@ -57,12 +40,12 @@ struct SettingsView: View {
             Form {
                 Section {
                     ForEach(SettingsItem.SettingsType.tabata_interval_sequence, id: \.self) { type in
-                        SettingsItemView(for: settings.getItem(with: type), in: 0..<60)
+                        SettingsItemView(for: settings.getItem(with: type), in: 0..<61)
                     }
                 } header: {
                     Text("Tabata intervals")
                 } footer: {
-                    Text("These intervals compose one full Tabata cycle")
+                    Text("These intervals are set in seconds and compose one full Tabata cycle")
                 }
                 
                 Section {
@@ -74,7 +57,7 @@ struct SettingsView: View {
                 }
                 
                 Section {
-                    SettingsItemView(for: settings.getItem(with: .general_rest), in: 0..<60)
+                    SettingsItemView(for: settings.getItem(with: .general_rest), in: 0..<61)
                 } header: {
                     Text("Rest")
                 } footer: {
