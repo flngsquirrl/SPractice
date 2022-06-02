@@ -20,30 +20,29 @@ struct ClockView: View {
     public static let simpleCountup = ClockView(clock: Clock.simpleCountup)
     
     var body: some View {
-        GeometryReader { geo in
-            Group {
-                if clock.isCountup {
-                    ZStack {
-                        Image(systemName: ClockView.countupImageName)
-                            .font(mainFont)
-                            .foregroundColor(.lightOrange)
-                            .scaleEffect(2)
-                     }
-                } else {
-                    HStack(spacing: 4) {
-                        ClockNumber(number: clock.minutesFirstDigit)
-                        ClockNumber(number: clock.minutesSecondDigit)
-                        Text(":")
-                            .foregroundColor(.lightOrange)
-                            .font(mainFont)
-                            .padding(8)
-                        ClockNumber(number: clock.secondsFirstDigit)
-                        ClockNumber(number: clock.secondsSecondDigit)
-                    }
+        Group {
+            if clock.isCountup {
+                ZStack {
+                    Image(systemName: ClockView.countupImageName)
+                        .font(mainFont)
+                        .foregroundColor(.lightOrange)
+                        .scaleEffect(2)
+                 }
+            } else {
+                HStack(spacing: 4) {
+                    ClockNumber(number: clock.minutesFirstDigit)
+                    ClockNumber(number: clock.minutesSecondDigit)
+                    Text(":")
+                        .foregroundColor(.lightOrange)
+                        .font(mainFont)
+                        .padding(8)
+                    ClockNumber(number: clock.secondsFirstDigit)
+                    ClockNumber(number: clock.secondsSecondDigit)
                 }
+                .padding(20)
             }
-            .frame(width: geo.size.width, height: geo.size.height)
         }
+        .frame(maxWidth: .infinity, minHeight: 120)
         .background(.creamy)
         .clipShape(RoundedRectangle(cornerRadius: 12))
     }
@@ -70,9 +69,9 @@ struct ClockView_Previews: PreviewProvider {
                 .ignoresSafeArea()
             VStack {
                 ClockView.simpleCountup
-                    .frame(width: 320, height: 120)
+                    .frame(width: 320, height: 300)
                 ClockView.simpleCountdown
-                    .frame(width: 320, height: 120)
+                    .frame(width: 320, height: 300)
             }
         }
     }

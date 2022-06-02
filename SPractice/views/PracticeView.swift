@@ -20,7 +20,7 @@ struct PracticeView: View {
             ]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             
-            VStack(spacing: 0) {
+            VStack {
                 Spacer()
                 ExerciseView(practice: practice)
                 //PracticeSequenceView()
@@ -28,6 +28,7 @@ struct PracticeView: View {
                 PlayerView(player: practice.player)
                 Spacer()
             }
+            .frame(maxWidth: 320)
         }
         .onDisappear(perform: practice.cancel)
         .navigationTitle(practice.program.name)

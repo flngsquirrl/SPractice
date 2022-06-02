@@ -22,14 +22,12 @@ struct ExerciseView: View {
                 .foregroundColor(.creamy)
             
             ClockView(clock: practice.clock)
-                .frame(width: 320, height: 120)
             
             Text("\(practice.currentTask.name)")
                 .font(.body.bold())
                 .foregroundColor(.creamy)
         }
-        .padding(30)
-        .frame(maxWidth: .infinity)
+        .padding([.top, .bottom] ,20)
     }
 }
 
@@ -39,6 +37,8 @@ struct ExerciseView_Previews: PreviewProvider {
             Color.lightNavy
                 .ignoresSafeArea()
             ExerciseView(practice: Practice(for: Program.personal))
+                .border(.black, width: 3)
+                .frame(width: 320)
         }
     }
 }
