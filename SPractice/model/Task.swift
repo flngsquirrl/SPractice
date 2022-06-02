@@ -9,7 +9,7 @@ import Foundation
 
 struct Task {
     
-    enum TaskType {
+    enum TaskType: String {
         case activity
         case rest
     }
@@ -26,6 +26,7 @@ struct Task {
         self.duration = duration
     }
     
+    // examples
     static let activity60 = Task(type: .activity, name: "activity", duration: 60)
     
     static let restTabataWarmUp = Task(type: .rest, name: "warm-up", duration: 10)

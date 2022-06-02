@@ -40,7 +40,7 @@ struct PracticeView: View {
 struct PracticeView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            PracticeView(practice: Practice(for: Program.personal))
+            PracticeView(practice: Practice(from: ProgramTemplate.personal))
         }
     }
 }

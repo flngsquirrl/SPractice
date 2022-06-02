@@ -26,13 +26,26 @@ struct Exercise {
         }
     }
     
-    let id: UUID
+    let id = UUID()
     let type: ExerciseType
     let name: String
-    let tasks: Array<Task>
+    let isService: Bool
+    let tasks: [Task]
     
-    static let catCow = Exercise(id: UUID(), type: .timer, name: "Cat-Cow", tasks: [Task.activity60])
-    static let surjaNamascar = Exercise(id: UUID(), type: .flow, name: "Surja Namascar", tasks: [Task.activityFlow])
-    static let vasihsthasana = Exercise(id: UUID(), type: .tabata, name: "Vasihsthasana", tasks: [Task.restTabataWarmUp, Task.activityTabata1, Task.restTabata1, Task.activityTabata2, Task.restTabata2, Task.restTabataCoolDown])
-    static let rest = Exercise(id: UUID(), type: .timer, name: "Rest", tasks: [Task.restService10])
+    init(type: ExerciseType, name: String, isService: Bool = false, tasks: [Task] = []) {
+        self.type = type
+        self.name = name
+        self.isService = isService
+        self.tasks = tasks
+    }
+    
+    init(from template: ExerciseTemplate) {
+        let tasks = template.prepareTasks()
+        self.init(type: template.type, name: template.name, tasks: tasks)
+    }
+    
+    static let catCow = Exercise(type: .timer, name: "Cat-Cow", isService: false, tasks: [Task.activity60])
+    static let surjaNamascar = Exercise(type: .flow, name: "Surja Namascar", isService: false, tasks: [Task.activityFlow])
+    static let vasihsthasana = Exercise(type: .tabata, name: "Vasihsthasana",  isService: false, tasks: [Task.restTabataWarmUp, Task.activityTabata1, Task.restTabata1, Task.activityTabata2, Task.restTabata2, Task.restTabataCoolDown])
+    static let rest = Exercise(type: .timer, name: "Rest", isService: true, tasks: [Task.restService10])
 }

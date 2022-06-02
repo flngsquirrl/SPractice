@@ -9,12 +9,12 @@ import SwiftUI
 
 struct ProgramsView: View {
     
-    @State private var programs = ["Personal", "Daily short", "Short for back"]
+    @State private var templates = [ProgramTemplate.personal, ProgramTemplate.dailyShort, ProgramTemplate.shortForBack]
     @State private var showSettings = false
     
     var body: some View {
         List {
-            ForEach(programs, id: \.self) { program in
+            ForEach(templates) { template in
                 HStack {
                     Button() {
                         
@@ -26,10 +26,10 @@ struct ProgramsView: View {
                         // todo: play practice
                     }
                     NavigationLink {
-                        PracticeView(practice: Practice(for: Program.personal))
+                        PracticeView(practice: Practice(from: template))
                     } label: {
                         HStack {
-                            Text("\(program)")
+                            Text("\(template.name)")
                         }
                     }
                     
@@ -63,11 +63,11 @@ struct ProgramsView: View {
     }
     
     func removeItems(at offsets: IndexSet) {
-        programs.remove(atOffsets: offsets)
+        templates.remove(atOffsets: offsets)
     }
     
     func moveItems(from fromOffsets: IndexSet, to toOffsets: Int) {
-        programs.move(fromOffsets: fromOffsets, toOffset: toOffsets)
+        templates.move(fromOffsets: fromOffsets, toOffset: toOffsets)
     }
 }
 
