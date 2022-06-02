@@ -12,7 +12,18 @@ struct Exercise {
     enum ExerciseType: String, CaseIterable {
         case flow
         case timer
-        case tabata
+        case tabata;
+        
+        var imageName: String {
+            switch self {
+            case .flow:
+                return "heart.circle.fill"
+            case .timer:
+                return "clock.fill"
+            case .tabata:
+                return "t.circle.fill"
+            }
+        }
     }
     
     let id: UUID
