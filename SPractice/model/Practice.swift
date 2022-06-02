@@ -26,6 +26,8 @@ class Practice: ObservableObject {
         self.player = Player()
         self.clock = Clock()
         
+        setToInitialState()
+        
         prepareClock()
         preparePlayer()
     }
@@ -68,6 +70,33 @@ class Practice: ObservableObject {
     func pause() {
         stopClock()
         isRunning = false
+        updatePlayerState()
+    }
+    
+    func prepare() {
+        guard isStarted else { return }
+        
+        if isCompleted {
+            reset()
+        }
+    }
+    
+    func reset() {
+        setToInitialState()
+        resetComponents()
+    }
+    
+    func setToInitialState() {
+        isRunning = false
+        isStarted = false
+        isCompleted = false
+        
+        currentExerciseIndex = 0
+        currentTaskIndex = 0
+    }
+    
+    func resetComponents() {
+        resetTiming()
         updatePlayerState()
     }
     
@@ -143,6 +172,7 @@ class Practice: ObservableObject {
     }
     
     func updatePlayerState() {
+        player.isPlaying = isRunning
         player.isPlayEnabled = !isRunning && !isCompleted
         player.isPauseEnabled = isRunning && !isCompleted
         player.isBackwardEnabled = !isFirstExercise && !isCompleted

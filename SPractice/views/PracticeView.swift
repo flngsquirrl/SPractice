@@ -30,7 +30,8 @@ struct PracticeView: View {
             }
             .frame(maxWidth: 320)
         }
-        .onDisappear(perform: practice.cancel)
+        .onAppear(perform: practice.prepare)
+        .onDisappear(perform: practice.pause)
         .navigationTitle(practice.program.name)
         .navigationBarTitleDisplayMode(.inline)
         .accentColor(.creamy)
