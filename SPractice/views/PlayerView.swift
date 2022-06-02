@@ -20,12 +20,10 @@ struct PlayerButton: View {
             Button() { onClick?() }
             label: {
                 Image(systemName: systemImageName)
-                    //.padding(12)
-                    .frame(width: 97, height: 80)
+                    .frame(width: 97, height: 70)
                     .font(mainFont)
-                    .foregroundColor(isEnabled ? .creamy : .gray)
-                    .background(.lightNavy)
-                    //.clipShape(RoundedRectangle(cornerRadius: 12))
+                    .foregroundColor(.creamy)
+                    .background(isEnabled ? .lightNavy : .gray)
                     .clipShape(RoundedRectangle(cornerRadius: 12))
             }
             .shadow(color: .white, radius: 3)
