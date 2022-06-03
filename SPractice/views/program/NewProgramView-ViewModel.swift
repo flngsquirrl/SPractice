@@ -13,7 +13,7 @@ extension NewProgramView {
         
         @Published var name = ""
         @Published var addRest = true
-        @Published var exercises: [ExerciseTemplate] = [ExerciseTemplate.surjaNamascar]
+        @Published var exercises: [ExerciseTemplate] = []
         
         func prepareNewProgramTemplate() -> ProgramTemplate {
             ProgramTemplate(name: name, useRest: addRest, exercises: exercises)
