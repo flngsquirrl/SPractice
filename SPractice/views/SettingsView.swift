@@ -66,8 +66,9 @@ struct SettingsView: View {
                 
             }
             .navigationTitle("Settings")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .navigationBarLeading) {
                     Button() {
                         settings.restoreDefaults()
                         settings.save()
