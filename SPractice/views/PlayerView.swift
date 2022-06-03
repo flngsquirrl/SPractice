@@ -44,14 +44,14 @@ struct PlayerView: View {
     var body: some View {
         VStack {
             HStack {
-                PlayerButton(systemImageName: "backward.fill", onClick: player.backwardClicked, isEnabled: player.isBackwardEnabled)
+                PlayerButton(systemImageName: "backward.frame.fill", onClick: player.backwardClicked, isEnabled: player.isBackwardEnabled)
                 
                 if (player.isPlaying) {
                     PlayerButton(systemImageName: "pause.fill", onClick: player.pauseClicked, isEnabled: player.isPauseEnabled)
                 } else {
                     PlayerButton(systemImageName: "play.fill", onClick: player.playClicked, isEnabled: player.isPlayEnabled)
                 }
-                PlayerButton(systemImageName: "forward.fill", onClick: player.forwardClicked, isEnabled: player.isForwardEnabled)
+                PlayerButton(systemImageName: "forward.frame.fill", onClick: player.forwardClicked, isEnabled: player.isForwardEnabled)
             }
             PlayerButton(systemImageName: "stop.fill", onClick: player.stopClicked, isEnabled: player.isStopEnabled)
         }
