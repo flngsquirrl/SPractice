@@ -80,6 +80,7 @@ struct NewExerciseView: View {
                 }
             }
         }
+        .accentColor(.customAccentColor)
     }
 }
 

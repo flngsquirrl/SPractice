@@ -12,7 +12,7 @@ struct ContentView: View {
         NavigationView {
             ProgramsView()
         }
-        .accentColor(.lightNavy)
+        .accentColor(.customAccentColor)
     }
     
     func callbackExample() {

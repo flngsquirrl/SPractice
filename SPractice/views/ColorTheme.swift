@@ -29,4 +29,8 @@ extension ShapeStyle where Self == Color {
     static var creamy: Color {
         Color(red: 239/255, green: 239/255, blue: 239/255)
     }
+    
+    static var customAccentColor: Color {
+        lightOrange
+    }
 }

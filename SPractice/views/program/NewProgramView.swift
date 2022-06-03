@@ -73,6 +73,7 @@ struct NewProgramView: View {
                 }
             }
         }
+        .accentColor(.customAccentColor)
     }
 }
 
