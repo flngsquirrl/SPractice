@@ -50,7 +50,7 @@ struct ProgramsView: View {
             SettingsView()
         }
         .fullScreenCover(isPresented: $showAddNewProgramView) {
-            NewProgramView() { viewModel.addNewProgramTemplate(template: $0) }
+            ProgramTemplateView() { viewModel.addNewProgramTemplate(template: $0) }
         }
         .navigationTitle("Programs")
         .toolbar {

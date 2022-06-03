@@ -1,5 +1,5 @@
 //
-//  NewExerciseView.swift
+//  ExerciseTemplateView.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 3.05.22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NewExerciseView: View {
+struct ExerciseTemplateView: View {
     
     @ObservedObject var viewModel = ViewModel()
     
@@ -17,6 +17,11 @@ struct NewExerciseView: View {
     
     init(onSave: @escaping (ExerciseTemplate) -> Void) {
         self.onSave = onSave
+    }
+    
+    init(template: ExerciseTemplate, onSave: @escaping (ExerciseTemplate) -> Void) {
+        self.init(onSave: onSave)
+        viewModel = ViewModel(for: template)
     }
     
     var body: some View {
@@ -60,7 +65,7 @@ struct NewExerciseView: View {
                     }
                 }
             }
-            .navigationTitle("New exercise")
+            .navigationTitle(viewModel.isEditMode ? "Exercise" : "New exercise")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -86,6 +91,6 @@ struct NewExerciseView: View {
 
 struct NewExerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        NewExerciseView() { _ in }
+        ExerciseTemplateView() { _ in }
     }
 }

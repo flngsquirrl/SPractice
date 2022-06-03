@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C94B3F69284A1E4400A23612 /* NewProgramView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94B3F68284A1E4400A23612 /* NewProgramView-ViewModel.swift */; };
+		C94B3F69284A1E4400A23612 /* ProgramTemplateView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94B3F68284A1E4400A23612 /* ProgramTemplateView-ViewModel.swift */; };
 		C94B3F6C284A21AE00A23612 /* ProgramsView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94B3F6B284A21AE00A23612 /* ProgramsView-ViewModel.swift */; };
 		C95011C728196FFD0043EC75 /* SPracticeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95011C628196FFD0043EC75 /* SPracticeApp.swift */; };
 		C95011C928196FFD0043EC75 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95011C828196FFD0043EC75 /* ContentView.swift */; };
@@ -23,9 +23,9 @@
 		C9A0CFFF281BDDEA000CF439 /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFFE281BDDEA000CF439 /* PracticeView.swift */; };
 		C9A0D001281BE4C8000CF439 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D000281BE4C8000CF439 /* PlayerView.swift */; };
 		C9A0D003281C03F5000CF439 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D002281C03F5000CF439 /* Clock.swift */; };
-		C9A0D00628211901000CF439 /* NewExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D00528211901000CF439 /* NewExerciseView.swift */; };
+		C9A0D00628211901000CF439 /* ExerciseTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D00528211901000CF439 /* ExerciseTemplateView.swift */; };
 		C9A0D00828228078000CF439 /* ProgramsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D00728228078000CF439 /* ProgramsView.swift */; };
-		C9A0D00C282290BB000CF439 /* NewProgramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D00B282290BB000CF439 /* NewProgramView.swift */; };
+		C9A0D00C282290BB000CF439 /* ProgramTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D00B282290BB000CF439 /* ProgramTemplateView.swift */; };
 		C9A0D0112823DF22000CF439 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D0102823DF22000CF439 /* SettingsView.swift */; };
 		C9A0D0152823FF87000CF439 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D0142823FF87000CF439 /* Settings.swift */; };
 		C9A0D017282408C4000CF439 /* SettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D016282408C4000CF439 /* SettingsItem.swift */; };
@@ -39,12 +39,12 @@
 		C9A0D029282BD603000CF439 /* Practice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D028282BD603000CF439 /* Practice.swift */; };
 		C9A0D02B282BE586000CF439 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D02A282BE586000CF439 /* Player.swift */; };
 		C9C2727C2848C91500F7DA0E /* Array-Wrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C2727B2848C91500F7DA0E /* Array-Wrapper.swift */; };
-		C9CCCE94284A311A005665C8 /* NewExerciseView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCCE93284A311A005665C8 /* NewExerciseView-ViewModel.swift */; };
+		C9CCCE94284A311A005665C8 /* ExerciseTemplateView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCCE93284A311A005665C8 /* ExerciseTemplateView-ViewModel.swift */; };
 		C9CCCE96284A31B9005665C8 /* Clock-Converters.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCCE95284A31B9005665C8 /* Clock-Converters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C94B3F68284A1E4400A23612 /* NewProgramView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewProgramView-ViewModel.swift"; sourceTree = "<group>"; };
+		C94B3F68284A1E4400A23612 /* ProgramTemplateView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgramTemplateView-ViewModel.swift"; sourceTree = "<group>"; };
 		C94B3F6B284A21AE00A23612 /* ProgramsView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgramsView-ViewModel.swift"; sourceTree = "<group>"; };
 		C95011C328196FFD0043EC75 /* SPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C95011C628196FFD0043EC75 /* SPracticeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPracticeApp.swift; sourceTree = "<group>"; };
@@ -61,9 +61,9 @@
 		C9A0CFFE281BDDEA000CF439 /* PracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeView.swift; sourceTree = "<group>"; };
 		C9A0D000281BE4C8000CF439 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		C9A0D002281C03F5000CF439 /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
-		C9A0D00528211901000CF439 /* NewExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExerciseView.swift; sourceTree = "<group>"; };
+		C9A0D00528211901000CF439 /* ExerciseTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTemplateView.swift; sourceTree = "<group>"; };
 		C9A0D00728228078000CF439 /* ProgramsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramsView.swift; sourceTree = "<group>"; };
-		C9A0D00B282290BB000CF439 /* NewProgramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProgramView.swift; sourceTree = "<group>"; };
+		C9A0D00B282290BB000CF439 /* ProgramTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramTemplateView.swift; sourceTree = "<group>"; };
 		C9A0D0102823DF22000CF439 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C9A0D0142823FF87000CF439 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		C9A0D016282408C4000CF439 /* SettingsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItem.swift; sourceTree = "<group>"; };
@@ -77,7 +77,7 @@
 		C9A0D028282BD603000CF439 /* Practice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Practice.swift; sourceTree = "<group>"; };
 		C9A0D02A282BE586000CF439 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		C9C2727B2848C91500F7DA0E /* Array-Wrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array-Wrapper.swift"; sourceTree = "<group>"; };
-		C9CCCE93284A311A005665C8 /* NewExerciseView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewExerciseView-ViewModel.swift"; sourceTree = "<group>"; };
+		C9CCCE93284A311A005665C8 /* ExerciseTemplateView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseTemplateView-ViewModel.swift"; sourceTree = "<group>"; };
 		C9CCCE95284A31B9005665C8 /* Clock-Converters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Clock-Converters.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,8 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				C9A0CFF1281B3733000CF439 /* ExerciseView.swift */,
-				C9A0D00528211901000CF439 /* NewExerciseView.swift */,
-				C9CCCE93284A311A005665C8 /* NewExerciseView-ViewModel.swift */,
+				C9A0D00528211901000CF439 /* ExerciseTemplateView.swift */,
+				C9CCCE93284A311A005665C8 /* ExerciseTemplateView-ViewModel.swift */,
 			);
 			path = exercise;
 			sourceTree = "<group>";
@@ -169,8 +169,8 @@
 		C9A0D00A28229087000CF439 /* program */ = {
 			isa = PBXGroup;
 			children = (
-				C9A0D00B282290BB000CF439 /* NewProgramView.swift */,
-				C94B3F68284A1E4400A23612 /* NewProgramView-ViewModel.swift */,
+				C9A0D00B282290BB000CF439 /* ProgramTemplateView.swift */,
+				C94B3F68284A1E4400A23612 /* ProgramTemplateView-ViewModel.swift */,
 			);
 			path = program;
 			sourceTree = "<group>";
@@ -288,8 +288,8 @@
 				C9A0CFEA281AB32B000CF439 /* Task.swift in Sources */,
 				C9A0D027282A613A000CF439 /* PracticeSequenceView.swift in Sources */,
 				C9A0D017282408C4000CF439 /* SettingsItem.swift in Sources */,
-				C9A0D00628211901000CF439 /* NewExerciseView.swift in Sources */,
-				C9CCCE94284A311A005665C8 /* NewExerciseView-ViewModel.swift in Sources */,
+				C9A0D00628211901000CF439 /* ExerciseTemplateView.swift in Sources */,
+				C9CCCE94284A311A005665C8 /* ExerciseTemplateView-ViewModel.swift in Sources */,
 				C9A0D029282BD603000CF439 /* Practice.swift in Sources */,
 				C9A0D0112823DF22000CF439 /* SettingsView.swift in Sources */,
 				C9A0D01A2827CEC9000CF439 /* Squirrel.swift in Sources */,
@@ -297,13 +297,13 @@
 				C95011C928196FFD0043EC75 /* ContentView.swift in Sources */,
 				C9C2727C2848C91500F7DA0E /* Array-Wrapper.swift in Sources */,
 				C9A0D02228280F3E000CF439 /* RightWing.swift in Sources */,
-				C94B3F69284A1E4400A23612 /* NewProgramView-ViewModel.swift in Sources */,
+				C94B3F69284A1E4400A23612 /* ProgramTemplateView-ViewModel.swift in Sources */,
 				C9A0CFEE281AB484000CF439 /* Program.swift in Sources */,
 				C9A0D02028280F13000CF439 /* SquirrelInWheel.swift in Sources */,
 				C9A0CFF2281B3733000CF439 /* ExerciseView.swift in Sources */,
 				C9A0D001281BE4C8000CF439 /* PlayerView.swift in Sources */,
 				C94B3F6C284A21AE00A23612 /* ProgramsView-ViewModel.swift in Sources */,
-				C9A0D00C282290BB000CF439 /* NewProgramView.swift in Sources */,
+				C9A0D00C282290BB000CF439 /* ProgramTemplateView.swift in Sources */,
 				C9CCCE96284A31B9005665C8 /* Clock-Converters.swift in Sources */,
 				C9A0CFFF281BDDEA000CF439 /* PracticeView.swift in Sources */,
 				C9A0D024282813F2000CF439 /* ColorTheme.swift in Sources */,

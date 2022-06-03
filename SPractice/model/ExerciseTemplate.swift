@@ -9,13 +9,14 @@ import Foundation
 
 struct ExerciseTemplate: Identifiable {
     
-    let id = UUID()
+    let id: UUID
     var type: Exercise.ExerciseType
     var name: String
     let isService: Bool
     var duration: Int? // for timer only
     
-    init(type: Exercise.ExerciseType, name: String, isService: Bool = false, duration: Int? = nil) {
+    init(id: UUID = UUID(), type: Exercise.ExerciseType, name: String, isService: Bool = false, duration: Int? = nil) {
+        self.id = id
         self.type = type
         self.name = name
         self.isService = isService

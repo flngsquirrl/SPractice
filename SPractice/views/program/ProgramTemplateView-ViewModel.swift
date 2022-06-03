@@ -1,5 +1,5 @@
 //
-//  NewProgramView-ViewModel.swift
+//  ProgramTemplateView-ViewModel.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 3.06.22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension NewProgramView {
+extension ProgramTemplateView {
     
     @MainActor class ViewModel: ObservableObject {
         
@@ -21,6 +21,16 @@ extension NewProgramView {
         
         func addNewExerciseTemplate(template: ExerciseTemplate) {
             exercises.append(template)
+        }
+        
+        func updateExerciseTemplate(template: ExerciseTemplate) {
+            if let index = exercises.firstIndex(where: {$0.id == template.id}) {
+                exercises[index] = template
+            }
+        }
+        
+        func validateProgram() {
+            // check name and number of exercised
         }
     }
 }

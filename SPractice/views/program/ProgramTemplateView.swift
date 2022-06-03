@@ -1,5 +1,5 @@
 //
-//  NewProgramView.swift
+//  ProgramTemplateView.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 4.05.22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NewProgramView: View {
+struct ProgramTemplateView: View {
     
     @ObservedObject var viewModel = ViewModel()
     @State private var showNewExerciseView = false
@@ -35,7 +35,8 @@ struct NewProgramView: View {
                     List {
                         ForEach(viewModel.exercises) { exercise in
                             NavigationLink() {
-                                // exercise details
+                                ExerciseTemplateView(template: exercise) { viewModel.updateExerciseTemplate(template: $0)
+                                }
                             } label: {
                                 Image(systemName: exercise.type.imageName)
                                 Text(exercise.name)
@@ -52,7 +53,7 @@ struct NewProgramView: View {
                     }
                 }
                 .sheet(isPresented: $showNewExerciseView) {
-                    NewExerciseView() { viewModel.addNewExerciseTemplate(template: $0) }
+                    ExerciseTemplateView() { viewModel.addNewExerciseTemplate(template: $0) }
                 }
             }
             .navigationTitle("New program")
@@ -79,6 +80,6 @@ struct NewProgramView: View {
 
 struct NewProgramView_Previews: PreviewProvider {
     static var previews: some View {
-        NewProgramView() { _ in }
+        ProgramTemplateView() { _ in }
     }
 }
