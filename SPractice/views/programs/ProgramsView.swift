@@ -9,12 +9,14 @@ import SwiftUI
 
 struct ProgramsView: View {
     
-    @State private var templates = [ProgramTemplate.personal, ProgramTemplate.dailyShort, ProgramTemplate.shortForBack]
-    @State private var showSettings = false
+    @ObservedObject var viewModel = ViewModel()
+    
+    @State private var showSettingsView = false
+    @State private var showAddNewProgramView = false
     
     var body: some View {
-        List {
-            ForEach(templates) { template in
+        Form {
+            ForEach(viewModel.templates) { template in
                 HStack {
                     Button() {}
                         label: {
@@ -35,45 +37,41 @@ struct ProgramsView: View {
                     
                 }
             }
-            .onDelete(perform: removeItems)
-            .onMove(perform: moveItems)
+            .onDelete(perform: viewModel.removeItems)
+            .onMove(perform: viewModel.moveItems)
+            
+            Button() {
+                showAddNewProgramView = true
+            } label: {
+                Text("Add new")
+            }
         }
-        .sheet(isPresented: $showSettings) {
+        .sheet(isPresented: $showSettingsView) {
             SettingsView()
+        }
+        .fullScreenCover(isPresented: $showAddNewProgramView) {
+            NewProgramView() { viewModel.addNewProgramTemplate(template: $0) }
         }
         .navigationTitle("Programs")
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button() {
-                    print("Setting")
-                    showSettings = true
+                    showSettingsView = true
                 } label: {
                     Image(systemName: "gearshape")
                 }
             }
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button() {
-                    // todo open add new program
-                } label: {
-                    Image(systemName: "plus.circle")
-                }
-            }
-            ToolbarItem(placement: .navigationBarTrailing) {
-                EditButton() //{
-                    
+//            ToolbarItem(placement: .navigationBarTrailing) {
+//                Button() {
+//                    showAddNewProgramView = true
 //                } label: {
-//                    Image(systemName: "pencil.circle.fill")
+//                    Image(systemName: "plus")
 //                }
+//            }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                EditButton()
             }
         }
-    }
-    
-    func removeItems(at offsets: IndexSet) {
-        templates.remove(atOffsets: offsets)
-    }
-    
-    func moveItems(from fromOffsets: IndexSet, to toOffsets: Int) {
-        templates.move(fromOffsets: fromOffsets, toOffset: toOffsets)
     }
 }
 

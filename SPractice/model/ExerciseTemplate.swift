@@ -27,12 +27,9 @@ struct ExerciseTemplate: Identifiable {
         ExerciseTemplate(type: .timer, name: "Rest", isService: true, duration: 10)
     }
     
-    // examples
-    static let catCow = ExerciseTemplate(type: .timer, name: "Cat-Cow", duration: 90)
-    static let surjaNamascar = ExerciseTemplate(type: .flow, name: "Surja Namascar")
-    static let vasihsthasana = ExerciseTemplate(type: .tabata, name: "Vasihsthasana")
-    static let rest = ExerciseTemplate(type: .timer, name: "Rest", isService: true, duration: 10)
-    static let concentration = ExerciseTemplate(type: .timer, name: "Concentration", duration: 360)
+    var wrappedDuration: String {
+        duration?.formatted() ?? ""
+    }
     
     func prepareTasks() -> [Task] {
         var tasks = [Task]()
@@ -82,4 +79,11 @@ struct ExerciseTemplate: Identifiable {
         let task = Task(type: type, name: Task.TaskType.activity.rawValue, duration: duration)
         return Array<Task>.wrapElement(element: task)
     }
+    
+    // examples
+    static let catCow = ExerciseTemplate(type: .timer, name: "Cat-Cow", duration: 90)
+    static let surjaNamascar = ExerciseTemplate(type: .flow, name: "Surja Namascar")
+    static let vasihsthasana = ExerciseTemplate(type: .tabata, name: "Vasihsthasana")
+    static let rest = ExerciseTemplate(type: .timer, name: "Rest", isService: true, duration: 10)
+    static let concentration = ExerciseTemplate(type: .timer, name: "Concentration", duration: 360)
 }

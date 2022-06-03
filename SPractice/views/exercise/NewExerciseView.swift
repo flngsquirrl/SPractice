@@ -9,69 +9,82 @@ import SwiftUI
 
 struct NewExerciseView: View {
     
-    @State private var name: String = ""
-    @State private var type: Exercise.ExerciseType = .timer
-    @State private var minutes: Int = 1
-    @State private var seconds: Int = 0
+    @ObservedObject var viewModel = ViewModel()
     
-    var body: some View {
-        Form {
-            TextField("Exercise name", text: $name)
-            
-            Picker("Exercise type", selection: $type) {
-                ForEach(Exercise.ExerciseType.allCases, id: \.self) {
-                    Text($0.rawValue)
-                }
-            }
-            .pickerStyle(.segmented)
-            
-            if (type == .timer) {
-                HStack {
-                    Picker("Duration minutes", selection: $minutes) {
-                        ForEach(0..<60) {
-                            Text("\($0)")
-                        }
-                    }
-                    .labelsHidden()
-                    .pickerStyle(.menu)
-                    .frame(width: 100)
-                    .clipShape(RoundedRectangle(cornerRadius: 5))
-                    
-                    Text("min")
-                    Text(":")
-                    
-                    Picker("Duration seconds", selection: $seconds) {
-                        ForEach(0..<60) {
-                            Text("\($0)")
-                        }
-                    }
-                    .labelsHidden()
-                    .pickerStyle(.menu)
-                    .frame(width: 100)
-                    .clipShape(RoundedRectangle(cornerRadius: 5))
-                    
-                    Text("sec")
-                }
-            }
-        }
-        .navigationTitle("New exercise")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItemGroup {
-                Button("Save", action: save)
-            }
-        }
+    var onSave: (ExerciseTemplate) -> Void
+    
+    @Environment(\.dismiss) var dismiss
+    
+    init(onSave: @escaping (ExerciseTemplate) -> Void) {
+        self.onSave = onSave
     }
     
-    func save() {
-        // todo
+    var body: some View {
+        NavigationView {
+            Form {
+                TextField("Exercise name", text: $viewModel.name)
+                
+                Picker("Exercise type", selection: $viewModel.type) {
+                    ForEach(Exercise.ExerciseType.allCases, id: \.self) {
+                        Text($0.rawValue)
+                    }
+                }
+                .pickerStyle(.segmented)
+                
+                if (viewModel.type == .timer) {
+                    HStack {
+                        Picker("Duration minutes", selection: $viewModel.minutes) {
+                            ForEach(0..<60) {
+                                Text("\($0)")
+                            }
+                        }
+                        .labelsHidden()
+                        .pickerStyle(.menu)
+                        .frame(width: 100)
+                        .clipShape(RoundedRectangle(cornerRadius: 5))
+                        
+                        Text("min")
+                        Text(":")
+                        
+                        Picker("Duration seconds", selection: $viewModel.seconds) {
+                            ForEach(0..<60) {
+                                Text("\($0)")
+                            }
+                        }
+                        .labelsHidden()
+                        .pickerStyle(.menu)
+                        .frame(width: 100)
+                        .clipShape(RoundedRectangle(cornerRadius: 5))
+                        
+                        Text("sec")
+                    }
+                }
+            }
+            .navigationTitle("New exercise")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button() {
+                        let template = viewModel.prepareNewExerciseTemplate()
+                        onSave(template)
+                        
+                        dismiss()
+                    } label: {
+                        Text("Save")
+                    }
+                }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Cancel") {
+                        dismiss()
+                    }
+                }
+            }
+        }
     }
 }
 
 struct NewExerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            NewExerciseView()
-        }
+        NewExerciseView() { _ in }
     }
 }
