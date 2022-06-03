@@ -16,15 +16,15 @@ struct ProgramsView: View {
         List {
             ForEach(templates) { template in
                 HStack {
-                    Button() {
-                        
-                    } label: {
-                        Image(systemName: "play.rectangle")
-                            .font(.title)
-                    }
-                    .onTapGesture {
-                        // todo: play practice
-                    }
+                    Button() {}
+                        label: {
+                            Image(systemName: "play.rectangle")
+                                .font(.title)
+                        }
+                        .onTapGesture {
+                            // play
+                        }
+                    
                     NavigationLink {
                         PracticeView(practice: Practice(from: template))
                     } label: {
@@ -44,20 +44,26 @@ struct ProgramsView: View {
         .navigationTitle("Programs")
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
-                Button("Settings") {
+                Button() {
+                    print("Setting")
                     showSettings = true
+                } label: {
+                    Image(systemName: "gearshape")
                 }
-//                label: {
-//                    Image(systemName: "gearshape.fill")
-//                }
             }
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button("Add") {
+                Button() {
                     // todo open add new program
+                } label: {
+                    Image(systemName: "plus.circle")
                 }
             }
             ToolbarItem(placement: .navigationBarTrailing) {
-                EditButton()
+                EditButton() //{
+                    
+//                } label: {
+//                    Image(systemName: "pencil.circle.fill")
+//                }
             }
         }
     }

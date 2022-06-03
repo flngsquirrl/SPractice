@@ -67,17 +67,23 @@ struct SettingsView: View {
             }
             .navigationTitle("Settings")
             .toolbar {
-                HStack {
-                    Button("Reset") {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button() {
                         settings.restoreDefaults()
                         settings.save()
-                    }
-                    
-                    Button("Save") {
-                        settings.save()
-                        dismiss()
+                    } label: {
+                        Image(systemName: "arrow.counterclockwise.circle")
                     }
                 }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button() {
+                        settings.save()
+                        dismiss()
+                    } label: {
+                        Image(systemName: "xmark.circle")
+                    }
+                }
+                
             }
         }
     }
