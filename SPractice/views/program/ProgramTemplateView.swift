@@ -46,14 +46,12 @@ struct ProgramTemplateView: View {
                             }
                         }
                     }
-                    Button() {
-                        showNewExerciseView = true
+                    NavigationLink() {
+                        ExerciseTemplateView() { viewModel.addNewExerciseTemplate(template: $0) }
                     } label: {
                         Text("Add new")
+                            .foregroundColor(.lightOrange)
                     }
-                }
-                .sheet(isPresented: $showNewExerciseView) {
-                    ExerciseTemplateView() { viewModel.addNewExerciseTemplate(template: $0) }
                 }
             }
             .navigationTitle("New program")

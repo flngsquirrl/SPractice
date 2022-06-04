@@ -49,7 +49,7 @@ struct ProgramsView: View {
         .sheet(isPresented: $showSettingsView) {
             SettingsView()
         }
-        .fullScreenCover(isPresented: $showAddNewProgramView) {
+        .sheet(isPresented: $showAddNewProgramView) {
             ProgramTemplateView() { viewModel.addNewProgramTemplate(template: $0) }
         }
         .navigationTitle("Programs")
