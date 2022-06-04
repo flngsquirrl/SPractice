@@ -26,11 +26,13 @@ struct ProgramDetailsView: View {
                     Spacer()
                     Text(Clock.getDisplayDuration(for: viewModel.program.duration!))
                 }
-                Button("Practice") {
+                Button() {
                     viewModel.showPracticeView = true
+                } label: {
+                    Label("Practice", systemImage: "play.rectangle")
                 }
             } header: {
-                Text("Practice")
+                Text("Summary")
             } footer: {
                 Text("Duration is the minimal time needed to complete all timer and tabata exercises")
             }
