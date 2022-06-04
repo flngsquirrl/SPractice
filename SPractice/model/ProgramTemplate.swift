@@ -9,10 +9,17 @@ import Foundation
 
 struct ProgramTemplate: Identifiable {
     
-    let id = UUID()
+    let id: UUID
     var name: String
     var useRest: Bool = true
     var exercises = [ExerciseTemplate]()
+    
+    init(id: UUID = UUID(), name: String, useRest: Bool = true, exercises: [ExerciseTemplate]) {
+        self.id = id
+        self.name = name
+        self.useRest = useRest
+        self.exercises = exercises
+    }
     
     static let personal = ProgramTemplate(name: "Personal", exercises: [ExerciseTemplate.catCow, ExerciseTemplate.surjaNamascar, ExerciseTemplate.vasihsthasana])
     static let dailyShort = ProgramTemplate(name: "Daily short", exercises: [ExerciseTemplate.concentration, ExerciseTemplate.catCow])
