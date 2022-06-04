@@ -34,7 +34,6 @@ struct PracticeView: View {
         .onDisappear(perform: practice.pause)
         .navigationTitle(practice.program.name)
         .navigationBarTitleDisplayMode(.inline)
-        .accentColor(.creamy)
     }
 }
 

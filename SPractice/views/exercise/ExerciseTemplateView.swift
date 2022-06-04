@@ -26,67 +26,60 @@ struct ExerciseTemplateView: View {
     }
     
     var body: some View {
-        NavigationView {
-            Form {
+        Form {
+            Section {
                 TextField("Exercise name", text: $viewModel.name)
-                
-                Picker("Exercise type", selection: $viewModel.type) {
-                    ForEach(Exercise.ExerciseType.allCases, id: \.self) {
-                        Text($0.rawValue)
-                    }
-                }
-                .pickerStyle(.segmented)
-                
-                if (viewModel.type == .timer) {
-                    HStack {
-                        Picker("Duration minutes", selection: $viewModel.minutes) {
-                            ForEach(0..<60) {
-                                Text("\($0)")
-                            }
-                        }
-                        .labelsHidden()
-                        .pickerStyle(.menu)
-                        .frame(width: 100)
-                        .clipShape(RoundedRectangle(cornerRadius: 5))
-                        
-                        Text("min")
-                        Text(":")
-                        
-                        Picker("Duration seconds", selection: $viewModel.seconds) {
-                            ForEach(0..<60) {
-                                Text("\($0)")
-                            }
-                        }
-                        .labelsHidden()
-                        .pickerStyle(.menu)
-                        .frame(width: 100)
-                        .clipShape(RoundedRectangle(cornerRadius: 5))
-                        
-                        Text("sec")
-                    }
+            }
+            
+            Picker("Exercise type", selection: $viewModel.type) {
+                ForEach(Exercise.ExerciseType.allCases, id: \.self) {
+                    Text($0.rawValue)
                 }
             }
-            .navigationTitle(viewModel.isEditMode ? "Exercise" : "New exercise")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button() {
-                        let template = viewModel.prepareNewExerciseTemplate()
-                        onSave(template)
-                        
-                        dismiss()
-                    } label: {
-                        Text("Save")
+            .pickerStyle(.segmented)
+            
+            if (viewModel.type == .timer) {
+                HStack {
+                    Picker("Duration minutes", selection: $viewModel.minutes) {
+                        ForEach(0..<60) {
+                            Text("\($0)")
+                        }
                     }
-                }
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
-                        dismiss()
+                    .labelsHidden()
+                    .pickerStyle(.menu)
+                    .frame(width: 100)
+                    .clipShape(RoundedRectangle(cornerRadius: 5))
+                    
+                    Text("min")
+                    Text(":")
+                    
+                    Picker("Duration seconds", selection: $viewModel.seconds) {
+                        ForEach(0..<60) {
+                            Text("\($0)")
+                        }
                     }
+                    .labelsHidden()
+                    .pickerStyle(.menu)
+                    .frame(width: 100)
+                    .clipShape(RoundedRectangle(cornerRadius: 5))
+                    
+                    Text("sec")
                 }
             }
         }
-        .accentColor(.customAccentColor)
+        .navigationTitle(viewModel.isEditMode ? "Exercise" : "New exercise")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button() {
+                    let template = viewModel.prepareNewExerciseTemplate()
+                    onSave(template)
+                    
+                    dismiss()
+                } label: {
+                    Text(viewModel.isEditMode ? "Save" : "Add")
+                }
+            }
+        }
     }
 }
 

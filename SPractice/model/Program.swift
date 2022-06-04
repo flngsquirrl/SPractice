@@ -30,4 +30,14 @@ struct Program {
         }
         self.exercises = exercises
     }
+    
+    var wrappedDuration: String {
+        var totalDuration = 0
+        exercises.forEach {
+            if let duration = $0.duration {
+                totalDuration += duration
+            }
+        }
+        return "\(totalDuration) sec"
+    }
 }

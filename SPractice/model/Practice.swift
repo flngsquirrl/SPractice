@@ -20,8 +20,8 @@ class Practice: ObservableObject {
     @Published var currentExerciseIndex = 0
     @Published var currentTaskIndex = 0
     
-    init(from template: ProgramTemplate) {
-        self.program = Program(from: template)
+    init(for program: Program) {
+        self.program = program
         
         self.player = Player()
         self.clock = Clock()
@@ -30,6 +30,10 @@ class Practice: ObservableObject {
         
         prepareClock()
         preparePlayer()
+    }
+    
+    convenience init(from template: ProgramTemplate) {
+        self.init(for: Program(from: template))
     }
     
     var isFirstExercise: Bool {

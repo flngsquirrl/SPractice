@@ -61,7 +61,6 @@ struct ProgramTemplateView: View {
                 }
             }
             .navigationTitle(viewModel.navigationTitle)
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup {
                     Button("Save") {

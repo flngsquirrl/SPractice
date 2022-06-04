@@ -11,8 +11,7 @@ struct PracticeSequenceView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text("Previous:")
-                Text("Next:")
+                Text("Practice sequence goes here")
             }
             
             Spacer()

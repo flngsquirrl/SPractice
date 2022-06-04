@@ -18,20 +18,19 @@ struct ProgramsView: View {
         Form {
             ForEach(viewModel.templates) { template in
                 HStack {
-                    Button() {}
-                        label: {
-                            Image(systemName: "play.rectangle")
-                                .font(.title)
-                        }
-                        .onTapGesture {
-                            // play
-                        }
+//                    Button() {}
+//                        label: {
+//                            Image(systemName: "play.rectangle")
+//                                .font(.title)
+//                        }
+//                        .onTapGesture {
+//                            // play
+//                        }
                     
                     NavigationLink {
-                        ProgramTemplateView(for: template) {
+                        ProgramDetailsView(for: template) {
                             viewModel.updateProgramTemplate(template: $0)
                         }
-                        //PracticeView(practice: Practice(from: template))
                     } label: {
                         HStack {
                             Text("\(template.name)")
@@ -43,16 +42,18 @@ struct ProgramsView: View {
             .onDelete(perform: viewModel.removeItems)
             .onMove(perform: viewModel.moveItems)
             
-            Button() {
-                showAddNewProgramView = true
-            } label: {
-                Text("Add new")
+            Section {
+                Button() {
+                    showAddNewProgramView = true
+                } label: {
+                    Text("Add new")
+                }
             }
         }
         .sheet(isPresented: $showSettingsView) {
             SettingsView()
         }
-        .sheet(isPresented: $showAddNewProgramView) {
+        .fullScreenCover(isPresented: $showAddNewProgramView) {
             ProgramTemplateView() { viewModel.addNewProgramTemplate(template: $0) }
         }
         .navigationTitle("Programs")
