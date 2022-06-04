@@ -14,6 +14,10 @@ struct Exercise: Identifiable {
         case timer
         case tabata;
         
+        var hasDuration: Bool {
+            self != .flow
+        }
+        
         var imageName: String {
             switch self {
             case .flow:

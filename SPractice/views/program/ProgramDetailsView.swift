@@ -20,15 +20,19 @@ struct ProgramDetailsView: View {
     
     var body: some View {
         List {
-            Section("Practice") {
+            Section{
                 HStack {
-                    Text("Time (min):")
+                    Text("Duration")
                     Spacer()
                     Text(viewModel.program.wrappedDuration)
                 }
                 Button("Practice") {
                     viewModel.showPracticeView = true
                 }
+            } header: {
+                Text("Practice")
+            } footer: {
+                Text("Duration is the minimal time needed to complete all timer and tabata exercises")
             }
             
             Section("Exercises") {
@@ -37,7 +41,11 @@ struct ProgramDetailsView: View {
                         Image(systemName: exercise.type.imageName)
                         Text(exercise.name)
                         Spacer()
-                        Text(exercise.wrappedDuration)
+                        if (exercise.type.hasDuration) {
+                            Text(exercise.wrappedDuration)
+                        } else {
+                            Image(systemName: "infinity")
+                        }
                     }
                 }
             }
