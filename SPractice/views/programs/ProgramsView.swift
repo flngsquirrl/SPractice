@@ -28,7 +28,10 @@ struct ProgramsView: View {
                         }
                     
                     NavigationLink {
-                        PracticeView(practice: Practice(from: template))
+                        ProgramTemplateView(for: template) {
+                            viewModel.updateProgramTemplate(template: $0)
+                        }
+                        //PracticeView(practice: Practice(from: template))
                     } label: {
                         HStack {
                             Text("\(template.name)")

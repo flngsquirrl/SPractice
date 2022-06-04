@@ -15,6 +15,28 @@ extension ProgramTemplateView {
         @Published var addRest = true
         @Published var exercises: [ExerciseTemplate] = []
         
+        private var id: UUID
+        var navigationTitle: String
+        @Published private var isEditMode: Bool
+        
+        init() {
+            self.isEditMode = false
+            self.id = UUID()
+            
+            self.navigationTitle = "New program"
+        }
+        
+        init(for template: ProgramTemplate) {
+            _name = Published(initialValue: template.name)
+            _addRest = Published(initialValue: template.useRest)
+            _exercises = Published(initialValue: template.exercises)
+            
+            self.isEditMode = true
+            self.id = template.id
+            
+            self.navigationTitle = template.name
+        }
+        
         func prepareNewProgramTemplate() -> ProgramTemplate {
             ProgramTemplate(name: name, useRest: addRest, exercises: exercises)
         }

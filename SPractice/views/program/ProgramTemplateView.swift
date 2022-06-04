@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProgramTemplateView: View {
     
-    @ObservedObject var viewModel = ViewModel()
+    @ObservedObject var viewModel: ViewModel
     @State private var showNewExerciseView = false
     
     var onSave: (ProgramTemplate) -> Void
@@ -18,6 +18,12 @@ struct ProgramTemplateView: View {
     
     init(onSave: @escaping (ProgramTemplate) -> Void) {
         self.onSave = onSave
+        self.viewModel = ViewModel()
+    }
+    
+    init(for template: ProgramTemplate, onSave: @escaping (ProgramTemplate) -> Void) {
+        self.init(onSave: onSave)
+        self.viewModel = ViewModel(for: template)
     }
     
     var body: some View {
@@ -54,7 +60,7 @@ struct ProgramTemplateView: View {
                     }
                 }
             }
-            .navigationTitle("New program")
+            .navigationTitle(viewModel.navigationTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup {

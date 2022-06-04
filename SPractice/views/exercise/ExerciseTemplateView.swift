@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ExerciseTemplateView: View {
     
-    @ObservedObject var viewModel = ViewModel()
+    @ObservedObject var viewModel: ViewModel
     
     var onSave: (ExerciseTemplate) -> Void
     
@@ -17,11 +17,12 @@ struct ExerciseTemplateView: View {
     
     init(onSave: @escaping (ExerciseTemplate) -> Void) {
         self.onSave = onSave
+        self.viewModel = ViewModel()
     }
     
     init(template: ExerciseTemplate, onSave: @escaping (ExerciseTemplate) -> Void) {
         self.init(onSave: onSave)
-        viewModel = ViewModel(for: template)
+        self.viewModel = ViewModel(for: template)
     }
     
     var body: some View {

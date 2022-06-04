@@ -10,15 +10,17 @@ import Foundation
 extension ExerciseTemplateView {
     @MainActor class ViewModel: ObservableObject {
         
-        private var id: UUID = UUID()
         @Published var name: String = ""
         @Published var type: Exercise.ExerciseType = .timer
         @Published var minutes: Int = 1
         @Published var seconds: Int = 0
         
-        @Published var isEditMode = false
+        @Published var isEditMode: Bool
+        private var id: UUID
         
         init() {
+            self.isEditMode = false
+            self.id = UUID()
         }
         
         init(for template: ExerciseTemplate) {

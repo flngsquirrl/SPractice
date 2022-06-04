@@ -24,5 +24,11 @@ extension ProgramsView {
         func moveItems(from fromOffsets: IndexSet, to toOffsets: Int) {
             templates.move(fromOffsets: fromOffsets, toOffset: toOffsets)
         }
+        
+        func updateProgramTemplate(template: ProgramTemplate) {
+            if let index = templates.firstIndex(where: {$0.id == template.id}) {
+                templates[index] = template
+            }
+        }
     }
 }
