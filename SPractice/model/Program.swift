@@ -31,13 +31,15 @@ struct Program {
         self.exercises = exercises
     }
     
-    var wrappedDuration: String {
+    var duration: Int? {
         var totalDuration = 0
+        var hasDuration = false
         exercises.forEach {
             if let duration = $0.duration {
                 totalDuration += duration
+                hasDuration = true
             }
         }
-        return "\(totalDuration) sec"
+        return hasDuration ? totalDuration : nil
     }
 }

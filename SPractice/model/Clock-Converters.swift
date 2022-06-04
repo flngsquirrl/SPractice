@@ -20,4 +20,14 @@ extension Clock {
     static func getSeconds(of duration: Int) -> Int {
         duration % 60
     }
+    
+    static func getDisplayDuration(for duration: Int) -> String {
+        let minutes = getMinutes(of: duration)
+        let seconds = getSeconds(of: duration)
+        
+        let minutesPart = minutes != 0 ? "\(minutes) min" : ""
+        let secondsPart = "\(seconds) sec"
+        
+        return !minutesPart.isEmpty ? "\(minutesPart) \(secondsPart)" : "\(secondsPart)"
+    }
 }
