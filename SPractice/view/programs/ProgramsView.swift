@@ -39,8 +39,8 @@ struct ProgramsView: View {
                     
                 }
             }
-            .onDelete(perform: viewModel.removeItems)
-            .onMove(perform: viewModel.moveItems)
+            .onDelete { viewModel.removeItems(at: $0) }
+            .onMove { viewModel.moveItems(from: $0, to: $1) }
             
             Section {
                 Button() {
