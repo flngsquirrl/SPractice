@@ -16,14 +16,11 @@ extension ProgramTemplateView {
         @Published var exercises: [ExerciseTemplate] = []
         
         private var id: UUID
-        var navigationTitle: String
-        @Published private var isEditMode: Bool
+        var isEditMode: Bool
         
         init() {
             self.isEditMode = false
             self.id = UUID()
-            
-            self.navigationTitle = "New program"
         }
         
         init(for template: ProgramTemplate) {
@@ -33,8 +30,6 @@ extension ProgramTemplateView {
             
             self.isEditMode = true
             self.id = template.id
-            
-            self.navigationTitle = template.name
         }
         
         func prepareNewProgramTemplate() -> ProgramTemplate {

@@ -18,14 +18,14 @@ struct PracticeSequenceView: View {
         }
         .padding(15)
         .background(.creamy)
-        .clipShape(RoundedRectangle(cornerRadius: 5))
+        .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }
 
 struct PracticeSequenceView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            Color.lightOrange
+            Color.lightNavy
                 .ignoresSafeArea()
             PracticeSequenceView()
                 .frame(width: 320)

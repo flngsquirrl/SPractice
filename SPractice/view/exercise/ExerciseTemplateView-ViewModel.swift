@@ -15,7 +15,7 @@ extension ExerciseTemplateView {
         @Published var minutes: Int = 1
         @Published var seconds: Int = 0
         
-        @Published var isEditMode: Bool
+        var isEditMode: Bool
         private var id: UUID
         
         init() {

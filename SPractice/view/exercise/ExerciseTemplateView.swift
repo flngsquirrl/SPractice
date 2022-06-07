@@ -27,9 +27,8 @@ struct ExerciseTemplateView: View {
     
     var body: some View {
         Form {
-            Section {
-                TextField("Exercise name", text: $viewModel.name)
-            }
+            
+            TextField("Exercise name", text: $viewModel.name)
             
             Picker("Exercise type", selection: $viewModel.type) {
                 ForEach(Exercise.ExerciseType.allCases, id: \.self) {
@@ -67,7 +66,7 @@ struct ExerciseTemplateView: View {
                 }
             }
         }
-        .navigationTitle(viewModel.isEditMode ? "Exercise" : "New exercise")
+        .navigationTitle(viewModel.isEditMode ? "Exercise details" : "New exercise")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button() {
@@ -85,6 +84,11 @@ struct ExerciseTemplateView: View {
 
 struct NewExerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseTemplateView() { _ in }
+        NavigationView {
+            ExerciseTemplateView() { _ in }
+        }
+        NavigationView {
+            ExerciseTemplateView(template: ExerciseTemplate.surjaNamascar) { _ in }
+        }
     }
 }

@@ -56,7 +56,7 @@ struct ProgramTemplateView: View {
                     }
                 }
             }
-            .navigationTitle(viewModel.navigationTitle)
+            .navigationTitle(viewModel.isEditMode ? "Program details" : "New program")
             .toolbar {
                 ToolbarItemGroup {
                     Button("Save") {
