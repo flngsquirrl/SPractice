@@ -13,8 +13,12 @@ struct ClockView: View {
     
     private static let countupImageName = "infinity"
     
-    private let mainFont: Font = .largeTitle.weight(.semibold)
-    private let noteFont: Font = .body.weight(.semibold)
+    private static let mainFont: Font = .largeTitle.weight(.semibold)
+    private static let noteFont: Font = .body.weight(.semibold)
+    
+    private static let elementColor: Color = .lightOrange
+    private static let textColor: Color = .creamy
+    private static let backgroundColor: Color = .creamy
     
     public static let simpleCountdown = ClockView(clock: Clock.simpleCountdown)
     public static let simpleCountup = ClockView(clock: Clock.simpleCountup)
@@ -24,41 +28,37 @@ struct ClockView: View {
             if clock.isCountup {
                 ZStack {
                     Image(systemName: ClockView.countupImageName)
-                        .font(mainFont)
-                        .foregroundColor(.lightOrange)
+                        .foregroundColor(ClockView.elementColor)
                         .scaleEffect(2)
                  }
             } else {
-                HStack(spacing: 4) {
-                    ClockNumber(number: clock.minutesFirstDigit)
-                    ClockNumber(number: clock.minutesSecondDigit)
+                HStack {
+                    ClockNumber(number: clock.time.minutesFirstDigit)
+                    ClockNumber(number: clock.time.minutesSecondDigit)
                     Text(":")
-                        .foregroundColor(.lightOrange)
-                        .font(mainFont)
-                        .padding(8)
-                    ClockNumber(number: clock.secondsFirstDigit)
-                    ClockNumber(number: clock.secondsSecondDigit)
+                        .foregroundColor(ClockView.elementColor)
+                    ClockNumber(number: clock.time.secondsFirstDigit)
+                    ClockNumber(number: clock.time.secondsSecondDigit)
                 }
-                .padding(20)
+                .foregroundColor(ClockView.textColor)
             }
         }
+        .padding(20)
+        .font(ClockView.mainFont)
         .frame(maxWidth: .infinity, minHeight: 120)
-        .background(.creamy)
+        .background(ClockView.backgroundColor)
         .clipShape(RoundedRectangle(cornerRadius: 12))
     }
+}
+
+struct ClockNumber: View {
+    var number: Int = 0
     
-    struct ClockNumber: View {
-        var number: Int = 0
-        
-        var body: some View {
-            Text("\(number)")
-                .frame(width: 50, height: 80)
-                .background(.lightOrange)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-                .font(.largeTitle.weight(.semibold))
-                .foregroundStyle(.creamy)
-            
-        }
+    var body: some View {
+        Text("\(number)")
+            .frame(width: 50, height: 80)
+            .background(.lightOrange)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }
 

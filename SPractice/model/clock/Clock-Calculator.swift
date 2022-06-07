@@ -1,5 +1,5 @@
 //
-//  Clock-Converters.swift
+//  Clock-Calculator.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 3.06.22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Clock {
+extension ClockTime {
     
     static func calculateDuration(minutes: Int, seconds: Int) -> Int {
         minutes * 60 + seconds

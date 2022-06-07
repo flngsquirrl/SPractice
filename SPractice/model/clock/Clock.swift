@@ -10,71 +10,47 @@ import Foundation
 
 class Clock: ObservableObject {
     
-    @Published var timeInSeconds: Int
+    @Published var time: ClockTime
     @Published var isCountdown: Bool
     
     var onFinished: (() -> Void)?
     
-    private static let timer = Timer.publish(every: 1, on: .main, in: .common)
+    private let timer = Timer.publish(every: 1, on: .main, in: .common)
     private var timerSubscription: Cancellable?
     
-    private static let maxMinutesPart = 60
-    private static let maxSecondsPart = 60
+    static let maxMinutesPart = 60
     
+    // examples
     public static let simpleCountdown = Clock(setTo: 130, isCountdown: true)
     public static let simpleCountup = Clock(setTo: 33, isCountdown: false)
     
     init(setTo timeInSeconds: Int = 0, isCountdown: Bool = false, onFinished: (() -> Void)? = nil) {
-        self.timeInSeconds = timeInSeconds
+        self.time = ClockTime(timeInSeconds: timeInSeconds)
         self.isCountdown = isCountdown
         self.onFinished = onFinished
     }
     
-    var secondsPart: Int {
-        timeInSeconds % Clock.maxSecondsPart
-    }
-    
-    var minutesPart: Int {
-        timeInSeconds / Clock.maxSecondsPart
-    }
-    
-    var minutesFirstDigit: Int {
-        minutesPart / 10
-    }
-    
-    var minutesSecondDigit: Int {
-        minutesPart % 10
-    }
-    
-    var secondsFirstDigit: Int {
-        secondsPart / 10
-    }
-    
-    var secondsSecondDigit: Int {
-        secondsPart % 10
-    }
-    
     var countdownFinished: Bool {
-        isCountdown && timeInSeconds == 0
+        isCountdown && time.isOut
     }
     
     var countupReachedMax: Bool {
-        isCountup && minutesPart == Clock.maxMinutesPart
+        isCountup && time.minutesPart == Self.maxMinutesPart
     }
     
     var isCountup: Bool {
         !isCountdown
     }
     
-    var isCountingUp: Bool {
-        !countupReachedMax
-    }
-    
     func processTimerTick() {
         if countdownFinished || countupReachedMax {
             processCountFinished()
         } else {
-            timeInSeconds = isCountdown ? timeInSeconds - 1 : timeInSeconds + 1
+            if isCountdown {
+                time.substractSecond()
+            } else {
+                time.addSecond()
+            }
         }
     }
     
@@ -86,7 +62,7 @@ class Clock: ObservableObject {
     }
     
     func start() {
-        timerSubscription = Clock.timer.autoconnect()
+        timerSubscription = timer.autoconnect()
             .sink { _ in
                 self.processTimerTick()
             }
@@ -98,7 +74,7 @@ class Clock: ObservableObject {
     
     func reset(to timeInSeconds: Int = 0, isCountdown: Bool = false) {
         stop()
-        self.timeInSeconds = timeInSeconds
+        self.time = ClockTime(timeInSeconds: timeInSeconds)
         self.isCountdown = isCountdown
     }
 }

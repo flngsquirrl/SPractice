@@ -24,7 +24,7 @@ struct ProgramDetailsView: View {
                 HStack {
                     Text("Duration")
                     Spacer()
-                    Text(Clock.getDisplayDuration(for: viewModel.program.duration!))
+                    Text(ClockTime.getDisplayDuration(for: viewModel.program.duration!))
                 }
                 Button() {
                     viewModel.showPracticeView = true
@@ -44,7 +44,7 @@ struct ProgramDetailsView: View {
                         Text(exercise.name)
                         Spacer()
                         if (exercise.type.hasDuration) {
-                            Text(Clock.getDisplayDuration(for: exercise.duration!))
+                            Text(ClockTime.getDisplayDuration(for: exercise.duration!))
                         } else {
                             Image(systemName: "infinity")
                         }
