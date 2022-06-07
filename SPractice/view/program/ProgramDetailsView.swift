@@ -39,16 +39,7 @@ struct ProgramDetailsView: View {
             
             Section("Exercises") {
                 ForEach(viewModel.program.exercises) { exercise in
-                    HStack {
-                        Image(systemName: exercise.type.imageName)
-                        Text(exercise.name)
-                        Spacer()
-                        if (exercise.type.hasDuration) {
-                            Text(ClockTime.getDisplayDuration(for: exercise.duration!))
-                        } else {
-                            Image(systemName: "infinity")
-                        }
-                    }
+                    ExerciseDetailsShortView(for: exercise)
                 }
             }
         }

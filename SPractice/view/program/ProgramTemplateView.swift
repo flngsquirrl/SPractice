@@ -44,11 +44,7 @@ struct ProgramTemplateView: View {
                                 ExerciseTemplateView(template: exercise) { viewModel.updateExerciseTemplate(template: $0)
                                 }
                             } label: {
-                                Image(systemName: exercise.type.imageName)
-                                Text(exercise.name)
-                                Spacer()
-                                Text(exercise.wrappedDuration)
-                                    .foregroundColor(.gray)
+                                ExerciseDetailsShortView(for: exercise)
                             }
                         }
                     }
