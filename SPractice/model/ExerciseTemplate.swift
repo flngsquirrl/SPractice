@@ -28,10 +28,6 @@ struct ExerciseTemplate: Identifiable {
         ExerciseTemplate(type: .timer, name: "Rest", isService: true, duration: 10)
     }
     
-    var wrappedDuration: String {
-        duration?.formatted() ?? ""
-    }
-    
     func prepareTasks() -> [Task] {
         var tasks = [Task]()
         

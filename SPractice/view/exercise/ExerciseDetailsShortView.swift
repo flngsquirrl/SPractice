@@ -18,7 +18,12 @@ struct ExerciseDetailsShortView: View {
     }
     
     init(for template: ExerciseTemplate) {
-        self.init(name: template.name, type: template.type, duration: template.duration)
+        var duration: Int? = nil
+        if template.type.hasDuration {
+            duration = template.type == .timer ? template.duration : 260
+            // todo: read tabate settings here
+        }
+        self.init(name: template.name, type: template.type, duration: duration)
     }
     
     init(name: String, type: Exercise.ExerciseType, duration: Int?) {
@@ -36,12 +41,8 @@ struct ExerciseDetailsShortView: View {
             case .flow:
                 Image(systemName: "infinity")
                     .foregroundColor(.gray)
-            case .timer:
+            case .timer, .tabata:
                 Text(ClockTime.getDisplayDuration(for: duration!))
-                    .foregroundColor(.gray)
-            case .tabata:
-                // todo: read settings for tabata
-                Text(ClockTime.getDisplayDuration(for: 260))
                     .foregroundColor(.gray)
             }
         }

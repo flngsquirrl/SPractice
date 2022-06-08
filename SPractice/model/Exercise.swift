@@ -44,6 +44,15 @@ struct Exercise: Identifiable {
         }
     }
     
+    var duration: Int? {
+        guard type != .flow else {
+            return nil
+        }
+        var duration = 0
+        tasks.forEach { duration += $0.duration! }
+        return duration
+    }
+    
     init(type: ExerciseType, name: String, isService: Bool = false, tasks: [Task] = []) {
         self.type = type
         self.name = name
@@ -54,15 +63,6 @@ struct Exercise: Identifiable {
     init(from template: ExerciseTemplate) {
         let tasks = template.prepareTasks()
         self.init(type: template.type, name: template.name, tasks: tasks)
-    }
-    
-    var duration: Int? {
-        guard type != .flow else {
-            return nil
-        }
-        var duration = 0
-        tasks.forEach { duration += $0.duration! }
-        return duration
     }
     
     static let catCow = Exercise(type: .timer, name: "Cat-Cow", isService: false, tasks: [Task.activity60])
