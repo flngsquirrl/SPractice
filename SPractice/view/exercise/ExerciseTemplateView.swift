@@ -86,6 +86,7 @@ struct ExerciseTemplateView: View {
                 }
             }
         }
+        .accentColor(.customAccentColor)
     }
 }
 
