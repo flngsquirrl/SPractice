@@ -13,7 +13,7 @@ extension ProgramsView {
         
         @Published var templates = [ProgramTemplate.personal, ProgramTemplate.dailyShort, ProgramTemplate.shortForBack]
         
-        func addNewProgramTemplate(template: ProgramTemplate) {
+        func addNewTemplate(template: ProgramTemplate) {
             templates.append(template)
         }
         
