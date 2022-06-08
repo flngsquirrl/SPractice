@@ -61,7 +61,7 @@ struct SettingsView: View {
                 } header: {
                     Text("Rest")
                 } footer: {
-                    Text("You can use rest intervals to take a deep breath and prepare for the next exercise")
+                    Text("You can use rest intervals to take a deep breath and prepare for the next exercise. Take your time!")
                 }
                 
             }
