@@ -21,7 +21,7 @@ extension ClockTime {
         duration % 60
     }
     
-    static func getDisplayDuration(for duration: Int) -> String {
+    static func getLongDisplayDuration(for duration: Int) -> String {
         let minutes = getMinutes(of: duration)
         let seconds = getSeconds(of: duration)
         
@@ -29,5 +29,11 @@ extension ClockTime {
         let secondsPart = "\(seconds) sec"
         
         return !minutesPart.isEmpty ? "\(minutesPart) \(secondsPart)" : "\(secondsPart)"
+    }
+    
+    static func getShortDisplayDuration(for duration: Int) -> String {
+        let clockTime = ClockTime(timeInSeconds: duration)
+        
+        return "\(clockTime.minutesFirstDigit)\(clockTime.minutesSecondDigit):\(clockTime.secondsFirstDigit)\(clockTime.secondsSecondDigit)"
     }
 }

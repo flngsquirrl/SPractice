@@ -10,7 +10,7 @@ import Foundation
 extension ExerciseTemplatesView {
     @MainActor class ViewModel: ObservableObject {
         
-        @Published var templates = [ExerciseTemplate.catCow, ExerciseTemplate.surjaNamascar, ExerciseTemplate.vasihsthasana, ExerciseTemplate.concentration]
+        @Published var templates = [ExerciseTemplate.catCow, ExerciseTemplate.surjaNamascar, ExerciseTemplate.vasihsthasana, ExerciseTemplate.concentration, ExerciseTemplate.catCowNoDuration]
         
         func addNewTemplate(template: ExerciseTemplate) {
             templates.append(template)
