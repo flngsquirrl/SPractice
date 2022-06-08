@@ -54,6 +54,14 @@ struct ProgramDetailsView: View {
         .navigationTitle(viewModel.program.name)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    // todo:
+                } label: {
+                    Image(systemName: "trash")
+                }
+            }
+            
+            ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Edit") {
                     viewModel.showEditTemplateView = true
                 }
@@ -64,6 +72,8 @@ struct ProgramDetailsView: View {
 
 struct ProgramDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        ProgramDetailsView(for: ProgramTemplate.personal) { _ in }
+        NavigationView {
+            ProgramDetailsView(for: ProgramTemplate.personal) { _ in }
+        }
     }
 }
