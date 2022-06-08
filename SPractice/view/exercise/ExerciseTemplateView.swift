@@ -28,41 +28,49 @@ struct ExerciseTemplateView: View {
     var body: some View {
         NavigationView {
             Form {
-                TextField("Exercise name", text: $viewModel.name)
-                
-                Picker("Exercise type", selection: $viewModel.type) {
-                    ForEach(Exercise.ExerciseType.allCases, id: \.self) {
-                        Text($0.rawValue)
-                    }
+                Section {
+                    TextField("Exercise name", text: $viewModel.name)
                 }
-                .pickerStyle(.segmented)
                 
-                if (viewModel.type == .timer) {
-                    HStack {
-                        Picker("Duration minutes", selection: $viewModel.minutes) {
-                            ForEach(0..<60) {
-                                Text("\($0)")
-                            }
+                Section {
+                    Toggle("Type", isOn: $viewModel.isTypeSet)
+                    Picker("Exercise type", selection: $viewModel.type) {
+                        ForEach(Exercise.ExerciseType.allCases, id: \.self) {
+                            Text($0.rawValue)
                         }
-                        .labelsHidden()
-                        .pickerStyle(.menu)
-                        .frame(width: 100)
-                        .clipShape(RoundedRectangle(cornerRadius: 5))
-                        
-                        Text("min")
-                        Text(":")
-                        
-                        Picker("Duration seconds", selection: $viewModel.seconds) {
-                            ForEach(0..<60) {
-                                Text("\($0)")
+                    }
+                    .disabled(!viewModel.isTypeSet)
+                    .pickerStyle(.segmented)
+                
+                    if (viewModel.type == .timer) {
+                        HStack {
+                            Picker("Duration minutes", selection: $viewModel.minutes) {
+                                ForEach(0..<60) {
+                                    Text("\($0)")
+                                }
                             }
+                            .labelsHidden()
+                            .disabled(!viewModel.isTypeSet)
+                            .pickerStyle(.menu)
+                            .frame(width: 100)
+                            .clipShape(RoundedRectangle(cornerRadius: 5))
+                            
+                            Text("min")
+                            Text(":")
+                            
+                            Picker("Duration seconds", selection: $viewModel.seconds) {
+                                ForEach(0..<60) {
+                                    Text("\($0)")
+                                }
+                            }
+                            .labelsHidden()
+                            .disabled(!viewModel.isTypeSet)
+                            .pickerStyle(.menu)
+                            .frame(width: 100)
+                            .clipShape(RoundedRectangle(cornerRadius: 5))
+                            
+                            Text("sec")
                         }
-                        .labelsHidden()
-                        .pickerStyle(.menu)
-                        .frame(width: 100)
-                        .clipShape(RoundedRectangle(cornerRadius: 5))
-                        
-                        Text("sec")
                     }
                 }
             }

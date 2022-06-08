@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct ExerciseTemplate: Identifiable {
+struct ExerciseTemplate: Identifiable, Hashable {
     
     let id: UUID
-    var type: Exercise.ExerciseType
+    var type: Exercise.ExerciseType?
     var name: String
     let isService: Bool
     var duration: Int? // for timer only
     
-    init(id: UUID = UUID(), type: Exercise.ExerciseType, name: String, isService: Bool = false, duration: Int? = nil) {
+    init(id: UUID = UUID(), type: Exercise.ExerciseType? = nil, name: String, isService: Bool = false, duration: Int? = nil) {
         self.id = id
         self.type = type
         self.name = name
@@ -31,7 +31,7 @@ struct ExerciseTemplate: Identifiable {
     func prepareTasks() -> [Task] {
         var tasks = [Task]()
         
-        switch type {
+        switch type! {
         case .flow:
             tasks = prepareFlowTasks()
         case .tabata:
@@ -84,4 +84,5 @@ struct ExerciseTemplate: Identifiable {
     static let rest = ExerciseTemplate(type: .timer, name: "Rest", isService: true, duration: 10)
     static let concentration = ExerciseTemplate(type: .timer, name: "Concentration", duration: 360)
     static let catCowDuration0 = ExerciseTemplate(type: .timer, name: "Cat-Cow", duration: 0)
+    static let catCowNoType = ExerciseTemplate(name: "Cat-Cow")
 }

@@ -11,6 +11,8 @@ extension ExerciseTemplateView {
     @MainActor class ViewModel: ObservableObject {
         
         @Published var name: String = ""
+        @Published var description: String = ""
+        @Published var isTypeSet: Bool = true
         @Published var type: Exercise.ExerciseType = .timer
         @Published var minutes: Int = 1
         @Published var seconds: Int = 0
@@ -25,7 +27,13 @@ extension ExerciseTemplateView {
         
         init(for template: ExerciseTemplate) {
             _name = Published(wrappedValue: template.name)
-            _type = Published(wrappedValue: template.type)
+            
+            if (template.type != nil) {
+                _type = Published(wrappedValue: template.type!)
+                self.isTypeSet = true
+            } else {
+                isTypeSet = false
+            }
             
             let minutes = template.type == .timer ? ClockTime.getMinutes(of: template.duration!) : 0
             _minutes = Published(wrappedValue: minutes)
@@ -39,6 +47,7 @@ extension ExerciseTemplateView {
         
         func prepareNewExerciseTemplate() -> ExerciseTemplate {
             let duration = type == .timer ? ClockTime.calculateDuration(minutes: minutes, seconds: seconds) : nil
+            let type = isTypeSet ? type : nil
             return ExerciseTemplate(id: id, type: type, name: name, duration: duration)
         }
     }

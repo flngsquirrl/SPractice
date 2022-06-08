@@ -62,7 +62,7 @@ struct Exercise: Identifiable {
     
     init(from template: ExerciseTemplate) {
         let tasks = template.prepareTasks()
-        self.init(type: template.type, name: template.name, tasks: tasks)
+        self.init(type: template.type!, name: template.name, tasks: tasks)
     }
     
     static let catCow = Exercise(type: .timer, name: "Cat-Cow", isService: false, tasks: [Task.activity60])

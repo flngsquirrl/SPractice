@@ -15,6 +15,9 @@ extension ProgramTemplateView {
         @Published var addRest = true
         @Published var exercises: [ExerciseTemplate] = []
         
+        var newExercise: ExerciseTemplate?
+        var exerciseTemplates: [ExerciseTemplate] = [ExerciseTemplate.catCow, ExerciseTemplate.vasihsthasana]
+        
         private var id: UUID
         var isEditMode: Bool
         

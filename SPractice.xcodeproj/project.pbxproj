@@ -19,6 +19,7 @@
 		C9692C7F2850A35A00373730 /* ExerciseTemplatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C7E2850A35A00373730 /* ExerciseTemplatesView.swift */; };
 		C9692C812850A37800373730 /* ExerciseTemplatesView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C802850A37800373730 /* ExerciseTemplatesView-ViewModel.swift */; };
 		C9692C832850A78300373730 /* TemplateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C822850A78300373730 /* TemplateManager.swift */; };
+		C9692C852850F47500373730 /* ExerciseTemplateSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C842850F47500373730 /* ExerciseTemplateSelectionView.swift */; };
 		C9A0CFEA281AB32B000CF439 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFE9281AB32B000CF439 /* Task.swift */; };
 		C9A0CFEC281AB382000CF439 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFEB281AB382000CF439 /* Exercise.swift */; };
 		C9A0CFEE281AB484000CF439 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFED281AB484000CF439 /* Program.swift */; };
@@ -64,6 +65,7 @@
 		C9692C7E2850A35A00373730 /* ExerciseTemplatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTemplatesView.swift; sourceTree = "<group>"; };
 		C9692C802850A37800373730 /* ExerciseTemplatesView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseTemplatesView-ViewModel.swift"; sourceTree = "<group>"; };
 		C9692C822850A78300373730 /* TemplateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateManager.swift; sourceTree = "<group>"; };
+		C9692C842850F47500373730 /* ExerciseTemplateSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTemplateSelectionView.swift; sourceTree = "<group>"; };
 		C9A0CFE9281AB32B000CF439 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		C9A0CFEB281AB382000CF439 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		C9A0CFED281AB484000CF439 /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				C9692C7E2850A35A00373730 /* ExerciseTemplatesView.swift */,
 				C9692C802850A37800373730 /* ExerciseTemplatesView-ViewModel.swift */,
 				C9692C822850A78300373730 /* TemplateManager.swift */,
+				C9692C842850F47500373730 /* ExerciseTemplateSelectionView.swift */,
 			);
 			path = exercises;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				C9A0D001281BE4C8000CF439 /* PlayerView.swift in Sources */,
 				C94B3F6C284A21AE00A23612 /* ProgramTemplatesView-ViewModel.swift in Sources */,
 				C9692C832850A78300373730 /* TemplateManager.swift in Sources */,
+				C9692C852850F47500373730 /* ExerciseTemplateSelectionView.swift in Sources */,
 				C9A0D00C282290BB000CF439 /* ProgramTemplateView.swift in Sources */,
 				C9CCCE96284A31B9005665C8 /* ClockTime-Calculator.swift in Sources */,
 				C9A0CFFF281BDDEA000CF439 /* PracticeView.swift in Sources */,

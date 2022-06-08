@@ -10,10 +10,14 @@ import SwiftUI
 struct ExerciseDetailsShortView: View {
     
     private let name: String
-    private let type: Exercise.ExerciseType
+    private let type: Exercise.ExerciseType?
     private let duration: Int?
     
     private var displayDuration = false
+    
+    var isTypeSet: Bool {
+        type != nil
+    }
     
     init(for exercise: Exercise) {
         self.init(name: exercise.name, type: exercise.type, duration: exercise.duration)
@@ -31,7 +35,7 @@ struct ExerciseDetailsShortView: View {
         self.displayDuration = displayDuration
     }
     
-    private init(name: String, type: Exercise.ExerciseType, duration: Int?) {
+    private init(name: String, type: Exercise.ExerciseType?, duration: Int?) {
         self.name = name
         self.type = type
         self.duration = duration
@@ -39,11 +43,11 @@ struct ExerciseDetailsShortView: View {
     
     var body: some View {
         HStack {
-            Image(systemName: type.imageName)
+            Image(systemName: type != nil ? type!.imageName : "questionmark.circle.fill")
             Text(name)
             Spacer()
-            if displayDuration {
-                switch type {
+            if displayDuration && isTypeSet {
+                switch type! {
                 case .flow:
                     Image(systemName: "infinity")
                         .foregroundColor(.gray)
@@ -80,6 +84,7 @@ struct ExerciseDetailsShortView_Previews: PreviewProvider {
                 ExerciseDetailsShortView(for: ExerciseTemplate.catCow)
                 ExerciseDetailsShortView(for: ExerciseTemplate.surjaNamascar)
                 ExerciseDetailsShortView(for: ExerciseTemplate.vasihsthasana)
+                ExerciseDetailsShortView(for: ExerciseTemplate.catCowNoType)
             }
         }
     }
