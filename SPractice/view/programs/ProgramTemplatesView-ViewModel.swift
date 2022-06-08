@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension ProgramsView {
+extension ProgramTemplatesView {
     
     @MainActor class ViewModel: ObservableObject {
         
@@ -25,7 +25,7 @@ extension ProgramsView {
             templates.move(fromOffsets: fromOffsets, toOffset: toOffsets)
         }
         
-        func updateProgramTemplate(template: ProgramTemplate) {
+        func updateTemplate(template: ProgramTemplate) {
             if let index = templates.firstIndex(where: {$0.id == template.id}) {
                 templates[index] = template
             }

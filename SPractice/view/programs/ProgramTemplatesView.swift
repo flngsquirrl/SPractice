@@ -1,5 +1,5 @@
 //
-//  ProgramsView.swift
+//  ProgramTemplatesView.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 4.05.22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProgramsView: View {
+struct ProgramTemplatesView: View {
     
     @ObservedObject var viewModel = ViewModel()
 
@@ -19,7 +19,7 @@ struct ProgramsView: View {
                 HStack {                  
                     NavigationLink {
                         ProgramDetailsView(for: template) {
-                            viewModel.updateProgramTemplate(template: $0)
+                            viewModel.updateTemplate(template: $0)
                         }
                     } label: {
                         HStack {
@@ -50,7 +50,7 @@ struct ProgramsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             List {
-                ProgramsView()
+                ProgramTemplatesView()
             }
         }
     }

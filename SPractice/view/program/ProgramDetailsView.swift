@@ -34,10 +34,10 @@ struct ProgramDetailsView: View {
             } header: {
                 Text("Summary")
             } footer: {
-                Text("Duration is the minimal time needed to complete all timer and tabata exercises")
+                Text("Duration is the minimal time needed to complete all timer and tabata exercises of the practice, as flow exercises time can't be predicted")
             }
             
-            Section("Exercises") {
+            Section("Sequence") {
                 ForEach(viewModel.program.exercises) { exercise in
                     ExerciseDetailsShortView(for: exercise)
                 }

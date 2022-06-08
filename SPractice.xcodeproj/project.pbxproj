@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C94B3F69284A1E4400A23612 /* ProgramTemplateView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94B3F68284A1E4400A23612 /* ProgramTemplateView-ViewModel.swift */; };
-		C94B3F6C284A21AE00A23612 /* ProgramsView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94B3F6B284A21AE00A23612 /* ProgramsView-ViewModel.swift */; };
+		C94B3F6C284A21AE00A23612 /* ProgramTemplatesView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94B3F6B284A21AE00A23612 /* ProgramTemplatesView-ViewModel.swift */; };
 		C95011C728196FFD0043EC75 /* SPracticeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95011C628196FFD0043EC75 /* SPracticeApp.swift */; };
 		C95011C928196FFD0043EC75 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95011C828196FFD0043EC75 /* ContentView.swift */; };
 		C95011CB28196FFE0043EC75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C95011CA28196FFE0043EC75 /* Assets.xcassets */; };
@@ -29,7 +29,7 @@
 		C9A0D001281BE4C8000CF439 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D000281BE4C8000CF439 /* PlayerView.swift */; };
 		C9A0D003281C03F5000CF439 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D002281C03F5000CF439 /* Clock.swift */; };
 		C9A0D00628211901000CF439 /* ExerciseTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D00528211901000CF439 /* ExerciseTemplateView.swift */; };
-		C9A0D00828228078000CF439 /* ProgramsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D00728228078000CF439 /* ProgramsView.swift */; };
+		C9A0D00828228078000CF439 /* ProgramTemplatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D00728228078000CF439 /* ProgramTemplatesView.swift */; };
 		C9A0D00C282290BB000CF439 /* ProgramTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D00B282290BB000CF439 /* ProgramTemplateView.swift */; };
 		C9A0D0112823DF22000CF439 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D0102823DF22000CF439 /* SettingsView.swift */; };
 		C9A0D0152823FF87000CF439 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D0142823FF87000CF439 /* Settings.swift */; };
@@ -52,7 +52,7 @@
 
 /* Begin PBXFileReference section */
 		C94B3F68284A1E4400A23612 /* ProgramTemplateView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgramTemplateView-ViewModel.swift"; sourceTree = "<group>"; };
-		C94B3F6B284A21AE00A23612 /* ProgramsView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgramsView-ViewModel.swift"; sourceTree = "<group>"; };
+		C94B3F6B284A21AE00A23612 /* ProgramTemplatesView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgramTemplatesView-ViewModel.swift"; sourceTree = "<group>"; };
 		C95011C328196FFD0043EC75 /* SPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C95011C628196FFD0043EC75 /* SPracticeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPracticeApp.swift; sourceTree = "<group>"; };
 		C95011C828196FFD0043EC75 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 		C9A0D000281BE4C8000CF439 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		C9A0D002281C03F5000CF439 /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 		C9A0D00528211901000CF439 /* ExerciseTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTemplateView.swift; sourceTree = "<group>"; };
-		C9A0D00728228078000CF439 /* ProgramsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramsView.swift; sourceTree = "<group>"; };
+		C9A0D00728228078000CF439 /* ProgramTemplatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramTemplatesView.swift; sourceTree = "<group>"; };
 		C9A0D00B282290BB000CF439 /* ProgramTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramTemplateView.swift; sourceTree = "<group>"; };
 		C9A0D0102823DF22000CF439 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C9A0D0142823FF87000CF439 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -109,8 +109,8 @@
 		C94B3F6A284A218700A23612 /* programs */ = {
 			isa = PBXGroup;
 			children = (
-				C9A0D00728228078000CF439 /* ProgramsView.swift */,
-				C94B3F6B284A21AE00A23612 /* ProgramsView-ViewModel.swift */,
+				C9A0D00728228078000CF439 /* ProgramTemplatesView.swift */,
+				C94B3F6B284A21AE00A23612 /* ProgramTemplatesView-ViewModel.swift */,
 			);
 			path = programs;
 			sourceTree = "<group>";
@@ -358,7 +358,7 @@
 				C9692C812850A37800373730 /* ExerciseTemplatesView-ViewModel.swift in Sources */,
 				C9CCCE9A284B6E09005665C8 /* ProgramDetailsView-ViewModel.swift in Sources */,
 				C9A0D01A2827CEC9000CF439 /* Squirrel.swift in Sources */,
-				C9A0D00828228078000CF439 /* ProgramsView.swift in Sources */,
+				C9A0D00828228078000CF439 /* ProgramTemplatesView.swift in Sources */,
 				C95011C928196FFD0043EC75 /* ContentView.swift in Sources */,
 				C9C2727C2848C91500F7DA0E /* Array-Wrapper.swift in Sources */,
 				C9A0D02228280F3E000CF439 /* RightWing.swift in Sources */,
@@ -369,7 +369,7 @@
 				C9A0D02028280F13000CF439 /* SquirrelInWheel.swift in Sources */,
 				C9A0CFF2281B3733000CF439 /* ExerciseView.swift in Sources */,
 				C9A0D001281BE4C8000CF439 /* PlayerView.swift in Sources */,
-				C94B3F6C284A21AE00A23612 /* ProgramsView-ViewModel.swift in Sources */,
+				C94B3F6C284A21AE00A23612 /* ProgramTemplatesView-ViewModel.swift in Sources */,
 				C9692C832850A78300373730 /* TemplateManager.swift in Sources */,
 				C9A0D00C282290BB000CF439 /* ProgramTemplateView.swift in Sources */,
 				C9CCCE96284A31B9005665C8 /* ClockTime-Calculator.swift in Sources */,

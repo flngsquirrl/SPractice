@@ -27,7 +27,7 @@ struct ContentView: View {
                     
                 switch contentType {
                 case .programs:
-                    ProgramsView()
+                    ProgramTemplatesView()
                 case .exercises:
                     ExerciseTemplatesView()
                 }

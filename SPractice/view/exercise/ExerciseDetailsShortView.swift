@@ -13,18 +13,25 @@ struct ExerciseDetailsShortView: View {
     private let type: Exercise.ExerciseType
     private let duration: Int?
     
-    private var displayNonTimerDuration = false
+    private var displayDuration = false
     
     init(for exercise: Exercise) {
         self.init(name: exercise.name, type: exercise.type, duration: exercise.duration)
-        displayNonTimerDuration = true
+        displayDuration = true
     }
     
-    init(for template: ExerciseTemplate) {
-        self.init(name: template.name, type: template.type, duration: template.duration)
+    init(for template: ExerciseTemplate, displayDuration: Bool = false) {
+        var duration: Int? = nil
+        if (displayDuration) {
+            // todo: read from settings here
+            duration = template.type == .tabata ? 80 : template.duration
+        }
+        self.init(name: template.name, type: template.type, duration: duration)
+        
+        self.displayDuration = displayDuration
     }
     
-    init(name: String, type: Exercise.ExerciseType, duration: Int?) {
+    private init(name: String, type: Exercise.ExerciseType, duration: Int?) {
         self.name = name
         self.type = type
         self.duration = duration
@@ -35,7 +42,7 @@ struct ExerciseDetailsShortView: View {
             Image(systemName: type.imageName)
             Text(name)
             Spacer()
-            if shouldDisplayDuration() {
+            if displayDuration {
                 switch type {
                 case .flow:
                     Image(systemName: "infinity")
@@ -47,25 +54,33 @@ struct ExerciseDetailsShortView: View {
             }
         }
     }
-    
-    func shouldDisplayDuration() -> Bool {
-        type != .timer && displayNonTimerDuration || type == .timer && duration != nil
-    }
 }
 
 struct ExerciseDetailsShortView_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            Text("exercises")
-            ExerciseDetailsShortView(for: Exercise.catCow)
-            ExerciseDetailsShortView(for: Exercise.surjaNamascar)
-            ExerciseDetailsShortView(for: Exercise.vasihsthasana)
+            Group {
+                Text("exercises")
+                ExerciseDetailsShortView(for: Exercise.catCow)
+                ExerciseDetailsShortView(for: Exercise.surjaNamascar)
+                ExerciseDetailsShortView(for: Exercise.vasihsthasana)
+            }
             
-            Text("templates")
-            ExerciseDetailsShortView(for: ExerciseTemplate.catCowNoDuration)
-            ExerciseDetailsShortView(for: ExerciseTemplate.catCow)
-            ExerciseDetailsShortView(for: ExerciseTemplate.surjaNamascar)
-            ExerciseDetailsShortView(for: ExerciseTemplate.vasihsthasana)
+            Group {
+                Text("templates with durations")
+                ExerciseDetailsShortView(for: ExerciseTemplate.catCowDuration0, displayDuration: true)
+                ExerciseDetailsShortView(for: ExerciseTemplate.catCow, displayDuration: true)
+                ExerciseDetailsShortView(for: ExerciseTemplate.surjaNamascar, displayDuration: true)
+                ExerciseDetailsShortView(for: ExerciseTemplate.vasihsthasana, displayDuration: true)
+            }
+            
+            Group {
+                Text("templates without durations")
+                ExerciseDetailsShortView(for: ExerciseTemplate.catCowDuration0)
+                ExerciseDetailsShortView(for: ExerciseTemplate.catCow)
+                ExerciseDetailsShortView(for: ExerciseTemplate.surjaNamascar)
+                ExerciseDetailsShortView(for: ExerciseTemplate.vasihsthasana)
+            }
         }
     }
 }

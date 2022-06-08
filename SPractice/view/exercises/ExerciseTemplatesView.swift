@@ -15,12 +15,11 @@ struct ExerciseTemplatesView: View {
     var body: some View {
         Group {
             ForEach(viewModel.templates) { template in
-                HStack {
-                    NavigationLink {
-                        ExerciseDetailsShortView(for: template)
-                    } label: {
-                        ExerciseDetailsShortView(for: template)
-                    }
+                NavigationLink {
+//                    ExerciseTemplateView(for: template) { viewModel.updateTemplate(template: $0) }
+                    ExerciseDetailsShortView(for: template, displayDuration: template.type == .timer)
+                } label: {
+                    ExerciseDetailsShortView(for: template, displayDuration: template.type == .timer)
                 }
             }
             .onDelete { viewModel.removeItems(at: $0) }

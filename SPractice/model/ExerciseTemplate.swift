@@ -83,5 +83,5 @@ struct ExerciseTemplate: Identifiable {
     static let vasihsthasana = ExerciseTemplate(type: .tabata, name: "Vasihsthasana")
     static let rest = ExerciseTemplate(type: .timer, name: "Rest", isService: true, duration: 10)
     static let concentration = ExerciseTemplate(type: .timer, name: "Concentration", duration: 360)
-    static let catCowNoDuration = ExerciseTemplate(type: .timer, name: "Cat-Cow")
+    static let catCowDuration0 = ExerciseTemplate(type: .timer, name: "Cat-Cow", duration: 0)
 }
