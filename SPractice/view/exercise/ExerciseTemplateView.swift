@@ -80,7 +80,16 @@ struct ExerciseTemplateView: View {
         }
         .navigationTitle(viewModel.isEditMode ? "Exercise template" : "New template")
         .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                
+                if viewModel.isEditMode {
+                    Button {
+                        // todo: process delete
+                    } label: {
+                        Image(systemName: "trash")
+                    }
+                }
+                
                 Button() {
                     let template = viewModel.prepareNewExerciseTemplate()
                     onSave(template)
