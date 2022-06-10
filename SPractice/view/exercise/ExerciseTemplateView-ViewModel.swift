@@ -17,6 +17,8 @@ extension ExerciseTemplateView {
         @Published var minutes: Int = 0
         @Published var seconds: Int = 0
         
+        static let secondsSelectionArray = Array(stride(from: 0, through: 50, by: 10))
+        
         var isEditMode: Bool
         private var id: UUID
         

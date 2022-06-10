@@ -58,7 +58,7 @@ struct ExerciseTemplateView: View {
                                 Text(":")
                                 
                                 Picker("Duration seconds", selection: $viewModel.seconds) {
-                                    ForEach(0..<60) {
+                                    ForEach(ViewModel.secondsSelectionArray, id: \.self) {
                                         Text("\($0)")
                                     }
                                 }
