@@ -43,16 +43,21 @@ struct ExerciseDetailsShortView: View {
     
     var body: some View {
         HStack {
-            Image(systemName: type != nil ? type!.imageName : "questionmark.circle.fill")
+            Image(systemName: type != nil ? type!.imageName : "questionmark.circle")
             Text(name)
             Spacer()
-            if displayDuration && isTypeSet {
-                switch type! {
-                case .flow:
-                    Image(systemName: "infinity")
-                        .foregroundColor(.gray)
-                case .timer, .tabata:
-                    Text(ClockTime.getShortDisplayDuration(for: duration!))
+            if displayDuration {
+                if isTypeSet {
+                    switch type! {
+                    case .flow:
+                        Image(systemName: "infinity")
+                            .foregroundColor(.gray)
+                    case .timer, .tabata:
+                        Text(ClockTime.getShortDisplayDuration(for: duration!))
+                            .foregroundColor(.gray)
+                    }
+                } else {
+                    Image(systemName: "questionmark")
                         .foregroundColor(.gray)
                 }
             }
@@ -76,6 +81,7 @@ struct ExerciseDetailsShortView_Previews: PreviewProvider {
                 ExerciseDetailsShortView(for: ExerciseTemplate.catCow, displayDuration: true)
                 ExerciseDetailsShortView(for: ExerciseTemplate.surjaNamascar, displayDuration: true)
                 ExerciseDetailsShortView(for: ExerciseTemplate.vasihsthasana, displayDuration: true)
+                ExerciseDetailsShortView(for: ExerciseTemplate.catCowNoType, displayDuration: true)
             }
             
             Group {
