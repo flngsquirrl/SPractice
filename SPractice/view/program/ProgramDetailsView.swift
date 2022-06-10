@@ -24,7 +24,7 @@ struct ProgramDetailsView: View {
                 HStack {
                     Text("Duration")
                     Spacer()
-                    Text(ClockTime.getExtendedPresentation(for: 30000))
+                    Text(ClockTime.getExtendedPresentation(for: viewModel.program.duration!))
                 }
                 Button() {
                     viewModel.showPracticeView = true
