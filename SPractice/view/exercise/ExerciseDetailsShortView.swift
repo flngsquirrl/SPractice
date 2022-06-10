@@ -53,7 +53,7 @@ struct ExerciseDetailsShortView: View {
                         Image(systemName: "infinity")
                             .foregroundColor(.gray)
                     case .timer, .tabata:
-                        Text(ClockTime.getShortDisplayDuration(for: duration!))
+                        Text(ClockTime.getPaddedPresentation(for: duration!))
                             .foregroundColor(.gray)
                     }
                 } else {

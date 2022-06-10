@@ -53,8 +53,8 @@ struct ExerciseTemplateView: View {
                             .labelsHidden()
                             .pickerStyle(.menu)
                             
-                            Text("min")
-                            Text(":")
+                            Text("\(Self.minutesUnit)")
+                            //Text(":")
                             
                             Picker("Duration seconds", selection: $viewModel.seconds) {
                                 ForEach(ViewModel.secondsSelectionArray, id: \.self) {
@@ -64,7 +64,7 @@ struct ExerciseTemplateView: View {
                             .labelsHidden()
                             .pickerStyle(.menu)
                             
-                            Text("sec")
+                            Text("\(Self.secondsUnit)")
                             
                             Spacer()
                             

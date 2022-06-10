@@ -21,19 +21,32 @@ extension ClockTime {
         duration % 60
     }
     
-    static func getLongDisplayDuration(for duration: Int) -> String {
-        let minutes = getMinutes(of: duration)
-        let seconds = getSeconds(of: duration)
-        
-        let minutesPart = minutes != 0 ? "\(minutes) min" : ""
-        let secondsPart = "\(seconds) sec"
-        
-        return !minutesPart.isEmpty ? "\(minutesPart) \(secondsPart)" : "\(secondsPart)"
+    static func getExtendedPresentation(for duration: Int) -> String {
+        guard let result = briefHrMinSecFormatter.string(from: TimeInterval(duration)) else {
+            return ""
+        }
+        return result
     }
     
-    static func getShortDisplayDuration(for duration: Int) -> String {
-        let clockTime = ClockTime(timeInSeconds: duration)
-        
-        return "\(clockTime.minutesFirstDigit)\(clockTime.minutesSecondDigit):\(clockTime.secondsFirstDigit)\(clockTime.secondsSecondDigit)"
+    static func getPaddedPresentation(for duration: Int) -> String {
+        guard let result = positionalMinSecFormatter.string(from: TimeInterval(duration)) else {
+            return ""
+        }
+        return result
+    }
+    
+    static var positionalMinSecFormatter: DateComponentsFormatter {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.minute, .second]
+        formatter.unitsStyle = .positional
+        formatter.zeroFormattingBehavior = .pad
+        return formatter
+    }
+    
+    static var briefHrMinSecFormatter: DateComponentsFormatter {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.unitsStyle = .short
+        return formatter
     }
 }

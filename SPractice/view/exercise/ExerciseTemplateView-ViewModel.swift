@@ -8,6 +8,15 @@
 import Foundation
 
 extension ExerciseTemplateView {
+    
+    static var secondsUnit: String {
+        MeasurementFormatter().string(from: UnitDuration.seconds)
+    }
+    
+    static var minutesUnit: String {
+        MeasurementFormatter().string(from: UnitDuration.minutes)
+    }
+    
     @MainActor class ViewModel: ObservableObject {
         
         @Published var name: String = ""
