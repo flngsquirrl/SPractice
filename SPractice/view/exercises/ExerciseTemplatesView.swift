@@ -16,8 +16,7 @@ struct ExerciseTemplatesView: View {
         Group {
             ForEach(viewModel.templates) { template in
                 NavigationLink {
-//                    ExerciseTemplateView(for: template) { viewModel.updateTemplate(template: $0) }
-                    ExerciseDetailsShortView(for: template, displayDuration: template.type == .timer)
+                    EditExerciseTemplateView(template: template) { viewModel.updateTemplate(template: $0) }
                 } label: {
                     ExerciseDetailsShortView(for: template, displayDuration: template.type == .timer)
                 }
@@ -34,7 +33,7 @@ struct ExerciseTemplatesView: View {
             }
         }
         .fullScreenCover(isPresented: $showAddNewView) {
-            ExerciseTemplateView() { viewModel.addNewTemplate(template: $0) }
+            AddExerciseTemplateView() { viewModel.addNewTemplate(template: $0) }
         }
     }
 }

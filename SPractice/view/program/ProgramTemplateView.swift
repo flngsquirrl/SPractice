@@ -42,8 +42,7 @@ struct ProgramTemplateView: View {
                     List {
                         ForEach(viewModel.exercises) { exercise in
                             NavigationLink() {
-                                ExerciseTemplateView(for: exercise) { viewModel.updateExerciseTemplate(template: $0)
-                                }
+                                EditExerciseTemplateView(template: exercise) { viewModel.updateExerciseTemplate(template: $0) }
                             } label: {
                                 ExerciseDetailsShortView(for: exercise, displayDuration: true)
                             }
@@ -68,7 +67,7 @@ struct ProgramTemplateView: View {
                 ExerciseTemplateSelectionView() { viewModel.addNewExerciseTemplates(templates: $0) }
             }
             .sheet(isPresented: $showNewExerciseView) {
-                ExerciseTemplateView() { viewModel.addNewExerciseTemplate(template: $0) }
+                AddExerciseTemplateView() { viewModel.addNewExerciseTemplate(template: $0) }
             }
             .navigationTitle(viewModel.isEditMode ? "Program template" : "New template")
             .toolbar {
