@@ -23,6 +23,14 @@ struct ExerciseTemplate: Identifiable, Hashable {
         self.duration = duration
     }
     
+    init(from template: ExerciseTemplate) {
+        self.id = UUID()
+        self.type = template.type
+        self.name = template.name
+        self.isService = template.isService
+        self.duration = template.duration
+    }
+    
     static var restTemplate: ExerciseTemplate {
         // todo: read rest duration from settings
         ExerciseTemplate(type: .timer, name: "Rest", isService: true, duration: 10)

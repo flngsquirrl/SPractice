@@ -39,6 +39,10 @@ extension ProgramTemplateView {
             ProgramTemplate(id: id, name: name, useRest: addRest, exercises: exercises)
         }
         
+        func addNewExerciseTemplates(templates: [ExerciseTemplate]) {
+            exercises.append(contentsOf: templates)
+        }
+        
         func addNewExerciseTemplate(template: ExerciseTemplate) {
             exercises.append(template)
         }

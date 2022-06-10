@@ -49,6 +49,7 @@
 		C9CCCE96284A31B9005665C8 /* ClockTime-Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCCE95284A31B9005665C8 /* ClockTime-Calculator.swift */; };
 		C9CCCE98284B6DE5005665C8 /* ProgramDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCCE97284B6DE5005665C8 /* ProgramDetailsView.swift */; };
 		C9CCCE9A284B6E09005665C8 /* ProgramDetailsView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCCE99284B6E09005665C8 /* ProgramDetailsView-ViewModel.swift */; };
+		C9D156AE28533DD7007F5176 /* ExerciseTemplateSelectionView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D156AD28533DD7007F5176 /* ExerciseTemplateSelectionView-ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +96,7 @@
 		C9CCCE95284A31B9005665C8 /* ClockTime-Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClockTime-Calculator.swift"; sourceTree = "<group>"; };
 		C9CCCE97284B6DE5005665C8 /* ProgramDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDetailsView.swift; sourceTree = "<group>"; };
 		C9CCCE99284B6E09005665C8 /* ProgramDetailsView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgramDetailsView-ViewModel.swift"; sourceTree = "<group>"; };
+		C9D156AD28533DD7007F5176 /* ExerciseTemplateSelectionView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseTemplateSelectionView-ViewModel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 				C9692C802850A37800373730 /* ExerciseTemplatesView-ViewModel.swift */,
 				C9692C822850A78300373730 /* TemplateManager.swift */,
 				C9692C842850F47500373730 /* ExerciseTemplateSelectionView.swift */,
+				C9D156AD28533DD7007F5176 /* ExerciseTemplateSelectionView-ViewModel.swift */,
 			);
 			path = exercises;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				C9692C852850F47500373730 /* ExerciseTemplateSelectionView.swift in Sources */,
 				C9A0D00C282290BB000CF439 /* ProgramTemplateView.swift in Sources */,
 				C9CCCE96284A31B9005665C8 /* ClockTime-Calculator.swift in Sources */,
+				C9D156AE28533DD7007F5176 /* ExerciseTemplateSelectionView-ViewModel.swift in Sources */,
 				C9A0CFFF281BDDEA000CF439 /* PracticeView.swift in Sources */,
 				C9A0D024282813F2000CF439 /* ColorTheme.swift in Sources */,
 				C9A0CFF7281BD815000CF439 /* ExerciseTemplate.swift in Sources */,

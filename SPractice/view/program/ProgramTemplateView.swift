@@ -11,6 +11,7 @@ struct ProgramTemplateView: View {
     
     @ObservedObject var viewModel: ViewModel
     @State private var showNewExerciseView = false
+    @State private var showExerciseSelectionView = false
     
     var onSave: (ProgramTemplate) -> Void
     
@@ -49,27 +50,29 @@ struct ProgramTemplateView: View {
                         }
                     }
                     HStack {
-                        // todo: selection control is here
-                        // when plus is tapped, the exercise is added to the list and can be edited
-                        Spacer()
                         Button() {
-                            showNewExerciseView = true
+                            showExerciseSelectionView = true
                         } label: {
-                            Image(systemName: "plus")
+                            Label("Select from templates", systemImage: "plus")
                         }
                     }
                     
-                    Button("Add new") {
+                    Button() {
                         showNewExerciseView = true
+                    } label: {
+                        Label("Add new", systemImage: "plus")
                     }
                 }
+            }
+            .sheet(isPresented: $showExerciseSelectionView) {
+                ExerciseTemplateSelectionView() { viewModel.addNewExerciseTemplates(templates: $0) }
             }
             .sheet(isPresented: $showNewExerciseView) {
                 ExerciseTemplateView() { viewModel.addNewExerciseTemplate(template: $0) }
             }
             .navigationTitle(viewModel.isEditMode ? "Program template" : "New template")
             .toolbar {
-                ToolbarItemGroup {
+                ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save") {
                         let template = viewModel.prepareNewProgramTemplate()
                         onSave(template)
