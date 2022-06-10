@@ -34,44 +34,49 @@ struct ExerciseTemplateView: View {
                 
                 Section {
                     Toggle("Type", isOn: $viewModel.isTypeSet)
-                    Picker("Exercise type", selection: $viewModel.type) {
-                        ForEach(Exercise.ExerciseType.allCases, id: \.self) {
-                            Text($0.rawValue)
+                    
+                    Group {
+                        Picker("Exercise type", selection: $viewModel.type) {
+                            ForEach(Exercise.ExerciseType.allCases, id: \.self) {
+                                Text($0.rawValue)
+                            }
+                        }
+                        .disabled(!viewModel.isTypeSet)
+                        .pickerStyle(.segmented)
+                    
+                        if (viewModel.type == .timer) {
+                            HStack {
+                                Picker("Duration minutes", selection: $viewModel.minutes) {
+                                    ForEach(0..<60) {
+                                        Text("\($0)")
+                                    }
+                                }
+                                .labelsHidden()
+                                .pickerStyle(.menu)
+                                
+                                Text("min")
+                                Text(":")
+                                
+                                Picker("Duration seconds", selection: $viewModel.seconds) {
+                                    ForEach(0..<60) {
+                                        Text("\($0)")
+                                    }
+                                }
+                                .labelsHidden()
+                                .pickerStyle(.menu)
+                                
+                                Text("sec")
+                                
+                                Spacer()
+                                
+                                Button("Reset") {}
+                                    .onTapGesture {
+                                        viewModel.resetDuration()
+                                    }
+                            }
                         }
                     }
                     .disabled(!viewModel.isTypeSet)
-                    .pickerStyle(.segmented)
-                
-                    if (viewModel.type == .timer) {
-                        HStack {
-                            Picker("Duration minutes", selection: $viewModel.minutes) {
-                                ForEach(0..<60) {
-                                    Text("\($0)")
-                                }
-                            }
-                            .labelsHidden()
-                            .disabled(!viewModel.isTypeSet)
-                            .pickerStyle(.menu)
-                            .frame(width: 100)
-                            .clipShape(RoundedRectangle(cornerRadius: 5))
-                            
-                            Text("min")
-                            Text(":")
-                            
-                            Picker("Duration seconds", selection: $viewModel.seconds) {
-                                ForEach(0..<60) {
-                                    Text("\($0)")
-                                }
-                            }
-                            .labelsHidden()
-                            .disabled(!viewModel.isTypeSet)
-                            .pickerStyle(.menu)
-                            .frame(width: 100)
-                            .clipShape(RoundedRectangle(cornerRadius: 5))
-                            
-                            Text("sec")
-                        }
-                    }
                 }
             }
             .navigationTitle(viewModel.isEditMode ? "Exercise template" : "New template")

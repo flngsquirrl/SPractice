@@ -14,7 +14,7 @@ extension ExerciseTemplateView {
         @Published var description: String = ""
         @Published var isTypeSet: Bool = true
         @Published var type: Exercise.ExerciseType = .timer
-        @Published var minutes: Int = 1
+        @Published var minutes: Int = 0
         @Published var seconds: Int = 0
         
         var isEditMode: Bool
@@ -49,6 +49,11 @@ extension ExerciseTemplateView {
             let duration = type == .timer ? ClockTime.calculateDuration(minutes: minutes, seconds: seconds) : nil
             let type = isTypeSet ? type : nil
             return ExerciseTemplate(id: id, type: type, name: name, duration: duration)
+        }
+        
+        func resetDuration() {
+            minutes = 0
+            seconds = 0
         }
     }
 }
