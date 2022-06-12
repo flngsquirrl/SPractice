@@ -95,5 +95,7 @@ struct ProgramTemplateView: View {
 struct NewProgramView_Previews: PreviewProvider {
     static var previews: some View {
         ProgramTemplateView() { _ in }
+        
+        ProgramTemplateView(for: ProgramTemplate.personal) { _ in }
     }
 }
