@@ -22,5 +22,9 @@ extension ExerciseTemplateSelectionView {
                 selections.remove(at: index)
             }
         }
+        
+        func removeItems(at offsets: IndexSet) {
+            selections.remove(atOffsets: offsets)
+        }
     }
 }

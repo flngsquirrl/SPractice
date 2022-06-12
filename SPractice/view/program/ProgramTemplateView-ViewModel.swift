@@ -16,7 +16,6 @@ extension ProgramTemplateView {
         @Published var exercises: [ExerciseTemplate] = []
         
         var newExercise: ExerciseTemplate?
-        var exerciseTemplates: [ExerciseTemplate] = [ExerciseTemplate.catCow, ExerciseTemplate.vasihsthasana]
         
         private var id: UUID
         var isEditMode: Bool
@@ -55,6 +54,10 @@ extension ProgramTemplateView {
         
         func validateProgram() {
             // check name and number of exercised
+        }
+        
+        func removeItems(at offsets: IndexSet) {
+            exercises.remove(atOffsets: offsets)
         }
     }
 }

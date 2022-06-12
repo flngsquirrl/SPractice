@@ -27,6 +27,7 @@ struct ExerciseTemplateSelectionView: View {
                             viewModel.onDelete(template: $0)
                         }
                     }
+                    .onDelete { viewModel.removeItems(at: $0) }
                 }
                     
                 Section("Existing") {

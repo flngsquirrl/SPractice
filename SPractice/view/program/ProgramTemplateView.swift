@@ -47,7 +47,9 @@ struct ProgramTemplateView: View {
                                 ExerciseDetailsShortView(for: exercise, displayDuration: true)
                             }
                         }
+                        .onDelete { viewModel.removeItems(at: $0) }
                     }
+                    
                     HStack {
                         Button() {
                             showExerciseSelectionView = true
