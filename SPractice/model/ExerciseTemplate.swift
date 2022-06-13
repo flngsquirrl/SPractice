@@ -81,7 +81,7 @@ struct ExerciseTemplate: Identifiable, Hashable {
     
     private func prepareTimerTasks() -> [Task] {
         let type: Task.TaskType = isService ? .rest : .activity
-        let task = Task(type: type, name: Task.TaskType.activity.rawValue, duration: duration)
+        let task = Task(type: type, name: type.rawValue, duration: duration)
         return Array<Task>.wrapElement(element: task)
     }
     
