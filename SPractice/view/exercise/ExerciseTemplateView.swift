@@ -71,10 +71,9 @@ struct ExerciseTemplateView: View {
                             
                             Spacer()
                             
-                            Button("Reset") {}
-                                .onTapGesture {
-                                    viewModel.resetDuration()
-                                }
+                            Button("Reset") { viewModel.resetDuration() }
+                                .foregroundColor(.lightOrange)
+                                .buttonStyle(PlainButtonStyle())
                         }
                     }
                 }
