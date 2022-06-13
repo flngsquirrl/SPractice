@@ -46,9 +46,11 @@ struct ExerciseTemplateView: View {
                     if (viewModel.type == .timer) {
                         HStack {
                             Picker("Duration minutes", selection: $viewModel.minutes) {
-                                ForEach(0..<60) {
-                                    Text("\($0)")
+                                ForEach(0..<61) {
+                                    Text(String(format: "%02d", $0))
                                 }
+                            }
+                            .onChange(of: viewModel.minutes) { viewModel.onMinutesChange(newValue: $0)
                             }
                             .labelsHidden()
                             .pickerStyle(.menu)
@@ -58,9 +60,10 @@ struct ExerciseTemplateView: View {
                             
                             Picker("Duration seconds", selection: $viewModel.seconds) {
                                 ForEach(ViewModel.secondsSelectionArray, id: \.self) {
-                                    Text("\($0)")
+                                    Text(String(format: "%02d", $0))
                                 }
                             }
+                            .disabled(!viewModel.areSecondsEnabled)
                             .labelsHidden()
                             .pickerStyle(.menu)
                             

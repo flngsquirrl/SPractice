@@ -26,6 +26,8 @@ extension ExerciseTemplateView {
         @Published var minutes: Int = 0
         @Published var seconds: Int = 0
         
+        @Published var areSecondsEnabled = true
+        
         static let secondsSelectionArray = Array(stride(from: 0, through: 50, by: 10))
         
         var isEditMode: Bool
@@ -54,6 +56,15 @@ extension ExerciseTemplateView {
             
             isEditMode = true
             self.id = template.id
+        }
+        
+        func onMinutesChange(newValue: Int) {
+            if newValue == 60 {
+                seconds = 0
+                areSecondsEnabled = false
+            } else {
+                areSecondsEnabled = true
+            }
         }
         
         func prepareNewExerciseTemplate() -> ExerciseTemplate {
