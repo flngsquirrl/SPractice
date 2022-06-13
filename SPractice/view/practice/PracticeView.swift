@@ -23,7 +23,7 @@ struct PracticeView: View {
             VStack {
                 Spacer()
                 ExerciseView(practice: practice)
-                //PracticeSequenceView()
+                PracticeSequenceView(practice: practice)
                 Spacer()
                 PlayerView(player: practice.player)
                 Spacer()

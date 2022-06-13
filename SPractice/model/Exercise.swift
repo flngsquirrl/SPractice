@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct Exercise: Identifiable {
+struct Exercise: Identifiable, Equatable {
+    
+    static func == (lhs: Exercise, rhs: Exercise) -> Bool {
+        lhs.id == rhs.id
+    }
+    
     
     enum ExerciseType: String, CaseIterable {
         case flow

@@ -48,12 +48,44 @@ class Practice: ObservableObject {
         program.exercises[currentExerciseIndex]
     }
     
+    private var previousExercise: Exercise {
+        program.exercises[currentExerciseIndex - 1]
+    }
+    
+    private var nextExercise: Exercise {
+        program.exercises[currentExerciseIndex + 1]
+    }
+    
     var isLastTask: Bool {
         currentTaskIndex == currentExercise.tasks.count - 1
     }
     
     var currentTask: Task {
         currentExercise.tasks[currentTaskIndex]
+    }
+    
+    func preview() -> [Exercise] {
+        let previewNumber = 3
+
+        guard previewNumber < program.exercises.count else {
+            return program.exercises
+        }
+        
+        var result: [Exercise] = []
+        if isFirstExercise {
+            result.append(currentExercise)
+            result.append(program.exercises[currentExerciseIndex + 1])
+            result.append(program.exercises[currentExerciseIndex + 2])
+        } else if isLastExercise {
+            result.append(program.exercises[currentExerciseIndex - 2])
+            result.append(program.exercises[currentExerciseIndex - 1])
+            result.append(currentExercise)
+        } else {
+            result.append(program.exercises[currentExerciseIndex - 1])
+            result.append(currentExercise)
+            result.append(nextExercise)
+        }
+        return result
     }
     
     func run() {
