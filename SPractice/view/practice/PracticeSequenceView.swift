@@ -61,27 +61,11 @@ struct PracticeSequenceRowView: View {
     var item: ExerciseSequenceItem
     
     var body: some View {
-        HStack {
-            Group {
-                switch item.sequenceMark {
-                case .previous:
-                    Image(systemName: "arrowtriangle.up.fill")
-                case .current:
-                    //Image(systemName: "smallcircle.filled.circle")
-                    Image(systemName: "arrowtriangle.forward.fill")
-                case .next:
-                    Image(systemName: "arrowtriangle.down.fill")
-                }
-            }
-            .foregroundColor(.lightOrange)
-            
-            ExerciseDetailsShortView(for: item.exercise)
-                
-        }
-        .padding(10)
-        .background(.creamy)
-        .clipShape(RoundedRectangle(cornerRadius: 12))
-        .transition(.slide)
+        ExerciseDetailsShortView(for: item.exercise)
+            .foregroundColor(item.sequenceMark == .current ? .lightOrange : nil)
+            .padding(10)
+            .background(.creamy)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }
 
