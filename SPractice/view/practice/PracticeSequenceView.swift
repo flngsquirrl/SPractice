@@ -17,6 +17,9 @@ struct PracticeSequenceView: View {
                     PracticeSequenceRowView(item: item)
             }
         }
+        .padding()
+        .background(.creamy)
+        .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }
 
@@ -61,11 +64,11 @@ struct PracticeSequenceRowView: View {
     var item: ExerciseSequenceItem
     
     var body: some View {
-        ExerciseDetailsShortView(for: item.exercise)
-            .foregroundColor(item.sequenceMark == .current ? .lightOrange : nil)
-            .padding()
-            .background(.creamy)
-            .clipShape(RoundedRectangle(cornerRadius: 12))
+        if item.sequenceMark == .current {
+            ExerciseDetailsShortView(for: item.exercise, iconColor: .lightOrange)
+        } else {
+            ExerciseDetailsShortView(for: item.exercise)
+        }
     }
 }
 
