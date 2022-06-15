@@ -58,6 +58,7 @@ struct ExerciseDetailsShortView: View {
                     case .timer, .tabata:
                         Text(ClockTime.getPaddedPresentation(for: duration!))
                             .foregroundColor(.gray)
+                            .font(.system(.callout).monospacedDigit())
                     }
                 } else {
                     Image(systemName: "questionmark")
