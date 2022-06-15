@@ -63,7 +63,7 @@ struct PracticeSequenceRowView: View {
     var body: some View {
         ExerciseDetailsShortView(for: item.exercise)
             .foregroundColor(item.sequenceMark == .current ? .lightOrange : nil)
-            .padding(10)
+            .padding()
             .background(.creamy)
             .clipShape(RoundedRectangle(cornerRadius: 12))
     }

@@ -43,7 +43,6 @@ struct ClockView: View {
                 .foregroundColor(ClockView.textColor)
             }
         }
-        .padding(20)
         .font(ClockView.mainFont)
         .frame(maxWidth: .infinity, minHeight: 120)
         .background(ClockView.backgroundColor)

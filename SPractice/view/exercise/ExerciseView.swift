@@ -23,7 +23,7 @@ struct ExerciseView: View {
                     .opacity(0.8)
                     .foregroundColor(.lightOrange)
                     .font(.largeTitle.bold())
-                    .padding(.trailing, 20)
+                    .padding(.trailing)
             }
             
             Text("\(practice.currentExercise.name)")
@@ -40,7 +40,7 @@ struct ExerciseView: View {
                 .font(.body.bold())
                 .foregroundColor(.creamy)
         }
-        .padding([.top, .bottom] ,20)
+        .padding([.top, .bottom])
     }
 }
 
