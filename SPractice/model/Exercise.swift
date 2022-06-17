@@ -41,14 +41,6 @@ struct Exercise: Identifiable, Equatable {
     let isService: Bool
     let tasks: [Task]
     
-    var wrappedDuration: String {
-        if let duration = duration {
-            return "\(duration) sec"
-        } else {
-            return ""
-        }
-    }
-    
     var duration: Int? {
         guard type != .flow else {
             return nil
