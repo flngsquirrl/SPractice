@@ -39,7 +39,7 @@ struct ExerciseTemplatesView: View, EditableView {
                 .disabled(isEditMode)
             }
         }
-        .fullScreenCover(isPresented: $showAddNewView) {
+        .sheet(isPresented: $showAddNewView) {
             AddExerciseTemplateView() { viewModel.addNewTemplate(template: $0) }
         }
     }

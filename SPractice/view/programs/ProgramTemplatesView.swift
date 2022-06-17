@@ -44,7 +44,7 @@ struct ProgramTemplatesView: View, EditableView {
                 .disabled(isEditMode)
             }
         }
-        .fullScreenCover(isPresented: $showAddNewProgramView) {
+        .sheet(isPresented: $showAddNewProgramView) {
             ProgramTemplateView() { viewModel.addNewTemplate(template: $0) }
         }
     }
