@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct ExerciseTemplatesView: View {
+struct ExerciseTemplatesView: View, EditableView {
+    
+    @Environment(\.editMode) var editMode
     
     @StateObject var viewModel = ViewModel()
     @State private var showAddNewView = false
@@ -15,10 +17,14 @@ struct ExerciseTemplatesView: View {
     var body: some View {
         Group {
             ForEach(viewModel.templates) { template in
-                NavigationLink {
-                    EditExerciseTemplateView(template: template) { viewModel.updateTemplate(template: $0) }
-                } label: {
+                if isEditMode {
                     ExerciseDetailsShortView(for: template, displayDuration: template.type == .timer)
+                } else {
+                    NavigationLink {
+                        EditExerciseTemplateView(template: template) { viewModel.updateTemplate(template: $0) }
+                    } label: {
+                        ExerciseDetailsShortView(for: template, displayDuration: template.type == .timer)
+                    }
                 }
             }
             .onDelete { viewModel.removeItems(at: $0) }
@@ -30,6 +36,7 @@ struct ExerciseTemplatesView: View {
                 } label: {
                     Text("Add new")
                 }
+                .disabled(isEditMode)
             }
         }
         .fullScreenCover(isPresented: $showAddNewView) {

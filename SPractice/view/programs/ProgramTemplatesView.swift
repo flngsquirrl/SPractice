@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct ProgramTemplatesView: View {
+struct ProgramTemplatesView: View, EditableView {
+    
+    @Environment(\.editMode) var editMode
     
     @ObservedObject var viewModel = ViewModel()
 
@@ -16,17 +18,18 @@ struct ProgramTemplatesView: View {
     var body: some View {
         Group {
             ForEach(viewModel.templates) { template in
-                HStack {                  
-                    NavigationLink {
-                        ProgramDetailsView(for: template) {
-                            viewModel.updateTemplate(template: $0)
-                        }
-                    } label: {
-                        HStack {
+                HStack {
+                    if isEditMode {
+                        Text("\(template.name)")
+                    } else {
+                        NavigationLink {
+                            ProgramDetailsView(for: template) {
+                                viewModel.updateTemplate(template: $0)
+                            }
+                        } label: {
                             Text("\(template.name)")
                         }
                     }
-                    
                 }
             }
             .onDelete { viewModel.removeItems(at: $0) }
@@ -38,6 +41,7 @@ struct ProgramTemplatesView: View {
                 } label: {
                     Text("Add new")
                 }
+                .disabled(isEditMode)
             }
         }
         .fullScreenCover(isPresented: $showAddNewProgramView) {

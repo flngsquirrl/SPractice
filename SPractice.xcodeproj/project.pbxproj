@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C9445C65285CACEF00DF2A08 /* EditableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9445C64285CACEF00DF2A08 /* EditableView.swift */; };
 		C94B3F69284A1E4400A23612 /* ProgramTemplateView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94B3F68284A1E4400A23612 /* ProgramTemplateView-ViewModel.swift */; };
 		C94B3F6C284A21AE00A23612 /* ProgramTemplatesView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94B3F6B284A21AE00A23612 /* ProgramTemplatesView-ViewModel.swift */; };
 		C95011C728196FFD0043EC75 /* SPracticeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95011C628196FFD0043EC75 /* SPracticeApp.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C9445C64285CACEF00DF2A08 /* EditableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableView.swift; sourceTree = "<group>"; };
 		C94B3F68284A1E4400A23612 /* ProgramTemplateView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgramTemplateView-ViewModel.swift"; sourceTree = "<group>"; };
 		C94B3F6B284A21AE00A23612 /* ProgramTemplatesView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgramTemplatesView-ViewModel.swift"; sourceTree = "<group>"; };
 		C95011C328196FFD0043EC75 /* SPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -237,6 +239,7 @@
 				C9A0D0182827CE9F000CF439 /* logo */,
 				C95011C828196FFD0043EC75 /* ContentView.swift */,
 				C9A0D023282813F2000CF439 /* ColorTheme.swift */,
+				C9445C64285CACEF00DF2A08 /* EditableView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				C9CCCE98284B6DE5005665C8 /* ProgramDetailsView.swift in Sources */,
 				C9A0D02028280F13000CF439 /* SquirrelInWheel.swift in Sources */,
 				C9A0CFF2281B3733000CF439 /* ExerciseView.swift in Sources */,
+				C9445C65285CACEF00DF2A08 /* EditableView.swift in Sources */,
 				C9A0D001281BE4C8000CF439 /* PlayerView.swift in Sources */,
 				C94B3F6C284A21AE00A23612 /* ProgramTemplatesView-ViewModel.swift in Sources */,
 				C9692C832850A78300373730 /* TemplateManager.swift in Sources */,
