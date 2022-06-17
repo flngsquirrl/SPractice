@@ -17,13 +17,15 @@ struct ExerciseTemplatesView: View, EditableView {
     var body: some View {
         Group {
             ForEach(viewModel.templates) { template in
-                if isEditMode {
-                    ExerciseDetailsShortView(for: template, displayDuration: template.type == .timer)
-                } else {
-                    NavigationLink {
-                        EditExerciseTemplateView(template: template) { viewModel.updateTemplate(template: $0) }
-                    } label: {
+                HStack {
+                    if isEditMode {
                         ExerciseDetailsShortView(for: template, displayDuration: template.type == .timer)
+                    } else {
+                        NavigationLink {
+                            EditExerciseTemplateView(template: template) { viewModel.updateTemplate(template: $0) }
+                        } label: {
+                            ExerciseDetailsShortView(for: template, displayDuration: template.type == .timer)
+                        }
                     }
                 }
             }
