@@ -14,7 +14,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            Form {
+            List {
                 Section {
                     Picker("Group of templates", selection: $contentType.animation()) {
                         ForEach(ContentType.allCases, id: \.self) {
@@ -23,7 +23,6 @@ struct ContentView: View {
                     }
                     .pickerStyle(.segmented)
                 }
-                    
                     
                 switch contentType {
                 case .programs:
