@@ -10,30 +10,58 @@ import SwiftUI
 
 struct PracticeView: View {
     
+    @Environment(\.dismiss) var dismiss
+    
+    @State private var isPracticeSequenceShown = true
+    
     @ObservedObject var practice: Practice
     
     var body: some View {
-        ZStack {
-            LinearGradient(gradient: Gradient(stops: [
-                .init(color: .lightNavy, location: 0.3),
-                .init(color: .creamy, location: 1),
-            ]), startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea()
-            
-            VStack {
-                Spacer()
-                ExerciseView(practice: practice)
-                PracticeSequenceView(practice: practice)
-                Spacer()
-                PlayerView(player: practice.player)
-                Spacer()
+        NavigationView {
+            ZStack {
+                LinearGradient(gradient: Gradient(stops: [
+                    .init(color: .lightNavy, location: 0.3),
+                    .init(color: .creamy, location: 1),
+                ]), startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
+                
+                VStack {
+                    Spacer()
+                    ExerciseView(practice: practice)
+                    
+                    if isPracticeSequenceShown {
+                        PracticeSequenceView(practice: practice)
+                    }
+                    Spacer()
+                    PlayerView(player: practice.player)
+                    Spacer()
+                }
+                .frame(maxWidth: 320)
             }
-            .frame(maxWidth: 320)
+            .onAppear(perform: practice.prepare)
+            .onDisappear(perform: practice.pause)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button() {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "xmark.circle")
+                    }
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button() {
+                        withAnimation {
+                            isPracticeSequenceShown.toggle()
+                        }
+                    } label: {
+                        Image(systemName: isPracticeSequenceShown ? "list.bullet.rectangle.fill" : "list.bullet.rectangle")
+                    }
+                }
+            }
         }
-        .onAppear(perform: practice.prepare)
-        .onDisappear(perform: practice.pause)
-        .navigationTitle(practice.program.name)
-        .navigationBarTitleDisplayMode(.inline)
+        .accentColor(.customAccentColor)
     }
 }
 
