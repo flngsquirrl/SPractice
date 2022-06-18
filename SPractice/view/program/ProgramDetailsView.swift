@@ -43,7 +43,7 @@ struct ProgramDetailsView: View {
                 }
             }
         }
-        .sheet(isPresented: $viewModel.showPracticeView) {
+        .fullScreenCover(isPresented: $viewModel.showPracticeView) {
             PracticeView(practice: Practice(for: viewModel.program))
         }
         .fullScreenCover(isPresented: $viewModel.showEditTemplateView) {
