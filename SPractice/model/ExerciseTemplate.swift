@@ -50,55 +50,6 @@ struct ExerciseTemplate: Identifiable, Hashable {
         type == .timer
     }
     
-    func prepareTasks() -> [Task] {
-        var tasks = [Task]()
-        
-        switch type! {
-        case .flow:
-            tasks = prepareFlowTasks()
-        case .tabata:
-            tasks = prepareTabataTasks()
-        case .timer:
-            tasks = prepareTimerTasks()
-        }
-        
-        return tasks
-    }
-    
-    private func prepareTabataTasks() -> [Task]  {
-        var tasks = [Task]()
-        
-        // todo: read duration from settings
-        let warmUp = Task(type: .rest, name: "warm-up", duration: 10)
-        tasks.append(warmUp)
-        
-        for i in 1...2 {
-            // todo: read rest duration from settings
-            let activity = Task(type: .activity, name: "\(Task.TaskType.activity.rawValue) \(i)", duration: 20)
-            // todo: read rest duration from settings
-            let rest = Task(type: .rest, name: "\(Task.TaskType.rest.rawValue) \(i)", duration: 10)
-            tasks.append(activity)
-            tasks.append(rest)
-        }
-        
-        // todo: read rest duration from settings
-        let coolDown = Task(type: .rest, name: "cool-down", duration: 10)
-        tasks.append(coolDown)
-        
-        return tasks
-    }
-    
-    private func prepareFlowTasks() -> [Task] {
-        let task = Task(type: .activity, name: Task.TaskType.activity.rawValue)
-        return Array<Task>.wrapElement(element: task)
-    }
-    
-    private func prepareTimerTasks() -> [Task] {
-        let type: Task.TaskType = isService ? .rest : .activity
-        let task = Task(type: type, name: type.rawValue, duration: duration)
-        return Array<Task>.wrapElement(element: task)
-    }
-    
     // examples
     static let catCow = ExerciseTemplate(type: .timer, name: "Cat-Cow", duration: 90)
     static let surjaNamascar = ExerciseTemplate(type: .flow, name: "Surja Namascar")
