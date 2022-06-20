@@ -45,7 +45,7 @@ struct ExerciseDetailsShortView: View {
     
     var body: some View {
         HStack {
-            Image(systemName: type != nil ? type!.imageName : "questionmark.circle")
+            ExerciseTypeImage(type: type)
                 .foregroundColor(iconColor)
             Text(name)
             Spacer()

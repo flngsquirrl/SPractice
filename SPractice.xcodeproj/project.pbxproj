@@ -26,6 +26,7 @@
 		C9741A34286085E400E1F670 /* EditProgramTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A33286085E400E1F670 /* EditProgramTemplateView.swift */; };
 		C9741A362860860C00E1F670 /* ProgramTemplateEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A352860860C00E1F670 /* ProgramTemplateEditor.swift */; };
 		C9741A382860862900E1F670 /* ProgramTemplateEditor-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A372860862900E1F670 /* ProgramTemplateEditor-ViewModel.swift */; };
+		C9741A3C2860CD6300E1F670 /* ExerciseTypeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A3B2860CD6200E1F670 /* ExerciseTypeImage.swift */; };
 		C9A0CFEA281AB32B000CF439 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFE9281AB32B000CF439 /* Task.swift */; };
 		C9A0CFEC281AB382000CF439 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFEB281AB382000CF439 /* Exercise.swift */; };
 		C9A0CFEE281AB484000CF439 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFED281AB484000CF439 /* Program.swift */; };
@@ -79,6 +80,7 @@
 		C9741A33286085E400E1F670 /* EditProgramTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProgramTemplateView.swift; sourceTree = "<group>"; };
 		C9741A352860860C00E1F670 /* ProgramTemplateEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramTemplateEditor.swift; sourceTree = "<group>"; };
 		C9741A372860862900E1F670 /* ProgramTemplateEditor-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgramTemplateEditor-ViewModel.swift"; sourceTree = "<group>"; };
+		C9741A3B2860CD6200E1F670 /* ExerciseTypeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTypeImage.swift; sourceTree = "<group>"; };
 		C9A0CFE9281AB32B000CF439 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		C9A0CFEB281AB382000CF439 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		C9A0CFED281AB484000CF439 /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				C9D156B128534F5C007F5176 /* EditExerciseTemplateView.swift */,
 				C9445C6C285E00D000DF2A08 /* ExerciseTemplateDetailsView.swift */,
 				C9692C7B284F787700373730 /* ExerciseDetailsShortView.swift */,
+				C9741A3B2860CD6200E1F670 /* ExerciseTypeImage.swift */,
 			);
 			path = exercise;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				C9A0CFF2281B3733000CF439 /* ExerciseView.swift in Sources */,
 				C9445C65285CACEF00DF2A08 /* EditableView.swift in Sources */,
 				C9A0D001281BE4C8000CF439 /* PlayerView.swift in Sources */,
+				C9741A3C2860CD6300E1F670 /* ExerciseTypeImage.swift in Sources */,
 				C9741A322860857F00E1F670 /* AddProgramTemplateView.swift in Sources */,
 				C94B3F6C284A21AE00A23612 /* ProgramTemplatesView-ViewModel.swift in Sources */,
 				C9692C832850A78300373730 /* TemplateManager.swift in Sources */,

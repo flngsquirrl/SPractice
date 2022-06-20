@@ -16,7 +16,7 @@ struct ExerciseView: View {
             HStack {
                 Spacer()
 
-                Image(systemName: practice.currentExercise.type.imageName)
+                Image(systemName: ExerciseTypeImage.imageName(for: practice.currentExercise.type))
                     .resizable()
                     .scaledToFit()
                     .frame(width: 50)

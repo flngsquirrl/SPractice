@@ -13,7 +13,6 @@ struct Exercise: Identifiable, Equatable {
         lhs.id == rhs.id
     }
     
-    
     enum ExerciseType: String, CaseIterable {
         case flow
         case timer
@@ -21,17 +20,6 @@ struct Exercise: Identifiable, Equatable {
         
         var hasDuration: Bool {
             self != .flow
-        }
-        
-        var imageName: String {
-            switch self {
-            case .flow:
-                return "heart.circle.fill"
-            case .timer:
-                return "clock.fill"
-            case .tabata:
-                return "t.circle.fill"
-            }
         }
     }
     

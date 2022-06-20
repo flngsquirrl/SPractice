@@ -21,7 +21,7 @@ struct ExerciseTemplateDetailsView: View {
                 Text("Type")
                 Spacer()
                 
-                Image(systemName: template.type?.imageName ?? "questionmark.circle")
+                ExerciseTypeImage(type: template.type)
                 Text(template.type?.rawValue ?? "not set")
             }
             
