@@ -19,7 +19,7 @@ struct ProgramTemplatesView: View, EditableView {
         Group {
             ForEach(viewModel.templates) { template in
                 HStack {
-                    if isEditMode {
+                    if isInEditMode {
                         Text("\(template.name)")
                     } else {
                         NavigationLink {
@@ -41,7 +41,7 @@ struct ProgramTemplatesView: View, EditableView {
                 } label: {
                     Text("Add new")
                 }
-                .disabled(isEditMode)
+                .disabled(isInEditMode)
             }
         }
         .sheet(isPresented: $showAddNewProgramView) {

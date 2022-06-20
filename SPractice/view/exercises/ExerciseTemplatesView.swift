@@ -18,11 +18,12 @@ struct ExerciseTemplatesView: View, EditableView {
         Group {
             ForEach(viewModel.templates) { template in
                 HStack {
-                    if isEditMode {
+                    if isInEditMode {
                         ExerciseDetailsShortView(for: template, displayDuration: template.type == .timer)
                     } else {
                         NavigationLink {
-                            EditExerciseTemplateView(template: template) { viewModel.updateTemplate(template: $0) }
+                            ExerciseTemplateDetailsView(template: template) { viewModel.updateTemplate(template: $0) }
+                                onDelete: { _ in }
                         } label: {
                             ExerciseDetailsShortView(for: template, displayDuration: template.type == .timer)
                         }
@@ -38,11 +39,14 @@ struct ExerciseTemplatesView: View, EditableView {
                 } label: {
                     Text("Add new")
                 }
-                .disabled(isEditMode)
+                .disabled(isInEditMode)
             }
         }
         .sheet(isPresented: $showAddNewView) {
-            AddExerciseTemplateView() { viewModel.addNewTemplate(template: $0) }
+            NavigationView {
+                AddExerciseTemplateView() { viewModel.addNewTemplate(template: $0) }
+            }
+            .accentColor(.customAccentColor)
         }
     }
 }

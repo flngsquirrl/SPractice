@@ -36,6 +36,14 @@ struct ExerciseTemplate: Identifiable, Hashable {
         ExerciseTemplate(type: .timer, name: "Rest", isService: true, duration: 10)
     }
     
+    static var defaultTemplate: ExerciseTemplate {
+        ExerciseTemplate(type: .flow, name: "")
+    }
+    
+    var isTimer: Bool {
+        type == .timer
+    }
+    
     func prepareTasks() -> [Task] {
         var tasks = [Task]()
         

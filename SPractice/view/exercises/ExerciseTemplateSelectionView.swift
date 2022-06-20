@@ -21,21 +21,21 @@ struct ExerciseTemplateSelectionView: View {
     var body: some View {
         NavigationView {
             List {
-                Section("To add") {
-                    ForEach(viewModel.selections) { template in
-                        SelectionRow(template: template, isAdded: true) {
-                            viewModel.onDelete(template: $0)
-                        }
-                    }
-                    .onDelete { viewModel.removeItems(at: $0) }
-                }
-                    
                 Section("Existing") {
                     ForEach(viewModel.templates) { template in
                         SelectionRow(template: template) {
                             viewModel.onAdd(template: $0)
                         }
                     }
+                }
+                
+                Section("To add (\(viewModel.selections.count))") {
+                    ForEach(viewModel.selections) { template in
+                        SelectionRow(template: template, isAdded: true) {
+                            viewModel.onDelete(template: $0)
+                        }
+                    }
+                    .onDelete { viewModel.removeItems(at: $0) }
                 }
             }
             .navigationTitle("Templates")
@@ -45,6 +45,7 @@ struct ExerciseTemplateSelectionView: View {
                         onFinished(viewModel.selections)
                         dismiss()
                     }
+                    .disabled(viewModel.selections.isEmpty)
                 }
                 
                 ToolbarItem(placement: .navigationBarLeading) {

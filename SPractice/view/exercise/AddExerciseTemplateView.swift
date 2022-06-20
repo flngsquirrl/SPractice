@@ -9,18 +9,39 @@ import SwiftUI
 
 struct AddExerciseTemplateView: View {
     
+    @Environment(\.dismiss) var dismiss
     var onAdd: (ExerciseTemplate) -> Void
     
+    @State private var newTemplate = ExerciseTemplate.defaultTemplate
+    
+    init(onAdd: @escaping (ExerciseTemplate) -> Void) {
+        self.onAdd = onAdd
+    }
+    
     var body: some View {
-        NavigationView {
-            ExerciseTemplateView() { onAdd($0) }
-        }
-        .accentColor(.customAccentColor)
+        ExerciseTemplateEditor(for: $newTemplate)
+            .navigationTitle("New template")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Add") {
+                        onAdd(newTemplate)
+                        dismiss()
+                    }
+                }
+                
+                ToolbarItemGroup(placement: .navigationBarLeading) {
+                    Button("Cancel") {
+                        dismiss()
+                    }
+                }
+            }
     }
 }
 
 struct AddExerciseTemplateView_Previews: PreviewProvider {
     static var previews: some View {
-        AddExerciseTemplateView() { _ in }
+        NavigationView {
+            AddExerciseTemplateView() { _ in }
+        }
     }
 }

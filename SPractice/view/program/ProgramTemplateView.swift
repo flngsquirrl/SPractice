@@ -13,6 +13,9 @@ struct ProgramTemplateView: View {
     @State private var showNewExerciseView = false
     @State private var showExerciseSelectionView = false
     
+    @State private var selectedExercise: ExerciseTemplate? = nil
+    @State private var editMode: EditMode = .inactive
+    
     var onSave: (ProgramTemplate) -> Void
     
     @Environment(\.dismiss) var dismiss
@@ -38,47 +41,66 @@ struct ProgramTemplateView: View {
                     Text("Having rest between execises lets you take a deep breath and prepare for the upcoming exercise")
                 }
                 
-                Section("Exercises") {
-                    List {
-                        ForEach(viewModel.exercises) { exercise in
-                            NavigationLink() {
-                                EditExerciseTemplateView(template: exercise) { viewModel.updateExerciseTemplate(template: $0) }
-                            } label: {
-                                ExerciseDetailsShortView(for: exercise, displayDuration: true)
+                Section() {
+                    ForEach(viewModel.exercises) { exercise in
+                        HStack {
+                            if !editMode.isEditing {
+                                Button() {
+                                    selectedExercise = exercise
+                                } label: {
+                                    Image(systemName: "pencil.circle.fill")
+                                }
                             }
+                            
+                            ExerciseDetailsShortView(for: exercise, displayDuration: true)
+                                .foregroundColor(.primary)
                         }
-                        .onDelete { viewModel.removeItems(at: $0) }
                     }
+                    .onDelete { viewModel.removeItems(at: $0) }
+                    .onMove{ _,_  in }
                     
-                    HStack {
-                        Button() {
-                            showExerciseSelectionView = true
-                        } label: {
-                            Label("Select from templates", systemImage: "plus")
-                        }
+                    Button() {
+                        showExerciseSelectionView = true
+                    } label: {
+                        Label("Select from templates", systemImage: "plus")
                     }
+                    .disabled(editMode.isEditing)
                     
                     Button() {
                         showNewExerciseView = true
                     } label: {
                         Label("Add new", systemImage: "plus")
                     }
+                    .disabled(editMode.isEditing)
+                } header: {
+                    HStack {
+                        Text("Exercises (\(viewModel.exercises.count))")
+                        Spacer()
+                        if editMode.isEditing {
+                            Button("Done") {
+                                withAnimation {
+                                    editMode = .inactive
+                                }
+                            }
+                        } else {
+                            Button("Edit") {
+                                withAnimation {
+                                    editMode = .active
+                                }
+                            }
+                        }
+                    }
                 }
-            }
-            .sheet(isPresented: $showExerciseSelectionView) {
-                ExerciseTemplateSelectionView() { viewModel.addNewExerciseTemplates(templates: $0) }
-            }
-            .sheet(isPresented: $showNewExerciseView) {
-                AddExerciseTemplateView() { viewModel.addNewExerciseTemplate(template: $0) }
             }
             .navigationTitle(viewModel.isEditMode ? "Program template" : "New template")
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button("Save") {
                         let template = viewModel.prepareNewProgramTemplate()
                         onSave(template)
                         dismiss()
                     }
+                    .disabled(editMode.isEditing)
                 }
                 
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -86,6 +108,19 @@ struct ProgramTemplateView: View {
                         dismiss()
                     }
                 }
+            }
+            .environment(\.editMode, $editMode)
+            .sheet(item: $selectedExercise) { exercise in
+                NavigationView {
+                    EditExerciseTemplateView(for: exercise) { viewModel.updateExerciseTemplate(template: $0) }
+                    }
+                    .accentColor(.customAccentColor)
+            }
+            .sheet(isPresented: $showExerciseSelectionView) {
+                ExerciseTemplateSelectionView() { viewModel.addNewExerciseTemplates(templates: $0) }
+            }
+            .sheet(isPresented: $showNewExerciseView) {
+                AddExerciseTemplateView() { viewModel.addNewExerciseTemplate(template: $0) }
             }
         }
         .accentColor(.customAccentColor)

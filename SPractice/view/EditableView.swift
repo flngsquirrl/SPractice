@@ -13,7 +13,7 @@ protocol EditableView {
 }
 
 extension EditableView {
-    var isEditMode: Bool {
+    var isInEditMode: Bool {
         editMode?.wrappedValue.isEditing == true
     }
 }
