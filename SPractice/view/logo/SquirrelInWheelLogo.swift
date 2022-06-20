@@ -17,16 +17,16 @@ struct SquirrelInWheelLogo: View {
     
     var body: some View {
         GeometryReader { geo in
-            let lineWidth = geo.size.width * 0.03
+            let lineWidth = geo.size.width * 0.055
             let strokeStyle = StrokeStyle(lineWidth: lineWidth, lineCap: .round, lineJoin: .round)
             
             ZStack {
-                RoundedRectangle(cornerRadius: geo.size.width * 0.2)
-                    .fill(color)
+                Rectangle()
+                    .fill(gragient)
                 
                 Group {
-                    Circle()
-                        .fill(gragient)
+//                    Circle()
+//                        .fill(gragient)
                     
                     Group {
                         SquirrelInWheel()
