@@ -66,25 +66,19 @@ struct SettingsView: View {
                 
             }
             .navigationTitle("Settings")
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button() {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Reset") {
                         settings.restoreDefaults()
                         settings.save()
-                    } label: {
-                        Image(systemName: "arrow.counterclockwise.circle")
                     }
                 }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button() {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Close") {
                         settings.save()
                         dismiss()
-                    } label: {
-                        Image(systemName: "xmark.circle")
                     }
                 }
-                
             }
         }
         .accentColor(.customAccentColor)
