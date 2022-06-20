@@ -43,10 +43,8 @@ struct PracticeView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button() {
+                    Button("Close") {
                         dismiss()
-                    } label: {
-                        Image(systemName: "xmark.circle")
                     }
                 }
                 
