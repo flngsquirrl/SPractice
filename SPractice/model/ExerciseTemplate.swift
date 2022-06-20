@@ -19,8 +19,14 @@ struct ExerciseTemplate: Identifiable, Hashable {
         self.id = id
         self.type = type
         self.name = name
-        self.isService = isService
-        self.duration = duration
+        
+        if type == .timer {
+            self.duration = duration
+            self.isService = isService
+        } else {
+            self.duration = nil
+            self.isService = false
+        }
     }
     
     init(from template: ExerciseTemplate) {
