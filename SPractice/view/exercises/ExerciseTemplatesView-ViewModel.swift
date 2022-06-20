@@ -29,5 +29,11 @@ extension ExerciseTemplatesView {
                 templates[index] = template
             }
         }
+        
+        func deleteTemplate(template: ExerciseTemplate) {
+            if let index = templates.firstIndex(where: {$0.id == template.id}) {
+                templates.remove(at: index)
+            }
+        }
     }
 }

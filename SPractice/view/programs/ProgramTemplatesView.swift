@@ -23,8 +23,10 @@ struct ProgramTemplatesView: View, EditableView {
                         Text("\(template.name)")
                     } else {
                         NavigationLink {
-                            ProgramDetailsView(for: template) {
+                            ProgramTemplateDetailsView(for: template) {
                                 viewModel.updateTemplate(template: $0)
+                            } onDelete: {
+                                viewModel.deleteTemplate(template: $0)
                             }
                         } label: {
                             Text("\(template.name)")
@@ -45,7 +47,10 @@ struct ProgramTemplatesView: View, EditableView {
             }
         }
         .sheet(isPresented: $showAddNewProgramView) {
-            ProgramTemplateView() { viewModel.addNewTemplate(template: $0) }
+            NavigationView {
+                AddProgramTemplateView() { viewModel.addNewTemplate(template: $0) }
+            }
+            .accentColor(.customAccentColor)
         }
     }
 }

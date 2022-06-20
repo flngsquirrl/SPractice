@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension ProgramDetailsView {
+extension ProgramTemplateDetailsView {
     @MainActor class ViewModel: ObservableObject {
         
         var template: ProgramTemplate

@@ -1,5 +1,5 @@
 //
-//  ProgramDetailsView.swift
+//  ProgramTemplateDetailsView.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 4.06.22.
@@ -7,15 +7,17 @@
 
 import SwiftUI
 
-struct ProgramDetailsView: View {
+struct ProgramTemplateDetailsView: View {
     
     @ObservedObject var viewModel: ViewModel
+
+    var onChange: (ProgramTemplate) -> Void
+    var onDelete: (ProgramTemplate) -> Void
     
-    private var onSave: (ProgramTemplate) -> Void
-    
-    init(for template: ProgramTemplate, onSave: @escaping (ProgramTemplate) -> Void) {
+    init(for template: ProgramTemplate, onChange: @escaping (ProgramTemplate) -> Void, onDelete: @escaping (ProgramTemplate) -> Void) {
         self.viewModel = ViewModel(for: template)
-        self.onSave = onSave
+        self.onChange = onChange
+        self.onDelete = onDelete
     }
     
     var body: some View {
@@ -47,15 +49,19 @@ struct ProgramDetailsView: View {
             PracticeView(practice: Practice(for: viewModel.program))
         }
         .fullScreenCover(isPresented: $viewModel.showEditTemplateView) {
-            ProgramTemplateView(for: viewModel.template) {               viewModel.updateProgramTemplate(template: $0)
-                onSave($0)
+            NavigationView {
+                EditProgramTemplateView(for: viewModel.template) {
+                    viewModel.updateProgramTemplate(template: $0)
+                    onChange($0)
+                }
             }
+            .accentColor(.customAccentColor)
         }
         .navigationTitle(viewModel.program.name)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    // todo:
+                    onDelete(viewModel.template)
                 } label: {
                     Image(systemName: "trash")
                 }
@@ -73,7 +79,7 @@ struct ProgramDetailsView: View {
 struct ProgramDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ProgramDetailsView(for: ProgramTemplate.personal) { _ in }
+            ProgramTemplateDetailsView(for: ProgramTemplate.personal) { _ in } onDelete: { _ in }
         }
     }
 }

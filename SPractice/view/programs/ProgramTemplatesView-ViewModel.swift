@@ -30,5 +30,11 @@ extension ProgramTemplatesView {
                 templates[index] = template
             }
         }
+        
+        func deleteTemplate(template: ProgramTemplate) {
+            if let index = templates.firstIndex(where: {$0.id == template.id}) {
+                templates.remove(at: index)
+            }
+        }
     }
 }

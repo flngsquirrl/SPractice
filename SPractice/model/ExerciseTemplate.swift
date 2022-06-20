@@ -15,7 +15,7 @@ struct ExerciseTemplate: Identifiable, Hashable {
     let isService: Bool
     var duration: Int? // for timer only
     
-    init(id: UUID = UUID(), type: Exercise.ExerciseType? = nil, name: String, isService: Bool = false, duration: Int? = nil) {
+    init(id: UUID = UUID(), type: Exercise.ExerciseType? = nil, name: String = "", isService: Bool = false, duration: Int? = nil) {
         self.id = id
         self.type = type
         self.name = name
@@ -36,9 +36,7 @@ struct ExerciseTemplate: Identifiable, Hashable {
         ExerciseTemplate(type: .timer, name: "Rest", isService: true, duration: 10)
     }
     
-    static var defaultTemplate: ExerciseTemplate {
-        ExerciseTemplate(type: .flow, name: "")
-    }
+    static var defaultTemplate = ExerciseTemplate(type: .flow)
     
     var isTimer: Bool {
         type == .timer

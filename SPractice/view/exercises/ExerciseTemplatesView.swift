@@ -23,7 +23,7 @@ struct ExerciseTemplatesView: View, EditableView {
                     } else {
                         NavigationLink {
                             ExerciseTemplateDetailsView(template: template) { viewModel.updateTemplate(template: $0) }
-                                onDelete: { _ in }
+                                onDelete: { viewModel.deleteTemplate(template: $0) }
                         } label: {
                             ExerciseDetailsShortView(for: template, displayDuration: template.type == .timer)
                         }
