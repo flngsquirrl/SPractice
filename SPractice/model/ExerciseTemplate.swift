@@ -15,7 +15,7 @@ struct ExerciseTemplate: Identifiable, Hashable {
     let isService: Bool
     var duration: Int? // for timer only
     
-    init(id: UUID = UUID(), type: Exercise.ExerciseType? = nil, name: String = "", isService: Bool = false, duration: Int? = nil) {
+    private init(id: UUID = UUID(), type: Exercise.ExerciseType? = nil, name: String = "", isService: Bool = false, duration: Int? = nil) {
         self.id = id
         self.type = type
         self.name = name
@@ -29,12 +29,14 @@ struct ExerciseTemplate: Identifiable, Hashable {
         }
     }
     
+    /** the result has an id different from the source */
     init(from template: ExerciseTemplate) {
-        self.id = UUID()
-        self.type = template.type
-        self.name = template.name
-        self.isService = template.isService
-        self.duration = template.duration
+        self.init(type: template.type, name: template.name, isService: template.isService, duration: template.duration)
+    }
+    
+    /** the result has the same id as the source */
+    func makeCopy() -> ExerciseTemplate {
+        ExerciseTemplate(id: id, type: type, name: name, isService: isService, duration: duration)
     }
     
     static var restTemplate: ExerciseTemplate {

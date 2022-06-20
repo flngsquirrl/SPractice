@@ -24,7 +24,8 @@ struct AddExerciseTemplateView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Add") {
-                        onAdd(newTemplate)
+                        
+                        onAdd(ExerciseTemplate(from: newTemplate))
                         dismiss()
                     }
                 }

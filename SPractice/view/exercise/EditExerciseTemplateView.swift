@@ -25,7 +25,7 @@ struct EditExerciseTemplateView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save") {
-                        onSave(template)
+                        onSave(template.makeCopy())
                         dismiss()
                     }
                 }
