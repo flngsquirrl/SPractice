@@ -10,29 +10,41 @@ import SwiftUI
 struct ExerciseTypeImage: View {
     
     var type: Exercise.ExerciseType?
+    var isFilled = false
 
     var body: some View {
-        Image(systemName: Self.imageName(for: type))
+        Image(systemName: Self.imageName(for: type, isFilled: isFilled))
     }
     
-    static func imageName(for type: Exercise.ExerciseType?) -> String {
+    static func imageName(for type: Exercise.ExerciseType?, isFilled: Bool) -> String {
+        let postfix = isFilled ? ".fill" : ""
         if let type = type {
             switch type {
             case .flow:
-                return "heart.circle.fill"
+                return "heart.circle\(postfix)"
             case .timer:
-                return "clock.fill"
+                return "clock\(postfix)"
             case .tabata:
-                return "t.circle.fill"
+                return "t.circle\(postfix)"
             }
         } else {
-            return "questionmark.circle"
+            return "questionmark.circle\(postfix)"
         }
     }
 }
 
 struct ExerciseTypeImage_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseTypeImage()
+        List {
+            ExerciseTypeImage(type: .flow)
+            ExerciseTypeImage(type: .timer)
+            ExerciseTypeImage(type: .tabata)
+            ExerciseTypeImage(type: nil)
+            
+            ExerciseTypeImage(type: .flow, isFilled: true)
+            ExerciseTypeImage(type: .timer, isFilled: true)
+            ExerciseTypeImage(type: .tabata, isFilled: true)
+            ExerciseTypeImage(type: nil, isFilled: true)
+        }
     }
 }
