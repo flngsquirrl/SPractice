@@ -9,11 +9,18 @@ import SwiftUI
 
 struct ExerciseTemplateDetailsView: View {
     
-    var template: ExerciseTemplate
-    var onChange: (ExerciseTemplate) -> Void
-    var onDelete: (ExerciseTemplate) -> Void
+    @ObservedObject private var viewModel: ViewModel
+    
+    private var onChange: (ExerciseTemplate) -> Void
+    private var onDelete: (ExerciseTemplate) -> Void
     
     @State private var showEditView = false
+    
+    init(for template: ExerciseTemplate, onChange: @escaping (ExerciseTemplate) -> Void, onDelete: @escaping (ExerciseTemplate) -> Void) {
+        self.viewModel = ViewModel(for: template)
+        self.onChange = onChange
+        self.onDelete = onDelete
+    }
     
     var body: some View {
         List {
@@ -21,23 +28,46 @@ struct ExerciseTemplateDetailsView: View {
                 Text("Type")
                 Spacer()
                 
-                ExerciseTypeImage(type: template.type)
-                Text(template.type?.rawValue ?? "not set")
+                ExerciseTypeImage(type: viewModel.template.type)
+                Text(viewModel.template.type?.rawValue ?? "not set")
             }
             
-            if template.isTimer {
+            if viewModel.template.isTimer {
                 HStack {
                     Text("Duration")
                     Spacer()
-                    Text(ClockTime.getPaddedPresentation(for: template.duration!))
+                    Text(ClockTime.getPaddedPresentation(for: viewModel.template.duration!))
                 }
             }
+            
+            Section {
+                ForEach(viewModel.tasks) { task in
+                    HStack {
+                        TaskTypeImage(type: task.type)
+                        
+                        Text(task.name)
+                        Spacer()
+                        
+                        Group {
+                            if task.duration != nil {
+                                Text(ClockTime.getPaddedPresentation(for: task.duration!))
+                                    .font(.system(.callout).monospacedDigit())
+                            }
+                        }
+                        .foregroundColor(.gray)
+                    }
+                }
+            } header: {
+                Text("Tasks")
+            } footer: {
+                Text("The details are based on the current settings")
+            }
         }
-        .navigationTitle(template.name)
+        .navigationTitle(viewModel.template.name)
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button {
-                    onDelete(template)
+                    onDelete(viewModel.template)
                 } label: {
                     Image(systemName: "trash")
                 }
@@ -49,7 +79,7 @@ struct ExerciseTemplateDetailsView: View {
         }
         .sheet(isPresented: $showEditView) {
             NavigationView {
-                EditExerciseTemplateView(for: template, onSave: onChange)
+                EditExerciseTemplateView(for: viewModel.template, onSave: onChange)
                 }
                 .accentColor(.customAccentColor)
         }
@@ -59,7 +89,7 @@ struct ExerciseTemplateDetailsView: View {
 struct ExerciseDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ExerciseTemplateDetailsView(template: ExerciseTemplate.catCow, onChange: { _ in }, onDelete: { _ in })
+            ExerciseTemplateDetailsView(for: ExerciseTemplate.catCow, onChange: { _ in }, onDelete: { _ in })
         }
     }
 }

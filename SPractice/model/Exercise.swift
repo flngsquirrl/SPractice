@@ -45,7 +45,11 @@ struct Exercise: Identifiable, Equatable {
         self.tasks = tasks
     }
     
-    init(from template: ExerciseTemplate) {
+    init?(from template: ExerciseTemplate) {
+        guard template.type != nil else {
+            return nil
+        }
+        
         self.init(type: template.type!, name: template.name)
         self.tasks = prepareTasks()
     }

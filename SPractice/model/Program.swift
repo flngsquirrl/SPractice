@@ -21,11 +21,11 @@ struct Program {
         var exercises = [Exercise]()
         for (index, exerciseTemplate) in template.exercises.enumerated() {
             let exercise = Exercise(from: exerciseTemplate)
-            exercises.append(exercise)
+            exercises.append(exercise!)
             
             if template.useRest && index != template.exercises.count - 1 {
                 let rest = Exercise(from: ExerciseTemplate.restTemplate)
-                exercises.append(rest)
+                exercises.append(rest!)
             }
         }
         self.exercises = exercises

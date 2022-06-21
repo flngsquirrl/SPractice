@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Task {
+struct Task: Identifiable {
     
-    enum TaskType: String {
+    enum TaskType: String, CaseIterable {
         case activity
         case rest
     }
