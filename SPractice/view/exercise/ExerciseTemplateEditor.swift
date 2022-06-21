@@ -22,7 +22,7 @@ struct ExerciseTemplateEditor: View {
             }
             
             Section {
-                Toggle("Set type", isOn: $viewModel.isTypeSet)
+                Toggle("Set type", isOn: $viewModel.isTypeSet.animation())
                     .onChange(of: viewModel.isTypeSet) {
                         viewModel.onTypeSetChange(newValue: $0)
                     }
@@ -38,7 +38,7 @@ struct ExerciseTemplateEditor: View {
                             .foregroundColor(.gray)
                     }
                         
-                    Picker("Type", selection: $viewModel.template.type) {
+                    Picker("Type", selection: $viewModel.template.type.animation()) {
                         ForEach(Exercise.ExerciseType.allCases, id: \.self) { type in
                             ExerciseTypeImage(type: type)
                                 .tag(type as Exercise.ExerciseType?)
@@ -48,8 +48,8 @@ struct ExerciseTemplateEditor: View {
                     
                     if viewModel.isTimer {
                         HStack {
-                            Text("Duration")
-                            Spacer()
+//                            Text("Duration")
+//                            Spacer()
                             Picker("Duration minutes", selection: $viewModel.minutes) {
                                 ForEach(0..<61) {
                                     Text(String(format: "%02d", $0))
@@ -72,13 +72,11 @@ struct ExerciseTemplateEditor: View {
                             .pickerStyle(.menu)
                             
                             Text("\(Self.secondsUnit)")
-                        }
-                        
-                        HStack {
+                            
                             Spacer()
                             Button("Reset") { viewModel.resetDuration() }
-                                .foregroundColor(.lightOrange)
-                                .buttonStyle(PlainButtonStyle())
+                                .buttonStyle(.plain)
+                                .foregroundColor(.customAccentColor)
                         }
                     }
                 }
@@ -91,7 +89,7 @@ struct ExerciseTemplateEditor: View {
                             Text(viewModel.taskType.rawValue)
                                 .foregroundColor(.gray)
                         }
-                        Picker("Intensity", selection: $viewModel.taskType) {
+                        Picker("Intensity", selection: $viewModel.taskType.animation()) {
                             ForEach(Task.TaskType.allCases, id: \.self) { type in
                                 TaskTypeImage(type: type)
                             }
