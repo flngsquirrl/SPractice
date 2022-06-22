@@ -57,6 +57,10 @@ struct ExerciseTemplate: Identifiable, Hashable {
         type == .timer
     }
     
+    var isTypeSet: Bool {
+        type != nil
+    }
+    
     // examples
     static let catCow = ExerciseTemplate(type: .timer, name: "Cat-Cow", taskType: .activity, duration: 90)
     static let surjaNamascar = ExerciseTemplate(type: .flow, name: "Surja Namascar", taskType: .activity)

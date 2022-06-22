@@ -40,27 +40,37 @@ struct ExerciseTemplateDetailsView: View {
                 }
             }
             
-            Section {
-                ForEach(viewModel.tasks) { task in
-                    HStack {
-                        TaskTypeImage(type: task.type)
-                        
-                        Text(task.name)
-                        Spacer()
-                        
-                        Group {
-                            if task.duration != nil {
-                                Text(ClockTime.getPaddedPresentation(for: task.duration!))
-                                    .font(.system(.callout).monospacedDigit())
+            if viewModel.template.isTypeSet {
+                Section {
+                    ForEach(viewModel.tasks) { task in
+                        HStack {
+                            TaskTypeImage(type: task.type)
+                            
+                            Text(task.name)
+                            Spacer()
+                            
+                            Group {
+                                if task.duration != nil {
+                                    Text(ClockTime.getPaddedPresentation(for: task.duration!))
+                                        .font(.system(.callout).monospacedDigit())
+                                }
                             }
+                            .foregroundColor(.gray)
                         }
-                        .foregroundColor(.gray)
+                    }
+                } header: {
+                    Text("Tasks")
+                } footer: {
+                    switch viewModel.template.type! {
+                    case .flow:
+                        Text("Edit the template to change the intensity of the task")
+                    case .timer:
+                        Text("Edit the template to change intensity and duration of the task")
+                    case .tabata:
+                        Text("Tasks sequence and duration for a tabata exercise are based on the current Settings")
+
                     }
                 }
-            } header: {
-                Text("Tasks")
-            } footer: {
-                Text("The details are based on the current settings")
             }
         }
         .navigationTitle(viewModel.template.name)
@@ -90,6 +100,14 @@ struct ExerciseDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             ExerciseTemplateDetailsView(for: ExerciseTemplate.catCow, onChange: { _ in }, onDelete: { _ in })
+        }
+        
+        NavigationView {
+            ExerciseTemplateDetailsView(for: ExerciseTemplate.vasihsthasana, onChange: { _ in }, onDelete: { _ in })
+        }
+        
+        NavigationView {
+            ExerciseTemplateDetailsView(for: ExerciseTemplate.surjaNamascar, onChange: { _ in }, onDelete: { _ in })
         }
     }
 }
