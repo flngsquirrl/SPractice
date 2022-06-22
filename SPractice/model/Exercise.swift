@@ -51,25 +51,25 @@ struct Exercise: Identifiable, Equatable {
         }
         
         self.init(type: template.type!, name: template.name)
-        self.tasks = prepareTasks()
+        self.tasks = prepareTasks(from: template)
     }
     
-    func prepareTasks() -> [Task] {
+    func prepareTasks(from template: ExerciseTemplate) -> [Task] {
         var tasks = [Task]()
         
         switch type {
         case .flow:
-            tasks = prepareFlowTasks()
+            tasks = prepareFlowTasks(from: template)
         case .tabata:
-            tasks = prepareTabataTasks()
+            tasks = prepareTabataTasks(from: template)
         case .timer:
-            tasks = prepareTimerTasks()
+            tasks = prepareTimerTasks(from: template)
         }
         
         return tasks
     }
     
-    private func prepareTabataTasks() -> [Task]  {
+    private func prepareTabataTasks(from template: ExerciseTemplate) -> [Task]  {
         var tasks = [Task]()
         
         // todo: read duration from settings
@@ -92,14 +92,14 @@ struct Exercise: Identifiable, Equatable {
         return tasks
     }
     
-    private func prepareFlowTasks() -> [Task] {
-        let task = Task(type: .activity, name: Task.TaskType.activity.rawValue)
+    private func prepareFlowTasks(from template: ExerciseTemplate) -> [Task] {
+        let task = Task(type: template.taskType!, name: Task.TaskType.activity.rawValue)
         return Array<Task>.wrapElement(element: task)
     }
     
-    private func prepareTimerTasks() -> [Task] {
-        let type: Task.TaskType = isService ? .rest : .activity
-        let task = Task(type: type, name: type.rawValue, duration: duration)
+    private func prepareTimerTasks(from template: ExerciseTemplate) -> [Task] {
+        let taskType: Task.TaskType = template.isService ? .rest : template.taskType!
+        let task = Task(type: taskType, name: taskType.rawValue, duration: template.duration)
         return Array<Task>.wrapElement(element: task)
     }
     

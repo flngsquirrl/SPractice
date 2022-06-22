@@ -28,8 +28,6 @@ extension ExerciseTemplateEditor {
         @Published var minutes: Int = 0
         @Published var seconds: Int = 0
         
-        @Published var taskType: Task.TaskType = .activity
-        
         var isTimer: Bool {
             template.type == .timer
         }

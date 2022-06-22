@@ -51,8 +51,6 @@ struct ExerciseTemplateEditor: View {
                     
                     if viewModel.isTimer {
                         HStack {
-//                            Text("Duration")
-//                            Spacer()
                             Picker("Duration minutes", selection: $viewModel.minutes) {
                                 ForEach(0..<61) {
                                     Text(String(format: "%02d", $0))
@@ -90,14 +88,14 @@ struct ExerciseTemplateEditor: View {
                             Text("Intensity")
                             Spacer()
                             HStack {
-                                TaskTypeImage(type: viewModel.taskType)
-                                Text(viewModel.taskType.rawValue)
+                                TaskTypeImage(type: viewModel.template.taskType!)
+                                Text(viewModel.template.taskType!.rawValue)
                             }
                             .foregroundColor(.gray)
                         }
-                        Picker("Intensity", selection: $viewModel.taskType.animation()) {
+                        Picker("Intensity", selection: $viewModel.template.taskType.animation()) {
                             ForEach(Task.TaskType.allCases, id: \.self) { type in
-                                TaskTypeImage(type: type)
+                                TaskTypeImage(type: type).tag(type as Task.TaskType?)
                             }
                         }
                         .pickerStyle(.segmented)

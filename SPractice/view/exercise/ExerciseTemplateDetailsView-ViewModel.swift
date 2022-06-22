@@ -15,7 +15,7 @@ extension ExerciseTemplateDetailsView {
         
         init(for template: ExerciseTemplate) {
             self.template = template
-            self.tasks = Exercise(from: template)?.prepareTasks() ?? []
+            self.tasks = Exercise(from: template)?.tasks ?? []
         }
         
         
