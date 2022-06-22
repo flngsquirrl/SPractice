@@ -39,8 +39,16 @@ extension ExerciseTemplateEditor {
         @Published var minutes: Int = 0
         @Published var seconds: Int = 0
         
-        var isTimer: Bool {
+        var isTypeDefined: Bool {
+            template.type != nil
+        }
+        
+        var showDuration: Bool {
             template.type == .timer
+        }
+        
+        var showIntensity: Bool {
+            (template.type == .timer || template.type == .flow) && template.taskType != nil
         }
         
         static let secondsSelectionArray = Array(stride(from: 0, through: 50, by: 10))
@@ -79,6 +87,16 @@ extension ExerciseTemplateEditor {
                 template.type = nil
             } else {
                 template.type = .flow
+            }
+            
+            onTypeChange(newValue: template.type)
+        }
+        
+        func onTypeChange(newValue: Exercise.ExerciseType?) {
+            if newValue != .tabata {
+                template.taskType = .activity
+            } else {
+                template.taskType = nil
             }
         }
         

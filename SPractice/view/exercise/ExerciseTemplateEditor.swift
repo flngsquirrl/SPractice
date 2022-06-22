@@ -26,14 +26,14 @@ struct ExerciseTemplateEditor: View {
                     }
             }
             
-            if viewModel.isTypeSet {
+            if viewModel.isTypeDefined {
                 Section {
                     HStack {
                         Text("Type")
                         Spacer()
                         HStack {
-                            ExerciseTypeImage(type: viewModel.template.type)
-                            Text(viewModel.template.type?.rawValue ?? "")
+                            ExerciseTypeImage(type: viewModel.template.type!)
+                            Text(viewModel.template.type!.rawValue)
                         }
                         .foregroundColor(.gray)
                     }
@@ -44,9 +44,10 @@ struct ExerciseTemplateEditor: View {
                                 .tag(type as Exercise.ExerciseType?)
                         }
                     }
+                    .onChange(of: viewModel.template.type) { viewModel.onTypeChange(newValue: $0) }
                     .pickerStyle(.segmented)
                     
-                    if viewModel.isTimer {
+                    if viewModel.showDuration {
                         HStack {
                             Picker("Duration minutes", selection: $viewModel.minutes) {
                                 ForEach(0..<61) {
@@ -80,7 +81,7 @@ struct ExerciseTemplateEditor: View {
                 }
                 
                 Section {
-                    if viewModel.template.type != .tabata {
+                    if viewModel.showIntensity {
                         HStack {
                             Text("Intensity")
                             Spacer()
