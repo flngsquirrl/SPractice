@@ -68,7 +68,7 @@ struct ExerciseTemplateEditor: View {
                                 }
                             }
                             .onChange(of: viewModel.seconds) { viewModel.onSecondsChange(newValue: $0)}
-                            .disabled(!viewModel.areSecondsEnabled)
+                            .disabled(viewModel.areSecondsDisabled)
                             .labelsHidden()
                             .pickerStyle(.menu)
                             

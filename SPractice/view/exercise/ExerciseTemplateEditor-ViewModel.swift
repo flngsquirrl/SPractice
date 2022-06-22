@@ -24,7 +24,10 @@ extension ExerciseTemplateEditor {
         
         @Published var isTypeSet: Bool = true
 
-        @Published var areSecondsEnabled = true
+        var areSecondsDisabled: Bool {
+            minutes == 60
+        }
+        
         @Published var minutes: Int = 0
         @Published var seconds: Int = 0
         
@@ -50,9 +53,6 @@ extension ExerciseTemplateEditor {
         func onMinutesChange(newValue: Int) {
             if newValue == 60 {
                 seconds = 0
-                areSecondsEnabled = false
-            } else {
-                areSecondsEnabled = true
             }
             
             setDuration()
