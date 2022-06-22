@@ -34,8 +34,11 @@ struct ExerciseTemplateEditor: View {
                     HStack {
                         Text("Type")
                         Spacer()
-                        Text(viewModel.template.type?.rawValue ?? "")
-                            .foregroundColor(.gray)
+                        HStack {
+                            ExerciseTypeImage(type: viewModel.template.type)
+                            Text(viewModel.template.type?.rawValue ?? "")
+                        }
+                        .foregroundColor(.gray)
                     }
                         
                     Picker("Type", selection: $viewModel.template.type.animation()) {
@@ -86,8 +89,11 @@ struct ExerciseTemplateEditor: View {
                         HStack {
                             Text("Intensity")
                             Spacer()
-                            Text(viewModel.taskType.rawValue)
-                                .foregroundColor(.gray)
+                            HStack {
+                                TaskTypeImage(type: viewModel.taskType)
+                                Text(viewModel.taskType.rawValue)
+                            }
+                            .foregroundColor(.gray)
                         }
                         Picker("Intensity", selection: $viewModel.taskType.animation()) {
                             ForEach(Task.TaskType.allCases, id: \.self) { type in
