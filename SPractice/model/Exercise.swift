@@ -93,7 +93,7 @@ struct Exercise: Identifiable, Equatable {
     }
     
     private func prepareFlowTasks(from template: ExerciseTemplate) -> [Task] {
-        let task = Task(type: template.taskType!, name: Task.TaskType.activity.rawValue)
+        let task = Task(type: template.taskType!, name: template.taskType!.rawValue)
         return Array<Task>.wrapElement(element: task)
     }
     
