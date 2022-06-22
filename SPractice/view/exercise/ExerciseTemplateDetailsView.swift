@@ -43,20 +43,7 @@ struct ExerciseTemplateDetailsView: View {
             if viewModel.template.isTypeSet {
                 Section {
                     ForEach(viewModel.tasks) { task in
-                        HStack {
-                            TaskTypeImage(type: task.type)
-                            
-                            Text(task.name)
-                            Spacer()
-                            
-                            Group {
-                                if task.duration != nil {
-                                    Text(ClockTime.getPaddedPresentation(for: task.duration!))
-                                        .font(.system(.callout).monospacedDigit())
-                                }
-                            }
-                            .foregroundColor(.gray)
-                        }
+                        TaskDetailsShortView(task: task)
                     }
                 } header: {
                     Text("Tasks")

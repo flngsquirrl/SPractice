@@ -28,6 +28,14 @@ extension ExerciseTemplateEditor {
             minutes == 60
         }
         
+        var tasks: [Task] {
+            guard template.type != nil else {
+                return []
+            }
+            
+            return Exercise(from: template)?.tasks ?? []
+        }
+        
         @Published var minutes: Int = 0
         @Published var seconds: Int = 0
         

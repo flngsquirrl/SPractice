@@ -19,14 +19,11 @@ struct ExerciseTemplateEditor: View {
         Form {
             Section {
                 TextField("Exercise name", text: $viewModel.template.name)
-            }
             
-            Section {
                 Toggle("Set type", isOn: $viewModel.isTypeSet.animation())
                     .onChange(of: viewModel.isTypeSet) {
                         viewModel.onTypeSetChange(newValue: $0)
                     }
-                
             }
             
             if viewModel.isTypeSet {
@@ -101,6 +98,16 @@ struct ExerciseTemplateEditor: View {
                         .pickerStyle(.segmented)
                     }
                 }
+                
+//                Section {
+//                    ForEach(viewModel.tasks) { task in
+//                        TaskDetailsShortView(task: task)
+//                    }
+//                } header: {
+//                    Text("Tasks")
+//                } footer: {
+//                    Text("Based on the template configuration and Settings")
+//                }
             }
         }
     }
