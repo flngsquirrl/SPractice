@@ -10,7 +10,7 @@ import Foundation
 extension ExerciseTemplateSelectionView {
     @MainActor class ViewModel: ObservableObject {
         
-        @Published var templates = [ExerciseTemplate.catCow, ExerciseTemplate.surjaNamascar, ExerciseTemplate.vasihsthasana, ExerciseTemplate.concentration, ExerciseTemplate.catCowDuration0, ExerciseTemplate.catCowNoType]
+        @Published var templates = [ExerciseTemplate.catCow, ExerciseTemplate.surjaNamascar, ExerciseTemplate.vasihsthasana, ExerciseTemplate.concentration, ExerciseTemplate.catCowDurationNoDuration, ExerciseTemplate.catCowNoType]
         @Published var selections: [ExerciseTemplate] = []
         
         func onAdd(template: ExerciseTemplate) {

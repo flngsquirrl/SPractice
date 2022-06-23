@@ -16,10 +16,6 @@ struct ExerciseDetailsShortView: View {
     
     private var displayDuration = false
     
-    var isTypeSet: Bool {
-        type != nil
-    }
-    
     init(for exercise: Exercise, iconColor: Color = .primary) {
         self.init(name: exercise.name, type: exercise.type, duration: exercise.duration, iconColor: iconColor)
         displayDuration = true
@@ -28,8 +24,7 @@ struct ExerciseDetailsShortView: View {
     init(for template: ExerciseTemplate, displayDuration: Bool = false, iconColor: Color = .primary) {
         var duration: Int? = nil
         if (displayDuration) {
-            // todo: read from settings here
-            duration = template.type == .tabata ? 80 : template.duration
+            duration = template.type == .tabata ? SettingsManager.shared.tabataExerciseDuration : template.duration
         }
         self.init(name: template.name, type: template.type, duration: duration, iconColor: iconColor)
         
@@ -49,22 +44,12 @@ struct ExerciseDetailsShortView: View {
                 .foregroundColor(iconColor)
             Text(name)
             Spacer()
-            if displayDuration {
-                if isTypeSet {
-                    switch type! {
-                    case .flow:
-                        Image(systemName: "infinity")
-                            .foregroundColor(.gray)
-                    case .timer, .tabata:
-                        Text(ClockTime.getPaddedPresentation(for: duration!))
-                            .foregroundColor(.gray)
-                            .font(.system(.callout).monospacedDigit())
-                    }
-                } else {
-                    Image(systemName: "questionmark")
-                        .foregroundColor(.gray)
+            HStack {
+                if displayDuration {
+                    ExerciseDurationView(type: type, duration: duration)
                 }
             }
+            .foregroundColor(.gray)
         }
     }
 }
@@ -81,7 +66,7 @@ struct ExerciseDetailsShortView_Previews: PreviewProvider {
             
             Group {
                 Text("templates with durations")
-                ExerciseDetailsShortView(for: ExerciseTemplate.catCowDuration0, displayDuration: true)
+                ExerciseDetailsShortView(for: ExerciseTemplate.catCowDurationNoDuration, displayDuration: true)
                 ExerciseDetailsShortView(for: ExerciseTemplate.catCow, displayDuration: true)
                 ExerciseDetailsShortView(for: ExerciseTemplate.surjaNamascar, displayDuration: true, iconColor: .lightOrange)
                 ExerciseDetailsShortView(for: ExerciseTemplate.vasihsthasana, displayDuration: true)
@@ -90,7 +75,7 @@ struct ExerciseDetailsShortView_Previews: PreviewProvider {
             
             Group {
                 Text("templates without durations")
-                ExerciseDetailsShortView(for: ExerciseTemplate.catCowDuration0, iconColor: .lightOrange)
+                ExerciseDetailsShortView(for: ExerciseTemplate.catCowDurationNoDuration, iconColor: .lightOrange)
                 ExerciseDetailsShortView(for: ExerciseTemplate.catCow)
                 ExerciseDetailsShortView(for: ExerciseTemplate.surjaNamascar)
                 ExerciseDetailsShortView(for: ExerciseTemplate.vasihsthasana)

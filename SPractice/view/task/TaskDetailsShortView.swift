@@ -10,6 +10,7 @@ import SwiftUI
 struct TaskDetailsShortView: View {
     
     var task: Task
+    var exerciseType: Exercise.ExerciseType
     
     var body: some View {
         HStack {
@@ -23,7 +24,11 @@ struct TaskDetailsShortView: View {
                     Text(ClockTime.getPaddedPresentation(for: task.duration!))
                         .font(.system(.callout).monospacedDigit())
                 } else {
-                    Image(systemName: "infinity")
+                    if exerciseType == .flow {
+                        Image(systemName: "infinity")
+                    } else {
+                        Image(systemName: "questionmark")
+                    }
                 }
             }
             .foregroundColor(.gray)
@@ -34,11 +39,11 @@ struct TaskDetailsShortView: View {
 struct TaskDetailsShortView_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            TaskDetailsShortView(task: Task.activityTabata1)
-            TaskDetailsShortView(task: Task.restTabata1)
-            TaskDetailsShortView(task: Task.activity60)
-            TaskDetailsShortView(task: Task.activityFlow)
-            TaskDetailsShortView(task: Task.restService10)
+            TaskDetailsShortView(task: Task.activityTabata1, exerciseType: .tabata)
+            TaskDetailsShortView(task: Task.restTabata1, exerciseType: .tabata)
+            TaskDetailsShortView(task: Task.activity60, exerciseType: .timer)
+            TaskDetailsShortView(task: Task.activityFlow, exerciseType: .flow)
+            TaskDetailsShortView(task: Task.restService10, exerciseType: .timer)
         }
     }
 }

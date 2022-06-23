@@ -27,23 +27,21 @@ struct ExerciseTemplateDetailsView: View {
             HStack {
                 Text("Type")
                 Spacer()
-                
-                ExerciseTypeImage(type: viewModel.template.type)
-                Text(viewModel.template.type?.rawValue ?? "not set")
+                ExerciseTypeView(type: viewModel.template.type)
             }
             
             if viewModel.template.isTimer {
                 HStack {
                     Text("Duration")
                     Spacer()
-                    Text(ClockTime.getPaddedPresentation(for: viewModel.template.duration!))
+                    ExerciseDurationView(for: viewModel.template)
                 }
             }
             
             if viewModel.template.isTypeSet {
                 Section {
                     ForEach(viewModel.tasks) { task in
-                        TaskDetailsShortView(task: task)
+                        TaskDetailsShortView(task: task, exerciseType: viewModel.template.type!)
                     }
                 } header: {
                     Text("Tasks")

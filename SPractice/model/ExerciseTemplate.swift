@@ -70,6 +70,6 @@ struct ExerciseTemplate: Identifiable, Hashable {
     static let vasihsthasana = ExerciseTemplate(type: .tabata, name: "Vasihsthasana")
     static let rest = ExerciseTemplate(type: .timer, name: "Rest", isService: true, taskType: .rest, duration: 10)
     static let concentration = ExerciseTemplate(type: .timer, name: "Concentration", taskType: .activity, duration: 360)
-    static let catCowDuration0 = ExerciseTemplate(type: .timer, name: "Cat-Cow", taskType: .activity, duration: 0)
+    static let catCowDurationNoDuration = ExerciseTemplate(type: .timer, name: "Cat-Cow", taskType: .activity)
     static let catCowNoType = ExerciseTemplate(name: "Cat-Cow")
 }

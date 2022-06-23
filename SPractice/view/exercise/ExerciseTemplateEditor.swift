@@ -19,25 +19,24 @@ struct ExerciseTemplateEditor: View {
         Form {
             Section {
                 TextField("Exercise name", text: $viewModel.template.name)
-            
-                Toggle("Set type", isOn: $viewModel.isTypeSet.animation())
-                    .onChange(of: viewModel.isTypeSet) {
-                        viewModel.onTypeSetChange(newValue: $0)
-                    }
             }
             
-            if viewModel.isTypeDefined {
-                Section {
-                    HStack {
-                        Text("Type")
-                        Spacer()
-                        HStack {
-                            ExerciseTypeImage(type: viewModel.template.type!)
-                            Text(viewModel.template.type!.rawValue)
+            Section {
+                Toggle("Set type", isOn: $viewModel.isTypeSet.animation())
+                    .onChange(of: viewModel.isTypeSet) { newValue in
+                        withAnimation {
+                            viewModel.onTypeSetChange(newValue: newValue)
                         }
-                        .foregroundColor(.gray)
                     }
-                        
+            
+                HStack {
+                    Text("Type")
+                    Spacer()
+                    ExerciseTypeView(type: viewModel.template.type)
+                        .foregroundColor(.gray)
+                }
+
+                if viewModel.isTypeDefined {
                     Picker("Type", selection: $viewModel.template.type.animation()) {
                         ForEach(Exercise.ExerciseType.allCases, id: \.self) { type in
                             ExerciseTypeImage(type: type)
@@ -79,37 +78,34 @@ struct ExerciseTemplateEditor: View {
                         }
                     }
                 }
-                
-                Section {
-                    if viewModel.showIntensity {
-                        HStack {
-                            Text("Intensity")
-                            Spacer()
-                            HStack {
-                                TaskTypeImage(type: viewModel.template.taskType!)
-                                Text(viewModel.template.taskType!.rawValue)
-                            }
-                            .foregroundColor(.gray)
-                        }
-                        Picker("Intensity", selection: $viewModel.template.taskType.animation()) {
-                            ForEach(Task.TaskType.allCases, id: \.self) { type in
-                                TaskTypeImage(type: type).tag(type as Task.TaskType?)
-                            }
-                        }
-                        .pickerStyle(.segmented)
-                    }
-                }
-                
-//                Section {
-//                    ForEach(viewModel.tasks) { task in
-//                        TaskDetailsShortView(task: task)
-//                    }
-//                } header: {
-//                    Text("Tasks")
-//                } footer: {
-//                    Text("Based on the template configuration and Settings")
-//                }
             }
+                
+            if viewModel.showIntensity {
+                Section {
+                    HStack {
+                        Text("Intensity")
+                        Spacer()
+                        HStack {
+                            TaskTypeImage(type: viewModel.template.taskType!)
+                            Text(viewModel.template.taskType!.rawValue)
+                        }
+                        .foregroundColor(.gray)
+                    }
+                    Picker("Intensity", selection: $viewModel.template.taskType.animation()) {
+                        ForEach(Task.TaskType.allCases, id: \.self) { type in
+                            TaskTypeImage(type: type).tag(type as Task.TaskType?)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                }
+            }
+            
+            if viewModel.isTypeDefined {
+                Section {
+                    Button("Preview tasks") {}
+                }
+            }
+
         }
     }
 }
@@ -117,7 +113,7 @@ struct ExerciseTemplateEditor: View {
 struct ExerciseTemplateEditor_Previews: PreviewProvider {
     
     @State static private var defaultTemplate = ExerciseTemplate.defaultTemplate
-    @State static private var exampleTemplate = ExerciseTemplate.catCow
+    @State static private var exampleTemplate = ExerciseTemplate.catCowNoType
     
     static var previews: some View {
 //        NavigationView {
