@@ -31,6 +31,8 @@
 		C9741A5A2861EB0C00E1F670 /* ExerciseTemplateDetailsView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A592861EB0C00E1F670 /* ExerciseTemplateDetailsView-ViewModel.swift */; };
 		C9741A5D2861F54600E1F670 /* TaskTypeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A5C2861F54600E1F670 /* TaskTypeImage.swift */; };
 		C9741A5F2863208100E1F670 /* TaskDetailsShortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A5E2863208100E1F670 /* TaskDetailsShortView.swift */; };
+		C99698162863C2C7009836BD /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99698152863C2C7009836BD /* SettingsManager.swift */; };
+		C996981828646E53009836BD /* ExerciseDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C996981728646E53009836BD /* ExerciseDurationView.swift */; };
 		C9A0CFEA281AB32B000CF439 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFE9281AB32B000CF439 /* Task.swift */; };
 		C9A0CFEC281AB382000CF439 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFEB281AB382000CF439 /* Exercise.swift */; };
 		C9A0CFEE281AB484000CF439 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFED281AB484000CF439 /* Program.swift */; };
@@ -89,6 +91,8 @@
 		C9741A592861EB0C00E1F670 /* ExerciseTemplateDetailsView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseTemplateDetailsView-ViewModel.swift"; sourceTree = "<group>"; };
 		C9741A5C2861F54600E1F670 /* TaskTypeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTypeImage.swift; sourceTree = "<group>"; };
 		C9741A5E2863208100E1F670 /* TaskDetailsShortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsShortView.swift; sourceTree = "<group>"; };
+		C99698152863C2C7009836BD /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		C996981728646E53009836BD /* ExerciseDurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDurationView.swift; sourceTree = "<group>"; };
 		C9A0CFE9281AB32B000CF439 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		C9A0CFEB281AB382000CF439 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		C9A0CFED281AB484000CF439 /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 				C9A0CFED281AB484000CF439 /* Program.swift */,
 				C9A0CFEB281AB382000CF439 /* Exercise.swift */,
 				C9A0CFE9281AB32B000CF439 /* Task.swift */,
+				C99698152863C2C7009836BD /* SettingsManager.swift */,
 				C9A0D0142823FF87000CF439 /* Settings.swift */,
 				C9A0D016282408C4000CF439 /* SettingsItem.swift */,
 				C9A0D028282BD603000CF439 /* Practice.swift */,
@@ -237,6 +242,7 @@
 				C9445C6C285E00D000DF2A08 /* ExerciseTemplateDetailsView.swift */,
 				C9741A592861EB0C00E1F670 /* ExerciseTemplateDetailsView-ViewModel.swift */,
 				C9692C7B284F787700373730 /* ExerciseDetailsShortView.swift */,
+				C996981728646E53009836BD /* ExerciseDurationView.swift */,
 				C9741A3B2860CD6200E1F670 /* ExerciseTypeImage.swift */,
 			);
 			path = exercise;
@@ -403,8 +409,10 @@
 				C9741A5F2863208100E1F670 /* TaskDetailsShortView.swift in Sources */,
 				C9D156B228534F5C007F5176 /* EditExerciseTemplateView.swift in Sources */,
 				C9A0D029282BD603000CF439 /* Practice.swift in Sources */,
+				C996981828646E53009836BD /* ExerciseDurationView.swift in Sources */,
 				C9D156B028534E88007F5176 /* AddExerciseTemplateView.swift in Sources */,
 				C9A0D0112823DF22000CF439 /* SettingsView.swift in Sources */,
+				C99698162863C2C7009836BD /* SettingsManager.swift in Sources */,
 				C9692C812850A37800373730 /* ExerciseTemplatesView-ViewModel.swift in Sources */,
 				C9CCCE9A284B6E09005665C8 /* ProgramDetailsView-ViewModel.swift in Sources */,
 				C9A0D01A2827CEC9000CF439 /* Squirrel.swift in Sources */,

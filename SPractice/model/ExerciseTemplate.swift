@@ -47,8 +47,7 @@ struct ExerciseTemplate: Identifiable, Hashable {
     }
     
     static var restTemplate: ExerciseTemplate {
-        // todo: read rest duration from settings
-        ExerciseTemplate(type: .timer, name: "Rest", isService: true, duration: 10)
+        ExerciseTemplate(type: .timer, name: "Rest", isService: true, duration: SettingsManager.shared.getValue(of: .general_rest))
     }
     
     static var defaultTemplate = ExerciseTemplate(type: .flow)

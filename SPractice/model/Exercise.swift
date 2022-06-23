@@ -72,21 +72,17 @@ struct Exercise: Identifiable, Equatable {
     private func prepareTabataTasks(from template: ExerciseTemplate) -> [Task]  {
         var tasks = [Task]()
         
-        // todo: read duration from settings
-        let warmUp = Task(type: .rest, name: "warm-up", duration: 10)
+        let warmUp = Task(type: .rest, name: "warm-up", duration: SettingsManager.shared.getValue(of: .tabata_warmup))
         tasks.append(warmUp)
         
-        for i in 1...2 {
-            // todo: read rest duration from settings
-            let activity = Task(type: .activity, name: "\(Task.TaskType.activity.rawValue) \(i)", duration: 20)
-            // todo: read rest duration from settings
-            let rest = Task(type: .rest, name: "\(Task.TaskType.rest.rawValue) \(i)", duration: 10)
+        for i in 1...SettingsManager.shared.getValue(of: .tabata_repetitions){
+            let activity = Task(type: .activity, name: "\(Task.TaskType.activity.rawValue) \(i)", duration: SettingsManager.shared.getValue(of: .tabata_activity))
+            let rest = Task(type: .rest, name: "\(Task.TaskType.rest.rawValue) \(i)", duration: SettingsManager.shared.getValue(of: .general_rest))
             tasks.append(activity)
             tasks.append(rest)
         }
         
-        // todo: read rest duration from settings
-        let coolDown = Task(type: .rest, name: "cool-down", duration: 10)
+        let coolDown = Task(type: .rest, name: "cool-down", duration: SettingsManager.shared.getValue(of: .tabata_cooldown))
         tasks.append(coolDown)
         
         return tasks

@@ -32,7 +32,9 @@ struct SettingsItemView: View {
 }
 
 struct SettingsView: View {
-    private var settings = Settings()
+    
+    private let settings = SettingsManager.shared.getSettings()
+    
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
