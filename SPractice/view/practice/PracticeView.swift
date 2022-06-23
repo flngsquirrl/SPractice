@@ -13,6 +13,7 @@ struct PracticeView: View {
     @Environment(\.dismiss) var dismiss
     
     @State private var isPracticeSequenceShown = true
+    @State private var isSoundOn = true
     
     @ObservedObject var practice: Practice
     
@@ -48,7 +49,16 @@ struct PracticeView: View {
                     }
                 }
                 
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    
+                    Button() {
+                        withAnimation {
+                            isSoundOn.toggle()
+                        }
+                    } label: {
+                        Image(systemName: isSoundOn ? "bell.fill" : "bell.slash")
+                    }
+                    
                     Button() {
                         withAnimation {
                             isPracticeSequenceShown.toggle()
