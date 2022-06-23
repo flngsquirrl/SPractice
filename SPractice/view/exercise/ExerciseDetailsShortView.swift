@@ -11,13 +11,15 @@ struct ExerciseDetailsShortView: View {
     
     private let name: String
     private let type: Exercise.ExerciseType?
+    private let taskType: Task.TaskType?
     private let duration: Int?
     private let iconColor: Color
     
     private var displayDuration = false
     
     init(for exercise: Exercise, iconColor: Color = .primary) {
-        self.init(name: exercise.name, type: exercise.type, duration: exercise.duration, iconColor: iconColor)
+        let taskType = exercise.type == .tabata ? .activity : exercise.tasks[0].type
+        self.init(name: exercise.name, type: exercise.type, taskType: taskType, duration: exercise.duration, iconColor: iconColor)
         displayDuration = true
     }
     
@@ -26,14 +28,16 @@ struct ExerciseDetailsShortView: View {
         if (displayDuration) {
             duration = template.type == .tabata ? SettingsManager.shared.tabataExerciseDuration : template.duration
         }
-        self.init(name: template.name, type: template.type, duration: duration, iconColor: iconColor)
+        let taskType = template.type == .tabata ? .activity : template.taskType
+        self.init(name: template.name, type: template.type, taskType: taskType, duration: duration, iconColor: iconColor)
         
         self.displayDuration = displayDuration
     }
     
-    private init(name: String, type: Exercise.ExerciseType?, duration: Int?, iconColor: Color) {
+    private init(name: String, type: Exercise.ExerciseType?, taskType: Task.TaskType?, duration: Int?, iconColor: Color) {
         self.name = name
         self.type = type
+        self.taskType = taskType
         self.duration = duration
         self.iconColor = iconColor
     }
@@ -47,6 +51,9 @@ struct ExerciseDetailsShortView: View {
             HStack {
                 if displayDuration {
                     ExerciseDurationView(type: type, duration: duration)
+                }
+                if let taskType = taskType {
+                    TaskTypeImage(type: taskType)
                 }
             }
             .foregroundColor(.gray)
