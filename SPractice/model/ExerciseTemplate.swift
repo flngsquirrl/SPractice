@@ -22,7 +22,11 @@ struct ExerciseTemplate: Identifiable, Hashable {
         self.name = name
         
         if type == .timer {
-            self.duration = duration
+            if let duration = duration {
+                self.duration = duration > 0 ? duration : nil
+            } else {
+                self.duration = nil
+            }
             self.isService = isService
         } else {
             self.duration = nil
