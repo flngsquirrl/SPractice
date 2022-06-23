@@ -11,6 +11,8 @@ struct ExerciseTemplateEditor: View {
     
     @ObservedObject private var viewModel: ViewModel
     
+    @State private var showTasks = false
+    
     init(for template: Binding<ExerciseTemplate>) {
         self.viewModel = ViewModel(for: template)
     }
@@ -102,10 +104,32 @@ struct ExerciseTemplateEditor: View {
             
             if viewModel.isTypeDefined {
                 Section {
-                    Button("Preview tasks") {}
+                    Button("Preview tasks") {
+                        showTasks = true
+                    }
                 }
             }
+        }
+        .sheet(isPresented: $showTasks) {
+            List {
+                Section {
+                    ForEach(viewModel.tasks) { task in
+                        TaskDetailsShortView(task: task, exerciseType: viewModel.template.type!)
+                    }
+                } header: {
+                    Text("Tasks")
+                } footer: {
+                    switch viewModel.template.type! {
+                    case .flow:
+                        Text("Edit the template to change the intensity of the task")
+                    case .timer:
+                        Text("Edit the template to change intensity and duration of the task")
+                    case .tabata:
+                        Text("Tasks sequence and duration for a tabata exercise are based on the current Settings")
 
+                    }
+                }
+            }
         }
     }
 }
