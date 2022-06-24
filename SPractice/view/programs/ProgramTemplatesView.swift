@@ -46,6 +46,7 @@ struct ProgramTemplatesView: View, EditableView {
                 .disabled(isInEditMode)
             }
         }
+        .navigationTitle("Programs")
         .sheet(isPresented: $showAddNewProgramView) {
             NavigationView {
                 AddProgramTemplateView() { viewModel.addNewTemplate(template: $0) }

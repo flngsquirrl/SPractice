@@ -9,21 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     
+    enum ContentType: String, CaseIterable {
+        case programs = "Programs"
+        case exercises = "Exercises"
+    }
+    
     @State private var showSettingsView = false
     @State private var contentType: ContentType = .programs
     
     var body: some View {
         NavigationView {
             List {
-                Section {
-                    Picker("Group of templates", selection: $contentType.animation()) {
-                        ForEach(ContentType.allCases, id: \.self) {
-                            Text($0.rawValue)
-                        }
-                    }
-                    .pickerStyle(.segmented)
-                }
-                    
                 switch contentType {
                 case .programs:
                     ProgramTemplatesView()
@@ -34,15 +30,22 @@ struct ContentView: View {
             .sheet(isPresented: $showSettingsView) {
                 SettingsView()
             }
-            .navigationTitle("Templates")
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItemGroup(placement: .navigationBarLeading) {
                     Button() {
                         showSettingsView = true
                     } label: {
                         Image(systemName: "gearshape")
                     }
+                
+                    Picker("Group of templates", selection: $contentType.animation()) {
+                        ForEach(ContentType.allCases, id: \.self) { type in
+                            Image(systemName: getImageName(for: type))
+                        }
+                    }
+                    .pickerStyle(.segmented)
                 }
+                
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
@@ -51,9 +54,14 @@ struct ContentView: View {
         .accentColor(.customAccentColor)
     }
     
-    enum ContentType: String, CaseIterable {
-        case programs = "Programs"
-        case exercises = "Exercises"
+    func getImageName(for type: ContentType, isSelected: Bool = false) -> String {
+        let postfix = isSelected ? ".fill" : ""
+        switch type {
+        case .programs:
+            return "heart.text.square\(postfix)"
+        case .exercises:
+            return "heart\(postfix)"
+        }
     }
 }
 

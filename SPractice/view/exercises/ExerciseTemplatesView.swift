@@ -42,6 +42,7 @@ struct ExerciseTemplatesView: View, EditableView {
                 .disabled(isInEditMode)
             }
         }
+        .navigationTitle("Exercises")
         .sheet(isPresented: $showAddNewView) {
             NavigationView {
                 AddExerciseTemplateView() { viewModel.addNewTemplate(template: $0) }
