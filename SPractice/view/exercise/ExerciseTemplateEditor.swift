@@ -88,10 +88,11 @@ struct ExerciseTemplateEditor: View {
                         Text("Intensity")
                         Spacer()
                         HStack {
-                            TaskTypeImage(type: viewModel.template.taskType!)
-                            Text(viewModel.template.taskType!.rawValue)
+                            TaskTypeImage(type: viewModel.template.taskType)
+                            Text(viewModel.template.taskType.rawValue)
                         }
                         .foregroundColor(.gray)
+                        
                     }
                     Picker("Intensity", selection: $viewModel.template.taskType.animation()) {
                         ForEach(Task.TaskType.allCases, id: \.self) { type in
@@ -99,12 +100,13 @@ struct ExerciseTemplateEditor: View {
                         }
                     }
                     .pickerStyle(.segmented)
+                    .disabled(viewModel.intensityDisabled)
                 }
             }
             
             if viewModel.isTypeDefined {
                 Section {
-                    Button("Preview tasks") {
+                    Button("View tasks") {
                         showTasks = true
                     }
                 }

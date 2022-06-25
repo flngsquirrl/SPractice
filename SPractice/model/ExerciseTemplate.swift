@@ -13,10 +13,10 @@ struct ExerciseTemplate: Identifiable, Hashable {
     var type: Exercise.ExerciseType?
     var name: String
     let isService: Bool
-    var taskType: Task.TaskType? // for timer and flow
+    var taskType: Task.TaskType
     var duration: Int? // for timer only
     
-    private init(id: UUID = UUID(), type: Exercise.ExerciseType? = nil, name: String = "", isService: Bool = false, taskType: Task.TaskType? = nil, duration: Int? = nil) {
+    private init(id: UUID = UUID(), type: Exercise.ExerciseType? = nil, name: String = "", isService: Bool = false, taskType: Task.TaskType = .activity, duration: Int? = nil) {
         self.id = id
         self.type = type
         self.name = name
@@ -36,7 +36,7 @@ struct ExerciseTemplate: Identifiable, Hashable {
         if type != .tabata {
             self.taskType = taskType
         } else {
-            self.taskType = nil
+            self.taskType = .activity
         }
     }
     

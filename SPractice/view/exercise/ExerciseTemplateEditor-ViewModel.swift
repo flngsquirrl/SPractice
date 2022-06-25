@@ -48,7 +48,11 @@ extension ExerciseTemplateEditor {
         }
         
         var showIntensity: Bool {
-            (template.type == .timer || template.type == .flow) && template.taskType != nil
+            template.type != nil
+        }
+        
+        var intensityDisabled: Bool {
+            template.type == .tabata
         }
         
         static let secondsSelectionArray = Array(stride(from: 0, through: 50, by: 10))
@@ -93,11 +97,7 @@ extension ExerciseTemplateEditor {
         }
         
         func onTypeChange(newValue: Exercise.ExerciseType?) {
-            if newValue != .tabata {
-                template.taskType = .activity
-            } else {
-                template.taskType = nil
-            }
+            template.taskType = .activity
         }
         
         func resetDuration() {
