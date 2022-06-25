@@ -21,6 +21,10 @@ struct ProgramTemplate: Identifiable {
         self.exercises = exercises
     }
     
+    var hasExercises: Bool {
+        !exercises.isEmpty
+    }
+    
     static var defaultTemplate = ProgramTemplate()
     
     // examples

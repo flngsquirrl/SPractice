@@ -77,6 +77,7 @@ struct ProgramTemplateEditor: View {
                                 editMode = .active
                             }
                         }
+                        .disabled(!viewModel.template.hasExercises)
                     }
                 }
             }
