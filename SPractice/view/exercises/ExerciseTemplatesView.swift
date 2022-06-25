@@ -39,6 +39,7 @@ struct ExerciseTemplatesView_Previews: PreviewProvider {
         NavigationView {
             List {
                 ExerciseTemplatesView()
+                    .environmentObject(DataModel())
             }
         }
     }

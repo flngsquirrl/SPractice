@@ -38,10 +38,12 @@ struct ProgramTemplatesView: View, EditableView {
 }
 
 struct ProgramsView_Previews: PreviewProvider {
+    
     static var previews: some View {
         NavigationView {
             List {
                 ProgramTemplatesView()
+                    .environmentObject(DataModel())
             }
         }
     }
