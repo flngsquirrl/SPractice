@@ -10,12 +10,13 @@ import SwiftUI
 struct ExerciseTemplateSelectionView: View {
     
     enum TemplatesGroup: String, CaseIterable {
-        case all = "list.bullet"
-        case selected = "checkmark"
+        case all = "all"
+        case selected = "selected"
     }
     
     @StateObject private var viewModel = ViewModel()
     @Environment(\.dismiss) var dismiss
+    @Environment(\.horizontalSizeClass) var sizeClass
     
     private var onFinished: ([ExerciseTemplate]) -> Void
     
@@ -65,7 +66,11 @@ struct ExerciseTemplateSelectionView: View {
                 ToolbarItem(placement: .principal) {
                     Picker("Group of templates", selection: $viewModel.templatesGroup.animation()) {
                         ForEach(TemplatesGroup.allCases, id: \.self) { group in
-                            Image(systemName: group.rawValue)
+                            if sizeClass == .compact {
+                                Image(systemName: getImageName(for: group))
+                            } else {
+                                Text(group.rawValue)
+                            }
                         }
                     }
                     .fixedSize()
@@ -88,6 +93,15 @@ struct ExerciseTemplateSelectionView: View {
             }
         }
         .accentColor(.customAccentColor)
+    }
+    
+    func getImageName(for type: TemplatesGroup) -> String {
+        switch type {
+        case .all:
+            return "list.bullet"
+        case .selected:
+            return "checkmark"
+        }
     }
     
     struct SelectionRow: View {
