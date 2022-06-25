@@ -30,7 +30,7 @@ struct ExerciseTemplatesView: View, EditableView {
         }
         .onDelete { dataModel.removeExerciseItems(at: $0) }
         .onMove { dataModel.moveExerciseItems(from: $0, to: $1) }
-        .navigationTitle("Exercises")
+        
     }
 }
 

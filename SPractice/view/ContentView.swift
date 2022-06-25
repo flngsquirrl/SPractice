@@ -32,6 +32,7 @@ struct ContentView: View {
                     ExerciseTemplatesView()
                 }
             }
+            .navigationTitle(contentType == .exercises ? "Exercises" : "Programs")
             .animation(.default, value: editMode)
             .sheet(isPresented: $showSettingsView) {
                 SettingsView()

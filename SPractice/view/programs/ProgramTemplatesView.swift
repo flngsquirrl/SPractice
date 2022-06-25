@@ -34,7 +34,6 @@ struct ProgramTemplatesView: View, EditableView {
         }
         .onDelete { dataModel.removeProgramItems(at: $0) }
         .onMove { dataModel.moveProgramItems(from: $0, to: $1) }
-        .navigationTitle("Programs")
     }
 }
 
