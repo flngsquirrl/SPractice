@@ -59,7 +59,7 @@ struct ExerciseTemplateSelectionView: View {
                     }
                 }
             }
-            .searchable(text: $viewModel.searchText)
+            .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer)
             .navigationTitle("Templates")
             .toolbar {
                 ToolbarItem(placement: .principal) {
