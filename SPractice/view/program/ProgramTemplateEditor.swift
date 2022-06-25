@@ -33,6 +33,19 @@ struct ProgramTemplateEditor: View {
             }
             
             Section() {
+                Button() {
+                    showExerciseSelectionView = true
+                } label: {
+                    Label("Select from templates", systemImage: "plus")
+                }
+                .disabled(editMode.isEditing)
+                
+                Button() {
+                    showNewExerciseView = true
+                } label: {
+                    Label("Add new", systemImage: "plus")
+                }
+                .disabled(editMode.isEditing)
                 ForEach(viewModel.template.exercises) { exercise in
                     HStack {
                         if !editMode.isEditing {
@@ -48,20 +61,6 @@ struct ProgramTemplateEditor: View {
                 }
                 .onDelete { viewModel.removeItems(at: $0) }
                 .onMove{ viewModel.moveItems(from: $0, to: $1) }
-                
-                Button() {
-                    showExerciseSelectionView = true
-                } label: {
-                    Label("Select from templates", systemImage: "plus")
-                }
-                .disabled(editMode.isEditing)
-                
-                Button() {
-                    showNewExerciseView = true
-                } label: {
-                    Label("Add new", systemImage: "plus")
-                }
-                .disabled(editMode.isEditing)
             } header: {
                 HStack {
                     Text("Exercises (\(viewModel.template.exercises.count))")
