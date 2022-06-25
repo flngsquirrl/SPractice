@@ -13,6 +13,12 @@ extension ExerciseTemplateSelectionView {
         @Published var templates = [ExerciseTemplate.catCow, ExerciseTemplate.surjaNamascar, ExerciseTemplate.vasihsthasana, ExerciseTemplate.concentration, ExerciseTemplate.catCowDurationNoDuration, ExerciseTemplate.catCowNoType]
         @Published var selections: [ExerciseTemplate] = []
         
+        init() {
+            for _ in 1...100 {
+                templates.append(ExerciseTemplate(from: ExerciseTemplate.catCow))
+            }
+        }
+        
         func onAdd(template: ExerciseTemplate) {
             selections.append(ExerciseTemplate(from: template))
         }

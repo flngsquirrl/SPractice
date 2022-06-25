@@ -14,8 +14,13 @@ struct ContentView: View {
         case exercises = "Exercises"
     }
     
+    @State private var editMode: EditMode = .inactive
+    
     @State private var showSettingsView = false
+    @State private var showAddNewView = false
     @State private var contentType: ContentType = .programs
+    
+    @StateObject var dataModel = DataModel()
     
     var body: some View {
         NavigationView {
@@ -27,40 +32,74 @@ struct ContentView: View {
                     ExerciseTemplatesView()
                 }
             }
+            .animation(.default, value: editMode)
             .sheet(isPresented: $showSettingsView) {
                 SettingsView()
             }
+            .sheet(isPresented: $showAddNewView) {
+                NavigationView {
+                    if contentType == .programs {
+                        AddProgramTemplateView() { dataModel.addNewProgramTemplate(template: $0) }
+                    } else {
+                        AddExerciseTemplateView() { dataModel.addNewExerciseTemplate(template: $0) }
+                    }
+                }
+                .accentColor(.customAccentColor)
+            }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
-                    Button() {
-                        showSettingsView = true
-                    } label: {
-                        Image(systemName: "gearshape")
-                    }
-                
-                    Picker("Group of templates", selection: $contentType.animation()) {
+                    Picker("Group of templates", selection: $contentType) {
                         ForEach(ContentType.allCases, id: \.self) { type in
                             Image(systemName: getImageName(for: type))
                         }
                     }
                     .pickerStyle(.segmented)
+                    .disabled(editMode.isEditing)
                 }
                 
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Button() {
+                        showAddNewView = true
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                    .disabled(editMode.isEditing)
+                    
+                    if editMode.isEditing {
+                        Button("Done") {
+                            editMode = .inactive
+                        }
+                    } else {
+                        Menu {
+                            Button() {
+                                editMode = .active
+                            } label: {
+                                Label("Edit List", systemImage: "pencil")
+                            }
+                            
+                            Button() {
+                                showSettingsView = true
+                            } label: {
+                                Label("Open Settings", systemImage: "gearshape")
+                            }
+                        } label: {
+                            Image(systemName: "ellipsis.circle")
+                        }
+                    }
                 }
             }
+            .environmentObject(dataModel)
+            .environment(\.editMode, $editMode)
         }
         .accentColor(.customAccentColor)
     }
     
-    func getImageName(for type: ContentType, isSelected: Bool = false) -> String {
-        let postfix = isSelected ? ".fill" : ""
+    func getImageName(for type: ContentType) -> String {
         switch type {
         case .programs:
-            return "heart.text.square\(postfix)"
+            return "heart.text.square"
         case .exercises:
-            return "heart\(postfix)"
+            return "heart"
         }
     }
 }

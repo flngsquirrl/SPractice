@@ -11,44 +11,26 @@ struct ExerciseTemplatesView: View, EditableView {
     
     @Environment(\.editMode) var editMode
     
-    @StateObject var viewModel = ViewModel()
-    @State private var showAddNewView = false
+    @EnvironmentObject var dataModel: DataModel
     
     var body: some View {
-        Group {
-            ForEach(viewModel.templates) { template in
-                HStack {
-                    if isInEditMode {
+        ForEach(dataModel.exerciseTemplates) { template in
+            HStack {
+                if isInEditMode {
+                    ExerciseDetailsShortView(for: template, displayDuration: template.type == .timer)
+                } else {
+                    NavigationLink {
+                        ExerciseTemplateDetailsView(for: template) { dataModel.updateExerciseTemplate(template: $0) }
+                            onDelete: { dataModel.deleteExerciseTemplate(template: $0) }
+                    } label: {
                         ExerciseDetailsShortView(for: template, displayDuration: template.type == .timer)
-                    } else {
-                        NavigationLink {
-                            ExerciseTemplateDetailsView(for: template) { viewModel.updateTemplate(template: $0) }
-                                onDelete: { viewModel.deleteTemplate(template: $0) }
-                        } label: {
-                            ExerciseDetailsShortView(for: template, displayDuration: template.type == .timer)
-                        }
                     }
                 }
             }
-            .onDelete { viewModel.removeItems(at: $0) }
-            .onMove { viewModel.moveItems(from: $0, to: $1) }
-            
-            Section {
-                Button() {
-                    showAddNewView = true
-                } label: {
-                    Text("Add new")
-                }
-                .disabled(isInEditMode)
-            }
         }
+        .onDelete { dataModel.removeExerciseItems(at: $0) }
+        .onMove { dataModel.moveExerciseItems(from: $0, to: $1) }
         .navigationTitle("Exercises")
-        .sheet(isPresented: $showAddNewView) {
-            NavigationView {
-                AddExerciseTemplateView() { viewModel.addNewTemplate(template: $0) }
-            }
-            .accentColor(.customAccentColor)
-        }
     }
 }
 
