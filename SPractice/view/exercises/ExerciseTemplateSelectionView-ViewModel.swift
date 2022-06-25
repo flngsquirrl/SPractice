@@ -6,12 +6,26 @@
 //
 
 import Foundation
+import SwiftUI
 
 extension ExerciseTemplateSelectionView {
     @MainActor class ViewModel: ObservableObject {
         
+        @Published var templatesGroup: TemplatesGroup = .all
+        
         @Published var templates = [ExerciseTemplate.catCow, ExerciseTemplate.surjaNamascar, ExerciseTemplate.vasihsthasana, ExerciseTemplate.concentration, ExerciseTemplate.catCowDurationNoDuration, ExerciseTemplate.catCowNoType]
         @Published var selections: [ExerciseTemplate] = []
+        
+        @Published var searchText = ""
+
+        var searchableTemplates: [ExerciseTemplate] {
+            let target = templatesGroup == .selected ? selections : templates
+            if searchText.isEmpty {
+                return target
+            } else {
+                return target.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+            }
+        }
         
         init() {
             for _ in 1...100 {
@@ -31,6 +45,10 @@ extension ExerciseTemplateSelectionView {
         
         func removeItems(at offsets: IndexSet) {
             selections.remove(atOffsets: offsets)
+        }
+        
+        func clearSelections() {
+            selections.removeAll()
         }
     }
 }

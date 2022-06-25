@@ -9,6 +9,11 @@ import SwiftUI
 
 struct ExerciseTemplateSelectionView: View {
     
+    enum TemplatesGroup: String, CaseIterable {
+        case all = "list.bullet"
+        case selected = "checkmark"
+    }
+    
     @StateObject private var viewModel = ViewModel()
     @Environment(\.dismiss) var dismiss
     
@@ -21,26 +26,50 @@ struct ExerciseTemplateSelectionView: View {
     var body: some View {
         NavigationView {
             List {
-                Section("Existing") {
-                    ForEach(viewModel.templates) { template in
-                        SelectionRow(template: template) {
-                            viewModel.onAdd(template: $0)
+                if viewModel.templatesGroup == .all {
+                    Section {
+                        ForEach(viewModel.searchableTemplates) { template in
+                            SelectionRow(template: template) {
+                                viewModel.onAdd(template: $0)
+                            }
+                        }
+                    } header: {
+                        HStack {
+                            Text("All")
+                            Spacer()
+                            Text("(\(viewModel.selections.count)) to be added")
                         }
                     }
-                }
-                
-                Section("To add (\(viewModel.selections.count))") {
-                    ForEach(viewModel.selections) { template in
-                        SelectionRow(template: template, isAdded: true) {
-                            viewModel.onDelete(template: $0)
+                } else {
+                    Section {
+                        ForEach(viewModel.searchableTemplates) { template in
+                            SelectionRow(template: template, isAdded: true) {
+                                viewModel.onDelete(template: $0)
+                            }
+                            .transition(.opacity)
+                        }
+                        .onDelete { viewModel.removeItems(at: $0) }
+                    } header: {
+                        HStack {
+                            Text("To be added (\(viewModel.selections.count))")
+                            Spacer()
+                            Button("Clear all") { viewModel.clearSelections() }
+                                .disabled(viewModel.selections.isEmpty)
                         }
                     }
-                    .onDelete { viewModel.removeItems(at: $0) }
                 }
             }
+            .searchable(text: $viewModel.searchText)
             .navigationTitle("Templates")
             .toolbar {
-                ToolbarItemGroup {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Picker("Group of templates", selection: $viewModel.templatesGroup.animation()) {
+                        ForEach(TemplatesGroup.allCases, id: \.self) { group in
+                            Image(systemName: group.rawValue)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                    
                     Button("Add") {
                         onFinished(viewModel.selections)
                         dismiss()
@@ -48,7 +77,7 @@ struct ExerciseTemplateSelectionView: View {
                     .disabled(viewModel.selections.isEmpty)
                 }
                 
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItemGroup(placement: .navigationBarLeading) {
                     Button("Cancel") {
                         dismiss()
                     }
@@ -66,9 +95,7 @@ struct ExerciseTemplateSelectionView: View {
         var body: some View {
             HStack {
                 Button() {
-                    withAnimation {
-                        action(template)
-                    }
+                    action(template)
                 } label: {
                     Image(systemName: isAdded ? "minus.circle.fill" : "plus.circle.fill")
                 }
