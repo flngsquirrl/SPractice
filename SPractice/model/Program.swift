@@ -15,7 +15,7 @@ struct Program {
     
     static let personal = Program(from: ProgramTemplate.personal)
     
-    init(from template: ProgramTemplate) {
+    init(from template: ProgramTemplate, useRest: Bool = false) {
         self.name = template.name
         
         var exercises = [Exercise]()
@@ -23,7 +23,7 @@ struct Program {
             let exercise = Exercise(from: exerciseTemplate)
             exercises.append(exercise!)
             
-            if template.useRest && index != template.exercises.count - 1 {
+            if useRest && index != template.exercises.count - 1 {
                 let rest = Exercise(from: ExerciseTemplate.restTemplate)
                 exercises.append(rest!)
             }

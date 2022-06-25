@@ -22,7 +22,13 @@ struct ProgramTemplateDetailsView: View {
     
     var body: some View {
         List {
-            Section{
+            Section {
+                Toggle("Use rest", isOn: $viewModel.useRest)
+            } footer: {
+                Text("Having rest between execises lets you take a deep breath and prepare for the upcoming exercise")
+            }
+            
+            Section {
                 HStack {
                     Text("Duration")
                     Spacer()

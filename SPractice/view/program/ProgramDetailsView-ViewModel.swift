@@ -11,19 +11,22 @@ extension ProgramTemplateDetailsView {
     @MainActor class ViewModel: ObservableObject {
         
         var template: ProgramTemplate
-        @Published var program: Program
+        
+        @Published var useRest: Bool = true
         
         @Published var showPracticeView = false
         @Published var showEditTemplateView = false
         
         init(for template: ProgramTemplate) {
             self.template = template
-            _program = Published(initialValue: Program(from: template))
+        }
+        
+        var program: Program {
+            Program(from: template, useRest: useRest)
         }
         
         func updateProgramTemplate(template: ProgramTemplate) {
             self.template = template
-            _program = Published(initialValue: Program(from: template))
         }
     }
 }

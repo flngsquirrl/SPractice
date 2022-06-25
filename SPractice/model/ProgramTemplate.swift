@@ -11,13 +11,11 @@ struct ProgramTemplate: Identifiable {
     
     let id: UUID
     var name: String
-    var useRest: Bool = true
     var exercises = [ExerciseTemplate]()
     
-    init(id: UUID = UUID(), name: String = "", useRest: Bool = true, exercises: [ExerciseTemplate] = []) {
+    init(id: UUID = UUID(), name: String = "", exercises: [ExerciseTemplate] = []) {
         self.id = id
         self.name = name
-        self.useRest = useRest
         self.exercises = exercises
     }
     
