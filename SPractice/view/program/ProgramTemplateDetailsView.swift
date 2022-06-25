@@ -24,6 +24,13 @@ struct ProgramTemplateDetailsView: View {
         List {
             Section {
                 Toggle("Use rest", isOn: $viewModel.useRest)
+                Button() {
+                    viewModel.showPracticeView = true
+                } label: {
+                    Label("Practice", systemImage: "play.rectangle")
+                }
+            } header: {
+                Text("Practice")
             } footer: {
                 Text("Having rest between execises lets you take a deep breath and prepare for the upcoming exercise")
             }
@@ -33,11 +40,6 @@ struct ProgramTemplateDetailsView: View {
                     Text("Duration")
                     Spacer()
                     Text(ClockTime.getExtendedPresentation(for: viewModel.program.duration!))
-                }
-                Button() {
-                    viewModel.showPracticeView = true
-                } label: {
-                    Label("Practice", systemImage: "play.rectangle")
                 }
             } header: {
                 Text("Summary")
