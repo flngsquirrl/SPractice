@@ -62,14 +62,17 @@ struct ExerciseTemplateSelectionView: View {
             .searchable(text: $viewModel.searchText)
             .navigationTitle("Templates")
             .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .principal) {
                     Picker("Group of templates", selection: $viewModel.templatesGroup.animation()) {
                         ForEach(TemplatesGroup.allCases, id: \.self) { group in
                             Image(systemName: group.rawValue)
                         }
                     }
+                    .fixedSize()
                     .pickerStyle(.segmented)
+                }
                     
+                ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Add") {
                         onFinished(viewModel.selections)
                         dismiss()
@@ -77,7 +80,7 @@ struct ExerciseTemplateSelectionView: View {
                     .disabled(viewModel.selections.isEmpty)
                 }
                 
-                ToolbarItemGroup(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel") {
                         dismiss()
                     }
