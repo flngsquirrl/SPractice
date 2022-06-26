@@ -9,17 +9,12 @@ import Foundation
 
 struct Task: Identifiable {
     
-    enum TaskType: String, CaseIterable {
-        case activity
-        case rest
-    }
-    
     let id: UUID
-    let type: TaskType
+    let type: IntensityType
     let name: String
     let duration: Int?
     
-    init(type: TaskType, name: String, duration: Int? = nil) {
+    init(type: IntensityType, name: String, duration: Int? = nil) {
         self.id = UUID()
         self.type = type
         self.name = name

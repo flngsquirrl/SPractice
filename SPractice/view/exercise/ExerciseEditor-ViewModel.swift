@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-extension ExerciseTemplateEditor {
+extension ExerciseEditor {
     
     static var secondsUnit: String {
         MeasurementFormatter().string(from: UnitDuration.seconds)
@@ -20,7 +20,7 @@ extension ExerciseTemplateEditor {
     
     @MainActor class ViewModel: ObservableObject {
         
-        @Binding var template: ExerciseTemplate
+        @Binding var template: Exercise
         
         @Published var isTypeSet: Bool = true
 
@@ -33,7 +33,7 @@ extension ExerciseTemplateEditor {
                 return []
             }
             
-            return Exercise(from: template)?.tasks ?? []
+            return PracticeExercise(from: template)?.tasks ?? []
         }
         
         @Published var minutes: Int = 0
@@ -57,7 +57,7 @@ extension ExerciseTemplateEditor {
         
         static let secondsSelectionArray = Array(stride(from: 0, through: 50, by: 10))
         
-        init(for template: Binding<ExerciseTemplate>) {
+        init(for template: Binding<Exercise>) {
             self._template = template
             self.isTypeSet = self.template.type != nil
             
@@ -96,8 +96,8 @@ extension ExerciseTemplateEditor {
             onTypeChange(newValue: template.type)
         }
         
-        func onTypeChange(newValue: Exercise.ExerciseType?) {
-            template.taskType = .activity
+        func onTypeChange(newValue: ExerciseType?) {
+            template.intensityType = .activity
         }
         
         func resetDuration() {

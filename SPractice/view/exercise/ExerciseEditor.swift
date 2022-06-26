@@ -1,5 +1,5 @@
 //
-//  ExerciseTemplateEditor.swift
+//  ExerciseEditor.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 18.06.22.
@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct ExerciseTemplateEditor: View {
+struct ExerciseEditor: View {
     
     @ObservedObject private var viewModel: ViewModel
     
     @State private var showTasks = false
     
-    init(for template: Binding<ExerciseTemplate>) {
+    init(for template: Binding<Exercise>) {
         self.viewModel = ViewModel(for: template)
     }
     
@@ -40,9 +40,9 @@ struct ExerciseTemplateEditor: View {
 
                 if viewModel.isTypeDefined {
                     Picker("Type", selection: $viewModel.template.type.animation()) {
-                        ForEach(Exercise.ExerciseType.allCases, id: \.self) { type in
+                        ForEach(ExerciseType.allCases, id: \.self) { type in
                             ExerciseTypeImage(type: type)
-                                .tag(type as Exercise.ExerciseType?)
+                                .tag(type as ExerciseType?)
                         }
                     }
                     .onChange(of: viewModel.template.type) { viewModel.onTypeChange(newValue: $0) }
@@ -88,15 +88,15 @@ struct ExerciseTemplateEditor: View {
                         Text("Intensity")
                         Spacer()
                         HStack {
-                            TaskTypeImage(type: viewModel.template.taskType)
-                            Text(viewModel.template.taskType.rawValue)
+                            IntensityTypeImage(type: viewModel.template.intensityType)
+                            Text(viewModel.template.intensityType.rawValue)
                         }
                         .foregroundColor(.gray)
                         
                     }
-                    Picker("Intensity", selection: $viewModel.template.taskType.animation()) {
-                        ForEach(Task.TaskType.allCases, id: \.self) { type in
-                            TaskTypeImage(type: type).tag(type as Task.TaskType?)
+                    Picker("Intensity", selection: $viewModel.template.intensityType.animation()) {
+                        ForEach(IntensityType.allCases, id: \.self) { type in
+                            IntensityTypeImage(type: type).tag(type as IntensityType?)
                         }
                     }
                     .pickerStyle(.segmented)
@@ -136,10 +136,10 @@ struct ExerciseTemplateEditor: View {
     }
 }
 
-struct ExerciseTemplateEditor_Previews: PreviewProvider {
+struct ExerciseEditor_Previews: PreviewProvider {
     
-    @State static private var defaultTemplate = ExerciseTemplate.defaultTemplate
-    @State static private var exampleTemplate = ExerciseTemplate.catCowNoType
+    @State static private var defaultTemplate = Exercise.defaultTemplate
+    @State static private var exampleTemplate = Exercise.catCowNoType
     
     static var previews: some View {
 //        NavigationView {
@@ -147,7 +147,7 @@ struct ExerciseTemplateEditor_Previews: PreviewProvider {
 //        }
         
         NavigationView {
-            ExerciseTemplateEditor(for: $exampleTemplate)
+            ExerciseEditor(for: $exampleTemplate)
         }
     }
 }

@@ -9,14 +9,14 @@ import SwiftUI
 
 struct ExerciseTypeImage: View {
     
-    var type: Exercise.ExerciseType?
+    var type: ExerciseType?
     var isFilled = false
 
     var body: some View {
         Image(systemName: Self.imageName(for: type, isFilled: isFilled))
     }
     
-    static func imageName(for type: Exercise.ExerciseType?, isFilled: Bool = false) -> String {
+    static func imageName(for type: ExerciseType?, isFilled: Bool = false) -> String {
         let postfix = isFilled ? ".fill" : ""
         if let type = type {
             switch type {

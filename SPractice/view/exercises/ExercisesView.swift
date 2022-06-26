@@ -1,5 +1,5 @@
 //
-//  ExerciseTemplatesView.swift
+//  ExercisesView.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 8.06.22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExerciseTemplatesView: View, EditableView {
+struct ExercisesView: View, EditableView {
     
     @Environment(\.editMode) var editMode
     
@@ -20,7 +20,7 @@ struct ExerciseTemplatesView: View, EditableView {
                     ExerciseDetailsShortView(for: template, displayDuration: template.type == .timer)
                 } else {
                     NavigationLink {
-                        ExerciseTemplateDetailsView(for: template) { dataModel.updateExerciseTemplate(template: $0) }
+                        ExerciseDetailsView(for: template) { dataModel.updateExerciseTemplate(template: $0) }
                             onDelete: { dataModel.deleteExerciseTemplate(template: $0) }
                     } label: {
                         ExerciseDetailsShortView(for: template, displayDuration: template.type == .timer)
@@ -34,11 +34,11 @@ struct ExerciseTemplatesView: View, EditableView {
     }
 }
 
-struct ExerciseTemplatesView_Previews: PreviewProvider {
+struct ExercisesView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             List {
-                ExerciseTemplatesView()
+                ExercisesView()
                     .environmentObject(DataModel())
             }
         }

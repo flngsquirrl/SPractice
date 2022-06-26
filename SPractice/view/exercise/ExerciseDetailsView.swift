@@ -1,5 +1,5 @@
 //
-//  ExerciseTemplateDetailsView.swift
+//  ExerciseDetailsView.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 18.06.22.
@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct ExerciseTemplateDetailsView: View {
+struct ExerciseDetailsView: View {
     
     @ObservedObject private var viewModel: ViewModel
     
-    private var onChange: (ExerciseTemplate) -> Void
-    private var onDelete: (ExerciseTemplate) -> Void
+    private var onChange: (Exercise) -> Void
+    private var onDelete: (Exercise) -> Void
     
     @State private var showEditView = false
     
-    init(for template: ExerciseTemplate, onChange: @escaping (ExerciseTemplate) -> Void, onDelete: @escaping (ExerciseTemplate) -> Void) {
+    init(for template: Exercise, onChange: @escaping (Exercise) -> Void, onDelete: @escaping (Exercise) -> Void) {
         self.viewModel = ViewModel(for: template)
         self.onChange = onChange
         self.onDelete = onDelete
@@ -74,7 +74,7 @@ struct ExerciseTemplateDetailsView: View {
         }
         .sheet(isPresented: $showEditView) {
             NavigationView {
-                EditExerciseTemplateView(for: viewModel.template, onSave: onChange)
+                EditExerciseView(for: viewModel.template, onSave: onChange)
                 }
                 .accentColor(.customAccentColor)
         }
@@ -84,15 +84,15 @@ struct ExerciseTemplateDetailsView: View {
 struct ExerciseDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ExerciseTemplateDetailsView(for: ExerciseTemplate.catCow, onChange: { _ in }, onDelete: { _ in })
+            ExerciseDetailsView(for: Exercise.catCow, onChange: { _ in }, onDelete: { _ in })
         }
         
         NavigationView {
-            ExerciseTemplateDetailsView(for: ExerciseTemplate.vasihsthasana, onChange: { _ in }, onDelete: { _ in })
+            ExerciseDetailsView(for: Exercise.vasihsthasana, onChange: { _ in }, onDelete: { _ in })
         }
         
         NavigationView {
-            ExerciseTemplateDetailsView(for: ExerciseTemplate.surjaNamascar, onChange: { _ in }, onDelete: { _ in })
+            ExerciseDetailsView(for: Exercise.surjaNamascar, onChange: { _ in }, onDelete: { _ in })
         }
     }
 }

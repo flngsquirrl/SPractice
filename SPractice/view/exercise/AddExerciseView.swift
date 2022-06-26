@@ -1,5 +1,5 @@
 //
-//  AddExerciseTemplateView.swift
+//  AddExerciseView.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 10.06.22.
@@ -7,25 +7,25 @@
 
 import SwiftUI
 
-struct AddExerciseTemplateView: View {
+struct AddExerciseView: View {
     
     @Environment(\.dismiss) var dismiss
-    var onAdd: (ExerciseTemplate) -> Void
+    var onAdd: (Exercise) -> Void
     
-    @State private var newTemplate = ExerciseTemplate.defaultTemplate
+    @State private var newTemplate = Exercise.defaultTemplate
     
-    init(onAdd: @escaping (ExerciseTemplate) -> Void) {
+    init(onAdd: @escaping (Exercise) -> Void) {
         self.onAdd = onAdd
     }
     
     var body: some View {
-        ExerciseTemplateEditor(for: $newTemplate)
+        ExerciseEditor(for: $newTemplate)
             .navigationTitle("New template")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Add") {
                         
-                        onAdd(ExerciseTemplate(from: newTemplate))
+                        onAdd(Exercise(from: newTemplate))
                         dismiss()
                     }
                 }
@@ -39,10 +39,10 @@ struct AddExerciseTemplateView: View {
     }
 }
 
-struct AddExerciseTemplateView_Previews: PreviewProvider {
+struct AddExerciseView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            AddExerciseTemplateView() { _ in }
+            AddExerciseView() { _ in }
         }
     }
 }

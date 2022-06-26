@@ -10,31 +10,31 @@ import SwiftUI
 struct ExerciseDetailsShortView: View {
     
     private let name: String
-    private let type: Exercise.ExerciseType?
-    private let taskType: Task.TaskType?
+    private let type: ExerciseType?
+    private let taskType: IntensityType?
     private let duration: Int?
     private let iconColor: Color
     
     private var displayDuration = false
     
-    init(for exercise: Exercise, iconColor: Color = .primary) {
+    init(for exercise: PracticeExercise, iconColor: Color = .primary) {
         let taskType = exercise.type == .tabata ? .activity : exercise.tasks[0].type
         self.init(name: exercise.name, type: exercise.type, taskType: taskType, duration: exercise.duration, iconColor: iconColor)
         displayDuration = true
     }
     
-    init(for template: ExerciseTemplate, displayDuration: Bool = false, iconColor: Color = .primary) {
+    init(for template: Exercise, displayDuration: Bool = false, iconColor: Color = .primary) {
         var duration: Int? = nil
         if (displayDuration) {
             duration = template.type == .tabata ? SettingsManager.shared.tabataExerciseDuration : template.duration
         }
-        let taskType = template.type == .tabata ? .activity : template.taskType
+        let taskType = template.type == .tabata ? .activity : template.intensityType
         self.init(name: template.name, type: template.type, taskType: taskType, duration: duration, iconColor: iconColor)
         
         self.displayDuration = displayDuration
     }
     
-    private init(name: String, type: Exercise.ExerciseType?, taskType: Task.TaskType?, duration: Int?, iconColor: Color) {
+    private init(name: String, type: ExerciseType?, taskType: IntensityType?, duration: Int?, iconColor: Color) {
         self.name = name
         self.type = type
         self.taskType = taskType
@@ -53,7 +53,7 @@ struct ExerciseDetailsShortView: View {
                     ExerciseDurationView(type: type, duration: duration)
                 }
                 if let taskType = taskType {
-                    TaskTypeImage(type: taskType)
+                    IntensityTypeImage(type: taskType)
                 }
             }
             .foregroundColor(.gray)
@@ -66,27 +66,27 @@ struct ExerciseDetailsShortView_Previews: PreviewProvider {
         List {
             Group {
                 Text("exercises")
-                ExerciseDetailsShortView(for: Exercise.catCow)
-                ExerciseDetailsShortView(for: Exercise.surjaNamascar)
-                ExerciseDetailsShortView(for: Exercise.vasihsthasana, iconColor: .lightOrange)
+                ExerciseDetailsShortView(for: PracticeExercise.catCow)
+                ExerciseDetailsShortView(for: PracticeExercise.surjaNamascar)
+                ExerciseDetailsShortView(for: PracticeExercise.vasihsthasana, iconColor: .lightOrange)
             }
             
             Group {
                 Text("templates with durations")
-                ExerciseDetailsShortView(for: ExerciseTemplate.catCowDurationNoDuration, displayDuration: true)
-                ExerciseDetailsShortView(for: ExerciseTemplate.catCow, displayDuration: true)
-                ExerciseDetailsShortView(for: ExerciseTemplate.surjaNamascar, displayDuration: true, iconColor: .lightOrange)
-                ExerciseDetailsShortView(for: ExerciseTemplate.vasihsthasana, displayDuration: true)
-                ExerciseDetailsShortView(for: ExerciseTemplate.catCowNoType, displayDuration: true, iconColor: .lightOrange)
+                ExerciseDetailsShortView(for: Exercise.catCowDurationNoDuration, displayDuration: true)
+                ExerciseDetailsShortView(for: Exercise.catCow, displayDuration: true)
+                ExerciseDetailsShortView(for: Exercise.surjaNamascar, displayDuration: true, iconColor: .lightOrange)
+                ExerciseDetailsShortView(for: Exercise.vasihsthasana, displayDuration: true)
+                ExerciseDetailsShortView(for: Exercise.catCowNoType, displayDuration: true, iconColor: .lightOrange)
             }
             
             Group {
                 Text("templates without durations")
-                ExerciseDetailsShortView(for: ExerciseTemplate.catCowDurationNoDuration, iconColor: .lightOrange)
-                ExerciseDetailsShortView(for: ExerciseTemplate.catCow)
-                ExerciseDetailsShortView(for: ExerciseTemplate.surjaNamascar)
-                ExerciseDetailsShortView(for: ExerciseTemplate.vasihsthasana)
-                ExerciseDetailsShortView(for: ExerciseTemplate.catCowNoType)
+                ExerciseDetailsShortView(for: Exercise.catCowDurationNoDuration, iconColor: .lightOrange)
+                ExerciseDetailsShortView(for: Exercise.catCow)
+                ExerciseDetailsShortView(for: Exercise.surjaNamascar)
+                ExerciseDetailsShortView(for: Exercise.vasihsthasana)
+                ExerciseDetailsShortView(for: Exercise.catCowNoType)
             }
         }
     }

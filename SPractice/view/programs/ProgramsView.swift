@@ -1,5 +1,5 @@
 //
-//  ProgramTemplatesView.swift
+//  ProgramsView.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 4.05.22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProgramTemplatesView: View, EditableView {
+struct ProgramsView: View, EditableView {
     
     @Environment(\.editMode) var editMode
     
@@ -21,7 +21,7 @@ struct ProgramTemplatesView: View, EditableView {
                     Text("\(template.name)")
                 } else {
                     NavigationLink {
-                        ProgramTemplateDetailsView(for: template) {
+                        ProgramDetailsView(for: template) {
                             dataModel.updateProgramTemplate(template: $0)
                         } onDelete: {
                             dataModel.deleteProgramTemplate(template: $0)
@@ -42,7 +42,7 @@ struct ProgramsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             List {
-                ProgramTemplatesView()
+                ProgramsView()
                     .environmentObject(DataModel())
             }
         }

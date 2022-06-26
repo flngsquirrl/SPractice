@@ -7,25 +7,25 @@
 
 import Foundation
 
-extension ProgramTemplateDetailsView {
+extension ProgramDetailsView {
     @MainActor class ViewModel: ObservableObject {
         
-        var template: ProgramTemplate
+        var template: Program
         
         @Published var useRest: Bool = true
         
         @Published var showPracticeView = false
         @Published var showEditTemplateView = false
         
-        init(for template: ProgramTemplate) {
+        init(for template: Program) {
             self.template = template
         }
         
-        var program: Program {
-            Program(from: template, useRest: useRest)
+        var program: PracticeProgram {
+            PracticeProgram(from: template, useRest: useRest)
         }
         
-        func updateProgramTemplate(template: ProgramTemplate) {
+        func updateProgramTemplate(template: Program) {
             self.template = template
         }
     }

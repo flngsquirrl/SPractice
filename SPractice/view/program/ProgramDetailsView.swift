@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct ProgramTemplateDetailsView: View {
+struct ProgramDetailsView: View {
     
     @ObservedObject var viewModel: ViewModel
 
-    var onChange: (ProgramTemplate) -> Void
-    var onDelete: (ProgramTemplate) -> Void
+    var onChange: (Program) -> Void
+    var onDelete: (Program) -> Void
     
-    init(for template: ProgramTemplate, onChange: @escaping (ProgramTemplate) -> Void, onDelete: @escaping (ProgramTemplate) -> Void) {
+    init(for template: Program, onChange: @escaping (Program) -> Void, onDelete: @escaping (Program) -> Void) {
         self.viewModel = ViewModel(for: template)
         self.onChange = onChange
         self.onDelete = onDelete
@@ -58,7 +58,7 @@ struct ProgramTemplateDetailsView: View {
         }
         .fullScreenCover(isPresented: $viewModel.showEditTemplateView) {
             NavigationView {
-                EditProgramTemplateView(for: viewModel.template) {
+                EditProgramView(for: viewModel.template) {
                     viewModel.updateProgramTemplate(template: $0)
                     onChange($0)
                 }
@@ -87,7 +87,7 @@ struct ProgramTemplateDetailsView: View {
 struct ProgramDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ProgramTemplateDetailsView(for: ProgramTemplate.personal) { _ in } onDelete: { _ in }
+            ProgramDetailsView(for: Program.personal) { _ in } onDelete: { _ in }
         }
     }
 }

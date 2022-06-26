@@ -1,5 +1,5 @@
 //
-//  EditExerciseTemplateView.swift
+//  EditExerciseView.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 10.06.22.
@@ -7,21 +7,21 @@
 
 import SwiftUI
 
-struct EditExerciseTemplateView: View {
+struct EditExerciseView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @State private var template: ExerciseTemplate
+    @State private var template: Exercise
     
-    var onSave: (ExerciseTemplate) -> Void
+    var onSave: (Exercise) -> Void
     
-    init(for template: ExerciseTemplate, onSave: @escaping (ExerciseTemplate) -> Void) {
-        self._template = State<ExerciseTemplate>(initialValue: template)
+    init(for template: Exercise, onSave: @escaping (Exercise) -> Void) {
+        self._template = State<Exercise>(initialValue: template)
         self.onSave = onSave
     }
     
     var body: some View {
-        ExerciseTemplateEditor(for: $template)
+        ExerciseEditor(for: $template)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save") {
@@ -40,10 +40,10 @@ struct EditExerciseTemplateView: View {
     }
 }
 
-struct EditExerciseTemplateView_Previews: PreviewProvider {
+struct EditExerciseView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            EditExerciseTemplateView(for: ExerciseTemplate.catCow) { _ in }
+            EditExerciseView(for: Exercise.catCow) { _ in }
         }
     }
 }

@@ -9,18 +9,18 @@ import SwiftUI
 
 struct ExerciseDurationView: View {
     
-    private let type: Exercise.ExerciseType?
+    private let type: ExerciseType?
     private let duration: Int?
     
-    init(for template: ExerciseTemplate) {
+    init(for template: Exercise) {
         self.init(type: template.type, duration: template.duration)
     }
     
-    init(for exercise: Exercise) {
+    init(for exercise: PracticeExercise) {
         self.init(type: exercise.type, duration: exercise.duration)
     }
     
-    init(type: Exercise.ExerciseType?, duration: Int?) {
+    init(type: ExerciseType?, duration: Int?) {
         self.type = type
         self.duration = duration
     }
@@ -46,7 +46,7 @@ struct ExerciseDurationView: View {
 
 struct ExerciseDurationView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseDurationView(for: ExerciseTemplate.surjaNamascar)
-        ExerciseDurationView(for: Exercise.catCow)
+        ExerciseDurationView(for: Exercise.surjaNamascar)
+        ExerciseDurationView(for: PracticeExercise.catCow)
     }
 }

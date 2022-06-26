@@ -1,5 +1,5 @@
 //
-//  TaskTypeImage.swift
+//  IntensityTypeImage.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 21.06.22.
@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct TaskTypeImage: View {
-    var type: Task.TaskType
+struct IntensityTypeImage: View {
+    var type: IntensityType
     var isFilled = false
 
     var body: some View {
         Image(systemName: Self.imageName(for: type, isFilled: isFilled))
     }
     
-    static func imageName(for type: Task.TaskType, isFilled: Bool = false) -> String {
+    static func imageName(for type: IntensityType, isFilled: Bool = false) -> String {
         let postfix = isFilled ? ".fill" : ""
         
         switch type {
@@ -28,14 +28,14 @@ struct TaskTypeImage: View {
     }
 }
 
-struct TaskTypeImage_Previews: PreviewProvider {
+struct IntensityTypeImage_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            TaskTypeImage(type: .activity)
-            TaskTypeImage(type: .rest)
+            IntensityTypeImage(type: .activity)
+            IntensityTypeImage(type: .rest)
             
-            TaskTypeImage(type: .activity, isFilled: true)
-            TaskTypeImage(type: .rest, isFilled: true)
+            IntensityTypeImage(type: .activity, isFilled: true)
+            IntensityTypeImage(type: .rest, isFilled: true)
         }
     }
 }

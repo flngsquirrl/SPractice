@@ -29,9 +29,9 @@ struct ContentView: View {
             List {
                 switch contentType {
                 case .programs:
-                    ProgramTemplatesView()
+                    ProgramsView()
                 case .exercises:
-                    ExerciseTemplatesView()
+                    ExercisesView()
                 }
             }
             .searchable(text: $searchText)
@@ -43,9 +43,9 @@ struct ContentView: View {
             .sheet(isPresented: $showAddNewView) {
                 NavigationView {
                     if contentType == .programs {
-                        AddProgramTemplateView() { dataModel.addNewProgramTemplate(template: $0) }
+                        AddProgramView() { dataModel.addNewProgramTemplate(template: $0) }
                     } else {
-                        AddExerciseTemplateView() { dataModel.addNewExerciseTemplate(template: $0) }
+                        AddExerciseView() { dataModel.addNewExerciseTemplate(template: $0) }
                     }
                 }
                 .accentColor(.customAccentColor)

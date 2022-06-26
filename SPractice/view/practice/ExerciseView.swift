@@ -49,7 +49,7 @@ struct ExerciseView_Previews: PreviewProvider {
         ZStack {
             Color.lightNavy
                 .ignoresSafeArea()
-            ExerciseView(practice: Practice(from: ProgramTemplate.personal))
+            ExerciseView(practice: Practice(from: Program.personal))
                 .border(.black, width: 3)
                 .frame(width: 320)
         }

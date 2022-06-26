@@ -1,5 +1,5 @@
 //
-//  ProgramTemplateEditor-ViewModel.swift
+//  ProgramEditor-ViewModel.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 20.06.22.
@@ -8,24 +8,24 @@
 import Foundation
 import SwiftUI
 
-extension ProgramTemplateEditor {
+extension ProgramEditor {
     @MainActor class ViewModel: ObservableObject {
         
-        @Binding var template: ProgramTemplate
+        @Binding var template: Program
         
-        init(for template: Binding<ProgramTemplate>) {
+        init(for template: Binding<Program>) {
             self._template = template
         }
         
-        func addNewExerciseTemplates(exercises: [ExerciseTemplate]) {
+        func addNewExerciseTemplates(exercises: [Exercise]) {
             template.exercises.append(contentsOf: exercises)
         }
         
-        func addNewExerciseTemplate(exercise: ExerciseTemplate) {
+        func addNewExerciseTemplate(exercise: Exercise) {
             template.exercises.append(exercise)
         }
         
-        func updateExerciseTemplate(exercise: ExerciseTemplate) {
+        func updateExerciseTemplate(exercise: Exercise) {
             if let index = template.exercises.firstIndex(where: {$0.id == exercise.id}) {
                 template.exercises[index] = exercise
             }

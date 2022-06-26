@@ -1,5 +1,5 @@
 //
-//  ExerciseTemplateSelectionView-ViewModel.swift
+//  ExerciseSelectionView-ViewModel.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 10.06.22.
@@ -8,17 +8,17 @@
 import Foundation
 import SwiftUI
 
-extension ExerciseTemplateSelectionView {
+extension ExerciseSelectionView {
     @MainActor class ViewModel: ObservableObject {
         
         @Published var templatesGroup: TemplatesGroup = .all
         
-        @Published var templates = [ExerciseTemplate.catCow, ExerciseTemplate.surjaNamascar, ExerciseTemplate.vasihsthasana, ExerciseTemplate.concentration, ExerciseTemplate.catCowDurationNoDuration, ExerciseTemplate.catCowNoType]
-        @Published var selections: [ExerciseTemplate] = []
+        @Published var templates = [Exercise.catCow, Exercise.surjaNamascar, Exercise.vasihsthasana, Exercise.concentration, Exercise.catCowDurationNoDuration, Exercise.catCowNoType]
+        @Published var selections: [Exercise] = []
         
         @Published var searchText = ""
 
-        var searchableTemplates: [ExerciseTemplate] {
+        var searchableTemplates: [Exercise] {
             let target = templatesGroup == .selected ? selections : templates
             if searchText.isEmpty {
                 return target
@@ -29,15 +29,15 @@ extension ExerciseTemplateSelectionView {
         
         init() {
             for _ in 1...100 {
-                templates.append(ExerciseTemplate(from: ExerciseTemplate.catCow))
+                templates.append(Exercise(from: Exercise.catCow))
             }
         }
         
-        func onAdd(template: ExerciseTemplate) {
-            selections.append(ExerciseTemplate(from: template))
+        func onAdd(template: Exercise) {
+            selections.append(Exercise(from: template))
         }
         
-        func onDelete(template: ExerciseTemplate) {
+        func onDelete(template: Exercise) {
             if let index = selections.firstIndex(of: template) {
                 selections.remove(at: index)
             }

@@ -10,11 +10,11 @@ import SwiftUI
 struct TaskDetailsShortView: View {
     
     var task: Task
-    var exerciseType: Exercise.ExerciseType
+    var exerciseType: ExerciseType
     
     var body: some View {
         HStack {
-            TaskTypeImage(type: task.type)
+            IntensityTypeImage(type: task.type)
             
             Text(task.name)
             Spacer()

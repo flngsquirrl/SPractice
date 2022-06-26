@@ -1,5 +1,5 @@
 //
-//  ExerciseTemplateSelectionView.swift
+//  ExerciseSelectionView.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 8.06.22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExerciseTemplateSelectionView: View {
+struct ExerciseSelectionView: View {
     
     enum TemplatesGroup: String, CaseIterable {
         case all = "all"
@@ -18,9 +18,9 @@ struct ExerciseTemplateSelectionView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.horizontalSizeClass) var sizeClass
     
-    private var onFinished: ([ExerciseTemplate]) -> Void
+    private var onFinished: ([Exercise]) -> Void
     
-    init(onFinished: @escaping ([ExerciseTemplate]) -> Void) {
+    init(onFinished: @escaping ([Exercise]) -> Void) {
         self.onFinished = onFinished
     }
 
@@ -105,9 +105,9 @@ struct ExerciseTemplateSelectionView: View {
     }
     
     struct SelectionRow: View {
-        var template: ExerciseTemplate
+        var template: Exercise
         var isAdded: Bool = false
-        var action: (ExerciseTemplate) -> Void
+        var action: (Exercise) -> Void
 
         var body: some View {
             HStack {
@@ -123,8 +123,8 @@ struct ExerciseTemplateSelectionView: View {
     }
 }
 
-struct ExerciseTemplateSelectionView_Previews: PreviewProvider {
+struct ExerciseSelectionView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseTemplateSelectionView() { _ in }
+        ExerciseSelectionView() { _ in }
     }
 }

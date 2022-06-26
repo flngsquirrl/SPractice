@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C9445C65285CACEF00DF2A08 /* EditableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9445C64285CACEF00DF2A08 /* EditableView.swift */; };
-		C9445C6D285E00D000DF2A08 /* ExerciseTemplateDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9445C6C285E00D000DF2A08 /* ExerciseTemplateDetailsView.swift */; };
-		C9445C71285E0A9300DF2A08 /* ExerciseTemplateEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9445C70285E0A9300DF2A08 /* ExerciseTemplateEditor.swift */; };
+		C9445C6D285E00D000DF2A08 /* ExerciseDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9445C6C285E00D000DF2A08 /* ExerciseDetailsView.swift */; };
+		C9445C71285E0A9300DF2A08 /* ExerciseEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9445C70285E0A9300DF2A08 /* ExerciseEditor.swift */; };
 		C95011C728196FFD0043EC75 /* SPracticeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95011C628196FFD0043EC75 /* SPracticeApp.swift */; };
 		C95011C928196FFD0043EC75 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95011C828196FFD0043EC75 /* ContentView.swift */; };
 		C95011CB28196FFE0043EC75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C95011CA28196FFE0043EC75 /* Assets.xcassets */; };
@@ -17,16 +17,16 @@
 		C95011D52819703D0043EC75 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95011D42819703D0043EC75 /* ClockView.swift */; };
 		C9692C76284F4E9100373730 /* ClockTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C75284F4E9100373730 /* ClockTime.swift */; };
 		C9692C7C284F787700373730 /* ExerciseDetailsShortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C7B284F787700373730 /* ExerciseDetailsShortView.swift */; };
-		C9692C7F2850A35A00373730 /* ExerciseTemplatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C7E2850A35A00373730 /* ExerciseTemplatesView.swift */; };
+		C9692C7F2850A35A00373730 /* ExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C7E2850A35A00373730 /* ExercisesView.swift */; };
 		C9692C832850A78300373730 /* TemplateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C822850A78300373730 /* TemplateManager.swift */; };
-		C9692C852850F47500373730 /* ExerciseTemplateSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C842850F47500373730 /* ExerciseTemplateSelectionView.swift */; };
-		C9741A322860857F00E1F670 /* AddProgramTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A312860857F00E1F670 /* AddProgramTemplateView.swift */; };
-		C9741A34286085E400E1F670 /* EditProgramTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A33286085E400E1F670 /* EditProgramTemplateView.swift */; };
-		C9741A362860860C00E1F670 /* ProgramTemplateEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A352860860C00E1F670 /* ProgramTemplateEditor.swift */; };
-		C9741A382860862900E1F670 /* ProgramTemplateEditor-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A372860862900E1F670 /* ProgramTemplateEditor-ViewModel.swift */; };
+		C9692C852850F47500373730 /* ExerciseSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C842850F47500373730 /* ExerciseSelectionView.swift */; };
+		C9741A322860857F00E1F670 /* AddProgramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A312860857F00E1F670 /* AddProgramView.swift */; };
+		C9741A34286085E400E1F670 /* EditProgramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A33286085E400E1F670 /* EditProgramView.swift */; };
+		C9741A362860860C00E1F670 /* ProgramEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A352860860C00E1F670 /* ProgramEditor.swift */; };
+		C9741A382860862900E1F670 /* ProgramEditor-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A372860862900E1F670 /* ProgramEditor-ViewModel.swift */; };
 		C9741A3C2860CD6300E1F670 /* ExerciseTypeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A3B2860CD6200E1F670 /* ExerciseTypeImage.swift */; };
 		C9741A3E2861128800E1F670 /* View-ImageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A3D2861128800E1F670 /* View-ImageRenderer.swift */; };
-		C9741A5A2861EB0C00E1F670 /* ExerciseTemplateDetailsView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A592861EB0C00E1F670 /* ExerciseTemplateDetailsView-ViewModel.swift */; };
+		C9741A5A2861EB0C00E1F670 /* ExerciseDetailsView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A592861EB0C00E1F670 /* ExerciseDetailsView-ViewModel.swift */; };
 		C9741A5D2861F54600E1F670 /* TaskTypeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A5C2861F54600E1F670 /* TaskTypeImage.swift */; };
 		C9741A5F2863208100E1F670 /* TaskDetailsShortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A5E2863208100E1F670 /* TaskDetailsShortView.swift */; };
 		C99698162863C2C7009836BD /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99698152863C2C7009836BD /* SettingsManager.swift */; };
@@ -34,15 +34,15 @@
 		C996981A286477CB009836BD /* ExerciseTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9969819286477CB009836BD /* ExerciseTypeView.swift */; };
 		C996983A2866587A009836BD /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99698392866587A009836BD /* DataModel.swift */; };
 		C9A0CFEA281AB32B000CF439 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFE9281AB32B000CF439 /* Task.swift */; };
-		C9A0CFEC281AB382000CF439 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFEB281AB382000CF439 /* Exercise.swift */; };
-		C9A0CFEE281AB484000CF439 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFED281AB484000CF439 /* Program.swift */; };
+		C9A0CFEC281AB382000CF439 /* PracticeExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFEB281AB382000CF439 /* PracticeExercise.swift */; };
+		C9A0CFEE281AB484000CF439 /* PracticeProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFED281AB484000CF439 /* PracticeProgram.swift */; };
 		C9A0CFF2281B3733000CF439 /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFF1281B3733000CF439 /* ExerciseView.swift */; };
-		C9A0CFF5281BD588000CF439 /* ProgramTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFF4281BD588000CF439 /* ProgramTemplate.swift */; };
-		C9A0CFF7281BD815000CF439 /* ExerciseTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFF6281BD815000CF439 /* ExerciseTemplate.swift */; };
+		C9A0CFF5281BD588000CF439 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFF4281BD588000CF439 /* Program.swift */; };
+		C9A0CFF7281BD815000CF439 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFF6281BD815000CF439 /* Exercise.swift */; };
 		C9A0CFFF281BDDEA000CF439 /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0CFFE281BDDEA000CF439 /* PracticeView.swift */; };
 		C9A0D001281BE4C8000CF439 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D000281BE4C8000CF439 /* PlayerView.swift */; };
 		C9A0D003281C03F5000CF439 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D002281C03F5000CF439 /* Clock.swift */; };
-		C9A0D00828228078000CF439 /* ProgramTemplatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D00728228078000CF439 /* ProgramTemplatesView.swift */; };
+		C9A0D00828228078000CF439 /* ProgramsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D00728228078000CF439 /* ProgramsView.swift */; };
 		C9A0D0112823DF22000CF439 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D0102823DF22000CF439 /* SettingsView.swift */; };
 		C9A0D0152823FF87000CF439 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D0142823FF87000CF439 /* Settings.swift */; };
 		C9A0D017282408C4000CF439 /* SettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D016282408C4000CF439 /* SettingsItem.swift */; };
@@ -56,19 +56,21 @@
 		C9A0D029282BD603000CF439 /* Practice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D028282BD603000CF439 /* Practice.swift */; };
 		C9A0D02B282BE586000CF439 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D02A282BE586000CF439 /* Player.swift */; };
 		C9C2727C2848C91500F7DA0E /* Array-Wrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C2727B2848C91500F7DA0E /* Array-Wrapper.swift */; };
-		C9CCCE94284A311A005665C8 /* ExerciseTemplateEditor-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCCE93284A311A005665C8 /* ExerciseTemplateEditor-ViewModel.swift */; };
+		C9CCCE94284A311A005665C8 /* ExerciseEditor-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCCE93284A311A005665C8 /* ExerciseEditor-ViewModel.swift */; };
 		C9CCCE96284A31B9005665C8 /* ClockTime-Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCCE95284A31B9005665C8 /* ClockTime-Calculator.swift */; };
-		C9CCCE98284B6DE5005665C8 /* ProgramTemplateDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCCE97284B6DE5005665C8 /* ProgramTemplateDetailsView.swift */; };
+		C9CCCE98284B6DE5005665C8 /* ProgramDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCCE97284B6DE5005665C8 /* ProgramDetailsView.swift */; };
 		C9CCCE9A284B6E09005665C8 /* ProgramDetailsView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCCE99284B6E09005665C8 /* ProgramDetailsView-ViewModel.swift */; };
-		C9D156AE28533DD7007F5176 /* ExerciseTemplateSelectionView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D156AD28533DD7007F5176 /* ExerciseTemplateSelectionView-ViewModel.swift */; };
-		C9D156B028534E88007F5176 /* AddExerciseTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D156AF28534E88007F5176 /* AddExerciseTemplateView.swift */; };
-		C9D156B228534F5C007F5176 /* EditExerciseTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D156B128534F5C007F5176 /* EditExerciseTemplateView.swift */; };
+		C9D156AE28533DD7007F5176 /* ExerciseSelectionView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D156AD28533DD7007F5176 /* ExerciseSelectionView-ViewModel.swift */; };
+		C9D156B028534E88007F5176 /* AddExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D156AF28534E88007F5176 /* AddExerciseView.swift */; };
+		C9D156B228534F5C007F5176 /* EditExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D156B128534F5C007F5176 /* EditExerciseView.swift */; };
+		C9DE151F2868AADE0011324C /* ExeriseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE151E2868AADE0011324C /* ExeriseType.swift */; };
+		C9DE15212868AB520011324C /* IntensityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE15202868AB520011324C /* IntensityType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C9445C64285CACEF00DF2A08 /* EditableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableView.swift; sourceTree = "<group>"; };
-		C9445C6C285E00D000DF2A08 /* ExerciseTemplateDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTemplateDetailsView.swift; sourceTree = "<group>"; };
-		C9445C70285E0A9300DF2A08 /* ExerciseTemplateEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTemplateEditor.swift; sourceTree = "<group>"; };
+		C9445C6C285E00D000DF2A08 /* ExerciseDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailsView.swift; sourceTree = "<group>"; };
+		C9445C70285E0A9300DF2A08 /* ExerciseEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseEditor.swift; sourceTree = "<group>"; };
 		C95011C328196FFD0043EC75 /* SPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C95011C628196FFD0043EC75 /* SPracticeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPracticeApp.swift; sourceTree = "<group>"; };
 		C95011C828196FFD0043EC75 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -77,16 +79,16 @@
 		C95011D42819703D0043EC75 /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		C9692C75284F4E9100373730 /* ClockTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockTime.swift; sourceTree = "<group>"; };
 		C9692C7B284F787700373730 /* ExerciseDetailsShortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailsShortView.swift; sourceTree = "<group>"; };
-		C9692C7E2850A35A00373730 /* ExerciseTemplatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTemplatesView.swift; sourceTree = "<group>"; };
+		C9692C7E2850A35A00373730 /* ExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesView.swift; sourceTree = "<group>"; };
 		C9692C822850A78300373730 /* TemplateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateManager.swift; sourceTree = "<group>"; };
-		C9692C842850F47500373730 /* ExerciseTemplateSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTemplateSelectionView.swift; sourceTree = "<group>"; };
-		C9741A312860857F00E1F670 /* AddProgramTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProgramTemplateView.swift; sourceTree = "<group>"; };
-		C9741A33286085E400E1F670 /* EditProgramTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProgramTemplateView.swift; sourceTree = "<group>"; };
-		C9741A352860860C00E1F670 /* ProgramTemplateEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramTemplateEditor.swift; sourceTree = "<group>"; };
-		C9741A372860862900E1F670 /* ProgramTemplateEditor-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgramTemplateEditor-ViewModel.swift"; sourceTree = "<group>"; };
+		C9692C842850F47500373730 /* ExerciseSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSelectionView.swift; sourceTree = "<group>"; };
+		C9741A312860857F00E1F670 /* AddProgramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProgramView.swift; sourceTree = "<group>"; };
+		C9741A33286085E400E1F670 /* EditProgramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProgramView.swift; sourceTree = "<group>"; };
+		C9741A352860860C00E1F670 /* ProgramEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramEditor.swift; sourceTree = "<group>"; };
+		C9741A372860862900E1F670 /* ProgramEditor-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgramEditor-ViewModel.swift"; sourceTree = "<group>"; };
 		C9741A3B2860CD6200E1F670 /* ExerciseTypeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTypeImage.swift; sourceTree = "<group>"; };
 		C9741A3D2861128800E1F670 /* View-ImageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-ImageRenderer.swift"; sourceTree = "<group>"; };
-		C9741A592861EB0C00E1F670 /* ExerciseTemplateDetailsView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseTemplateDetailsView-ViewModel.swift"; sourceTree = "<group>"; };
+		C9741A592861EB0C00E1F670 /* ExerciseDetailsView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseDetailsView-ViewModel.swift"; sourceTree = "<group>"; };
 		C9741A5C2861F54600E1F670 /* TaskTypeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTypeImage.swift; sourceTree = "<group>"; };
 		C9741A5E2863208100E1F670 /* TaskDetailsShortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsShortView.swift; sourceTree = "<group>"; };
 		C99698152863C2C7009836BD /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
@@ -94,15 +96,15 @@
 		C9969819286477CB009836BD /* ExerciseTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTypeView.swift; sourceTree = "<group>"; };
 		C99698392866587A009836BD /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		C9A0CFE9281AB32B000CF439 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		C9A0CFEB281AB382000CF439 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
-		C9A0CFED281AB484000CF439 /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
+		C9A0CFEB281AB382000CF439 /* PracticeExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeExercise.swift; sourceTree = "<group>"; };
+		C9A0CFED281AB484000CF439 /* PracticeProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeProgram.swift; sourceTree = "<group>"; };
 		C9A0CFF1281B3733000CF439 /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
-		C9A0CFF4281BD588000CF439 /* ProgramTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramTemplate.swift; sourceTree = "<group>"; };
-		C9A0CFF6281BD815000CF439 /* ExerciseTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTemplate.swift; sourceTree = "<group>"; };
+		C9A0CFF4281BD588000CF439 /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
+		C9A0CFF6281BD815000CF439 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		C9A0CFFE281BDDEA000CF439 /* PracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeView.swift; sourceTree = "<group>"; };
 		C9A0D000281BE4C8000CF439 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		C9A0D002281C03F5000CF439 /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
-		C9A0D00728228078000CF439 /* ProgramTemplatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramTemplatesView.swift; sourceTree = "<group>"; };
+		C9A0D00728228078000CF439 /* ProgramsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramsView.swift; sourceTree = "<group>"; };
 		C9A0D0102823DF22000CF439 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C9A0D0142823FF87000CF439 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		C9A0D016282408C4000CF439 /* SettingsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItem.swift; sourceTree = "<group>"; };
@@ -116,13 +118,15 @@
 		C9A0D028282BD603000CF439 /* Practice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Practice.swift; sourceTree = "<group>"; };
 		C9A0D02A282BE586000CF439 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		C9C2727B2848C91500F7DA0E /* Array-Wrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array-Wrapper.swift"; sourceTree = "<group>"; };
-		C9CCCE93284A311A005665C8 /* ExerciseTemplateEditor-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseTemplateEditor-ViewModel.swift"; sourceTree = "<group>"; };
+		C9CCCE93284A311A005665C8 /* ExerciseEditor-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseEditor-ViewModel.swift"; sourceTree = "<group>"; };
 		C9CCCE95284A31B9005665C8 /* ClockTime-Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClockTime-Calculator.swift"; sourceTree = "<group>"; };
-		C9CCCE97284B6DE5005665C8 /* ProgramTemplateDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramTemplateDetailsView.swift; sourceTree = "<group>"; };
+		C9CCCE97284B6DE5005665C8 /* ProgramDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDetailsView.swift; sourceTree = "<group>"; };
 		C9CCCE99284B6E09005665C8 /* ProgramDetailsView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgramDetailsView-ViewModel.swift"; sourceTree = "<group>"; };
-		C9D156AD28533DD7007F5176 /* ExerciseTemplateSelectionView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseTemplateSelectionView-ViewModel.swift"; sourceTree = "<group>"; };
-		C9D156AF28534E88007F5176 /* AddExerciseTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseTemplateView.swift; sourceTree = "<group>"; };
-		C9D156B128534F5C007F5176 /* EditExerciseTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExerciseTemplateView.swift; sourceTree = "<group>"; };
+		C9D156AD28533DD7007F5176 /* ExerciseSelectionView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseSelectionView-ViewModel.swift"; sourceTree = "<group>"; };
+		C9D156AF28534E88007F5176 /* AddExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseView.swift; sourceTree = "<group>"; };
+		C9D156B128534F5C007F5176 /* EditExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExerciseView.swift; sourceTree = "<group>"; };
+		C9DE151E2868AADE0011324C /* ExeriseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExeriseType.swift; sourceTree = "<group>"; };
+		C9DE15202868AB520011324C /* IntensityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntensityType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,7 +143,7 @@
 		C94B3F6A284A218700A23612 /* programs */ = {
 			isa = PBXGroup;
 			children = (
-				C9A0D00728228078000CF439 /* ProgramTemplatesView.swift */,
+				C9A0D00728228078000CF439 /* ProgramsView.swift */,
 			);
 			path = programs;
 			sourceTree = "<group>";
@@ -194,10 +198,10 @@
 		C9692C7D2850A24500373730 /* exercises */ = {
 			isa = PBXGroup;
 			children = (
-				C9692C7E2850A35A00373730 /* ExerciseTemplatesView.swift */,
+				C9692C7E2850A35A00373730 /* ExercisesView.swift */,
 				C9692C822850A78300373730 /* TemplateManager.swift */,
-				C9692C842850F47500373730 /* ExerciseTemplateSelectionView.swift */,
-				C9D156AD28533DD7007F5176 /* ExerciseTemplateSelectionView-ViewModel.swift */,
+				C9692C842850F47500373730 /* ExerciseSelectionView.swift */,
+				C9D156AD28533DD7007F5176 /* ExerciseSelectionView-ViewModel.swift */,
 			);
 			path = exercises;
 			sourceTree = "<group>";
@@ -215,16 +219,18 @@
 			isa = PBXGroup;
 			children = (
 				C9692C74284F4E6D00373730 /* clock */,
-				C9A0CFF4281BD588000CF439 /* ProgramTemplate.swift */,
-				C9A0CFF6281BD815000CF439 /* ExerciseTemplate.swift */,
-				C9A0CFED281AB484000CF439 /* Program.swift */,
-				C9A0CFEB281AB382000CF439 /* Exercise.swift */,
+				C9A0CFF4281BD588000CF439 /* Program.swift */,
+				C9A0CFF6281BD815000CF439 /* Exercise.swift */,
+				C9DE151E2868AADE0011324C /* ExeriseType.swift */,
+				C9A0CFED281AB484000CF439 /* PracticeProgram.swift */,
+				C9A0CFEB281AB382000CF439 /* PracticeExercise.swift */,
 				C9A0CFE9281AB32B000CF439 /* Task.swift */,
 				C99698152863C2C7009836BD /* SettingsManager.swift */,
 				C9A0D0142823FF87000CF439 /* Settings.swift */,
 				C9A0D016282408C4000CF439 /* SettingsItem.swift */,
 				C9A0D028282BD603000CF439 /* Practice.swift */,
 				C9A0D02A282BE586000CF439 /* Player.swift */,
+				C9DE15202868AB520011324C /* IntensityType.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -232,13 +238,12 @@
 		C9A0D004282118C8000CF439 /* exercise */ = {
 			isa = PBXGroup;
 			children = (
-				C9A0CFF1281B3733000CF439 /* ExerciseView.swift */,
-				C9445C70285E0A9300DF2A08 /* ExerciseTemplateEditor.swift */,
-				C9CCCE93284A311A005665C8 /* ExerciseTemplateEditor-ViewModel.swift */,
-				C9D156AF28534E88007F5176 /* AddExerciseTemplateView.swift */,
-				C9D156B128534F5C007F5176 /* EditExerciseTemplateView.swift */,
-				C9445C6C285E00D000DF2A08 /* ExerciseTemplateDetailsView.swift */,
-				C9741A592861EB0C00E1F670 /* ExerciseTemplateDetailsView-ViewModel.swift */,
+				C9445C70285E0A9300DF2A08 /* ExerciseEditor.swift */,
+				C9CCCE93284A311A005665C8 /* ExerciseEditor-ViewModel.swift */,
+				C9D156AF28534E88007F5176 /* AddExerciseView.swift */,
+				C9D156B128534F5C007F5176 /* EditExerciseView.swift */,
+				C9445C6C285E00D000DF2A08 /* ExerciseDetailsView.swift */,
+				C9741A592861EB0C00E1F670 /* ExerciseDetailsView-ViewModel.swift */,
 				C9692C7B284F787700373730 /* ExerciseDetailsShortView.swift */,
 				C996981728646E53009836BD /* ExerciseDurationView.swift */,
 				C9969819286477CB009836BD /* ExerciseTypeView.swift */,
@@ -250,11 +255,11 @@
 		C9A0D00A28229087000CF439 /* program */ = {
 			isa = PBXGroup;
 			children = (
-				C9741A352860860C00E1F670 /* ProgramTemplateEditor.swift */,
-				C9741A372860862900E1F670 /* ProgramTemplateEditor-ViewModel.swift */,
-				C9741A312860857F00E1F670 /* AddProgramTemplateView.swift */,
-				C9741A33286085E400E1F670 /* EditProgramTemplateView.swift */,
-				C9CCCE97284B6DE5005665C8 /* ProgramTemplateDetailsView.swift */,
+				C9741A352860860C00E1F670 /* ProgramEditor.swift */,
+				C9741A372860862900E1F670 /* ProgramEditor-ViewModel.swift */,
+				C9741A312860857F00E1F670 /* AddProgramView.swift */,
+				C9741A33286085E400E1F670 /* EditProgramView.swift */,
+				C9CCCE97284B6DE5005665C8 /* ProgramDetailsView.swift */,
 				C9CCCE99284B6E09005665C8 /* ProgramDetailsView-ViewModel.swift */,
 			);
 			path = program;
@@ -306,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				C9A0D026282A613A000CF439 /* PracticeSequenceView.swift */,
+				C9A0CFF1281B3733000CF439 /* ExerciseView.swift */,
 				C9A0CFFE281BDDEA000CF439 /* PracticeView.swift */,
 			);
 			path = practice;
@@ -398,57 +404,59 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9A0D02B282BE586000CF439 /* Player.swift in Sources */,
-				C9A0CFF5281BD588000CF439 /* ProgramTemplate.swift in Sources */,
+				C9A0CFF5281BD588000CF439 /* Program.swift in Sources */,
 				C9692C76284F4E9100373730 /* ClockTime.swift in Sources */,
 				C9A0CFEA281AB32B000CF439 /* Task.swift in Sources */,
 				C9A0D027282A613A000CF439 /* PracticeSequenceView.swift in Sources */,
 				C9A0D017282408C4000CF439 /* SettingsItem.swift in Sources */,
-				C9692C7F2850A35A00373730 /* ExerciseTemplatesView.swift in Sources */,
-				C9445C6D285E00D000DF2A08 /* ExerciseTemplateDetailsView.swift in Sources */,
-				C9CCCE94284A311A005665C8 /* ExerciseTemplateEditor-ViewModel.swift in Sources */,
+				C9692C7F2850A35A00373730 /* ExercisesView.swift in Sources */,
+				C9445C6D285E00D000DF2A08 /* ExerciseDetailsView.swift in Sources */,
+				C9CCCE94284A311A005665C8 /* ExerciseEditor-ViewModel.swift in Sources */,
 				C9741A5F2863208100E1F670 /* TaskDetailsShortView.swift in Sources */,
-				C9D156B228534F5C007F5176 /* EditExerciseTemplateView.swift in Sources */,
+				C9D156B228534F5C007F5176 /* EditExerciseView.swift in Sources */,
 				C9A0D029282BD603000CF439 /* Practice.swift in Sources */,
 				C996981828646E53009836BD /* ExerciseDurationView.swift in Sources */,
 				C996981A286477CB009836BD /* ExerciseTypeView.swift in Sources */,
-				C9D156B028534E88007F5176 /* AddExerciseTemplateView.swift in Sources */,
+				C9D156B028534E88007F5176 /* AddExerciseView.swift in Sources */,
 				C9A0D0112823DF22000CF439 /* SettingsView.swift in Sources */,
 				C99698162863C2C7009836BD /* SettingsManager.swift in Sources */,
 				C9CCCE9A284B6E09005665C8 /* ProgramDetailsView-ViewModel.swift in Sources */,
 				C9A0D01A2827CEC9000CF439 /* Squirrel.swift in Sources */,
-				C9A0D00828228078000CF439 /* ProgramTemplatesView.swift in Sources */,
+				C9A0D00828228078000CF439 /* ProgramsView.swift in Sources */,
 				C996983A2866587A009836BD /* DataModel.swift in Sources */,
-				C9741A362860860C00E1F670 /* ProgramTemplateEditor.swift in Sources */,
+				C9741A362860860C00E1F670 /* ProgramEditor.swift in Sources */,
 				C95011C928196FFD0043EC75 /* ContentView.swift in Sources */,
 				C9C2727C2848C91500F7DA0E /* Array-Wrapper.swift in Sources */,
 				C9A0D02228280F3E000CF439 /* RightWing.swift in Sources */,
-				C9A0CFEE281AB484000CF439 /* Program.swift in Sources */,
+				C9A0CFEE281AB484000CF439 /* PracticeProgram.swift in Sources */,
 				C9692C7C284F787700373730 /* ExerciseDetailsShortView.swift in Sources */,
-				C9CCCE98284B6DE5005665C8 /* ProgramTemplateDetailsView.swift in Sources */,
+				C9CCCE98284B6DE5005665C8 /* ProgramDetailsView.swift in Sources */,
 				C9A0D02028280F13000CF439 /* SquirrelInWheel.swift in Sources */,
 				C9741A3E2861128800E1F670 /* View-ImageRenderer.swift in Sources */,
-				C9741A34286085E400E1F670 /* EditProgramTemplateView.swift in Sources */,
+				C9741A34286085E400E1F670 /* EditProgramView.swift in Sources */,
 				C9A0CFF2281B3733000CF439 /* ExerciseView.swift in Sources */,
 				C9445C65285CACEF00DF2A08 /* EditableView.swift in Sources */,
 				C9A0D001281BE4C8000CF439 /* PlayerView.swift in Sources */,
 				C9741A3C2860CD6300E1F670 /* ExerciseTypeImage.swift in Sources */,
-				C9741A322860857F00E1F670 /* AddProgramTemplateView.swift in Sources */,
+				C9741A322860857F00E1F670 /* AddProgramView.swift in Sources */,
 				C9692C832850A78300373730 /* TemplateManager.swift in Sources */,
-				C9692C852850F47500373730 /* ExerciseTemplateSelectionView.swift in Sources */,
+				C9692C852850F47500373730 /* ExerciseSelectionView.swift in Sources */,
 				C9741A5D2861F54600E1F670 /* TaskTypeImage.swift in Sources */,
 				C9CCCE96284A31B9005665C8 /* ClockTime-Calculator.swift in Sources */,
-				C9D156AE28533DD7007F5176 /* ExerciseTemplateSelectionView-ViewModel.swift in Sources */,
+				C9D156AE28533DD7007F5176 /* ExerciseSelectionView-ViewModel.swift in Sources */,
 				C9A0CFFF281BDDEA000CF439 /* PracticeView.swift in Sources */,
 				C9A0D024282813F2000CF439 /* ColorTheme.swift in Sources */,
-				C9A0CFF7281BD815000CF439 /* ExerciseTemplate.swift in Sources */,
+				C9A0CFF7281BD815000CF439 /* Exercise.swift in Sources */,
 				C9A0D0152823FF87000CF439 /* Settings.swift in Sources */,
 				C9A0D003281C03F5000CF439 /* Clock.swift in Sources */,
-				C9741A5A2861EB0C00E1F670 /* ExerciseTemplateDetailsView-ViewModel.swift in Sources */,
-				C9445C71285E0A9300DF2A08 /* ExerciseTemplateEditor.swift in Sources */,
+				C9741A5A2861EB0C00E1F670 /* ExerciseDetailsView-ViewModel.swift in Sources */,
+				C9DE15212868AB520011324C /* IntensityType.swift in Sources */,
+				C9445C71285E0A9300DF2A08 /* ExerciseEditor.swift in Sources */,
 				C9A0D01C28280DFA000CF439 /* SquirrelDrawer.swift in Sources */,
+				C9DE151F2868AADE0011324C /* ExeriseType.swift in Sources */,
 				C95011D52819703D0043EC75 /* ClockView.swift in Sources */,
-				C9741A382860862900E1F670 /* ProgramTemplateEditor-ViewModel.swift in Sources */,
-				C9A0CFEC281AB382000CF439 /* Exercise.swift in Sources */,
+				C9741A382860862900E1F670 /* ProgramEditor-ViewModel.swift in Sources */,
+				C9A0CFEC281AB382000CF439 /* PracticeExercise.swift in Sources */,
 				C9A0D01E28280E77000CF439 /* SquirrelInWheelLogo.swift in Sources */,
 				C95011C728196FFD0043EC75 /* SPracticeApp.swift in Sources */,
 			);

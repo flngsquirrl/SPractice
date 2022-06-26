@@ -1,5 +1,5 @@
 //
-//  ProgramTemplateEditor.swift
+//  ProgramEditor.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 20.06.22.
@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-struct ProgramTemplateEditor: View {
+struct ProgramEditor: View {
     
     @ObservedObject var viewModel: ViewModel
     
     @State private var showNewExerciseView = false
     @State private var showExerciseSelectionView = false
     
-    @State private var selectedExercise: ExerciseTemplate? = nil
+    @State private var selectedExercise: Exercise? = nil
     @Binding private var editMode: EditMode
     
-    init(for template: Binding<ProgramTemplate>, editMode: Binding<EditMode>) {
+    init(for template: Binding<Program>, editMode: Binding<EditMode>) {
         self.viewModel = ViewModel(for: template)
         self._editMode = editMode
     }
@@ -79,35 +79,35 @@ struct ProgramTemplateEditor: View {
         .environment(\.editMode, $editMode)
         .sheet(item: $selectedExercise) { exercise in
             NavigationView {
-                EditExerciseTemplateView(for: exercise) { viewModel.updateExerciseTemplate(exercise: $0) }
+                EditExerciseView(for: exercise) { viewModel.updateExerciseTemplate(exercise: $0) }
                 }
                 .accentColor(.customAccentColor)
         }
         .sheet(isPresented: $showExerciseSelectionView) {
-            ExerciseTemplateSelectionView() { viewModel.addNewExerciseTemplates(exercises: $0) }
+            ExerciseSelectionView() { viewModel.addNewExerciseTemplates(exercises: $0) }
         }
         .sheet(isPresented: $showNewExerciseView) {
             NavigationView {
-                AddExerciseTemplateView() { viewModel.addNewExerciseTemplate(exercise: $0) }
+                AddExerciseView() { viewModel.addNewExerciseTemplate(exercise: $0) }
             }
             .accentColor(.customAccentColor)
         }
     }
 }
 
-struct ProgramTemplateEditor_Previews: PreviewProvider {
+struct ProgramEditor_Previews: PreviewProvider {
     @State static private var editMode: EditMode = .inactive
     
-    @State static private var defaultTemplate = ProgramTemplate.defaultTemplate
-    @State static private var exampleTemplate = ProgramTemplate.personal
+    @State static private var defaultTemplate = Program.defaultTemplate
+    @State static private var exampleTemplate = Program.personal
     
     static var previews: some View {
         NavigationView {
-            ProgramTemplateEditor(for: $defaultTemplate, editMode: $editMode)
+            ProgramEditor(for: $defaultTemplate, editMode: $editMode)
         }
         
         NavigationView {
-            ProgramTemplateEditor(for: $exampleTemplate, editMode: $editMode)
+            ProgramEditor(for: $exampleTemplate, editMode: $editMode)
         }
     }
 }

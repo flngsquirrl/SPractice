@@ -1,5 +1,5 @@
 //
-//  EditProgramTemplateView.swift
+//  AddProgramView.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 20.06.22.
@@ -7,27 +7,27 @@
 
 import SwiftUI
 
-struct EditProgramTemplateView: View {
+struct AddProgramView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @State private var template: ProgramTemplate
-    var onSave: (ProgramTemplate) -> Void
+    var onAdd: (Program) -> Void
     
+    @State private var newTemplate = Program.defaultTemplate
     @State private var editMode: EditMode = .inactive
     
-    init(for template: ProgramTemplate, onSave: @escaping (ProgramTemplate) -> Void) {
-        self._template = State<ProgramTemplate>(initialValue: template)
-        self.onSave = onSave
+    init(onAdd: @escaping (Program) -> Void) {
+        self.onAdd = onAdd
     }
     
     var body: some View {
-        ProgramTemplateEditor(for: $template, editMode: $editMode)
+        ProgramEditor(for: $newTemplate, editMode: $editMode)
+            .navigationTitle("New template")
             .navigationTitle("Program template")
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button("Save") {
-                        onSave(template)
+                        onAdd(newTemplate)
                         dismiss()
                     }
                     .disabled(editMode.isEditing)
@@ -42,10 +42,10 @@ struct EditProgramTemplateView: View {
     }
 }
 
-struct EditProgramTemplateView_Previews: PreviewProvider {
+struct AddProgramView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            EditProgramTemplateView(for: ProgramTemplate.personal, onSave: {_ in })
+            AddProgramView(onAdd: { _ in })
         }
     }
 }

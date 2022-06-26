@@ -9,11 +9,11 @@ import Foundation
 
 @MainActor class DataModel: ObservableObject {
     
-    @Published var programTemplates = [ProgramTemplate.personal, ProgramTemplate.dailyShort, ProgramTemplate.shortForBack]
+    @Published var programTemplates = [Program.personal, Program.dailyShort, Program.shortForBack]
     
-    @Published var exerciseTemplates = [ExerciseTemplate.catCow, ExerciseTemplate.surjaNamascar, ExerciseTemplate.vasihsthasana, ExerciseTemplate.concentration, ExerciseTemplate.catCowDurationNoDuration, ExerciseTemplate.catCowNoType]
+    @Published var exerciseTemplates = [Exercise.catCow, Exercise.surjaNamascar, Exercise.vasihsthasana, Exercise.concentration, Exercise.catCowDurationNoDuration, Exercise.catCowNoType]
     
-    func addNewExerciseTemplate(template: ExerciseTemplate) {
+    func addNewExerciseTemplate(template: Exercise) {
         exerciseTemplates.append(template)
     }
     
@@ -25,19 +25,19 @@ import Foundation
         exerciseTemplates.move(fromOffsets: fromOffsets, toOffset: toOffsets)
     }
     
-    func updateExerciseTemplate(template: ExerciseTemplate) {
+    func updateExerciseTemplate(template: Exercise) {
         if let index = exerciseTemplates.firstIndex(where: {$0.id == template.id}) {
             exerciseTemplates[index] = template
         }
     }
     
-    func deleteExerciseTemplate(template: ExerciseTemplate) {
+    func deleteExerciseTemplate(template: Exercise) {
         if let index = exerciseTemplates.firstIndex(where: {$0.id == template.id}) {
             exerciseTemplates.remove(at: index)
         }
     }
     
-    func addNewProgramTemplate(template: ProgramTemplate) {
+    func addNewProgramTemplate(template: Program) {
         programTemplates.append(template)
     }
     
@@ -49,13 +49,13 @@ import Foundation
         programTemplates.move(fromOffsets: fromOffsets, toOffset: toOffsets)
     }
     
-    func updateProgramTemplate(template: ProgramTemplate) {
+    func updateProgramTemplate(template: Program) {
         if let index = programTemplates.firstIndex(where: {$0.id == template.id}) {
             programTemplates[index] = template
         }
     }
     
-    func deleteProgramTemplate(template: ProgramTemplate) {
+    func deleteProgramTemplate(template: Program) {
         if let index = programTemplates.firstIndex(where: {$0.id == template.id}) {
             programTemplates.remove(at: index)
         }

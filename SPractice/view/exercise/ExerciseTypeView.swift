@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ExerciseTypeView: View {
     
-    var type: Exercise.ExerciseType?
+    var type: ExerciseType?
     
     var body: some View {
         HStack {
