@@ -20,6 +20,8 @@ struct ContentView: View {
     @State private var showAddNewView = false
     @State private var contentType: ContentType = .programs
     
+    @State private var searchText = ""
+    
     @StateObject var dataModel = DataModel()
     
     var body: some View {
@@ -32,6 +34,7 @@ struct ContentView: View {
                     ExerciseTemplatesView()
                 }
             }
+            .searchable(text: $searchText)
             .navigationTitle(contentType == .exercises ? "Exercises" : "Programs")
             .animation(.default, value: editMode)
             .sheet(isPresented: $showSettingsView) {
@@ -49,7 +52,7 @@ struct ContentView: View {
             }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
-                    Picker("Group of templates", selection: $contentType) {
+                    Picker("Content type", selection: $contentType) {
                         ForEach(ContentType.allCases, id: \.self) { type in
                             Image(systemName: getImageName(for: type))
                         }
