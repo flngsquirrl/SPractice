@@ -91,6 +91,14 @@ struct ContentView: View {
             }
             .environmentObject(dataModel)
             .environment(\.editMode, $editMode)
+            
+            ZStack {
+                Color.lightOrange
+                VStack {
+                    SquirrelInWheelLogo()
+                        .frame(width: 300, height: 300)
+                }
+            }
         }
         .accentColor(.customAccentColor)
     }
