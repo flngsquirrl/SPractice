@@ -16,7 +16,7 @@
 		C95011CE28196FFE0043EC75 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C95011CD28196FFE0043EC75 /* Preview Assets.xcassets */; };
 		C95011D52819703D0043EC75 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95011D42819703D0043EC75 /* ClockView.swift */; };
 		C9692C76284F4E9100373730 /* ClockTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C75284F4E9100373730 /* ClockTime.swift */; };
-		C9692C7C284F787700373730 /* ExerciseDetailsShortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C7B284F787700373730 /* ExerciseDetailsShortView.swift */; };
+		C9692C7C284F787700373730 /* ExerciseShortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C7B284F787700373730 /* ExerciseShortView.swift */; };
 		C9692C7F2850A35A00373730 /* ExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C7E2850A35A00373730 /* ExercisesView.swift */; };
 		C9692C832850A78300373730 /* TemplateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C822850A78300373730 /* TemplateManager.swift */; };
 		C9692C852850F47500373730 /* ExerciseSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C842850F47500373730 /* ExerciseSelectionView.swift */; };
@@ -66,6 +66,7 @@
 		C9DE15212868AB520011324C /* IntensityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE15202868AB520011324C /* IntensityType.swift */; };
 		C9DE15282868B3CE0011324C /* ExercisesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE15272868B3CE0011324C /* ExercisesManager.swift */; };
 		C9DE152A2868B5500011324C /* ProgramsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE15292868B5500011324C /* ProgramsManager.swift */; };
+		C9DE152C2868FE170011324C /* ExerciseShortDecorativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE152B2868FE170011324C /* ExerciseShortDecorativeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,7 +80,7 @@
 		C95011CD28196FFE0043EC75 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C95011D42819703D0043EC75 /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		C9692C75284F4E9100373730 /* ClockTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockTime.swift; sourceTree = "<group>"; };
-		C9692C7B284F787700373730 /* ExerciseDetailsShortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailsShortView.swift; sourceTree = "<group>"; };
+		C9692C7B284F787700373730 /* ExerciseShortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseShortView.swift; sourceTree = "<group>"; };
 		C9692C7E2850A35A00373730 /* ExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesView.swift; sourceTree = "<group>"; };
 		C9692C822850A78300373730 /* TemplateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateManager.swift; sourceTree = "<group>"; };
 		C9692C842850F47500373730 /* ExerciseSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSelectionView.swift; sourceTree = "<group>"; };
@@ -129,6 +130,7 @@
 		C9DE15202868AB520011324C /* IntensityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntensityType.swift; sourceTree = "<group>"; };
 		C9DE15272868B3CE0011324C /* ExercisesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesManager.swift; sourceTree = "<group>"; };
 		C9DE15292868B5500011324C /* ProgramsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramsManager.swift; sourceTree = "<group>"; };
+		C9DE152B2868FE170011324C /* ExerciseShortDecorativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseShortDecorativeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,7 +241,8 @@
 				C9D156B128534F5C007F5176 /* EditExerciseView.swift */,
 				C9445C6C285E00D000DF2A08 /* ExerciseDetailsView.swift */,
 				C9741A592861EB0C00E1F670 /* ExerciseDetailsView-ViewModel.swift */,
-				C9692C7B284F787700373730 /* ExerciseDetailsShortView.swift */,
+				C9692C7B284F787700373730 /* ExerciseShortView.swift */,
+				C9DE152B2868FE170011324C /* ExerciseShortDecorativeView.swift */,
 				C996981728646E53009836BD /* ExerciseDurationView.swift */,
 				C9969819286477CB009836BD /* ExerciseTypeView.swift */,
 				C9741A3B2860CD6200E1F670 /* ExerciseTypeImage.swift */,
@@ -459,6 +462,7 @@
 				C9741A5F2863208100E1F670 /* TaskDetailsShortView.swift in Sources */,
 				C9D156B228534F5C007F5176 /* EditExerciseView.swift in Sources */,
 				C9A0D029282BD603000CF439 /* Practice.swift in Sources */,
+				C9DE152C2868FE170011324C /* ExerciseShortDecorativeView.swift in Sources */,
 				C996981828646E53009836BD /* ExerciseDurationView.swift in Sources */,
 				C996981A286477CB009836BD /* ExerciseTypeView.swift in Sources */,
 				C9D156B028534E88007F5176 /* AddExerciseView.swift in Sources */,
@@ -473,7 +477,7 @@
 				C9C2727C2848C91500F7DA0E /* Array-Wrapper.swift in Sources */,
 				C9A0D02228280F3E000CF439 /* RightWing.swift in Sources */,
 				C9A0CFEE281AB484000CF439 /* PracticeProgram.swift in Sources */,
-				C9692C7C284F787700373730 /* ExerciseDetailsShortView.swift in Sources */,
+				C9692C7C284F787700373730 /* ExerciseShortView.swift in Sources */,
 				C9CCCE98284B6DE5005665C8 /* ProgramDetailsView.swift in Sources */,
 				C9A0D02028280F13000CF439 /* SquirrelInWheel.swift in Sources */,
 				C9741A3E2861128800E1F670 /* View-ImageRenderer.swift in Sources */,

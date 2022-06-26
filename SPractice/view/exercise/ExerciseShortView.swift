@@ -1,5 +1,5 @@
 //
-//  ExerciseDetailsShortView.swift
+//  ExerciseShortView.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 7.06.22.
@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct ExerciseDetailsShortView: View {
+struct ExerciseShortView: View {
     
     private let name: String
     private let type: ExerciseType?
-    private let taskType: IntensityType?
+    private let taskType: IntensityType
     private let duration: Int?
     private let iconColor: Color
     
@@ -28,13 +28,12 @@ struct ExerciseDetailsShortView: View {
         if (displayDuration) {
             duration = template.type == .tabata ? SettingsManager.shared.tabataExerciseDuration : template.duration
         }
-        let taskType = template.type == .tabata ? .activity : template.intensityType
-        self.init(name: template.name, type: template.type, taskType: taskType, duration: duration, iconColor: iconColor)
+        self.init(name: template.name, type: template.type, taskType: template.intensityType, duration: duration, iconColor: iconColor)
         
         self.displayDuration = displayDuration
     }
     
-    private init(name: String, type: ExerciseType?, taskType: IntensityType?, duration: Int?, iconColor: Color) {
+    private init(name: String, type: ExerciseType?, taskType: IntensityType, duration: Int?, iconColor: Color) {
         self.name = name
         self.type = type
         self.taskType = taskType
@@ -61,32 +60,32 @@ struct ExerciseDetailsShortView: View {
     }
 }
 
-struct ExerciseDetailsShortView_Previews: PreviewProvider {
+struct ExerciseShortView_Previews: PreviewProvider {
     static var previews: some View {
         List {
             Group {
                 Text("exercises")
-                ExerciseDetailsShortView(for: PracticeExercise.catCow)
-                ExerciseDetailsShortView(for: PracticeExercise.surjaNamascar)
-                ExerciseDetailsShortView(for: PracticeExercise.vasihsthasana, iconColor: .lightOrange)
+                ExerciseShortView(for: PracticeExercise.catCow)
+                ExerciseShortView(for: PracticeExercise.surjaNamascar)
+                ExerciseShortView(for: PracticeExercise.vasihsthasana, iconColor: .lightOrange)
             }
             
             Group {
                 Text("templates with durations")
-                ExerciseDetailsShortView(for: Exercise.catCowDurationNoDuration, displayDuration: true)
-                ExerciseDetailsShortView(for: Exercise.catCow, displayDuration: true)
-                ExerciseDetailsShortView(for: Exercise.surjaNamascar, displayDuration: true, iconColor: .lightOrange)
-                ExerciseDetailsShortView(for: Exercise.vasihsthasana, displayDuration: true)
-                ExerciseDetailsShortView(for: Exercise.catCowNoType, displayDuration: true, iconColor: .lightOrange)
+                ExerciseShortView(for: Exercise.catCowDurationNoDuration, displayDuration: true)
+                ExerciseShortView(for: Exercise.catCow, displayDuration: true)
+                ExerciseShortView(for: Exercise.surjaNamascar, displayDuration: true, iconColor: .lightOrange)
+                ExerciseShortView(for: Exercise.vasihsthasana, displayDuration: true)
+                ExerciseShortView(for: Exercise.catCowNoType, displayDuration: true, iconColor: .lightOrange)
             }
             
             Group {
                 Text("templates without durations")
-                ExerciseDetailsShortView(for: Exercise.catCowDurationNoDuration, iconColor: .lightOrange)
-                ExerciseDetailsShortView(for: Exercise.catCow)
-                ExerciseDetailsShortView(for: Exercise.surjaNamascar)
-                ExerciseDetailsShortView(for: Exercise.vasihsthasana)
-                ExerciseDetailsShortView(for: Exercise.catCowNoType)
+                ExerciseShortView(for: Exercise.catCowDurationNoDuration, iconColor: .lightOrange)
+                ExerciseShortView(for: Exercise.catCow)
+                ExerciseShortView(for: Exercise.surjaNamascar)
+                ExerciseShortView(for: Exercise.vasihsthasana)
+                ExerciseShortView(for: Exercise.catCowNoType)
             }
         }
     }

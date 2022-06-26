@@ -116,7 +116,7 @@ struct ExerciseSelectionView: View {
                 } label: {
                     Image(systemName: isAdded ? "minus.circle.fill" : "plus.circle.fill")
                 }
-                ExerciseDetailsShortView(for: template, displayDuration: true)
+                ExerciseShortView(for: template, displayDuration: true)
                 
             }
         }

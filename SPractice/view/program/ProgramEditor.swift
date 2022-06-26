@@ -49,7 +49,7 @@ struct ProgramEditor: View {
                                 Image(systemName: "pencil.circle.fill")
                             }
                         }
-                        ExerciseDetailsShortView(for: exercise, displayDuration: true)
+                        ExerciseShortView(for: exercise, displayDuration: true)
                             .foregroundColor(.primary)
                     }
                 }

@@ -18,13 +18,13 @@ struct ExercisesView: View, EditableView {
             ForEach(exercisesManager.filteredExercises) { exercise in
                 HStack {
                     if isInEditMode {
-                        ExerciseDetailsShortView(for: exercise, displayDuration: exercise.type == .timer)
+                        ExerciseShortDecorativeView(for: exercise, displayDuration: exercise.type == .timer)
                     } else {
                         NavigationLink {
                             ExerciseDetailsView(for: exercise) { exercisesManager.update(exercise: $0) }
                                 onDelete: { exercisesManager.delete(exercise: $0) }
                         } label: {
-                            ExerciseDetailsShortView(for: exercise, displayDuration: exercise.type == .timer)
+                            ExerciseShortDecorativeView(for: exercise, displayDuration: exercise.type == .timer)
                         }
                     }
                 }

@@ -19,6 +19,7 @@ struct ProgramsView: View, EditableView {
                 HStack {
                     if isInEditMode {
                         Text("\(program.name)")
+                            .fontWeight(.semibold)
                     } else {
                         NavigationLink {
                             ProgramDetailsView(for: program) {
@@ -27,7 +28,12 @@ struct ProgramsView: View, EditableView {
                                 programsManager.delete(program: $0)
                             }
                         } label: {
-                            Text("\(program.name)")
+                            VStack(alignment: .leading) {
+                                Text("\(program.name)")
+                                    .fontWeight(.semibold)
+                                Text("\(program.exercises.count) exercises")
+                                    .foregroundColor(.secondary)
+                            }
                         }
                     }
                 }
