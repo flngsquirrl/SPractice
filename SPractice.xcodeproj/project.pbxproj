@@ -169,8 +169,8 @@
 			children = (
 				C9A0D00F2823DE83000CF439 /* view */,
 				C9A0CFEF281AB554000CF439 /* model */,
-				C95011C628196FFD0043EC75 /* SPracticeApp.swift */,
 				C9C2727B2848C91500F7DA0E /* Array-Wrapper.swift */,
+				C95011C628196FFD0043EC75 /* SPracticeApp.swift */,
 				C95011CA28196FFE0043EC75 /* Assets.xcassets */,
 				C95011CC28196FFE0043EC75 /* Preview Content */,
 			);
@@ -219,18 +219,11 @@
 			isa = PBXGroup;
 			children = (
 				C9692C74284F4E6D00373730 /* clock */,
-				C9A0CFF4281BD588000CF439 /* Program.swift */,
-				C9A0CFF6281BD815000CF439 /* Exercise.swift */,
-				C9DE151E2868AADE0011324C /* ExeriseType.swift */,
-				C9A0CFED281AB484000CF439 /* PracticeProgram.swift */,
-				C9A0CFEB281AB382000CF439 /* PracticeExercise.swift */,
-				C9A0CFE9281AB32B000CF439 /* Task.swift */,
-				C99698152863C2C7009836BD /* SettingsManager.swift */,
-				C9A0D0142823FF87000CF439 /* Settings.swift */,
-				C9A0D016282408C4000CF439 /* SettingsItem.swift */,
-				C9A0D028282BD603000CF439 /* Practice.swift */,
-				C9A0D02A282BE586000CF439 /* Player.swift */,
-				C9DE15202868AB520011324C /* IntensityType.swift */,
+				C9DE15242868B32E0011324C /* exercise */,
+				C9DE15222868B2C70011324C /* practice */,
+				C9DE15252868B34A0011324C /* program */,
+				C9DE15232868B2D90011324C /* settings */,
+				C9DE15262868B3560011324C /* task */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -331,6 +324,53 @@
 				C9A0D0102823DF22000CF439 /* SettingsView.swift */,
 			);
 			path = settings;
+			sourceTree = "<group>";
+		};
+		C9DE15222868B2C70011324C /* practice */ = {
+			isa = PBXGroup;
+			children = (
+				C9A0CFED281AB484000CF439 /* PracticeProgram.swift */,
+				C9A0CFEB281AB382000CF439 /* PracticeExercise.swift */,
+				C9A0D028282BD603000CF439 /* Practice.swift */,
+				C9A0D02A282BE586000CF439 /* Player.swift */,
+			);
+			path = practice;
+			sourceTree = "<group>";
+		};
+		C9DE15232868B2D90011324C /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				C99698152863C2C7009836BD /* SettingsManager.swift */,
+				C9A0D0142823FF87000CF439 /* Settings.swift */,
+				C9A0D016282408C4000CF439 /* SettingsItem.swift */,
+			);
+			path = settings;
+			sourceTree = "<group>";
+		};
+		C9DE15242868B32E0011324C /* exercise */ = {
+			isa = PBXGroup;
+			children = (
+				C9A0CFF6281BD815000CF439 /* Exercise.swift */,
+				C9DE151E2868AADE0011324C /* ExeriseType.swift */,
+			);
+			path = exercise;
+			sourceTree = "<group>";
+		};
+		C9DE15252868B34A0011324C /* program */ = {
+			isa = PBXGroup;
+			children = (
+				C9A0CFF4281BD588000CF439 /* Program.swift */,
+			);
+			path = program;
+			sourceTree = "<group>";
+		};
+		C9DE15262868B3560011324C /* task */ = {
+			isa = PBXGroup;
+			children = (
+				C9A0CFE9281AB32B000CF439 /* Task.swift */,
+				C9DE15202868AB520011324C /* IntensityType.swift */,
+			);
+			path = task;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
