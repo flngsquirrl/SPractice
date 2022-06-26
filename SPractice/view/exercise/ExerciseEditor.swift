@@ -25,6 +25,7 @@ struct ExerciseEditor: View {
             
             Section {
                 Toggle("Set type", isOn: $viewModel.isTypeSet.animation())
+                    .tint(.customAccentColor)
                     .onChange(of: viewModel.isTypeSet) { newValue in
                         withAnimation {
                             viewModel.onTypeSetChange(newValue: newValue)

@@ -24,6 +24,7 @@ struct ProgramDetailsView: View {
         List {
             Section {
                 Toggle("Use rest", isOn: $viewModel.useRest)
+                    .tint(.customAccentColor)
                 Button() {
                     viewModel.showPracticeView = true
                 } label: {
@@ -49,7 +50,7 @@ struct ProgramDetailsView: View {
             
             Section("Sequence") {
                 ForEach(viewModel.program.exercises) { exercise in
-                    ExerciseDetailsShortView(for: exercise)
+                    ExerciseShortView(for: exercise)
                 }
             }
         }
