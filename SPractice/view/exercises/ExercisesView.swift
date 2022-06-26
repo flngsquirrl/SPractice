@@ -11,36 +11,36 @@ struct ExercisesView: View, EditableView {
     
     @Environment(\.editMode) var editMode
     
-    @EnvironmentObject var dataModel: DataModel
+    @ObservedObject var exercisesManager = ExercisesManager.shared
     
     var body: some View {
-        ForEach(dataModel.exerciseTemplates) { template in
-            HStack {
-                if isInEditMode {
-                    ExerciseDetailsShortView(for: template, displayDuration: template.type == .timer)
-                } else {
-                    NavigationLink {
-                        ExerciseDetailsView(for: template) { dataModel.updateExerciseTemplate(template: $0) }
-                            onDelete: { dataModel.deleteExerciseTemplate(template: $0) }
-                    } label: {
-                        ExerciseDetailsShortView(for: template, displayDuration: template.type == .timer)
+        List {
+            ForEach(exercisesManager.filteredExercises) { exercise in
+                HStack {
+                    if isInEditMode {
+                        ExerciseDetailsShortView(for: exercise, displayDuration: exercise.type == .timer)
+                    } else {
+                        NavigationLink {
+                            ExerciseDetailsView(for: exercise) { exercisesManager.update(exercise: $0) }
+                                onDelete: { exercisesManager.delete(exercise: $0) }
+                        } label: {
+                            ExerciseDetailsShortView(for: exercise, displayDuration: exercise.type == .timer)
+                        }
                     }
                 }
             }
+            .onDelete { exercisesManager.removeItems(at: $0) }
+            .onMove { exercisesManager.moveItems(from: $0, to: $1) }
         }
-        .onDelete { dataModel.removeExerciseItems(at: $0) }
-        .onMove { dataModel.moveExerciseItems(from: $0, to: $1) }
-        
+        .searchable(text: $exercisesManager.searchText)
+        .disableAutocorrection(true)
     }
 }
 
 struct ExercisesView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            List {
-                ExercisesView()
-                    .environmentObject(DataModel())
-            }
+            ExercisesView()
         }
     }
 }

@@ -11,29 +11,32 @@ struct ProgramsView: View, EditableView {
     
     @Environment(\.editMode) var editMode
     
-    @EnvironmentObject var dataModel: DataModel
+    @ObservedObject var programsManager = ProgramsManager.shared
     
     var body: some View {
-        
-        ForEach(dataModel.programTemplates) { template in
-            HStack {
-                if isInEditMode {
-                    Text("\(template.name)")
-                } else {
-                    NavigationLink {
-                        ProgramDetailsView(for: template) {
-                            dataModel.updateProgramTemplate(template: $0)
-                        } onDelete: {
-                            dataModel.deleteProgramTemplate(template: $0)
+        List {
+            ForEach(programsManager.filteredPrograms) { program in
+                HStack {
+                    if isInEditMode {
+                        Text("\(program.name)")
+                    } else {
+                        NavigationLink {
+                            ProgramDetailsView(for: program) {
+                                programsManager.update(program: $0)
+                            } onDelete: {
+                                programsManager.delete(program: $0)
+                            }
+                        } label: {
+                            Text("\(program.name)")
                         }
-                    } label: {
-                        Text("\(template.name)")
                     }
                 }
             }
+            .onDelete { programsManager.removeItems(at: $0) }
+            .onMove { programsManager.moveItems(from: $0, to: $1) }
         }
-        .onDelete { dataModel.removeProgramItems(at: $0) }
-        .onMove { dataModel.moveProgramItems(from: $0, to: $1) }
+        .searchable(text: $programsManager.searchText)
+        .disableAutocorrection(true)
     }
 }
 
@@ -41,10 +44,7 @@ struct ProgramsView_Previews: PreviewProvider {
     
     static var previews: some View {
         NavigationView {
-            List {
-                ProgramsView()
-                    .environmentObject(DataModel())
-            }
+            ProgramsView()
         }
     }
 }

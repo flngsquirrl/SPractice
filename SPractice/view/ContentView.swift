@@ -20,13 +20,12 @@ struct ContentView: View {
     @State private var showAddNewView = false
     @State private var contentType: ContentType = .programs
     
-    @State private var searchText = ""
-    
-    @StateObject var dataModel = DataModel()
+    @ObservedObject var programsManager = ProgramsManager.shared
+    @ObservedObject var exercisesManager = ExercisesManager.shared
     
     var body: some View {
         NavigationView {
-            List {
+            Group {
                 switch contentType {
                 case .programs:
                     ProgramsView()
@@ -34,7 +33,6 @@ struct ContentView: View {
                     ExercisesView()
                 }
             }
-            .searchable(text: $searchText)
             .navigationTitle(contentType == .exercises ? "Exercises" : "Programs")
             .animation(.default, value: editMode)
             .sheet(isPresented: $showSettingsView) {
@@ -43,9 +41,9 @@ struct ContentView: View {
             .sheet(isPresented: $showAddNewView) {
                 NavigationView {
                     if contentType == .programs {
-                        AddProgramView() { dataModel.addNewProgramTemplate(template: $0) }
+                        AddProgramView() { programsManager.addNew(program: $0) }
                     } else {
-                        AddExerciseView() { dataModel.addNewExerciseTemplate(template: $0) }
+                        AddExerciseView() { exercisesManager.addNew(exercise: $0) }
                     }
                 }
                 .accentColor(.customAccentColor)
@@ -92,7 +90,6 @@ struct ContentView: View {
                     }
                 }
             }
-            .environmentObject(dataModel)
             .environment(\.editMode, $editMode)
             
             ZStack {
