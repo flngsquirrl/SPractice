@@ -65,7 +65,7 @@ struct PracticeSequenceRowView: View {
     
     var body: some View {
         if item.sequenceMark == .current {
-            ExerciseShortView(for: item.exercise, iconColor: .lightOrange)
+            ExerciseShortView(for: item.exercise)
         } else {
             ExerciseShortView(for: item.exercise)
         }

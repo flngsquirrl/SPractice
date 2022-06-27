@@ -40,7 +40,7 @@ struct PracticeExercise: Identifiable, Equatable {
             return nil
         }
         
-        self.init(type: template.type!, name: template.name)
+        self.init(type: template.type!, name: template.name, isService: template.isService)
         self.tasks = prepareTasks(from: template)
     }
     
