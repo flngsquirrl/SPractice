@@ -7,9 +7,7 @@
 
 import SwiftUI
 
-struct ExercisesView: View, EditableView {
-    
-    @Environment(\.editMode) var editMode
+struct ExercisesView: View {
     
     @ObservedObject var exercisesManager = ExercisesManager.shared
     
@@ -17,20 +15,15 @@ struct ExercisesView: View, EditableView {
         List {
             ForEach(exercisesManager.filteredExercises) { exercise in
                 HStack {
-                    if isInEditMode {
+                    NavigationLink {
+                        ExerciseDetailsView(for: exercise) { exercisesManager.update(exercise: $0) }
+                            onDelete: { exercisesManager.delete(exercise: $0) }
+                    } label: {
                         ExerciseShortDecorativeView(for: exercise, displayDuration: exercise.type == .timer)
-                    } else {
-                        NavigationLink {
-                            ExerciseDetailsView(for: exercise) { exercisesManager.update(exercise: $0) }
-                                onDelete: { exercisesManager.delete(exercise: $0) }
-                        } label: {
-                            ExerciseShortDecorativeView(for: exercise, displayDuration: exercise.type == .timer)
-                        }
                     }
                 }
             }
             .onDelete { exercisesManager.removeItems(at: $0) }
-            .onMove { exercisesManager.moveItems(from: $0, to: $1) }
         }
         .searchable(text: $exercisesManager.searchText)
         .disableAutocorrection(true)

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C9445C65285CACEF00DF2A08 /* EditableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9445C64285CACEF00DF2A08 /* EditableView.swift */; };
 		C9445C6D285E00D000DF2A08 /* ExerciseDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9445C6C285E00D000DF2A08 /* ExerciseDetailsView.swift */; };
 		C9445C71285E0A9300DF2A08 /* ExerciseEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9445C70285E0A9300DF2A08 /* ExerciseEditor.swift */; };
 		C95011C728196FFD0043EC75 /* SPracticeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95011C628196FFD0043EC75 /* SPracticeApp.swift */; };
@@ -70,7 +69,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C9445C64285CACEF00DF2A08 /* EditableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableView.swift; sourceTree = "<group>"; };
 		C9445C6C285E00D000DF2A08 /* ExerciseDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailsView.swift; sourceTree = "<group>"; };
 		C9445C70285E0A9300DF2A08 /* ExerciseEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseEditor.swift; sourceTree = "<group>"; };
 		C95011C328196FFD0043EC75 /* SPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -278,7 +276,6 @@
 				C9A0D0182827CE9F000CF439 /* logo */,
 				C95011C828196FFD0043EC75 /* ContentView.swift */,
 				C9A0D023282813F2000CF439 /* ColorTheme.swift */,
-				C9445C64285CACEF00DF2A08 /* EditableView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -483,7 +480,6 @@
 				C9741A3E2861128800E1F670 /* View-ImageRenderer.swift in Sources */,
 				C9741A34286085E400E1F670 /* EditProgramView.swift in Sources */,
 				C9A0CFF2281B3733000CF439 /* ExerciseView.swift in Sources */,
-				C9445C65285CACEF00DF2A08 /* EditableView.swift in Sources */,
 				C9A0D001281BE4C8000CF439 /* PlayerView.swift in Sources */,
 				C9741A3C2860CD6300E1F670 /* ExerciseTypeImage.swift in Sources */,
 				C9741A322860857F00E1F670 /* AddProgramView.swift in Sources */,

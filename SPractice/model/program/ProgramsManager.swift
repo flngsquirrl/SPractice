@@ -9,7 +9,7 @@ import Foundation
 
 @MainActor class ProgramsManager: ObservableObject {
     
-    private var programs = [Program.personal, Program.dailyShort, Program.shortForBack]
+    @Published private var programs = [Program.personal, Program.dailyShort, Program.shortForBack]
     
     @Published var searchText = ""
     
@@ -32,10 +32,6 @@ import Foundation
     
     func removeItems(at offsets: IndexSet) {
         programs.remove(atOffsets: offsets)
-    }
-    
-    func moveItems(from fromOffsets: IndexSet, to toOffsets: Int) {
-        programs.move(fromOffsets: fromOffsets, toOffset: toOffsets)
     }
     
     func update(program: Program) {

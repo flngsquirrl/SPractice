@@ -34,10 +34,6 @@ import Foundation
         exercises.remove(atOffsets: offsets)
     }
     
-    func moveItems(from fromOffsets: IndexSet, to toOffsets: Int) {
-        exercises.move(fromOffsets: fromOffsets, toOffset: toOffsets)
-    }
-    
     func update(exercise: Exercise) {
         if let index = exercises.firstIndex(where: {$0.id == exercise.id}) {
             exercises[index] = exercise

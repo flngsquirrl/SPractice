@@ -34,7 +34,6 @@ struct ContentView: View {
                 }
             }
             .navigationTitle(contentType == .exercises ? "Exercises" : "Programs")
-            .animation(.default, value: editMode)
             .sheet(isPresented: $showSettingsView) {
                 SettingsView()
             }
@@ -56,7 +55,6 @@ struct ContentView: View {
                         }
                     }
                     .pickerStyle(.segmented)
-                    .disabled(editMode.isEditing)
                 }
                 
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
@@ -65,32 +63,18 @@ struct ContentView: View {
                     } label: {
                         Image(systemName: "plus")
                     }
-                    .disabled(editMode.isEditing)
                     
-                    if editMode.isEditing {
-                        Button("Done") {
-                            editMode = .inactive
-                        }
-                    } else {
-                        Menu {
-                            Button() {
-                                editMode = .active
-                            } label: {
-                                Label("Edit List", systemImage: "pencil")
-                            }
-                            
-                            Button() {
-                                showSettingsView = true
-                            } label: {
-                                Label("Open Settings", systemImage: "gearshape")
-                            }
+                    Menu {
+                        Button() {
+                            showSettingsView = true
                         } label: {
-                            Image(systemName: "ellipsis.circle")
+                            Label("Open Settings", systemImage: "gearshape")
                         }
+                    } label: {
+                        Image(systemName: "ellipsis.circle")
                     }
                 }
             }
-            .environment(\.editMode, $editMode)
             
             ZStack {
                 Color.lightOrange

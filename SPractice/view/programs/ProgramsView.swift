@@ -7,9 +7,7 @@
 
 import SwiftUI
 
-struct ProgramsView: View, EditableView {
-    
-    @Environment(\.editMode) var editMode
+struct ProgramsView: View {
     
     @ObservedObject var programsManager = ProgramsManager.shared
     
@@ -17,29 +15,23 @@ struct ProgramsView: View, EditableView {
         List {
             ForEach(programsManager.filteredPrograms) { program in
                 HStack {
-                    if isInEditMode {
-                        Text("\(program.name)")
-                            .fontWeight(.semibold)
-                    } else {
-                        NavigationLink {
-                            ProgramDetailsView(for: program) {
-                                programsManager.update(program: $0)
-                            } onDelete: {
-                                programsManager.delete(program: $0)
-                            }
-                        } label: {
-                            VStack(alignment: .leading) {
-                                Text("\(program.name)")
-                                    .fontWeight(.semibold)
-                                Text("\(program.exercises.count) exercises")
-                                    .foregroundColor(.secondary)
-                            }
+                    NavigationLink {
+                        ProgramDetailsView(for: program) {
+                            programsManager.update(program: $0)
+                        } onDelete: {
+                            programsManager.delete(program: $0)
+                        }
+                    } label: {
+                        VStack(alignment: .leading) {
+                            Text("\(program.name)")
+                                .fontWeight(.semibold)
+                            Text("\(program.exercises.count) exercises")
+                                .foregroundColor(.secondary)
                         }
                     }
                 }
             }
             .onDelete { programsManager.removeItems(at: $0) }
-            .onMove { programsManager.moveItems(from: $0, to: $1) }
         }
         .searchable(text: $programsManager.searchText)
         .disableAutocorrection(true)
