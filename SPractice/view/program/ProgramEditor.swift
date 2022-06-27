@@ -28,18 +28,18 @@ struct ProgramEditor: View {
             
             Section() {
                 Button() {
-                    showExerciseSelectionView = true
-                } label: {
-                    Label("Select from templates", systemImage: "plus")
-                }
-                .disabled(editMode.isEditing)
-                
-                Button() {
                     showNewExerciseView = true
                 } label: {
                     Label("Add new", systemImage: "plus")
                 }
                 .disabled(editMode.isEditing)
+                Button() {
+                    showExerciseSelectionView = true
+                } label: {
+                    Label("Add from existing", systemImage: "plus")
+                }
+                .disabled(editMode.isEditing)
+                
                 ForEach(viewModel.template.exercises) { exercise in
                     HStack {
                         if !editMode.isEditing {

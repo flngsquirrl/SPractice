@@ -11,23 +11,23 @@ struct EditProgramView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @State private var template: Program
+    @State private var program: Program
     var onSave: (Program) -> Void
     
     @State private var editMode: EditMode = .inactive
     
     init(for template: Program, onSave: @escaping (Program) -> Void) {
-        self._template = State<Program>(initialValue: template)
+        self._program = State<Program>(initialValue: template)
         self.onSave = onSave
     }
     
     var body: some View {
-        ProgramEditor(for: $template, editMode: $editMode)
-            .navigationTitle("Program template")
+        ProgramEditor(for: $program, editMode: $editMode)
+            .navigationTitle("Program")
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button("Save") {
-                        onSave(template)
+                        onSave(program)
                         dismiss()
                     }
                     .disabled(editMode.isEditing)

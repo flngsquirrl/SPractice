@@ -13,7 +13,7 @@ struct AddProgramView: View {
     
     var onAdd: (Program) -> Void
     
-    @State private var newTemplate = Program.defaultTemplate
+    @State private var newProgram = Program.defaultTemplate
     @State private var editMode: EditMode = .inactive
     
     init(onAdd: @escaping (Program) -> Void) {
@@ -21,13 +21,12 @@ struct AddProgramView: View {
     }
     
     var body: some View {
-        ProgramEditor(for: $newTemplate, editMode: $editMode)
-            .navigationTitle("New template")
-            .navigationTitle("Program template")
+        ProgramEditor(for: $newProgram, editMode: $editMode)
+            .navigationTitle("New program")
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button("Save") {
-                        onAdd(newTemplate)
+                        onAdd(newProgram)
                         dismiss()
                     }
                     .disabled(editMode.isEditing)

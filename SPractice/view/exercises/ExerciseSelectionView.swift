@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ExerciseSelectionView: View {
     
-    enum TemplatesGroup: String, CaseIterable {
+    enum ItemsGroup: String, CaseIterable {
         case all = "all"
         case selected = "selected"
     }
@@ -27,7 +27,7 @@ struct ExerciseSelectionView: View {
     var body: some View {
         NavigationView {
             List {
-                if viewModel.templatesGroup == .all {
+                if viewModel.itemsGroup == .all {
                     Section {
                         ForEach(viewModel.searchableTemplates) { template in
                             SelectionRow(template: template) {
@@ -36,7 +36,7 @@ struct ExerciseSelectionView: View {
                         }
                     } header: {
                         HStack {
-                            Text("All")
+                            Text("Existing")
                             Spacer()
                             Text("(\(viewModel.selections.count)) to be added")
                         }
@@ -64,8 +64,8 @@ struct ExerciseSelectionView: View {
             .navigationTitle("Templates")
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Picker("Group of templates", selection: $viewModel.templatesGroup.animation()) {
-                        ForEach(TemplatesGroup.allCases, id: \.self) { group in
+                    Picker("Group of templates", selection: $viewModel.itemsGroup.animation()) {
+                        ForEach(ItemsGroup.allCases, id: \.self) { group in
                             if sizeClass == .compact {
                                 Image(systemName: getImageName(for: group))
                             } else {
@@ -95,12 +95,12 @@ struct ExerciseSelectionView: View {
         .accentColor(.customAccentColor)
     }
     
-    func getImageName(for type: TemplatesGroup) -> String {
-        switch type {
+    func getImageName(for group: ItemsGroup) -> String {
+        switch group {
         case .all:
             return "list.bullet"
         case .selected:
-            return "checkmark"
+            return "plus"
         }
     }
     
@@ -117,7 +117,6 @@ struct ExerciseSelectionView: View {
                     Image(systemName: isAdded ? "minus.circle.fill" : "plus.circle.fill")
                 }
                 ExerciseShortView(for: template, displayDuration: true)
-                
             }
         }
     }

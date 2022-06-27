@@ -11,7 +11,7 @@ import SwiftUI
 extension ExerciseSelectionView {
     @MainActor class ViewModel: ObservableObject {
         
-        @Published var templatesGroup: TemplatesGroup = .all
+        @Published var itemsGroup: ItemsGroup = .all
         
         @Published var templates = [Exercise.catCow, Exercise.surjaNamascar, Exercise.vasihsthasana, Exercise.concentration, Exercise.catCowDurationNoDuration, Exercise.catCowNoType]
         @Published var selections: [Exercise] = []
@@ -19,7 +19,7 @@ extension ExerciseSelectionView {
         @Published var searchText = ""
 
         var searchableTemplates: [Exercise] {
-            let target = templatesGroup == .selected ? selections : templates
+            let target = itemsGroup == .selected ? selections : templates
             if searchText.isEmpty {
                 return target
             } else {

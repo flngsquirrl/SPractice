@@ -14,8 +14,8 @@ struct ProgramDetailsView: View {
     var onChange: (Program) -> Void
     var onDelete: (Program) -> Void
     
-    init(for template: Program, onChange: @escaping (Program) -> Void, onDelete: @escaping (Program) -> Void) {
-        self.viewModel = ViewModel(for: template)
+    init(for program: Program, onChange: @escaping (Program) -> Void, onDelete: @escaping (Program) -> Void) {
+        self.viewModel = ViewModel(for: program)
         self.onChange = onChange
         self.onDelete = onDelete
     }
@@ -40,7 +40,7 @@ struct ProgramDetailsView: View {
                 HStack {
                     Text("Duration")
                     Spacer()
-                    Text(ClockTime.getExtendedPresentation(for: viewModel.program.duration!))
+                    Text(ClockTime.getExtendedPresentation(for: viewModel.practice.duration!))
                 }
             } header: {
                 Text("Summary")
@@ -49,28 +49,28 @@ struct ProgramDetailsView: View {
             }
             
             Section("Sequence") {
-                ForEach(viewModel.program.exercises) { exercise in
+                ForEach(viewModel.practice.exercises) { exercise in
                     ExerciseShortView(for: exercise)
                 }
             }
         }
         .fullScreenCover(isPresented: $viewModel.showPracticeView) {
-            PracticeView(practice: Practice(for: viewModel.program))
+            PracticeView(practice: Practice(for: viewModel.practice))
         }
         .fullScreenCover(isPresented: $viewModel.showEditTemplateView) {
             NavigationView {
-                EditProgramView(for: viewModel.template) {
+                EditProgramView(for: viewModel.program) {
                     viewModel.updateProgramTemplate(template: $0)
                     onChange($0)
                 }
             }
             .accentColor(.customAccentColor)
         }
-        .navigationTitle(viewModel.program.name)
+        .navigationTitle(viewModel.practice.name)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    onDelete(viewModel.template)
+                    onDelete(viewModel.program)
                 } label: {
                     Image(systemName: "trash")
                 }
