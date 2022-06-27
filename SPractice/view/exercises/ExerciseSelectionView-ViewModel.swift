@@ -13,7 +13,7 @@ extension ExerciseSelectionView {
         
         @Published var itemsGroup: ItemsGroup = .all
         
-        @Published var existingExercises = [Exercise.catCow, Exercise.surjaNamascar, Exercise.vasihsthasana, Exercise.concentration, Exercise.catCowDurationNoDuration, Exercise.catCowNoType]
+        @Published var existingExercises = ExercisesManager.shared.exercises
         @Published var preparedExercises: [Exercise] = []
         
         @Published var searchText = ""
@@ -24,12 +24,6 @@ extension ExerciseSelectionView {
                 return target
             } else {
                 return target.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
-            }
-        }
-        
-        init() {
-            for _ in 1...100 {
-                existingExercises.append(Exercise(from: Exercise.catCow))
             }
         }
         
