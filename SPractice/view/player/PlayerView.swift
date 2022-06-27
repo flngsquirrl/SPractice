@@ -23,7 +23,7 @@ struct PlayerButton: View {
                     .frame(width: 97, height: 70)
                     .font(mainFont)
                     .foregroundColor(.creamy)
-                    .background(isEnabled ? .lightNavy : .gray)
+                    .background(isEnabled ? .lightNavy : .secondary)
                     .clipShape(RoundedRectangle(cornerRadius: 12))
             }
             .shadow(color: .white, radius: 3)

@@ -55,7 +55,7 @@ struct ExerciseShortView: View {
                     IntensityTypeImage(type: taskType)
                 }
             }
-            .foregroundColor(.gray)
+            .foregroundColor(.secondary)
         }
     }
 }
