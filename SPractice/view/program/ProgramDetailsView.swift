@@ -68,15 +68,13 @@ struct ProgramDetailsView: View {
         }
         .navigationTitle(viewModel.practice.name)
         .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button {
                     onDelete(viewModel.program)
                 } label: {
                     Image(systemName: "trash")
                 }
-            }
-            
-            ToolbarItem(placement: .navigationBarTrailing) {
+
                 Button("Edit") {
                     viewModel.showEditTemplateView = true
                 }
