@@ -46,27 +46,27 @@ struct ExerciseShortDecorativeView_Previews: PreviewProvider {
         List {
             Group {
                 Text("exercises")
-                ExerciseShortView(for: PracticeExercise.catCow)
-                ExerciseShortView(for: PracticeExercise.surjaNamascar)
-                ExerciseShortView(for: PracticeExercise.vasihsthasana, iconColor: .lightOrange)
+                ExerciseShortDecorativeView(for: Exercise.catCow)
+                ExerciseShortDecorativeView(for: Exercise.surjaNamascar)
+                ExerciseShortDecorativeView(for: Exercise.vasihsthasana)
             }
             
             Group {
                 Text("templates with durations")
-                ExerciseShortView(for: Exercise.catCowDurationNoDuration, displayDuration: true)
-                ExerciseShortView(for: Exercise.catCow, displayDuration: true)
-                ExerciseShortView(for: Exercise.surjaNamascar, displayDuration: true, iconColor: .lightOrange)
-                ExerciseShortView(for: Exercise.vasihsthasana, displayDuration: true)
-                ExerciseShortView(for: Exercise.catCowNoType, displayDuration: true, iconColor: .lightOrange)
+                ExerciseShortDecorativeView(for: Exercise.catCowDurationNoDuration, displayDuration: true)
+                ExerciseShortDecorativeView(for: Exercise.catCow, displayDuration: true)
+                ExerciseShortDecorativeView(for: Exercise.surjaNamascar, displayDuration: true)
+                ExerciseShortDecorativeView(for: Exercise.vasihsthasana, displayDuration: true)
+                ExerciseShortDecorativeView(for: Exercise.catCowNoType, displayDuration: true)
             }
             
             Group {
                 Text("templates without durations")
-                ExerciseShortView(for: Exercise.catCowDurationNoDuration, iconColor: .lightOrange)
-                ExerciseShortView(for: Exercise.catCow)
-                ExerciseShortView(for: Exercise.surjaNamascar)
-                ExerciseShortView(for: Exercise.vasihsthasana)
-                ExerciseShortView(for: Exercise.catCowNoType)
+                ExerciseShortDecorativeView(for: Exercise.catCowDurationNoDuration)
+                ExerciseShortDecorativeView(for: Exercise.catCow)
+                ExerciseShortDecorativeView(for: Exercise.surjaNamascar)
+                ExerciseShortDecorativeView(for: Exercise.vasihsthasana)
+                ExerciseShortDecorativeView(for: Exercise.catCowNoType)
             }
         }
     }
