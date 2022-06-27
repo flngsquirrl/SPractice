@@ -31,7 +31,7 @@ struct TaskDetailsShortView: View {
                     }
                 }
             }
-            .foregroundColor(.gray)
+            .foregroundColor(.secondary)
         }
     }
 }

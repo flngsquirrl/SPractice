@@ -29,7 +29,7 @@ struct ExerciseSelectionView: View {
             List {
                 if viewModel.itemsGroup == .all {
                     Section {
-                        ForEach(viewModel.searchableTemplates) { template in
+                        ForEach(viewModel.filteredExercises) { template in
                             SelectionRow(template: template) {
                                 viewModel.onAdd(template: $0)
                             }
@@ -38,12 +38,12 @@ struct ExerciseSelectionView: View {
                         HStack {
                             Text("Existing")
                             Spacer()
-                            Text("(\(viewModel.selections.count)) to be added")
+                            Text("(\(viewModel.preparedExercises.count)) to be added")
                         }
                     }
                 } else {
                     Section {
-                        ForEach(viewModel.searchableTemplates) { template in
+                        ForEach(viewModel.filteredExercises) { template in
                             SelectionRow(template: template, isAdded: true) {
                                 viewModel.onDelete(template: $0)
                             }
@@ -52,15 +52,16 @@ struct ExerciseSelectionView: View {
                         .onDelete { viewModel.removeItems(at: $0) }
                     } header: {
                         HStack {
-                            Text("To be added (\(viewModel.selections.count))")
+                            Text("To be added (\(viewModel.preparedExercises.count))")
                             Spacer()
-                            Button("Clear all") { viewModel.clearSelections() }
-                                .disabled(viewModel.selections.isEmpty)
+                            Button("Delete") { viewModel.deleteFiltered() }
+                                .disabled(viewModel.preparedExercises.isEmpty)
                         }
                     }
                 }
             }
             .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer)
+            .disableAutocorrection(true)
             .navigationTitle("Templates")
             .toolbar {
                 ToolbarItem(placement: .principal) {
@@ -79,10 +80,10 @@ struct ExerciseSelectionView: View {
                     
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Add") {
-                        onFinished(viewModel.selections)
+                        onFinished(viewModel.preparedExercises)
                         dismiss()
                     }
-                    .disabled(viewModel.selections.isEmpty)
+                    .disabled(viewModel.preparedExercises.isEmpty)
                 }
                 
                 ToolbarItem(placement: .navigationBarLeading) {

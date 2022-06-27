@@ -13,13 +13,13 @@ extension ExerciseSelectionView {
         
         @Published var itemsGroup: ItemsGroup = .all
         
-        @Published var templates = [Exercise.catCow, Exercise.surjaNamascar, Exercise.vasihsthasana, Exercise.concentration, Exercise.catCowDurationNoDuration, Exercise.catCowNoType]
-        @Published var selections: [Exercise] = []
+        @Published var existingExercises = [Exercise.catCow, Exercise.surjaNamascar, Exercise.vasihsthasana, Exercise.concentration, Exercise.catCowDurationNoDuration, Exercise.catCowNoType]
+        @Published var preparedExercises: [Exercise] = []
         
         @Published var searchText = ""
 
-        var searchableTemplates: [Exercise] {
-            let target = itemsGroup == .selected ? selections : templates
+        var filteredExercises: [Exercise] {
+            let target = itemsGroup == .selected ? preparedExercises : existingExercises
             if searchText.isEmpty {
                 return target
             } else {
@@ -29,26 +29,28 @@ extension ExerciseSelectionView {
         
         init() {
             for _ in 1...100 {
-                templates.append(Exercise(from: Exercise.catCow))
+                existingExercises.append(Exercise(from: Exercise.catCow))
             }
         }
         
         func onAdd(template: Exercise) {
-            selections.append(Exercise(from: template))
+            preparedExercises.append(Exercise(from: template))
         }
         
         func onDelete(template: Exercise) {
-            if let index = selections.firstIndex(of: template) {
-                selections.remove(at: index)
+            if let index = preparedExercises.firstIndex(of: template) {
+                preparedExercises.remove(at: index)
             }
         }
         
         func removeItems(at offsets: IndexSet) {
-            selections.remove(atOffsets: offsets)
+            preparedExercises.remove(atOffsets: offsets)
         }
         
-        func clearSelections() {
-            selections.removeAll()
+        func deleteFiltered() {
+            for exercise in filteredExercises {
+                onDelete(template: exercise)
+            }
         }
     }
 }
