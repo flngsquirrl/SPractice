@@ -11,21 +11,21 @@ struct EditExerciseView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @State private var template: Exercise
+    @State private var exercise: Exercise
     
     var onSave: (Exercise) -> Void
     
     init(for template: Exercise, onSave: @escaping (Exercise) -> Void) {
-        self._template = State<Exercise>(initialValue: template)
+        self._exercise = State<Exercise>(initialValue: template)
         self.onSave = onSave
     }
     
     var body: some View {
-        ExerciseEditor(for: $template)
+        ExerciseEditor(for: $exercise)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save") {
-                        onSave(template.makeCopy())
+                        onSave(exercise.makeCopy())
                         dismiss()
                     }
                 }
@@ -36,7 +36,7 @@ struct EditExerciseView: View {
                     }
                 }
             }
-            .navigationTitle("Exercise template")
+            .navigationTitle("Exercise")
     }
 }
 

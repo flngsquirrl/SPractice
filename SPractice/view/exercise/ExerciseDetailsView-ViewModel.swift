@@ -10,11 +10,11 @@ import Foundation
 extension ExerciseDetailsView {
     @MainActor class ViewModel: ObservableObject {
         
-        @Published var template: Exercise
+        @Published var exercise: Exercise
         @Published var tasks: [Task] = []
         
         init(for template: Exercise) {
-            self.template = template
+            self.exercise = template
             self.tasks = PracticeExercise(from: template)?.tasks ?? []
         }
     }

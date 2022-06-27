@@ -9,20 +9,27 @@ import SwiftUI
 
 struct ExerciseDurationView: View {
     
+    enum Mode {
+        case padded
+        case extended
+    }
+    
     private let type: ExerciseType?
     private let duration: Int?
+    private let mode: Mode
     
-    init(for template: Exercise) {
-        self.init(type: template.type, duration: template.duration)
+    init(for template: Exercise, mode: Mode = .padded) {
+        self.init(type: template.type, duration: template.duration, mode: mode)
     }
     
-    init(for exercise: PracticeExercise) {
-        self.init(type: exercise.type, duration: exercise.duration)
+    init(for exercise: PracticeExercise, mode: Mode = .padded) {
+        self.init(type: exercise.type, duration: exercise.duration, mode: mode)
     }
     
-    init(type: ExerciseType?, duration: Int?) {
+    init(type: ExerciseType?, duration: Int? = nil, mode: Mode = .padded) {
         self.type = type
-        self.duration = duration
+        self.duration = duration == nil && type == .tabata ? SettingsManager.shared.tabataExerciseDuration : duration
+        self.mode = mode
     }
     
     var body: some View {
@@ -32,8 +39,12 @@ struct ExerciseDurationView: View {
                 Image(systemName: "infinity")
             case .timer, .tabata:
                 if let duration = duration {
-                    Text(ClockTime.getPaddedPresentation(for: duration))
-                        .font(.system(.callout).monospacedDigit())
+                    if mode == .padded {
+                        Text(ClockTime.getPaddedPresentation(for: duration))
+                            .font(.system(.callout).monospacedDigit())
+                    } else {
+                        Text(ClockTime.getExtendedPresentation(for: duration))
+                    }
                 } else {
                     Image(systemName: "questionmark")
                 }

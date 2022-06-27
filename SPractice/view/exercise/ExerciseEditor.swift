@@ -20,7 +20,7 @@ struct ExerciseEditor: View {
     var body: some View {
         Form {
             Section {
-                TextField("Exercise name", text: $viewModel.template.name)
+                TextField("Exercise name", text: $viewModel.exercise.name)
             }
             
             Section {
@@ -31,98 +31,74 @@ struct ExerciseEditor: View {
                             viewModel.onTypeSetChange(newValue: newValue)
                         }
                     }
-            
-                HStack {
-                    Text("Type")
-                    Spacer()
-                    ExerciseTypeView(type: viewModel.template.type)
-                        .foregroundColor(.gray)
-                }
-
+                
                 if viewModel.isTypeDefined {
-                    Picker("Type", selection: $viewModel.template.type.animation()) {
+                    Picker("Type", selection: $viewModel.exercise.type.animation()) {
                         ForEach(ExerciseType.allCases, id: \.self) { type in
                             ExerciseTypeImage(type: type)
                                 .tag(type as ExerciseType?)
                         }
                     }
-                    .onChange(of: viewModel.template.type) { viewModel.onTypeChange(newValue: $0) }
+                    .onChange(of: viewModel.exercise.type) { viewModel.onTypeChange(newValue: $0) }
                     .pickerStyle(.segmented)
-                    
-                    if viewModel.showDuration {
-                        HStack {
-                            Picker("Duration minutes", selection: $viewModel.minutes) {
-                                ForEach(0..<61) {
-                                    Text(String(format: "%02d", $0))
-                                }
-                            }
-                            .onChange(of: viewModel.minutes) { viewModel.onMinutesChange(newValue: $0)}
-                            .labelsHidden()
-                            .pickerStyle(.menu)
-                            
-                            Text("\(Self.minutesUnit)")
-                            
-                            Picker("Duration seconds", selection: $viewModel.seconds) {
-                                ForEach(ViewModel.secondsSelectionArray, id: \.self) {
-                                    Text(String(format: "%02d", $0))
-                                }
-                            }
-                            .onChange(of: viewModel.seconds) { viewModel.onSecondsChange(newValue: $0)}
-                            .disabled(viewModel.areSecondsDisabled)
-                            .labelsHidden()
-                            .pickerStyle(.menu)
-                            
-                            Text("\(Self.secondsUnit)")
-                            
-                            Spacer()
-                            Button("Reset") { viewModel.resetDuration() }
-                                .buttonStyle(.plain)
-                                .foregroundColor(.customAccentColor)
-                        }
-                    }
+                }
+            
+                HStack {
+                    Text("Type")
+                    Spacer()
+                    ExerciseTypeView(type: viewModel.exercise.type)
+                        .foregroundColor(.secondary)
                 }
             }
-                
-            if viewModel.showIntensity {
-                Section {
+            
+            Section {
+                if viewModel.isTypeDefined {
                     HStack {
-                        Text("Intensity")
+                        Text("Duration")
                         Spacer()
-                        HStack {
-                            IntensityTypeImage(type: viewModel.template.intensityType)
-                            Text(viewModel.template.intensityType.rawValue)
-                        }
-                        .foregroundColor(.gray)
-                        
-                    }
-                    Picker("Intensity", selection: $viewModel.template.intensityType.animation()) {
-                        ForEach(IntensityType.allCases, id: \.self) { type in
-                            IntensityTypeImage(type: type).tag(type as IntensityType?)
+                        if viewModel.isTimer {
+                            timerDurationControl
+                        } else {
+                            ExerciseDurationView(type: viewModel.exercise.type)
+                                .foregroundColor(.secondary)
                         }
                     }
-                    .pickerStyle(.segmented)
-                    .disabled(viewModel.intensityDisabled)
+                    Button("Reset") { viewModel.resetDuration() }
+                        .disabled(viewModel.resetDurationDisabled)
+                }
+            } footer: {
+                if let type = viewModel.exercise.type {
+                    if type == .flow {
+                        Text("Duration of a flow exercise can't be defined")
+                    } else if type == .tabata {
+                        Text("Duration of a tabata exercise and its tasks is based on the current Settings")
+                        }
                 }
             }
             
             if viewModel.isTypeDefined {
+                Section {
+                    intensityControl
+                }
+                
                 Section {
                     Button("View tasks") {
                         showTasks = true
                     }
                 }
             }
+            
         }
         .sheet(isPresented: $showTasks) {
             List {
                 Section {
                     ForEach(viewModel.tasks) { task in
-                        TaskDetailsShortView(task: task, exerciseType: viewModel.template.type!)
+                        TaskDetailsShortView(task: task, exerciseType: viewModel.exercise.type!)
                     }
                 } header: {
                     Text("Tasks")
                 } footer: {
-                    switch viewModel.template.type! {
+                    switch viewModel.exercise.type! {
                     case .flow:
                         Text("Edit the template to change the intensity of the task")
                     case .timer:
@@ -135,12 +111,59 @@ struct ExerciseEditor: View {
             }
         }
     }
+    
+    @ViewBuilder var intensityControl: some View {
+        Picker("Intensity", selection: $viewModel.exercise.intensityType.animation()) {
+            ForEach(IntensityType.allCases, id: \.self) { type in
+                IntensityTypeImage(type: type).tag(type as IntensityType?)
+            }
+        }
+        .pickerStyle(.segmented)
+        .disabled(viewModel.intensityDisabled)
+        
+        HStack {
+            Text("Intensity")
+            Spacer()
+            HStack {
+                IntensityTypeImage(type: viewModel.exercise.intensityType)
+                Text(viewModel.exercise.intensityType.rawValue)
+            }
+            .foregroundColor(.secondary)
+        }
+    }
+    
+    @ViewBuilder var timerDurationControl: some View {
+        Picker("Duration minutes", selection: $viewModel.minutes) {
+            ForEach(0..<61) {
+                Text(String(format: "%02d", $0))
+            }
+        }
+        .onChange(of: viewModel.minutes) { viewModel.onMinutesChange(newValue: $0)}
+        .labelsHidden()
+        .pickerStyle(.menu)
+        
+        Text("\(Self.minutesUnit)")
+            .foregroundColor(.secondary)
+        
+        Picker("Duration seconds", selection: $viewModel.seconds) {
+            ForEach(ViewModel.secondsSelectionArray, id: \.self) {
+                Text(String(format: "%02d", $0))
+            }
+        }
+        .onChange(of: viewModel.seconds) { viewModel.onSecondsChange(newValue: $0)}
+        .disabled(viewModel.areSecondsDisabled)
+        .labelsHidden()
+        .pickerStyle(.menu)
+        
+        Text("\(Self.secondsUnit)")
+            .foregroundColor(.secondary)
+    }
 }
 
 struct ExerciseEditor_Previews: PreviewProvider {
     
     @State static private var defaultTemplate = Exercise.defaultTemplate
-    @State static private var exampleTemplate = Exercise.catCowNoType
+    @State static private var exampleTemplate = Exercise.catCow
     
     static var previews: some View {
 //        NavigationView {

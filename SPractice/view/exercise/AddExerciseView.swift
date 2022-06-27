@@ -12,20 +12,19 @@ struct AddExerciseView: View {
     @Environment(\.dismiss) var dismiss
     var onAdd: (Exercise) -> Void
     
-    @State private var newTemplate = Exercise.defaultTemplate
+    @State private var newExercise = Exercise.defaultTemplate
     
     init(onAdd: @escaping (Exercise) -> Void) {
         self.onAdd = onAdd
     }
     
     var body: some View {
-        ExerciseEditor(for: $newTemplate)
-            .navigationTitle("New template")
+        ExerciseEditor(for: $newExercise)
+            .navigationTitle("New exercise")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Add") {
-                        
-                        onAdd(Exercise(from: newTemplate))
+                    Button("Add") {     
+                        onAdd(Exercise(from: newExercise))
                         dismiss()
                     }
                 }

@@ -16,53 +16,42 @@ struct ExerciseDetailsView: View {
     
     @State private var showEditView = false
     
-    init(for template: Exercise, onChange: @escaping (Exercise) -> Void, onDelete: @escaping (Exercise) -> Void) {
-        self.viewModel = ViewModel(for: template)
+    init(for exercise: Exercise, onChange: @escaping (Exercise) -> Void, onDelete: @escaping (Exercise) -> Void) {
+        self.viewModel = ViewModel(for: exercise)
         self.onChange = onChange
         self.onDelete = onDelete
     }
     
     var body: some View {
         List {
-            HStack {
-                Text("Type")
-                Spacer()
-                ExerciseTypeView(type: viewModel.template.type)
-            }
-            
-            if viewModel.template.isTimer {
+            Section {
+                HStack {
+                    Text("Type")
+                    Spacer()
+                    ExerciseTypeView(type: viewModel.exercise.type)
+                }
+                
                 HStack {
                     Text("Duration")
                     Spacer()
-                    ExerciseDurationView(for: viewModel.template)
+                    ExerciseDurationView(for: viewModel.exercise)
+                        .foregroundColor(.secondary)
                 }
             }
             
-            if viewModel.template.isTypeSet {
-                Section {
+            if viewModel.exercise.isTypeSet {
+                Section("Tasks") {
                     ForEach(viewModel.tasks) { task in
-                        TaskDetailsShortView(task: task, exerciseType: viewModel.template.type!)
-                    }
-                } header: {
-                    Text("Tasks")
-                } footer: {
-                    switch viewModel.template.type! {
-                    case .flow:
-                        Text("Edit the template to change the intensity of the task")
-                    case .timer:
-                        Text("Edit the template to change intensity and duration of the task")
-                    case .tabata:
-                        Text("Tasks sequence and duration for a tabata exercise are based on the current Settings")
-
+                        TaskDetailsShortView(task: task, exerciseType: viewModel.exercise.type!)
                     }
                 }
             }
         }
-        .navigationTitle(viewModel.template.name)
+        .navigationTitle(viewModel.exercise.name)
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button {
-                    onDelete(viewModel.template)
+                    onDelete(viewModel.exercise)
                 } label: {
                     Image(systemName: "trash")
                 }
@@ -74,7 +63,7 @@ struct ExerciseDetailsView: View {
         }
         .sheet(isPresented: $showEditView) {
             NavigationView {
-                EditExerciseView(for: viewModel.template, onSave: onChange)
+                EditExerciseView(for: viewModel.exercise, onSave: onChange)
                 }
                 .accentColor(.customAccentColor)
         }
