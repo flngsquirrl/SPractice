@@ -11,9 +11,11 @@ struct ProgramsView: View {
     
     @ObservedObject var programsManager = ProgramsManager.shared
     
+    @State private var searchText = ""
+    
     var body: some View {
         List {
-            ForEach(programsManager.filteredPrograms) { program in
+            ForEach(sortedPrograms) { program in
                 HStack {
                     NavigationLink {
                         ProgramDetailsView(for: program) {
@@ -33,8 +35,21 @@ struct ProgramsView: View {
             }
             .onDelete { programsManager.removeItems(at: $0) }
         }
-        .searchable(text: $programsManager.searchText)
+        .searchable(text: $searchText)
         .disableAutocorrection(true)
+    }
+    
+    var filteredPrograms: [Program] {
+        if searchText.isEmpty {
+            return programsManager.existingPrograms
+        } else {
+            return programsManager.existingPrograms.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+        }
+    }
+
+    var sortedPrograms: [Program] {
+        let sorted: [Program] = filteredPrograms.reversed()
+        return sorted
     }
 }
 

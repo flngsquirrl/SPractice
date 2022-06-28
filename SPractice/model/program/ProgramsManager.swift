@@ -11,8 +11,6 @@ import Foundation
     
     @Published private var programs = [Program.personal, Program.dailyShort, Program.shortForBack]
     
-    @Published var searchText = ""
-    
     static let shared = ProgramsManager()
     
     private init() {
@@ -24,6 +22,10 @@ import Foundation
         } else {
             return programs.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
         }
+    }
+    
+    var existingPrograms: [Program] {
+        programs
     }
     
     func addNew(program: Program) {
