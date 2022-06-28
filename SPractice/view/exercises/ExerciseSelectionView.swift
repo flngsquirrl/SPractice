@@ -10,13 +10,12 @@ import SwiftUI
 struct ExerciseSelectionView: View {
     
     enum ItemsGroup: String, CaseIterable {
-        case all = "all"
-        case selected = "selected"
+        case all
+        case selected
     }
     
     @StateObject private var viewModel = ViewModel()
     @Environment(\.dismiss) var dismiss
-    @Environment(\.horizontalSizeClass) var sizeClass
     
     private var onFinished: ([Exercise]) -> Void
     
@@ -36,7 +35,7 @@ struct ExerciseSelectionView: View {
                         }
                     } header: {
                         HStack {
-                            Text("Existing")
+                            Text("All")
                             Spacer()
                             Text("(\(viewModel.preparedExercises.count)) to be added")
                         }
@@ -67,11 +66,7 @@ struct ExerciseSelectionView: View {
                 ToolbarItem(placement: .principal) {
                     Picker("Group of templates", selection: $viewModel.itemsGroup.animation()) {
                         ForEach(ItemsGroup.allCases, id: \.self) { group in
-                            if sizeClass == .compact {
-                                Image(systemName: getImageName(for: group))
-                            } else {
-                                Text(group.rawValue)
-                            }
+                            Image(systemName: getImageName(for: group))
                         }
                     }
                     .fixedSize()

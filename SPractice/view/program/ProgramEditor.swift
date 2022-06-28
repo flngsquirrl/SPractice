@@ -36,7 +36,7 @@ struct ProgramEditor: View {
                 Button() {
                     showExerciseSelectionView = true
                 } label: {
-                    Label("Add from existing", systemImage: "plus")
+                    Label("Add from templates", systemImage: "plus")
                 }
                 .disabled(editMode.isEditing)
                 
