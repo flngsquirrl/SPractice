@@ -13,7 +13,7 @@ struct AddProgramView: View {
     
     var onAdd: (ProgramTemplate) -> Void
     
-    @State private var newProgram = ProgramTemplate.defaultTemplate
+    @State private var newProgram = ProgramTemplate.template
     @State private var editMode: EditMode = .inactive
     
     init(onAdd: @escaping (ProgramTemplate) -> Void) {

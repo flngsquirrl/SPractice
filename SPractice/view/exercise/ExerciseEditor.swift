@@ -162,7 +162,7 @@ struct ExerciseEditor: View {
 
 struct ExerciseEditor_Previews: PreviewProvider {
     
-    @State static private var defaultTemplate = ExerciseTemplate.defaultTemplate
+    @State static private var defaultTemplate = ExerciseTemplate.template
     @State static private var exampleTemplate = ExerciseTemplate.catCow
     
     static var previews: some View {

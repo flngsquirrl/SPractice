@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ExerciseType: String, CaseIterable {
+enum ExerciseType: String, CaseIterable, Codable {
     case flow
     case timer
     case tabata;

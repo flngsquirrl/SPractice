@@ -54,7 +54,7 @@ struct ExerciseShortDecorativeView_Previews: PreviewProvider {
             
             Group {
                 Text("templates with durations")
-                ExerciseShortDecorativeView(for: ExerciseTemplate.catCowDurationNoDuration, displayDuration: true)
+                ExerciseShortDecorativeView(for: ExerciseTemplate.catCowNoDuration, displayDuration: true)
                 ExerciseShortDecorativeView(for: ExerciseTemplate.catCow, displayDuration: true)
                 ExerciseShortDecorativeView(for: ExerciseTemplate.surjaNamascar, displayDuration: true)
                 ExerciseShortDecorativeView(for: ExerciseTemplate.vasihsthasana, displayDuration: true)
@@ -64,7 +64,7 @@ struct ExerciseShortDecorativeView_Previews: PreviewProvider {
             
             Group {
                 Text("templates without durations")
-                ExerciseShortDecorativeView(for: ExerciseTemplate.catCowDurationNoDuration)
+                ExerciseShortDecorativeView(for: ExerciseTemplate.catCowNoDuration)
                 ExerciseShortDecorativeView(for: ExerciseTemplate.catCow)
                 ExerciseShortDecorativeView(for: ExerciseTemplate.surjaNamascar)
                 ExerciseShortDecorativeView(for: ExerciseTemplate.vasihsthasana)

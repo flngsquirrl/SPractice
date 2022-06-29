@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct ProgramTemplate: Identifiable {
+struct ProgramTemplate: Identifiable, Codable {
     
-    let id: UUID
+    var id: UUID
     var name: String
     var exercises = [ExerciseTemplate]()
     
@@ -23,7 +23,9 @@ struct ProgramTemplate: Identifiable {
         !exercises.isEmpty
     }
     
-    static var defaultTemplate = ProgramTemplate()
+    static var template: ProgramTemplate {
+        ProgramTemplate()
+    }
     
     // examples
     static let personal = ProgramTemplate(name: "Personal", exercises: [ExerciseTemplate.catCow, ExerciseTemplate.surjaNamascar, ExerciseTemplate.vasihsthasana])

@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct ExerciseTemplate: Identifiable, Hashable {
+struct ExerciseTemplate: Identifiable, Hashable, Codable {
     
-    let id: UUID
+    var id: UUID
     var type: ExerciseType?
     var name: String
     let isService: Bool
@@ -56,7 +56,9 @@ struct ExerciseTemplate: Identifiable, Hashable {
         ExerciseTemplate(type: .timer, name: "Rest", isService: true, duration: SettingsManager.shared.getValue(of: .general_rest))
     }
     
-    static var defaultTemplate = ExerciseTemplate(type: .flow)
+    static var template: ExerciseTemplate {
+        ExerciseTemplate(type: .flow)
+    }
     
     var isTimer: Bool {
         type == .timer
@@ -72,6 +74,6 @@ struct ExerciseTemplate: Identifiable, Hashable {
     static let vasihsthasana = ExerciseTemplate(type: .tabata, name: "Vasihsthasana")
     static let rest = ExerciseTemplate(type: .timer, name: "Rest", isService: true, taskType: .rest, duration: 10)
     static let concentration = ExerciseTemplate(type: .timer, name: "Concentration", taskType: .activity, duration: 360)
-    static let catCowDurationNoDuration = ExerciseTemplate(type: .timer, name: "Cat-Cow", taskType: .activity)
+    static let catCowNoDuration = ExerciseTemplate(type: .timer, name: "Cat-Cow", taskType: .activity)
     static let catCowNoType = ExerciseTemplate(name: "Cat-Cow")
 }

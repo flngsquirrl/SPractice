@@ -9,39 +9,38 @@ import SwiftUI
 
 struct ExercisesView: View {
     
-    @ObservedObject var exercisesManager = ExercisesManager.shared
-    
+    @ObservedObject var exercises = Exercises.shared
     @State private var searchText = ""
+
+    var body: some View {
+        List {
+            ForEach(sortedExercises) { exercise in
+                HStack {
+                    NavigationLink {
+                        ExerciseDetailsView(for: exercise) { exercises.update($0) }
+                    onDelete: { exercises.delete($0) }
+                    } label: {
+                        ExerciseShortDecorativeView(for: exercise, displayDuration: exercise.type == .timer)
+                    }
+                }
+            }
+            .onDelete { exercises.removeItems(at: $0) }
+        }
+        .searchable(text: $searchText)
+        .disableAutocorrection(true)
+    }
     
     var filteredExercises: [ExerciseTemplate] {
         if searchText.isEmpty {
-            return exercisesManager.exercises
+            return exercises.templates
         } else {
-            return exercisesManager.exercises.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+            return exercises.templates.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
         }
     }
 
     var sortedExercises: [ExerciseTemplate] {
         let sorted: [ExerciseTemplate] = filteredExercises.reversed()
         return sorted
-    }
-    
-    var body: some View {
-        List {
-            ForEach(sortedExercises) { exercise in
-                HStack {
-                    NavigationLink {
-                        ExerciseDetailsView(for: exercise) { exercisesManager.update(exercise: $0) }
-                            onDelete: { exercisesManager.delete(exercise: $0) }
-                    } label: {
-                        ExerciseShortDecorativeView(for: exercise, displayDuration: exercise.type == .timer)
-                    }
-                }
-            }
-            .onDelete { exercisesManager.removeItems(at: $0) }
-        }
-        .searchable(text: $searchText)
-        .disableAutocorrection(true)
     }
 }
 

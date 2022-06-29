@@ -20,8 +20,8 @@ struct ContentView: View {
     @State private var showAddNewView = false
     @State private var contentType: ContentType = .programs
     
-    @ObservedObject var programsManager = ProgramsManager.shared
-    @ObservedObject var exercisesManager = ExercisesManager.shared
+    @StateObject private var programs = Programs.shared
+    @StateObject private var exercises = Exercises.shared
     
     var body: some View {
         NavigationView {
@@ -40,9 +40,9 @@ struct ContentView: View {
             .sheet(isPresented: $showAddNewView) {
                 NavigationView {
                     if contentType == .programs {
-                        AddProgramView() { programsManager.addNew(program: $0) }
+                        AddProgramView() { programs.addNew($0) }
                     } else {
-                        AddExerciseView() { exercisesManager.addNew(exercise: $0) }
+                        AddExerciseView() { exercises.addNew($0) }
                     }
                 }
                 .accentColor(.customAccentColor)

@@ -98,7 +98,7 @@ struct ProgramEditor: View {
 struct ProgramEditor_Previews: PreviewProvider {
     @State static private var editMode: EditMode = .inactive
     
-    @State static private var defaultTemplate = ProgramTemplate.defaultTemplate
+    @State static private var defaultTemplate = ProgramTemplate.template
     @State static private var exampleTemplate = ProgramTemplate.personal
     
     static var previews: some View {

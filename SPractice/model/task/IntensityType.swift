@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum IntensityType: String, CaseIterable {
+enum IntensityType: String, CaseIterable, Codable {
     case activity
     case rest
 }

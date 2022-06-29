@@ -13,8 +13,6 @@ struct Program {
     let name: String
     let exercises: [Exercise]
     
-    static let personal = Program(from: ProgramTemplate.personal)
-    
     init(from template: ProgramTemplate, useRest: Bool = false) {
         self.name = template.name
         
@@ -42,4 +40,7 @@ struct Program {
         }
         return hasDuration ? totalDuration : nil
     }
+    
+    // examples
+    static let personal = Program(from: ProgramTemplate.personal)
 }

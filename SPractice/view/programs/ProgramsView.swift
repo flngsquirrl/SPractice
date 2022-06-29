@@ -9,8 +9,7 @@ import SwiftUI
 
 struct ProgramsView: View {
     
-    @ObservedObject var programsManager = ProgramsManager.shared
-    
+    @ObservedObject var programs = Programs.shared
     @State private var searchText = ""
     
     var body: some View {
@@ -19,9 +18,9 @@ struct ProgramsView: View {
                 HStack {
                     NavigationLink {
                         ProgramDetailsView(for: program) {
-                            programsManager.update(program: $0)
+                            programs.update($0)
                         } onDelete: {
-                            programsManager.delete(program: $0)
+                            programs.delete($0)
                         }
                     } label: {
                         VStack(alignment: .leading) {
@@ -33,7 +32,7 @@ struct ProgramsView: View {
                     }
                 }
             }
-            .onDelete { programsManager.removeItems(at: $0) }
+            .onDelete { programs.removeItems(at: $0) }
         }
         .searchable(text: $searchText)
         .disableAutocorrection(true)
@@ -41,9 +40,9 @@ struct ProgramsView: View {
     
     var filteredPrograms: [ProgramTemplate] {
         if searchText.isEmpty {
-            return programsManager.existingPrograms
+            return programs.templates
         } else {
-            return programsManager.existingPrograms.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+            return programs.templates.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
         }
     }
 

@@ -12,7 +12,7 @@ struct AddExerciseView: View {
     @Environment(\.dismiss) var dismiss
     var onAdd: (ExerciseTemplate) -> Void
     
-    @State private var newExercise = ExerciseTemplate.defaultTemplate
+    @State private var newExercise = ExerciseTemplate.template
     
     init(onAdd: @escaping (ExerciseTemplate) -> Void) {
         self.onAdd = onAdd
