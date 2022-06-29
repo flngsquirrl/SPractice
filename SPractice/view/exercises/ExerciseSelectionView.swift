@@ -11,16 +11,16 @@ struct ExerciseSelectionView: View {
     
     enum ItemsGroup: String, CaseIterable {
         case all
-        case selected
+        case prepared
     }
     
     @StateObject private var viewModel = ViewModel()
     @Environment(\.dismiss) var dismiss
     
-    private var onFinished: ([ExerciseTemplate]) -> Void
+    private var onAdd: ([ExerciseTemplate]) -> Void
     
-    init(onFinished: @escaping ([ExerciseTemplate]) -> Void) {
-        self.onFinished = onFinished
+    init(onAdd: @escaping ([ExerciseTemplate]) -> Void) {
+        self.onAdd = onAdd
     }
 
     var body: some View {
@@ -75,7 +75,7 @@ struct ExerciseSelectionView: View {
                     
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Add") {
-                        onFinished(viewModel.preparedExercises)
+                        onAdd(viewModel.preparedExercises)
                         dismiss()
                     }
                     .disabled(viewModel.preparedExercises.isEmpty)
@@ -95,7 +95,7 @@ struct ExerciseSelectionView: View {
         switch group {
         case .all:
             return "list.bullet"
-        case .selected:
+        case .prepared:
             return "plus"
         }
     }

@@ -17,15 +17,15 @@ extension ProgramEditor {
             self._template = template
         }
         
-        func addNewExerciseTemplates(exercises: [ExerciseTemplate]) {
+        func addNewExercises(exercises: [ExerciseTemplate]) {
             template.exercises.append(contentsOf: exercises)
         }
         
-        func addNewExerciseTemplate(exercise: ExerciseTemplate) {
+        func addNewExercise(exercise: ExerciseTemplate) {
             template.exercises.append(exercise)
         }
         
-        func updateExerciseTemplate(exercise: ExerciseTemplate) {
+        func updateExercise(exercise: ExerciseTemplate) {
             if let index = template.exercises.firstIndex(where: {$0.id == exercise.id}) {
                 template.exercises[index] = exercise
             }

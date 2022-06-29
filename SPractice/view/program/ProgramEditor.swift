@@ -79,16 +79,16 @@ struct ProgramEditor: View {
         .environment(\.editMode, $editMode)
         .sheet(item: $selectedExercise) { exercise in
             NavigationView {
-                EditExerciseView(for: exercise) { viewModel.updateExerciseTemplate(exercise: $0) }
+                EditExerciseView(for: exercise) { viewModel.updateExercise(exercise: $0) }
                 }
                 .accentColor(.customAccentColor)
         }
         .sheet(isPresented: $showExerciseSelectionView) {
-            ExerciseSelectionView() { viewModel.addNewExerciseTemplates(exercises: $0) }
+            ExerciseSelectionView() { viewModel.addNewExercises(exercises: $0) }
         }
         .sheet(isPresented: $showNewExerciseView) {
             NavigationView {
-                AddExerciseView() { viewModel.addNewExerciseTemplate(exercise: $0) }
+                AddExerciseView() { viewModel.addNewExercise(exercise: $0) }
             }
             .accentColor(.customAccentColor)
         }

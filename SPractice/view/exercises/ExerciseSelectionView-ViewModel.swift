@@ -19,7 +19,7 @@ extension ExerciseSelectionView {
         @Published var searchText = ""
 
         var filteredExercises: [ExerciseTemplate] {
-            let target = itemsGroup == .selected ? preparedExercises : existingExercises
+            let target = itemsGroup == .prepared ? preparedExercises : existingExercises
             if searchText.isEmpty {
                 return target
             } else {
