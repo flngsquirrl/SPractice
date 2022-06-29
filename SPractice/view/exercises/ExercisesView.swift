@@ -11,9 +11,24 @@ struct ExercisesView: View {
     
     @ObservedObject var exercisesManager = ExercisesManager.shared
     
+    @State private var searchText = ""
+    
+    var filteredExercises: [ExerciseTemplate] {
+        if searchText.isEmpty {
+            return exercisesManager.exercises
+        } else {
+            return exercisesManager.exercises.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+        }
+    }
+
+    var sortedExercises: [ExerciseTemplate] {
+        let sorted: [ExerciseTemplate] = filteredExercises.reversed()
+        return sorted
+    }
+    
     var body: some View {
         List {
-            ForEach(exercisesManager.filteredExercises) { exercise in
+            ForEach(sortedExercises) { exercise in
                 HStack {
                     NavigationLink {
                         ExerciseDetailsView(for: exercise) { exercisesManager.update(exercise: $0) }
@@ -25,7 +40,7 @@ struct ExercisesView: View {
             }
             .onDelete { exercisesManager.removeItems(at: $0) }
         }
-        .searchable(text: $exercisesManager.searchText)
+        .searchable(text: $searchText)
         .disableAutocorrection(true)
     }
 }

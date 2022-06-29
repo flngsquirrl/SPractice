@@ -13,19 +13,9 @@ import Foundation
     
     static let shared = ExercisesManager()
     
-    @Published var searchText = ""
-    
     private init() {
         for _ in 1...100 {
             exercises.append(ExerciseTemplate(from: ExerciseTemplate.catCow))
-        }
-    }
-    
-    var filteredExercises: [ExerciseTemplate] {
-        if searchText.isEmpty {
-            return exercises
-        } else {
-            return exercises.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
         }
     }
     
