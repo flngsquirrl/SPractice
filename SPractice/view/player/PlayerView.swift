@@ -45,15 +45,21 @@ struct PlayerView: View {
         VStack {
             HStack {
                 PlayerButton(systemImageName: "backward.frame.fill", onClick: player.backwardClicked, isEnabled: player.isBackwardEnabled)
+                    .animation(.default, value: player.isBackwardEnabled)
                 
                 if (player.isPlaying) {
                     PlayerButton(systemImageName: "pause.fill", onClick: player.pauseClicked, isEnabled: player.isPauseEnabled)
+                        .animation(.default, value: player.isPauseEnabled)
                 } else {
                     PlayerButton(systemImageName: "play.fill", onClick: player.playClicked, isEnabled: player.isPlayEnabled)
+                        .animation(.default, value: player.isPlayEnabled)
                 }
+                
                 PlayerButton(systemImageName: "forward.frame.fill", onClick: player.forwardClicked, isEnabled: player.isForwardEnabled)
+                    .animation(.default, value: player.isForwardEnabled)
             }
             PlayerButton(systemImageName: "stop.fill", onClick: player.stopClicked, isEnabled: player.isStopEnabled)
+                .animation(.default, value: player.isStopEnabled)
         }
     }
 }
