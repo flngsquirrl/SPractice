@@ -125,8 +125,8 @@ struct ExerciseEditor: View {
             Text("Intensity")
             Spacer()
             HStack {
-                IntensityTypeImage(type: viewModel.exercise.intensityType)
-                Text(viewModel.exercise.intensityType.rawValue)
+                IntensityTypeImage(type: viewModel.exercise.intensityType!)
+                Text(viewModel.exercise.intensityType!.rawValue)
             }
             .foregroundColor(.secondary)
         }

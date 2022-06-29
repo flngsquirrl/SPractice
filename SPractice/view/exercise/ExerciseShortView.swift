@@ -11,7 +11,7 @@ struct ExerciseShortView: View {
     
     private let name: String
     private let type: ExerciseType?
-    private let taskType: IntensityType
+    private let taskType: IntensityType?
     private let isService: Bool
     private let duration: Int?
     
@@ -33,7 +33,7 @@ struct ExerciseShortView: View {
         self.displayDuration = displayDuration
     }
     
-    private init(name: String, type: ExerciseType?, taskType: IntensityType, isService: Bool, duration: Int?) {
+    private init(name: String, type: ExerciseType?, taskType: IntensityType?, isService: Bool, duration: Int?) {
         self.name = name
         self.type = type
         self.taskType = taskType

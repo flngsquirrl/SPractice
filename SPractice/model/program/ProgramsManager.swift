@@ -14,13 +14,8 @@ import Foundation
     static let shared = ProgramsManager()
     
     private init() {
-    }
-    
-    var filteredPrograms: [Program] {
-        if searchText.isEmpty {
-            return programs
-        } else {
-            return programs.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+        for i in 1...3{
+            programs.append(Program(name: "Test \(i)", exercises: [Exercise.catCow]))
         }
     }
     

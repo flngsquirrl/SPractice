@@ -79,12 +79,12 @@ struct PracticeExercise: Identifiable, Equatable {
     }
     
     private func prepareFlowTasks(from template: Exercise) -> [Task] {
-        let task = Task(type: template.intensityType, name: template.intensityType.rawValue)
+        let task = Task(type: template.intensityType!, name: template.intensityType!.rawValue)
         return Array<Task>.wrapElement(element: task)
     }
     
     private func prepareTimerTasks(from template: Exercise) -> [Task] {
-        let taskType: IntensityType = template.isService ? .rest : template.intensityType
+        let taskType: IntensityType = template.isService ? .rest : template.intensityType!
         let task = Task(type: taskType, name: taskType.rawValue, duration: template.duration)
         return Array<Task>.wrapElement(element: task)
     }

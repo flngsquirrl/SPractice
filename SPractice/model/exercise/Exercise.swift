@@ -13,10 +13,10 @@ struct Exercise: Identifiable, Hashable {
     var type: ExerciseType?
     var name: String
     let isService: Bool
-    var intensityType: IntensityType
+    var intensityType: IntensityType? // not set when type not set
     var duration: Int? // for timer only
     
-    private init(id: UUID = UUID(), type: ExerciseType? = nil, name: String = "", isService: Bool = false, taskType: IntensityType = .activity, duration: Int? = nil) {
+    private init(id: UUID = UUID(), type: ExerciseType? = nil, name: String = "", isService: Bool = false, taskType: IntensityType? = .activity, duration: Int? = nil) {
         self.id = id
         self.type = type
         self.name = name
@@ -33,10 +33,12 @@ struct Exercise: Identifiable, Hashable {
             self.isService = false
         }
         
-        if type != .tabata {
-            self.intensityType = taskType
+        if type == nil {
+            self.intensityType = nil
+        } else if type == .tabata {
+            self.intensityType = .activity            
         } else {
-            self.intensityType = .activity
+            self.intensityType = taskType
         }
     }
     

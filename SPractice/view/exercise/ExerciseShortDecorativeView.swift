@@ -29,7 +29,7 @@ struct ExerciseShortDecorativeView: View {
             VStack(alignment: .leading) {
                 Text(exercise.name)
                     .fontWeight(.semibold)
-                Text(exercise.intensityType.rawValue)
+                Text(exercise.intensityType?.rawValue ?? "?")
                         .foregroundColor(.secondary)
             }
             Spacer()
@@ -49,6 +49,7 @@ struct ExerciseShortDecorativeView_Previews: PreviewProvider {
                 ExerciseShortDecorativeView(for: Exercise.catCow)
                 ExerciseShortDecorativeView(for: Exercise.surjaNamascar)
                 ExerciseShortDecorativeView(for: Exercise.vasihsthasana)
+                ExerciseShortDecorativeView(for: Exercise.rest)
             }
             
             Group {
@@ -58,6 +59,7 @@ struct ExerciseShortDecorativeView_Previews: PreviewProvider {
                 ExerciseShortDecorativeView(for: Exercise.surjaNamascar, displayDuration: true)
                 ExerciseShortDecorativeView(for: Exercise.vasihsthasana, displayDuration: true)
                 ExerciseShortDecorativeView(for: Exercise.catCowNoType, displayDuration: true)
+                ExerciseShortDecorativeView(for: Exercise.rest, displayDuration: true)
             }
             
             Group {
@@ -67,6 +69,7 @@ struct ExerciseShortDecorativeView_Previews: PreviewProvider {
                 ExerciseShortDecorativeView(for: Exercise.surjaNamascar)
                 ExerciseShortDecorativeView(for: Exercise.vasihsthasana)
                 ExerciseShortDecorativeView(for: Exercise.catCowNoType)
+                ExerciseShortDecorativeView(for: Exercise.rest)
             }
         }
     }
