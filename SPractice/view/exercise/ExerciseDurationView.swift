@@ -18,11 +18,11 @@ struct ExerciseDurationView: View {
     private let duration: Int?
     private let mode: Mode
     
-    init(for template: Exercise, mode: Mode = .padded) {
+    init(for template: ExerciseTemplate, mode: Mode = .padded) {
         self.init(type: template.type, duration: template.duration, mode: mode)
     }
     
-    init(for exercise: PracticeExercise, mode: Mode = .padded) {
+    init(for exercise: Exercise, mode: Mode = .padded) {
         self.init(type: exercise.type, duration: exercise.duration, mode: mode)
     }
     
@@ -57,7 +57,7 @@ struct ExerciseDurationView: View {
 
 struct ExerciseDurationView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseDurationView(for: Exercise.surjaNamascar)
-        ExerciseDurationView(for: PracticeExercise.catCow)
+        ExerciseDurationView(for: ExerciseTemplate.surjaNamascar)
+        ExerciseDurationView(for: Exercise.catCow)
     }
 }

@@ -11,12 +11,12 @@ struct AddProgramView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    var onAdd: (Program) -> Void
+    var onAdd: (ProgramTemplate) -> Void
     
-    @State private var newProgram = Program.defaultTemplate
+    @State private var newProgram = ProgramTemplate.defaultTemplate
     @State private var editMode: EditMode = .inactive
     
-    init(onAdd: @escaping (Program) -> Void) {
+    init(onAdd: @escaping (ProgramTemplate) -> Void) {
         self.onAdd = onAdd
     }
     

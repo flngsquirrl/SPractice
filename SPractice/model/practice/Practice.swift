@@ -9,7 +9,7 @@ import Foundation
 
 class Practice: ObservableObject {
     
-    let program: PracticeProgram
+    let program: Program
     let clock: Clock
     let player: Player
     
@@ -20,7 +20,7 @@ class Practice: ObservableObject {
     @Published var currentExerciseIndex = 0
     @Published var currentTaskIndex = 0
     
-    init(for program: PracticeProgram) {
+    init(for program: Program) {
         self.program = program
         
         self.player = Player()
@@ -32,8 +32,8 @@ class Practice: ObservableObject {
         preparePlayer()
     }
     
-    convenience init(from template: Program) {
-        self.init(for: PracticeProgram(from: template))
+    convenience init(from template: ProgramTemplate) {
+        self.init(for: Program(from: template))
     }
     
     var isFirstExercise: Bool {
@@ -44,15 +44,15 @@ class Practice: ObservableObject {
         currentExerciseIndex == program.exercises.count - 1
     }
     
-    var currentExercise: PracticeExercise {
+    var currentExercise: Exercise {
         program.exercises[currentExerciseIndex]
     }
     
-    private var previousExercise: PracticeExercise {
+    private var previousExercise: Exercise {
         program.exercises[currentExerciseIndex - 1]
     }
     
-    private var nextExercise: PracticeExercise {
+    private var nextExercise: Exercise {
         program.exercises[currentExerciseIndex + 1]
     }
     
@@ -64,14 +64,14 @@ class Practice: ObservableObject {
         currentExercise.tasks[currentTaskIndex]
     }
     
-    func preview() -> [PracticeExercise] {
+    func preview() -> [Exercise] {
         let previewNumber = 3
 
         guard previewNumber < program.exercises.count else {
             return program.exercises
         }
         
-        var result: [PracticeExercise] = []
+        var result: [Exercise] = []
         if isFirstExercise {
             result.append(currentExercise)
             result.append(program.exercises[currentExerciseIndex + 1])

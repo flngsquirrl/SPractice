@@ -1,77 +1,96 @@
 //
-//  ExerciseTemplate.swift
+//  Exercise.swift
 //  SPractice
 //
-//  Created by Yuliya Charniak on 29.04.22.
+//  Created by Yuliya Charniak on 28.04.22.
 //
 
 import Foundation
 
-struct Exercise: Identifiable, Hashable {
+struct Exercise: Identifiable, Equatable {
     
-    let id: UUID
-    var type: ExerciseType?
-    var name: String
+    static func == (lhs: Exercise, rhs: Exercise) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    let id = UUID()
+    let type: ExerciseType
+    let name: String
     let isService: Bool
-    var intensityType: IntensityType? // not set when type not set
-    var duration: Int? // for timer only
+    private(set) var tasks: [Task]
     
-    private init(id: UUID = UUID(), type: ExerciseType? = nil, name: String = "", isService: Bool = false, taskType: IntensityType? = .activity, duration: Int? = nil) {
-        self.id = id
+    var duration: Int? {
+        guard type != .flow else {
+            return nil
+        }
+        var duration = 0
+        tasks.forEach { duration += $0.duration! }
+        return duration
+    }
+    
+    init(type: ExerciseType, name: String, isService: Bool = false, tasks: [Task] = []) {
         self.type = type
         self.name = name
-        
-        if type == .timer {
-            if let duration = duration {
-                self.duration = duration > 0 ? duration : nil
-            } else {
-                self.duration = nil
-            }
-            self.isService = isService
-        } else {
-            self.duration = nil
-            self.isService = false
+        self.isService = isService
+        self.tasks = tasks
+    }
+    
+    init?(from template: ExerciseTemplate) {
+        guard template.type != nil else {
+            return nil
         }
         
-        if type == nil {
-            self.intensityType = nil
-        } else if type == .tabata {
-            self.intensityType = .activity            
-        } else {
-            self.intensityType = taskType
+        self.init(type: template.type!, name: template.name, isService: template.isService)
+        self.tasks = prepareTasks(from: template)
+    }
+    
+    func prepareTasks(from template: ExerciseTemplate) -> [Task] {
+        var tasks = [Task]()
+        
+        switch type {
+        case .flow:
+            tasks = prepareFlowTasks(from: template)
+        case .tabata:
+            tasks = prepareTabataTasks(from: template)
+        case .timer:
+            tasks = prepareTimerTasks(from: template)
         }
+        
+        return tasks
     }
     
-    /** the result has an id different from the source */
-    init(from template: Exercise) {
-        self.init(type: template.type, name: template.name, isService: template.isService, taskType: template.intensityType, duration: template.duration)
+    private func prepareTabataTasks(from template: ExerciseTemplate) -> [Task]  {
+        var tasks = [Task]()
+        
+        let warmUp = Task(type: .rest, name: "warm-up", duration: SettingsManager.shared.getValue(of: .tabata_warmup))
+        tasks.append(warmUp)
+        
+        for i in 1...SettingsManager.shared.getValue(of: .tabata_repetitions){
+            let activity = Task(type: .activity, name: "\(IntensityType.activity.rawValue) \(i)", duration: SettingsManager.shared.getValue(of: .tabata_activity))
+            let rest = Task(type: .rest, name: "\(IntensityType.rest.rawValue) \(i)", duration: SettingsManager.shared.getValue(of: .general_rest))
+            tasks.append(activity)
+            tasks.append(rest)
+        }
+        
+        let coolDown = Task(type: .rest, name: "cool-down", duration: SettingsManager.shared.getValue(of: .tabata_cooldown))
+        tasks.append(coolDown)
+        
+        return tasks
     }
     
-    /** the result has the same id as the source */
-    func makeCopy() -> Exercise {
-        Exercise(id: id, type: type, name: name, isService: isService, taskType: intensityType, duration: duration)
+    private func prepareFlowTasks(from template: ExerciseTemplate) -> [Task] {
+        let task = Task(type: template.intensityType!, name: template.intensityType!.rawValue)
+        return Array<Task>.wrapElement(element: task)
     }
     
-    static var restTemplate: Exercise {
-        Exercise(type: .timer, name: "Rest", isService: true, duration: SettingsManager.shared.getValue(of: .general_rest))
+    private func prepareTimerTasks(from template: ExerciseTemplate) -> [Task] {
+        let taskType: IntensityType = template.isService ? .rest : template.intensityType!
+        let task = Task(type: taskType, name: taskType.rawValue, duration: template.duration)
+        return Array<Task>.wrapElement(element: task)
     }
     
-    static var defaultTemplate = Exercise(type: .flow)
-    
-    var isTimer: Bool {
-        type == .timer
-    }
-    
-    var isTypeSet: Bool {
-        type != nil
-    }
-    
-    // examples
-    static let catCow = Exercise(type: .timer, name: "Cat-Cow", taskType: .activity, duration: 90)
-    static let surjaNamascar = Exercise(type: .flow, name: "Surja Namascar", taskType: .activity)
-    static let vasihsthasana = Exercise(type: .tabata, name: "Vasihsthasana")
-    static let rest = Exercise(type: .timer, name: "Rest", isService: true, taskType: .rest, duration: 10)
-    static let concentration = Exercise(type: .timer, name: "Concentration", taskType: .activity, duration: 360)
-    static let catCowDurationNoDuration = Exercise(type: .timer, name: "Cat-Cow", taskType: .activity)
-    static let catCowNoType = Exercise(name: "Cat-Cow")
+    static let catCow = Exercise(type: .timer, name: "Cat-Cow", isService: false, tasks: [Task.activity60])
+    static let surjaNamascar = Exercise(type: .flow, name: "Surja Namascar", isService: false, tasks: [Task.activityFlow])
+    static let vasihsthasana = Exercise(type: .tabata, name: "Vasihsthasana",  isService: false, tasks: [Task.restTabataWarmUp, Task.activityTabata1, Task.restTabata1, Task.activityTabata2, Task.restTabata2, Task.restTabataCoolDown])
+    static let rest = Exercise(type: .timer, name: "Rest", isService: true, tasks: [Task.restService10])
 }

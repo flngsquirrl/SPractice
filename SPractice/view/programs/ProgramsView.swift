@@ -39,7 +39,7 @@ struct ProgramsView: View {
         .disableAutocorrection(true)
     }
     
-    var filteredPrograms: [Program] {
+    var filteredPrograms: [ProgramTemplate] {
         if searchText.isEmpty {
             return programsManager.existingPrograms
         } else {
@@ -47,8 +47,8 @@ struct ProgramsView: View {
         }
     }
 
-    var sortedPrograms: [Program] {
-        let sorted: [Program] = filteredPrograms.reversed()
+    var sortedPrograms: [ProgramTemplate] {
+        let sorted: [ProgramTemplate] = filteredPrograms.reversed()
         return sorted
     }
 }

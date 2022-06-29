@@ -11,13 +11,13 @@ struct EditProgramView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @State private var program: Program
-    var onSave: (Program) -> Void
+    @State private var program: ProgramTemplate
+    var onSave: (ProgramTemplate) -> Void
     
     @State private var editMode: EditMode = .inactive
     
-    init(for template: Program, onSave: @escaping (Program) -> Void) {
-        self._program = State<Program>(initialValue: template)
+    init(for template: ProgramTemplate, onSave: @escaping (ProgramTemplate) -> Void) {
+        self._program = State<ProgramTemplate>(initialValue: template)
         self.onSave = onSave
     }
     
@@ -45,7 +45,7 @@ struct EditProgramView: View {
 struct EditProgramView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            EditProgramView(for: Program.personal, onSave: {_ in })
+            EditProgramView(for: ProgramTemplate.personal, onSave: {_ in })
         }
     }
 }

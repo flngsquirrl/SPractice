@@ -2,31 +2,44 @@
 //  Program.swift
 //  SPractice
 //
-//  Created by Yuliya Charniak on 29.04.22.
+//  Created by Yuliya Charniak on 28.04.22.
 //
 
 import Foundation
 
-struct Program: Identifiable {
+struct Program {
     
-    let id: UUID
-    var name: String
-    var exercises = [Exercise]()
+    let id = UUID()
+    let name: String
+    let exercises: [Exercise]
     
-    init(id: UUID = UUID(), name: String = "", exercises: [Exercise] = []) {
-        self.id = id
-        self.name = name
+    static let personal = Program(from: ProgramTemplate.personal)
+    
+    init(from template: ProgramTemplate, useRest: Bool = false) {
+        self.name = template.name
+        
+        var exercises = [Exercise]()
+        for (index, exerciseTemplate) in template.exercises.enumerated() {
+            let exercise = Exercise(from: exerciseTemplate)
+            exercises.append(exercise!)
+            
+            if useRest && index != template.exercises.count - 1 {
+                let rest = Exercise(from: ExerciseTemplate.restTemplate)
+                exercises.append(rest!)
+            }
+        }
         self.exercises = exercises
     }
     
-    var hasExercises: Bool {
-        !exercises.isEmpty
+    var duration: Int? {
+        var totalDuration = 0
+        var hasDuration = false
+        exercises.forEach {
+            if let duration = $0.duration {
+                totalDuration += duration
+                hasDuration = true
+            }
+        }
+        return hasDuration ? totalDuration : nil
     }
-    
-    static var defaultTemplate = Program()
-    
-    // examples
-    static let personal = Program(name: "Personal", exercises: [Exercise.catCow, Exercise.surjaNamascar, Exercise.vasihsthasana])
-    static let dailyShort = Program(name: "Daily short", exercises: [Exercise.concentration, Exercise.catCow])
-    static let shortForBack = Program(name: "Short for back", exercises: [Exercise.catCow])
 }

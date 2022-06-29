@@ -27,7 +27,7 @@ struct ExerciseSequence {
     
     let sequence: [ExerciseSequenceItem]
     
-    init(for exercises: [PracticeExercise], with current: PracticeExercise) {
+    init(for exercises: [Exercise], with current: Exercise) {
         var wrappedExercises: [ExerciseSequenceItem] = []
         var mark: ExerciseSequenceItem.SequenceMark = .previous
         for exercise in exercises {
@@ -45,7 +45,7 @@ struct ExerciseSequence {
 
 struct ExerciseSequenceItem: Identifiable{
     
-    let exercise: PracticeExercise
+    let exercise: Exercise
     let sequenceMark: SequenceMark
     
     var id: UUID {
@@ -77,7 +77,7 @@ struct PracticeSequenceView_Previews: PreviewProvider {
         ZStack {
             Color.lightNavy
                 .ignoresSafeArea()
-            PracticeSequenceView(practice: Practice(for: PracticeProgram(from: Program.personal)))
+            PracticeSequenceView(practice: Practice(for: Program(from: ProgramTemplate.personal)))
                 .frame(width: 320)
         }
     }

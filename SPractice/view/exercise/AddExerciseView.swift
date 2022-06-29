@@ -10,11 +10,11 @@ import SwiftUI
 struct AddExerciseView: View {
     
     @Environment(\.dismiss) var dismiss
-    var onAdd: (Exercise) -> Void
+    var onAdd: (ExerciseTemplate) -> Void
     
-    @State private var newExercise = Exercise.defaultTemplate
+    @State private var newExercise = ExerciseTemplate.defaultTemplate
     
-    init(onAdd: @escaping (Exercise) -> Void) {
+    init(onAdd: @escaping (ExerciseTemplate) -> Void) {
         self.onAdd = onAdd
     }
     
@@ -24,7 +24,7 @@ struct AddExerciseView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Add") {     
-                        onAdd(Exercise(from: newExercise))
+                        onAdd(ExerciseTemplate(from: newExercise))
                         dismiss()
                     }
                 }

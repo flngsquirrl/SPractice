@@ -9,21 +9,21 @@ import Foundation
 
 @MainActor class ProgramsManager: ObservableObject {
     
-    @Published private var programs = [Program.personal, Program.dailyShort, Program.shortForBack]
+    @Published private var programs = [ProgramTemplate.personal, ProgramTemplate.dailyShort, ProgramTemplate.shortForBack]
     
     static let shared = ProgramsManager()
     
     private init() {
         for i in 1...3{
-            programs.append(Program(name: "Test \(i)", exercises: [Exercise.catCow]))
+            programs.append(ProgramTemplate(name: "Test \(i)", exercises: [ExerciseTemplate.catCow]))
         }
     }
     
-    var existingPrograms: [Program] {
+    var existingPrograms: [ProgramTemplate] {
         programs
     }
     
-    func addNew(program: Program) {
+    func addNew(program: ProgramTemplate) {
         programs.append(program)
     }
     
@@ -31,13 +31,13 @@ import Foundation
         programs.remove(atOffsets: offsets)
     }
     
-    func update(program: Program) {
+    func update(program: ProgramTemplate) {
         if let index = programs.firstIndex(where: {$0.id == program.id}) {
             programs[index] = program
         }
     }
     
-    func delete(program: Program) {
+    func delete(program: ProgramTemplate) {
         if let index = programs.firstIndex(where: {$0.id == program.id}) {
             programs.remove(at: index)
         }

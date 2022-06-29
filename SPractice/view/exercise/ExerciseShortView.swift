@@ -17,13 +17,13 @@ struct ExerciseShortView: View {
     
     private var displayDuration = false
     
-    init(for exercise: PracticeExercise) {
+    init(for exercise: Exercise) {
         let taskType = exercise.type == .tabata ? .activity : exercise.tasks[0].type
         self.init(name: exercise.name, type: exercise.type, taskType: taskType, isService: exercise.isService, duration: exercise.duration)
         displayDuration = true
     }
     
-    init(for exercise: Exercise, displayDuration: Bool = false) {
+    init(for exercise: ExerciseTemplate, displayDuration: Bool = false) {
         var duration: Int? = nil
         if (displayDuration) {
             duration = exercise.type == .tabata ? SettingsManager.shared.tabataExerciseDuration : exercise.duration
@@ -66,27 +66,27 @@ struct ExerciseShortView_Previews: PreviewProvider {
         List {
             Group {
                 Text("exercises")
-                ExerciseShortView(for: PracticeExercise.catCow)
-                ExerciseShortView(for: PracticeExercise.surjaNamascar)
-                ExerciseShortView(for: PracticeExercise.vasihsthasana)
+                ExerciseShortView(for: Exercise.catCow)
+                ExerciseShortView(for: Exercise.surjaNamascar)
+                ExerciseShortView(for: Exercise.vasihsthasana)
             }
             
             Group {
                 Text("templates with durations")
-                ExerciseShortView(for: Exercise.catCowDurationNoDuration, displayDuration: true)
-                ExerciseShortView(for: Exercise.catCow, displayDuration: true)
-                ExerciseShortView(for: Exercise.surjaNamascar, displayDuration: true)
-                ExerciseShortView(for: Exercise.vasihsthasana, displayDuration: true)
-                ExerciseShortView(for: Exercise.catCowNoType, displayDuration: true)
+                ExerciseShortView(for: ExerciseTemplate.catCowDurationNoDuration, displayDuration: true)
+                ExerciseShortView(for: ExerciseTemplate.catCow, displayDuration: true)
+                ExerciseShortView(for: ExerciseTemplate.surjaNamascar, displayDuration: true)
+                ExerciseShortView(for: ExerciseTemplate.vasihsthasana, displayDuration: true)
+                ExerciseShortView(for: ExerciseTemplate.catCowNoType, displayDuration: true)
             }
             
             Group {
                 Text("templates without durations")
-                ExerciseShortView(for: Exercise.catCowDurationNoDuration)
-                ExerciseShortView(for: Exercise.catCow)
-                ExerciseShortView(for: Exercise.surjaNamascar)
-                ExerciseShortView(for: Exercise.vasihsthasana)
-                ExerciseShortView(for: Exercise.catCowNoType)
+                ExerciseShortView(for: ExerciseTemplate.catCowDurationNoDuration)
+                ExerciseShortView(for: ExerciseTemplate.catCow)
+                ExerciseShortView(for: ExerciseTemplate.surjaNamascar)
+                ExerciseShortView(for: ExerciseTemplate.vasihsthasana)
+                ExerciseShortView(for: ExerciseTemplate.catCowNoType)
             }
         }
     }

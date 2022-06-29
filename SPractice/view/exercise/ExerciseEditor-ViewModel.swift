@@ -20,7 +20,7 @@ extension ExerciseEditor {
     
     @MainActor class ViewModel: ObservableObject {
         
-        @Binding var exercise: Exercise
+        @Binding var exercise: ExerciseTemplate
         
         @Published var isTypeSet: Bool = true
 
@@ -33,7 +33,7 @@ extension ExerciseEditor {
                 return []
             }
             
-            return PracticeExercise(from: exercise)?.tasks ?? []
+            return Exercise(from: exercise)?.tasks ?? []
         }
         
         @Published var minutes: Int = 0
@@ -57,7 +57,7 @@ extension ExerciseEditor {
         
         static let secondsSelectionArray = Array(stride(from: 0, through: 50, by: 10))
         
-        init(for template: Binding<Exercise>) {
+        init(for template: Binding<ExerciseTemplate>) {
             self._exercise = template
             self.isTypeSet = self.exercise.type != nil
             

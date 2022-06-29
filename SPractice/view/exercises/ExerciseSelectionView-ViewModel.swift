@@ -14,11 +14,11 @@ extension ExerciseSelectionView {
         @Published var itemsGroup: ItemsGroup = .all
         
         @Published var existingExercises = ExercisesManager.shared.exercises
-        @Published var preparedExercises: [Exercise] = []
+        @Published var preparedExercises: [ExerciseTemplate] = []
         
         @Published var searchText = ""
 
-        var filteredExercises: [Exercise] {
+        var filteredExercises: [ExerciseTemplate] {
             let target = itemsGroup == .selected ? preparedExercises : existingExercises
             if searchText.isEmpty {
                 return target
@@ -27,11 +27,11 @@ extension ExerciseSelectionView {
             }
         }
         
-        func onAdd(template: Exercise) {
-            preparedExercises.append(Exercise(from: template))
+        func onAdd(template: ExerciseTemplate) {
+            preparedExercises.append(ExerciseTemplate(from: template))
         }
         
-        func onDelete(template: Exercise) {
+        func onDelete(template: ExerciseTemplate) {
             if let index = preparedExercises.firstIndex(of: template) {
                 preparedExercises.remove(at: index)
             }

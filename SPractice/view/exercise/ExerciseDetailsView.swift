@@ -11,12 +11,12 @@ struct ExerciseDetailsView: View {
     
     @ObservedObject private var viewModel: ViewModel
     
-    private var onChange: (Exercise) -> Void
-    private var onDelete: (Exercise) -> Void
+    private var onChange: (ExerciseTemplate) -> Void
+    private var onDelete: (ExerciseTemplate) -> Void
     
     @State private var showEditView = false
     
-    init(for exercise: Exercise, onChange: @escaping (Exercise) -> Void, onDelete: @escaping (Exercise) -> Void) {
+    init(for exercise: ExerciseTemplate, onChange: @escaping (ExerciseTemplate) -> Void, onDelete: @escaping (ExerciseTemplate) -> Void) {
         self.viewModel = ViewModel(for: exercise)
         self.onChange = onChange
         self.onDelete = onDelete
@@ -73,15 +73,15 @@ struct ExerciseDetailsView: View {
 struct ExerciseDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ExerciseDetailsView(for: Exercise.catCow, onChange: { _ in }, onDelete: { _ in })
+            ExerciseDetailsView(for: ExerciseTemplate.catCow, onChange: { _ in }, onDelete: { _ in })
         }
         
         NavigationView {
-            ExerciseDetailsView(for: Exercise.vasihsthasana, onChange: { _ in }, onDelete: { _ in })
+            ExerciseDetailsView(for: ExerciseTemplate.vasihsthasana, onChange: { _ in }, onDelete: { _ in })
         }
         
         NavigationView {
-            ExerciseDetailsView(for: Exercise.surjaNamascar, onChange: { _ in }, onDelete: { _ in })
+            ExerciseDetailsView(for: ExerciseTemplate.surjaNamascar, onChange: { _ in }, onDelete: { _ in })
         }
     }
 }

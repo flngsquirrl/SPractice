@@ -11,10 +11,10 @@ struct ProgramDetailsView: View {
     
     @ObservedObject var viewModel: ViewModel
 
-    var onChange: (Program) -> Void
-    var onDelete: (Program) -> Void
+    var onChange: (ProgramTemplate) -> Void
+    var onDelete: (ProgramTemplate) -> Void
     
-    init(for program: Program, onChange: @escaping (Program) -> Void, onDelete: @escaping (Program) -> Void) {
+    init(for program: ProgramTemplate, onChange: @escaping (ProgramTemplate) -> Void, onDelete: @escaping (ProgramTemplate) -> Void) {
         self.viewModel = ViewModel(for: program)
         self.onChange = onChange
         self.onDelete = onDelete
@@ -86,7 +86,7 @@ struct ProgramDetailsView: View {
 struct ProgramDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ProgramDetailsView(for: Program.personal) { _ in } onDelete: { _ in }
+            ProgramDetailsView(for: ProgramTemplate.personal) { _ in } onDelete: { _ in }
         }
     }
 }

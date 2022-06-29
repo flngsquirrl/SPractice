@@ -17,9 +17,9 @@ struct ExerciseSelectionView: View {
     @StateObject private var viewModel = ViewModel()
     @Environment(\.dismiss) var dismiss
     
-    private var onFinished: ([Exercise]) -> Void
+    private var onFinished: ([ExerciseTemplate]) -> Void
     
-    init(onFinished: @escaping ([Exercise]) -> Void) {
+    init(onFinished: @escaping ([ExerciseTemplate]) -> Void) {
         self.onFinished = onFinished
     }
 
@@ -101,9 +101,9 @@ struct ExerciseSelectionView: View {
     }
     
     struct SelectionRow: View {
-        var template: Exercise
+        var template: ExerciseTemplate
         var isAdded: Bool = false
-        var action: (Exercise) -> Void
+        var action: (ExerciseTemplate) -> Void
 
         var body: some View {
             HStack {

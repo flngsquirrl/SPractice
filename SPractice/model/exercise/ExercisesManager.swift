@@ -9,16 +9,19 @@ import Foundation
 
 @MainActor class ExercisesManager: ObservableObject {
     
-    @Published var exercises = [Exercise.catCow, Exercise.surjaNamascar, Exercise.vasihsthasana, Exercise.concentration, Exercise.catCowDurationNoDuration, Exercise.catCowNoType]
+    @Published var exercises = [ExerciseTemplate.catCow, ExerciseTemplate.surjaNamascar, ExerciseTemplate.vasihsthasana, ExerciseTemplate.concentration, ExerciseTemplate.catCowDurationNoDuration, ExerciseTemplate.catCowNoType]
     
     static let shared = ExercisesManager()
     
     @Published var searchText = ""
     
     private init() {
+        for _ in 1...100 {
+            exercises.append(ExerciseTemplate(from: ExerciseTemplate.catCow))
+        }
     }
     
-    var filteredExercises: [Exercise] {
+    var filteredExercises: [ExerciseTemplate] {
         if searchText.isEmpty {
             return exercises
         } else {
@@ -26,7 +29,7 @@ import Foundation
         }
     }
     
-    func addNew(exercise: Exercise) {
+    func addNew(exercise: ExerciseTemplate) {
         exercises.append(exercise)
     }
     
@@ -34,13 +37,13 @@ import Foundation
         exercises.remove(atOffsets: offsets)
     }
     
-    func update(exercise: Exercise) {
+    func update(exercise: ExerciseTemplate) {
         if let index = exercises.firstIndex(where: {$0.id == exercise.id}) {
             exercises[index] = exercise
         }
     }
     
-    func delete(exercise: Exercise) {
+    func delete(exercise: ExerciseTemplate) {
         if let index = exercises.firstIndex(where: {$0.id == exercise.id}) {
             exercises.remove(at: index)
         }

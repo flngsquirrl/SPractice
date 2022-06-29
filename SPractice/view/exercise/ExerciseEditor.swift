@@ -13,7 +13,7 @@ struct ExerciseEditor: View {
     
     @State private var showTasks = false
     
-    init(for template: Binding<Exercise>) {
+    init(for template: Binding<ExerciseTemplate>) {
         self.viewModel = ViewModel(for: template)
     }
     
@@ -162,8 +162,8 @@ struct ExerciseEditor: View {
 
 struct ExerciseEditor_Previews: PreviewProvider {
     
-    @State static private var defaultTemplate = Exercise.defaultTemplate
-    @State static private var exampleTemplate = Exercise.catCow
+    @State static private var defaultTemplate = ExerciseTemplate.defaultTemplate
+    @State static private var exampleTemplate = ExerciseTemplate.catCow
     
     static var previews: some View {
 //        NavigationView {

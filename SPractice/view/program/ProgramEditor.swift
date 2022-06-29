@@ -14,10 +14,10 @@ struct ProgramEditor: View {
     @State private var showNewExerciseView = false
     @State private var showExerciseSelectionView = false
     
-    @State private var selectedExercise: Exercise? = nil
+    @State private var selectedExercise: ExerciseTemplate? = nil
     @Binding private var editMode: EditMode
     
-    init(for template: Binding<Program>, editMode: Binding<EditMode>) {
+    init(for template: Binding<ProgramTemplate>, editMode: Binding<EditMode>) {
         self.viewModel = ViewModel(for: template)
         self._editMode = editMode
     }
@@ -98,8 +98,8 @@ struct ProgramEditor: View {
 struct ProgramEditor_Previews: PreviewProvider {
     @State static private var editMode: EditMode = .inactive
     
-    @State static private var defaultTemplate = Program.defaultTemplate
-    @State static private var exampleTemplate = Program.personal
+    @State static private var defaultTemplate = ProgramTemplate.defaultTemplate
+    @State static private var exampleTemplate = ProgramTemplate.personal
     
     static var previews: some View {
         NavigationView {

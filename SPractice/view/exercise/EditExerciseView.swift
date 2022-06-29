@@ -11,12 +11,12 @@ struct EditExerciseView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @State private var exercise: Exercise
+    @State private var exercise: ExerciseTemplate
     
-    var onSave: (Exercise) -> Void
+    var onSave: (ExerciseTemplate) -> Void
     
-    init(for template: Exercise, onSave: @escaping (Exercise) -> Void) {
-        self._exercise = State<Exercise>(initialValue: template)
+    init(for template: ExerciseTemplate, onSave: @escaping (ExerciseTemplate) -> Void) {
+        self._exercise = State<ExerciseTemplate>(initialValue: template)
         self.onSave = onSave
     }
     
@@ -43,7 +43,7 @@ struct EditExerciseView: View {
 struct EditExerciseView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            EditExerciseView(for: Exercise.catCow) { _ in }
+            EditExerciseView(for: ExerciseTemplate.catCow) { _ in }
         }
     }
 }
