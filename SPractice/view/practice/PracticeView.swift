@@ -20,10 +20,7 @@ struct PracticeView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                LinearGradient(gradient: Gradient(stops: [
-                    .init(color: .lightNavy, location: 0.3),
-                    .init(color: .creamy, location: 1),
-                ]), startPoint: .top, endPoint: .bottom)
+                Color(UIColor.systemBackground)
                     .ignoresSafeArea()
                 
                 VStack {

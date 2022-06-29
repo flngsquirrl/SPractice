@@ -23,10 +23,10 @@ struct PlayerButton: View {
                     .frame(width: 97, height: 70)
                     .font(mainFont)
                     .foregroundColor(.creamy)
-                    .background(isEnabled ? .lightNavy : .secondary)
+                    .background(.lightOrange)
+                    .opacity(isEnabled ? 1 : 0.6)
                     .clipShape(RoundedRectangle(cornerRadius: 12))
             }
-            .shadow(color: .white, radius: 3)
             .padding(3)
             .disabled(!isEnabled)
         }
@@ -61,10 +61,7 @@ struct PlayerView: View {
 struct PlayerView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(stops: [
-                .init(color: .lightNavy, location: 0.3),
-                .init(color: .creamy, location: 1),
-            ]), startPoint: .top, endPoint: .bottom)
+            Color(UIColor.systemBackground)
                 .ignoresSafeArea()
             
             VStack {
@@ -72,8 +69,8 @@ struct PlayerView_Previews: PreviewProvider {
                 Spacer()
                 
                 ZStack {
-                    RoundedRectangle(cornerRadius: 5)
-                        .stroke(.lightNavy)
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(.black)
                         .frame(width: 320, height: 200)
                     
                     PlayerView(player: Player())

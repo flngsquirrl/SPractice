@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class Player: ObservableObject {
     
@@ -24,12 +25,16 @@ class Player: ObservableObject {
     var onStopClicked: (() -> Void)? = nil
     
     func pauseClicked() {
-        isPlaying.toggle()
+        withAnimation {
+            isPlaying.toggle()
+        }
         onPauseClicked?()
     }
     
     func playClicked() {
-        isPlaying.toggle()
+        withAnimation {
+            isPlaying.toggle()
+        }
         onPlayClicked?()
     }
     

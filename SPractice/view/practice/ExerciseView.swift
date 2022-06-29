@@ -23,34 +23,33 @@ struct ExerciseView: View {
                     .opacity(0.8)
                     .foregroundColor(.lightOrange)
                     .font(.largeTitle.bold())
-                    .padding(.trailing)
             }
             
             Text("\(practice.currentExercise.name)")
                 .font(.largeTitle.bold())
-                .foregroundColor(.creamy)
             
             Text("\(practice.currentExercise.type.rawValue)")
                 .font(.body.bold())
-                .foregroundColor(.creamy)
+                .foregroundColor(.secondary)
             
             ClockView(clock: practice.clock)
             
             Text("\(practice.currentTask.name)")
                 .font(.body.bold())
-                .foregroundColor(.creamy)
+                .foregroundColor(.secondary)
         }
-        .padding([.top, .bottom])
+        .padding()
+        .background(Color(UIColor.secondarySystemBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }
 
 struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            Color.lightNavy
+            Color(UIColor.systemBackground)
                 .ignoresSafeArea()
             ExerciseView(practice: Practice(from: ProgramTemplate.personal))
-                .border(.black, width: 3)
                 .frame(width: 320)
         }
     }

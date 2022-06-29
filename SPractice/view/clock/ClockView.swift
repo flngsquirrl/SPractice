@@ -18,7 +18,7 @@ struct ClockView: View {
     
     private static let elementColor: Color = .lightOrange
     private static let textColor: Color = .creamy
-    private static let backgroundColor: Color = .creamy
+    private static let backgroundColor: Color = Color(UIColor.tertiarySystemBackground)
     
     public static let simpleCountdown = ClockView(clock: Clock.simpleCountdown)
     public static let simpleCountup = ClockView(clock: Clock.simpleCountup)
@@ -64,7 +64,7 @@ struct ClockNumber: View {
 struct ClockView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            Color.lightNavy
+            Color(UIColor.secondarySystemBackground)
                 .ignoresSafeArea()
             VStack {
                 ClockView.simpleCountup

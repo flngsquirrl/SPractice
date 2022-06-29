@@ -18,7 +18,7 @@ struct PracticeSequenceView: View {
             }
         }
         .padding()
-        .background(.creamy)
+        .background(Color(UIColor.secondarySystemBackground))
         .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }
