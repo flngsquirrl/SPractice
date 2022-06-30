@@ -69,13 +69,13 @@ struct SettingsView: View {
             }
             .navigationTitle("Settings")
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .cancellationAction) {
                     Button("Reset") {
                         settings.restoreDefaults()
                         settings.save()
                     }
                 }
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .confirmationAction) {
                     Button("Done") {
                         settings.save()
                         dismiss()

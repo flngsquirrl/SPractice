@@ -25,7 +25,7 @@ struct EditProgramView: View {
         ProgramEditor(for: $program, editMode: $editMode)
             .navigationTitle("Program")
             .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                ToolbarItemGroup(placement: .confirmationAction) {
                     Button("Save") {
                         onSave(program)
                         dismiss()
@@ -33,7 +33,7 @@ struct EditProgramView: View {
                     .disabled(editMode.isEditing)
                 }
                 
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {
                         dismiss()
                     }

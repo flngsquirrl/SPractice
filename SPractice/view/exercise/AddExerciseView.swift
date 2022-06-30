@@ -22,14 +22,14 @@ struct AddExerciseView: View {
         ExerciseEditor(for: $newExercise)
             .navigationTitle("New exercise")
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .confirmationAction) {
                     Button("Add") {     
                         onAdd(ExerciseTemplate(from: newExercise))
                         dismiss()
                     }
                 }
                 
-                ToolbarItemGroup(placement: .navigationBarLeading) {
+                ToolbarItemGroup(placement: .cancellationAction) {
                     Button("Cancel") {
                         dismiss()
                     }

@@ -24,15 +24,15 @@ struct AddProgramView: View {
         ProgramEditor(for: $newProgram, editMode: $editMode)
             .navigationTitle("New program")
             .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button("Save") {
+                ToolbarItemGroup(placement: .confirmationAction) {
+                    Button("Add") {
                         onAdd(newProgram)
                         dismiss()
                     }
                     .disabled(editMode.isEditing)
                 }
                 
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {
                         dismiss()
                     }

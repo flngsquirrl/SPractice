@@ -23,14 +23,14 @@ struct EditExerciseView: View {
     var body: some View {
         ExerciseEditor(for: $exercise)
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
                         onSave(exercise.makeCopy())
                         dismiss()
                     }
                 }
                 
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {
                         dismiss()
                     }

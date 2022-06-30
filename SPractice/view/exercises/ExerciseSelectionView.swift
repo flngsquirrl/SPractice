@@ -73,7 +73,7 @@ struct ExerciseSelectionView: View {
                     .pickerStyle(.segmented)
                 }
                     
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .confirmationAction) {
                     Button("Add") {
                         onAdd(viewModel.preparedExercises)
                         dismiss()
@@ -81,7 +81,7 @@ struct ExerciseSelectionView: View {
                     .disabled(viewModel.preparedExercises.isEmpty)
                 }
                 
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {
                         dismiss()
                     }
