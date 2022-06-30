@@ -12,71 +12,34 @@ struct PracticeSequenceView: View {
     @ObservedObject var practice: Practice
     
     var body: some View {
-        VStack {
-            ForEach(ExerciseSequence(for: practice.preview(), with: practice.currentExercise).sequence) { item in
-                    PracticeSequenceRowView(item: item)
+        Group {
+            HStack {
+                Image(systemName: "arrow.forward.circle.fill")
+                
+                if let nextExercise = practice.nextExercise {
+                    ExerciseShortView(for: nextExercise)
+                } else {
+                    Text("finish")
+                    Spacer()
+                }
             }
-        }
-        .padding()
-        .background(Color(UIColor.secondarySystemBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 12))
-    }
-}
-
-struct ExerciseSequence {
-    
-    let sequence: [ExerciseSequenceItem]
-    
-    init(for exercises: [Exercise], with current: Exercise) {
-        var wrappedExercises: [ExerciseSequenceItem] = []
-        var mark: ExerciseSequenceItem.SequenceMark = .previous
-        for exercise in exercises {
-            let isCurrent = exercise.id == current.id
-            let markToSet: ExerciseSequenceItem.SequenceMark = isCurrent ? .current : mark
-            wrappedExercises.append(ExerciseSequenceItem(exercise: exercise, sequenceMark: markToSet))
-            if isCurrent {
-                mark = .next
+            .foregroundColor(.secondary)
+            .wrapped()
+            
+            HStack {
+                Text("Remaining time")
+                Spacer()
+                Text(ClockTime.getPaddedPresentation(for: practice.program.duration!))
             }
-        }
-        self.sequence = wrappedExercises
-    }
-    
-}
-
-struct ExerciseSequenceItem: Identifiable{
-    
-    let exercise: Exercise
-    let sequenceMark: SequenceMark
-    
-    var id: UUID {
-        exercise.id
-    }
-    
-    enum SequenceMark {
-        case previous
-        case current
-        case next
-    }
-}
-
-struct PracticeSequenceRowView: View {
-    
-    var item: ExerciseSequenceItem
-    
-    var body: some View {
-        if item.sequenceMark == .current {
-            ExerciseShortView(for: item.exercise)
-        } else {
-            ExerciseShortView(for: item.exercise)
+            .foregroundColor(.secondary)
+            .wrapped()
         }
     }
 }
 
 struct PracticeSequenceView_Previews: PreviewProvider {
     static var previews: some View {
-        ZStack {
-            Color.lightNavy
-                .ignoresSafeArea()
+        VStack {
             PracticeSequenceView(practice: Practice(for: Program(from: ProgramTemplate.personal)))
                 .frame(width: 320)
         }

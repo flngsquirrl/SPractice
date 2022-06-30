@@ -36,41 +36,25 @@ struct ProgramDetailsView: View {
                 Text("Having rest between execises lets you take a deep breath and prepare for the upcoming exercise")
             }
             
-            Section {
-                HStack {
-                    Text("Duration")
-                    Spacer()
-                    Text(ClockTime.getExtendedPresentation(for: viewModel.practice.duration!))
-                }
-            } header: {
-                Text("Summary")
-            } footer: {
-                Text("Duration is the minimal time needed to complete all timer and tabata exercises of the practice, as flow exercises time can't be predicted")
-            }
-            
-            Section("Sequence") {
-                ForEach(viewModel.practice.exercises) { exercise in
-                    ExerciseShortView(for: exercise)
-                }
-            }
+            ProgramSummaryView(program: viewModel.program)
         }
         .fullScreenCover(isPresented: $viewModel.showPracticeView) {
-            PracticeView(practice: Practice(for: viewModel.practice))
+            PracticeView(practice: Practice(for: viewModel.program))
         }
         .fullScreenCover(isPresented: $viewModel.showEditTemplateView) {
             NavigationView {
-                EditProgramView(for: viewModel.program) {
+                EditProgramView(for: viewModel.template) {
                     viewModel.updateProgramTemplate(template: $0)
                     onChange($0)
                 }
             }
             .accentColor(.customAccentColor)
         }
-        .navigationTitle(viewModel.practice.name)
+        .navigationTitle(viewModel.program.name)
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button {
-                    onDelete(viewModel.program)
+                    onDelete(viewModel.template)
                 } label: {
                     Image(systemName: "trash")
                 }

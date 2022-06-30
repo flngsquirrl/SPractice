@@ -12,6 +12,8 @@ struct PlayerButton: View {
     let onClick: (() -> Void)?
     let isEnabled: Bool
     
+    let width: CGFloat
+    
     private let mainFont: Font = .title.weight(.semibold)
     private let noteFont: Font = .body.weight(.semibold)
     
@@ -20,14 +22,13 @@ struct PlayerButton: View {
             Button() { onClick?() }
             label: {
                 Image(systemName: systemImageName)
-                    .frame(width: 97, height: 70)
+                    .frame(width: width, height: 70)
                     .font(mainFont)
                     .foregroundColor(.creamy)
                     .background(.lightOrange)
                     .opacity(isEnabled ? 1 : 0.6)
                     .clipShape(RoundedRectangle(cornerRadius: 12))
             }
-            .padding(3)
             .disabled(!isEnabled)
         }
     }
@@ -42,48 +43,48 @@ struct PlayerView: View {
     }
     
     var body: some View {
-        VStack {
-            HStack {
-                PlayerButton(systemImageName: "backward.frame.fill", onClick: player.backwardClicked, isEnabled: player.isBackwardEnabled)
-                    .animation(.default, value: player.isBackwardEnabled)
-                
-                if (player.isPlaying) {
-                    PlayerButton(systemImageName: "pause.fill", onClick: player.pauseClicked, isEnabled: player.isPauseEnabled)
-                        .animation(.default, value: player.isPauseEnabled)
-                } else {
-                    PlayerButton(systemImageName: "play.fill", onClick: player.playClicked, isEnabled: player.isPlayEnabled)
-                        .animation(.default, value: player.isPlayEnabled)
+        GeometryReader { geo in
+            let width = (geo.size.width - 20) * 0.315
+            
+            VStack {
+                HStack {
+                    PlayerButton(systemImageName: "backward.frame.fill", onClick: player.backwardClicked, isEnabled: player.isBackwardEnabled, width: width)
+                        .animation(.default, value: player.isBackwardEnabled)
+                    
+                    Group {
+                        if (player.isPlaying) {
+                            PlayerButton(systemImageName: "pause.fill", onClick: player.pauseClicked, isEnabled: player.isPauseEnabled, width: width)
+                                .animation(.default, value: player.isPauseEnabled)
+                        } else {
+                            PlayerButton(systemImageName: "play.fill", onClick: player.playClicked, isEnabled: player.isPlayEnabled, width: width)
+                                .animation(.default, value: player.isPlayEnabled)
+                        }
+                    }
+                    .padding([.leading, .trailing], 10)
+                    
+                    PlayerButton(systemImageName: "forward.frame.fill", onClick: player.forwardClicked, isEnabled: player.isForwardEnabled, width: width)
+                        .animation(.default, value: player.isForwardEnabled)
                 }
+                .padding([.bottom], 10)
                 
-                PlayerButton(systemImageName: "forward.frame.fill", onClick: player.forwardClicked, isEnabled: player.isForwardEnabled)
-                    .animation(.default, value: player.isForwardEnabled)
+                PlayerButton(systemImageName: "stop.fill", onClick: player.stopClicked, isEnabled: player.isStopEnabled, width: width)
+                    .animation(.default, value: player.isStopEnabled)
             }
-            PlayerButton(systemImageName: "stop.fill", onClick: player.stopClicked, isEnabled: player.isStopEnabled)
-                .animation(.default, value: player.isStopEnabled)
+            .frame(width: geo.size.width)
         }
+        .frame(height: 160)
     }
 }
 
 struct PlayerView_Previews: PreviewProvider {
     static var previews: some View {
-        ZStack {
-            Color(UIColor.systemBackground)
-                .ignoresSafeArea()
+        GeometryReader { geo in
+            RoundedRectangle(cornerRadius: 12)
+                .stroke(.black)
+                .frame(width: 350, height: 160)
             
-            VStack {
-                Spacer()
-                Spacer()
-                
-                ZStack {
-                    RoundedRectangle(cornerRadius: 12)
-                        .stroke(.black)
-                        .frame(width: 320, height: 200)
-                    
-                    PlayerView(player: Player())
-                }
-                
-                Spacer()
-            }
+            PlayerView(player: Player())
+                .frame(width: 350, height: 160)
         }
     }
 }

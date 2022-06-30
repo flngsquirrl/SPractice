@@ -38,9 +38,6 @@ struct ExerciseView: View {
                 .font(.body.bold())
                 .foregroundColor(.secondary)
         }
-        .padding()
-        .background(Color(UIColor.secondarySystemBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }
 

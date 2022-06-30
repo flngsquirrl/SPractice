@@ -10,7 +10,7 @@ import Foundation
 extension ProgramDetailsView {
     @MainActor class ViewModel: ObservableObject {
         
-        var program: ProgramTemplate
+        var template: ProgramTemplate
         
         @Published var useRest: Bool = true
         
@@ -18,15 +18,15 @@ extension ProgramDetailsView {
         @Published var showEditTemplateView = false
         
         init(for template: ProgramTemplate) {
-            self.program = template
+            self.template = template
         }
         
-        var practice: Program {
-            Program(from: program, useRest: useRest)
+        var program: Program {
+            Program(from: template, useRest: useRest)
         }
         
         func updateProgramTemplate(template: ProgramTemplate) {
-            self.program = template
+            self.template = template
         }
     }
 }

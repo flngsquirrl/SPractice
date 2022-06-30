@@ -11,69 +11,83 @@ import SwiftUI
 struct PracticeView: View {
     
     @Environment(\.dismiss) var dismiss
+    @Environment(\.verticalSizeClass) var sizeClass
     
-    @State private var isPracticeSequenceShown = true
+    @State private var isPracticeDetailsShown = false
     @State private var isSoundOn = true
     
     @ObservedObject var practice: Practice
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                Color(UIColor.systemBackground)
-                    .ignoresSafeArea()
-                
-                VStack {
-                    Spacer()
-                    ExerciseView(practice: practice)
-                    
-                    if isPracticeSequenceShown {
-                        PracticeSequenceView(practice: practice)
-                    }
-                    Spacer()
-                    PlayerView(player: practice.player)
-                    Spacer()
-                }
-                .frame(maxWidth: 320)
-            }
-            .onAppear(perform: practice.prepare)
-            .onDisappear(perform: practice.pause)
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Close") {
-                        dismiss()
-                    }
-                }
-                
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    
-                    Button() {
-                        withAnimation {
-                            isSoundOn.toggle()
+        GeometryReader { geo in
+            NavigationView {
+                Group {
+                    if sizeClass == .compact {
+                        HStack(alignment: .top) {
+                            ExerciseView(practice: practice)
+                                .frame(maxHeight: .infinity)
+                                .wrapped()
+                            VStack {
+                                PracticeSequenceView(practice: practice)
+                                    .frame(maxWidth: .infinity)
+                                Spacer()
+                                PlayerView(player: practice.player)
+                            }
+                            .padding(.leading)
                         }
-                    } label: {
-                        Image(systemName: isSoundOn ? "bell.fill" : "bell.slash")
-                    }
-                    
-                    Button() {
-                        withAnimation {
-                            isPracticeSequenceShown.toggle()
+                    } else {
+                        VStack {
+                            Spacer()
+                            ExerciseView(practice: practice)
+                                .wrapped()
+
+                            PracticeSequenceView(practice: practice)
+                                .frame(maxWidth: .infinity)
+                            Spacer()
+                            PlayerView(player: practice.player)
+                            Spacer()
                         }
-                    } label: {
-                        Image(systemName: isPracticeSequenceShown ? "list.bullet.rectangle.fill" : "list.bullet.rectangle")
+                        .frame(width: min(geo.size.width * 0.8, 450))
                     }
                 }
+                .onAppear(perform: practice.prepare)
+                .onDisappear(perform: practice.pause)
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button("Close") {
+                            dismiss()
+                        }
+                    }
+                    
+                    ToolbarItemGroup(placement: .navigationBarTrailing) {
+                        
+                        Button() {
+                            withAnimation {
+                                isSoundOn.toggle()
+                            }
+                        } label: {
+                            Image(systemName: isSoundOn ? "bell" : "bell.slash")
+                        }
+                        
+                        Button() {
+                            isPracticeDetailsShown.toggle()
+                        } label: {
+                            Image(systemName: "list.bullet.rectangle")
+                        }
+                    }
+                }
+                .sheet(isPresented: $isPracticeDetailsShown) {
+                    PracticeSummaryView(practice: practice)
+                }
             }
+            .accentColor(.customAccentColor)
         }
-        .accentColor(.customAccentColor)
     }
 }
 
 struct PracticeView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            PracticeView(practice: Practice(from: ProgramTemplate.personal))
-        }
+        PracticeView(practice: Practice(from: ProgramTemplate.personal))
     }
 }

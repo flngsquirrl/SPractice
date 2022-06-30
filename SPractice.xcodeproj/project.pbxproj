@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		C92F6C37286C525A00D7BA59 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C36286C525A00D7BA59 /* FileManager.swift */; };
+		C92F6C3C286D9D2100D7BA59 /* ProgramSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C3B286D9D2100D7BA59 /* ProgramSummaryView.swift */; };
+		C92F6C3E286DDFF400D7BA59 /* View-Wrapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C3D286DDFF400D7BA59 /* View-Wrapped.swift */; };
+		C92F6C40286DE17E00D7BA59 /* PracticeSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C3F286DE17E00D7BA59 /* PracticeSummaryView.swift */; };
 		C9445C6D285E00D000DF2A08 /* ExerciseDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9445C6C285E00D000DF2A08 /* ExerciseDetailsView.swift */; };
 		C9445C71285E0A9300DF2A08 /* ExerciseEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9445C70285E0A9300DF2A08 /* ExerciseEditor.swift */; };
 		C95011C728196FFD0043EC75 /* SPracticeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95011C628196FFD0043EC75 /* SPracticeApp.swift */; };
@@ -71,6 +74,9 @@
 
 /* Begin PBXFileReference section */
 		C92F6C36286C525A00D7BA59 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		C92F6C3B286D9D2100D7BA59 /* ProgramSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramSummaryView.swift; sourceTree = "<group>"; };
+		C92F6C3D286DDFF400D7BA59 /* View-Wrapped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-Wrapped.swift"; sourceTree = "<group>"; };
+		C92F6C3F286DE17E00D7BA59 /* PracticeSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeSummaryView.swift; sourceTree = "<group>"; };
 		C9445C6C285E00D000DF2A08 /* ExerciseDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailsView.swift; sourceTree = "<group>"; };
 		C9445C70285E0A9300DF2A08 /* ExerciseEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseEditor.swift; sourceTree = "<group>"; };
 		C95011C328196FFD0043EC75 /* SPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -268,6 +274,7 @@
 				C9741A33286085E400E1F670 /* EditProgramView.swift */,
 				C9CCCE97284B6DE5005665C8 /* ProgramDetailsView.swift */,
 				C9CCCE99284B6E09005665C8 /* ProgramDetailsView-ViewModel.swift */,
+				C92F6C3B286D9D2100D7BA59 /* ProgramSummaryView.swift */,
 			);
 			path = program;
 			sourceTree = "<group>";
@@ -315,9 +322,11 @@
 		C9CCCE9B284BA7FA005665C8 /* practice */ = {
 			isa = PBXGroup;
 			children = (
+				C9A0CFFE281BDDEA000CF439 /* PracticeView.swift */,
+				C92F6C3F286DE17E00D7BA59 /* PracticeSummaryView.swift */,
 				C9A0D026282A613A000CF439 /* PracticeSequenceView.swift */,
 				C9A0CFF1281B3733000CF439 /* ExerciseView.swift */,
-				C9A0CFFE281BDDEA000CF439 /* PracticeView.swift */,
+				C92F6C3D286DDFF400D7BA59 /* View-Wrapped.swift */,
 			);
 			path = practice;
 			sourceTree = "<group>";
@@ -458,6 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9A0D02B282BE586000CF439 /* Player.swift in Sources */,
+				C92F6C3C286D9D2100D7BA59 /* ProgramSummaryView.swift in Sources */,
 				C9A0CFF5281BD588000CF439 /* ProgramTemplate.swift in Sources */,
 				C9692C76284F4E9100373730 /* ClockTime.swift in Sources */,
 				C9DE15282868B3CE0011324C /* Exercises.swift in Sources */,
@@ -510,8 +520,10 @@
 				C9445C71285E0A9300DF2A08 /* ExerciseEditor.swift in Sources */,
 				C9A0D01C28280DFA000CF439 /* SquirrelDrawer.swift in Sources */,
 				C9DE151F2868AADE0011324C /* ExeriseType.swift in Sources */,
+				C92F6C40286DE17E00D7BA59 /* PracticeSummaryView.swift in Sources */,
 				C95011D52819703D0043EC75 /* ClockView.swift in Sources */,
 				C9741A382860862900E1F670 /* ProgramEditor-ViewModel.swift in Sources */,
+				C92F6C3E286DDFF400D7BA59 /* View-Wrapped.swift in Sources */,
 				C9A0CFEC281AB382000CF439 /* Exercise.swift in Sources */,
 				C9A0D01E28280E77000CF439 /* SquirrelInWheelLogo.swift in Sources */,
 				C95011C728196FFD0043EC75 /* SPracticeApp.swift in Sources */,
