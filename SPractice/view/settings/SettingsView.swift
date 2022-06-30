@@ -76,7 +76,7 @@ struct SettingsView: View {
                     }
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Close") {
+                    Button("Done") {
                         settings.save()
                         dismiss()
                     }
