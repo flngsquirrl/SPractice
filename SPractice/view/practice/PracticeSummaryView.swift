@@ -16,7 +16,7 @@ struct PracticeSummaryView: View {
     var body: some View {
         NavigationView {
             List {
-                ProgramSummaryView(program: practice.program)
+                ProgramSummaryView(program: practice.program, accentedExercise: practice.currentExercise)
             }
             .navigationTitle(practice.program.name)
             .toolbar {

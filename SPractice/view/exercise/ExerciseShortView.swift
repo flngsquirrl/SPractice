@@ -16,11 +16,14 @@ struct ExerciseShortView: View {
     private let duration: Int?
     
     private var displayDuration = false
+    private var isIconAccented = false
     
-    init(for exercise: Exercise) {
+    init(for exercise: Exercise, isIconAccented: Bool = false) {
         let taskType = exercise.type == .tabata ? .activity : exercise.tasks[0].type
         self.init(name: exercise.name, type: exercise.type, taskType: taskType, isService: exercise.isService, duration: exercise.duration)
-        displayDuration = true
+        
+        self.displayDuration = true
+        self.isIconAccented = isIconAccented
     }
     
     init(for exercise: ExerciseTemplate, displayDuration: Bool = false) {
@@ -43,10 +46,13 @@ struct ExerciseShortView: View {
     
     var body: some View {
         HStack {
-            ExerciseTypeImage(type: type)
-                .foregroundColor(isService ? .secondary : .primary)
+            if isIconAccented {
+                ExerciseTypeImage(type: type, isFilled: true)
+                    .foregroundColor(.lightOrange)
+            } else {
+                ExerciseTypeImage(type: type)
+            }
             Text(name)
-                .foregroundColor(isService ? .secondary : .primary)
             Spacer()
             HStack {
                 if displayDuration {
@@ -87,6 +93,13 @@ struct ExerciseShortView_Previews: PreviewProvider {
                 ExerciseShortView(for: ExerciseTemplate.surjaNamascar)
                 ExerciseShortView(for: ExerciseTemplate.vasihsthasana)
                 ExerciseShortView(for: ExerciseTemplate.catCowNoType)
+            }
+            
+            Group {
+                Text("color test")
+                ExerciseShortView(for: Exercise.catCow)
+                    .foregroundColor(.secondary)
+                ExerciseShortView(for: Exercise.catCow, isIconAccented: true)
             }
         }
     }
