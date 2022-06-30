@@ -30,15 +30,17 @@ struct Program {
     }
     
     var duration: Int? {
+        calculateDuration(from: 0)
+    }
+    
+    func calculateDuration(from exerciseIndex: Int) -> Int? {
         var totalDuration = 0
-        var hasDuration = false
-        exercises.forEach {
-            if let duration = $0.duration {
+        for i in exerciseIndex..<exercises.count {
+            if let duration = exercises[i].duration {
                 totalDuration += duration
-                hasDuration = true
             }
         }
-        return hasDuration ? totalDuration : nil
+        return totalDuration == 0 ? nil : totalDuration
     }
     
     // examples

@@ -19,9 +19,11 @@ class Practice: ObservableObject {
     
     @Published var currentExerciseIndex = 0
     @Published var currentTaskIndex = 0
+    @Published var durationRemaining: Int?
     
     init(for program: Program) {
         self.program = program
+        self.durationRemaining = program.duration
         
         self.player = Player()
         self.clock = Clock()
@@ -140,6 +142,7 @@ class Practice: ObservableObject {
         currentTaskIndex = 0
         resetTiming()
         updatePlayerState()
+        setDurationRemaining()
     }
     
     func moveToPreviousExercise() {
@@ -147,6 +150,7 @@ class Practice: ObservableObject {
         currentTaskIndex = 0
         resetTiming()
         updatePlayerState()
+        setDurationRemaining()
     }
     
     func moveToNextTask() {
@@ -168,7 +172,20 @@ class Practice: ObservableObject {
     
     func prepareClock() {
         clock.onFinished = { self.processCountingFinished() }
+        clock.onTick = { self.updateDurationRemaining() }
         setClock()
+    }
+    
+    func setDurationRemaining() {
+        durationRemaining = program.calculateDuration(from: currentExerciseIndex)
+    }
+    
+    func updateDurationRemaining() {
+        if currentExercise.type != .flow {
+            if durationRemaining != nil {
+                self.durationRemaining! -= 1
+            }
+        }
     }
     
     func setClock() {

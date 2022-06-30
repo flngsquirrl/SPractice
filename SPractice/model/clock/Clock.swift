@@ -14,6 +14,7 @@ class Clock: ObservableObject {
     @Published var isCountdown: Bool
     
     var onFinished: (() -> Void)?
+    var onTick: (() -> Void)?
     
     private let timer = Timer.publish(every: 1, on: .main, in: .common)
     private var timerSubscription: Cancellable?
@@ -24,10 +25,11 @@ class Clock: ObservableObject {
     public static let simpleCountdown = Clock(setTo: 130, isCountdown: true)
     public static let simpleCountup = Clock(setTo: 33, isCountdown: false)
     
-    init(setTo timeInSeconds: Int = 0, isCountdown: Bool = false, onFinished: (() -> Void)? = nil) {
+    init(setTo timeInSeconds: Int = 0, isCountdown: Bool = false, onFinished: (() -> Void)? = nil, onTick: (() -> Void)? = nil) {
         self.time = ClockTime(timeInSeconds: timeInSeconds)
         self.isCountdown = isCountdown
         self.onFinished = onFinished
+        self.onTick = onTick
     }
     
     var countdownFinished: Bool {
@@ -51,6 +53,7 @@ class Clock: ObservableObject {
             } else {
                 time.addSecond()
             }
+            onTick?()
         }
     }
     
