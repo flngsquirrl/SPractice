@@ -29,6 +29,7 @@ struct ExerciseDetailsView: View {
                     Text("Type")
                     Spacer()
                     ExerciseTypeView(type: viewModel.exercise.type)
+                        .foregroundColor(.secondary)
                 }
                 
                 HStack {

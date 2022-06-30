@@ -17,6 +17,7 @@ struct ProgramSummaryView: View {
                 Text("Duration")
                 Spacer()
                 Text(ClockTime.getExtendedPresentation(for: program.duration!))
+                    .foregroundColor(.secondary)
             }
         } header: {
             Text("Summary")
