@@ -31,16 +31,16 @@ struct ExerciseDurationView: View {
         if let type = type {
             switch type {
             case .flow:
-                Image(systemName: "infinity")
+                LayoutUtils.unlimitedDurationImage
             case .timer, .tabata:
                 if let duration = duration {
                     DurationView(duration: duration, mode: mode)
                 } else {
-                    Image(systemName: "questionmark")
+                    LayoutUtils.unknownDurationImage
                 }
             }
         } else {
-            Image(systemName: "questionmark")
+            LayoutUtils.unknownDurationImage
         }
     }
 }

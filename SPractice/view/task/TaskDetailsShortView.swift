@@ -21,13 +21,13 @@ struct TaskDetailsShortView: View {
             
             Group {
                 if task.duration != nil {
-                    Text(ClockTime.getPaddedPresentation(for: task.duration!))
+                    DurationView(duration: task.duration!, mode: .padded)
                         .font(LayoutUtils.timeFont)
                 } else {
                     if exerciseType == .flow {
-                        Image(systemName: "infinity")
+                        LayoutUtils.unlimitedDurationImage
                     } else {
-                        Image(systemName: "questionmark")
+                        LayoutUtils.unknownDurationImage
                     }
                 }
             }

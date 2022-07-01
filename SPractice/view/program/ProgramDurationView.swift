@@ -37,9 +37,9 @@ struct ProgramDurationView: View {
             DurationView(duration: duration!, mode: mode)
         } else {
             if hasExercisesMissingDuration {
-                Image(systemName: "questionmark")
+                LayoutUtils.unknownDurationImage
             } else {
-                Image(systemName: "infinity")
+                LayoutUtils.unlimitedDurationImage
             }
         }
     }
