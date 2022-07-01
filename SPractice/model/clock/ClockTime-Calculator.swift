@@ -29,15 +29,19 @@ extension ClockTime {
     }
     
     static func getPaddedPresentation(for duration: Int) -> String {
-        guard let result = positionalMinSecFormatter.string(from: TimeInterval(duration)) else {
+        var units: NSCalendar.Unit = [.minute, .second]
+        if duration > 60 * 60 {
+            units = [.hour, .minute, .second]
+        }
+        guard let result = getPositionalFormatter(for: units).string(from: TimeInterval(duration)) else {
             return ""
         }
         return result
     }
     
-    static var positionalMinSecFormatter: DateComponentsFormatter {
+    static func getPositionalFormatter(for units: NSCalendar.Unit = [.minute, .second]) -> DateComponentsFormatter {
         let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = [.minute, .second]
+        formatter.allowedUnits = units
         formatter.unitsStyle = .positional
         formatter.zeroFormattingBehavior = .pad
         return formatter
@@ -45,7 +49,6 @@ extension ClockTime {
     
     static var briefHrMinSecFormatter: DateComponentsFormatter {
         let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = [.hour, .minute, .second]
         formatter.unitsStyle = .short
         return formatter
     }
