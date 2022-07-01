@@ -15,21 +15,21 @@ struct ProgramDurationView: View {
     
     init(for program: Program, mode: DurationView.Mode = .padded) {
         self.duration = program.duration
-        self.hasExercisesMissingDuration = false
-        
         self.mode = mode
+        self.hasExercisesMissingDuration = false
     }
     
     init(for template: ProgramTemplate, mode: DurationView.Mode = .padded) {
         self.duration = template.duration
-        self.hasExercisesMissingDuration = template.hasExercisesMissingDuration
         self.mode = mode
+        self.hasExercisesMissingDuration = template.hasExercisesMissingDuration
+        
     }
     
     init(for duration: Int?, mode: DurationView.Mode = .padded) {
         self.duration = duration
-        self.hasExercisesMissingDuration = false
         self.mode = mode
+        self.hasExercisesMissingDuration = false
     }
     
     var body: some View {
