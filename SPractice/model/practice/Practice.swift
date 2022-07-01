@@ -224,6 +224,8 @@ class Practice: ObservableObject {
         player.onPlayClicked = run
         player.onPauseClicked = pause
         player.onStopClicked = finish
+        
+        updatePlayerState()
     }
     
 }
