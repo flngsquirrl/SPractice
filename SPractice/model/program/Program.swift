@@ -13,29 +13,24 @@ struct Program {
     let name: String
     let exercises: [Exercise]
     
-    init(from template: ProgramTemplate, useRest: Bool = false) {
+    init(from template: ProgramTemplate) {
         self.name = template.name
         
         var exercises = [Exercise]()
-        for (index, exerciseTemplate) in template.exercises.enumerated() {
+        for exerciseTemplate in template.exercises {
             let exercise = Exercise(from: exerciseTemplate)
             exercises.append(exercise!)
-            
-            if useRest && index != template.exercises.count - 1 {
-                let rest = Exercise(from: ExerciseTemplate.restTemplate)
-                exercises.append(rest!)
-            }
         }
         self.exercises = exercises
     }
     
     var duration: Int? {
-        calculateDuration(from: 0)
+        calculateDuration(fromIndex: 0)
     }
     
-    func calculateDuration(from exerciseIndex: Int) -> Int? {
+    func calculateDuration(fromIndex index: Int) -> Int? {
         var totalDuration = 0
-        for i in exerciseIndex..<exercises.count {
+        for i in index..<exercises.count {
             if let duration = exercises[i].duration {
                 totalDuration += duration
             }

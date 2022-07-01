@@ -18,30 +18,27 @@ struct ExerciseShortView: View {
     private var displayDuration = false
     private var isIconAccented = false
     
-    init(for exercise: Exercise, isIconAccented: Bool = false) {
+    init(for exercise: Exercise, displayDuration: Bool = false, isIconAccented: Bool = false) {
         let taskType = exercise.type == .tabata ? .activity : exercise.tasks[0].type
-        self.init(name: exercise.name, type: exercise.type, taskType: taskType, isService: exercise.isService, duration: exercise.duration)
-        
-        self.displayDuration = true
-        self.isIconAccented = isIconAccented
+        self.init(name: exercise.name, type: exercise.type, taskType: taskType, isService: exercise.isService, duration: exercise.duration, displayDuration: displayDuration, isIconAccented: isIconAccented)
     }
     
-    init(for exercise: ExerciseTemplate, displayDuration: Bool = false) {
+    init(for template: ExerciseTemplate, displayDuration: Bool = false, isIconAccented: Bool = false) {
         var duration: Int? = nil
         if (displayDuration) {
-            duration = exercise.type == .tabata ? SettingsManager.shared.tabataExerciseDuration : exercise.duration
+            duration = template.type == .tabata ? SettingsManager.shared.tabataExerciseDuration : template.duration
         }
-        self.init(name: exercise.name, type: exercise.type, taskType: exercise.intensityType, isService: exercise.isService, duration: duration)
-        
-        self.displayDuration = displayDuration
+        self.init(name: template.name, type: template.type, taskType: template.intensityType, isService: template.isService, duration: duration, displayDuration: displayDuration, isIconAccented: isIconAccented)
     }
     
-    private init(name: String, type: ExerciseType?, taskType: IntensityType?, isService: Bool, duration: Int?) {
+    private init(name: String, type: ExerciseType?, taskType: IntensityType?, isService: Bool, duration: Int?, displayDuration: Bool = false, isIconAccented: Bool = false) {
         self.name = name
         self.type = type
         self.taskType = taskType
         self.isService = isService
         self.duration = duration
+        self.displayDuration = displayDuration
+        self.isIconAccented = isIconAccented
     }
     
     var body: some View {

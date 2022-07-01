@@ -16,7 +16,25 @@ struct PracticeSummaryView: View {
     var body: some View {
         NavigationView {
             List {
-                ProgramSummaryView(program: practice.program, accentedExercise: practice.currentExercise)
+                Section {
+                    HStack {
+                        Text("Duration")
+                        Spacer()
+                        ProgramDurationView(for: practice.program, mode: .extended)
+                            .foregroundColor(.secondary)
+                    }
+                } header: {
+                    Text("Summary")
+                } footer: {
+                    Text("Duration is the minimal time needed to complete all timer and tabata exercises of the practice, as flow exercises time can't be predicted")
+                }
+                
+                Section("Sequence") {
+                    ForEach(practice.program.exercises) { exercise in
+                        ExerciseShortView(for: exercise, isIconAccented: practice.currentExercise.id == exercise.id)
+                            .foregroundColor(exercise.isService ? .secondary : .primary)
+                    }
+                }
             }
             .navigationTitle(practice.program.name)
             .toolbar {

@@ -12,6 +12,8 @@
 		C92F6C3E286DDFF400D7BA59 /* View-Wrapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C3D286DDFF400D7BA59 /* View-Wrapped.swift */; };
 		C92F6C40286DE17E00D7BA59 /* PracticeSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C3F286DE17E00D7BA59 /* PracticeSummaryView.swift */; };
 		C92F6C42286F00EB00D7BA59 /* LayoutUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C41286F00EB00D7BA59 /* LayoutUtils.swift */; };
+		C92F6C44286F0B0000D7BA59 /* ProgramDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C43286F0B0000D7BA59 /* ProgramDurationView.swift */; };
+		C92F6C46286F1B6500D7BA59 /* DurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C45286F1B6500D7BA59 /* DurationView.swift */; };
 		C9445C6D285E00D000DF2A08 /* ExerciseDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9445C6C285E00D000DF2A08 /* ExerciseDetailsView.swift */; };
 		C9445C71285E0A9300DF2A08 /* ExerciseEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9445C70285E0A9300DF2A08 /* ExerciseEditor.swift */; };
 		C95011C728196FFD0043EC75 /* SPracticeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95011C628196FFD0043EC75 /* SPracticeApp.swift */; };
@@ -79,6 +81,8 @@
 		C92F6C3D286DDFF400D7BA59 /* View-Wrapped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-Wrapped.swift"; sourceTree = "<group>"; };
 		C92F6C3F286DE17E00D7BA59 /* PracticeSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeSummaryView.swift; sourceTree = "<group>"; };
 		C92F6C41286F00EB00D7BA59 /* LayoutUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutUtils.swift; sourceTree = "<group>"; };
+		C92F6C43286F0B0000D7BA59 /* ProgramDurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDurationView.swift; sourceTree = "<group>"; };
+		C92F6C45286F1B6500D7BA59 /* DurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationView.swift; sourceTree = "<group>"; };
 		C9445C6C285E00D000DF2A08 /* ExerciseDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailsView.swift; sourceTree = "<group>"; };
 		C9445C70285E0A9300DF2A08 /* ExerciseEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseEditor.swift; sourceTree = "<group>"; };
 		C95011C328196FFD0043EC75 /* SPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +163,14 @@
 				C92F6C36286C525A00D7BA59 /* FileManager.swift */,
 			);
 			path = utils;
+			sourceTree = "<group>";
+		};
+		C92F6C47286F1D1800D7BA59 /* time */ = {
+			isa = PBXGroup;
+			children = (
+				C92F6C45286F1B6500D7BA59 /* DurationView.swift */,
+			);
+			path = time;
 			sourceTree = "<group>";
 		};
 		C94B3F6A284A218700A23612 /* programs */ = {
@@ -277,6 +289,7 @@
 				C9CCCE97284B6DE5005665C8 /* ProgramDetailsView.swift */,
 				C9CCCE99284B6E09005665C8 /* ProgramDetailsView-ViewModel.swift */,
 				C92F6C3B286D9D2100D7BA59 /* ProgramSummaryView.swift */,
+				C92F6C43286F0B0000D7BA59 /* ProgramDurationView.swift */,
 			);
 			path = program;
 			sourceTree = "<group>";
@@ -288,6 +301,7 @@
 				C94B3F6A284A218700A23612 /* programs */,
 				C9A0D00A28229087000CF439 /* program */,
 				C9A0D004282118C8000CF439 /* exercise */,
+				C92F6C47286F1D1800D7BA59 /* time */,
 				C9741A5B2861F53000E1F670 /* task */,
 				C9CCCE9B284BA7FA005665C8 /* practice */,
 				C9CCCE9C284BA814005665C8 /* player */,
@@ -483,6 +497,7 @@
 				C9741A5F2863208100E1F670 /* TaskDetailsShortView.swift in Sources */,
 				C92F6C37286C525A00D7BA59 /* FileManager.swift in Sources */,
 				C9D156B228534F5C007F5176 /* EditExerciseView.swift in Sources */,
+				C92F6C46286F1B6500D7BA59 /* DurationView.swift in Sources */,
 				C9A0D029282BD603000CF439 /* Practice.swift in Sources */,
 				C9DE152C2868FE170011324C /* ExerciseShortDecorativeView.swift in Sources */,
 				C996981828646E53009836BD /* ExerciseDurationView.swift in Sources */,
@@ -493,6 +508,7 @@
 				C9DE152A2868B5500011324C /* Programs.swift in Sources */,
 				C9CCCE9A284B6E09005665C8 /* ProgramDetailsView-ViewModel.swift in Sources */,
 				C9A0D01A2827CEC9000CF439 /* Squirrel.swift in Sources */,
+				C92F6C44286F0B0000D7BA59 /* ProgramDurationView.swift in Sources */,
 				C9A0D00828228078000CF439 /* ProgramsView.swift in Sources */,
 				C9741A362860860C00E1F670 /* ProgramEditor.swift in Sources */,
 				C95011C928196FFD0043EC75 /* ContentView.swift in Sources */,

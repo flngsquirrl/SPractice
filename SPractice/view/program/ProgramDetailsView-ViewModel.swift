@@ -21,8 +21,8 @@ extension ProgramDetailsView {
             self.template = template
         }
         
-        var program: Program {
-            Program(from: template, useRest: useRest)
+        var programTemplate: ProgramTemplate {
+            ProgramTemplate(from: template, useRest: useRest)
         }
         
         func updateProgramTemplate(template: ProgramTemplate) {

@@ -36,10 +36,10 @@ struct ProgramDetailsView: View {
                 Text("Having rest between execises lets you take a deep breath and prepare for the upcoming exercise")
             }
             
-            ProgramSummaryView(program: viewModel.program)
+            ProgramSummaryView(template: viewModel.programTemplate)
         }
         .fullScreenCover(isPresented: $viewModel.showPracticeView) {
-            PracticeView(practice: Practice(for: viewModel.program))
+            PracticeView(practice: Practice(for: Program(from: viewModel.programTemplate)))
         }
         .fullScreenCover(isPresented: $viewModel.showEditTemplateView) {
             NavigationView {
@@ -50,7 +50,7 @@ struct ProgramDetailsView: View {
             }
             .accentColor(.customAccentColor)
         }
-        .navigationTitle(viewModel.program.name)
+        .navigationTitle(viewModel.template.name)
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button {

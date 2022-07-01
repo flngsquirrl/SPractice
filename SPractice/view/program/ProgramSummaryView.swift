@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct ProgramSummaryView: View {
-    var program: Program
-    var accentedExercise: Exercise? = nil
+    var template: ProgramTemplate
     
     var body: some View {
         Section {
             HStack {
                 Text("Duration")
                 Spacer()
-                Text(ClockTime.getExtendedPresentation(for: program.duration!))
+                ProgramDurationView(for: template, mode: .extended)
                     .foregroundColor(.secondary)
             }
         } header: {
@@ -26,8 +25,8 @@ struct ProgramSummaryView: View {
         }
         
         Section("Sequence") {
-            ForEach(program.exercises) { exercise in
-                ExerciseShortView(for: exercise, isIconAccented: accentedExercise?.id == exercise.id)
+            ForEach(template.exercises) { exercise in
+                ExerciseShortView(for: exercise, displayDuration: true)
                     .foregroundColor(exercise.isService ? .secondary : .primary)
             }
         }
@@ -37,7 +36,7 @@ struct ProgramSummaryView: View {
 struct ProgramSummaryView_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            ProgramSummaryView(program: Program(from: ProgramTemplate.personal))
+            ProgramSummaryView(template: ProgramTemplate.personal)
         }
     }
 }

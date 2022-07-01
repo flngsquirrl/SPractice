@@ -30,9 +30,7 @@ struct PracticeSequenceView: View {
                 Text("remaining time")
                 Spacer()
                 Text("~")
-                // todo implement separate view here like ExerciseDurationView
-                Text(ClockTime.getPaddedPresentation(for: practice.durationRemaining!))
-                    .font(LayoutUtils.timeFont)
+                ProgramDurationView(for: practice.durationRemaining)
             }
             .foregroundColor(.secondary)
             .wrapped()
