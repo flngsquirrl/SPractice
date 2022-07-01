@@ -38,6 +38,10 @@ struct Program {
         return totalDuration == 0 ? (hasFlowExercises(fromIndex: index) ? .unlimited : .unknown) : .known(totalDuration)
     }
     
+    var hasFlowExercises: Bool {
+        hasFlowExercises(fromIndex: 0)
+    }
+    
     func hasFlowExercises(fromIndex index: Int) -> Bool {
         let subrange = Array(exercises[index...])
         let exerciseMissingDuration = subrange.first(where: {

@@ -14,4 +14,5 @@ struct LayoutUtils {
     
     static let unknownDurationImage = Image(systemName: "questionmark")
     static let unlimitedDurationImage = Image(systemName: "infinity")
+    static let approximationText = Text("~")
 }

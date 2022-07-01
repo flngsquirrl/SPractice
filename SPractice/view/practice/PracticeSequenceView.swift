@@ -29,7 +29,6 @@ struct PracticeSequenceView: View {
             HStack {
                 Text("remaining time")
                 Spacer()
-                Text("~")
                 ProgramDurationView(for: practice.durationRemaining)
             }
             .foregroundColor(.secondary)
