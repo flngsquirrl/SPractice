@@ -36,22 +36,36 @@ struct ProgramTemplate: Identifiable, Codable {
         !exercises.isEmpty
     }
     
-    var duration: Int? {
+    var duration: Duration {
         calculateDuration(fromIndex: 0)
     }
     
-    func calculateDuration(fromIndex index: Int) -> Int? {
+    func calculateDuration(fromIndex index: Int) -> Duration {
         var totalDuration = 0
         for i in index..<exercises.count {
-            if let duration = exercises[i].duration {
+            if case .known(let duration) = exercises[i].duration {
                 totalDuration += duration
             }
         }
-        return totalDuration == 0 ? nil : totalDuration
+        return totalDuration == 0 ? (hasFlowExercises(fromIndex: index) ? .unlimited : .unknown) : .known(totalDuration)
+    }
+    
+    func hasFlowExercises(fromIndex index: Int) -> Bool {
+        let subrange = Array(exercises[index...])
+        let exerciseMissingDuration = subrange.first(where: {
+            $0.type == .flow
+        })
+        return exerciseMissingDuration != nil
     }
     
     var hasExercisesMissingDuration: Bool {
-        let exerciseMissingDuration = exercises.first(where: {$0.duration == nil && $0.type != .flow})
+        let exerciseMissingDuration = exercises.first(where: {
+            if case .unknown = $0.duration {
+                return true
+            } else {
+                return false
+            }
+        })
         return exerciseMissingDuration != nil
     }
     

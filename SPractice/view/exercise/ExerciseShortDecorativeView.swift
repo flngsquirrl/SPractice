@@ -17,8 +17,8 @@ struct ExerciseShortDecorativeView: View {
         self.displayDuration = displayDuration
     }
     
-    var duration: Int? {
-        exercise.type == .tabata ? SettingsManager.shared.tabataExerciseDuration : exercise.duration
+    var duration: Duration {
+        exercise.type == .tabata ? .known(SettingsManager.shared.tabataExerciseDuration) : exercise.duration
     }
     
     var body: some View {

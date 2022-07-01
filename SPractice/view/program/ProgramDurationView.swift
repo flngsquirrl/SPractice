@@ -9,38 +9,33 @@ import SwiftUI
 
 struct ProgramDurationView: View {
 
-    private let duration: Int?
-    private let hasExercisesMissingDuration: Bool
+    private let duration: Duration
     private let mode: DurationView.Mode
     
     init(for program: Program, mode: DurationView.Mode = .padded) {
         self.duration = program.duration
         self.mode = mode
-        self.hasExercisesMissingDuration = false
     }
     
     init(for template: ProgramTemplate, mode: DurationView.Mode = .padded) {
         self.duration = template.duration
         self.mode = mode
-        self.hasExercisesMissingDuration = template.hasExercisesMissingDuration
         
     }
     
-    init(for duration: Int?, mode: DurationView.Mode = .padded) {
+    init(for duration: Duration, mode: DurationView.Mode = .padded) {
         self.duration = duration
         self.mode = mode
-        self.hasExercisesMissingDuration = false
     }
     
     var body: some View {
-        if duration != nil {
-            DurationView(duration: duration!, mode: mode)
-        } else {
-            if hasExercisesMissingDuration {
-                LayoutUtils.unknownDurationImage
-            } else {
-                LayoutUtils.unlimitedDurationImage
-            }
+        switch duration {
+        case .known(let time):
+            DurationView(duration: time, mode: mode)
+        case .unknown:
+            LayoutUtils.unknownDurationImage
+        case .unlimited:
+            LayoutUtils.unlimitedDurationImage
         }
     }
 }

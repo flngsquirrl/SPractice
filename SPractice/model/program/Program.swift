@@ -24,18 +24,26 @@ struct Program {
         self.exercises = exercises
     }
     
-    var duration: Int? {
+    var duration: Duration {
         calculateDuration(fromIndex: 0)
     }
     
-    func calculateDuration(fromIndex index: Int) -> Int? {
+    func calculateDuration(fromIndex index: Int) -> Duration {
         var totalDuration = 0
         for i in index..<exercises.count {
-            if let duration = exercises[i].duration {
+            if case .known(let duration) = exercises[i].duration {
                 totalDuration += duration
             }
         }
-        return totalDuration == 0 ? nil : totalDuration
+        return totalDuration == 0 ? (hasFlowExercises(fromIndex: index) ? .unlimited : .unknown) : .known(totalDuration)
+    }
+    
+    func hasFlowExercises(fromIndex index: Int) -> Bool {
+        let subrange = Array(exercises[index...])
+        let exerciseMissingDuration = subrange.first(where: {
+            $0.type == .flow
+        })
+        return exerciseMissingDuration != nil
     }
     
     // examples

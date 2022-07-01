@@ -19,13 +19,17 @@ struct Exercise: Identifiable, Equatable {
     let isService: Bool
     private(set) var tasks: [Task]
     
-    var duration: Int? {
+    var duration: Duration {
         guard type != .flow else {
-            return nil
+            return .unlimited
         }
-        var duration = 0
-        tasks.forEach { duration += $0.duration! }
-        return duration
+        var result = 0
+        tasks.forEach {
+            if case .known(let duration) = $0.duration {
+                result += duration
+            }
+        }
+        return result > 0 ? .known(result) : .unknown
     }
     
     init(type: ExerciseType, name: String, isService: Bool = false, tasks: [Task] = []) {
@@ -62,24 +66,24 @@ struct Exercise: Identifiable, Equatable {
     private func prepareTabataTasks(from template: ExerciseTemplate) -> [Task]  {
         var tasks = [Task]()
         
-        let warmUp = Task(type: .rest, name: "warm-up", duration: SettingsManager.shared.getValue(of: .tabata_warmup))
+        let warmUp = Task(type: .rest, name: "warm-up", duration: .known(SettingsManager.shared.getValue(of: .tabata_warmup)))
         tasks.append(warmUp)
         
         for i in 1...SettingsManager.shared.getValue(of: .tabata_repetitions){
-            let activity = Task(type: .activity, name: "\(IntensityType.activity.rawValue) \(i)", duration: SettingsManager.shared.getValue(of: .tabata_activity))
-            let rest = Task(type: .rest, name: "\(IntensityType.rest.rawValue) \(i)", duration: SettingsManager.shared.getValue(of: .general_rest))
+            let activity = Task(type: .activity, name: "\(IntensityType.activity.rawValue) \(i)", duration: .known(SettingsManager.shared.getValue(of: .tabata_activity)))
+            let rest = Task(type: .rest, name: "\(IntensityType.rest.rawValue) \(i)", duration: .known(SettingsManager.shared.getValue(of: .general_rest)))
             tasks.append(activity)
             tasks.append(rest)
         }
         
-        let coolDown = Task(type: .rest, name: "cool-down", duration: SettingsManager.shared.getValue(of: .tabata_cooldown))
+        let coolDown = Task(type: .rest, name: "cool-down", duration: .known(SettingsManager.shared.getValue(of: .tabata_cooldown)))
         tasks.append(coolDown)
         
         return tasks
     }
     
     private func prepareFlowTasks(from template: ExerciseTemplate) -> [Task] {
-        let task = Task(type: template.intensityType!, name: template.intensityType!.rawValue)
+        let task = Task(type: template.intensityType!, name: template.intensityType!.rawValue, duration: .unlimited)
         return Array<Task>.wrapElement(element: task)
     }
     

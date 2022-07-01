@@ -68,6 +68,7 @@
 		C9D156AE28533DD7007F5176 /* ExerciseSelectionView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D156AD28533DD7007F5176 /* ExerciseSelectionView-ViewModel.swift */; };
 		C9D156B028534E88007F5176 /* AddExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D156AF28534E88007F5176 /* AddExerciseView.swift */; };
 		C9D156B228534F5C007F5176 /* EditExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D156B128534F5C007F5176 /* EditExerciseView.swift */; };
+		C9D53FAD286F2C4800FD2B6F /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D53FAC286F2C4800FD2B6F /* Duration.swift */; };
 		C9DE151F2868AADE0011324C /* ExeriseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE151E2868AADE0011324C /* ExeriseType.swift */; };
 		C9DE15212868AB520011324C /* IntensityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE15202868AB520011324C /* IntensityType.swift */; };
 		C9DE15282868B3CE0011324C /* Exercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE15272868B3CE0011324C /* Exercises.swift */; };
@@ -138,6 +139,7 @@
 		C9D156AD28533DD7007F5176 /* ExerciseSelectionView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseSelectionView-ViewModel.swift"; sourceTree = "<group>"; };
 		C9D156AF28534E88007F5176 /* AddExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseView.swift; sourceTree = "<group>"; };
 		C9D156B128534F5C007F5176 /* EditExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExerciseView.swift; sourceTree = "<group>"; };
+		C9D53FAC286F2C4800FD2B6F /* Duration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
 		C9DE151E2868AADE0011324C /* ExeriseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExeriseType.swift; sourceTree = "<group>"; };
 		C9DE15202868AB520011324C /* IntensityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntensityType.swift; sourceTree = "<group>"; };
 		C9DE15272868B3CE0011324C /* Exercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercises.swift; sourceTree = "<group>"; };
@@ -253,10 +255,10 @@
 			children = (
 				C9692C74284F4E6D00373730 /* clock */,
 				C9DE15242868B32E0011324C /* exercise */,
+				C9DE15262868B3560011324C /* task */,
 				C9DE15222868B2C70011324C /* practice */,
 				C9DE15252868B34A0011324C /* program */,
 				C9DE15232868B2D90011324C /* settings */,
-				C9DE15262868B3560011324C /* task */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -409,6 +411,7 @@
 			children = (
 				C9A0CFE9281AB32B000CF439 /* Task.swift */,
 				C9DE15202868AB520011324C /* IntensityType.swift */,
+				C9D53FAC286F2C4800FD2B6F /* Duration.swift */,
 			);
 			path = task;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				C9741A362860860C00E1F670 /* ProgramEditor.swift in Sources */,
 				C95011C928196FFD0043EC75 /* ContentView.swift in Sources */,
 				C9C2727C2848C91500F7DA0E /* Array-Wrapper.swift in Sources */,
+				C9D53FAD286F2C4800FD2B6F /* Duration.swift in Sources */,
 				C9A0D02228280F3E000CF439 /* RightWing.swift in Sources */,
 				C9A0CFEE281AB484000CF439 /* Program.swift in Sources */,
 				C9692C7C284F787700373730 /* ExerciseShortView.swift in Sources */,

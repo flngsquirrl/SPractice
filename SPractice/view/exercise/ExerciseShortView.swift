@@ -13,7 +13,7 @@ struct ExerciseShortView: View {
     private let type: ExerciseType?
     private let taskType: IntensityType?
     private let isService: Bool
-    private let duration: Int?
+    private let duration: Duration
     
     private var displayDuration = false
     private var isIconAccented = false
@@ -24,14 +24,14 @@ struct ExerciseShortView: View {
     }
     
     init(for template: ExerciseTemplate, displayDuration: Bool = false, isIconAccented: Bool = false) {
-        var duration: Int? = nil
+        var duration: Duration = .unknown
         if (displayDuration) {
-            duration = template.type == .tabata ? SettingsManager.shared.tabataExerciseDuration : template.duration
+            duration = template.type == .tabata ? .known(SettingsManager.shared.tabataExerciseDuration) : template.duration
         }
         self.init(name: template.name, type: template.type, taskType: template.intensityType, isService: template.isService, duration: duration, displayDuration: displayDuration, isIconAccented: isIconAccented)
     }
     
-    private init(name: String, type: ExerciseType?, taskType: IntensityType?, isService: Bool, duration: Int?, displayDuration: Bool = false, isIconAccented: Bool = false) {
+    private init(name: String, type: ExerciseType?, taskType: IntensityType?, isService: Bool, duration: Duration, displayDuration: Bool = false, isIconAccented: Bool = false) {
         self.name = name
         self.type = type
         self.taskType = taskType

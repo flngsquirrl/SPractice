@@ -9,8 +9,7 @@ import SwiftUI
 
 struct ExerciseDurationView: View {
     
-    private let type: ExerciseType?
-    private let duration: Int?
+    private let duration: Duration
     private let mode: DurationView.Mode
     
     init(for template: ExerciseTemplate, mode: DurationView.Mode = .padded) {
@@ -21,26 +20,19 @@ struct ExerciseDurationView: View {
         self.init(type: exercise.type, duration: exercise.duration, mode: mode)
     }
     
-    init(type: ExerciseType?, duration: Int? = nil, mode: DurationView.Mode = .padded) {
-        self.type = type
-        self.duration = duration == nil && type == .tabata ? SettingsManager.shared.tabataExerciseDuration : duration
+    init(type: ExerciseType?, duration: Duration, mode: DurationView.Mode = .padded) {
+        self.duration = type == .tabata ? .known(SettingsManager.shared.tabataExerciseDuration) : duration
         self.mode = mode
     }
     
     var body: some View {
-        if let type = type {
-            switch type {
-            case .flow:
-                LayoutUtils.unlimitedDurationImage
-            case .timer, .tabata:
-                if let duration = duration {
-                    DurationView(duration: duration, mode: mode)
-                } else {
-                    LayoutUtils.unknownDurationImage
-                }
-            }
-        } else {
+        switch duration {
+        case .known(let time):
+            DurationView(duration: time, mode: mode)
+        case .unknown:
             LayoutUtils.unknownDurationImage
+        case .unlimited:
+            LayoutUtils.unlimitedDurationImage
         }
     }
 }

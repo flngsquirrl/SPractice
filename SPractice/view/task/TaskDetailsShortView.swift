@@ -20,15 +20,13 @@ struct TaskDetailsShortView: View {
             Spacer()
             
             Group {
-                if task.duration != nil {
-                    DurationView(duration: task.duration!, mode: .padded)
-                        .font(LayoutUtils.timeFont)
-                } else {
-                    if exerciseType == .flow {
-                        LayoutUtils.unlimitedDurationImage
-                    } else {
-                        LayoutUtils.unknownDurationImage
-                    }
+                switch task.duration {
+                case .known(let time):
+                    DurationView(duration: time, mode: .padded)
+                case .unknown:
+                    LayoutUtils.unknownDurationImage
+                case .unlimited:
+                    LayoutUtils.unlimitedDurationImage
                 }
             }
             .foregroundColor(.secondary)
