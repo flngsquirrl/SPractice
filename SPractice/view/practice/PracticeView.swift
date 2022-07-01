@@ -47,7 +47,7 @@ struct PracticeView: View {
                             PlayerView(player: practice.player)
                             Spacer()
                         }
-                        .frame(width: min(geo.size.width * 0.8, 450))
+                        .frame(width: min(geo.size.width * 0.8, 500))
                     }
                 }
                 .onAppear(perform: practice.prepare)

@@ -11,6 +11,7 @@
 		C92F6C3C286D9D2100D7BA59 /* ProgramSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C3B286D9D2100D7BA59 /* ProgramSummaryView.swift */; };
 		C92F6C3E286DDFF400D7BA59 /* View-Wrapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C3D286DDFF400D7BA59 /* View-Wrapped.swift */; };
 		C92F6C40286DE17E00D7BA59 /* PracticeSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C3F286DE17E00D7BA59 /* PracticeSummaryView.swift */; };
+		C92F6C42286F00EB00D7BA59 /* LayoutUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C41286F00EB00D7BA59 /* LayoutUtils.swift */; };
 		C9445C6D285E00D000DF2A08 /* ExerciseDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9445C6C285E00D000DF2A08 /* ExerciseDetailsView.swift */; };
 		C9445C71285E0A9300DF2A08 /* ExerciseEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9445C70285E0A9300DF2A08 /* ExerciseEditor.swift */; };
 		C95011C728196FFD0043EC75 /* SPracticeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95011C628196FFD0043EC75 /* SPracticeApp.swift */; };
@@ -77,6 +78,7 @@
 		C92F6C3B286D9D2100D7BA59 /* ProgramSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramSummaryView.swift; sourceTree = "<group>"; };
 		C92F6C3D286DDFF400D7BA59 /* View-Wrapped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-Wrapped.swift"; sourceTree = "<group>"; };
 		C92F6C3F286DE17E00D7BA59 /* PracticeSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeSummaryView.swift; sourceTree = "<group>"; };
+		C92F6C41286F00EB00D7BA59 /* LayoutUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutUtils.swift; sourceTree = "<group>"; };
 		C9445C6C285E00D000DF2A08 /* ExerciseDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailsView.swift; sourceTree = "<group>"; };
 		C9445C70285E0A9300DF2A08 /* ExerciseEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseEditor.swift; sourceTree = "<group>"; };
 		C95011C328196FFD0043EC75 /* SPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -294,6 +296,7 @@
 				C9A0D0182827CE9F000CF439 /* logo */,
 				C95011C828196FFD0043EC75 /* ContentView.swift */,
 				C9A0D023282813F2000CF439 /* ColorTheme.swift */,
+				C92F6C41286F00EB00D7BA59 /* LayoutUtils.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				C9741A382860862900E1F670 /* ProgramEditor-ViewModel.swift in Sources */,
 				C92F6C3E286DDFF400D7BA59 /* View-Wrapped.swift in Sources */,
 				C9A0CFEC281AB382000CF439 /* Exercise.swift in Sources */,
+				C92F6C42286F00EB00D7BA59 /* LayoutUtils.swift in Sources */,
 				C9A0D01E28280E77000CF439 /* SquirrelInWheelLogo.swift in Sources */,
 				C95011C728196FFD0043EC75 /* SPracticeApp.swift in Sources */,
 			);

@@ -27,11 +27,12 @@ struct PracticeSequenceView: View {
             .wrapped()
             
             HStack {
-                Text("Remaining time")
+                Text("remaining time")
                 Spacer()
+                Text("~")
                 // todo implement separate view here like ExerciseDurationView
                 Text(ClockTime.getPaddedPresentation(for: practice.durationRemaining!))
-                    .font(.system(.callout).monospacedDigit())
+                    .font(LayoutUtils.timeFont)
             }
             .foregroundColor(.secondary)
             .wrapped()

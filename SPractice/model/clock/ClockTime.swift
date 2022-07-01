@@ -9,7 +9,7 @@ import Foundation
 
 struct ClockTime {
     
-    private var timeInSeconds: Int = 0
+    private(set) var timeInSeconds: Int = 0
     
     init(timeInSeconds: Int) {
         self.timeInSeconds = timeInSeconds

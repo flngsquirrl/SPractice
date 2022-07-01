@@ -22,7 +22,7 @@ struct TaskDetailsShortView: View {
             Group {
                 if task.duration != nil {
                     Text(ClockTime.getPaddedPresentation(for: task.duration!))
-                        .font(.system(.callout).monospacedDigit())
+                        .font(LayoutUtils.timeFont)
                 } else {
                     if exerciseType == .flow {
                         Image(systemName: "infinity")

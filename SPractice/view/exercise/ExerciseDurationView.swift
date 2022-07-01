@@ -41,7 +41,7 @@ struct ExerciseDurationView: View {
                 if let duration = duration {
                     if mode == .padded {
                         Text(ClockTime.getPaddedPresentation(for: duration))
-                            .font(.system(.callout).monospacedDigit())
+                            .font(LayoutUtils.timeFont)
                     } else {
                         Text(ClockTime.getExtendedPresentation(for: duration))
                     }

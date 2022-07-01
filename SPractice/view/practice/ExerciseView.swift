@@ -33,7 +33,6 @@ struct ExerciseView: View {
                 .foregroundColor(.secondary)
             
             ClockView(clock: practice.clock)
-            
             Text("\(practice.currentTask.name)")
                 .font(.body.bold())
                 .foregroundColor(.secondary)

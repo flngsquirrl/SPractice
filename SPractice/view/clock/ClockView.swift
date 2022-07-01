@@ -24,29 +24,37 @@ struct ClockView: View {
     public static let simpleCountup = ClockView(clock: Clock.simpleCountup)
     
     var body: some View {
-        Group {
-            if clock.isCountup {
-                ZStack {
+        ZStack(alignment: .topTrailing) {
+            Group {
+                if clock.isCountup {
                     Image(systemName: ClockView.countupImageName)
                         .foregroundColor(ClockView.elementColor)
                         .scaleEffect(2)
-                 }
-            } else {
-                HStack {
-                    ClockNumber(number: clock.time.minutesFirstDigit)
-                    ClockNumber(number: clock.time.minutesSecondDigit)
-                    Text(":")
-                        .foregroundColor(ClockView.elementColor)
-                    ClockNumber(number: clock.time.secondsFirstDigit)
-                    ClockNumber(number: clock.time.secondsSecondDigit)
+                } else {
+                    HStack {
+                        ClockNumber(number: clock.time.minutesFirstDigit)
+                        ClockNumber(number: clock.time.minutesSecondDigit)
+                        Text(":")
+                            .foregroundColor(ClockView.elementColor)
+                        ClockNumber(number: clock.time.secondsFirstDigit)
+                        ClockNumber(number: clock.time.secondsSecondDigit)
+                    }
+                    .foregroundColor(ClockView.textColor)
                 }
-                .foregroundColor(ClockView.textColor)
+            }
+            .font(ClockView.mainFont)
+            .frame(maxWidth: .infinity, minHeight: 120)
+            .background(ClockView.backgroundColor)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+            
+            if clock.isCountup {
+                let time = ClockTime.getPaddedPresentation(for: clock.time.timeInSeconds)
+                Text("\(time)")
+                    .offset(x: -10, y: 10)
+                    .foregroundColor(.secondary)
+                    .font(LayoutUtils.timeFont)
             }
         }
-        .font(ClockView.mainFont)
-        .frame(maxWidth: .infinity, minHeight: 120)
-        .background(ClockView.backgroundColor)
-        .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }
 
@@ -68,9 +76,9 @@ struct ClockView_Previews: PreviewProvider {
                 .ignoresSafeArea()
             VStack {
                 ClockView.simpleCountup
-                    .frame(width: 320, height: 300)
+                    .frame(width: 320)
                 ClockView.simpleCountdown
-                    .frame(width: 320, height: 300)
+                    .frame(width: 320)
             }
         }
     }
