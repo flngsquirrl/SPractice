@@ -51,7 +51,7 @@ class Practice: ObservableObject {
         program.exercises[currentExerciseIndex]
     }
     
-    private var previousExercise: Exercise {
+    var previousExercise: Exercise {
         program.exercises[currentExerciseIndex - 1]
     }
     
@@ -69,6 +69,10 @@ class Practice: ObservableObject {
     
     var currentTask: Task {
         currentExercise.tasks[currentTaskIndex]
+    }
+    
+    var isDurationRemainingApproximate: Bool {
+        program.hasFlowExercises(fromIndex: currentExerciseIndex)
     }
     
     func run() {

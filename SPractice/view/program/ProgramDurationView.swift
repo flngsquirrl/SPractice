@@ -25,10 +25,10 @@ struct ProgramDurationView: View {
         self.showAsApproximate = template.hasFlowExercises
     }
     
-    init(for duration: Duration, mode: DurationView.Mode = .padded) {
+    init(for duration: Duration, mode: DurationView.Mode = .padded, showAsApproximate: Bool = false) {
         self.duration = duration
         self.mode = mode
-        self.showAsApproximate = false
+        self.showAsApproximate = showAsApproximate
     }
     
     var body: some View {

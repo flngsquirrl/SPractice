@@ -18,7 +18,7 @@ struct ExerciseShortView: View {
     private var displayDuration = false
     private var isIconAccented = false
     
-    init(for exercise: Exercise, displayDuration: Bool = false, isIconAccented: Bool = false) {
+    init(for exercise: Exercise, displayDuration: Bool = true, isIconAccented: Bool = false) {
         let taskType = exercise.type == .tabata ? .activity : exercise.tasks[0].type
         self.init(name: exercise.name, type: exercise.type, taskType: taskType, isService: exercise.isService, duration: exercise.duration, displayDuration: displayDuration, isIconAccented: isIconAccented)
     }
