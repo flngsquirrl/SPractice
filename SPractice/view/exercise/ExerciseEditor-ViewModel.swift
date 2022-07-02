@@ -44,7 +44,7 @@ extension ExerciseEditor {
         }
         
         var resetDurationDisabled: Bool {
-            exercise.type != .timer
+            exercise.type != .timer || (minutes == 0 && seconds == 0)
         }
         
         var intensityDisabled: Bool {
