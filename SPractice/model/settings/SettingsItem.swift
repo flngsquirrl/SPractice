@@ -10,10 +10,10 @@ import Foundation
 class SettingsItem: ObservableObject, Codable {
     
     enum SettingsType: String, Codable {
-        case tabata_warmup = "Warm up"
-        case tabata_activity = "Activity"
-        case tabata_rest = "Rest"
-        case tabata_cooldown = "Cool down"
+        case tabata_warmup = "warm-up"
+        case tabata_activity = "activity"
+        case tabata_rest = "rest"
+        case tabata_cooldown = "cool-down"
         case tabata_repetitions = "Number of repetitions"
         case general_rest = "Duration"
         
@@ -41,6 +41,10 @@ class SettingsItem: ObservableObject, Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         type = try container.decode(SettingsType.self, forKey: .type)
         value = try container.decode(Int.self, forKey: .value)
+    }
+    
+    var isTabata: Bool {
+        SettingsType.tabata_interval_sequence.contains(type)
     }
     
     func encode(to encoder: Encoder) throws {

@@ -18,6 +18,9 @@ struct SettingsItemView: View {
     
     var body: some View {
         HStack {
+            if item.isTabata {
+                IntensityTypeImage(type: item.type == .tabata_activity ? .activity : .rest)
+            }
             Text("\(item.type.rawValue)")
             Spacer()
             Picker("\(item.type.rawValue) duration", selection: $item.value) {
