@@ -11,23 +11,24 @@ struct EditExerciseView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @State private var exercise: ExerciseTemplate
+    @ObservedObject private var viewModel: ViewModel
     
     var onSave: (ExerciseTemplate) -> Void
     
     init(for template: ExerciseTemplate, onSave: @escaping (ExerciseTemplate) -> Void) {
-        self._exercise = State<ExerciseTemplate>(initialValue: template)
+        self.viewModel = ViewModel(template: template)
         self.onSave = onSave
     }
     
     var body: some View {
-        ExerciseEditor(for: $exercise)
+        ExerciseEditor(for: $viewModel.template)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
-                        onSave(exercise.makeCopy())
+                        onSave(viewModel.templateToSave)
                         dismiss()
                     }
+                    .disabled(viewModel.isTemplateValid)
                 }
                 
                 ToolbarItem(placement: .cancellationAction) {

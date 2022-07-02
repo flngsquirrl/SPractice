@@ -12,21 +12,22 @@ struct AddExerciseView: View {
     @Environment(\.dismiss) var dismiss
     var onAdd: (ExerciseTemplate) -> Void
     
-    @State private var newExercise = ExerciseTemplate.template
+    @StateObject private var viewModel = ViewModel()
     
     init(onAdd: @escaping (ExerciseTemplate) -> Void) {
         self.onAdd = onAdd
     }
     
     var body: some View {
-        ExerciseEditor(for: $newExercise)
+        ExerciseEditor(for: $viewModel.template)
             .navigationTitle("New exercise")
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Add") {     
-                        onAdd(ExerciseTemplate(from: newExercise))
+                        onAdd(viewModel.templateToAdd)
                         dismiss()
                     }
+                    .disabled(viewModel.isTemplateValid)
                 }
                 
                 ToolbarItemGroup(placement: .cancellationAction) {
