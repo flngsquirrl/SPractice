@@ -41,7 +41,7 @@ struct ProgramDetailsView: View {
         .fullScreenCover(isPresented: $viewModel.showPracticeView) {
             PracticeView(practice: Practice(for: Program(from: viewModel.programTemplate)))
         }
-        .fullScreenCover(isPresented: $viewModel.showEditTemplateView) {
+        .sheet(isPresented: $viewModel.showEditTemplateView) {
             NavigationView {
                 EditProgramView(for: viewModel.template) {
                     viewModel.updateProgramTemplate(template: $0)
