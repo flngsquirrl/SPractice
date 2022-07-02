@@ -47,7 +47,7 @@ struct SettingsView: View {
                 } header: {
                     Text("Tabata intervals")
                 } footer: {
-                    Text("These intervals are set in seconds and compose one full Tabata cycle")
+                    Text("These intervals are set in seconds and compose one full tabata cycle")
                 }
                 
                 Section {
@@ -55,7 +55,7 @@ struct SettingsView: View {
                 } header: {
                     Text("Tabata exercise")
                 } footer: {
-                    Text("Number of activity+rest sequences to run during one Tabata exercise")
+                    Text("Number of activity+rest sequences during one tabata exercise")
                 }
                 
                 Section {
