@@ -21,7 +21,7 @@ struct ProgramDurationSection: View {
         } header: {
             Text("Summary")
         } footer: {
-            Text("Duration is the minimal time needed to complete all timer and tabata exercises of the practice, as flow exercises time can't be predicted")
+            LayoutUtils.durationSectionFooter
         }
     }
 }

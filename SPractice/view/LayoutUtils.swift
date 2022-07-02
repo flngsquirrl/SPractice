@@ -15,4 +15,6 @@ struct LayoutUtils {
     static let unknownDurationImage = Image(systemName: "questionmark")
     static let unlimitedDurationImage = Image(systemName: "infinity")
     static let approximationText = Text("~")
+    
+    static let durationSectionFooter = Text("Duration is the minimal time needed to complete all timer and tabata exercises, as flow exercises time is not limited")
 }
