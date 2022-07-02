@@ -20,7 +20,7 @@ extension ExerciseEditor {
     
     @MainActor class ViewModel: ObservableObject {
         
-        @Binding var exercise: ExerciseTemplate
+        @Binding var template: ExerciseTemplate
         
         @Published var isTypeSet: Bool = true
 
@@ -28,44 +28,40 @@ extension ExerciseEditor {
             minutes == 60
         }
         
-        var tasks: [Task] {
-            guard exercise.type != nil else {
-                return []
-            }
-            
-            return Exercise(from: exercise)?.tasks ?? []
+        var exercise: Exercise {
+            return Exercise(from: template)!
         }
         
         @Published var minutes: Int = 0
         @Published var seconds: Int = 0
         
         var isTypeDefined: Bool {
-            exercise.type != nil
+            template.type != nil
         }
         
         var resetDurationDisabled: Bool {
-            exercise.type != .timer || (minutes == 0 && seconds == 0)
+            template.type != .timer || (minutes == 0 && seconds == 0)
         }
         
         var intensityDisabled: Bool {
-            exercise.type == .tabata
+            template.type == .tabata
         }
         
         var isTimer: Bool {
-            exercise.type == .timer
+            template.type == .timer
         }
         
         static let secondsSelectionArray = Array(stride(from: 0, through: 50, by: 10))
         
         init(for template: Binding<ExerciseTemplate>) {
-            self._exercise = template
-            self.isTypeSet = self.exercise.type != nil
+            self._template = template
+            self.isTypeSet = self.template.type != nil
             
-            if case .known(let time) = self.exercise.duration {
-                let minutes = self.exercise.type == .timer ? ClockTime.getMinutes(of: time) : 0
+            if case .known(let time) = self.template.duration {
+                let minutes = self.template.type == .timer ? ClockTime.getMinutes(of: time) : 0
                 self._minutes = Published<Int>(initialValue: minutes)
                 
-                let seconds = self.exercise.type == .timer ? ClockTime.getSeconds(of: time) : 0
+                let seconds = self.template.type == .timer ? ClockTime.getSeconds(of: time) : 0
                 self._seconds = Published<Int>(initialValue: seconds)
             }
         }
@@ -83,21 +79,21 @@ extension ExerciseEditor {
         }
         
         func setDuration() {
-            exercise.duration = .known(ClockTime.calculateDuration(minutes: minutes, seconds: seconds))
+            template.duration = .known(ClockTime.calculateDuration(minutes: minutes, seconds: seconds))
         }
         
         func onTypeSetChange(newValue: Bool) {
             if !newValue {
-                exercise.type = nil
+                template.type = nil
             } else {
-                exercise.type = .flow
+                template.type = .flow
             }
             
-            onTypeChange(newValue: exercise.type)
+            onTypeChange(newValue: template.type)
         }
         
         func onTypeChange(newValue: ExerciseType?) {
-            exercise.intensityType = .activity
+            template.intensityType = .activity
         }
         
         func resetDuration() {

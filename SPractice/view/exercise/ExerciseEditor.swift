@@ -20,7 +20,7 @@ struct ExerciseEditor: View {
     var body: some View {
         Form {
             Section {
-                TextField("Exercise name", text: $viewModel.exercise.name)
+                TextField("Exercise name", text: $viewModel.template.name)
             }
             
             Section {
@@ -33,20 +33,20 @@ struct ExerciseEditor: View {
                     }
                 
                 if viewModel.isTypeDefined {
-                    Picker("Type", selection: $viewModel.exercise.type.animation()) {
+                    Picker("Type", selection: $viewModel.template.type.animation()) {
                         ForEach(ExerciseType.allCases, id: \.self) { type in
                             ExerciseTypeImage(type: type)
                                 .tag(type as ExerciseType?)
                         }
                     }
-                    .onChange(of: viewModel.exercise.type) { viewModel.onTypeChange(newValue: $0) }
+                    .onChange(of: viewModel.template.type) { viewModel.onTypeChange(newValue: $0) }
                     .pickerStyle(.segmented)
                 }
             
                 HStack {
                     Text("Type")
                     Spacer()
-                    ExerciseTypeView(type: viewModel.exercise.type)
+                    ExerciseTypeView(type: viewModel.template.type)
                         .foregroundColor(.secondary)
                 }
             }
@@ -59,7 +59,7 @@ struct ExerciseEditor: View {
                         if viewModel.isTimer {
                             timerDurationControl
                         } else {
-                            ExerciseDurationView(type: viewModel.exercise.type, duration: viewModel.exercise.duration)
+                            ExerciseDurationView(type: viewModel.template.type, duration: viewModel.template.duration)
                                 .foregroundColor(.secondary)
                         }
                     }
@@ -67,18 +67,22 @@ struct ExerciseEditor: View {
                         .disabled(viewModel.resetDurationDisabled)
                 }
             } footer: {
-                if let type = viewModel.exercise.type {
+                if let type = viewModel.template.type {
                     if type == .flow {
-                        Text("Duration of a flow exercise can't be defined")
+                        Text("Duration of a flow exercise is not limited")
                     } else if type == .tabata {
-                        Text("Duration of a tabata exercise and its tasks is based on the current Settings")
-                        }
+                        Text("Duration of a tabata exercise and its tasks is based on the general Settings of the application")
+                    }
                 }
             }
             
             if viewModel.isTypeDefined {
                 Section {
                     intensityControl
+                } footer: {
+                    if viewModel.template.type == .tabata {
+                        Text("Intensity of a tabata exercise can't be configured")
+                    }
                 }
                 
                 Section {
@@ -90,30 +94,12 @@ struct ExerciseEditor: View {
             
         }
         .sheet(isPresented: $showTasks) {
-            List {
-                Section {
-                    ForEach(viewModel.tasks) { task in
-                        TaskDetailsShortView(task: task, exerciseType: viewModel.exercise.type!)
-                    }
-                } header: {
-                    Text("Tasks")
-                } footer: {
-                    switch viewModel.exercise.type! {
-                    case .flow:
-                        Text("Edit the template to change the intensity of the task")
-                    case .timer:
-                        Text("Edit the template to change intensity and duration of the task")
-                    case .tabata:
-                        Text("Tasks sequence and duration for a tabata exercise are based on the current Settings")
-
-                    }
-                }
-            }
+            ExerciseEditorTasksView(exercise: viewModel.exercise)
         }
     }
     
     @ViewBuilder var intensityControl: some View {
-        Picker("Intensity", selection: $viewModel.exercise.intensityType.animation()) {
+        Picker("Intensity", selection: $viewModel.template.intensityType.animation()) {
             ForEach(IntensityType.allCases, id: \.self) { type in
                 IntensityTypeImage(type: type).tag(type as IntensityType?)
             }
@@ -125,8 +111,8 @@ struct ExerciseEditor: View {
             Text("Intensity")
             Spacer()
             HStack {
-                IntensityTypeImage(type: viewModel.exercise.intensityType!)
-                Text(viewModel.exercise.intensityType!.rawValue)
+                IntensityTypeImage(type: viewModel.template.intensityType!)
+                Text(viewModel.template.intensityType!.rawValue)
             }
             .foregroundColor(.secondary)
         }
