@@ -31,7 +31,7 @@ struct ProgramDetailsView: View {
                     Label("Practice", systemImage: "play.rectangle")
                 }
             } header: {
-                Text("Practice")
+                Text("Settings")
             } footer: {
                 Text("Having rest between execises lets you take a deep breath and prepare for the upcoming exercise")
             }
