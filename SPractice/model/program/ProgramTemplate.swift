@@ -63,14 +63,26 @@ struct ProgramTemplate: Identifiable, Codable {
     }
     
     var hasExercisesMissingDuration: Bool {
+        hasExercisesMissingDuration(excludeTabata: true)
+    }
+    
+    func hasExercisesMissingDuration(excludeTabata: Bool = true) -> Bool {
         let exerciseMissingDuration = exercises.first(where: {
             if case .unknown = $0.duration {
-                return true
+                return $0.type != .tabata
             } else {
                 return false
             }
         })
         return exerciseMissingDuration != nil
+    }
+    
+    var hasExercisesWithoutType: Bool {
+        let exerciseWithoutType = exercises.first(where: {
+            $0.type == nil
+        })
+        
+        return exerciseWithoutType != nil
     }
     
     static var template: ProgramTemplate {

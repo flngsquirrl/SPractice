@@ -28,5 +28,9 @@ extension ProgramDetailsView {
         func updateProgramTemplate(template: ProgramTemplate) {
             self.template = template
         }
+        
+        var isPracticeDisabled: Bool {
+            !ValidationService.isValidToPractice(template: template)
+        }
     }
 }

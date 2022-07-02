@@ -30,6 +30,7 @@ struct ProgramDetailsView: View {
                 } label: {
                     Label("Practice", systemImage: "play.rectangle")
                 }
+                .disabled(viewModel.isPracticeDisabled)
             } header: {
                 Text("Settings")
             } footer: {

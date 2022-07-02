@@ -15,8 +15,8 @@ extension AddExerciseView {
             ExerciseTemplate(from: template)
         }
         
-        var isTemplateValid: Bool {
-            ValidationService.isValid(template)
+        var isAddDisabled: Bool {
+            !ValidationService.isValid(template)
         }
     }
 }

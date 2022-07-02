@@ -28,7 +28,7 @@ struct EditExerciseView: View {
                         onSave(viewModel.templateToSave)
                         dismiss()
                     }
-                    .disabled(viewModel.isTemplateValid)
+                    .disabled(viewModel.isSaveDisabled)
                 }
                 
                 ToolbarItem(placement: .cancellationAction) {

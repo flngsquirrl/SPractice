@@ -27,7 +27,7 @@ struct AddExerciseView: View {
                         onAdd(viewModel.templateToAdd)
                         dismiss()
                     }
-                    .disabled(viewModel.isTemplateValid)
+                    .disabled(viewModel.isAddDisabled)
                 }
                 
                 ToolbarItemGroup(placement: .cancellationAction) {

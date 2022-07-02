@@ -19,8 +19,8 @@ extension EditExerciseView {
             template.makeCopy()
         }
         
-        var isTemplateValid: Bool {
-            ValidationService.isValid(template)
+        var isSaveDisabled: Bool {
+            !ValidationService.isValid(template)
         }
     }
 }

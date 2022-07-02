@@ -13,23 +13,22 @@ struct AddProgramView: View {
     
     var onAdd: (ProgramTemplate) -> Void
     
-    @State private var newProgram = ProgramTemplate.template
-    @State private var editMode: EditMode = .inactive
+    @StateObject private var viewModel = ViewModel()
     
     init(onAdd: @escaping (ProgramTemplate) -> Void) {
         self.onAdd = onAdd
     }
     
     var body: some View {
-        ProgramEditor(for: $newProgram, editMode: $editMode)
+        ProgramEditor(for: $viewModel.newTemplate, editMode: $viewModel.editMode)
             .navigationTitle("New program")
             .toolbar {
                 ToolbarItemGroup(placement: .confirmationAction) {
                     Button("Add") {
-                        onAdd(newProgram)
+                        onAdd(viewModel.newTemplate)
                         dismiss()
                     }
-                    .disabled(editMode.isEditing)
+                    .disabled(viewModel.isAddDisabled)
                 }
                 
                 ToolbarItem(placement: .cancellationAction) {
