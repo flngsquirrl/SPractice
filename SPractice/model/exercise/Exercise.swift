@@ -93,8 +93,8 @@ struct Exercise: Identifiable, Equatable {
         return Array<Task>.wrapElement(element: task)
     }
     
-    static let catCow = Exercise(type: .timer, name: "Cat-Cow", isService: false, tasks: [Task.activity60])
-    static let surjaNamascar = Exercise(type: .flow, name: "Surja Namascar", isService: false, tasks: [Task.activityFlow])
-    static let vasihsthasana = Exercise(type: .tabata, name: "Vasihsthasana",  isService: false, tasks: [Task.restTabataWarmUp, Task.activityTabata1, Task.restTabata1, Task.activityTabata2, Task.restTabata2, Task.restTabataCoolDown])
-    static let rest = Exercise(type: .timer, name: "Rest", isService: true, tasks: [Task.restService10])
+    static let catCow = Exercise(from: ExerciseTemplate.catCow)!
+    static let surjaNamascar = Exercise(from: ExerciseTemplate.surjaNamascar)!
+    static let vasihsthasana = Exercise(from: ExerciseTemplate.vasihsthasana)!
+    static let rest = Exercise(from: ExerciseTemplate.rest)!
 }

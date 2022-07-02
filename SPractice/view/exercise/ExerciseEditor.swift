@@ -59,7 +59,7 @@ struct ExerciseEditor: View {
                         if viewModel.isTimer {
                             timerDurationControl
                         } else {
-                            ExerciseDurationView(type: viewModel.template.type, duration: viewModel.template.duration)
+                            ExerciseDurationView(type: viewModel.normalizedTemplate.type, duration: viewModel.normalizedTemplate.duration)
                                 .foregroundColor(.secondary)
                         }
                     }

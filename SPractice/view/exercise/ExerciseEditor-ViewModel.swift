@@ -29,7 +29,11 @@ extension ExerciseEditor {
         }
         
         var exercise: Exercise {
-            return Exercise(from: template)!
+            return Exercise(from: normalizedTemplate)!
+        }
+        
+        var normalizedTemplate: ExerciseTemplate {
+            return ExerciseTemplate(from: template)
         }
         
         @Published var minutes: Int = 0
