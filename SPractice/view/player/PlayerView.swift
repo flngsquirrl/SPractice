@@ -81,10 +81,10 @@ struct PlayerView_Previews: PreviewProvider {
         GeometryReader { geo in
             RoundedRectangle(cornerRadius: 12)
                 .stroke(.black)
-                .frame(width: 350, height: 160)
+                .frame(width: geo.size.width * 0.8, height: 160)
             
             PlayerView(player: Player())
-                .frame(width: 350, height: 160)
+                .frame(width: geo.size.width * 0.8, height: 160)
         }
     }
 }
