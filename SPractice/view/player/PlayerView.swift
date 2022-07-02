@@ -65,14 +65,14 @@ struct PlayerView: View {
                     PlayerButton(systemImageName: "forward.frame.fill", onClick: player.forwardClicked, isEnabled: player.isForwardEnabled, width: width)
                         .animation(.default, value: player.isForwardEnabled)
                 }
-                .padding([.bottom], 10)
+                //.padding([.bottom], 10)
                 
-                PlayerButton(systemImageName: "stop.fill", onClick: player.stopClicked, isEnabled: player.isStopEnabled, width: width)
-                    .animation(.default, value: player.isStopEnabled)
+//                PlayerButton(systemImageName: "stop.fill", onClick: player.stopClicked, isEnabled: player.isStopEnabled, width: width)
+//                    .animation(.default, value: player.isStopEnabled)
             }
             .frame(width: geo.size.width)
         }
-        .frame(height: 160)
+        .frame(height: 70)
     }
 }
 
@@ -81,10 +81,10 @@ struct PlayerView_Previews: PreviewProvider {
         GeometryReader { geo in
             RoundedRectangle(cornerRadius: 12)
                 .stroke(.black)
-                .frame(width: geo.size.width * 0.8, height: 160)
+                .frame(width: geo.size.width * 0.8, height: 70)
             
             PlayerView(player: Player())
-                .frame(width: geo.size.width * 0.8, height: 160)
+                .frame(width: geo.size.width * 0.8, height: 70)
         }
     }
 }

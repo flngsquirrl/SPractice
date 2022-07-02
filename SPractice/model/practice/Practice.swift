@@ -96,6 +96,10 @@ class Practice: ObservableObject {
         updatePlayerState()
     }
     
+    func restart() {
+        reset()
+    }
+    
     func prepare() {
         guard isStarted else { return }
         
@@ -114,6 +118,7 @@ class Practice: ObservableObject {
         isStarted = false
         isCompleted = false
         
+        durationRemaining = program.duration
         currentExerciseIndex = 0
         currentTaskIndex = 0
     }

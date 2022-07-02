@@ -28,10 +28,12 @@ struct PracticeView: View {
                                 .frame(maxHeight: .infinity)
                                 .wrapped()
                             VStack {
+                                Spacer()
                                 PracticeSequenceView(practice: practice)
                                     .frame(maxWidth: .infinity)
                                 Spacer()
                                 PlayerView(player: practice.player)
+                                Spacer()
                             }
                             .padding(.leading)
                         }
@@ -61,6 +63,15 @@ struct PracticeView: View {
                     }
                     
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
+                        
+                        Button() {
+                            withAnimation {
+                                practice.restart()
+                            }
+                        } label: {
+                            Image(systemName: "restart.circle")
+                        }
+                        .disabled(!practice.isStarted)
                         
                         Button() {
                             withAnimation {
