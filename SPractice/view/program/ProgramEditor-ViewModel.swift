@@ -17,6 +17,10 @@ extension ProgramEditor {
             self._template = template
         }
         
+        var targetTemplate: ProgramTemplate {
+            ProgramTemplate(from: template)
+        }
+        
         func addNewExercises(exercises: [ExerciseTemplate]) {
             template.exercises.append(contentsOf: exercises)
         }

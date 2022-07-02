@@ -19,16 +19,12 @@ struct ExerciseShortView: View {
     private var isIconAccented = false
     
     init(for exercise: Exercise, displayDuration: Bool = true, isIconAccented: Bool = false) {
-        let taskType = exercise.type == .tabata ? .activity : exercise.tasks[0].type
+        let taskType = exercise.tasks[0].type
         self.init(name: exercise.name, type: exercise.type, taskType: taskType, isService: exercise.isService, duration: exercise.duration, displayDuration: displayDuration, isIconAccented: isIconAccented)
     }
     
     init(for template: ExerciseTemplate, displayDuration: Bool = false, isIconAccented: Bool = false) {
-        var duration: Duration = .unknown
-        if (displayDuration) {
-            duration = template.type == .tabata ? .known(SettingsManager.shared.tabataExerciseDuration) : template.duration
-        }
-        self.init(name: template.name, type: template.type, taskType: template.intensityType, isService: template.isService, duration: duration, displayDuration: displayDuration, isIconAccented: isIconAccented)
+        self.init(name: template.name, type: template.type, taskType: template.intensityType, isService: template.isService, duration: template.duration, displayDuration: displayDuration, isIconAccented: isIconAccented)
     }
     
     private init(name: String, type: ExerciseType?, taskType: IntensityType?, isService: Bool, duration: Duration, displayDuration: Bool = false, isIconAccented: Bool = false) {

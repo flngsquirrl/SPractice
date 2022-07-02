@@ -36,7 +36,7 @@ struct ExerciseTemplate: Identifiable, Hashable, Codable {
                 self.isService = isService
                 self.intensityType = taskType
             case .tabata:
-                self.duration = .unknown
+                self.duration = .known(SettingsManager.shared.tabataExerciseDuration)
                 self.isService = false
                 self.intensityType = .activity
             }

@@ -17,10 +17,6 @@ struct ExerciseShortDecorativeView: View {
         self.displayDuration = displayDuration
     }
     
-    var duration: Duration {
-        exercise.type == .tabata ? .known(SettingsManager.shared.tabataExerciseDuration) : exercise.duration
-    }
-    
     var body: some View {
         HStack {
             ExerciseTypeImage(type: exercise.type)
@@ -34,7 +30,7 @@ struct ExerciseShortDecorativeView: View {
             }
             Spacer()
             if displayDuration {
-                ExerciseDurationView(type: exercise.type, duration: duration)
+                ExerciseDurationView(type: exercise.type, duration: exercise.duration)
                     .foregroundColor(.secondary)
             }
         }

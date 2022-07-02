@@ -26,6 +26,8 @@ struct ProgramEditor: View {
         Form {
             TextField("Program name", text: $viewModel.template.name)
             
+            ProgramDurationSection(template: viewModel.targetTemplate)
+            
             Section() {
                 Button() {
                     showNewExerciseView = true
