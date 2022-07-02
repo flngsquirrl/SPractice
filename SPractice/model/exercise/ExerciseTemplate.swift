@@ -58,7 +58,7 @@ struct ExerciseTemplate: Identifiable, Hashable, Codable {
     }
     
     static var restTemplate: ExerciseTemplate {
-        ExerciseTemplate(type: .timer, name: "Rest", isService: true, duration: .known(SettingsManager.shared.getValue(of: .general_rest)))
+        ExerciseTemplate(type: .timer, name: "Rest", isService: true, taskType: .rest, duration: .known(SettingsManager.shared.getValue(of: .general_rest)))
     }
     
     static var template: ExerciseTemplate {
