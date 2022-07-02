@@ -25,7 +25,7 @@ struct ExerciseTypeImage: View {
             case .timer:
                 return "clock\(postfix)"
             case .tabata:
-                return "t.circle\(postfix)"
+                return "arrow.triangle.2.circlepath.circle\(postfix)"
             }
         } else {
             return "questionmark.circle\(postfix)"
