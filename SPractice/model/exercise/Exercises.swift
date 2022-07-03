@@ -9,7 +9,7 @@ import Foundation
 
 @MainActor class Exercises: ObservableObject {
     
-    @Published var templates: [ExerciseTemplate] = [ExerciseTemplate.catCow, ExerciseTemplate.concentration, ExerciseTemplate.vasihsthasana, ExerciseTemplate.catCowNoDuration, ExerciseTemplate.surjaNamascar, ExerciseTemplate.catCowNoType]
+    @Published var templates: [ExerciseTemplate] = [ExerciseTemplate.catCow, ExerciseTemplate.balasana, ExerciseTemplate.concentration, ExerciseTemplate.vasihsthasana, ExerciseTemplate.catCowNoDuration, ExerciseTemplate.surjaNamascar, ExerciseTemplate.catCowNoType]
     
     static let shared = Exercises()
     

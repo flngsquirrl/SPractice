@@ -75,6 +75,7 @@ struct ExerciseTemplate: Identifiable, Hashable, Codable {
     
     // examples
     static let catCow = ExerciseTemplate(type: .timer, name: "Cat-Cow", taskType: .activity, duration: .known(90))
+    static let balasana = ExerciseTemplate(type: .flow, name: "Balasana", taskType: .rest, duration: .unlimited)
     static let surjaNamascar = ExerciseTemplate(type: .flow, name: "Surja Namascar", taskType: .activity, duration: .unlimited)
     static let vasihsthasana = ExerciseTemplate(type: .tabata, name: "Vasihsthasana", duration: .unknown)
     static let rest = ExerciseTemplate(type: .timer, name: "Rest", isService: true, taskType: .rest, duration: .known(10))
