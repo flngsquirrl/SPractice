@@ -15,7 +15,7 @@ struct ProgramSummaryView: View {
         
         Section("Sequence") {
             ForEach(template.exercises) { exercise in
-                ExerciseShortView(for: exercise, displayDuration: true)
+                ExerciseShortView(for: exercise)
                     .foregroundColor(exercise.isService ? .secondary : .primary)
             }
         }

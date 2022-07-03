@@ -12,7 +12,7 @@ struct ExerciseShortDecorativeView: View {
     private let exercise: ExerciseTemplate
     private var displayDuration = false
     
-    init(for exercise: ExerciseTemplate, displayDuration: Bool = false) {
+    init(for exercise: ExerciseTemplate, displayDuration: Bool = true) {
         self.exercise = exercise
         self.displayDuration = displayDuration
     }

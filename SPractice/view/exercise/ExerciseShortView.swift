@@ -23,11 +23,11 @@ struct ExerciseShortView: View {
         self.init(name: exercise.name, type: exercise.type, taskType: taskType, isService: exercise.isService, duration: exercise.duration, displayDuration: displayDuration, isIconAccented: isIconAccented)
     }
     
-    init(for template: ExerciseTemplate, displayDuration: Bool = false, isIconAccented: Bool = false) {
+    init(for template: ExerciseTemplate, displayDuration: Bool = true, isIconAccented: Bool = false) {
         self.init(name: template.name, type: template.type, taskType: template.intensityType, isService: template.isService, duration: template.duration, displayDuration: displayDuration, isIconAccented: isIconAccented)
     }
     
-    private init(name: String, type: ExerciseType?, taskType: IntensityType?, isService: Bool, duration: Duration, displayDuration: Bool = false, isIconAccented: Bool = false) {
+    private init(name: String, type: ExerciseType?, taskType: IntensityType?, isService: Bool, duration: Duration, displayDuration: Bool = true, isIconAccented: Bool = false) {
         self.name = name
         self.type = type
         self.taskType = taskType
