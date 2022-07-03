@@ -10,7 +10,7 @@ import SwiftUI
 struct ExerciseShortDecorativeView: View {
     
     private let exercise: ExerciseTemplate
-    private var displayDuration = false
+    private var displayDuration: Bool
     
     init(for exercise: ExerciseTemplate, displayDuration: Bool = true) {
         self.exercise = exercise
@@ -25,7 +25,7 @@ struct ExerciseShortDecorativeView: View {
             VStack(alignment: .leading) {
                 Text(exercise.name)
                     .fontWeight(.semibold)
-                Text(exercise.intensityType?.rawValue ?? "?")
+                Text(exercise.intensityType?.rawValue ?? "unknown intensity")
                         .foregroundColor(.secondary)
             }
             Spacer()
