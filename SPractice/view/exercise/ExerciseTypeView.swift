@@ -13,8 +13,13 @@ struct ExerciseTypeView: View {
     
     var body: some View {
         HStack {
-            ExerciseTypeImage(type: type)
-            Text(type?.rawValue ?? "unknown")
+            if let type = type {
+                ExerciseTypeImage(type: type)
+                Text(type.rawValue)
+            } else {
+                Image(systemName: "questionmark")
+                Text("unknown")
+            }
         }
     }
 }

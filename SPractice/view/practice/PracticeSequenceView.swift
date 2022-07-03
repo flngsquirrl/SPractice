@@ -14,7 +14,6 @@ struct PracticeSequenceView: View {
     var body: some View {
         Group {
             HStack {
-                //Image(systemName: "arrow.forward.circle.fill")
                 Image(systemName: "arrow.forward.circle.fill")
                     .foregroundColor(practice.isLastExercise ? .secondary : .lightOrange)
                 
