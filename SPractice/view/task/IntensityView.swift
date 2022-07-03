@@ -1,5 +1,5 @@
 //
-//  IntensityTypeView.swift
+//  IntensityView.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 3.07.22.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct IntensityTypeView: View {
+struct IntensityView: View {
     
-    var intensity: IntensityType?
+    var intensity: Intensity?
     
     var body: some View {
         HStack {
             if let intensity = intensity {
-                IntensityTypeImage(type: intensity)
+                IntensityImage(type: intensity)
                 Text("\(intensity.rawValue)")
             } else {
                 Image(systemName: "questionmark")
@@ -24,12 +24,12 @@ struct IntensityTypeView: View {
     }
 }
 
-struct IntensityTypeView_Previews: PreviewProvider {
+struct IntensityView_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            IntensityTypeView(intensity: .rest)
-            IntensityTypeView(intensity: .activity)
-            IntensityTypeView(intensity: nil)
+            IntensityView(intensity: .rest)
+            IntensityView(intensity: .activity)
+            IntensityView(intensity: nil)
         }
     }
 }

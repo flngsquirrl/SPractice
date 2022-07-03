@@ -19,7 +19,7 @@ struct SettingsItemView: View {
     var body: some View {
         HStack {
             if item.isTabata {
-                IntensityTypeImage(type: item.type == .tabata_activity ? .activity : .rest)
+                IntensityImage(type: item.type == .tabata_activity ? .activity : .rest)
             }
             Text("\(item.type.rawValue)")
             Spacer()

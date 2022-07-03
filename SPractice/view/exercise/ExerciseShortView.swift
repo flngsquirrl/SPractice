@@ -11,7 +11,7 @@ struct ExerciseShortView: View {
     
     private let name: String
     private let type: ExerciseType?
-    private let taskType: IntensityType?
+    private let intensity: Intensity?
     private let isService: Bool
     private let duration: Duration
     
@@ -19,18 +19,17 @@ struct ExerciseShortView: View {
     private var isIconAccented = false
     
     init(for exercise: Exercise, displayDuration: Bool = true, isIconAccented: Bool = false) {
-        let taskType = exercise.tasks[0].type
-        self.init(name: exercise.name, type: exercise.type, taskType: taskType, isService: exercise.isService, duration: exercise.duration, displayDuration: displayDuration, isIconAccented: isIconAccented)
+        self.init(name: exercise.name, type: exercise.type, intensity: exercise.intensityType, isService: exercise.isService, duration: exercise.duration, displayDuration: displayDuration, isIconAccented: isIconAccented)
     }
     
     init(for template: ExerciseTemplate, displayDuration: Bool = true, isIconAccented: Bool = false) {
-        self.init(name: template.name, type: template.type, taskType: template.intensityType, isService: template.isService, duration: template.duration, displayDuration: displayDuration, isIconAccented: isIconAccented)
+        self.init(name: template.name, type: template.type, intensity: template.intensityType, isService: template.isService, duration: template.duration, displayDuration: displayDuration, isIconAccented: isIconAccented)
     }
     
-    private init(name: String, type: ExerciseType?, taskType: IntensityType?, isService: Bool, duration: Duration, displayDuration: Bool = true, isIconAccented: Bool = false) {
+    private init(name: String, type: ExerciseType?, intensity: Intensity?, isService: Bool, duration: Duration, displayDuration: Bool = true, isIconAccented: Bool = false) {
         self.name = name
         self.type = type
-        self.taskType = taskType
+        self.intensity = intensity
         self.isService = isService
         self.duration = duration
         self.displayDuration = displayDuration
@@ -51,8 +50,8 @@ struct ExerciseShortView: View {
                 if displayDuration {
                     ExerciseDurationView(type: type, duration: duration)
                 }
-                if let taskType = taskType {
-                    IntensityTypeImage(type: taskType)
+                if let intensity = intensity {
+                    IntensityImage(type: intensity)
                 }
             }
             .foregroundColor(.secondary)

@@ -1,5 +1,5 @@
 //
-//  IntensityTypeImage.swift
+//  IntensityImage.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 21.06.22.
@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct IntensityTypeImage: View {
-    var type: IntensityType
+struct IntensityImage: View {
+    var type: Intensity
     var isFilled = false
 
     var body: some View {
         Image(systemName: Self.imageName(for: type, isFilled: isFilled))
     }
     
-    static func imageName(for type: IntensityType, isFilled: Bool = false) -> String {
+    static func imageName(for type: Intensity, isFilled: Bool = false) -> String {
         let postfix = isFilled ? ".fill" : ""
         
         switch type {
@@ -23,19 +23,21 @@ struct IntensityTypeImage: View {
             return "sun.max.circle\(postfix)"
         case .rest:
             return "moon.circle\(postfix)"
+        case .mixed:
+            return "circle.lefthalf.filled"
         }
         
     }
 }
 
-struct IntensityTypeImage_Previews: PreviewProvider {
+struct IntensityImage_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            IntensityTypeImage(type: .activity)
-            IntensityTypeImage(type: .rest)
+            IntensityImage(type: .activity)
+            IntensityImage(type: .rest)
             
-            IntensityTypeImage(type: .activity, isFilled: true)
-            IntensityTypeImage(type: .rest, isFilled: true)
+            IntensityImage(type: .activity, isFilled: true)
+            IntensityImage(type: .rest, isFilled: true)
         }
     }
 }

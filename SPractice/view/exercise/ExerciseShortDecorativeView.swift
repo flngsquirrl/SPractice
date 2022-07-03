@@ -25,8 +25,9 @@ struct ExerciseShortDecorativeView: View {
             VStack(alignment: .leading) {
                 Text(exercise.name)
                     .fontWeight(.semibold)
-                Text(exercise.intensityType?.rawValue ?? "unknown intensity")
-                        .foregroundColor(.secondary)
+                let intensity = exercise.intensityType?.rawValue ?? "unknown"
+                Text("intensity: \(intensity)")
+                    .foregroundColor(.secondary)
             }
             Spacer()
             if displayDuration {

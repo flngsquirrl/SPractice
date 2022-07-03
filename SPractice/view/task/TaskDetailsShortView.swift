@@ -14,7 +14,7 @@ struct TaskDetailsShortView: View {
     
     var body: some View {
         HStack {
-            IntensityTypeImage(type: task.type)
+            IntensityImage(type: task.intensity)
             
             Text(task.name)
             Spacer()
