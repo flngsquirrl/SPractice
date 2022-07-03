@@ -69,7 +69,7 @@ struct PracticeView: View {
                                 practice.restart()
                             }
                         } label: {
-                            Image(systemName: "restart.circle")
+                            Image(systemName: "arrow.clockwise.circle")
                         }
                         .disabled(!practice.isStarted)
                         
