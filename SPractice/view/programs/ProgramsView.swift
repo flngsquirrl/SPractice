@@ -26,8 +26,11 @@ struct ProgramsView: View {
                         VStack(alignment: .leading) {
                             Text("\(program.name)")
                                 .fontWeight(.semibold)
-                            Text("\(program.exercises.count) exercises")
-                                .foregroundColor(.secondary)
+                            Group {
+                                Text("\(program.exercises.count) ") +
+                                Text(program.exercises.count == 1 ? "exercise" : "exercises")
+                            }
+                            .foregroundColor(.secondary)
                         }
                     }
                 }
