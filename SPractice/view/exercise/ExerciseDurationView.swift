@@ -39,7 +39,14 @@ struct ExerciseDurationView: View {
 
 struct ExerciseDurationView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseDurationView(for: ExerciseTemplate.surjaNamascar)
-        ExerciseDurationView(for: Exercise.catCow)
+        List {
+            Text("templates")
+            ExerciseDurationView(for: ExerciseTemplate.catCowNoType)
+            ExerciseDurationView(for: ExerciseTemplate.catCowNoDuration)
+            ExerciseDurationView(for: ExerciseTemplate.surjaNamascar)
+            
+            Text("exercises")
+            ExerciseDurationView(for: Exercise.catCow)
+        }
     }
 }
