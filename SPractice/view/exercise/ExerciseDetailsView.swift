@@ -43,7 +43,7 @@ struct ExerciseDetailsView: View {
                 HStack {
                     Text("Intensity")
                     Spacer()
-                    IntensityView(intensity: viewModel.exercise.intensityType, mode: .iconAndText)
+                    IntensityView(intensity: viewModel.exercise.intensity, mode: .iconAndText)
                         .foregroundColor(.secondary)
                 }
             }

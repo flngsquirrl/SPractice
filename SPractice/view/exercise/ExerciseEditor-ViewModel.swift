@@ -105,7 +105,7 @@ extension ExerciseEditor {
         }
         
         func onTypeChange(newValue: ExerciseType?) {
-            template.intensityType = .activity
+            template.intensity = .activity
         }
         
         func resetDuration() {

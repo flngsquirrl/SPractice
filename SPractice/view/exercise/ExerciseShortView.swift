@@ -19,11 +19,11 @@ struct ExerciseShortView: View {
     private var isIconAccented = false
     
     init(for exercise: Exercise, displayDuration: Bool = true, isIconAccented: Bool = false) {
-        self.init(name: exercise.name, type: exercise.type, intensity: exercise.intensityType, isService: exercise.isService, duration: exercise.duration, displayDuration: displayDuration, isIconAccented: isIconAccented)
+        self.init(name: exercise.name, type: exercise.type, intensity: exercise.intensity, isService: exercise.isService, duration: exercise.duration, displayDuration: displayDuration, isIconAccented: isIconAccented)
     }
     
     init(for template: ExerciseTemplate, displayDuration: Bool = true, isIconAccented: Bool = false) {
-        self.init(name: template.name, type: template.type, intensity: template.intensityType, isService: template.isService, duration: template.duration, displayDuration: displayDuration, isIconAccented: isIconAccented)
+        self.init(name: template.name, type: template.type, intensity: template.intensity, isService: template.isService, duration: template.duration, displayDuration: displayDuration, isIconAccented: isIconAccented)
     }
     
     private init(name: String, type: ExerciseType?, intensity: Intensity?, isService: Bool, duration: Duration, displayDuration: Bool = true, isIconAccented: Bool = false) {

@@ -16,7 +16,7 @@ struct Exercise: Identifiable, Equatable {
     let id = UUID()
     let type: ExerciseType
     let name: String
-    var intensityType: Intensity?
+    var intensity: Intensity?
     private(set) var tasks: [Task]
     
     let isService: Bool
@@ -34,10 +34,10 @@ struct Exercise: Identifiable, Equatable {
         return result > 0 ? .known(result) : .unknown
     }
     
-    init(type: ExerciseType, name: String, intensityType: Intensity, isService: Bool = false, tasks: [Task] = []) {
+    init(type: ExerciseType, name: String, intensity: Intensity, isService: Bool = false, tasks: [Task] = []) {
         self.type = type
         self.name = name
-        self.intensityType = intensityType
+        self.intensity = intensity
         self.isService = isService
         self.tasks = tasks
     }
@@ -47,7 +47,7 @@ struct Exercise: Identifiable, Equatable {
             return nil
         }
         
-        self.init(type: template.type!, name: template.name, intensityType: template.intensityType!, isService: template.isService)
+        self.init(type: template.type!, name: template.name, intensity: template.intensity!, isService: template.isService)
         self.tasks = prepareTasks(from: template)
     }
     
@@ -86,12 +86,12 @@ struct Exercise: Identifiable, Equatable {
     }
     
     private func prepareFlowTasks(from template: ExerciseTemplate) -> [Task] {
-        let task = Task(intensity: template.intensityType!, name: template.intensityType!.rawValue, duration: .unlimited)
+        let task = Task(intensity: template.intensity!, name: template.intensity!.rawValue, duration: .unlimited)
         return Array<Task>.wrapElement(element: task)
     }
     
     private func prepareTimerTasks(from template: ExerciseTemplate) -> [Task] {
-        let intensity: Intensity = template.isService ? .rest : template.intensityType!
+        let intensity: Intensity = template.isService ? .rest : template.intensity!
         let task = Task(intensity: intensity, name: intensity.rawValue, duration: template.duration)
         return Array<Task>.wrapElement(element: task)
     }

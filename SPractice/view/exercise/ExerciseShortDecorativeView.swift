@@ -27,7 +27,7 @@ struct ExerciseShortDecorativeView: View {
                     .fontWeight(.semibold)
                 HStack(spacing: 0) {
                     Text("intensity: ")
-                    IntensityView(intensity: exercise.intensityType, mode: .text)
+                    IntensityView(intensity: exercise.intensity, mode: .text)
                 }
                 .foregroundColor(.secondary)
             }

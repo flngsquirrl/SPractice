@@ -12,7 +12,7 @@ struct ExerciseTemplate: Identifiable, Hashable, Codable {
     var id: UUID
     var type: ExerciseType?
     var name: String
-    var intensityType: Intensity? // not set when type not set
+    var intensity: Intensity? // not set when type not set
     var duration: Duration
     
     let isService: Bool
@@ -27,7 +27,7 @@ struct ExerciseTemplate: Identifiable, Hashable, Codable {
             case .flow:
                 self.duration = .unlimited
                 self.isService = false
-                self.intensityType = intensity
+                self.intensity = intensity
             case .timer:
                 if case .known(let seconds) = duration {
                     self.duration = seconds > 0 ? duration : .unknown
@@ -35,14 +35,14 @@ struct ExerciseTemplate: Identifiable, Hashable, Codable {
                     self.duration = .unknown
                 }
                 self.isService = isService
-                self.intensityType = intensity
+                self.intensity = intensity
             case .tabata:
                 self.duration = .known(SettingsManager.shared.tabataExerciseDuration)
                 self.isService = false
-                self.intensityType = .mixed
+                self.intensity = .mixed
             }
         } else {
-            self.intensityType = nil
+            self.intensity = nil
             self.duration = .unknown
             self.isService = false
         }
@@ -50,12 +50,12 @@ struct ExerciseTemplate: Identifiable, Hashable, Codable {
     
     /** the result has an id different from the source */
     init(from template: ExerciseTemplate) {
-        self.init(type: template.type, name: template.name, isService: template.isService, intensity: template.intensityType, duration: template.duration)
+        self.init(type: template.type, name: template.name, isService: template.isService, intensity: template.intensity, duration: template.duration)
     }
     
     /** the result has the same id as the source */
     func makeCopy() -> ExerciseTemplate {
-        ExerciseTemplate(id: id, type: type, name: name, isService: isService, intensity: intensityType, duration: duration)
+        ExerciseTemplate(id: id, type: type, name: name, isService: isService, intensity: intensity, duration: duration)
     }
     
     static var restTemplate: ExerciseTemplate {
