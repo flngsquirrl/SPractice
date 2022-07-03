@@ -21,7 +21,7 @@ struct ExerciseTypeImage: View {
         if let type = type {
             switch type {
             case .flow:
-                return "heart.circle\(postfix)"
+                return "bolt.horizontal.circle\(postfix)"
             case .timer:
                 return "clock\(postfix)"
             case .tabata:
