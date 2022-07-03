@@ -63,8 +63,10 @@ struct ExerciseEditor: View {
                                 .foregroundColor(.secondary)
                         }
                     }
-                    Button("Reset") { viewModel.resetDuration() }
-                        .disabled(viewModel.resetDurationDisabled)
+                    if viewModel.showReset {
+                        Button("Reset") { viewModel.resetDuration() }
+                            .disabled(viewModel.resetDurationDisabled)
+                    }
                 }
             } footer: {
                 if let type = viewModel.template.type {
@@ -76,7 +78,7 @@ struct ExerciseEditor: View {
                 }
             }
             
-            if viewModel.isTypeDefined {
+            if viewModel.showIntensity {
                 Section {
                     intensityControl
                 } footer: {
@@ -84,7 +86,9 @@ struct ExerciseEditor: View {
                         Text("Intensity of a tabata exercise can't be configured")
                     }
                 }
-                
+            }
+            
+            if viewModel.showTasks {
                 Section {
                     Button("View tasks") {
                         showTasks = true
@@ -105,7 +109,6 @@ struct ExerciseEditor: View {
             }
         }
         .pickerStyle(.segmented)
-        .disabled(viewModel.intensityDisabled)
         
         HStack {
             Text("Intensity")

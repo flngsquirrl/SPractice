@@ -47,8 +47,16 @@ extension ExerciseEditor {
             template.type != .timer || (minutes == 0 && seconds == 0)
         }
         
-        var intensityDisabled: Bool {
-            template.type == .tabata
+        var showIntensity: Bool {
+            template.type != nil && template.type != .tabata
+        }
+        
+        var showTasks: Bool {
+            template.type != nil && template.type == .tabata
+        }
+        
+        var showReset: Bool {
+            template.type != nil && template.type == .timer
         }
         
         var isTimer: Bool {
