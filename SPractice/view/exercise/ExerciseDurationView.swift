@@ -33,7 +33,7 @@ struct ExerciseDurationView: View {
             DurationView(duration: time, mode: mode)
         case .unknown:
             HStack {
-                LayoutUtils.unknownDurationImage
+                LayoutUtils.unknownDurationText
                 if isVerbose {
                     Text("unknown")
                 }

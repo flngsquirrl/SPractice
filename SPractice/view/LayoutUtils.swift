@@ -12,7 +12,7 @@ struct LayoutUtils {
     
     static let timeFont: Font = .system(.callout).monospacedDigit()
     
-    static let unknownDurationImage = Image(systemName: "questionmark")
+    static let unknownDurationText = Text("?")
     static let unlimitedDurationImage = Image(systemName: "infinity")
     static let approximationText = Text("~")
     

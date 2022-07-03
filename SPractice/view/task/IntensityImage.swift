@@ -8,23 +8,27 @@
 import SwiftUI
 
 struct IntensityImage: View {
-    var type: Intensity
+    var intensity: Intensity?
     var isFilled = false
 
     var body: some View {
-        Image(systemName: Self.imageName(for: type, isFilled: isFilled))
+        Image(systemName: Self.imageName(for: intensity, isFilled: isFilled))
     }
     
-    static func imageName(for type: Intensity, isFilled: Bool = false) -> String {
+    static func imageName(for intensity: Intensity?, isFilled: Bool = false) -> String {
         let postfix = isFilled ? ".fill" : ""
         
-        switch type {
-        case .activity:
-            return "sun.max.circle\(postfix)"
-        case .rest:
-            return "moon.circle\(postfix)"
-        case .mixed:
-            return "circle.lefthalf.filled"
+        if let intensity = intensity {
+            switch intensity {
+            case .activity:
+                return "sun.max.circle\(postfix)"
+            case .rest:
+                return "moon.circle\(postfix)"
+            case .mixed:
+                return "circle.lefthalf.filled"
+            }
+        } else {
+            return "questionmark.circle\(postfix)"
         }
         
     }
@@ -33,11 +37,11 @@ struct IntensityImage: View {
 struct IntensityImage_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            IntensityImage(type: .activity)
-            IntensityImage(type: .rest)
+            IntensityImage(intensity: .activity)
+            IntensityImage(intensity: .rest)
             
-            IntensityImage(type: .activity, isFilled: true)
-            IntensityImage(type: .rest, isFilled: true)
+            IntensityImage(intensity: .activity, isFilled: true)
+            IntensityImage(intensity: .rest, isFilled: true)
         }
     }
 }

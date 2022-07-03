@@ -262,8 +262,8 @@
 			isa = PBXGroup;
 			children = (
 				C9741A5E2863208100E1F670 /* TaskDetailsShortView.swift */,
-				C9741A5C2861F54600E1F670 /* IntensityImage.swift */,
 				C99D20E128719BB300F655C8 /* IntensityView.swift */,
+				C9741A5C2861F54600E1F670 /* IntensityImage.swift */,
 			);
 			path = task;
 			sourceTree = "<group>";

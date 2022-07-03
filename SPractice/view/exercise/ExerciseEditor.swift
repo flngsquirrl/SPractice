@@ -46,7 +46,7 @@ struct ExerciseEditor: View {
                 HStack {
                     Text("Type")
                     Spacer()
-                    ExerciseTypeView(type: viewModel.template.type)
+                    ExerciseTypeView(type: viewModel.template.type, mode: .iconAndText)
                         .foregroundColor(.secondary)
                 }
             }
@@ -105,7 +105,7 @@ struct ExerciseEditor: View {
     @ViewBuilder var intensityControl: some View {
         Picker("Intensity", selection: $viewModel.template.intensityType.animation()) {
             ForEach(Intensity.managedIntensities, id: \.self) { type in
-                IntensityImage(type: type).tag(type as Intensity?)
+                IntensityImage(intensity: type).tag(type as Intensity?)
             }
         }
         .pickerStyle(.segmented)
@@ -114,7 +114,7 @@ struct ExerciseEditor: View {
             Text("Intensity")
             Spacer()
             HStack {
-                IntensityImage(type: viewModel.template.intensityType!)
+                IntensityImage(intensity: viewModel.template.intensityType!)
                 Text(viewModel.template.intensityType!.rawValue)
             }
             .foregroundColor(.secondary)

@@ -39,7 +39,7 @@ struct ProgramDurationView: View {
             }
             DurationView(duration: time, mode: mode)
         case .unknown:
-            LayoutUtils.unknownDurationImage
+            LayoutUtils.unknownDurationText
         case .unlimited:
             LayoutUtils.unlimitedDurationImage
         }

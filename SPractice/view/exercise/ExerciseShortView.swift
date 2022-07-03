@@ -50,9 +50,7 @@ struct ExerciseShortView: View {
                 if displayDuration {
                     ExerciseDurationView(type: type, duration: duration)
                 }
-                if let intensity = intensity {
-                    IntensityImage(type: intensity)
-                }
+                IntensityView(intensity: intensity)
             }
             .foregroundColor(.secondary)
         }

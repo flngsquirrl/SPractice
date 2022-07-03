@@ -14,7 +14,7 @@ struct TaskDetailsShortView: View {
     
     var body: some View {
         HStack {
-            IntensityImage(type: task.intensity)
+            IntensityImage(intensity: task.intensity)
             
             Text(task.name)
             Spacer()
@@ -24,7 +24,7 @@ struct TaskDetailsShortView: View {
                 case .known(let time):
                     DurationView(duration: time, mode: .padded)
                 case .unknown:
-                    LayoutUtils.unknownDurationImage
+                    LayoutUtils.unknownDurationText
                 case .unlimited:
                     LayoutUtils.unlimitedDurationImage
                 }
