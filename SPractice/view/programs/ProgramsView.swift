@@ -23,14 +23,19 @@ struct ProgramsView: View {
                             programs.delete($0)
                         }
                     } label: {
-                        VStack(alignment: .leading) {
-                            Text("\(program.name)")
-                                .fontWeight(.semibold)
-                            Group {
-                                Text("\(program.exercises.count) ") +
-                                Text(program.exercises.count == 1 ? "exercise" : "exercises")
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text("\(program.name)")
+                                    .fontWeight(.semibold)
+                                Group {
+                                    Text("\(program.exercises.count) ") +
+                                    Text(program.exercises.count == 1 ? "exercise" : "exercises")
+                                }
+                                .foregroundColor(.secondary)
                             }
-                            .foregroundColor(.secondary)
+                            Spacer()
+                            ProgramDurationView(for: program)
+                                .foregroundColor(.secondary)
                         }
                     }
                 }
