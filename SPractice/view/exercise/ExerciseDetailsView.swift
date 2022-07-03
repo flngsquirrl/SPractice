@@ -35,12 +35,20 @@ struct ExerciseDetailsView: View {
                 HStack {
                     Text("Duration")
                     Spacer()
-                    ExerciseDurationView(for: viewModel.exercise)
+                    ExerciseDurationView(for: viewModel.exercise, isVerbose: true)
+                        .foregroundColor(.secondary)
+                }
+                
+                
+                HStack {
+                    Text("Intensity")
+                    Spacer()
+                    IntensityTypeView(intensity: viewModel.exercise.intensityType)
                         .foregroundColor(.secondary)
                 }
             }
             
-            if viewModel.exercise.isTypeSet {
+            if viewModel.showTasks {
                 Section("Tasks") {
                     ForEach(viewModel.tasks) { task in
                         TaskDetailsShortView(task: task, exerciseType: viewModel.exercise.type!)

@@ -14,7 +14,7 @@ struct ExerciseTypeView: View {
     var body: some View {
         HStack {
             ExerciseTypeImage(type: type)
-            Text(type?.rawValue ?? "not set")
+            Text(type?.rawValue ?? "unknown")
         }
     }
 }

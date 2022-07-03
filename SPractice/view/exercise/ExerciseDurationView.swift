@@ -11,18 +11,20 @@ struct ExerciseDurationView: View {
     
     private let duration: Duration
     private let mode: DurationView.Mode
+    private let isVerbose: Bool
     
-    init(for template: ExerciseTemplate, mode: DurationView.Mode = .padded) {
-        self.init(type: template.type, duration: template.duration, mode: mode)
+    init(for template: ExerciseTemplate, mode: DurationView.Mode = .padded, isVerbose: Bool = false) {
+        self.init(type: template.type, duration: template.duration, mode: mode, isVerbose: isVerbose)
     }
     
-    init(for exercise: Exercise, mode: DurationView.Mode = .padded) {
-        self.init(type: exercise.type, duration: exercise.duration, mode: mode)
+    init(for exercise: Exercise, mode: DurationView.Mode = .padded, isVerbose: Bool = false) {
+        self.init(type: exercise.type, duration: exercise.duration, mode: mode, isVerbose: isVerbose)
     }
     
-    init(type: ExerciseType?, duration: Duration, mode: DurationView.Mode = .padded) {
+    init(type: ExerciseType?, duration: Duration, mode: DurationView.Mode = .padded, isVerbose: Bool = false) {
         self.duration = type == .tabata ? .known(SettingsManager.shared.tabataExerciseDuration) : duration
         self.mode = mode
+        self.isVerbose = isVerbose
     }
     
     var body: some View {
@@ -30,9 +32,19 @@ struct ExerciseDurationView: View {
         case .known(let time):
             DurationView(duration: time, mode: mode)
         case .unknown:
-            LayoutUtils.unknownDurationImage
+            HStack {
+                LayoutUtils.unknownDurationImage
+                if isVerbose {
+                    Text("unknown")
+                }
+            }
         case .unlimited:
+            HStack {
             LayoutUtils.unlimitedDurationImage
+                if isVerbose {
+                    Text("not limited")
+                }
+            }
         }
     }
 }
@@ -44,6 +56,11 @@ struct ExerciseDurationView_Previews: PreviewProvider {
             ExerciseDurationView(for: ExerciseTemplate.catCowNoType)
             ExerciseDurationView(for: ExerciseTemplate.catCowNoDuration)
             ExerciseDurationView(for: ExerciseTemplate.surjaNamascar)
+            
+            Text("templates verbose")
+            ExerciseDurationView(for: ExerciseTemplate.catCowNoType, isVerbose: true)
+            ExerciseDurationView(for: ExerciseTemplate.catCowNoDuration, isVerbose: true)
+            ExerciseDurationView(for: ExerciseTemplate.surjaNamascar, isVerbose: true)
             
             Text("exercises")
             ExerciseDurationView(for: Exercise.catCow)

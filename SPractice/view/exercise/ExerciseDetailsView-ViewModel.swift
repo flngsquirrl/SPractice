@@ -17,5 +17,9 @@ extension ExerciseDetailsView {
             self.exercise = template
             self.tasks = Exercise(from: template)?.tasks ?? []
         }
+        
+        var showTasks: Bool {
+            exercise.type == .tabata
+        }
     }
 }
