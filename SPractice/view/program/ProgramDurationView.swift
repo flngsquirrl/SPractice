@@ -13,7 +13,7 @@ struct ProgramDurationView: View {
     private let mode: DurationView.Mode
     private let showAsApproximate: Bool
     
-    init(for program: Program, mode: DurationView.Mode = .padded) {
+    init(for program: PracticeProgram, mode: DurationView.Mode = .padded) {
         self.duration = program.duration
         self.mode = mode
         self.showAsApproximate = program.hasFlowExercises
@@ -49,8 +49,8 @@ struct ProgramDurationView: View {
 struct ProgramDurationView_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            ProgramDurationView(for: Program.personal, mode: .extended)
-            ProgramDurationView(for: Program.personal, mode: .padded)
+            ProgramDurationView(for: PracticeProgram.personal, mode: .extended)
+            ProgramDurationView(for: PracticeProgram.personal, mode: .padded)
         }
     }
 }

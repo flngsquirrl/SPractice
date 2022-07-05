@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProgramTemplate: Identifiable, Codable {
+struct ProgramTemplate: Program, Identifiable, Codable {
     
     var id: UUID
     var name: String
@@ -34,55 +34,6 @@ struct ProgramTemplate: Identifiable, Codable {
     
     var hasExercises: Bool {
         !exercises.isEmpty
-    }
-    
-    var duration: Duration {
-        calculateDuration(fromIndex: 0)
-    }
-    
-    func calculateDuration(fromIndex index: Int) -> Duration {
-        var totalDuration = 0
-        for i in index..<exercises.count {
-            if case .known(let duration) = exercises[i].duration {
-                totalDuration += duration
-            }
-        }
-        return totalDuration == 0 ? (hasFlowExercises(fromIndex: index) ? .unlimited : .unknown) : .known(totalDuration)
-    }
-    
-    var hasFlowExercises: Bool {
-        hasFlowExercises(fromIndex: 0)
-    }
-    
-    func hasFlowExercises(fromIndex index: Int) -> Bool {
-        let subrange = Array(exercises[index...])
-        let exerciseMissingDuration = subrange.first(where: {
-            $0.type == .flow
-        })
-        return exerciseMissingDuration != nil
-    }
-    
-    var hasExercisesMissingDuration: Bool {
-        hasExercisesMissingDuration(excludeTabata: true)
-    }
-    
-    func hasExercisesMissingDuration(excludeTabata: Bool = true) -> Bool {
-        let exerciseMissingDuration = exercises.first(where: {
-            if case .unknown = $0.duration {
-                return $0.type != .tabata
-            } else {
-                return false
-            }
-        })
-        return exerciseMissingDuration != nil
-    }
-    
-    var hasExercisesWithoutType: Bool {
-        let exerciseWithoutType = exercises.first(where: {
-            $0.type == nil
-        })
-        
-        return exerciseWithoutType != nil
     }
     
     static var template: ProgramTemplate {

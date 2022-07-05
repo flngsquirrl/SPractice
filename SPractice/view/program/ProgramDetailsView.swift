@@ -40,7 +40,7 @@ struct ProgramDetailsView: View {
             ProgramSummaryView(template: viewModel.programTemplate)
         }
         .fullScreenCover(isPresented: $viewModel.showPracticeView) {
-            PracticeView(practice: Practice(for: Program(from: viewModel.programTemplate)))
+            PracticeView(practice: Practice(for: PracticeProgram(from: viewModel.programTemplate)))
         }
         .sheet(isPresented: $viewModel.showEditTemplateView) {
             NavigationView {

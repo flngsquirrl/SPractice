@@ -17,7 +17,7 @@ struct ExerciseDurationView: View {
         self.init(type: template.type, duration: template.duration, mode: mode, isVerbose: isVerbose)
     }
     
-    init(for exercise: Exercise, mode: DurationView.Mode = .padded, isVerbose: Bool = false) {
+    init(for exercise: PracticeExercise, mode: DurationView.Mode = .padded, isVerbose: Bool = false) {
         self.init(type: exercise.type, duration: exercise.duration, mode: mode, isVerbose: isVerbose)
     }
     
@@ -63,7 +63,7 @@ struct ExerciseDurationView_Previews: PreviewProvider {
             ExerciseDurationView(for: ExerciseTemplate.surjaNamascar, isVerbose: true)
             
             Text("exercises")
-            ExerciseDurationView(for: Exercise.catCow)
+            ExerciseDurationView(for: PracticeExercise.catCow)
         }
     }
 }

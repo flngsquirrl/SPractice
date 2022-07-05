@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct ExerciseShortDecorativeView: View {
+struct ExerciseShortDecorativeView<T>: View where T: Exercise {
     
-    private let exercise: ExerciseTemplate
+    private let exercise: T
     private var displayDuration: Bool
     
-    init(for exercise: ExerciseTemplate, displayDuration: Bool = true) {
+    init(for exercise: T, displayDuration: Bool = true) {
         self.exercise = exercise
         self.displayDuration = displayDuration
     }
@@ -22,20 +22,17 @@ struct ExerciseShortDecorativeView: View {
             ExerciseTypeImage(type: exercise.type)
                 .font(.title.weight(.light))
             
-            VStack(alignment: .leading) {
-                Text(exercise.name)
+            Text(exercise.name)
                     .fontWeight(.semibold)
-                HStack(spacing: 0) {
-                    Text("intensity: ")
-                    IntensityView(intensity: exercise.intensity, mode: .text)
-                }
-                .foregroundColor(.secondary)
-            }
             Spacer()
-            if displayDuration {
-                ExerciseDurationView(type: exercise.type, duration: exercise.duration)
-                    .foregroundColor(.secondary)
+            Group {
+                if displayDuration {
+                    ExerciseDurationView(type: exercise.type, duration: exercise.duration)
+                        .foregroundColor(.secondary)
+                }
+                IntensityView(intensity: exercise.intensity, mode: .icon)
             }
+            .foregroundColor(.secondary)
         }
     }
 }

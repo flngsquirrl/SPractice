@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ExerciseEditorTasksView: View {
     
-    var exercise: Exercise
+    var exercise: PracticeExercise
     
     @Environment(\.dismiss) var dismiss
     
@@ -18,10 +18,10 @@ struct ExerciseEditorTasksView: View {
             List {
                 Section {
                     ForEach(exercise.tasks) { task in
-                        TaskDetailsShortView(task: task, exerciseType: exercise.type)
+                        TaskDetailsShortView(task: task, exerciseType: exercise.exerciseType)
                     }
                 } footer: {
-                    switch exercise.type {
+                    switch exercise.exerciseType {
                     case .flow, .timer:
                         Text("Intensity and duration of the task are based on the exercise configuration")
                     case .tabata:
@@ -45,6 +45,6 @@ struct ExerciseEditorTasksView: View {
 
 struct ExerciseEditorTasksView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseEditorTasksView(exercise: Exercise.catCow)
+        ExerciseEditorTasksView(exercise: PracticeExercise.catCow)
     }
 }

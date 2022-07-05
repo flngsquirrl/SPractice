@@ -9,7 +9,7 @@ import Foundation
 
 class Practice: ObservableObject {
     
-    let program: Program
+    let program: PracticeProgram
     let clock: Clock
     let player: Player
     
@@ -21,7 +21,7 @@ class Practice: ObservableObject {
     @Published var currentTaskIndex = 0
     @Published var durationRemaining: Duration
     
-    init(for program: Program) {
+    init(for program: PracticeProgram) {
         self.program = program
         
         self.durationRemaining = program.duration
@@ -36,7 +36,7 @@ class Practice: ObservableObject {
     }
     
     convenience init(from template: ProgramTemplate) {
-        self.init(for: Program(from: template))
+        self.init(for: PracticeProgram(from: template))
     }
     
     var isFirstExercise: Bool {
@@ -47,15 +47,15 @@ class Practice: ObservableObject {
         currentExerciseIndex == program.exercises.count - 1
     }
     
-    var currentExercise: Exercise {
+    var currentExercise: PracticeExercise {
         program.exercises[currentExerciseIndex]
     }
     
-    var previousExercise: Exercise {
+    var previousExercise: PracticeExercise {
         program.exercises[currentExerciseIndex - 1]
     }
     
-    public var nextExercise: Exercise? {
+    public var nextExercise: PracticeExercise? {
         guard currentExerciseIndex < program.exercises.count - 1 else {
             return nil
         }

@@ -7,31 +7,14 @@
 
 import SwiftUI
 
-struct ExerciseShortView: View {
+struct ExerciseShortView<T>: View where T: Exercise {
     
-    private let name: String
-    private let type: ExerciseType?
-    private let intensity: Intensity?
-    private let isService: Bool
-    private let duration: Duration
-    
+    private let exercise: T
     private var displayDuration = false
     private var isIconAccented = false
     
-    init(for exercise: Exercise, displayDuration: Bool = true, isIconAccented: Bool = false) {
-        self.init(name: exercise.name, type: exercise.type, intensity: exercise.intensity, isService: exercise.isService, duration: exercise.duration, displayDuration: displayDuration, isIconAccented: isIconAccented)
-    }
-    
-    init(for template: ExerciseTemplate, displayDuration: Bool = true, isIconAccented: Bool = false) {
-        self.init(name: template.name, type: template.type, intensity: template.intensity, isService: template.isService, duration: template.duration, displayDuration: displayDuration, isIconAccented: isIconAccented)
-    }
-    
-    private init(name: String, type: ExerciseType?, intensity: Intensity?, isService: Bool, duration: Duration, displayDuration: Bool = true, isIconAccented: Bool = false) {
-        self.name = name
-        self.type = type
-        self.intensity = intensity
-        self.isService = isService
-        self.duration = duration
+    init(for exercise: T, displayDuration: Bool = true, isIconAccented: Bool = false) {
+        self.exercise = exercise
         self.displayDuration = displayDuration
         self.isIconAccented = isIconAccented
     }
@@ -39,18 +22,18 @@ struct ExerciseShortView: View {
     var body: some View {
         HStack {
             if isIconAccented {
-                ExerciseTypeImage(type: type, isFilled: true)
+                ExerciseTypeImage(type: exercise.type, isFilled: true)
                     .foregroundColor(.lightOrange)
             } else {
-                ExerciseTypeImage(type: type)
+                ExerciseTypeImage(type: exercise.type)
             }
-            Text(name)
+            Text(exercise.name)
             Spacer()
             HStack {
                 if displayDuration {
-                    ExerciseDurationView(type: type, duration: duration)
+                    ExerciseDurationView(type: exercise.type, duration: exercise.duration)
                 }
-                IntensityView(intensity: intensity)
+                IntensityView(intensity: exercise.intensity)
             }
             .foregroundColor(.secondary)
         }
@@ -62,9 +45,9 @@ struct ExerciseShortView_Previews: PreviewProvider {
         List {
             Group {
                 Text("exercises")
-                ExerciseShortView(for: Exercise.catCow)
-                ExerciseShortView(for: Exercise.surjaNamascar)
-                ExerciseShortView(for: Exercise.vasihsthasana)
+                ExerciseShortView(for: PracticeExercise.catCow)
+                ExerciseShortView(for: PracticeExercise.surjaNamascar)
+                ExerciseShortView(for: PracticeExercise.vasihsthasana)
             }
             
             Group {
@@ -87,9 +70,9 @@ struct ExerciseShortView_Previews: PreviewProvider {
             
             Group {
                 Text("color test")
-                ExerciseShortView(for: Exercise.catCow)
+                ExerciseShortView(for: PracticeExercise.catCow)
                     .foregroundColor(.secondary)
-                ExerciseShortView(for: Exercise.catCow, isIconAccented: true)
+                ExerciseShortView(for: PracticeExercise.catCow, isIconAccented: true)
             }
         }
     }

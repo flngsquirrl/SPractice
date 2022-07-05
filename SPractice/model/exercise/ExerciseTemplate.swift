@@ -7,15 +7,14 @@
 
 import Foundation
 
-struct ExerciseTemplate: Identifiable, Hashable, Codable {
+struct ExerciseTemplate: Exercise, Hashable, Codable {
     
     var id: UUID
     var type: ExerciseType?
     var name: String
     var intensity: Intensity? // not set when type not set
     var duration: Duration
-    
-    let isService: Bool
+    var isService: Bool
     
     private init(id: UUID = UUID(), type: ExerciseType? = nil, name: String = "", isService: Bool = false, intensity: Intensity? = .activity, duration: Duration = .unknown) {
         self.id = id
@@ -53,6 +52,10 @@ struct ExerciseTemplate: Identifiable, Hashable, Codable {
         self.init(type: template.type, name: template.name, isService: template.isService, intensity: template.intensity, duration: template.duration)
     }
     
+    var exerciseType: ExerciseType? {
+        return type
+    }
+    
     /** the result has the same id as the source */
     func makeCopy() -> ExerciseTemplate {
         ExerciseTemplate(id: id, type: type, name: name, isService: isService, intensity: intensity, duration: duration)
@@ -64,14 +67,6 @@ struct ExerciseTemplate: Identifiable, Hashable, Codable {
     
     static var template: ExerciseTemplate {
         ExerciseTemplate(type: .flow)
-    }
-    
-    var isTimer: Bool {
-        type == .timer
-    }
-    
-    var isTypeSet: Bool {
-        type != nil
     }
     
     // examples

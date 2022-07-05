@@ -2,28 +2,20 @@
 //  Program.swift
 //  SPractice
 //
-//  Created by Yuliya Charniak on 28.04.22.
+//  Created by Yuliya Charniak on 5.07.22.
 //
 
 import Foundation
 
-struct Program {
+protocol Program {
+    associatedtype Item where Item: Exercise
     
-    let id = UUID()
-    let name: String
-    let exercises: [Exercise]
-    
-    init(from template: ProgramTemplate) {
-        self.name = template.name
-        
-        var exercises = [Exercise]()
-        for exerciseTemplate in template.exercises {
-            let exercise = Exercise(from: exerciseTemplate)
-            exercises.append(exercise!)
-        }
-        self.exercises = exercises
-    }
-    
+    var id: UUID {get}
+    var name: String {get}
+    var exercises: [Item] {get}
+}
+
+extension Program {
     var duration: Duration {
         calculateDuration(fromIndex: 0)
     }
@@ -50,6 +42,26 @@ struct Program {
         return exerciseMissingDuration != nil
     }
     
-    // examples
-    static let personal = Program(from: ProgramTemplate.personal)
+    var hasExercisesMissingDuration: Bool {
+        hasExercisesMissingDuration(excludeTabata: true)
+    }
+    
+    func hasExercisesMissingDuration(excludeTabata: Bool = true) -> Bool {
+        let exerciseMissingDuration = exercises.first(where: {
+            if case .unknown = $0.duration {
+                return $0.type != .tabata
+            } else {
+                return false
+            }
+        })
+        return exerciseMissingDuration != nil
+    }
+    
+    var hasExercisesWithoutType: Bool {
+        let exerciseWithoutType = exercises.first(where: {
+            $0.type == nil
+        })
+        
+        return exerciseWithoutType != nil
+    }
 }

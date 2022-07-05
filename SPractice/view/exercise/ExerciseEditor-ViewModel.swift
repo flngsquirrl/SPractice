@@ -28,8 +28,8 @@ extension ExerciseEditor {
             minutes == 60
         }
         
-        var exercise: Exercise {
-            return Exercise(from: normalizedTemplate)!
+        var exercise: PracticeExercise {
+            return PracticeExercise(from: normalizedTemplate)!
         }
         
         var normalizedTemplate: ExerciseTemplate {
