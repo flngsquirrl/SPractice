@@ -29,13 +29,15 @@ struct ProgramDurationView: View {
         switch duration {
         case .known(let time):
             if showAsApproximate {
-                LayoutUtils.approximationText
+                LayoutUtils.approximationMark
             }
             DurationView(duration: time, mode: mode)
         case .unknown:
             LayoutUtils.unknownDurationText
         case .unlimited:
-            LayoutUtils.unlimitedDurationImage
+            if showAsApproximate {
+                LayoutUtils.approximationMark
+            }
         }
     }
 }

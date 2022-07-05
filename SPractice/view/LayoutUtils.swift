@@ -14,7 +14,7 @@ struct LayoutUtils {
     
     static let unknownDurationText = Text("?")
     static let unlimitedDurationImage = Image(systemName: "infinity")
-    static let approximationText = Text("~")
+    static let approximationMark = Image(systemName: ExerciseTypeImage.imageName(for: .flow))
     
     static let durationSectionFooter = Text("Duration is the minimal time needed to complete all timer and tabata exercises, as flow exercises time is not limited")
 }
