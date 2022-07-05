@@ -32,19 +32,21 @@ struct ExerciseDetailsView: View {
                         .foregroundColor(.secondary)
                 }
                 
-                HStack {
-                    Text("Duration")
-                    Spacer()
-                    ExerciseDurationView(for: viewModel.exercise, isVerbose: true)
-                        .foregroundColor(.secondary)
-                }
-                
-                
-                HStack {
-                    Text("Intensity")
-                    Spacer()
-                    IntensityView(intensity: viewModel.exercise.intensity, mode: .iconAndText)
-                        .foregroundColor(.secondary)
+                if viewModel.showDetails {
+                    HStack {
+                        Text("Duration")
+                        Spacer()
+                        ExerciseDurationView(for: viewModel.exercise, isVerbose: true)
+                            .foregroundColor(.secondary)
+                    }
+                    
+                    
+                    HStack {
+                        Text("Intensity")
+                        Spacer()
+                        IntensityView(intensity: viewModel.exercise.intensity, mode: .iconAndText)
+                            .foregroundColor(.secondary)
+                    }
                 }
             }
             

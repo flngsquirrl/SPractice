@@ -20,7 +20,7 @@ struct ExercisesView: View {
                         ExerciseDetailsView(for: exercise) { exercises.update($0) }
                     onDelete: { exercises.delete($0) }
                     } label: {
-                        ExerciseShortDecorativeView(for: exercise)
+                        ExerciseShortDecorativeView(for: exercise, displayDetails: exercise.isTypeSet)
                     }
                 }
             }

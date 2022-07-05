@@ -20,7 +20,7 @@ struct ExerciseTypeView: IconTextView {
         if let type = type {
             Text(type.rawValue)
         } else {
-            Text("unknown")
+            Text("not set")
         }
     }
 }

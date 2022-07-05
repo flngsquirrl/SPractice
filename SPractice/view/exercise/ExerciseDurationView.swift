@@ -13,12 +13,8 @@ struct ExerciseDurationView: View {
     private let mode: DurationView.Mode
     private let isVerbose: Bool
     
-    init(for template: ExerciseTemplate, mode: DurationView.Mode = .padded, isVerbose: Bool = false) {
+    init<T>(for template: T, mode: DurationView.Mode = .padded, isVerbose: Bool = false) where T: Exercise {
         self.init(type: template.type, duration: template.duration, mode: mode, isVerbose: isVerbose)
-    }
-    
-    init(for exercise: PracticeExercise, mode: DurationView.Mode = .padded, isVerbose: Bool = false) {
-        self.init(type: exercise.type, duration: exercise.duration, mode: mode, isVerbose: isVerbose)
     }
     
     init(type: ExerciseType?, duration: Duration, mode: DurationView.Mode = .padded, isVerbose: Bool = false) {
@@ -35,15 +31,12 @@ struct ExerciseDurationView: View {
             HStack {
                 LayoutUtils.unknownDurationText
                 if isVerbose {
-                    Text("unknown")
+                    Text("not set")
                 }
             }
         case .unlimited:
             HStack {
             LayoutUtils.unlimitedDurationImage
-                if isVerbose {
-                    Text("not limited")
-                }
             }
         }
     }

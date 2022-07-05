@@ -19,7 +19,11 @@ extension ExerciseDetailsView {
         }
         
         var showTasks: Bool {
-            exercise.type == .tabata
+            showDetails && exercise.type == .tabata
+        }
+        
+        var showDetails: Bool {
+            exercise.isTypeSet
         }
     }
 }

@@ -20,7 +20,7 @@ struct IntensityView: IconTextView {
         if let intensity = intensity {
             Text("\(intensity.rawValue)")
         } else {
-            Text("unknown")
+            Text("not set")
         }
     }
 }

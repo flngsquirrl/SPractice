@@ -10,12 +10,12 @@ import SwiftUI
 struct ExerciseShortView<T>: View where T: Exercise {
     
     private let exercise: T
-    private var displayDuration = false
+    private var displayDetails = false
     private var isIconAccented = false
     
-    init(for exercise: T, displayDuration: Bool = true, isIconAccented: Bool = false) {
+    init(for exercise: T, displayDetails: Bool = true, isIconAccented: Bool = false) {
         self.exercise = exercise
-        self.displayDuration = displayDuration
+        self.displayDetails = displayDetails
         self.isIconAccented = isIconAccented
     }
     
@@ -28,14 +28,15 @@ struct ExerciseShortView<T>: View where T: Exercise {
                 ExerciseTypeImage(type: exercise.type)
             }
             Text(exercise.name)
-            Spacer()
-            HStack {
-                if displayDuration {
+            
+            if displayDetails {
+                HStack {
+                    Spacer()
                     ExerciseDurationView(type: exercise.type, duration: exercise.duration)
+                    IntensityView(intensity: exercise.intensity)
                 }
-                IntensityView(intensity: exercise.intensity)
+                .foregroundColor(.secondary)
             }
-            .foregroundColor(.secondary)
         }
     }
 }
@@ -52,11 +53,11 @@ struct ExerciseShortView_Previews: PreviewProvider {
             
             Group {
                 Text("templates with durations")
-                ExerciseShortView(for: ExerciseTemplate.catCowNoDuration, displayDuration: true)
-                ExerciseShortView(for: ExerciseTemplate.catCow, displayDuration: true)
-                ExerciseShortView(for: ExerciseTemplate.surjaNamascar, displayDuration: true)
-                ExerciseShortView(for: ExerciseTemplate.vasihsthasana, displayDuration: true)
-                ExerciseShortView(for: ExerciseTemplate.catCowNoType, displayDuration: true)
+                ExerciseShortView(for: ExerciseTemplate.catCowNoDuration, displayDetails: true)
+                ExerciseShortView(for: ExerciseTemplate.catCow, displayDetails: true)
+                ExerciseShortView(for: ExerciseTemplate.surjaNamascar, displayDetails: true)
+                ExerciseShortView(for: ExerciseTemplate.vasihsthasana, displayDetails: true)
+                ExerciseShortView(for: ExerciseTemplate.catCowNoType, displayDetails: true)
             }
             
             Group {
