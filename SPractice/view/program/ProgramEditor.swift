@@ -26,7 +26,7 @@ struct ProgramEditor: View {
         Form {
             TextField("Program name", text: $viewModel.template.name)
             
-            ProgramDurationSection(template: viewModel.targetTemplate)
+            ProgramDurationSection(program: viewModel.targetTemplate)
             
             Section() {
                 Button() {

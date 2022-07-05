@@ -37,7 +37,7 @@ struct ProgramDetailsView: View {
                 Text("Having rest between execises lets you take a deep breath and prepare for the upcoming exercise")
             }
             
-            ProgramSummaryView(template: viewModel.programTemplate)
+            ProgramSummaryView(program: viewModel.programTemplate)
         }
         .fullScreenCover(isPresented: $viewModel.showPracticeView) {
             PracticeView(practice: Practice(for: PracticeProgram(from: viewModel.programTemplate)))

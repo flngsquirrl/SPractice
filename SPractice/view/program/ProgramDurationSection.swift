@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct ProgramDurationSection: View {
-    var template: ProgramTemplate
+struct ProgramDurationSection<T>: View where T: Program {
+    var program: T
     
     var body: some View {
         Section {
             HStack {
                 Text("Duration")
                 Spacer()
-                ProgramDurationView(for: template, mode: .extended)
+                ProgramDurationView(for: program, mode: .extended)
                     .foregroundColor(.secondary)
             }
         } header: {
@@ -29,7 +29,7 @@ struct ProgramDurationSection: View {
 struct ProgramDurationSection_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            ProgramDurationSection(template: ProgramTemplate.personal)
+            ProgramDurationSection(program: ProgramTemplate.personal)
         }
     }
 }

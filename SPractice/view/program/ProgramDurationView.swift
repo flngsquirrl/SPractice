@@ -13,16 +13,10 @@ struct ProgramDurationView: View {
     private let mode: DurationView.Mode
     private let showAsApproximate: Bool
     
-    init(for program: PracticeProgram, mode: DurationView.Mode = .padded) {
+    init<T>(for program: T, mode: DurationView.Mode = .padded) where T: Program {
         self.duration = program.duration
         self.mode = mode
         self.showAsApproximate = program.hasFlowExercises
-    }
-    
-    init(for template: ProgramTemplate, mode: DurationView.Mode = .padded) {
-        self.duration = template.duration
-        self.mode = mode
-        self.showAsApproximate = template.hasFlowExercises
     }
     
     init(for duration: Duration, mode: DurationView.Mode = .padded, showAsApproximate: Bool = false) {

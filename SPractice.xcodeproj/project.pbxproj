@@ -10,7 +10,6 @@
 		C92F6C37286C525A00D7BA59 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C36286C525A00D7BA59 /* FileManager.swift */; };
 		C92F6C3C286D9D2100D7BA59 /* ProgramSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C3B286D9D2100D7BA59 /* ProgramSummaryView.swift */; };
 		C92F6C3E286DDFF400D7BA59 /* View-Wrapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C3D286DDFF400D7BA59 /* View-Wrapped.swift */; };
-		C92F6C40286DE17E00D7BA59 /* PracticeSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C3F286DE17E00D7BA59 /* PracticeSummaryView.swift */; };
 		C92F6C42286F00EB00D7BA59 /* LayoutUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C41286F00EB00D7BA59 /* LayoutUtils.swift */; };
 		C92F6C44286F0B0000D7BA59 /* ProgramDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C43286F0B0000D7BA59 /* ProgramDurationView.swift */; };
 		C92F6C46286F1B6500D7BA59 /* DurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C45286F1B6500D7BA59 /* DurationView.swift */; };
@@ -23,6 +22,7 @@
 		C95011D52819703D0043EC75 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95011D42819703D0043EC75 /* ClockView.swift */; };
 		C967287C2874553600B4990C /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967287B2874553600B4990C /* Exercise.swift */; };
 		C967287E287457B500B4990C /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967287D287457B500B4990C /* Program.swift */; };
+		C96728802874DD0E00B4990C /* PracticeSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967287F2874DD0E00B4990C /* PracticeSummaryView.swift */; };
 		C9692C76284F4E9100373730 /* ClockTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C75284F4E9100373730 /* ClockTime.swift */; };
 		C9692C7C284F787700373730 /* ExerciseShortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C7B284F787700373730 /* ExerciseShortView.swift */; };
 		C9692C7F2850A35A00373730 /* ExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C7E2850A35A00373730 /* ExercisesView.swift */; };
@@ -90,7 +90,6 @@
 		C92F6C36286C525A00D7BA59 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		C92F6C3B286D9D2100D7BA59 /* ProgramSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramSummaryView.swift; sourceTree = "<group>"; };
 		C92F6C3D286DDFF400D7BA59 /* View-Wrapped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-Wrapped.swift"; sourceTree = "<group>"; };
-		C92F6C3F286DE17E00D7BA59 /* PracticeSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeSummaryView.swift; sourceTree = "<group>"; };
 		C92F6C41286F00EB00D7BA59 /* LayoutUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutUtils.swift; sourceTree = "<group>"; };
 		C92F6C43286F0B0000D7BA59 /* ProgramDurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDurationView.swift; sourceTree = "<group>"; };
 		C92F6C45286F1B6500D7BA59 /* DurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationView.swift; sourceTree = "<group>"; };
@@ -104,6 +103,7 @@
 		C95011D42819703D0043EC75 /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		C967287B2874553600B4990C /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		C967287D287457B500B4990C /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
+		C967287F2874DD0E00B4990C /* PracticeSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PracticeSummaryView.swift; path = ../../../../../../../../.Trash/PracticeSummaryView.swift; sourceTree = "<group>"; };
 		C9692C75284F4E9100373730 /* ClockTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockTime.swift; sourceTree = "<group>"; };
 		C9692C7B284F787700373730 /* ExerciseShortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseShortView.swift; sourceTree = "<group>"; };
 		C9692C7E2850A35A00373730 /* ExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesView.swift; sourceTree = "<group>"; };
@@ -370,7 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				C9A0CFFE281BDDEA000CF439 /* PracticeView.swift */,
-				C92F6C3F286DE17E00D7BA59 /* PracticeSummaryView.swift */,
+				C967287F2874DD0E00B4990C /* PracticeSummaryView.swift */,
 				C9A0D026282A613A000CF439 /* PracticeSequenceView.swift */,
 				C9A0CFF1281B3733000CF439 /* ExerciseView.swift */,
 				C92F6C3D286DDFF400D7BA59 /* View-Wrapped.swift */,
@@ -591,8 +591,8 @@
 				C9445C71285E0A9300DF2A08 /* ExerciseEditor.swift in Sources */,
 				C9A0D01C28280DFA000CF439 /* SquirrelDrawer.swift in Sources */,
 				C9DE151F2868AADE0011324C /* ExerciseType.swift in Sources */,
-				C92F6C40286DE17E00D7BA59 /* PracticeSummaryView.swift in Sources */,
 				C95011D52819703D0043EC75 /* ClockView.swift in Sources */,
+				C96728802874DD0E00B4990C /* PracticeSummaryView.swift in Sources */,
 				C9741A382860862900E1F670 /* ProgramEditor-ViewModel.swift in Sources */,
 				C92F6C3E286DDFF400D7BA59 /* View-Wrapped.swift in Sources */,
 				C9A0CFEC281AB382000CF439 /* PracticeExercise.swift in Sources */,

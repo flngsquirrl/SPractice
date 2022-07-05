@@ -7,15 +7,16 @@
 
 import SwiftUI
 
-struct ProgramSummaryView: View {
-    var template: ProgramTemplate
+struct ProgramSummaryView<T>: View where T: Program {
+    var program: T
+    var accentedExerciseId: UUID? = nil
     
     var body: some View {
-        ProgramDurationSection(template: template)
+        ProgramDurationSection(program: program)
         
         Section("Sequence") {
-            ForEach(template.exercises) { exercise in
-                ExerciseShortView(for: exercise)
+            ForEach(program.exercises) { exercise in
+                ExerciseShortView(for: exercise, isIconAccented: accentedExerciseId == exercise.id)
                     .foregroundColor(exercise.isService ? .secondary : .primary)
             }
         }
@@ -25,7 +26,7 @@ struct ProgramSummaryView: View {
 struct ProgramSummaryView_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            ProgramSummaryView(template: ProgramTemplate.personal)
+            ProgramSummaryView(program: ProgramTemplate.personal)
         }
     }
 }
