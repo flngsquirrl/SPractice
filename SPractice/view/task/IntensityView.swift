@@ -7,36 +7,16 @@
 
 import SwiftUI
 
-struct IntensityView: View {
-    
-    enum Mode {
-        case icon
-        case text
-        case iconAndText
-    }
+struct IntensityView: IconTextView {
     
     var intensity: Intensity?
-    var mode: Mode = .icon
-    
-    var body: some View {
-        switch mode {
-        case .icon:
-            icon
-        case .text:
-           text
-        case .iconAndText:
-            HStack {
-                icon
-                text
-            }
-        }
-    }
+    var mode: IconTextMode = .icon
     
     var icon: some View {
         IntensityImage(intensity: intensity)
     }
     
-    @ViewBuilder var text: some View {
+    var text: some View {
         if let intensity = intensity {
             Text("\(intensity.rawValue)")
         } else {

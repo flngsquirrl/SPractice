@@ -23,6 +23,7 @@
 		C967287C2874553600B4990C /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967287B2874553600B4990C /* Exercise.swift */; };
 		C967287E287457B500B4990C /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967287D287457B500B4990C /* Program.swift */; };
 		C96728802874DD0E00B4990C /* PracticeSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967287F2874DD0E00B4990C /* PracticeSummaryView.swift */; };
+		C96728832874E11A00B4990C /* IconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96728822874E11A00B4990C /* IconTextView.swift */; };
 		C9692C76284F4E9100373730 /* ClockTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C75284F4E9100373730 /* ClockTime.swift */; };
 		C9692C7C284F787700373730 /* ExerciseShortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C7B284F787700373730 /* ExerciseShortView.swift */; };
 		C9692C7F2850A35A00373730 /* ExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C7E2850A35A00373730 /* ExercisesView.swift */; };
@@ -104,6 +105,7 @@
 		C967287B2874553600B4990C /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		C967287D287457B500B4990C /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
 		C967287F2874DD0E00B4990C /* PracticeSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PracticeSummaryView.swift; path = ../../../../../../../../.Trash/PracticeSummaryView.swift; sourceTree = "<group>"; };
+		C96728822874E11A00B4990C /* IconTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTextView.swift; sourceTree = "<group>"; };
 		C9692C75284F4E9100373730 /* ClockTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockTime.swift; sourceTree = "<group>"; };
 		C9692C7B284F787700373730 /* ExerciseShortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseShortView.swift; sourceTree = "<group>"; };
 		C9692C7E2850A35A00373730 /* ExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesView.swift; sourceTree = "<group>"; };
@@ -241,6 +243,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		C96728812874E0FF00B4990C /* common */ = {
+			isa = PBXGroup;
+			children = (
+				C96728822874E11A00B4990C /* IconTextView.swift */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
 		C9692C74284F4E6D00373730 /* clock */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,6 +347,7 @@
 				C9CCCE9C284BA814005665C8 /* player */,
 				C9A0D02528281BE8000CF439 /* clock */,
 				C9CCCE9D284BA82A005665C8 /* settings */,
+				C96728812874E0FF00B4990C /* common */,
 				C9A0D0182827CE9F000CF439 /* logo */,
 				C95011C828196FFD0043EC75 /* ContentView.swift */,
 				C9A0D023282813F2000CF439 /* ColorTheme.swift */,
@@ -550,6 +561,7 @@
 				C9D156B028534E88007F5176 /* AddExerciseView.swift in Sources */,
 				C9A0D0112823DF22000CF439 /* SettingsView.swift in Sources */,
 				C99698162863C2C7009836BD /* SettingsManager.swift in Sources */,
+				C96728832874E11A00B4990C /* IconTextView.swift in Sources */,
 				C967287C2874553600B4990C /* Exercise.swift in Sources */,
 				C9DE152A2868B5500011324C /* Programs.swift in Sources */,
 				C9CCCE9A284B6E09005665C8 /* ProgramDetailsView-ViewModel.swift in Sources */,
