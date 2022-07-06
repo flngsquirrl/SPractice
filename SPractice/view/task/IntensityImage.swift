@@ -25,7 +25,7 @@ struct IntensityImage: View {
             case .rest:
                 return "moon.circle\(postfix)"
             case .mixed:
-                return "circle.lefthalf.filled"
+                return "circle.tophalf.filled"
             }
         } else {
             return "questionmark.circle\(postfix)"
@@ -39,9 +39,11 @@ struct IntensityImage_Previews: PreviewProvider {
         List {
             IntensityImage(intensity: .activity)
             IntensityImage(intensity: .rest)
+            IntensityImage(intensity: .mixed)
             
             IntensityImage(intensity: .activity, isFilled: true)
             IntensityImage(intensity: .rest, isFilled: true)
+            IntensityImage(intensity: .mixed, isFilled: true)
         }
     }
 }
