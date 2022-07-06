@@ -25,6 +25,7 @@ struct PracticeSummaryView: View {
                         HStack {
                             Button {
                                 practice.moveToExercise(withIndex: index)
+                                dismiss()
                             } label: {
                                 Image(systemName: practice.currentExerciseIndex == index ? "checkmark.circle.fill" : "arrow.forward.circle")
                                     .foregroundColor(.lightOrange)
