@@ -147,16 +147,25 @@ class Practice: ObservableObject {
         }
     }
     
+    func moveToExercise(withIndex index: Int) {
+        guard index < program.exercises.count else {
+            return 
+        }
+        currentExerciseIndex = index
+        onMoveToExercise()
+    }
+    
     func moveToNextExercise() {
         currentExerciseIndex += 1
-        currentTaskIndex = 0
-        resetTiming()
-        updatePlayerState()
-        setDurationRemaining()
+        onMoveToExercise()
     }
     
     func moveToPreviousExercise() {
         currentExerciseIndex -= 1
+        onMoveToExercise()
+    }
+    
+    func onMoveToExercise() {
         currentTaskIndex = 0
         resetTiming()
         updatePlayerState()

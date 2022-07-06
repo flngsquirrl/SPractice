@@ -16,23 +16,24 @@ struct PracticeSummaryView: View {
     var body: some View {
         NavigationView {
             List {
-                Section {
-                    HStack {
-                        Text("Duration")
-                        Spacer()
-                        ProgramDurationView(for: practice.program, mode: .extended)
-                            .foregroundColor(.secondary)
-                    }
-                } header: {
-                    Text("Summary")
-                } footer: {
-                    LayoutUtils.durationSectionFooter
-                }
+                ProgramDurationSection(program: practice.program)
                 
                 Section("Sequence") {
-                    ForEach(practice.program.exercises) { exercise in
-                        ExerciseShortView(for: exercise, isIconAccented: practice.currentExercise.id == exercise.id)
-                            .foregroundColor(exercise.isService ? .secondary : .primary)
+                    let count = practice.program.exercises.count
+                    ForEach(0..<count, id: \.self) { index in
+                        let exercise = practice.program.exercises[index]
+                        HStack {
+                            Button {
+                                practice.moveToExercise(withIndex: index)
+                            } label: {
+                                Image(systemName: practice.currentExerciseIndex == index ? "checkmark.circle.fill" : "arrow.forward.circle")
+                                    .foregroundColor(.lightOrange)
+                            }
+                            
+                            ExerciseShortView(for: exercise, isIconAccented: false)
+                                .foregroundColor(exercise.isService ? .secondary : .primary)
+                            }
+
                     }
                 }
             }
