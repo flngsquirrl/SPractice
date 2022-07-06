@@ -48,7 +48,7 @@ struct ProgramEditor: View {
                             Button() {
                                 selectedExercise = exercise
                             } label: {
-                                Image(systemName: "pencil.circle.fill")
+                                Image(systemName: "pencil.circle")
                             }
                         }
                         ExerciseShortView(for: exercise)
