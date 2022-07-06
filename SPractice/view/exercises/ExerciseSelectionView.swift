@@ -36,8 +36,6 @@ struct ExerciseSelectionView: View {
                     } header: {
                         HStack {
                             Text("All")
-                            Spacer()
-                            Text("(\(viewModel.preparedExercises.count)) to be added")
                         }
                     }
                 } else {
@@ -74,7 +72,7 @@ struct ExerciseSelectionView: View {
                 }
                     
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Add") {
+                    Button("Add (\(viewModel.preparedExercises.count))") {
                         onAdd(viewModel.preparedExercises)
                         dismiss()
                     }
