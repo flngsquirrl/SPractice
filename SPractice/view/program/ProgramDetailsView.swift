@@ -24,7 +24,12 @@ struct ProgramDetailsView: View {
         List {
             Section {
                 Toggle("Use rest", isOn: $viewModel.useRest)
+                    .onChange(of: viewModel.useRest) { _ in
+                        viewModel.onUseRestChange()
+                        onChange(viewModel.template)
+                    }
                     .tint(.customAccentColor)
+                    
                 Button() {
                     viewModel.showPracticeView = true
                 } label: {
@@ -37,10 +42,10 @@ struct ProgramDetailsView: View {
                 Text("Having rest between execises lets you take a deep breath and prepare for the upcoming exercise")
             }
             
-            ProgramSummaryView(program: viewModel.programTemplate)
+            ProgramSummaryView(program: viewModel.template)
         }
         .fullScreenCover(isPresented: $viewModel.showPracticeView) {
-            PracticeView(practice: Practice(for: PracticeProgram(from: viewModel.programTemplate)))
+            PracticeView(practice: Practice(for: PracticeProgram(from: viewModel.template)))
         }
         .sheet(isPresented: $viewModel.showEditTemplateView) {
             NavigationView {

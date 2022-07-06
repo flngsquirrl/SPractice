@@ -11,29 +11,45 @@ struct ProgramTemplate: Program, Identifiable, Codable {
     
     var id: UUID
     var name: String
-    var exercises = [ExerciseTemplate]()
+    var useRest: Bool
+    private var templateExercises = [ExerciseTemplate]()
     
-    init(id: UUID = UUID(), name: String = "", exercises: [ExerciseTemplate] = []) {
+    init(id: UUID = UUID(), name: String = "", useRest: Bool = false, exercises: [ExerciseTemplate] = []) {
         self.id = id
         self.name = name
-        self.exercises = exercises
+        self.useRest = useRest
+        self.templateExercises = exercises
     }
     
-    init(from template: ProgramTemplate, useRest: Bool = false) {
-        var exercises = [ExerciseTemplate]()
-        for (index, exerciseTemplate) in template.exercises.enumerated() {
-            let exercise = ExerciseTemplate(from: exerciseTemplate)
-            exercises.append(exercise)
-            
-            if useRest && index != template.exercises.count - 1 {
-                exercises.append(ExerciseTemplate.restTemplate)
-            }
-        }
-        self.init(name: template.name, exercises: exercises)
+    init(from template: ProgramTemplate) {
+        self.init(name: template.name, useRest: template.useRest, exercises: template.templateExercises)
     }
     
     var hasExercises: Bool {
-        !exercises.isEmpty
+        !templateExercises.isEmpty
+    }
+    
+    var exercises: [ExerciseTemplate] {
+        get {
+            guard useRest else {
+                return templateExercises
+            }
+            
+            var exercises = [ExerciseTemplate]()
+            for (index, exercise) in templateExercises.enumerated() {
+                let exercise = ExerciseTemplate(from: exercise)
+                exercises.append(exercise)
+                
+                if useRest && index != templateExercises.count - 1 {
+                    exercises.append(ExerciseTemplate.restTemplate)
+                }
+            }
+            return exercises
+        }
+        
+        set {
+            templateExercises = newValue
+        }
     }
     
     static var template: ProgramTemplate {

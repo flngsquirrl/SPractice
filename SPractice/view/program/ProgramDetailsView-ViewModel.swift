@@ -12,17 +12,18 @@ extension ProgramDetailsView {
         
         var template: ProgramTemplate
         
-        @Published var useRest: Bool = true
+        @Published var useRest: Bool
         
         @Published var showPracticeView = false
         @Published var showEditTemplateView = false
         
         init(for template: ProgramTemplate) {
             self.template = template
+            self.useRest = template.useRest
         }
         
-        var programTemplate: ProgramTemplate {
-            ProgramTemplate(from: template, useRest: useRest)
+        func onUseRestChange() {
+            template.useRest.toggle()
         }
         
         func updateProgramTemplate(template: ProgramTemplate) {
