@@ -28,14 +28,14 @@ struct ClockView: View {
             Group {
                 if clock.isCountup {
                     Image(systemName: ClockView.countupImageName)
-                        .foregroundColor(ClockView.elementColor)
+                        .foregroundColor(ClockView.elementColor.opacity(0.8))
                         .scaleEffect(2)
                 } else {
                     HStack {
                         ClockNumber(number: clock.time.minutesFirstDigit)
                         ClockNumber(number: clock.time.minutesSecondDigit)
                         Text(":")
-                            .foregroundColor(ClockView.elementColor)
+                            .foregroundColor(ClockView.elementColor.opacity(0.8))
                         ClockNumber(number: clock.time.secondsFirstDigit)
                         ClockNumber(number: clock.time.secondsSecondDigit)
                     }
@@ -64,7 +64,7 @@ struct ClockNumber: View {
     var body: some View {
         Text("\(number)")
             .frame(width: 50, height: 80)
-            .background(.lightOrange)
+            .background(.lightOrange.opacity(0.8))
             .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }
