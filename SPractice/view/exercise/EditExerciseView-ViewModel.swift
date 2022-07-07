@@ -9,18 +9,18 @@ import Foundation
 
 extension EditExerciseView {
     @MainActor class ViewModel: ObservableObject {
-        @Published var template: ExerciseTemplate
+        @Published var template: ExerciseEditor.EditorTemplate
         
         init(template: ExerciseTemplate) {
-            self.template = template
+            self.template = ExerciseEditor.EditorTemplate(from: template)
         }
         
         var templateToSave: ExerciseTemplate {
-            template.makeCopy()
+            template.exercise
         }
         
         var isSaveDisabled: Bool {
-            !ValidationService.isValid(template)
+            !ValidationService.isValid(template.exercise)
         }
     }
 }

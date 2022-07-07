@@ -20,52 +20,13 @@ extension ExerciseEditor {
     
     @MainActor class ViewModel: ObservableObject {
         
-        @Binding var template: ExerciseTemplate
+        @Binding var template: EditorTemplate
         
         @Published var isTypeSet: Bool = true
-
-        var areSecondsDisabled: Bool {
-            minutes == 60
-        }
-        
-        var exercise: PracticeExercise {
-            return PracticeExercise(from: normalizedTemplate)!
-        }
-        
-        var normalizedTemplate: ExerciseTemplate {
-            return ExerciseTemplate(from: template)
-        }
-        
         @Published var minutes: Int = 0
         @Published var seconds: Int = 0
         
-        var isTypeDefined: Bool {
-            template.type != nil
-        }
-        
-        var resetDurationDisabled: Bool {
-            template.type != .timer || (minutes == 0 && seconds == 0)
-        }
-        
-        var showIntensity: Bool {
-            template.type != nil && template.type != .tabata
-        }
-        
-        var showTasks: Bool {
-            template.type != nil && template.type == .tabata
-        }
-        
-        var showReset: Bool {
-            template.type != nil && template.type == .timer
-        }
-        
-        var isTimer: Bool {
-            template.type == .timer
-        }
-        
-        static let secondsSelectionArray = Array(stride(from: 0, through: 50, by: 10))
-        
-        init(for template: Binding<ExerciseTemplate>) {
+        init(for template: Binding<EditorTemplate>) {
             self._template = template
             self.isTypeSet = self.template.type != nil
             
@@ -76,6 +37,44 @@ extension ExerciseEditor {
                 let seconds = self.template.type == .timer ? ClockTime.getSeconds(of: time) : 0
                 self._seconds = Published<Int>(initialValue: seconds)
             }
+        }
+        
+        static let secondsSelectionArray = Array(stride(from: 0, through: 50, by: 10))
+
+        var areSecondsDisabled: Bool {
+            minutes == 60
+        }
+        
+        var practiceExercise: PracticeExercise {
+            return PracticeExercise(from: exercise)!
+        }
+        
+        var exercise: ExerciseTemplate {
+            return ExerciseTemplate(from: template)
+        }
+        
+        var isTypeDefined: Bool {
+            template.type != nil
+        }
+        
+        var resetDurationDisabled: Bool {
+            template.type != .timer || (minutes == 0 && seconds == 0)
+        }
+        
+        var showIntensity: Bool {
+            template.type != nil
+        }
+        
+        var showIntensitySelection: Bool {
+            template.type != nil && template.type != .tabata
+        }
+        
+        var showTasks: Bool {
+            template.type != nil && template.type == .tabata
+        }
+        
+        var showReset: Bool {
+            template.type != nil && template.type == .timer
         }
         
         func onMinutesChange(newValue: Int) {
@@ -100,17 +99,59 @@ extension ExerciseEditor {
             } else {
                 template.type = .flow
             }
-            
-            onTypeChange(newValue: template.type)
-        }
-        
-        func onTypeChange(newValue: ExerciseType?) {
-            template.intensity = .activity
         }
         
         func resetDuration() {
             minutes = 0
             seconds = 0
+        }
+    }
+    
+    struct EditorTemplate: Exercise {
+        var id: UUID
+        var type: ExerciseType? {
+            didSet {
+                updateDuration()
+                updateIntensity()
+            }
+        }
+        var name: String
+        var intensity: Intensity? // not set when type not set
+        var duration: Duration
+        var isService: Bool
+        
+        init(from template: ExerciseTemplate) {
+            self.id = template.id
+            self.name = template.name
+            self.type = template.type
+            self.intensity = template.intensity
+            self.duration = template.duration
+            self.isService = template.isService
+        }
+        
+        mutating func updateDuration() {
+            if type == .flow {
+                duration = .unlimited
+            } else {
+                duration = .unknown
+            }
+        }
+        
+        mutating func updateIntensity() {
+            if let type = type {
+                if type == .tabata {
+                    intensity = .mixed
+                } else {
+                    intensity = .activity
+                }
+            } else {
+                intensity = nil
+                duration = .unknown
+            }
+        }
+        
+        var exercise: ExerciseTemplate {
+            return ExerciseTemplate(from: self, changeId: false)
         }
     }
 }

@@ -13,7 +13,7 @@ struct ExerciseEditor: View {
     
     @State private var showTasks = false
     
-    init(for template: Binding<ExerciseTemplate>) {
+    init(for template: Binding<EditorTemplate>) {
         self.viewModel = ViewModel(for: template)
     }
     
@@ -39,7 +39,6 @@ struct ExerciseEditor: View {
                                 .tag(type as ExerciseType?)
                         }
                     }
-                    .onChange(of: viewModel.template.type) { viewModel.onTypeChange(newValue: $0) }
                     .pickerStyle(.segmented)
                 }
             
@@ -56,10 +55,10 @@ struct ExerciseEditor: View {
                     HStack {
                         Text("Duration")
                         Spacer()
-                        if viewModel.isTimer {
+                        if viewModel.template.isTimer {
                             timerDurationControl
                         } else {
-                            ExerciseDurationView(type: viewModel.normalizedTemplate.type, duration: viewModel.normalizedTemplate.duration)
+                            ExerciseDurationView(type: viewModel.exercise.type, duration: viewModel.exercise.duration)
                                 .foregroundColor(.secondary)
                         }
                     }
@@ -98,17 +97,19 @@ struct ExerciseEditor: View {
             
         }
         .sheet(isPresented: $showTasks) {
-            ExerciseEditorTasksView(exercise: viewModel.exercise)
+            ExerciseEditorTasksView(exercise: viewModel.practiceExercise)
         }
     }
     
     @ViewBuilder var intensityControl: some View {
-        Picker("Intensity", selection: $viewModel.template.intensity.animation()) {
-            ForEach(Intensity.managedIntensities, id: \.self) { type in
-                IntensityImage(intensity: type).tag(type as Intensity?)
+        if viewModel.showIntensitySelection {
+            Picker("Intensity", selection: $viewModel.template.intensity.animation()) {
+                ForEach(Intensity.managedIntensities, id: \.self) { type in
+                    IntensityImage(intensity: type).tag(type as Intensity?)
+                }
             }
+            .pickerStyle(.segmented)
         }
-        .pickerStyle(.segmented)
         
         HStack {
             Text("Intensity")
@@ -152,7 +153,7 @@ struct ExerciseEditor: View {
 struct ExerciseEditor_Previews: PreviewProvider {
     
     @State static private var defaultTemplate = ExerciseTemplate.template
-    @State static private var exampleTemplate = ExerciseTemplate.catCow
+    @State static private var exampleTemplate = ExerciseEditor.EditorTemplate(from: ExerciseTemplate.catCow)
     
     static var previews: some View {
 //        NavigationView {
