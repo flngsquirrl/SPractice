@@ -25,7 +25,7 @@ struct IntensityImage: View {
             case .rest:
                 return "moon.circle\(postfix)"
             case .mixed:
-                return "circle.tophalf.filled"
+                return "circle.lefthalf.filled"
             }
         } else {
             return "questionmark.circle\(postfix)"
