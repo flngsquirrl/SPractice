@@ -94,7 +94,7 @@ struct ExerciseSelectionView: View {
         case .all:
             return "list.bullet"
         case .prepared:
-            return "plus"
+            return "checkmark"
         }
     }
     
