@@ -14,7 +14,7 @@ struct ExerciseShortDecorativeView<T>: View where T: Exercise {
     
     init(for exercise: T, displayDetails: Bool = true) {
         self.exercise = exercise
-        self.displayDetails = displayDetails
+        self.displayDetails = displayDetails && exercise.isTypeSet
     }
     
     var body: some View {

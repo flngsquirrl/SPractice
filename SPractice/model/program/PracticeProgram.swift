@@ -17,7 +17,7 @@ struct PracticeProgram: Program {
         self.name = template.name
         
         var exercises = [PracticeExercise]()
-        for exerciseTemplate in template.exercises {
+        for exerciseTemplate in template.preparedExercises {
             let exercise = PracticeExercise(from: exerciseTemplate)
             exercises.append(exercise!)
         }

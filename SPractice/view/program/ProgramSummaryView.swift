@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct ProgramSummaryView<T>: View where T: Program {
-    var program: T
+struct ProgramSummaryView: View{
+    var program: ProgramTemplate
     var accentedExerciseId: UUID? = nil
     
     var body: some View {
         ProgramDurationSection(program: program)
         
         Section("Sequence") {
-            ForEach(program.exercises) { exercise in
+            ForEach(program.preparedExercises) { exercise in
                 ExerciseShortView(for: exercise, isIconAccented: accentedExerciseId == exercise.id)
                     .foregroundColor(exercise.isService ? .secondary : .primary)
             }

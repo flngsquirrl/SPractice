@@ -15,7 +15,7 @@ struct ExerciseShortView<T>: View where T: Exercise {
     
     init(for exercise: T, displayDetails: Bool = true, isIconAccented: Bool = false) {
         self.exercise = exercise
-        self.displayDetails = displayDetails
+        self.displayDetails = displayDetails && exercise.isTypeSet
         self.isIconAccented = isIconAccented
     }
     
