@@ -27,6 +27,7 @@ struct ExerciseDetailsView: View {
             Section {
                 HStack {
                     Text("Type")
+                    InfoButton()
                     Spacer()
                     ExerciseTypeView(type: viewModel.exercise.type, mode: .iconAndText)
                         .foregroundColor(.secondary)
@@ -35,14 +36,15 @@ struct ExerciseDetailsView: View {
                 if viewModel.showDetails {
                     HStack {
                         Text("Duration")
+                        InfoButton()
                         Spacer()
                         ExerciseDurationView(for: viewModel.exercise, isVerbose: true)
                             .foregroundColor(.secondary)
                     }
-                    
-                    
+                
                     HStack {
                         Text("Intensity")
+                        InfoButton()
                         Spacer()
                         IntensityView(intensity: viewModel.exercise.intensity, mode: .iconAndText)
                             .foregroundColor(.secondary)

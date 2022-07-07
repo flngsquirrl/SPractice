@@ -16,5 +16,5 @@ struct LayoutUtils {
     static let unlimitedDurationImage = Image(systemName: "infinity")
     static let approximationMark = Image(systemName: ExerciseTypeImage.imageName(for: .flow))
     
-    static let durationSectionFooter = Text("Duration is the minimal time needed to complete all timer and tabata exercises, as flow exercises time is not limited")
+    static let durationSectionFooter = Text("Duration is the time needed to complete all timer and tabata exercises. Flow symbol before the actual time means that the program contains flow exercises")
 }

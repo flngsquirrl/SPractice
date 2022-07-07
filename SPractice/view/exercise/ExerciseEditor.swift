@@ -44,6 +44,7 @@ struct ExerciseEditor: View {
             
                 HStack {
                     Text("Type")
+                    InfoButton()
                     Spacer()
                     ExerciseTypeView(type: viewModel.template.type, mode: .iconAndText)
                         .foregroundColor(.secondary)
@@ -54,6 +55,7 @@ struct ExerciseEditor: View {
                 if viewModel.isTypeDefined {
                     HStack {
                         Text("Duration")
+                        InfoButton()
                         Spacer()
                         if viewModel.template.isTimer {
                             timerDurationControl
@@ -113,6 +115,7 @@ struct ExerciseEditor: View {
         
         HStack {
             Text("Intensity")
+            InfoButton()
             Spacer()
             HStack {
                 IntensityImage(intensity: viewModel.template.intensity!)
