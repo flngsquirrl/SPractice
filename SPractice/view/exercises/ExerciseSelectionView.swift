@@ -7,7 +7,12 @@
 
 import SwiftUI
 
-struct ExerciseSelectionView: View {
+struct ExerciseSelectionView: View, ManagedList {
+    
+    @AppStorage("exercisesSortProperty") internal var sortProperty: SortProperty = .date
+    @AppStorage("exercisesSortOrder") internal var sortOrder: SortOrder = .desc
+    
+    typealias Element = ExerciseTemplate
     
     enum ItemsGroup: String, CaseIterable {
         case all
@@ -28,7 +33,7 @@ struct ExerciseSelectionView: View {
             List {
                 if viewModel.itemsGroup == .all {
                     Section {
-                        ForEach(viewModel.filteredExercises) { template in
+                        ForEach(sortedElements) { template in
                             SelectionRow(template: template) {
                                 viewModel.onAdd(template: $0)
                             }
@@ -40,7 +45,7 @@ struct ExerciseSelectionView: View {
                     }
                 } else {
                     Section {
-                        ForEach(viewModel.filteredExercises) { template in
+                        ForEach(sortedElements) { template in
                             SelectionRow(template: template, isAdded: true) {
                                 viewModel.onDelete(template: $0)
                             }
@@ -51,7 +56,7 @@ struct ExerciseSelectionView: View {
                         HStack {
                             Text("To be added (\(viewModel.preparedExercises.count))")
                             Spacer()
-                            Button("Delete") { viewModel.deleteFiltered() }
+                            Button("Delete") { deleteFiltered() }
                                 .disabled(viewModel.preparedExercises.isEmpty)
                         }
                     }
@@ -95,6 +100,20 @@ struct ExerciseSelectionView: View {
             return "list.bullet"
         case .prepared:
             return "checkmark"
+        }
+    }
+    
+    var searchText: String {
+        viewModel.searchText
+    }
+    
+    var elements: [ExerciseTemplate] {
+        viewModel.exercises
+    }
+    
+    func deleteFiltered() {
+        for exercise in filteredElements {
+            viewModel.onDelete(template: exercise)
         }
     }
     

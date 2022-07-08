@@ -18,13 +18,8 @@ extension ExerciseSelectionView {
         
         @Published var searchText = ""
 
-        var filteredExercises: [ExerciseTemplate] {
-            let target = itemsGroup == .prepared ? preparedExercises : existingExercises
-            if searchText.isEmpty {
-                return target
-            } else {
-                return target.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
-            }
+        var exercises: [ExerciseTemplate] {
+            itemsGroup == .prepared ? preparedExercises : existingExercises
         }
         
         func onAdd(template: ExerciseTemplate) {
@@ -39,12 +34,6 @@ extension ExerciseSelectionView {
         
         func removeItems(at offsets: IndexSet) {
             preparedExercises.remove(atOffsets: offsets)
-        }
-        
-        func deleteFiltered() {
-            for exercise in filteredExercises {
-                onDelete(template: exercise)
-            }
         }
     }
 }
