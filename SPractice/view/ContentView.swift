@@ -61,24 +61,7 @@ struct ContentView: View {
                     }
                     
                     Menu {
-                        Menu {
-                            ForEach(SortProperty.allCases, id: \.self) { property in
-                                ForEach(SortOrder.allCases, id: \.self) { order in
-                                    Button() {
-                                        viewModel.setSorting(property: property, order: order)
-                                    } label: {
-                                        let optionName = "\(property.rawValue) (\(order.rawValue))"
-                                        if viewModel.isSortingSet(property: property, order: order) {
-                                            Label(optionName, systemImage: "checkmark")
-                                        } else {
-                                            Text(optionName)
-                                        }
-                                    }
-                                }
-                            }
-                        } label: {
-                            Label("Sort by", systemImage: "arrow.up.arrow.down")
-                        }
+                        SortingMenu(onChange: { viewModel.setSorting(property: $0, order: $1) }, isSet: { viewModel.isSortingSet(property: $0, order: $1) })
                         
                         Button() {
                             showSettingsView = true
