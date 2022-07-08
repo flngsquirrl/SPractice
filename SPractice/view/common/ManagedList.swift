@@ -64,4 +64,8 @@ extension ManagedList {
             return elements.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
         }
     }
+    
+    func getElementToDelete(index: Int) -> Element {
+        sortedElements[index]
+    }
 }

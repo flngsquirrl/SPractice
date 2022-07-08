@@ -14,6 +14,9 @@ struct ExercisesView: View, ManagedList {
     @ObservedObject var exercises = Exercises.shared
     @State internal var searchText = ""
     
+    @State private var showDeleteConfirmation = false
+    @State private var selectedToDelete: IndexSet?
+    
     @AppStorage("exercisesSortProperty") internal var sortProperty: SortProperty = .date
     @AppStorage("exercisesSortOrder") internal var sortOrder: SortOrder = .desc
 
@@ -29,10 +32,20 @@ struct ExercisesView: View, ManagedList {
                     }
                 }
             }
-            .onDelete { exercises.removeItems(at: $0) }
+            .onDelete {
+                showDeleteConfirmation = true
+                selectedToDelete = $0
+            }
         }
         .searchable(text: $searchText)
         .disableAutocorrection(true)
+        .alert(DeleteAlert.title, isPresented: $showDeleteConfirmation, presenting: selectedToDelete) { indexSet in
+            DeleteAlertContent(item: getElementToDelete(index: indexSet.first!)) {
+                exercises.delete($0)
+            }
+        } message: { _ in
+            DeleteAlert.messageText
+        }
     }
     
     var elements: [ExerciseTemplate] {

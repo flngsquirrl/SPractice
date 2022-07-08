@@ -15,6 +15,7 @@ struct ExerciseDetailsView: View {
     private var onDelete: (ExerciseTemplate) -> Void
     
     @State private var showEditView = false
+    @State private var showDeleteConfirmation = false
     
     init(for exercise: ExerciseTemplate, onChange: @escaping (ExerciseTemplate) -> Void, onDelete: @escaping (ExerciseTemplate) -> Void) {
         self.viewModel = ViewModel(for: exercise)
@@ -64,7 +65,7 @@ struct ExerciseDetailsView: View {
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button {
-                    onDelete(viewModel.exercise)
+                    showDeleteConfirmation = true
                 } label: {
                     Image(systemName: "trash")
                 }
@@ -73,6 +74,13 @@ struct ExerciseDetailsView: View {
                     showEditView = true
                 }
             }
+        }
+        .alert(DeleteAlert.title, isPresented: $showDeleteConfirmation) {
+            DeleteAlertContent(item: viewModel.exercise) {
+                onDelete($0)
+            }
+        } message: {
+            DeleteAlert.messageText
         }
         .sheet(isPresented: $showEditView) {
             NavigationView {
