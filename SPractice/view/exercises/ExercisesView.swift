@@ -15,7 +15,7 @@ struct ExercisesView: View, ManagedList {
     @State internal var searchText = ""
     
     @State private var showDeleteConfirmation = false
-    @State private var selectedToDelete: IndexSet?
+    @State private var selectedToDelete: ExerciseTemplate?
     
     @AppStorage("exercisesSortProperty") internal var sortProperty: SortProperty = .date
     @AppStorage("exercisesSortOrder") internal var sortOrder: SortOrder = .desc
@@ -25,22 +25,31 @@ struct ExercisesView: View, ManagedList {
             ForEach(sortedElements) { exercise in
                 HStack {
                     NavigationLink {
-                        ExerciseDetailsView(for: exercise) { exercises.update($0) }
-                    onDelete: { exercises.delete($0) }
+                        ExerciseDetailsView(for: exercise) {
+                            exercises.update($0)
+                            
+                        } onDelete: { exercises.delete($0) }
                     } label: {
-                        ExerciseShortDecorativeView(for: exercise)
+                        ExerciseShortDecorativeView(for: exercise, isIconAccented: exercise.id == selectedToDelete?.id, accentColor: .red, isFilled: true)
                     }
                 }
             }
-            .onDelete {
+            .onDelete { indexSet in
                 showDeleteConfirmation = true
-                selectedToDelete = $0
+                selectedToDelete = getElementToDelete(index: indexSet.first!)
+            }
+        }
+        .onChange(of: showDeleteConfirmation) { shouldShow in
+            if !shouldShow {
+                withAnimation {
+                    selectedToDelete = nil
+                }
             }
         }
         .searchable(text: $searchText)
         .disableAutocorrection(true)
-        .alert(DeleteAlert.title, isPresented: $showDeleteConfirmation, presenting: selectedToDelete) { indexSet in
-            DeleteAlertContent(item: getElementToDelete(index: indexSet.first!)) {
+        .alert(DeleteAlert.title, isPresented: $showDeleteConfirmation, presenting: selectedToDelete) { item in
+            DeleteAlertContent(item: item) {
                 exercises.delete($0)
             }
         } message: { _ in

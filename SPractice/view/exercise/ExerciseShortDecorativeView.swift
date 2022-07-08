@@ -11,16 +11,28 @@ struct ExerciseShortDecorativeView<T>: View where T: Exercise {
     
     private let exercise: T
     private var displayDetails: Bool
+    private var isIconAccented: Bool
+    private var accentColor: Color
+    private var isFilled: Bool
     
-    init(for exercise: T, displayDetails: Bool = true) {
+    init(for exercise: T, displayDetails: Bool = true, isIconAccented: Bool = false, accentColor: Color = .primary, isFilled: Bool = false) {
         self.exercise = exercise
         self.displayDetails = displayDetails && exercise.isTypeSet
+        self.isIconAccented = isIconAccented
+        self.accentColor = accentColor
+        self.isFilled = isFilled
     }
     
     var body: some View {
         HStack {
-            ExerciseTypeImage(type: exercise.type)
-                .font(.title.weight(.light))
+            if isIconAccented {
+                ExerciseTypeImage(type: exercise.type, isFilled: isFilled)
+                    .font(.title.weight(.light))
+                    .foregroundColor(accentColor)
+            } else {
+                ExerciseTypeImage(type: exercise.type)
+                    .font(.title.weight(.light))
+            }
             
             Text(exercise.name)
                     .fontWeight(.semibold)
