@@ -7,14 +7,19 @@
 
 import SwiftUI
 
-struct ExercisesView: View {
+struct ExercisesView: View, ManagedList {
+    
+    typealias Element = ExerciseTemplate
     
     @ObservedObject var exercises = Exercises.shared
-    @State private var searchText = ""
+    @State internal var searchText = ""
+    
+    @AppStorage("exercisesSortProperty") internal var sortProperty: SortProperty = .date
+    @AppStorage("exercisesSortOrder") internal var sortOrder: SortOrder = .desc
 
     var body: some View {
         List {
-            ForEach(sortedExercises) { exercise in
+            ForEach(sortedElements) { exercise in
                 HStack {
                     NavigationLink {
                         ExerciseDetailsView(for: exercise) { exercises.update($0) }
@@ -30,17 +35,8 @@ struct ExercisesView: View {
         .disableAutocorrection(true)
     }
     
-    var filteredExercises: [ExerciseTemplate] {
-        if searchText.isEmpty {
-            return exercises.templates
-        } else {
-            return exercises.templates.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
-        }
-    }
-
-    var sortedExercises: [ExerciseTemplate] {
-        let sorted: [ExerciseTemplate] = filteredExercises.reversed()
-        return sorted
+    var elements: [ExerciseTemplate] {
+        exercises.templates
     }
 }
 

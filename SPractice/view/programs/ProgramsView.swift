@@ -7,14 +7,19 @@
 
 import SwiftUI
 
-struct ProgramsView: View {
+struct ProgramsView: View, ManagedList {
+    
+    typealias Element = ProgramTemplate
     
     @ObservedObject var programs = Programs.shared
-    @State private var searchText = ""
+    @State internal var searchText = ""
+    
+    @AppStorage("programsSortType") internal var sortProperty: SortProperty = .date
+    @AppStorage("programsSortOrder") internal var sortOrder: SortOrder = .desc
     
     var body: some View {
         List {
-            ForEach(sortedPrograms) { program in
+            ForEach(sortedElements) { program in
                 HStack {
                     NavigationLink {
                         ProgramDetailsView(for: program) {
@@ -46,17 +51,8 @@ struct ProgramsView: View {
         .disableAutocorrection(true)
     }
     
-    var filteredPrograms: [ProgramTemplate] {
-        if searchText.isEmpty {
-            return programs.templates
-        } else {
-            return programs.templates.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
-        }
-    }
-
-    var sortedPrograms: [ProgramTemplate] {
-        let sorted: [ProgramTemplate] = filteredPrograms.reversed()
-        return sorted
+    var elements: [ProgramTemplate] {
+        programs.templates
     }
 }
 

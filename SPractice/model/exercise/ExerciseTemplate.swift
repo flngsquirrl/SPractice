@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ExerciseTemplate: Exercise, Hashable, Codable {
+struct ExerciseTemplate: Exercise, Named, Hashable, Codable {
     
     private(set) var id: UUID
     private(set) var type: ExerciseType?

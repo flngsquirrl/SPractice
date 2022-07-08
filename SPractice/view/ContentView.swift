@@ -9,37 +9,33 @@ import SwiftUI
 
 struct ContentView: View {
     
-    enum ContentType: String, CaseIterable {
-        case programs = "Programs"
-        case exercises = "Exercises"
-    }
-    
     @State private var editMode: EditMode = .inactive
     
     @State private var showSettingsView = false
     @State private var showAddNewView = false
-    @State private var contentType: ContentType = .programs
     
     @StateObject private var programs = Programs.shared
     @StateObject private var exercises = Exercises.shared
     
+    @StateObject private var viewModel = ViewModel()
+    
     var body: some View {
         NavigationView {
             Group {
-                switch contentType {
+                switch viewModel.contentType {
                 case .programs:
                     ProgramsView()
                 case .exercises:
                     ExercisesView()
                 }
             }
-            .navigationTitle(contentType == .exercises ? "Exercises" : "Programs")
+            .navigationTitle(viewModel.contentType == .exercises ? "Exercises" : "Programs")
             .sheet(isPresented: $showSettingsView) {
                 SettingsView()
             }
             .sheet(isPresented: $showAddNewView) {
                 NavigationView {
-                    if contentType == .programs {
+                    if viewModel.contentType == .programs {
                         AddProgramView() { programs.addNew($0) }
                     } else {
                         AddExerciseView() { exercises.addNew($0) }
@@ -49,7 +45,7 @@ struct ContentView: View {
             }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
-                    Picker("Content type", selection: $contentType) {
+                    Picker("Content type", selection: $viewModel.contentType) {
                         ForEach(ContentType.allCases, id: \.self) { type in
                             Image(systemName: getImageName(for: type))
                         }
@@ -65,6 +61,25 @@ struct ContentView: View {
                     }
                     
                     Menu {
+                        Menu {
+                            ForEach(SortProperty.allCases, id: \.self) { property in
+                                ForEach(SortOrder.allCases, id: \.self) { order in
+                                    Button() {
+                                        viewModel.setSorting(property: property, order: order)
+                                    } label: {
+                                        let optionName = "\(property.rawValue) (\(order.rawValue))"
+                                        if viewModel.isSortingSet(property: property, order: order) {
+                                            Label(optionName, systemImage: "checkmark")
+                                        } else {
+                                            Text(optionName)
+                                        }
+                                    }
+                                }
+                            }
+                        } label: {
+                            Label("Sort by", systemImage: "arrow.up.arrow.down")
+                        }
+                        
                         Button() {
                             showSettingsView = true
                         } label: {
