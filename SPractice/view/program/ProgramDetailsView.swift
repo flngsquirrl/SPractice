@@ -23,9 +23,8 @@ struct ProgramDetailsView: View {
     var body: some View {
         List {
             Section {
-                Toggle("Use rest", isOn: $viewModel.useRest)
-                    .onChange(of: viewModel.useRest) { _ in
-                        viewModel.onUseRestChange()
+                Toggle("Use rest", isOn: $viewModel.template.useRest)
+                    .onChange(of: viewModel.template.useRest) { _ in
                         onChange(viewModel.template)
                     }
                     .tint(.customAccentColor)

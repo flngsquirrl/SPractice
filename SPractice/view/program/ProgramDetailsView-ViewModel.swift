@@ -10,20 +10,13 @@ import Foundation
 extension ProgramDetailsView {
     @MainActor class ViewModel: ObservableObject {
         
-        var template: ProgramTemplate
-        
-        @Published var useRest: Bool
+        @Published var template: ProgramTemplate
         
         @Published var showPracticeView = false
         @Published var showEditTemplateView = false
         
         init(for template: ProgramTemplate) {
             self.template = template
-            self.useRest = template.useRest
-        }
-        
-        func onUseRestChange() {
-            template.useRest.toggle()
         }
         
         func updateProgramTemplate(template: ProgramTemplate) {
