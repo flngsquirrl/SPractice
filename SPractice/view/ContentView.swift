@@ -45,7 +45,7 @@ struct ContentView: View {
             }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
-                    Picker("Content type", selection: $viewModel.contentType) {
+                    Picker("Content type", selection: $viewModel.contentType.animation()) {
                         ForEach(ContentType.allCases, id: \.self) { type in
                             Image(systemName: getImageName(for: type))
                         }
