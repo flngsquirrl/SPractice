@@ -15,7 +15,7 @@ struct ProgramSummaryView: View{
         ProgramDurationSection(program: program)
         
         Section("Sequence") {
-            ForEach(program.preparedExercises) { exercise in
+            ForEach(program.exercises) { exercise in
                 ExerciseShortView(for: exercise, isIconAccented: accentedExerciseId == exercise.id)
                     .foregroundColor(exercise.isService ? .secondary : .primary)
             }

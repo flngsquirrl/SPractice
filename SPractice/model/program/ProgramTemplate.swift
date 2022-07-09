@@ -12,35 +12,35 @@ struct ProgramTemplate: Program, Named, Identifiable, Codable {
     var id: UUID
     var name: String
     var useRest: Bool
-    var exercises = [ExerciseTemplate]()
+    var templateExercises = [ExerciseTemplate]()
     
     init(id: UUID = UUID(), name: String = "", useRest: Bool = false, exercises: [ExerciseTemplate] = []) {
         self.id = id
         self.name = name
         self.useRest = useRest
-        self.exercises = exercises
+        self.templateExercises = exercises
     }
     
     init(from template: ProgramTemplate) {
-        self.init(name: template.name, useRest: template.useRest, exercises: template.exercises)
+        self.init(name: template.name, useRest: template.useRest, exercises: template.templateExercises)
     }
     
     var hasExercises: Bool {
-        !exercises.isEmpty
+        !templateExercises.isEmpty
     }
     
-    var preparedExercises: [ExerciseTemplate] {
+    var exercises: [ExerciseTemplate] {
         get {
             guard useRest else {
-                return exercises
+                return templateExercises
             }
             
             var all = [ExerciseTemplate]()
-            for (index, exercise) in exercises.enumerated() {
+            for (index, exercise) in templateExercises.enumerated() {
                 let exercise = ExerciseTemplate(from: exercise)
                 all.append(exercise)
                 
-                if useRest && index != exercises.count - 1 {
+                if useRest && index != templateExercises.count - 1 {
                     all.append(ExerciseTemplate.restTemplate)
                 }
             }

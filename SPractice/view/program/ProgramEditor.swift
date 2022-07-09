@@ -42,7 +42,7 @@ struct ProgramEditor: View {
                 }
                 .disabled(editMode.isEditing)
                 
-                ForEach(viewModel.template.exercises) { exercise in
+                ForEach(viewModel.template.templateExercises) { exercise in
                     HStack {
                         if !editMode.isEditing {
                             Button() {
