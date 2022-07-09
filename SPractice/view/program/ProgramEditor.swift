@@ -51,7 +51,7 @@ struct ProgramEditor: View {
                                 Image(systemName: "pencil.circle")
                             }
                         }
-                        ExerciseShortView(for: exercise, isIconAccented: !ValidationService.isValidForPractice(exercise), accentColor: .red, isFilled: true)
+                        ExerciseShortView(for: exercise, isIconAccented: !ValidationService.isValidToPractice(exercise), accentColor: .red, isFilled: true)
                     }
                 }
                 .onDelete { viewModel.removeItems(at: $0) }

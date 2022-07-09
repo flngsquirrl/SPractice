@@ -9,7 +9,7 @@ import Foundation
 
 struct ValidationService {
     
-    static func isValidForPractice(_ template: ExerciseTemplate) -> Bool {
+    static func isValidToPractice(_ template: ExerciseTemplate) -> Bool {
         guard template.isTypeSet else {
             return false
         }

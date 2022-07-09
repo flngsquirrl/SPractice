@@ -15,7 +15,7 @@ struct ProgramSummaryView: View{
         
         Section("Sequence") {
             ForEach(program.exercises) { exercise in
-                ExerciseShortView(for: exercise, isIconAccented: !ValidationService.isValidForPractice(exercise), accentColor: .red)
+                ExerciseShortView(for: exercise, isIconAccented: !ValidationService.isValidToPractice(exercise), accentColor: .red)
             }
         }
     }
