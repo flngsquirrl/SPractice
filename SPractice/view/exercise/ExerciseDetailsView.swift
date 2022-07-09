@@ -93,6 +93,7 @@ struct ExerciseDetailsView: DetailsView {
             NavigationView {
                 EditExerciseView(for: viewModel.exercise, onSave: onChange)
             }
+            .accentColor(.customAccentColor)
         }
     }
 }
