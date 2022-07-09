@@ -7,9 +7,10 @@
 
 import Foundation
 
-@MainActor class Programs: ObservableObject {
+@MainActor class Programs: ObservableObject, DataManager {
+    typealias Item = ProgramTemplate
     
-    @Published private(set) var templates: [ProgramTemplate] = [ProgramTemplate.personal, ProgramTemplate.dailyShort, ProgramTemplate.shortForBack]
+    @Published internal var items: [ProgramTemplate] = [ProgramTemplate.personal, ProgramTemplate.dailyShort, ProgramTemplate.shortForBack]
     
     static let shared = Programs()
     
@@ -24,40 +25,12 @@ import Foundation
 //        }
     }
     
-    private func save() {
+    internal func save() {
 //        do {
 //            let data = try JSONEncoder().encode(templates)
 //            try data.write(to: savePath, options: [.atomic, .completeFileProtection])
 //        } catch {
 //            print("Unable to save data.")
 //        }
-    }
-    
-    func addNew(_ program: ProgramTemplate) {
-        templates.append(program)
-        save()
-    }
-    
-    func removeItems(at offsets: IndexSet) {
-        templates.remove(atOffsets: offsets)
-        save()
-    }
-    
-    func update(_ program: ProgramTemplate) {
-        if let index = templates.firstIndex(where: {$0.id == program.id}) {
-            templates[index] = program
-            save()
-        }
-    }
-    
-    func delete(_ program: ProgramTemplate) {
-        if let index = templates.firstIndex(where: {$0.id == program.id}) {
-            templates.remove(at: index)
-            save()
-        }
-    }
-    
-    func contains(_ program: ProgramTemplate) -> Bool {
-        templates.firstIndex(where: {$0.id == program.id}) != nil
     }
 }

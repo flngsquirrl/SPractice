@@ -65,7 +65,7 @@ struct ProgramsView: View, ManagedList {
     }
     
     var elements: [ProgramTemplate] {
-        programs.templates
+        programs.items
     }
 }
 

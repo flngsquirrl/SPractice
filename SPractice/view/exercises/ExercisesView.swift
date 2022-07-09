@@ -58,7 +58,7 @@ struct ExercisesView: View, ManagedList {
     }
     
     var elements: [ExerciseTemplate] {
-        exercises.templates
+        exercises.items
     }
 }
 

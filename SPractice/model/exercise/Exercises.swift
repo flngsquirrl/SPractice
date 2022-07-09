@@ -7,9 +7,9 @@
 
 import Foundation
 
-@MainActor class Exercises: ObservableObject {
+@MainActor class Exercises: ObservableObject, DataManager {
     
-    @Published var templates: [ExerciseTemplate] = [ExerciseTemplate.catCow, ExerciseTemplate.balasana, ExerciseTemplate.concentration, ExerciseTemplate.vasihsthasana, ExerciseTemplate.catCowNoDuration, ExerciseTemplate.surjaNamascar, ExerciseTemplate.catCowNoType]
+    @Published internal var items: [ExerciseTemplate] = [ExerciseTemplate.catCow, ExerciseTemplate.balasana, ExerciseTemplate.concentration, ExerciseTemplate.vasihsthasana, ExerciseTemplate.catCowNoDuration, ExerciseTemplate.surjaNamascar, ExerciseTemplate.catCowNoType]
     
     static let shared = Exercises()
     
@@ -24,40 +24,12 @@ import Foundation
 //        }
     }
     
-    private func save() {
+    internal func save() {
 //        do {
 //            let data = try JSONEncoder().encode(templates)
 //            try data.write(to: savePath, options: [.atomic, .completeFileProtection])
 //        } catch {
 //            print("Unable to save data.")
 //        }
-    }
-    
-    func addNew(_ exercise: ExerciseTemplate) {
-        templates.append(exercise)
-        save()
-    }
-    
-    func removeItems(at offsets: IndexSet) {
-        templates.remove(atOffsets: offsets)
-        save()
-    }
-    
-    func update(_ exercise: ExerciseTemplate) {
-        if let index = templates.firstIndex(where: {$0.id == exercise.id}) {
-            templates[index] = exercise
-            save()
-        }
-    }
-    
-    func delete(_ exercise: ExerciseTemplate) {
-        if let index = templates.firstIndex(where: {$0.id == exercise.id}) {
-            templates.remove(at: index)
-            save()
-        }
-    }
-    
-    func contains(_ program: ExerciseTemplate) -> Bool {
-        templates.firstIndex(where: {$0.id == program.id}) != nil
     }
 }

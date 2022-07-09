@@ -13,7 +13,7 @@ extension ExerciseSelectionView {
         
         @Published var itemsGroup: ItemsGroup = .all
         
-        @Published var existingExercises = Exercises.shared.templates
+        @Published var existingExercises = Exercises.shared.items
         @Published var preparedExercises: [ExerciseTemplate] = []
         
         @Published var searchText = ""

@@ -46,6 +46,7 @@
 		C996981A286477CB009836BD /* ExerciseTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9969819286477CB009836BD /* ExerciseTypeView.swift */; };
 		C99D20E228719BB300F655C8 /* IntensityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99D20E128719BB300F655C8 /* IntensityView.swift */; };
 		C99D281628799AE700596FBD /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99D281528799AE700596FBD /* DetailsView.swift */; };
+		C99D28182879A05F00596FBD /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99D28172879A05F00596FBD /* DataManager.swift */; };
 		C9A028FA287831CC00032FF9 /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A028F9287831CC00032FF9 /* ContentView-ViewModel.swift */; };
 		C9A028FC287833F200032FF9 /* ManagedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A028FB287833F200032FF9 /* ManagedList.swift */; };
 		C9A028FF2878354E00032FF9 /* SortingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A028FE2878354E00032FF9 /* SortingMenu.swift */; };
@@ -136,6 +137,7 @@
 		C9969819286477CB009836BD /* ExerciseTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTypeView.swift; sourceTree = "<group>"; };
 		C99D20E128719BB300F655C8 /* IntensityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntensityView.swift; sourceTree = "<group>"; };
 		C99D281528799AE700596FBD /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		C99D28172879A05F00596FBD /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		C9A028F9287831CC00032FF9 /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
 		C9A028FB287833F200032FF9 /* ManagedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedList.swift; sourceTree = "<group>"; };
 		C9A028FE2878354E00032FF9 /* SortingMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingMenu.swift; sourceTree = "<group>"; };
@@ -302,6 +304,14 @@
 			path = task;
 			sourceTree = "<group>";
 		};
+		C99D28192879AA7E00596FBD /* common */ = {
+			isa = PBXGroup;
+			children = (
+				C99D28172879A05F00596FBD /* DataManager.swift */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
 		C9A028FD2878353200032FF9 /* sorting */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +329,7 @@
 				C9DE15222868B2C70011324C /* practice */,
 				C9DE15252868B34A0011324C /* program */,
 				C9DE15232868B2D90011324C /* settings */,
+				C99D28192879AA7E00596FBD /* common */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -593,6 +604,7 @@
 				C996981A286477CB009836BD /* ExerciseTypeView.swift in Sources */,
 				C9D156B028534E88007F5176 /* AddExerciseView.swift in Sources */,
 				C9A0D0112823DF22000CF439 /* SettingsView.swift in Sources */,
+				C99D28182879A05F00596FBD /* DataManager.swift in Sources */,
 				C99698162863C2C7009836BD /* SettingsManager.swift in Sources */,
 				C96728832874E11A00B4990C /* IconTextView.swift in Sources */,
 				C967287C2874553600B4990C /* Exercise.swift in Sources */,
