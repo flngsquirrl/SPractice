@@ -12,22 +12,29 @@ struct ExerciseShortView<T>: View where T: Exercise {
     private let exercise: T
     private var displayDetails = false
     private var isIconAccented = false
+    private var accentColor: Color
+    private var isFilled: Bool
     
-    init(for exercise: T, displayDetails: Bool = true, isIconAccented: Bool = false) {
+    init(for exercise: T, displayDetails: Bool = true, isIconAccented: Bool = false, accentColor: Color = .primary, isFilled: Bool = false) {
         self.exercise = exercise
         self.displayDetails = displayDetails && exercise.isTypeSet
         self.isIconAccented = isIconAccented
+        self.accentColor = accentColor
+        self.isFilled = isFilled
     }
     
     var body: some View {
         HStack {
-            if isIconAccented {
-                ExerciseTypeImage(type: exercise.type, isFilled: true)
-                    .foregroundColor(.lightOrange)
-            } else {
-                ExerciseTypeImage(type: exercise.type)
+            Group {
+                if isIconAccented {
+                    ExerciseTypeImage(type: exercise.type, isFilled: true)
+                        .foregroundColor(accentColor)
+                } else {
+                    ExerciseTypeImage(type: exercise.type)
+                }
+                Text(exercise.name)
             }
-            Text(exercise.name)
+            .foregroundColor(exercise.isService ? .secondary : .primary)
             
             if displayDetails {
                 HStack {

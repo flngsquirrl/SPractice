@@ -9,15 +9,13 @@ import SwiftUI
 
 struct ProgramSummaryView: View{
     var program: ProgramTemplate
-    var accentedExerciseId: UUID? = nil
     
     var body: some View {
         ProgramDurationSection(program: program)
         
         Section("Sequence") {
             ForEach(program.exercises) { exercise in
-                ExerciseShortView(for: exercise, isIconAccented: accentedExerciseId == exercise.id)
-                    .foregroundColor(exercise.isService ? .secondary : .primary)
+                ExerciseShortView(for: exercise, isIconAccented: !ValidationService.isValidForPractice(exercise), accentColor: .red)
             }
         }
     }
