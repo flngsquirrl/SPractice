@@ -37,17 +37,23 @@ struct ProgramDetailsView: DetailsView {
                         onChange(viewModel.template)
                     }
                     .tint(.customAccentColor)
-                    
+            } header: {
+                Text("Settings")
+            } footer: {
+                Text("Rest duration is based on the application Settings")
+            }
+            
+            Section {
                 Button() {
                     viewModel.showPracticeView = true
                 } label: {
                     Label("Practice", systemImage: "play.rectangle")
                 }
                 .disabled(viewModel.isPracticeDisabled)
-            } header: {
-                Text("Settings")
             } footer: {
-                Text("Having rest between execises lets you take a deep breath and prepare for the upcoming exercise")
+                if viewModel.isPracticeDisabled {
+                    Text("Type and duration should be defined for all the exercises to start the practice. Please, review the exercises marked with red.")
+                }
             }
             
             ProgramSummaryView(program: viewModel.template)

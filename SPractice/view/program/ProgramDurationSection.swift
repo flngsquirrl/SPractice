@@ -21,8 +21,6 @@ struct ProgramDurationSection<T>: View where T: Program {
             }
         } header: {
             Text("Summary")
-        } footer: {
-            LayoutUtils.durationSectionFooter
         }
     }
 }
