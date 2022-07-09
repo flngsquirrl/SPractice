@@ -9,11 +9,14 @@ import SwiftUI
 
 struct WelcomeView: View {
     var body: some View {
-        ZStack {
-            Color.lightOrange
-            VStack {
-                SquirrelInWheelLogo()
-                    .frame(width: 300, height: 300)
+        GeometryReader { geo in
+            ZStack {
+                Color.lightOrange
+                VStack {
+                    let size = min(geo.size.width, geo.size.height) * 0.5
+                    SquirrelInWheelLogo()
+                        .frame(width: size, height: size)
+                }
             }
         }
     }
