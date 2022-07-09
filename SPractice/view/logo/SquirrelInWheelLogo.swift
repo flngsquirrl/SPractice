@@ -36,9 +36,9 @@ struct SquirrelInWheelLogo: View {
                             .fill(color)
                             .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
                     }
-                    .frame(width: geo.size.width * 0.7, height: geo.size.width * 0.7)
+                    .frame(width: geo.size.width * 0.8, height: geo.size.width * 0.8)
                 }
-                .frame(width: geo.size.width * 0.9, height: geo.size.width * 0.9)
+                .frame(width: geo.size.width, height: geo.size.width)
             }
         }
     }
