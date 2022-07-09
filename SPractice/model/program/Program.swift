@@ -23,8 +23,11 @@ extension Program {
     func calculateDuration(fromIndex index: Int) -> Duration {
         var totalDuration = 0
         for i in index..<exercises.count {
-            if case .known(let duration) = exercises[i].duration {
+            let exercise = exercises[i]
+            if case .known(let duration) = exercise.duration {
                 totalDuration += duration
+            } else if exercise.type == .tabata {
+                totalDuration += SettingsManager.shared.tabataExerciseDuration
             }
         }
         return totalDuration == 0 ? (hasFlowExercises(fromIndex: index) ? .unlimited : .unknown) : .known(totalDuration)
