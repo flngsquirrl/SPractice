@@ -7,12 +7,19 @@
 
 import SwiftUI
 
-struct ExerciseDetailsView: View {
+struct ExerciseDetailsView: DetailsView {
     
     @ObservedObject private var viewModel: ViewModel
     
     private var onChange: (ExerciseTemplate) -> Void
     private var onDelete: (ExerciseTemplate) -> Void
+    
+    @ObservedObject var exercises = Exercises.shared
+    
+    @Environment(\.horizontalSizeClass) var sizeClass
+    var isDeleted: Bool {
+        !exercises.contains(viewModel.exercise)
+    }
     
     @State private var showEditView = false
     @State private var showDeleteConfirmation = false
@@ -23,7 +30,7 @@ struct ExerciseDetailsView: View {
         self.onDelete = onDelete
     }
     
-    var body: some View {
+    var detailsContent: some View {
         List {
             Section {
                 HStack {
@@ -85,8 +92,7 @@ struct ExerciseDetailsView: View {
         .sheet(isPresented: $showEditView) {
             NavigationView {
                 EditExerciseView(for: viewModel.exercise, onSave: onChange)
-                }
-                .accentColor(.customAccentColor)
+            }
         }
     }
 }

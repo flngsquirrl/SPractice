@@ -14,8 +14,8 @@ struct ContentView: View {
     @State private var showSettingsView = false
     @State private var showAddNewView = false
     
-    @StateObject private var programs = Programs.shared
-    @StateObject private var exercises = Exercises.shared
+    @ObservedObject private var programs = Programs.shared
+    @ObservedObject private var exercises = Exercises.shared
     
     @StateObject private var viewModel = ViewModel()
     
@@ -74,13 +74,7 @@ struct ContentView: View {
                 }
             }
             
-            ZStack {
-                Color.lightOrange
-                VStack {
-                    SquirrelInWheelLogo()
-                        .frame(width: 300, height: 300)
-                }
-            }
+            WelcomeView()
         }
         .accentColor(.customAccentColor)
     }

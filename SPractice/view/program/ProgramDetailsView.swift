@@ -7,9 +7,18 @@
 
 import SwiftUI
 
-struct ProgramDetailsView: View {
+struct ProgramDetailsView: DetailsView {
     
-    @ObservedObject var viewModel: ViewModel
+    @ObservedObject private var viewModel: ViewModel
+    
+    @State private var showDeleteConfirmation = false
+    
+    @ObservedObject var programs = Programs.shared
+    
+    @Environment(\.horizontalSizeClass) var sizeClass
+    var isDeleted: Bool {
+        !programs.contains(viewModel.template)
+    }
 
     var onChange: (ProgramTemplate) -> Void
     var onDelete: (ProgramTemplate) -> Void
@@ -20,7 +29,7 @@ struct ProgramDetailsView: View {
         self.onDelete = onDelete
     }
     
-    var body: some View {
+    var detailsContent: some View {
         List {
             Section {
                 Toggle("Use rest", isOn: $viewModel.template.useRest)
@@ -55,11 +64,18 @@ struct ProgramDetailsView: View {
             }
             .accentColor(.customAccentColor)
         }
+        .alert(DeleteAlert.title, isPresented: $showDeleteConfirmation) {
+            DeleteAlertContent(item: viewModel.template) {
+                onDelete($0)
+            }
+        } message: {
+            DeleteAlert.messageText
+        }
         .navigationTitle(viewModel.template.name)
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button {
-                    onDelete(viewModel.template)
+                    showDeleteConfirmation = true
                 } label: {
                     Image(systemName: "trash")
                 }

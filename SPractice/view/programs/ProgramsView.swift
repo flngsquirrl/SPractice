@@ -14,6 +14,9 @@ struct ProgramsView: View, ManagedList {
     @ObservedObject var programs = Programs.shared
     @State internal var searchText = ""
     
+    @State private var showDeleteConfirmation = false
+    @State private var selectedToDelete: ProgramTemplate?
+    
     @AppStorage("programsSortType") internal var sortProperty: SortProperty = .date
     @AppStorage("programsSortOrder") internal var sortOrder: SortOrder = .desc
     
@@ -45,10 +48,20 @@ struct ProgramsView: View, ManagedList {
                     }
                 }
             }
-            .onDelete { programs.removeItems(at: $0) }
+            .onDelete { indexSet in
+                showDeleteConfirmation = true
+                selectedToDelete = getElementToDelete(index: indexSet.first!)
+            }
         }
         .searchable(text: $searchText)
         .disableAutocorrection(true)
+        .alert(DeleteAlert.title, isPresented: $showDeleteConfirmation, presenting: selectedToDelete) { item in
+            DeleteAlertContent(item: item) {
+                programs.delete($0)
+            }
+        } message: { _ in
+            DeleteAlert.messageText
+        }
     }
     
     var elements: [ProgramTemplate] {

@@ -56,4 +56,8 @@ import Foundation
             save()
         }
     }
+    
+    func contains(_ program: ExerciseTemplate) -> Bool {
+        templates.firstIndex(where: {$0.id == program.id}) != nil
+    }
 }

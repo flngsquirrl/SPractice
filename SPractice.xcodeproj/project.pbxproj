@@ -15,6 +15,7 @@
 		C92F6C42286F00EB00D7BA59 /* LayoutUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C41286F00EB00D7BA59 /* LayoutUtils.swift */; };
 		C92F6C44286F0B0000D7BA59 /* ProgramDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C43286F0B0000D7BA59 /* ProgramDurationView.swift */; };
 		C92F6C46286F1B6500D7BA59 /* DurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C45286F1B6500D7BA59 /* DurationView.swift */; };
+		C932522028798B7A009D5479 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C932521F28798B7A009D5479 /* WelcomeView.swift */; };
 		C9445C6D285E00D000DF2A08 /* ExerciseDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9445C6C285E00D000DF2A08 /* ExerciseDetailsView.swift */; };
 		C9445C71285E0A9300DF2A08 /* ExerciseEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9445C70285E0A9300DF2A08 /* ExerciseEditor.swift */; };
 		C95011C728196FFD0043EC75 /* SPracticeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95011C628196FFD0043EC75 /* SPracticeApp.swift */; };
@@ -44,6 +45,7 @@
 		C996981828646E53009836BD /* ExerciseDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C996981728646E53009836BD /* ExerciseDurationView.swift */; };
 		C996981A286477CB009836BD /* ExerciseTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9969819286477CB009836BD /* ExerciseTypeView.swift */; };
 		C99D20E228719BB300F655C8 /* IntensityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99D20E128719BB300F655C8 /* IntensityView.swift */; };
+		C99D281628799AE700596FBD /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99D281528799AE700596FBD /* DetailsView.swift */; };
 		C9A028FA287831CC00032FF9 /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A028F9287831CC00032FF9 /* ContentView-ViewModel.swift */; };
 		C9A028FC287833F200032FF9 /* ManagedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A028FB287833F200032FF9 /* ManagedList.swift */; };
 		C9A028FF2878354E00032FF9 /* SortingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A028FE2878354E00032FF9 /* SortingMenu.swift */; };
@@ -102,6 +104,7 @@
 		C92F6C41286F00EB00D7BA59 /* LayoutUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutUtils.swift; sourceTree = "<group>"; };
 		C92F6C43286F0B0000D7BA59 /* ProgramDurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDurationView.swift; sourceTree = "<group>"; };
 		C92F6C45286F1B6500D7BA59 /* DurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationView.swift; sourceTree = "<group>"; };
+		C932521F28798B7A009D5479 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		C9445C6C285E00D000DF2A08 /* ExerciseDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailsView.swift; sourceTree = "<group>"; };
 		C9445C70285E0A9300DF2A08 /* ExerciseEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseEditor.swift; sourceTree = "<group>"; };
 		C95011C328196FFD0043EC75 /* SPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +135,7 @@
 		C996981728646E53009836BD /* ExerciseDurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDurationView.swift; sourceTree = "<group>"; };
 		C9969819286477CB009836BD /* ExerciseTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTypeView.swift; sourceTree = "<group>"; };
 		C99D20E128719BB300F655C8 /* IntensityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntensityView.swift; sourceTree = "<group>"; };
+		C99D281528799AE700596FBD /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		C9A028F9287831CC00032FF9 /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
 		C9A028FB287833F200032FF9 /* ManagedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedList.swift; sourceTree = "<group>"; };
 		C9A028FE2878354E00032FF9 /* SortingMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingMenu.swift; sourceTree = "<group>"; };
@@ -262,6 +266,7 @@
 				C91982562876E297005D049C /* InfoButton.swift */,
 				C9A028FB287833F200032FF9 /* ManagedList.swift */,
 				C9A029022878478E00032FF9 /* DeleteAlert.swift */,
+				C99D281528799AE700596FBD /* DetailsView.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -375,6 +380,7 @@
 				C9A0D0182827CE9F000CF439 /* logo */,
 				C95011C828196FFD0043EC75 /* ContentView.swift */,
 				C9A028F9287831CC00032FF9 /* ContentView-ViewModel.swift */,
+				C932521F28798B7A009D5479 /* WelcomeView.swift */,
 				C9A0D023282813F2000CF439 /* ColorTheme.swift */,
 				C92F6C41286F00EB00D7BA59 /* LayoutUtils.swift */,
 			);
@@ -590,6 +596,7 @@
 				C99698162863C2C7009836BD /* SettingsManager.swift in Sources */,
 				C96728832874E11A00B4990C /* IconTextView.swift in Sources */,
 				C967287C2874553600B4990C /* Exercise.swift in Sources */,
+				C99D281628799AE700596FBD /* DetailsView.swift in Sources */,
 				C9DE152A2868B5500011324C /* Programs.swift in Sources */,
 				C9CCCE9A284B6E09005665C8 /* ProgramDetailsView-ViewModel.swift in Sources */,
 				C9A029032878478E00032FF9 /* DeleteAlert.swift in Sources */,
@@ -609,6 +616,7 @@
 				C9CCCE98284B6DE5005665C8 /* ProgramDetailsView.swift in Sources */,
 				C9D53FB528704E4000FD2B6F /* ValidationService.swift in Sources */,
 				C9A0D02028280F13000CF439 /* SquirrelInWheel.swift in Sources */,
+				C932522028798B7A009D5479 /* WelcomeView.swift in Sources */,
 				C9741A3E2861128800E1F670 /* View-ImageRenderer.swift in Sources */,
 				C9741A34286085E400E1F670 /* EditProgramView.swift in Sources */,
 				C96728852874E71700B4990C /* PracticeSummaryView.swift in Sources */,
