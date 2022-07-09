@@ -21,6 +21,23 @@ struct PracticeExercise: Exercise, Equatable {
     
     private(set) var tasks: [Task]
     
+    init(type: ExerciseType, name: String, intensity: Intensity, isService: Bool = false, tasks: [Task] = []) {
+        self.exerciseType = type
+        self.name = name
+        self.exerciseIntensity = intensity
+        self.isService = isService
+        self.tasks = tasks
+    }
+    
+    init?(from template: ExerciseTemplate) {
+        guard template.type != nil else {
+            return nil
+        }
+        
+        self.init(type: template.type!, name: template.name, intensity: template.intensity!, isService: template.isService)
+        self.tasks = prepareTasks(from: template)
+    }
+    
     var type: ExerciseType? {
         return exerciseType
     }
@@ -40,23 +57,6 @@ struct PracticeExercise: Exercise, Equatable {
             }
         }
         return result > 0 ? .known(result) : .unknown
-    }
-    
-    init(type: ExerciseType, name: String, intensity: Intensity, isService: Bool = false, tasks: [Task] = []) {
-        self.exerciseType = type
-        self.name = name
-        self.exerciseIntensity = intensity
-        self.isService = isService
-        self.tasks = tasks
-    }
-    
-    init?(from template: ExerciseTemplate) {
-        guard template.type != nil else {
-            return nil
-        }
-        
-        self.init(type: template.type!, name: template.name, intensity: template.intensity!, isService: template.isService)
-        self.tasks = prepareTasks(from: template)
     }
     
     func prepareTasks(from template: ExerciseTemplate) -> [Task] {
@@ -82,7 +82,7 @@ struct PracticeExercise: Exercise, Equatable {
         
         for i in 1...SettingsManager.shared.getValue(of: .tabata_repetitions){
             let activity = Task(intensity: .activity, name: "\(Intensity.activity.rawValue) \(i)", duration: .known(SettingsManager.shared.getValue(of: .tabata_activity)))
-            let rest = Task(intensity: .rest, name: "\(Intensity.rest.rawValue) \(i)", duration: .known(SettingsManager.shared.getValue(of: .general_rest)))
+            let rest = Task(intensity: .rest, name: "\(Intensity.rest.rawValue) \(i)", duration: .known(SettingsManager.shared.getValue(of: .tabata_rest)))
             tasks.append(activity)
             tasks.append(rest)
         }
