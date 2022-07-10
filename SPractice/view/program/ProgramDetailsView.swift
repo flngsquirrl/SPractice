@@ -12,6 +12,7 @@ struct ProgramDetailsView: DetailsView {
     @ObservedObject private var viewModel: ViewModel
     
     @State private var showDeleteConfirmation = false
+    @State private var showSettings = false
     
     @ObservedObject var programs = Programs.shared
     
@@ -40,7 +41,14 @@ struct ProgramDetailsView: DetailsView {
             } header: {
                 Text("Settings")
             } footer: {
-                Text("Rest duration is based on the application Settings")
+                HStack(spacing: 0) {
+                    Text("Rest duration is based on the general ")
+                    Text("Settings")
+                        .foregroundColor(.customAccentColor)
+                        .onTapGesture {
+                            showSettings = true
+                        }
+                }
             }
             
             Section {
@@ -57,6 +65,9 @@ struct ProgramDetailsView: DetailsView {
             }
             
             ProgramSummaryView(program: viewModel.template)
+        }
+        .sheet(isPresented: $showSettings) {
+            SettingsView()
         }
         .fullScreenCover(isPresented: $viewModel.showPracticeView) {
             PracticeView(practice: Practice(for: PracticeProgram(from: viewModel.template)))
