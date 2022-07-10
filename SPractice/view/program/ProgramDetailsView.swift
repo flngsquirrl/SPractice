@@ -38,6 +38,7 @@ struct ProgramDetailsView: DetailsView {
                         onChange(viewModel.template)
                     }
                     .tint(.customAccentColor)
+                    .disabled(viewModel.isUseRestDisabled)
             } header: {
                 Text("Settings")
             } footer: {

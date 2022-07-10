@@ -30,5 +30,9 @@ extension ProgramDetailsView {
         var isPracticeDisabled: Bool {
             !ValidationService.isValidToPractice(template: template)
         }
+        
+        var isUseRestDisabled: Bool {
+            template.exercises.count == 1
+        }
     }
 }
