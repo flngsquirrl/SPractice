@@ -77,7 +77,7 @@ struct ProgramEditor: View {
                 }
             }
         }
-        .environment(\.editMode, $editMode)
+        .environment(\.editMode, $editMode.animation())
         .sheet(item: $selectedExercise) { exercise in
             NavigationView {
                 EditExerciseView(for: exercise) { viewModel.updateExercise(exercise: $0) }
