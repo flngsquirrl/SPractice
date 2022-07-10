@@ -31,7 +31,7 @@ struct ProgramsView: View, ManagedList {
                             programs.delete($0)
                         }
                     } label: {
-                        ProgramShortDecorativeView(template: program)
+                        ProgramShortDecorativeView(program: program)
                     }
                 }
             }

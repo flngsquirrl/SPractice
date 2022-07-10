@@ -26,7 +26,7 @@ struct ProgramEditor: View {
         Form {
             TextField("Program name", text: $viewModel.template.name)
             
-            ProgramDurationSection(program: viewModel.targetTemplate)
+            ProgramDurationSection(program: viewModel.preparedProgram)
             
             Section() {
                 Button() {
@@ -42,7 +42,7 @@ struct ProgramEditor: View {
                 }
                 .disabled(editMode.isEditing)
                 
-                ForEach(viewModel.template.templateExercises) { exercise in
+                ForEach(viewModel.template.exercises) { exercise in
                     HStack {
                         if !editMode.isEditing {
                             Button() {
@@ -58,7 +58,7 @@ struct ProgramEditor: View {
                 .onMove{ viewModel.moveItems(from: $0, to: $1) }
             } header: {
                 HStack {
-                    Text("Exercises (\(viewModel.template.templateExercises.count))")
+                    Text("Exercises (\(viewModel.template.exercises.count))")
                     Spacer()
                     if editMode.isEditing {
                         Button("Done") {

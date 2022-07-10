@@ -99,6 +99,6 @@ struct PracticeView: View {
 
 struct PracticeView_Previews: PreviewProvider {
     static var previews: some View {
-        PracticeView(practice: Practice(from: ProgramTemplate.personal))
+        PracticeView(practice: Practice(from: PreparedProgram.personal))
     }
 }

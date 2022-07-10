@@ -16,6 +16,7 @@ protocol Program {
 }
 
 extension Program {
+    
     var duration: Duration {
         calculateDuration(fromIndex: 0)
     }
@@ -31,6 +32,10 @@ extension Program {
             }
         }
         return totalDuration == 0 ? (hasFlowExercises(fromIndex: index) ? .unlimited : .unknown) : .known(totalDuration)
+    }
+    
+    var hasExercises: Bool {
+        !exercises.isEmpty
     }
     
     var hasFlowExercises: Bool {

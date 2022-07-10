@@ -64,13 +64,13 @@ struct ProgramDetailsView: DetailsView {
                 }
             }
             
-            ProgramSummaryView(program: viewModel.template)
+            ProgramSummaryView(program: viewModel.preparedProgram)
         }
         .sheet(isPresented: $showSettings) {
             SettingsView()
         }
         .fullScreenCover(isPresented: $viewModel.showPracticeView) {
-            PracticeView(practice: Practice(for: PracticeProgram(from: viewModel.template)))
+            PracticeView(practice: Practice(for: PracticeProgram(from: viewModel.preparedProgram)))
         }
         .sheet(isPresented: $viewModel.showEditTemplateView) {
             NavigationView {

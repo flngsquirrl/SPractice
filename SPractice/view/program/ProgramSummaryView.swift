@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct ProgramSummaryView: View{
-    var program: ProgramTemplate
+struct ProgramSummaryView: View {
+    var program: PreparedProgram
     
     var body: some View {
         ProgramDurationSection(program: program)
@@ -24,7 +24,7 @@ struct ProgramSummaryView: View{
 struct ProgramSummaryView_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            ProgramSummaryView(program: ProgramTemplate.personal)
+            ProgramSummaryView(program: PreparedProgram.personal)
         }
     }
 }

@@ -23,6 +23,10 @@ extension ProgramDetailsView {
             self.template = template
         }
         
+        var preparedProgram: PreparedProgram {
+            PreparedProgram(from: template)
+        }
+        
         var isPracticeDisabled: Bool {
             !ValidationService.isValidToPractice(template: template)
         }

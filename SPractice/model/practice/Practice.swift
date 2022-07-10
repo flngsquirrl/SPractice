@@ -35,7 +35,7 @@ class Practice: ObservableObject {
         preparePlayer()
     }
     
-    convenience init(from template: ProgramTemplate) {
+    convenience init(from template: PreparedProgram) {
         self.init(for: PracticeProgram(from: template))
     }
     
