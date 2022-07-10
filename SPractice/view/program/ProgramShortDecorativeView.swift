@@ -8,12 +8,27 @@
 import SwiftUI
 
 struct ProgramShortDecorativeView: View {
-    var program: ProgramTemplate
+    private var program: ProgramTemplate
+    private var isAccented: Bool
+    private var accentColor: Color
+    
+    init(for program: ProgramTemplate, isAccented: Bool = false, accentColor: Color = .customAccentColor) {
+        self.program = program
+        self.isAccented = isAccented
+        self.accentColor = accentColor
+    }
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("\(program.name)")
-                .fontWeight(.semibold)
+            if isAccented {
+                Text("\(program.name)")
+                    .fontWeight(.semibold)
+                    .foregroundColor(accentColor)
+            } else {
+                Text("\(program.name)")
+                    .fontWeight(.semibold)
+            }
+                
             Group {
                 Text("\(program.exercises.count) ") +
                 Text(program.exercises.count == 1 ? "exercise" : "exercises")
@@ -32,6 +47,6 @@ struct ProgramShortDecorativeView: View {
 
 struct ProgramShortDecorativeView_Previews: PreviewProvider {
     static var previews: some View {
-        ProgramShortDecorativeView(program: ProgramTemplate.personal)
+        ProgramShortDecorativeView(for: ProgramTemplate.personal)
     }
 }

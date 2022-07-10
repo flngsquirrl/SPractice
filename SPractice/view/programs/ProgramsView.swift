@@ -31,13 +31,20 @@ struct ProgramsView: View, ManagedList {
                             programs.delete($0)
                         }
                     } label: {
-                        ProgramShortDecorativeView(program: program)
+                        ProgramShortDecorativeView(for: program, isAccented: program.id == selectedToDelete?.id, accentColor: .red)
                     }
                 }
             }
             .onDelete { indexSet in
                 showDeleteConfirmation = true
                 selectedToDelete = getElementToDelete(index: indexSet.first!)
+            }
+        }
+        .onChange(of: showDeleteConfirmation) { shouldShow in
+            if !shouldShow {
+                withAnimation {
+                    selectedToDelete = nil
+                }
             }
         }
         .searchable(text: $searchText)
