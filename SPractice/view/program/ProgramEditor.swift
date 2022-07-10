@@ -58,7 +58,7 @@ struct ProgramEditor: View {
                 .onMove{ viewModel.moveItems(from: $0, to: $1) }
             } header: {
                 HStack {
-                    Text("Exercises (\(viewModel.template.exercises.count))")
+                    Text("Exercises (\(viewModel.template.templateExercises.count))")
                     Spacer()
                     if editMode.isEditing {
                         Button("Done") {
