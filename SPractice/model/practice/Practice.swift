@@ -14,8 +14,8 @@ class Practice: ObservableObject {
     let player: Player
     
     var isRunning = false
-    var isStarted = false
-    var isCompleted = false
+    @Published var isStarted = false // play was clicked
+    @Published var isCompleted = false
     
     @Published var currentExerciseIndex = 0
     @Published var currentTaskIndex = 0
@@ -130,10 +130,13 @@ class Practice: ObservableObject {
     
     func finish() {
         cancel()
+        moveToLastTask()
+        resetDurationRemaining()
+        clock.resetTime()
         isCompleted = true
         updatePlayerState()
     }
-    
+
     func cancel() {
         stopClock()
     }
@@ -156,8 +159,12 @@ class Practice: ObservableObject {
     }
     
     func moveToNextExercise() {
-        currentExerciseIndex += 1
-        onMoveToExercise()
+        if isLastExercise {
+            finish()
+        } else {
+            currentExerciseIndex += 1
+            onMoveToExercise()
+        }
     }
     
     func moveToPreviousExercise() {
@@ -175,6 +182,14 @@ class Practice: ObservableObject {
     func moveToNextTask() {
         currentTaskIndex += 1
         resetTiming()
+    }
+    
+    func moveToLastTask() {
+        let lastTaskIndex = currentExercise.tasks.count - 1
+        guard currentTaskIndex != lastTaskIndex else {
+            return
+        }
+        currentTaskIndex = lastTaskIndex
     }
     
     func processCountingFinished() {
@@ -197,6 +212,12 @@ class Practice: ObservableObject {
     
     func setDurationRemaining() {
         durationRemaining = program.calculateDuration(fromIndex: currentExerciseIndex)
+    }
+    
+    func resetDurationRemaining() {
+        if case .known = durationRemaining {
+            durationRemaining = .known(0)
+        }
     }
     
     func updateDurationRemaining() {
@@ -228,7 +249,7 @@ class Practice: ObservableObject {
         player.isPlayEnabled = !isRunning && !isCompleted
         player.isPauseEnabled = isRunning && !isCompleted
         player.isBackwardEnabled = !isFirstExercise && !isCompleted
-        player.isForwardEnabled = !isLastExercise && !isCompleted
+        player.isForwardEnabled = !isCompleted
         player.isStopEnabled = isStarted && !isCompleted
     }
     

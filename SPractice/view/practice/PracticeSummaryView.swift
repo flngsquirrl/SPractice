@@ -32,6 +32,7 @@ struct PracticeSummaryView: View {
                             }
                             
                             ExerciseShortView(for: exercise, isIconAccented: false)
+                                .foregroundColor(exercise.isService ? .secondary : .primary)
                        }
                     }
                 }

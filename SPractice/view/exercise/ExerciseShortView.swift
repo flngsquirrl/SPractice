@@ -25,16 +25,13 @@ struct ExerciseShortView<T>: View where T: Exercise {
     
     var body: some View {
         HStack {
-            Group {
-                if isIconAccented {
-                    ExerciseTypeImage(type: exercise.type, isFilled: true)
-                        .foregroundColor(accentColor)
-                } else {
-                    ExerciseTypeImage(type: exercise.type)
-                }
-                Text(exercise.name)
+            if isIconAccented {
+                ExerciseTypeImage(type: exercise.type, isFilled: true)
+                    .foregroundColor(accentColor)
+            } else {
+                ExerciseTypeImage(type: exercise.type)
             }
-            .foregroundColor(exercise.isService ? .secondary : .primary)
+            Text(exercise.name)
             
             if displayDetails {
                 HStack {

@@ -15,7 +15,7 @@ struct PracticeSequenceView: View {
         Group {
             HStack {
                 Image(systemName: "arrow.forward.circle")
-                    .foregroundColor(practice.isLastExercise ? .secondary : .lightOrange)
+                    .foregroundColor(practice.isCompleted ? .secondary : .lightOrange)
                 
                 if let nextExercise = practice.nextExercise {
                     ExerciseShortView(for: nextExercise)
@@ -27,7 +27,7 @@ struct PracticeSequenceView: View {
             .foregroundColor(.secondary)
             .wrapped()
             .onTapGesture {
-                if !practice.isLastExercise {
+                if !practice.isCompleted {
                     practice.moveToNextExercise()
                 }
             }

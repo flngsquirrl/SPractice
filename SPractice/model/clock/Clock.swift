@@ -75,6 +75,10 @@ class Clock: ObservableObject {
         timerSubscription?.cancel()
     }
     
+    func resetTime() {
+        self.time = ClockTime(timeInSeconds: 0)
+    }
+    
     func reset(to timeInSeconds: Int = 0, isCountdown: Bool = false) {
         stop()
         self.time = ClockTime(timeInSeconds: timeInSeconds)

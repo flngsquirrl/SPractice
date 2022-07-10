@@ -57,42 +57,69 @@ struct PracticeView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
-                        Button("Close") {
-                            dismiss()
-                        }
+                        closeButton
                     }
                     
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
-                        
-                        Button() {
-                            withAnimation {
-                                practice.restart()
-                            }
-                        } label: {
-                            Image(systemName: "arrow.clockwise.circle")
-                        }
-                        .disabled(!practice.isStarted)
-                        
-                        Button() {
-                            withAnimation {
-                                isSoundOn.toggle()
-                            }
-                        } label: {
-                            Image(systemName: isSoundOn ? "bell" : "bell.slash")
-                        }
-                        
-                        Button() {
-                            isPracticeDetailsShown.toggle()
-                        } label: {
-                            Image(systemName: "list.bullet.rectangle")
-                        }
+                        restartButtonWithIcon
+                            .disabled(!practice.isStarted)
+                        soundButton
+                        summaryButton
                     }
                 }
                 .sheet(isPresented: $isPracticeDetailsShown) {
                     PracticeSummaryView(practice: practice)
                 }
+                .alert("Namaste", isPresented: $practice.isCompleted) {
+                    restartButton
+                    closeButton
+                } message: {
+                    Text("You have finished the practice")
+                }
             }
             .accentColor(.customAccentColor)
+        }
+    }
+    
+    var closeButton: some View {
+        Button("Close", role: .cancel) {
+            dismiss()
+        }
+    }
+    
+    var restartButton: some View {
+        Button("Restart") {
+            withAnimation {
+                practice.restart()
+            }
+        }
+    }
+    
+    var restartButtonWithIcon: some View {
+        Button() {
+            withAnimation {
+                practice.restart()
+            }
+        } label: {
+            Image(systemName: "arrow.clockwise.circle")
+        }
+    }
+    
+    var soundButton: some View {
+        Button() {
+            withAnimation {
+                isSoundOn.toggle()
+            }
+        } label: {
+            Image(systemName: isSoundOn ? "bell" : "bell.slash")
+        }
+    }
+    
+    var summaryButton: some View {
+        Button() {
+            isPracticeDetailsShown.toggle()
+        } label: {
+            Image(systemName: "list.bullet.rectangle")
         }
     }
 }
