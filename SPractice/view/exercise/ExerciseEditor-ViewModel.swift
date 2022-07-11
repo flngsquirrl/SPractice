@@ -9,15 +9,6 @@ import Foundation
 import SwiftUI
 
 extension ExerciseEditor {
-    
-    static var secondsUnit: String {
-        MeasurementFormatter().string(from: UnitDuration.seconds)
-    }
-    
-    static var minutesUnit: String {
-        MeasurementFormatter().string(from: UnitDuration.minutes)
-    }
-    
     @MainActor class ViewModel: ObservableObject {
         
         @Binding var template: EditorTemplate
@@ -37,12 +28,6 @@ extension ExerciseEditor {
                 let seconds = self.template.type == .timer ? ClockTime.getSeconds(of: time) : 0
                 self._seconds = Published<Int>(initialValue: seconds)
             }
-        }
-        
-        static let secondsSelectionArray = Array(stride(from: 0, through: 50, by: 10))
-
-        var areSecondsDisabled: Bool {
-            minutes == 60
         }
         
         var practiceExercise: PracticeExercise {

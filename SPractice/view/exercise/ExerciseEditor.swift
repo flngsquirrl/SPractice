@@ -125,31 +125,10 @@ struct ExerciseEditor: View {
         }
     }
     
-    @ViewBuilder var timerDurationControl: some View {
-        Picker("Duration minutes", selection: $viewModel.minutes) {
-            ForEach(0..<61) {
-                Text(String(format: "%02d", $0))
-            }
-        }
-        .onChange(of: viewModel.minutes) { viewModel.onMinutesChange(newValue: $0)}
-        .labelsHidden()
-        .pickerStyle(.menu)
-        
-        Text("\(Self.minutesUnit)")
-            .foregroundColor(.secondary)
-        
-        Picker("Duration seconds", selection: $viewModel.seconds) {
-            ForEach(ViewModel.secondsSelectionArray, id: \.self) {
-                Text(String(format: "%02d", $0))
-            }
-        }
-        .onChange(of: viewModel.seconds) { viewModel.onSecondsChange(newValue: $0)}
-        .disabled(viewModel.areSecondsDisabled)
-        .labelsHidden()
-        .pickerStyle(.menu)
-        
-        Text("\(Self.secondsUnit)")
-            .foregroundColor(.secondary)
+    var timerDurationControl: some View {
+        DurationControl(minutes: $viewModel.minutes, seconds: $viewModel.seconds,
+        onMinutesChange: {viewModel.onMinutesChange(newValue: $0)},
+        onSecondsChange: {viewModel.onSecondsChange(newValue: $0)})
     }
 }
 
