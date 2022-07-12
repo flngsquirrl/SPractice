@@ -132,7 +132,10 @@ class Practice: ObservableObject {
         cancel()
         moveToLastTask()
         resetDurationRemaining()
-        clock.resetTime()
+        
+        if currentExercise.type != .flow {
+            clock.resetTime()
+        }
         isCompleted = true
         updatePlayerState()
     }
