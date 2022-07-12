@@ -21,6 +21,14 @@ class Clock: ObservableObject {
     
     static let maxMinutesPart = 60
     
+    static var stopCountingUpAutomatically: Bool {
+        SettingsManager.shared.flowAutoFinishItem.value
+    }
+    
+    static var maxCountUpTime: Int {
+        SettingsManager.shared.flowAutoFinishAfterTimeItem.value.timeInSeconds
+    }
+    
     // examples
     public static let simpleCountdown = Clock(setTo: 130, isCountdown: true)
     public static let simpleCountup = Clock(setTo: 33, isCountdown: false)
@@ -36,7 +44,11 @@ class Clock: ObservableObject {
         isCountdown && time.isOut
     }
     
-    var countupReachedMax: Bool {
+    var countupReachedSetupMax: Bool {
+        isCountup && time.timeInSeconds == Self.maxCountUpTime
+    }
+    
+    var countupReachedClockMax: Bool {
         isCountup && time.minutesPart == Self.maxMinutesPart
     }
     
@@ -45,16 +57,34 @@ class Clock: ObservableObject {
     }
     
     func processTimerTick() {
-        if countdownFinished || countupReachedMax {
-            processCountFinished()
-        } else {
-            if isCountdown {
-                time.substractSecond()
+        if isCountdown {
+            if countdownFinished {
+                processCountFinished()
             } else {
-                time.addSecond()
+                tickClock()
             }
-            onTick?()
+        } else {
+            if Self.stopCountingUpAutomatically {
+                if countupReachedSetupMax {
+                    processCountFinished()
+                } else {
+                    tickClock()
+                }
+            } else {
+                if !countupReachedClockMax {
+                    tickClock()
+                }
+            }
         }
+    }
+    
+    func tickClock() {
+        if isCountup {
+            time.addSecond()
+        } else {
+            time.substractSecond()
+        }
+        onTick?()
     }
     
     func processCountFinished() {

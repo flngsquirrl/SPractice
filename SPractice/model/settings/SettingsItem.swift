@@ -22,8 +22,15 @@ enum SettingsItemName: Codable {
 }
 
 struct Time {
+    var timeInSeconds: Int
     var minutes: Int
     var seconds: Int
+    
+    init(_ timeInSeconds: Int) {
+        self.timeInSeconds = timeInSeconds
+        self.minutes = ClockTime.getMinutes(of: timeInSeconds)
+        self.seconds = ClockTime.getSeconds(of: timeInSeconds)
+    }
 }
 
 class SettingsItem: ObservableObject, Codable {
@@ -59,9 +66,7 @@ class SettingsItem: ObservableObject, Codable {
         guard let timeInSeconds = Int(value) else {
             fatalError("Can not convert to Bool the value of \(name)")
         }
-        let minutes = ClockTime.getMinutes(of: timeInSeconds)
-        let seconds = ClockTime.getSeconds(of: timeInSeconds)
-        let time = Time(minutes: minutes, seconds: seconds)
+        let time = Time(timeInSeconds)
         return time
     }
     
@@ -137,11 +142,7 @@ class SettingsItemTimeWrapper: SettingsItemWrapper {
     
     init(for settingsItem: SettingsItem) {
         self.settingsItem = settingsItem
-        
-        let time = Int(settingsItem.value)!
-        let minutes = ClockTime.getMinutes(of: time)
-        let seconds = ClockTime.getSeconds(of: time)
-        self.value = Time(minutes: minutes, seconds: seconds)
+        self.value = settingsItem.getTimeValue()
     }
     
     internal var settingsItem: SettingsItem
