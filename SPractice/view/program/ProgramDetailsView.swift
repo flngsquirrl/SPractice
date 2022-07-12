@@ -68,7 +68,7 @@ struct ProgramDetailsView: DetailsView {
             ProgramSummaryView(program: viewModel.preparedProgram)
         }
         .sheet(isPresented: $showSettings) {
-            SettingsView()
+            SettingsSubgroupView(subgroup: .pause)
         }
         .fullScreenCover(isPresented: $viewModel.showPracticeView) {
             PracticeView(practice: Practice(for: PracticeProgram(from: viewModel.preparedProgram)))

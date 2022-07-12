@@ -44,5 +44,9 @@ extension ContentView {
                 exercisesSortOrder = order
             }
         }
+        
+        func saveSettings() {
+            SettingsManager.shared.saveSettings()
+        }
     }
 }

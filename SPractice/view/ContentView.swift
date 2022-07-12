@@ -19,6 +19,8 @@ struct ContentView: View {
     
     @StateObject private var viewModel = ViewModel()
     
+    @ObservedObject private var settings = SettingsManager.shared.settings
+    
     var body: some View {
         NavigationView {
             Group {
@@ -31,6 +33,8 @@ struct ContentView: View {
             }
             .navigationTitle(viewModel.contentType == .exercises ? "Exercises" : "Programs")
             .sheet(isPresented: $showSettingsView) {
+                viewModel.saveSettings()
+            } content: {
                 SettingsView()
             }
             .sheet(isPresented: $showAddNewView) {
@@ -76,6 +80,7 @@ struct ContentView: View {
             
             WelcomeView()
         }
+        .environmentObject(settings)
         .accentColor(.customAccentColor)
     }
     

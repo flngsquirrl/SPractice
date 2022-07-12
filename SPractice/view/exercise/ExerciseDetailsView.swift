@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ExerciseDetailsView: DetailsView {
     
+    @EnvironmentObject var settings: Settings
     @ObservedObject private var viewModel: ViewModel
     
     private var onChange: (ExerciseTemplate) -> Void
