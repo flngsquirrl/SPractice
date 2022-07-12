@@ -31,6 +31,6 @@ struct Task: Identifiable {
     static let restTabata2 = Task(intensity: .rest, name: "rest 2", duration: .known(10))
     static let restTabataCoolDown = Task(intensity: .rest, name: "cool-down", duration: .known(10))
     
-    static let restService10 = Task(intensity: .rest, name: "rest", duration: .known(10))
+    static let restTimer = Task(intensity: .rest, name: "rest", duration: .known(10))
     static let activityFlow = Task(intensity: .activity, name: "activity", duration: .unlimited)
 }

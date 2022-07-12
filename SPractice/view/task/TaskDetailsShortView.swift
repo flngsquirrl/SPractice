@@ -41,7 +41,7 @@ struct TaskDetailsShortView_Previews: PreviewProvider {
             TaskDetailsShortView(task: Task.restTabata1, exerciseType: .tabata)
             TaskDetailsShortView(task: Task.activity60, exerciseType: .timer)
             TaskDetailsShortView(task: Task.activityFlow, exerciseType: .flow)
-            TaskDetailsShortView(task: Task.restService10, exerciseType: .timer)
+            TaskDetailsShortView(task: Task.restTimer, exerciseType: .timer)
         }
     }
 }

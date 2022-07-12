@@ -58,7 +58,6 @@ struct ExerciseShortDecorativeView_Previews: PreviewProvider {
                 ExerciseShortDecorativeView(for: ExerciseTemplate.catCow)
                 ExerciseShortDecorativeView(for: ExerciseTemplate.surjaNamascar)
                 ExerciseShortDecorativeView(for: ExerciseTemplate.vasihsthasana)
-                ExerciseShortDecorativeView(for: ExerciseTemplate.rest)
             }
             
             Group {
@@ -68,7 +67,6 @@ struct ExerciseShortDecorativeView_Previews: PreviewProvider {
                 ExerciseShortDecorativeView(for: ExerciseTemplate.surjaNamascar, displayDetails: true)
                 ExerciseShortDecorativeView(for: ExerciseTemplate.vasihsthasana, displayDetails: true)
                 ExerciseShortDecorativeView(for: ExerciseTemplate.catCowNoType, displayDetails: true)
-                ExerciseShortDecorativeView(for: ExerciseTemplate.rest, displayDetails: true)
             }
             
             Group {
@@ -78,7 +76,6 @@ struct ExerciseShortDecorativeView_Previews: PreviewProvider {
                 ExerciseShortDecorativeView(for: ExerciseTemplate.surjaNamascar)
                 ExerciseShortDecorativeView(for: ExerciseTemplate.vasihsthasana)
                 ExerciseShortDecorativeView(for: ExerciseTemplate.catCowNoType)
-                ExerciseShortDecorativeView(for: ExerciseTemplate.rest)
             }
         }
     }

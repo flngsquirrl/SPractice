@@ -10,18 +10,18 @@ import Foundation
 struct ProgramTemplate: Program, Named, Identifiable, Codable {
     var id: UUID
     var name: String
-    var useRest: Bool
+    var usePauses: Bool
     var exercises = [ExerciseTemplate]()
     
-    init(id: UUID = UUID(), name: String = "", useRest: Bool = false, exercises: [ExerciseTemplate] = []) {
+    init(id: UUID = UUID(), name: String = "", usePauses: Bool = false, exercises: [ExerciseTemplate] = []) {
         self.id = id
         self.name = name
-        self.useRest = useRest
+        self.usePauses = usePauses
         self.exercises = exercises
     }
     
     init(from template: ProgramTemplate) {
-        self.init(name: template.name, useRest: template.useRest, exercises: template.exercises)
+        self.init(name: template.name, usePauses: template.usePauses, exercises: template.exercises)
     }
     
     static var template: ProgramTemplate {

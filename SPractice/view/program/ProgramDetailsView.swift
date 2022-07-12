@@ -33,22 +33,21 @@ struct ProgramDetailsView: DetailsView {
     var detailsContent: some View {
         List {
             Section {
-                Toggle("Use rest", isOn: $viewModel.template.useRest)
-                    .onChange(of: viewModel.template.useRest) { _ in
+                Toggle("Add pauses", isOn: $viewModel.template.usePauses)
+                    .onChange(of: viewModel.template.usePauses) { _ in
                         onChange(viewModel.template)
                     }
                     .tint(.customAccentColor)
-                    .disabled(viewModel.isUseRestDisabled)
+                    .disabled(viewModel.isusePausesDisabled)
             } header: {
                 Text("Settings")
             } footer: {
                 HStack(spacing: 0) {
-                    Text("Rest duration is based on the general ")
+                    Text("Pauses configuration is based on the general ") + 
                     Text("Settings")
                         .foregroundColor(.customAccentColor)
-                        .onTapGesture {
-                            showSettings = true
-                        }
+                }.onTapGesture {
+                    showSettings = true
                 }
             }
             

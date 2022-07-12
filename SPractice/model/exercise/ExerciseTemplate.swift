@@ -61,7 +61,7 @@ struct ExerciseTemplate: Exercise, Named, Hashable, Codable {
         return type
     }
     
-    static var restTemplate: ExerciseTemplate {
+    static var pauseTemplate: ExerciseTemplate {
         let name = SettingsManager.shared.pauseNameItem.value
         let duration: Duration = .known(SettingsManager.shared.pauseDurationItem.value)
         return ExerciseTemplate(type: .timer, name: name, isService: true, intensity: .rest, duration: duration)
@@ -76,7 +76,6 @@ struct ExerciseTemplate: Exercise, Named, Hashable, Codable {
     static let balasana = ExerciseTemplate(type: .flow, name: "Balasana", intensity: .rest, duration: .unlimited)
     static let surjaNamascar = ExerciseTemplate(type: .flow, name: "Surja Namascar", intensity: .activity, duration: .unlimited)
     static let vasihsthasana = ExerciseTemplate(type: .tabata, name: "Vasihsthasana", duration: .unknown)
-    static let rest = ExerciseTemplate(type: .timer, name: "Rest", isService: true, intensity: .rest, duration: .known(10))
     static let concentration = ExerciseTemplate(type: .timer, name: "Concentration", intensity: .activity, duration: .known(360))
     static let catCowNoDuration = ExerciseTemplate(type: .timer, name: "Cat-Cow", intensity: .activity, duration: .unknown)
     static let catCowNoType = ExerciseTemplate(name: "Cat-Cow")
