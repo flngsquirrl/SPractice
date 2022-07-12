@@ -291,12 +291,12 @@
 				C9CEAA09287C462F00D15A16 /* DurationControl.swift */,
 				C9CEAA05287C438500D15A16 /* DurationSecondsControl.swift */,
 				C9CEAA07287C44EB00D15A16 /* DurationMinutesControl.swift */,
+				C9CEAA10287D964900D15A16 /* NumberSelectionControl.swift */,
 				C96728822874E11A00B4990C /* IconTextView.swift */,
 				C91982562876E297005D049C /* InfoButton.swift */,
 				C9A028FB287833F200032FF9 /* ManagedList.swift */,
 				C9A029022878478E00032FF9 /* DeleteAlert.swift */,
 				C99D281528799AE700596FBD /* DetailsView.swift */,
-				C9CEAA10287D964900D15A16 /* NumberSelectionControl.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";

@@ -53,20 +53,14 @@ struct ExerciseEditor: View {
             
             Section {
                 if viewModel.isTypeDefined {
-                    HStack {
-                        Text("Duration")
-                        InfoButton()
-                        Spacer()
-                        if viewModel.template.isTimer {
-                            timerDurationControl
-                        } else {
+                    if viewModel.template.isTimer {
+                        timerDurationControl
+                    } else {
+                        HStack {
+                            durationControlContent
                             ExerciseDurationView(type: viewModel.exercise.type, duration: viewModel.exercise.duration)
                                 .foregroundColor(.secondary)
                         }
-                    }
-                    if viewModel.showReset {
-                        Button("Reset") { viewModel.resetDuration() }
-                            .disabled(viewModel.resetDurationDisabled)
                     }
                 }
             } footer: {
@@ -126,9 +120,15 @@ struct ExerciseEditor: View {
     }
     
     var timerDurationControl: some View {
-        DurationControl(minutes: $viewModel.minutes, seconds: $viewModel.seconds,
-        onMinutesChange: {viewModel.onMinutesChange(newValue: $0)},
-        onSecondsChange: {viewModel.onSecondsChange(newValue: $0)})
+        DurationControl(minutes: $viewModel.minutes, seconds: $viewModel.seconds, onMinutesChange: {viewModel.onMinutesChange(newValue: $0)}, onSecondsChange: {viewModel.onSecondsChange(newValue: $0)}) {
+            durationControlContent
+        }
+    }
+    
+    @ViewBuilder var durationControlContent: some View {
+        Text("Duration")
+        InfoButton()
+        Spacer()
     }
 }
 

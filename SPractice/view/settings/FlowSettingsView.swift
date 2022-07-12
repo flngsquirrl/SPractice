@@ -19,10 +19,9 @@ struct FlowSettingsView: View {
                 .tint(.customAccentColor)
             
             if flowAutoFinishItem.value {
-                HStack {
+                DurationControl(minutes: $flowAutoFinishAfterTimeItem.value.minutes, seconds: $flowAutoFinishAfterTimeItem.value.seconds) {
                     Text("After")
                     Spacer()
-                    DurationControl(minutes: $flowAutoFinishAfterTimeItem.value.minutes, seconds: $flowAutoFinishAfterTimeItem.value.seconds)
                 }
             }
         } header: {

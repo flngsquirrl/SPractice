@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DurationControl: View {
+struct DurationControl<Content: View>: View {
     
     @Binding var minutes: Int
     @Binding var seconds: Int
@@ -15,18 +15,26 @@ struct DurationControl: View {
     var onMinutesChange: ((Int) -> Void)? = nil
     var onSecondsChange: ((Int) -> Void)? = nil
     
-    static let secondsRange = Array(stride(from: 0, to: 60, by: 10))
+    @ViewBuilder var content: Content
+    
+    let secondsRange = Array(stride(from: 0, to: 60, by: 10))
     
     var body: some View {
-        DurationMinutesControl(minutes: $minutes)
-            .onChange(of: minutes) {
-                onMinutesChange(newValue: $0)
-                onMinutesChange?($0)
-            }
-        
-        DurationSecondsControl(seconds: $seconds, range: Self.secondsRange)
-            .onChange(of: seconds) { onSecondsChange?($0)}
-            .disabled(areSecondsDisabled)
+        HStack {
+            content
+            
+            DurationMinutesControl(minutes: $minutes)
+                .onChange(of: minutes) {
+                    onMinutesChange(newValue: $0)
+                    onMinutesChange?($0)
+                }
+            
+            DurationSecondsControl(seconds: $seconds, range: secondsRange)
+                .onChange(of: seconds) { onSecondsChange?($0)}
+                .disabled(areSecondsDisabled)
+        }
+        Button("Reset") { resetDuration() }
+            .disabled(resetDisabled)
     }
     
     func onMinutesChange(newValue: Int) {
@@ -35,13 +43,24 @@ struct DurationControl: View {
         }
     }
     
+    func resetDuration() {
+        minutes = 0
+        seconds = 0
+    }
+    
     var areSecondsDisabled: Bool {
         minutes == 60
+    }
+    
+    var resetDisabled: Bool {
+        minutes == 0 && seconds == 0
     }
 }
 
 struct DurationControl_Previews: PreviewProvider {
     static var previews: some View {
-        DurationControl(minutes: .constant(2), seconds: .constant(30), onMinutesChange: { _ in }, onSecondsChange: { _ in })
+        DurationControl(minutes: .constant(2), seconds: .constant(30), onMinutesChange: { _ in }, onSecondsChange: { _ in }) {
+            Text("Duration")
+        }
     }
 }

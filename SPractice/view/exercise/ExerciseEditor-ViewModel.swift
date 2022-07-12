@@ -85,11 +85,6 @@ extension ExerciseEditor {
                 template.type = .flow
             }
         }
-        
-        func resetDuration() {
-            minutes = 0
-            seconds = 0
-        }
     }
     
     struct EditorTemplate: Exercise {
