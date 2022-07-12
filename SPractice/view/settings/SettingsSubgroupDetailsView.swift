@@ -16,6 +16,12 @@ struct SettingsSubgroupDetailsView: View {
     var body: some View {
         List {
             getSubgroupView(subgroup)
+            
+            if subgroup != .examples {
+                Button("Restore defaults") {
+                    showResetConfirmation = true
+                }
+            }
         }
         .alert("Settings will be reset to defaults", isPresented: $showResetConfirmation) {
             Button("Reset") {
@@ -25,15 +31,6 @@ struct SettingsSubgroupDetailsView: View {
             Button("Cancel", role: .cancel) {}
         }
         .navigationTitle(subgroup.rawValue)
-        .toolbar {
-            ToolbarItem(placement: .confirmationAction) {
-                if subgroup != .examples {
-                    Button("Reset") {
-                        showResetConfirmation = true
-                    }
-                }
-            }
-        }
     }
     
     func getSubgroupView(_ subgroup: SettingsSubGroup) -> AnyView {

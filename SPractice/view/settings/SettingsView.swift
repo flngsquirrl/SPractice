@@ -11,6 +11,8 @@ struct SettingsView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    @State private var showResetConfirmation = false
+    
     var body: some View {
         NavigationView {
             List {
@@ -26,17 +28,25 @@ struct SettingsView: View {
                         }
                     }
                 }
+                
+                Button("Restore all defaults") {
+                    showResetConfirmation = true
+                }
+            }
+            .alert("Please, note", isPresented: $showResetConfirmation) {
+                Button("Reset") {
+                    SettingsManager.shared.resetToDefauls()
+                }
+                
+                Button("Cancel", role: .cancel) {}
+            } message: {
+                Text("These settings influence your exercises and programs")
             }
             .navigationTitle("Settings")
             .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Close") {
-                        dismiss()
-                    }
-                }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Reset all") {
-                        SettingsManager.shared.resetToDefauls()
+                    Button("Done") {
+                        dismiss()
                     }
                 }
             }

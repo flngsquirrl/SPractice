@@ -17,8 +17,8 @@ struct SettingsSubgroupView: View {
         NavigationView {
             SettingsSubgroupDetailsView(subgroup: subgroup)
                 .toolbar {
-                    ToolbarItem(placement: .cancellationAction) {
-                        Button("Close") {
+                    ToolbarItem(placement: .confirmationAction) {
+                        Button("Done") {
                             dismiss()
                         }
                     }
