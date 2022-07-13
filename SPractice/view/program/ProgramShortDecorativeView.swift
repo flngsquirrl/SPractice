@@ -30,8 +30,8 @@ struct ProgramShortDecorativeView: View {
             }
                 
             Group {
-                Text("\(program.exercises.count) ") +
-                Text(program.exercises.count == 1 ? "exercise" : "exercises")
+                Text("\(program.templateExercises.count) ") +
+                Text(program.templateExercises.count == 1 ? "exercise" : "exercises")
             }
             .foregroundColor(.secondary)
         }
