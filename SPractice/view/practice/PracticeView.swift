@@ -67,6 +67,8 @@ struct PracticeView: View {
                     }
                 }
                 .sheet(isPresented: $isPracticeDetailsShown) {
+                    practice.startClock()
+                } content: {
                     PracticeSummaryView(practice: practice)
                 }
                 .alert("Namaste", isPresented: $practice.isCompleted) {
@@ -116,6 +118,7 @@ struct PracticeView: View {
     var summaryButton: some View {
         Button() {
             isPracticeDetailsShown.toggle()
+            practice.stopClock()
         } label: {
             Image(systemName: "list.bullet.rectangle")
         }
