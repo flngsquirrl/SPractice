@@ -52,7 +52,7 @@ struct PracticeExerciseView_Previews: PreviewProvider {
         ZStack {
             Color(UIColor.systemBackground)
                 .ignoresSafeArea()
-            PracticeExerciseView(practice: Practice(from: PreparedProgram.personal))
+            PracticeExerciseView(practice: Practice(from: ProgramTemplate.personal))
                 .wrapped()
                 .frame(width: 320)
             

@@ -108,7 +108,6 @@
 		C9DE152A2868B5500011324C /* Programs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE15292868B5500011324C /* Programs.swift */; };
 		C9DE152C2868FE170011324C /* ExerciseShortDecorativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE152B2868FE170011324C /* ExerciseShortDecorativeView.swift */; };
 		C9F604E2287AD57E00838462 /* ProgramShortDecorativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F604E1287AD57E00838462 /* ProgramShortDecorativeView.swift */; };
-		C9F604E4287AD76E00838462 /* PreparedProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F604E3287AD76E00838462 /* PreparedProgram.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -214,7 +213,6 @@
 		C9DE15292868B5500011324C /* Programs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Programs.swift; sourceTree = "<group>"; };
 		C9DE152B2868FE170011324C /* ExerciseShortDecorativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseShortDecorativeView.swift; sourceTree = "<group>"; };
 		C9F604E1287AD57E00838462 /* ProgramShortDecorativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramShortDecorativeView.swift; sourceTree = "<group>"; };
-		C9F604E3287AD76E00838462 /* PreparedProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparedProgram.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -536,7 +534,6 @@
 			children = (
 				C967287D287457B500B4990C /* Program.swift */,
 				C9A0CFED281AB484000CF439 /* PracticeProgram.swift */,
-				C9F604E3287AD76E00838462 /* PreparedProgram.swift */,
 				C9A0CFF4281BD588000CF439 /* ProgramTemplate.swift */,
 				C9DE15292868B5500011324C /* Programs.swift */,
 			);
@@ -695,7 +692,6 @@
 				C9692C852850F47500373730 /* ExerciseSelectionView.swift in Sources */,
 				C9B1E746287C293F00C92571 /* TabataSettingsView.swift in Sources */,
 				C9741A5D2861F54600E1F670 /* IntensityImage.swift in Sources */,
-				C9F604E4287AD76E00838462 /* PreparedProgram.swift in Sources */,
 				C9B1E744287C266000C92571 /* SettingsView.swift in Sources */,
 				C9CCCE96284A31B9005665C8 /* ClockTime-Calculator.swift in Sources */,
 				C9D156AE28533DD7007F5176 /* ExerciseSelectionView-ViewModel.swift in Sources */,

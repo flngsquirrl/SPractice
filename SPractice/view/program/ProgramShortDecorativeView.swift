@@ -36,12 +36,8 @@ struct ProgramShortDecorativeView: View {
             .foregroundColor(.secondary)
         }
         Spacer()
-        ProgramDurationView(for: preparedProgram)
+        ProgramDurationView(for: program)
             .foregroundColor(.secondary)
-    }
-    
-    var preparedProgram: PreparedProgram {
-        PreparedProgram(from: program)
     }
 }
 

@@ -13,7 +13,7 @@ struct PracticeProgram: Program {
     let name: String
     let exercises: [PracticeExercise]
     
-    init(from template: PreparedProgram) {
+    init(from template: ProgramTemplate) {
         self.name = template.name
         
         var exercises = [PracticeExercise]()
@@ -25,5 +25,5 @@ struct PracticeProgram: Program {
     }
     
     // examples
-    static let personal = PracticeProgram(from: PreparedProgram.personal)
+    static let personal = PracticeProgram(from: ProgramTemplate.personal)
 }

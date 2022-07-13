@@ -11,7 +11,7 @@ import SwiftUI
 extension EditProgramView {
     @MainActor class ViewModel: ObservableObject {
         
-        @Published var template = ProgramTemplate.template
+        @Published var template: ProgramTemplate
         @Published var editMode: EditMode = .inactive
         
         init(template: ProgramTemplate) {

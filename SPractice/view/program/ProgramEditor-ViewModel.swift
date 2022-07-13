@@ -17,30 +17,26 @@ extension ProgramEditor {
             self._template = template
         }
         
-        var preparedProgram: PreparedProgram {
-            PreparedProgram(from: template)
-        }
-        
         func addNewExercises(exercises: [ExerciseTemplate]) {
-            template.exercises.append(contentsOf: exercises)
+            template.templateExercises.append(contentsOf: exercises)
         }
         
         func addNewExercise(exercise: ExerciseTemplate) {
-            template.exercises.append(exercise)
+            template.templateExercises.append(exercise)
         }
         
         func updateExercise(exercise: ExerciseTemplate) {
-            if let index = template.exercises.firstIndex(where: {$0.id == exercise.id}) {
-                template.exercises[index] = exercise
+            if let index = template.templateExercises.firstIndex(where: {$0.id == exercise.id}) {
+                template.templateExercises[index] = exercise
             }
         }
         
         func removeItems(at offsets: IndexSet) {
-            template.exercises.remove(atOffsets: offsets)
+            template.templateExercises.remove(atOffsets: offsets)
         }
         
         func moveItems(from fromOffsets: IndexSet, to toOffsets: Int) {
-            template.exercises.move(fromOffsets: fromOffsets, toOffset: toOffsets)
+            template.templateExercises.move(fromOffsets: fromOffsets, toOffset: toOffsets)
         }
     }
 }
