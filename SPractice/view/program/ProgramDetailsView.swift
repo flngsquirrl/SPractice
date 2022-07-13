@@ -32,7 +32,7 @@ struct ProgramDetailsView: DetailsView {
     var detailsContent: some View {
         List {
             Section {
-                Toggle("Add pauses", isOn: $viewModel.template.usePauses)
+                Toggle("Add pauses", isOn: $viewModel.template.usePauses.animation())
                     .onChange(of: viewModel.template.usePauses) { _ in
                         onChange(viewModel.template)
                     }
