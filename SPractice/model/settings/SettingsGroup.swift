@@ -8,11 +8,13 @@
 import Foundation
 
 enum SettingsGroup: String, CaseIterable, Codable  {
-    case exercises = "Exercises"
+    case exercise = "Exercise"
+    case practice = "Practice"
     case templates = "Templates"
     
     static let hierarchy: [SettingsGroup: [SettingsSubGroup]] = [
-        .exercises: [.tabata, .flow, .pause],
+        .exercise: [.tabata],
+        .practice: [.pause, .flow],
         .templates: [.examples]
     ]
 }
