@@ -16,6 +16,8 @@ class Clock: ObservableObject {
     var onFinished: (() -> Void)?
     var onTick: (() -> Void)?
     
+    var isTicking = false
+    
     private let timer = Timer.publish(every: 1, on: .main, in: .common)
     private var timerSubscription: Cancellable?
     
@@ -79,6 +81,7 @@ class Clock: ObservableObject {
     }
     
     func tickClock() {
+        print("Tick")
         if isCountup {
             time.addSecond()
         } else {
@@ -95,14 +98,18 @@ class Clock: ObservableObject {
     }
     
     func start() {
-        timerSubscription = timer.autoconnect()
-            .sink { _ in
-                self.processTimerTick()
-            }
+        if !isTicking {
+            timerSubscription = timer.autoconnect()
+                .sink { _ in
+                    self.processTimerTick()
+                }
+            isTicking = true
+        }
     }
     
     func stop() {
         timerSubscription?.cancel()
+        isTicking = false
     }
     
     func resetTime() {

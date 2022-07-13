@@ -93,6 +93,18 @@ class Practice: ObservableObject {
         updatePlayerState()
     }
     
+    func pauseClock() {
+        if isRunning {
+            stopClock()
+        }
+    }
+    
+    func resumeClock() {
+        if isRunning {
+            startClock()
+        }
+    }
+    
     func restart() {
         reset()
     }
