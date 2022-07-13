@@ -17,7 +17,7 @@ struct ProgramsView: View, ManagedList {
     @State private var showDeleteConfirmation = false
     @State private var selectedToDelete: ProgramTemplate?
     
-    @AppStorage("programsSortType") internal var sortProperty: SortProperty = .date
+    @AppStorage("programsSortProperty") internal var sortProperty: SortProperty = .date
     @AppStorage("programsSortOrder") internal var sortOrder: SortOrder = .desc
     
     var body: some View {

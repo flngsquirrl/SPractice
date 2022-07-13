@@ -30,7 +30,7 @@ extension ManagedList {
         case .date:
             sorted = sortByDate()
         case .name:
-            sorted = filteredElements.sorted(by: { $0.name < $1.name })
+            sorted = sortByName()
         }
         return sorted
     }
