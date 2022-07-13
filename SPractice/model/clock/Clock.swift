@@ -81,7 +81,6 @@ class Clock: ObservableObject {
     }
     
     func tickClock() {
-        print("Tick")
         if isCountup {
             time.addSecond()
         } else {
