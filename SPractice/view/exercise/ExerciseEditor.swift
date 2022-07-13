@@ -67,9 +67,9 @@ struct ExerciseEditor: View {
             } footer: {
                 if let type = viewModel.template.type {
                     if type == .flow {
-                        Text("Duration of a flow exercise is not limited")
+                        SettingsLinkView(text: "Duration of a flow exercise is not limited, but for practice can be configured in", settingsSubGroup: .flow)
                     } else if type == .tabata {
-                        Text("Duration of a tabata exercise is based on the general ") + LayoutUtils.settingsText
+                        SettingsLinkView(text: "Duration of a tabata exercise is based on the general", settingsSubGroup: .tabata)
                     }
                 }
             }

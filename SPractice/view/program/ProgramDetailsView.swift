@@ -12,7 +12,6 @@ struct ProgramDetailsView: DetailsView {
     @ObservedObject private var viewModel: ViewModel
     
     @State private var showDeleteConfirmation = false
-    @State private var showSettings = false
     
     @ObservedObject var programs = Programs.shared
     
@@ -42,12 +41,7 @@ struct ProgramDetailsView: DetailsView {
             } header: {
                 Text("Settings")
             } footer: {
-                HStack(spacing: 0) {
-                    Text("Pauses configuration is based on the general ") + 
-                    LayoutUtils.settingsText
-                }.onTapGesture {
-                    showSettings = true
-                }
+                SettingsLinkView(text: "Pause configuration is based on the general ", settingsSubGroup: .pause)
             }
             
             Section {
@@ -64,9 +58,6 @@ struct ProgramDetailsView: DetailsView {
             }
             
             ProgramSummaryView(program: viewModel.preparedProgram)
-        }
-        .sheet(isPresented: $showSettings) {
-            SettingsSubgroupView(subgroup: .pause)
         }
         .fullScreenCover(isPresented: $viewModel.showPracticeView) {
             PracticeView(practice: Practice(for: PracticeProgram(from: viewModel.preparedProgram)))

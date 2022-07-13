@@ -25,8 +25,7 @@ struct ExerciseTasksView: View {
                     case .flow, .timer:
                         Text("Intensity and duration of the task are based on the exercise configuration")
                     case .tabata:
-                        Text("Sequence and duration of the tasks are based on the general Settings of the application")
-
+                        SettingsLinkView(text: "Sequence and duration of the tasks are based on the general", settingsSubGroup: .tabata)
                     }
                 }
             }
