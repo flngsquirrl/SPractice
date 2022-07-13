@@ -89,7 +89,7 @@ struct ContentView: View {
         case .programs:
             return "heart.text.square"
         case .exercises:
-            return "heart"
+            return "staroflife.circle"
         }
     }
 }
