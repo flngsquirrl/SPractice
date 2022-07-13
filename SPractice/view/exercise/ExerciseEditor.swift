@@ -11,8 +11,6 @@ struct ExerciseEditor: View {
     
     @ObservedObject private var viewModel: ViewModel
     
-    @State private var showTasks = false
-    
     init(for template: Binding<EditorTemplate>) {
         self.viewModel = ViewModel(for: template)
     }
@@ -63,12 +61,15 @@ struct ExerciseEditor: View {
                         }
                     }
                 }
+                if viewModel.showTasks {
+                    ExerciseTasksButton(exercise: viewModel.exercise)
+                }
             } footer: {
                 if let type = viewModel.template.type {
                     if type == .flow {
                         Text("Duration of a flow exercise is not limited")
                     } else if type == .tabata {
-                        Text("Duration of a tabata exercise and its tasks is based on the general Settings of the application")
+                        Text("Duration of a tabata exercise is based on the general ") + LayoutUtils.settingsText
                     }
                 }
             }
@@ -82,18 +83,6 @@ struct ExerciseEditor: View {
                     }
                 }
             }
-            
-            if viewModel.showTasks {
-                Section {
-                    Button("View tasks") {
-                        showTasks = true
-                    }
-                }
-            }
-            
-        }
-        .sheet(isPresented: $showTasks) {
-            ExerciseEditorTasksView(exercise: viewModel.practiceExercise)
         }
     }
     
@@ -135,7 +124,7 @@ struct ExerciseEditor: View {
 struct ExerciseEditor_Previews: PreviewProvider {
     
     @State static private var defaultTemplate = ExerciseTemplate.template
-    @State static private var exampleTemplate = ExerciseEditor.EditorTemplate(from: ExerciseTemplate.catCow)
+    @State static private var exampleTemplate = ExerciseEditor.EditorTemplate(from: ExerciseTemplate.vasihsthasana)
     
     static var previews: some View {
 //        NavigationView {

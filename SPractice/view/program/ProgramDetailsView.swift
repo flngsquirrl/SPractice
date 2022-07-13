@@ -44,8 +44,7 @@ struct ProgramDetailsView: DetailsView {
             } footer: {
                 HStack(spacing: 0) {
                     Text("Pauses configuration is based on the general ") + 
-                    Text("Settings")
-                        .foregroundColor(.customAccentColor)
+                    LayoutUtils.settingsText
                 }.onTapGesture {
                     showSettings = true
                 }

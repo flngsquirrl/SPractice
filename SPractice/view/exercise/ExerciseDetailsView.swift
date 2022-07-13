@@ -62,11 +62,7 @@ struct ExerciseDetailsView: DetailsView {
             }
             
             if viewModel.showTasks {
-                Section("Tasks") {
-                    ForEach(viewModel.tasks) { task in
-                        TaskDetailsShortView(task: task, exerciseType: viewModel.exercise.type!)
-                    }
-                }
+                ExerciseTasksButton(exercise: viewModel.exercise)
             }
         }
         .navigationTitle(viewModel.exercise.name)

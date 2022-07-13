@@ -88,6 +88,7 @@
 		C9CEAA13287DA76A00D15A16 /* SettingsSubgroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAA12287DA76A00D15A16 /* SettingsSubgroupView.swift */; };
 		C9CEAA15287DC98E00D15A16 /* SettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAA14287DC98E00D15A16 /* SettingsItem.swift */; };
 		C9CEAA17287DCCFD00D15A16 /* SettingsGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAA16287DCCFD00D15A16 /* SettingsGroup.swift */; };
+		C9CEAA19287EB35100D15A16 /* ExerciseTasksButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAA18287EB35100D15A16 /* ExerciseTasksButton.swift */; };
 		C9D156AE28533DD7007F5176 /* ExerciseSelectionView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D156AD28533DD7007F5176 /* ExerciseSelectionView-ViewModel.swift */; };
 		C9D156B028534E88007F5176 /* AddExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D156AF28534E88007F5176 /* AddExerciseView.swift */; };
 		C9D156B228534F5C007F5176 /* EditExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D156B128534F5C007F5176 /* EditExerciseView.swift */; };
@@ -191,6 +192,7 @@
 		C9CEAA12287DA76A00D15A16 /* SettingsSubgroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSubgroupView.swift; sourceTree = "<group>"; };
 		C9CEAA14287DC98E00D15A16 /* SettingsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItem.swift; sourceTree = "<group>"; };
 		C9CEAA16287DCCFD00D15A16 /* SettingsGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsGroup.swift; sourceTree = "<group>"; };
+		C9CEAA18287EB35100D15A16 /* ExerciseTasksButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTasksButton.swift; sourceTree = "<group>"; };
 		C9D156AD28533DD7007F5176 /* ExerciseSelectionView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseSelectionView-ViewModel.swift"; sourceTree = "<group>"; };
 		C9D156AF28534E88007F5176 /* AddExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseView.swift; sourceTree = "<group>"; };
 		C9D156B128534F5C007F5176 /* EditExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExerciseView.swift; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 				C9D53FB228704C6500FD2B6F /* EditExerciseView-ViewModel.swift */,
 				C9445C6C285E00D000DF2A08 /* ExerciseDetailsView.swift */,
 				C9741A592861EB0C00E1F670 /* ExerciseDetailsView-ViewModel.swift */,
+				C9CEAA18287EB35100D15A16 /* ExerciseTasksButton.swift */,
 				C9692C7B284F787700373730 /* ExerciseShortView.swift */,
 				C9DE152B2868FE170011324C /* ExerciseShortDecorativeView.swift */,
 				C996981728646E53009836BD /* ExerciseDurationView.swift */,
@@ -644,6 +647,7 @@
 				C99D28182879A05F00596FBD /* DataManager.swift in Sources */,
 				C96728832874E11A00B4990C /* IconTextView.swift in Sources */,
 				C967287C2874553600B4990C /* Exercise.swift in Sources */,
+				C9CEAA19287EB35100D15A16 /* ExerciseTasksButton.swift in Sources */,
 				C99D281628799AE700596FBD /* DetailsView.swift in Sources */,
 				C9DE152A2868B5500011324C /* Programs.swift in Sources */,
 				C9CCCE9A284B6E09005665C8 /* ProgramDetailsView-ViewModel.swift in Sources */,

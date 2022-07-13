@@ -17,4 +17,7 @@ struct LayoutUtils {
     static let approximationMark = Image(systemName: ExerciseTypeImage.imageName(for: .flow))
     
     static let durationSectionFooter = Text("Duration is the time needed to complete all timer and tabata exercises. Flow symbol before the actual time means that the program contains flow exercises")
+    
+    static let settingsText = Text("Settings")
+        .foregroundColor(.customAccentColor)
 }

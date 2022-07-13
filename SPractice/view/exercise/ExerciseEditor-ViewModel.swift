@@ -30,10 +30,6 @@ extension ExerciseEditor {
             }
         }
         
-        var practiceExercise: PracticeExercise {
-            return PracticeExercise(from: exercise)!
-        }
-        
         var exercise: ExerciseTemplate {
             return ExerciseTemplate(from: template)
         }
