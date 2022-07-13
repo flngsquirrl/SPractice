@@ -1,5 +1,5 @@
 //
-//  ExerciseEditorTasksView.swift
+//  ExerciseTasksView.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 2.07.22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExerciseEditorTasksView: View {
+struct ExerciseTasksView: View {
     
     var exercise: PracticeExercise
     
@@ -43,8 +43,8 @@ struct ExerciseEditorTasksView: View {
     }
 }
 
-struct ExerciseEditorTasksView_Previews: PreviewProvider {
+struct ExerciseTasksView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseEditorTasksView(exercise: PracticeExercise.catCow)
+        ExerciseTasksView(exercise: PracticeExercise.vasihsthasana)
     }
 }

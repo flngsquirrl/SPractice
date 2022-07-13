@@ -18,7 +18,7 @@ struct ExerciseTasksButton: View {
             showTasks = true
         }
         .sheet(isPresented: $showTasks) {
-            ExerciseEditorTasksView(exercise: practiceExercise)
+            ExerciseTasksView(exercise: practiceExercise)
         }
     }
     
