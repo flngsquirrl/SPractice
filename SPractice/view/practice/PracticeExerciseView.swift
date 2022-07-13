@@ -1,5 +1,5 @@
 //
-//  ExerciseView.swift
+//  PracticeExerciseView.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 29.04.22.
@@ -7,13 +7,20 @@
 
 import SwiftUI
 
-struct ExerciseView: View {
+struct PracticeExerciseView: View {
     
     @ObservedObject var practice: Practice
     
     var body: some View {
         VStack {
-            HStack {
+            HStack(alignment: .top) {
+                RestartIconButton {
+                    withAnimation {
+                        practice.restartExercise()
+                    }
+                }
+                .disabled(!practice.isCurrentExerciseStarted)
+                
                 Spacer()
 
                 Image(systemName: ExerciseTypeImage.imageName(for: practice.currentExercise.type, isFilled: true))
@@ -40,13 +47,15 @@ struct ExerciseView: View {
     }
 }
 
-struct ExerciseView_Previews: PreviewProvider {
+struct PracticeExerciseView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color(UIColor.systemBackground)
                 .ignoresSafeArea()
-            ExerciseView(practice: Practice(from: PreparedProgram.personal))
+            PracticeExerciseView(practice: Practice(from: PreparedProgram.personal))
+                .wrapped()
                 .frame(width: 320)
+            
         }
     }
 }

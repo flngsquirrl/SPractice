@@ -24,7 +24,7 @@ struct PracticeView: View {
                 Group {
                     if sizeClass == .compact {
                         HStack(alignment: .top) {
-                            ExerciseView(practice: practice)
+                            PracticeExerciseView(practice: practice)
                                 .frame(maxHeight: .infinity)
                                 .wrapped()
                             VStack {
@@ -40,7 +40,7 @@ struct PracticeView: View {
                     } else {
                         VStack {
                             Spacer()
-                            ExerciseView(practice: practice)
+                            PracticeExerciseView(practice: practice)
                                 .wrapped()
 
                             PracticeSequenceView(practice: practice)
@@ -62,7 +62,6 @@ struct PracticeView: View {
                     
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
                         restartButtonWithIcon
-                            .disabled(!practice.isStarted)
                         soundButton
                         summaryButton
                     }
@@ -96,13 +95,12 @@ struct PracticeView: View {
     }
     
     var restartButtonWithIcon: some View {
-        Button() {
+        RestartIconButton {
             withAnimation {
                 practice.restart()
             }
-        } label: {
-            Image(systemName: "arrow.clockwise.circle")
         }
+        .disabled(!practice.isStarted)
     }
     
     var soundButton: some View {

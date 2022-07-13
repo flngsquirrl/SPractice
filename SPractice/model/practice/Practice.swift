@@ -16,6 +16,7 @@ class Practice: ObservableObject {
     var isRunning = false
     @Published var isStarted = false // play was clicked
     @Published var isCompleted = false
+    @Published var isCurrentExerciseStarted = false
     
     @Published var currentExerciseIndex = 0
     @Published var currentTaskIndex = 0
@@ -49,10 +50,6 @@ class Practice: ObservableObject {
     
     var currentExercise: PracticeExercise {
         program.exercises[currentExerciseIndex]
-    }
-    
-    var previousExercise: PracticeExercise {
-        program.exercises[currentExerciseIndex - 1]
     }
     
     public var nextExercise: PracticeExercise? {
@@ -100,6 +97,11 @@ class Practice: ObservableObject {
         reset()
     }
     
+    func restartExercise() {
+        pause()
+        moveToExercise(withIndex: currentExerciseIndex)
+    }
+    
     func prepare() {
         guard isStarted else { return }
         
@@ -117,6 +119,7 @@ class Practice: ObservableObject {
         isRunning = false
         isStarted = false
         isCompleted = false
+        isCurrentExerciseStarted = false
         
         durationRemaining = program.duration
         currentExerciseIndex = 0
@@ -132,6 +135,7 @@ class Practice: ObservableObject {
         cancel()
         moveToLastTask()
         resetDurationRemaining()
+        isCurrentExerciseStarted = false
         
         if currentExercise.type != .flow {
             clock.resetTime()
@@ -176,6 +180,7 @@ class Practice: ObservableObject {
     }
     
     func onMoveToExercise() {
+        isCurrentExerciseStarted = false
         currentTaskIndex = 0
         resetTiming()
         updatePlayerState()
@@ -209,7 +214,10 @@ class Practice: ObservableObject {
     
     func prepareClock() {
         clock.onFinished = { self.processCountingFinished() }
-        clock.onTick = { self.updateDurationRemaining() }
+        clock.onTick = {
+            self.updateDurationRemaining()
+            self.isCurrentExerciseStarted = true
+        }
         setClock()
     }
     
