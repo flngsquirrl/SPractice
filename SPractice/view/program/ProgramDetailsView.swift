@@ -41,7 +41,7 @@ struct ProgramDetailsView: DetailsView {
             } header: {
                 Text("Settings")
             } footer: {
-                SettingsLinkView(text: "Pause configuration is based on the general ", settingsSubGroup: .pause)
+                SettingsLinkView(text: "Pause configuration is based on", settingsSubGroup: .pause)
             }
             
             Section {
