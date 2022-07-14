@@ -23,15 +23,17 @@ struct DurationControl<Content: View>: View {
         HStack {
             content
             
-            DurationMinutesControl(minutes: $minutes)
-                .onChange(of: minutes) {
-                    onMinutesChange(newValue: $0)
-                    onMinutesChange?($0)
-                }
-            
-            DurationSecondsControl(seconds: $seconds, range: secondsRange)
-                .onChange(of: seconds) { onSecondsChange?($0)}
-                .disabled(areSecondsDisabled)
+            HStack(spacing: 0) {
+                DurationMinutesControl(minutes: $minutes)
+                    .onChange(of: minutes) {
+                        onMinutesChange(newValue: $0)
+                        onMinutesChange?($0)
+                    }
+                
+                DurationSecondsControl(seconds: $seconds, range: secondsRange)
+                    .onChange(of: seconds) { onSecondsChange?($0)}
+                    .disabled(areSecondsDisabled)
+            }
         }
         Button("Reset") { resetDuration() }
             .disabled(resetDisabled)
@@ -59,8 +61,11 @@ struct DurationControl<Content: View>: View {
 
 struct DurationControl_Previews: PreviewProvider {
     static var previews: some View {
-        DurationControl(minutes: .constant(2), seconds: .constant(30), onMinutesChange: { _ in }, onSecondsChange: { _ in }) {
-            Text("Duration")
+        List {
+            DurationControl(minutes: .constant(2), seconds: .constant(30), onMinutesChange: { _ in }, onSecondsChange: { _ in }) {
+                Text("Duration")
+                Spacer()
+            }
         }
     }
 }
