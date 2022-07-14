@@ -19,30 +19,34 @@ struct ProgramShortDecorativeView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
-            if isAccented {
-                Text("\(program.name)")
-                    .fontWeight(.semibold)
-                    .foregroundColor(accentColor)
-            } else {
-                Text("\(program.name)")
-                    .fontWeight(.semibold)
+        HStack {
+            VStack(alignment: .leading) {
+                if isAccented {
+                    Text("\(program.name)")
+                        .fontWeight(.semibold)
+                        .foregroundColor(accentColor)
+                } else {
+                    Text("\(program.name)")
+                        .fontWeight(.semibold)
+                }
+                    
+                Group {
+                    Text("\(program.templateExercises.count) ") +
+                    Text(program.templateExercises.count == 1 ? "exercise" : "exercises")
+                }
+                .foregroundColor(.secondary)
             }
-                
-            Group {
-                Text("\(program.templateExercises.count) ") +
-                Text(program.templateExercises.count == 1 ? "exercise" : "exercises")
-            }
-            .foregroundColor(.secondary)
+            Spacer()
+            ProgramDurationView(for: program)
+                .foregroundColor(.secondary)
         }
-        Spacer()
-        ProgramDurationView(for: program)
-            .foregroundColor(.secondary)
     }
 }
 
 struct ProgramShortDecorativeView_Previews: PreviewProvider {
     static var previews: some View {
-        ProgramShortDecorativeView(for: ProgramTemplate.personal)
+        List {
+            ProgramShortDecorativeView(for: ProgramTemplate.personal)
+        }
     }
 }
