@@ -19,6 +19,7 @@ struct PauseSettingsView: View {
     var body: some View {
         Section {
             TextField("Exercise name", text: $nameItem.value)
+                .disableAutocorrection(true)
         } header: {
             Text("Exercise name")
         } footer: {

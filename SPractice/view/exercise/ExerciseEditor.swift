@@ -19,6 +19,7 @@ struct ExerciseEditor: View {
         Form {
             Section {
                 TextField("Exercise name", text: $viewModel.template.name)
+                    .disableAutocorrection(true)
             }
             
             Section {
