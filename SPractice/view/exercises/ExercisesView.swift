@@ -19,12 +19,14 @@ struct ExercisesView: View, ManagedList {
     
     @AppStorage("exercisesSortProperty") internal var sortProperty: SortProperty = .date
     @AppStorage("exercisesSortOrder") internal var sortOrder: SortOrder = .desc
+    
+    @State private var selection: UUID? = nil
 
     var body: some View {
         List {
             ForEach(sortedElements) { exercise in
                 HStack {
-                    NavigationLink {
+                    NavigationLink(tag: exercise.id, selection: $selection) {
                         ExerciseDetailsView(for: exercise) {
                             exercises.update($0)
                             
