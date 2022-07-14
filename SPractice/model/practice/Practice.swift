@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class Practice: ObservableObject {
     
@@ -181,13 +182,17 @@ class Practice: ObservableObject {
         if isLastExercise {
             finish()
         } else {
-            currentExerciseIndex += 1
+            withAnimation {
+                currentExerciseIndex += 1
+            }
             onMoveToExercise()
         }
     }
     
     func moveToPreviousExercise() {
-        currentExerciseIndex -= 1
+        withAnimation {
+            currentExerciseIndex -= 1
+        }
         onMoveToExercise()
     }
     
@@ -200,7 +205,9 @@ class Practice: ObservableObject {
     }
     
     func moveToNextTask() {
-        currentTaskIndex += 1
+        withAnimation {
+            currentTaskIndex += 1
+        }
         resetTiming()
     }
     
@@ -209,7 +216,9 @@ class Practice: ObservableObject {
         guard currentTaskIndex != lastTaskIndex else {
             return
         }
-        currentTaskIndex = lastTaskIndex
+        withAnimation {
+            currentTaskIndex = lastTaskIndex
+        }
     }
     
     func processCountingFinished() {

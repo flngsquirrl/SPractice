@@ -14,15 +14,6 @@ struct PracticeExerciseView: View {
     var body: some View {
         VStack {
             HStack(alignment: .top) {
-                RestartIconButton {
-                    withAnimation {
-                        practice.restartExercise()
-                    }
-                }
-                .disabled(!practice.isCurrentExerciseStarted)
-                
-                Spacer()
-
                 Image(systemName: ExerciseTypeImage.imageName(for: practice.currentExercise.type, isFilled: true))
                     .resizable()
                     .scaledToFit()
@@ -30,6 +21,15 @@ struct PracticeExerciseView: View {
                     .opacity(0.8)
                     .foregroundColor(.lightOrange)
                     .font(.largeTitle.bold())
+        
+                Spacer()
+
+                RestartIconButton {
+                    withAnimation {
+                        practice.restartExercise()
+                    }
+                }
+                .disabled(!practice.isCurrentExerciseStarted)
             }
             
             Text("\(practice.currentExercise.name)")
