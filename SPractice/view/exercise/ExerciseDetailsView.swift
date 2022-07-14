@@ -65,7 +65,8 @@ struct ExerciseDetailsView: DetailsView {
                 ExerciseTasksButton(exercise: viewModel.exercise)
             }
         }
-        .navigationTitle(viewModel.exercise.name)
+        .navigationTitle("Exercise")
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button {

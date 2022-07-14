@@ -30,6 +30,7 @@ struct ExerciseTasksView: View {
                 }
             }
             .navigationTitle("Tasks")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Close") {

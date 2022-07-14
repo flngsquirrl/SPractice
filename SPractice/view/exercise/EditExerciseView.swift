@@ -37,7 +37,8 @@ struct EditExerciseView: View {
                     }
                 }
             }
-            .navigationTitle("Exercise")
+            .navigationTitle("Edit exercise")
+            .navigationBarTitleDisplayMode(.inline)
     }
 }
 

@@ -22,7 +22,8 @@ struct EditProgramView: View {
     
     var body: some View {
         ProgramEditor(for: $viewModel.template, editMode: $viewModel.editMode)
-            .navigationTitle("Program")
+            .navigationTitle("Edit program")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup(placement: .confirmationAction) {
                     Button("Save") {

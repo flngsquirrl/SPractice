@@ -48,12 +48,13 @@ struct ContentView: View {
                 .accentColor(.customAccentColor)
             }
             .toolbar {
-                ToolbarItemGroup(placement: .navigationBarLeading) {
+                ToolbarItemGroup(placement: .principal) {
                     Picker("Content type", selection: $viewModel.contentType.animation()) {
                         ForEach(ContentType.allCases, id: \.self) { type in
                             Image(systemName: getImageName(for: type))
                         }
                     }
+                    .fixedSize()
                     .pickerStyle(.segmented)
                 }
                 

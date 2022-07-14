@@ -21,6 +21,7 @@ struct AddExerciseView: View {
     var body: some View {
         ExerciseEditor(for: $viewModel.template)
             .navigationTitle("New exercise")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Add") {     

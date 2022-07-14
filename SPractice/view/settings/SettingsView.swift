@@ -49,6 +49,7 @@ struct SettingsView: View {
                 SettingsConstants.restoreMessage
             }
             .navigationTitle("Settings")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") {

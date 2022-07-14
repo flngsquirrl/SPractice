@@ -37,7 +37,8 @@ struct PracticeSummaryView: View {
                     }
                 }
             }
-            .navigationTitle(practice.program.name)
+            .navigationTitle("Summary")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Close") {

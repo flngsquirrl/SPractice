@@ -64,7 +64,7 @@ struct ExerciseSelectionView: View, ManagedList {
             }
             .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer)
             .disableAutocorrection(true)
-            .navigationTitle("Templates")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Picker("Group of templates", selection: $viewModel.itemsGroup.animation()) {

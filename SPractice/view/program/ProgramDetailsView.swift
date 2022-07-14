@@ -78,7 +78,8 @@ struct ProgramDetailsView: DetailsView {
         } message: {
             DeleteAlertConstants.messageText
         }
-        .navigationTitle(viewModel.template.name)
+        .navigationTitle("Program")
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button {
