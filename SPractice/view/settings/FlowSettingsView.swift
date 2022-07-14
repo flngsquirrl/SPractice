@@ -18,18 +18,26 @@ struct FlowSettingsView: View {
         Section {
             Toggle("Auto-finish", isOn: $flowAutoFinishItem.value.animation())
                 .tint(.customAccentColor)
-            
-            if flowAutoFinishItem.value {
+        } header: {
+            Text("Practice")
+        } footer: {
+            VStack {
+                if flowAutoFinishItem.value {
+                    Text("Flow exercises will be finished automatically")
+                } else {
+                    Text("Flow exercises will be finished when you move to another exercise or finish the practice")
+                }
+            }
+        }
+        
+        if flowAutoFinishItem.value {
+            Section {
                 DurationControl(minutes: $flowAutoFinishAfterTimeItem.value.minutes, seconds: $flowAutoFinishAfterTimeItem.value.seconds) {
                     Text("After")
                     Spacer()
                 }
-            }
-        } header: {
-            Text("In practice")
-        } footer: {
-                if flowAutoFinishItem.value {
-                Text("Even with auto-finish toggle on, you can finish a flow exercise earlier if you want to")
+            } footer: {
+                Text("You can still finish earlier moving to another exercise or finishing the practice")
             }
         }
         

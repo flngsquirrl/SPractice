@@ -35,8 +35,6 @@ struct TabataSettingsView: View {
                 Spacer()
                 NumberSelectionControl(number: $tabataCyclesItem.value)
             }
-        } header: {
-            Text("Exercise")
         } footer: {
             Text("Repeating \"activity + rest\" sequences in one tabata exercise")
         }
