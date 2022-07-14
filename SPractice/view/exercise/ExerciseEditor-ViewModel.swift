@@ -42,6 +42,10 @@ extension ExerciseEditor {
             template.type != .timer || (minutes == 0 && seconds == 0)
         }
         
+        var showDurationFooter: Bool {
+            template.type == .flow || template.type == .tabata
+        }
+        
         var showIntensity: Bool {
             template.type != nil
         }
