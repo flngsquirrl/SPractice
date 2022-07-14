@@ -49,12 +49,12 @@ struct ProgramsView: View, ManagedList {
         }
         .searchable(text: $searchText)
         .disableAutocorrection(true)
-        .alert(DeleteAlert.title, isPresented: $showDeleteConfirmation, presenting: selectedToDelete) { item in
+        .alert(DeleteAlertConstants.title, isPresented: $showDeleteConfirmation, presenting: selectedToDelete) { item in
             DeleteAlertContent(item: item) {
                 programs.delete($0)
             }
         } message: { _ in
-            DeleteAlert.messageText
+            DeleteAlertConstants.messageText
         }
     }
     

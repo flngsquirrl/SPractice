@@ -71,12 +71,12 @@ struct ProgramDetailsView: DetailsView {
             }
             .accentColor(.customAccentColor)
         }
-        .alert(DeleteAlert.title, isPresented: $showDeleteConfirmation) {
+        .alert(DeleteAlertConstants.title, isPresented: $showDeleteConfirmation) {
             DeleteAlertContent(item: viewModel.template) {
                 onDelete($0)
             }
         } message: {
-            DeleteAlert.messageText
+            DeleteAlertConstants.messageText
         }
         .navigationTitle(viewModel.template.name)
         .toolbar {

@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct DeleteAlert {
+struct DeleteAlertConstants {
     static let title = "Please, note"
-    static let messageText = Text("It won't be possible to restore the exercise")
+    static let messageText = Text("It won't be possible to restore the template")
 }
 
 struct DeleteAlertContent<T>: View {

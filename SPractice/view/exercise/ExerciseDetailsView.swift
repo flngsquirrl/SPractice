@@ -79,12 +79,12 @@ struct ExerciseDetailsView: DetailsView {
                 }
             }
         }
-        .alert(DeleteAlert.title, isPresented: $showDeleteConfirmation) {
+        .alert(DeleteAlertConstants.title, isPresented: $showDeleteConfirmation) {
             DeleteAlertContent(item: viewModel.exercise) {
                 onDelete($0)
             }
         } message: {
-            DeleteAlert.messageText
+            DeleteAlertConstants.messageText
         }
         .sheet(isPresented: $showEditView) {
             NavigationView {
