@@ -9,9 +9,10 @@ import SwiftUI
 
 struct FlowSettingsView: View {
     
-    @ObservedObject private var flowAutoFinishItem = SettingsManager.shared.flowAutoFinishItem
+    @ObservedObject private var flowAutoFinishItem = SettingsManager.flowAutoFinishItem
+    @ObservedObject private var flowAutoFinishAfterTimeItem = SettingsManager.flowAutoFinishAfterTimeItem
     
-    @ObservedObject private var flowAutoFinishAfterTimeItem = SettingsManager.shared.flowAutoFinishAfterTimeItem
+    @State private var areDefaultsRestored = false
     
     var body: some View {
         Section {
@@ -31,6 +32,9 @@ struct FlowSettingsView: View {
                 Text("Even with auto-finish toggle on, you can finish a flow exercise earlier if you want to")
             }
         }
+        
+        RestoreDefaultsButton(subgroup: .flow, areDefaultsRestored: $areDefaultsRestored)
+            .id(UUID())
     }
 }
 

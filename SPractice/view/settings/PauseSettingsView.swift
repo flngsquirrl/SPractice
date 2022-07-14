@@ -9,8 +9,10 @@ import SwiftUI
 
 struct PauseSettingsView: View {
     
-    @ObservedObject private var nameItem = SettingsManager.shared.pauseNameItem
-    @ObservedObject private var durationItem = SettingsManager.shared.pauseDurationItem
+    @ObservedObject private var nameItem = SettingsManager.pauseNameItem
+    @ObservedObject private var durationItem = SettingsManager.pauseDurationItem
+    
+    @State private var areDefaultsRestored = false
     
     let range = Array(stride(from: 10, through: 60, by: 10))
     
@@ -32,6 +34,9 @@ struct PauseSettingsView: View {
         } footer: {
             Text("You can use pauses to take a deep breath and prepare for the next exercise. Take your time!")
         }
+        
+        RestoreDefaultsButton(subgroup: .pause, areDefaultsRestored: $areDefaultsRestored)
+            .id(UUID())
     }
 }
 

@@ -8,63 +8,76 @@
 import Foundation
 
 class SettingsManager {
-    var settings = Settings()
-    
-    static let shared = SettingsManager()
+    static var settings = Settings()
     
     private init() {
     }
     
-    var pauseNameItem: SettingsItemStringWrapper {
-        SettingsItemStringWrapper(for: settings.getItem(.pauseName))
-    }
+    static var pauseNameItem: SettingsItemStringWrapper = SettingsItemStringWrapper(for: settings.getItem(.pauseName))
+    static var pauseDurationItem: SettingsItemIntWrapper = SettingsItemIntWrapper(for: settings.getItem(.pauseDuration))
+    static var flowAutoFinishItem: SettingsItemBoolWrapper = SettingsItemBoolWrapper(for: settings.getItem(.flowAutoFinish))
+    static var flowAutoFinishAfterTimeItem: SettingsItemTimeWrapper = SettingsItemTimeWrapper(for: settings.getItem(.flowAutoFinishAfterTime))
+    static var tabataWarmUpDurationItem: SettingsItemIntWrapper = SettingsItemIntWrapper(for: settings.getItem(.tabataWarmUpDuration))
+    static var tabataActivityDurationItem: SettingsItemIntWrapper = SettingsItemIntWrapper(for: settings.getItem(.tabataActivityDuration))
+    static var tabataRestDurationItem: SettingsItemIntWrapper = SettingsItemIntWrapper(for: settings.getItem(.tabataRestDuration))
+    static var tabataCoolDownDurationItem: SettingsItemIntWrapper = SettingsItemIntWrapper(for: settings.getItem(.tabataCoolDownDuration))
+    static var tabataCyclesItem: SettingsItemIntWrapper = SettingsItemIntWrapper(for: settings.getItem(.tabataCycles))
     
-    var pauseDurationItem: SettingsItemIntWrapper {
-        SettingsItemIntWrapper(for: settings.getItem(.pauseDuration))
-    }
-    
-    var flowAutoFinishItem: SettingsItemBoolWrapper {
-        SettingsItemBoolWrapper(for: settings.getItem(.flowAutoFinish))
-    }
-    
-    var flowAutoFinishAfterTimeItem: SettingsItemTimeWrapper {
-        SettingsItemTimeWrapper(for: settings.getItem(.flowAutoFinishAfterTime))
-    }
-    
-    var tabataWarmUpDurationItem: SettingsItemIntWrapper {
-        SettingsItemIntWrapper(for: settings.getItem(.tabataWarmUpDuration))
-    }
-    
-    var tabataActivityDurationItem: SettingsItemIntWrapper {
-        SettingsItemIntWrapper(for: settings.getItem(.tabataActivityDuration))
-    }
-    
-    var tabataRestDurationItem: SettingsItemIntWrapper {
-        SettingsItemIntWrapper(for: settings.getItem(.tabataRestDuration))
-    }
-    
-    var tabataCoolDownDurationItem: SettingsItemIntWrapper {
-        SettingsItemIntWrapper(for: settings.getItem(.tabataCoolDownDuration))
-    }
-    
-    var tabataCyclesItem: SettingsItemIntWrapper {
-        SettingsItemIntWrapper(for: settings.getItem(.tabataCycles))
-    }
-    
-    var tabataExerciseDuration: Int {
+    static var tabataExerciseDuration: Int {
         tabataActivityDurationItem.value + (tabataActivityDurationItem.value + tabataRestDurationItem.value) * tabataCyclesItem.value + tabataCoolDownDurationItem.value
     }
     
-    func saveSettings() {
+    static func saveSettings() {
         settings.save()
     }
     
-    func resetToDefauls() {
+    static func resetToDefauls() {
         settings.resetToDefauls()
+        
+        updateTabataWrappers()
+        updateFlowWrappers()
+        updatePauseWrappers()
     }
     
-    func resetToDefauls(subgroup: SettingsSubGroup) {
+    static func resetToDefauls(subgroup: SettingsSubGroup) {
         settings.resetToDefauls(subgroup: subgroup)
+        
+        switch subgroup {
+        case .tabata:
+            updateTabataWrappers()
+        case .flow:
+            updateFlowWrappers()
+        case .pause:
+            updatePauseWrappers()
+        case .examples:
+            return
+        }
+    }
+    
+    static func updatePauseWrappers() {
+        pauseNameItem.updateWith(settings.getItem(.pauseName))
+        pauseDurationItem.updateWith(settings.getItem(.pauseDuration))
+    }
+    
+    static func updateFlowWrappers() {
+        flowAutoFinishItem.updateWith(settings.getItem(.flowAutoFinish))
+        flowAutoFinishAfterTimeItem.updateWith(settings.getItem(.flowAutoFinishAfterTime))
+    }
+    
+    static func updateTabataWrappers() {
+        tabataWarmUpDurationItem.updateWith(settings.getItem(.tabataWarmUpDuration))
+        tabataActivityDurationItem.updateWith(settings.getItem(.tabataActivityDuration))
+        tabataRestDurationItem.updateWith(settings.getItem(.tabataRestDuration))
+        tabataCoolDownDurationItem.updateWith(settings.getItem(.tabataCoolDownDuration))
+        tabataCyclesItem.updateWith(settings.getItem(.tabataCycles))
+    }
+    
+    static var hasChangesFromDefaults: Bool {
+        settings.hasChangesFromDefaults
+    }
+    
+    static func hasChangesFromDefaults(in subgroup: SettingsSubGroup) -> Bool {
+        settings.hasChangesFromDefaults(in: subgroup)
     }
 }
 
@@ -132,5 +145,30 @@ class Settings: ObservableObject {
     
     fileprivate func resetToDefauls() {
         groups = defaults
+    }
+    
+    var hasChangesFromDefaults: Bool {
+        for key in groups.keys {
+            let hasChanges = hasChangesFromDefaults(in: key)
+            if hasChanges {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    func hasChangesFromDefaults(in subgroup: SettingsSubGroup) -> Bool {
+        let items = groups[subgroup]!
+        let defaultItems = defaults[subgroup]!
+        
+        for item in items {
+            let defaultItem = defaultItems.first(where: { $0.name == item.name })!
+            if defaultItem.value != item.value {
+                return true
+            }
+        }
+        
+        return false
     }
 }

@@ -28,7 +28,7 @@ extension Program {
             if case .known(let duration) = exercise.duration {
                 totalDuration += duration
             } else if exercise.type == .tabata {
-                totalDuration += SettingsManager.shared.tabataExerciseDuration
+                totalDuration += SettingsManager.tabataExerciseDuration
             }
         }
         return totalDuration == 0 ? (hasFlowExercises(fromIndex: index) ? .unlimited : .unknown) : .known(totalDuration)

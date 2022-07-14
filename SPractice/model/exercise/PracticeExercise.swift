@@ -76,19 +76,18 @@ struct PracticeExercise: Exercise, Equatable {
     
     private func prepareTabataTasks(from template: ExerciseTemplate) -> [Task]  {
         var tasks = [Task]()
-        let settings = SettingsManager.shared
         
-        let warmUp = Task(intensity: .rest, name: "warm-up", duration: .known(settings.tabataWarmUpDurationItem.value))
+        let warmUp = Task(intensity: .rest, name: "warm-up", duration: .known(SettingsManager.tabataWarmUpDurationItem.value))
         tasks.append(warmUp)
         
-        for i in 1...settings.tabataCyclesItem.value {
-            let activity = Task(intensity: .activity, name: "\(Intensity.activity.rawValue) \(i)", duration: .known(settings.tabataActivityDurationItem.value))
-            let rest = Task(intensity: .rest, name: "\(Intensity.rest.rawValue) \(i)", duration: .known(settings.tabataRestDurationItem.value))
+        for i in 1...SettingsManager.tabataCyclesItem.value {
+            let activity = Task(intensity: .activity, name: "\(Intensity.activity.rawValue) \(i)", duration: .known(SettingsManager.tabataActivityDurationItem.value))
+            let rest = Task(intensity: .rest, name: "\(Intensity.rest.rawValue) \(i)", duration: .known(SettingsManager.tabataRestDurationItem.value))
             tasks.append(activity)
             tasks.append(rest)
         }
         
-        let coolDown = Task(intensity: .rest, name: "cool-down", duration: .known(settings.tabataCoolDownDurationItem.value))
+        let coolDown = Task(intensity: .rest, name: "cool-down", duration: .known(SettingsManager.tabataCoolDownDurationItem.value))
         tasks.append(coolDown)
         
         return tasks

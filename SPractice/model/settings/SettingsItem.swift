@@ -99,6 +99,11 @@ class SettingsItemStringWrapper: SettingsItemWrapper {
     
     internal var settingsItem: SettingsItem
     
+    func updateWith(_ settingsItem: SettingsItem) {
+        self.settingsItem = settingsItem
+        value = settingsItem.value
+    }
+    
     @Published var value: String {
         didSet {
             settingsItem.value = value
@@ -114,6 +119,11 @@ class SettingsItemIntWrapper: SettingsItemWrapper {
     }
     
     internal var settingsItem: SettingsItem
+    
+    func updateWith(_ settingsItem: SettingsItem) {
+        self.settingsItem = settingsItem
+        value = settingsItem.getIntValue()
+    }
     
     @Published var value: Int {
         didSet {
@@ -131,6 +141,11 @@ class SettingsItemBoolWrapper: SettingsItemWrapper {
     
     internal var settingsItem: SettingsItem
     
+    func updateWith(_ settingsItem: SettingsItem) {
+        self.settingsItem = settingsItem
+        value = settingsItem.getBoolValue()
+    }
+    
     @Published var value: Bool {
         didSet {
             settingsItem.value = String(value)
@@ -146,6 +161,11 @@ class SettingsItemTimeWrapper: SettingsItemWrapper {
     }
     
     internal var settingsItem: SettingsItem
+    
+    func updateWith(_ settingsItem: SettingsItem) {
+        self.settingsItem = settingsItem
+        value = settingsItem.getTimeValue()
+    }
     
     @Published var value: Time {
         didSet {

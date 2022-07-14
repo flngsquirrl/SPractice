@@ -16,19 +16,6 @@ struct SettingsSubgroupDetailsView: View {
     var body: some View {
         List {
             getSubgroupView(subgroup)
-            
-            if subgroup != .examples {
-                Button("Restore defaults") {
-                    showResetConfirmation = true
-                }
-            }
-        }
-        .alert("Settings will be reset to defaults", isPresented: $showResetConfirmation) {
-            Button("Reset") {
-                SettingsManager.shared.resetToDefauls(subgroup: subgroup)
-            }
-            
-            Button("Cancel", role: .cancel) {}
         }
         .navigationTitle(subgroup.rawValue)
     }

@@ -24,11 +24,11 @@ class Clock: ObservableObject {
     static let maxMinutesPart = 60
     
     static var stopCountingUpAutomatically: Bool {
-        SettingsManager.shared.flowAutoFinishItem.value
+        SettingsManager.flowAutoFinishItem.value
     }
     
     static var maxCountUpTime: Int {
-        SettingsManager.shared.flowAutoFinishAfterTimeItem.value.timeInSeconds
+        SettingsManager.flowAutoFinishAfterTimeItem.value.timeInSeconds
     }
     
     // examples

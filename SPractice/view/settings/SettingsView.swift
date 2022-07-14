@@ -12,6 +12,7 @@ struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
     
     @State private var showResetConfirmation = false
+    @State private var restoreAllDisabled = false
     
     var body: some View {
         NavigationView {
@@ -29,18 +30,23 @@ struct SettingsView: View {
                     }
                 }
                 
-                Button("Restore all defaults") {
+                Button("Restore all defaults", role: .destructive) {
                     showResetConfirmation = true
                 }
+                .disabled(restoreAllDisabled)
             }
-            .alert("Please, note", isPresented: $showResetConfirmation) {
-                Button("Reset") {
-                    SettingsManager.shared.resetToDefauls()
+            .onAppear() {
+                restoreAllDisabled = !SettingsManager.hasChangesFromDefaults
+            }
+            .alert(LayoutUtils.warningAlertTitle, isPresented: $showResetConfirmation) {
+                Button("Reset", role: .destructive) {
+                    SettingsManager.resetToDefauls()
+                    restoreAllDisabled = true
                 }
                 
                 Button("Cancel", role: .cancel) {}
             } message: {
-                Text("These settings influence your exercises and programs")
+                SettingsConstants.restoreMessage
             }
             .navigationTitle("Settings")
             .toolbar {

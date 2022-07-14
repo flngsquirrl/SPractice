@@ -62,8 +62,8 @@ struct ExerciseTemplate: Exercise, Named, Hashable, Codable {
     }
     
     static var pauseTemplate: ExerciseTemplate {
-        let name = SettingsManager.shared.pauseNameItem.value
-        let duration: Duration = .known(SettingsManager.shared.pauseDurationItem.value)
+        let name = SettingsManager.pauseNameItem.value
+        let duration: Duration = .known(SettingsManager.pauseDurationItem.value)
         return ExerciseTemplate(type: .timer, name: name, isService: true, intensity: .rest, duration: duration)
     }
     

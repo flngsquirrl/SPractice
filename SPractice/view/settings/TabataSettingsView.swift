@@ -9,11 +9,13 @@ import SwiftUI
 
 struct TabataSettingsView: View {
     
-    @ObservedObject var tabataWarmUpDurationItem = SettingsManager.shared.tabataWarmUpDurationItem
-    @ObservedObject var tabataActivityDurationItem = SettingsManager.shared.tabataActivityDurationItem
-    @ObservedObject var tabataRestDurationItem = SettingsManager.shared.tabataRestDurationItem
-    @ObservedObject var tabataCoolDownDurationItem = SettingsManager.shared.tabataCoolDownDurationItem
-    @ObservedObject var tabataCyclesItem = SettingsManager.shared.tabataCyclesItem
+    @ObservedObject var tabataWarmUpDurationItem = SettingsManager.tabataWarmUpDurationItem
+    @ObservedObject var tabataActivityDurationItem = SettingsManager.tabataActivityDurationItem
+    @ObservedObject var tabataRestDurationItem = SettingsManager.tabataRestDurationItem
+    @ObservedObject var tabataCoolDownDurationItem = SettingsManager.tabataCoolDownDurationItem
+    @ObservedObject var tabataCyclesItem = SettingsManager.tabataCyclesItem
+    
+    @State private var areDefaultsRestored = false
     
     var body: some View {
         Section {
@@ -38,6 +40,9 @@ struct TabataSettingsView: View {
         } footer: {
             Text("Repeating \"activity + rest\" sequences in one tabata exercise")
         }
+        
+        RestoreDefaultsButton(subgroup: .tabata, areDefaultsRestored: $areDefaultsRestored)
+            .id(UUID())
     }
 }
 

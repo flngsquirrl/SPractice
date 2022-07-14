@@ -69,6 +69,7 @@
 		C9A0D027282A613A000CF439 /* PracticeSequenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D026282A613A000CF439 /* PracticeSequenceView.swift */; };
 		C9A0D029282BD603000CF439 /* Practice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D028282BD603000CF439 /* Practice.swift */; };
 		C9A0D02B282BE586000CF439 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D02A282BE586000CF439 /* Player.swift */; };
+		C9ADD739287F602F00F465D5 /* RestoreDefaultsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ADD738287F602F00F465D5 /* RestoreDefaultsButton.swift */; };
 		C9B1E744287C266000C92571 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B1E743287C266000C92571 /* SettingsView.swift */; };
 		C9B1E746287C293F00C92571 /* TabataSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B1E745287C293F00C92571 /* TabataSettingsView.swift */; };
 		C9B1E748287C295900C92571 /* FlowSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B1E747287C295900C92571 /* FlowSettingsView.swift */; };
@@ -107,6 +108,7 @@
 		C9DE15282868B3CE0011324C /* Exercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE15272868B3CE0011324C /* Exercises.swift */; };
 		C9DE152A2868B5500011324C /* Programs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE15292868B5500011324C /* Programs.swift */; };
 		C9DE152C2868FE170011324C /* ExerciseShortDecorativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE152B2868FE170011324C /* ExerciseShortDecorativeView.swift */; };
+		C9E0C42728801CDE00B8FBA8 /* SettingsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0C42628801CDE00B8FBA8 /* SettingsConstants.swift */; };
 		C9F604E2287AD57E00838462 /* ProgramShortDecorativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F604E1287AD57E00838462 /* ProgramShortDecorativeView.swift */; };
 /* End PBXBuildFile section */
 
@@ -174,6 +176,7 @@
 		C9A0D026282A613A000CF439 /* PracticeSequenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeSequenceView.swift; sourceTree = "<group>"; };
 		C9A0D028282BD603000CF439 /* Practice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Practice.swift; sourceTree = "<group>"; };
 		C9A0D02A282BE586000CF439 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		C9ADD738287F602F00F465D5 /* RestoreDefaultsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreDefaultsButton.swift; sourceTree = "<group>"; };
 		C9B1E743287C266000C92571 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C9B1E745287C293F00C92571 /* TabataSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabataSettingsView.swift; sourceTree = "<group>"; };
 		C9B1E747287C295900C92571 /* FlowSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowSettingsView.swift; sourceTree = "<group>"; };
@@ -212,6 +215,7 @@
 		C9DE15272868B3CE0011324C /* Exercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercises.swift; sourceTree = "<group>"; };
 		C9DE15292868B5500011324C /* Programs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Programs.swift; sourceTree = "<group>"; };
 		C9DE152B2868FE170011324C /* ExerciseShortDecorativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseShortDecorativeView.swift; sourceTree = "<group>"; };
+		C9E0C42628801CDE00B8FBA8 /* SettingsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsConstants.swift; sourceTree = "<group>"; };
 		C9F604E1287AD57E00838462 /* ProgramShortDecorativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramShortDecorativeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -485,6 +489,8 @@
 				C9CEAA01287C307D00D15A16 /* PauseSettingsView.swift */,
 				C9CEAA03287C309D00D15A16 /* ExamplesSettingsView.swift */,
 				C9CEAA1A287EB83B00D15A16 /* SettingsLinkView.swift */,
+				C9ADD738287F602F00F465D5 /* RestoreDefaultsButton.swift */,
+				C9E0C42628801CDE00B8FBA8 /* SettingsConstants.swift */,
 			);
 			path = settings;
 			sourceTree = "<group>";
@@ -671,6 +677,7 @@
 				C9A0D02228280F3E000CF439 /* RightWing.swift in Sources */,
 				C9A0CFEE281AB484000CF439 /* PracticeProgram.swift in Sources */,
 				C9692C7C284F787700373730 /* ExerciseShortView.swift in Sources */,
+				C9E0C42728801CDE00B8FBA8 /* SettingsConstants.swift in Sources */,
 				C9CCCE98284B6DE5005665C8 /* ProgramDetailsView.swift in Sources */,
 				C9D53FB528704E4000FD2B6F /* ValidationService.swift in Sources */,
 				C9A0D02028280F13000CF439 /* SquirrelInWheel.swift in Sources */,
@@ -682,6 +689,7 @@
 				C9CEAA08287C44EB00D15A16 /* DurationMinutesControl.swift in Sources */,
 				C91982572876E297005D049C /* InfoButton.swift in Sources */,
 				C9A0CFF2281B3733000CF439 /* PracticeExerciseView.swift in Sources */,
+				C9ADD739287F602F00F465D5 /* RestoreDefaultsButton.swift in Sources */,
 				C9A0D001281BE4C8000CF439 /* PlayerView.swift in Sources */,
 				C9CEAA11287D964900D15A16 /* NumberSelectionControl.swift in Sources */,
 				C9741A3C2860CD6300E1F670 /* ExerciseTypeImage.swift in Sources */,

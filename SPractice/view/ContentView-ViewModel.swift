@@ -46,7 +46,7 @@ extension ContentView {
         }
         
         func saveSettings() {
-            SettingsManager.shared.saveSettings()
+            SettingsManager.saveSettings()
         }
     }
 }

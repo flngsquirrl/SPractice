@@ -18,7 +18,7 @@ struct ExerciseDurationView: View {
     }
     
     init(type: ExerciseType?, duration: Duration, mode: DurationView.Mode = .padded, isVerbose: Bool = false) {
-        self.duration = type == .tabata ? .known(SettingsManager.shared.tabataExerciseDuration) : duration
+        self.duration = type == .tabata ? .known(SettingsManager.tabataExerciseDuration) : duration
         self.mode = mode
         self.isVerbose = isVerbose
     }
