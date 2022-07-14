@@ -65,10 +65,6 @@ struct PlayerView: View {
                     PlayerButton(systemImageName: "forward.frame.fill", onClick: player.forwardClicked, isEnabled: player.isForwardEnabled, width: width)
                         .animation(.default, value: player.isForwardEnabled)
                 }
-                //.padding([.bottom], 10)
-                
-//                PlayerButton(systemImageName: "stop.fill", onClick: player.stopClicked, isEnabled: player.isStopEnabled, width: width)
-//                    .animation(.default, value: player.isStopEnabled)
             }
             .frame(width: geo.size.width)
         }

@@ -273,7 +273,6 @@ class Practice: ObservableObject {
         player.isPauseEnabled = isRunning && !isCompleted
         player.isBackwardEnabled = !isFirstExercise && !isCompleted
         player.isForwardEnabled = !isCompleted
-        player.isStopEnabled = isStarted && !isCompleted
     }
     
     func preparePlayer() {
@@ -281,7 +280,6 @@ class Practice: ObservableObject {
         player.onForwardClicked = moveToNextExercise
         player.onPlayClicked = run
         player.onPauseClicked = pause
-        player.onStopClicked = finish
         
         updatePlayerState()
     }

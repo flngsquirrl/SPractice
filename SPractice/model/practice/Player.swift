@@ -16,13 +16,11 @@ class Player: ObservableObject {
     @Published var isForwardEnabled = false
     @Published var isPlayEnabled = true
     @Published var isPauseEnabled = false
-    @Published var isStopEnabled = false
     
     var onBackwardClicked: (() -> Void)? = nil
     var onPlayClicked: (() -> Void)? = nil
     var onPauseClicked: (() -> Void)? = nil
     var onForwardClicked: (() -> Void)? = nil
-    var onStopClicked: (() -> Void)? = nil
     
     func pauseClicked() {
         withAnimation {
@@ -44,9 +42,5 @@ class Player: ObservableObject {
     
     func forwardClicked() {
         onForwardClicked?()
-    }
-    
-    func stopClicked() {
-        onStopClicked?()
     }
 }
