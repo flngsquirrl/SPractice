@@ -28,7 +28,7 @@ class Clock: ObservableObject {
     }
     
     static var maxCountUpTime: Int {
-        SettingsManager.flowAutoFinishAfterTimeItem.value.timeInSeconds
+        SettingsManager.flowAutoFinishAfterTime
     }
     
     // examples

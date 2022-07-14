@@ -27,6 +27,22 @@ class SettingsManager {
         tabataActivityDurationItem.value + (tabataActivityDurationItem.value + tabataRestDurationItem.value) * tabataCyclesItem.value + tabataCoolDownDurationItem.value
     }
     
+    static var flowAutoFinishAfterTime: Int {
+        let setupValue = flowAutoFinishAfterTimeItem.value
+        if setupValue.timeInSeconds == 0 {
+            return settings.getDefault(.flowAutoFinishAfterTime).getIntValue()
+        }
+        return setupValue.timeInSeconds
+    }
+    
+    static var pauseName: String {
+        let setupValue = pauseNameItem.value.trimmingCharacters(in: .whitespacesAndNewlines)
+        if setupValue.isEmpty {
+            return settings.getDefault(.pauseName).value
+        }
+        return setupValue
+    }
+    
     static func saveSettings() {
         settings.save()
     }
@@ -127,6 +143,15 @@ class Settings: ObservableObject {
         let item = items.first(where: { $0.name == name})
         guard let item = item else {
             fatalError("Error getting value of \(name)")
+        }
+        return item
+    }
+    
+    fileprivate func getDefault(_ name: SettingsItemName) -> SettingsItem {
+        let items = defaults.flatMap{ $1 }
+        let item = items.first(where: { $0.name == name})
+        guard let item = item else {
+            fatalError("Error getting default value of \(name)")
         }
         return item
     }

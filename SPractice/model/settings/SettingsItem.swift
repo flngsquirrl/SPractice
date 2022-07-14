@@ -22,14 +22,16 @@ enum SettingsItemName: Codable {
 }
 
 struct Time {
-    var timeInSeconds: Int
     var minutes: Int
     var seconds: Int
     
     init(_ timeInSeconds: Int) {
-        self.timeInSeconds = timeInSeconds
         self.minutes = ClockTime.getMinutes(of: timeInSeconds)
         self.seconds = ClockTime.getSeconds(of: timeInSeconds)
+    }
+    
+    var timeInSeconds: Int {
+        ClockTime.calculateDuration(minutes: minutes, seconds: seconds)
     }
 }
 
