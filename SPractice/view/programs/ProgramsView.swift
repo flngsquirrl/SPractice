@@ -40,6 +40,7 @@ struct ProgramsView: View, ManagedList {
                 selectedToDelete = getElementToDelete(index: indexSet.first!)
             }
         }
+        .listStyle(.inset)
         .onChange(of: showDeleteConfirmation) { shouldShow in
             if !shouldShow {
                 withAnimation {
