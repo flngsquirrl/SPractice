@@ -20,7 +20,7 @@ struct RestoreDefaultsButton: View {
         }
         .disabled(isResetDisabled)
         .alert(LayoutUtils.warningAlertTitle, isPresented: $showResetConfirmation) {
-            Button("Reset", role: .destructive) {
+            Button("Restore", role: .destructive) {
                 withAnimation {
                     SettingsManager.resetToDefauls(subgroup: subgroup)
                     areDefaultsRestored = true

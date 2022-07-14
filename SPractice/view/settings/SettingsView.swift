@@ -39,7 +39,7 @@ struct SettingsView: View {
                 restoreAllDisabled = !SettingsManager.hasChangesFromDefaults
             }
             .alert(LayoutUtils.warningAlertTitle, isPresented: $showResetConfirmation) {
-                Button("Reset", role: .destructive) {
+                Button("Restore", role: .destructive) {
                     SettingsManager.resetToDefauls()
                     restoreAllDisabled = true
                 }
