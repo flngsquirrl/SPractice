@@ -33,8 +33,6 @@ struct ContentView: View {
             }
             .navigationTitle(viewModel.contentType == .exercises ? "Exercises" : "Programs")
             .sheet(isPresented: $showSettingsView) {
-                viewModel.saveSettings()
-            } content: {
                 SettingsView()
             }
             .sheet(isPresented: $showAddNewView) {

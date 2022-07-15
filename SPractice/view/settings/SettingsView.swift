@@ -35,8 +35,8 @@ struct SettingsView: View {
                 }
                 .disabled(restoreAllDisabled)
             }
-            .onAppear() {
-                restoreAllDisabled = !SettingsManager.hasChangesFromDefaults
+            .onDisappear() {
+                SettingsManager.saveSettings()
             }
             .alert(LayoutUtils.warningAlertTitle, isPresented: $showResetConfirmation) {
                 Button("Restore", role: .destructive) {
@@ -59,6 +59,10 @@ struct SettingsView: View {
             }
         }
         .accentColor(.customAccentColor)
+    }
+    
+    var resoreAllDisabled: Bool {
+        !SettingsManager.hasChangesFromDefaults
     }
 }
 

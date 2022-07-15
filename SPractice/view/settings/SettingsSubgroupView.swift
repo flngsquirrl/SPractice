@@ -24,6 +24,9 @@ struct SettingsSubgroupView: View {
                     }
                 }
         }
+        .onDisappear() {
+            SettingsManager.saveSettings()
+        }
         .accentColor(.customAccentColor)
     }
 }
