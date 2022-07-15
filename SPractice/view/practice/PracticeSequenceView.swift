@@ -18,11 +18,11 @@ struct PracticeSequenceView: View {
                     .foregroundColor(practice.isCompleted ? .secondary : .lightOrange)
                 
                 if let nextExercise = practice.nextExercise {
-                    ExerciseShortView(for: nextExercise)
+                    Text(nextExercise.name)
                 } else {
                     Text("finish")
-                    Spacer()
                 }
+                Spacer()
             }
             .foregroundColor(.secondary)
             .wrapped()
