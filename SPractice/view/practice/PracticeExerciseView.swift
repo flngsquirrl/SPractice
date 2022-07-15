@@ -33,7 +33,7 @@ struct PracticeExerciseView: View {
             }
             
             Text("\(practice.currentExercise.name)")
-                .font(.largeTitle.bold())
+                .font(.title.bold())
             
             Text("\(practice.currentExercise.exerciseType.rawValue)")
                 .font(.body.bold())
