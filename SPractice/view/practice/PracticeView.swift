@@ -90,17 +90,13 @@ struct PracticeView: View {
     
     var restartButton: some View {
         Button("Restart") {
-            withAnimation {
-                practice.restart()
-            }
+            practice.restart()
         }
     }
     
     var restartButtonWithIcon: some View {
         RestartIconButton {
-            withAnimation {
-                practice.restart()
-            }
+            practice.restart()
         }
         .disabled(!practice.isStarted)
     }

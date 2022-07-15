@@ -182,17 +182,13 @@ class Practice: ObservableObject {
         if isLastExercise {
             finish()
         } else {
-            withAnimation {
-                currentExerciseIndex += 1
-            }
+            currentExerciseIndex += 1
             onMoveToExercise()
         }
     }
     
     func moveToPreviousExercise() {
-        withAnimation {
-            currentExerciseIndex -= 1
-        }
+        currentExerciseIndex -= 1
         onMoveToExercise()
     }
     
@@ -205,9 +201,7 @@ class Practice: ObservableObject {
     }
     
     func moveToNextTask() {
-        withAnimation {
-            currentTaskIndex += 1
-        }
+        currentTaskIndex += 1
         resetTiming()
     }
     
@@ -216,9 +210,7 @@ class Practice: ObservableObject {
         guard currentTaskIndex != lastTaskIndex else {
             return
         }
-        withAnimation {
-            currentTaskIndex = lastTaskIndex
-        }
+        currentTaskIndex = lastTaskIndex
     }
     
     func processCountingFinished() {
