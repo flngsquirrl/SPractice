@@ -25,14 +25,16 @@ struct ProgramsView: View, ManagedList {
     var body: some View {
         List {
             ForEach(sortedElements) { program in
-                NavigationLink(tag: program.id, selection: $selection) {
-                    ProgramDetailsView(for: program) {
-                        programs.update($0)
-                    } onDelete: {
-                        programs.delete($0)
+                HStack {
+                    NavigationLink(tag: program.id, selection: $selection) {
+                        ProgramDetailsView(for: program) {
+                            programs.update($0)
+                        } onDelete: {
+                            programs.delete($0)
+                        }
+                    } label: {
+                        ProgramShortDecorativeView(for: program, isAccented: program.id == selectedToDelete?.id, accentColor: .red)
                     }
-                } label: {
-                    ProgramShortDecorativeView(for: program, isAccented: program.id == selectedToDelete?.id, accentColor: .red)
                 }
             }
             .onDelete { indexSet in
