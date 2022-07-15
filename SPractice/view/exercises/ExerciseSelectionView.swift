@@ -40,7 +40,7 @@ struct ExerciseSelectionView: View, ManagedList {
                         }
                     } header: {
                         HStack {
-                            Text("All")
+                            Text("\(ItemsGroup.all.rawValue) templates")
                         }
                     }
                 } else {
@@ -54,7 +54,7 @@ struct ExerciseSelectionView: View, ManagedList {
                         .onDelete { viewModel.removeItems(at: $0) }
                     } header: {
                         HStack {
-                            Text("To be added (\(viewModel.preparedExercises.count))")
+                            Text("\(ItemsGroup.prepared.rawValue)")
                             Spacer()
                             Button("Delete") { deleteFiltered() }
                                 .disabled(viewModel.preparedExercises.isEmpty)
