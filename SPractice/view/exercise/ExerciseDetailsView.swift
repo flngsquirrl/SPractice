@@ -116,7 +116,7 @@ struct ExerciseDetailsView_Previews: PreviewProvider {
         }
         
         NavigationView {
-            ExerciseDetailsView(for: ExerciseTemplate.surjaNamascar, onChange: { _ in }, onDelete: { _ in })
+            ExerciseDetailsView(for: ExerciseTemplate.surjaNamascarA, onChange: { _ in }, onDelete: { _ in })
         }
     }
 }

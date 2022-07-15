@@ -107,6 +107,6 @@ struct PracticeExercise: Exercise, Equatable {
     }
     
     static let catCow = PracticeExercise(from: ExerciseTemplate.catCow)!
-    static let surjaNamascar = PracticeExercise(from: ExerciseTemplate.surjaNamascar)!
+    static let surjaNamascarA = PracticeExercise(from: ExerciseTemplate.surjaNamascarA)!
     static let vasihsthasana = PracticeExercise(from: ExerciseTemplate.vasihsthasana)!
 }

@@ -74,11 +74,11 @@ struct ExerciseTemplate: Exercise, Named, Hashable, Codable {
     }
     
     // examples
-    static let catCow = ExerciseTemplate(type: .timer, name: "Cat-Cow", intensity: .activity, duration: .known(90))
-    static let balasana = ExerciseTemplate(type: .flow, name: "Balasana", intensity: .rest, duration: .unlimited)
-    static let surjaNamascar = ExerciseTemplate(type: .flow, name: "Surja Namascar", intensity: .activity, duration: .unlimited)
-    static let vasihsthasana = ExerciseTemplate(type: .tabata, name: "Vasihsthasana", duration: .unknown)
-    static let concentration = ExerciseTemplate(type: .timer, name: "Concentration", intensity: .activity, duration: .known(360))
+    static let catCow = ExerciseTemplate(type: .timer, name: "Cat-Cow", description: "Gently change between two poses warming the body and bringing flexibility to the spine", intensity: .activity, duration: .known(90))
+    static let balasana = ExerciseTemplate(type: .flow, name: "Balasana", description: "Child pose with the forehead on the mat", intensity: .rest, duration: .unlimited)
+    static let surjaNamascarA = ExerciseTemplate(type: .flow, name: "Surja Namascar A", description: "Sun Salutation, start in Tadasana, go for at least five cycles", intensity: .activity, duration: .unlimited)
+    static let vasihsthasana = ExerciseTemplate(type: .tabata, name: "Vasihsthasana", description: "Side plank on the straight arm or on the elbow",  duration: .unknown)
+    static let shavasana = ExerciseTemplate(type: .timer, name: "Shavasana", description: "Relax all your body lying on the back with arms and legs on the floor", intensity: .rest, duration: .known(600))
     static let catCowNoDuration = ExerciseTemplate(type: .timer, name: "Cat-Cow", intensity: .activity, duration: .unknown)
     static let catCowNoType = ExerciseTemplate(name: "Cat-Cow")
 }

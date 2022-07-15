@@ -51,7 +51,7 @@ struct ExerciseShortView_Previews: PreviewProvider {
             Group {
                 Text("exercises")
                 ExerciseShortView(for: PracticeExercise.catCow)
-                ExerciseShortView(for: PracticeExercise.surjaNamascar)
+                ExerciseShortView(for: PracticeExercise.surjaNamascarA)
                 ExerciseShortView(for: PracticeExercise.vasihsthasana)
             }
             
@@ -59,7 +59,7 @@ struct ExerciseShortView_Previews: PreviewProvider {
                 Text("templates with durations")
                 ExerciseShortView(for: ExerciseTemplate.catCowNoDuration, displayDetails: true)
                 ExerciseShortView(for: ExerciseTemplate.catCow, displayDetails: true)
-                ExerciseShortView(for: ExerciseTemplate.surjaNamascar, displayDetails: true)
+                ExerciseShortView(for: ExerciseTemplate.surjaNamascarA, displayDetails: true)
                 ExerciseShortView(for: ExerciseTemplate.vasihsthasana, displayDetails: true)
                 ExerciseShortView(for: ExerciseTemplate.catCowNoType, displayDetails: true)
             }
@@ -68,7 +68,7 @@ struct ExerciseShortView_Previews: PreviewProvider {
                 Text("templates without durations")
                 ExerciseShortView(for: ExerciseTemplate.catCowNoDuration)
                 ExerciseShortView(for: ExerciseTemplate.catCow)
-                ExerciseShortView(for: ExerciseTemplate.surjaNamascar)
+                ExerciseShortView(for: ExerciseTemplate.surjaNamascarA)
                 ExerciseShortView(for: ExerciseTemplate.vasihsthasana)
                 ExerciseShortView(for: ExerciseTemplate.catCowNoType)
             }

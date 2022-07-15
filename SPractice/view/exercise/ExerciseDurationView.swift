@@ -48,12 +48,12 @@ struct ExerciseDurationView_Previews: PreviewProvider {
             Text("templates")
             ExerciseDurationView(for: ExerciseTemplate.catCowNoType)
             ExerciseDurationView(for: ExerciseTemplate.catCowNoDuration)
-            ExerciseDurationView(for: ExerciseTemplate.surjaNamascar)
+            ExerciseDurationView(for: ExerciseTemplate.surjaNamascarA)
             
             Text("templates verbose")
             ExerciseDurationView(for: ExerciseTemplate.catCowNoType, isVerbose: true)
             ExerciseDurationView(for: ExerciseTemplate.catCowNoDuration, isVerbose: true)
-            ExerciseDurationView(for: ExerciseTemplate.surjaNamascar, isVerbose: true)
+            ExerciseDurationView(for: ExerciseTemplate.surjaNamascarA, isVerbose: true)
             
             Text("exercises")
             ExerciseDurationView(for: PracticeExercise.catCow)
