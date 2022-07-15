@@ -34,8 +34,14 @@ struct ExerciseDetailsView: DetailsView {
     var detailsContent: some View {
         List {
             Section {
-                Text(viewModel.exercise.name)
-                    .fontWeight(.semibold)
+                HStack(alignment: .top) {
+                    if viewModel.exercise.isExample {
+                        Image(systemName: "bookmark")
+                            .foregroundColor(.secondary)
+                    }
+                    Text(viewModel.exercise.name)
+                        .fontWeight(.semibold)
+                }
                 if viewModel.showDescription {
                     Text(viewModel.exercise.description)
                         .foregroundColor(.secondary)

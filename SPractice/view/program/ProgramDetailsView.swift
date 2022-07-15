@@ -32,8 +32,14 @@ struct ProgramDetailsView: DetailsView {
     var detailsContent: some View {
         List {
             Section {
-                Text(viewModel.template.name)
-                    .fontWeight(.semibold)
+                HStack(alignment: .top) {
+                    if viewModel.template.isExample {
+                        Image(systemName: "bookmark")
+                            .foregroundColor(.secondary)
+                    }
+                    Text(viewModel.template.name)
+                        .fontWeight(.semibold)
+                }
                 if viewModel.showDescription {
                     Text(viewModel.template.description)
                         .foregroundColor(.secondary)
