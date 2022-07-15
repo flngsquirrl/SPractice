@@ -36,7 +36,8 @@ struct PracticeExercise: Exercise, Equatable {
             return nil
         }
         
-        self.init(type: template.type!, name: template.name, description: template.description, intensity: template.intensity!, isService: template.isService)
+        let name = template.isService ? SettingsManager.pauseName : template.name
+        self.init(type: template.type!, name: name, description: template.description, intensity: template.intensity!, isService: template.isService)
         self.tasks = prepareTasks(from: template)
     }
     
@@ -102,7 +103,8 @@ struct PracticeExercise: Exercise, Equatable {
     
     private func prepareTimerTasks(from template: ExerciseTemplate) -> [Task] {
         let intensity: Intensity = template.isService ? .rest : template.intensity!
-        let task = Task(intensity: intensity, name: intensity.rawValue, duration: template.duration)
+        let duration: Duration = template.isService ? .known(SettingsManager.pauseDurationItem.value) : template.duration
+        let task = Task(intensity: intensity, name: intensity.rawValue, duration: duration)
         return Array<Task>.wrapElement(element: task)
     }
     
