@@ -12,6 +12,7 @@ protocol Program {
     
     var id: UUID {get}
     var name: String {get}
+    var description: String {get}
     var exercises: [Item] {get}
 }
 

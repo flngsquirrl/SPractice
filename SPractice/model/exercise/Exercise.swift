@@ -10,6 +10,7 @@ import Foundation
 protocol Exercise: Identifiable {
     var id: UUID {get}
     var name: String {get}
+    var description: String {get}
     var type: ExerciseType? {get}
     var duration: Duration {get}
     var intensity: Intensity? {get}

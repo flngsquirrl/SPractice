@@ -34,6 +34,15 @@ struct ExerciseDetailsView: DetailsView {
     var detailsContent: some View {
         List {
             Section {
+                Text(viewModel.exercise.name)
+                    .fontWeight(.semibold)
+                if viewModel.showDescription {
+                    Text(viewModel.exercise.description)
+                        .foregroundColor(.secondary)
+                }
+            }
+            
+            Section {
                 HStack {
                     Text("Type")
                     InfoButton()

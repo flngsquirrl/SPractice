@@ -12,14 +12,16 @@ struct ExerciseTemplate: Exercise, Named, Hashable, Codable {
     private(set) var id: UUID
     private(set) var type: ExerciseType?
     private(set) var name: String
+    private(set) var description: String
     private(set) var intensity: Intensity? // not set when type not set
     private(set) var duration: Duration
     private(set) var isService: Bool
     
-    private init(id: UUID = UUID(), type: ExerciseType? = nil, name: String = "", isService: Bool = false, intensity: Intensity? = .activity, duration: Duration = .unknown) {
+    private init(id: UUID = UUID(), type: ExerciseType? = nil, name: String = "", description: String = "", isService: Bool = false, intensity: Intensity? = .activity, duration: Duration = .unknown) {
         self.id = id
         self.type = type
-        self.name = name
+        self.name = name.trim()
+        self.description = description.trim()
         self.type = type
         self.isService = isService
         self.duration = duration
@@ -54,7 +56,7 @@ struct ExerciseTemplate: Exercise, Named, Hashable, Codable {
     
     /** the result has an id different from the source */
     init<T>(from template: T, changeId: Bool = true) where T: Exercise {
-        self.init(id: changeId ? UUID() : template.id, type: template.type, name: template.name, isService: template.isService, intensity: template.intensity, duration: template.duration)
+        self.init(id: changeId ? UUID() : template.id, type: template.type, name: template.name, description: template.description, isService: template.isService, intensity: template.intensity, duration: template.duration)
     }
     
     var exerciseType: ExerciseType? {

@@ -96,6 +96,7 @@ extension ExerciseEditor {
             }
         }
         var name: String
+        var description: String
         var intensity: Intensity? // not set when type not set
         var duration: Duration
         var isService: Bool
@@ -103,6 +104,7 @@ extension ExerciseEditor {
         init(from template: ExerciseTemplate) {
             self.id = template.id
             self.name = template.name
+            self.description = template.description
             self.type = template.type
             self.intensity = template.intensity
             self.duration = template.duration

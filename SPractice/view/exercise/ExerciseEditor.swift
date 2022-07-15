@@ -18,8 +18,11 @@ struct ExerciseEditor: View {
     var body: some View {
         Form {
             Section {
-                TextField("Exercise name", text: $viewModel.template.name)
+                TextField("Name", text: $viewModel.template.name)
                     .disableAutocorrection(true)
+                TextField("Description", text: $viewModel.template.description)
+                    .disableAutocorrection(true)
+                    .lineLimit(5)
             }
             
             Section {

@@ -30,5 +30,9 @@ extension ProgramDetailsView {
         var isusePausesDisabled: Bool {
             template.exercises.count == 1
         }
+        
+        var showDescription: Bool {
+            !template.description.isEmptyString
+        }
     }
 }

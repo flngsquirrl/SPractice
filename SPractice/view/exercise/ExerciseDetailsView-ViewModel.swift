@@ -27,5 +27,9 @@ extension ExerciseDetailsView {
         var showDetails: Bool {
             exercise.isTypeSet
         }
+        
+        var showDescription: Bool {
+            !exercise.description.isEmptyString
+        }
     }
 }

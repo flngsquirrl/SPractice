@@ -24,8 +24,12 @@ struct ProgramEditor: View {
     
     var body: some View {
         Form {
-            TextField("Program name", text: $viewModel.template.name)
-                .disableAutocorrection(true)
+            Section {
+                TextField("Name", text: $viewModel.template.name)
+                    .disableAutocorrection(true)
+                TextField("Description", text: $viewModel.template.description)
+                    .disableAutocorrection(true)
+            }
             
             ProgramDurationSection(program: viewModel.template)
             

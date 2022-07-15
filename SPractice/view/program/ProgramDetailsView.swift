@@ -32,16 +32,12 @@ struct ProgramDetailsView: DetailsView {
     var detailsContent: some View {
         List {
             Section {
-                Toggle("Add pauses", isOn: $viewModel.template.usePauses.animation())
-                    .onChange(of: viewModel.template.usePauses) { _ in
-                        onChange(viewModel.template)
-                    }
-                    .tint(.customAccentColor)
-                    .disabled(viewModel.isusePausesDisabled)
-            } header: {
-                Text("Settings")
-            } footer: {
-                SettingsLinkView(text: "Pause configuration is based on", settingsSubGroup: .pause)
+                Text(viewModel.template.name)
+                    .fontWeight(.semibold)
+                if viewModel.showDescription {
+                    Text(viewModel.template.description)
+                        .foregroundColor(.secondary)
+                }
             }
             
             Section {
@@ -53,8 +49,21 @@ struct ProgramDetailsView: DetailsView {
                 .disabled(viewModel.isPracticeDisabled)
             } footer: {
                 if viewModel.isPracticeDisabled {
-                    Text("Type and duration should be defined for all the exercises to start the practice. Please, review the exercises marked with red.")
+                    Text("Type and duration should be defined for all the exercises to start the practice. Please, review the exercises marked with red")
                 }
+            }
+            
+            Section {
+                Toggle("Add pauses", isOn: $viewModel.template.usePauses.animation())
+                    .onChange(of: viewModel.template.usePauses) { _ in
+                        onChange(viewModel.template)
+                    }
+                    .tint(.customAccentColor)
+                    .disabled(viewModel.isusePausesDisabled)
+            } header: {
+                Text("Settings")
+            } footer: {
+                SettingsLinkView(text: "Pauses are added between the exercises, their configuration is based on", settingsSubGroup: .pause)
             }
             
             ProgramSummaryView(program: viewModel.template)

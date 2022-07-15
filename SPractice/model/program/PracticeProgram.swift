@@ -11,10 +11,12 @@ struct PracticeProgram: Program {
     
     let id = UUID()
     let name: String
+    let description: String
     let exercises: [PracticeExercise]
     
     init(from template: ProgramTemplate) {
-        self.name = template.name
+        self.name = template.name.trim()
+        self.description = template.description.trim()
         
         var exercises = [PracticeExercise]()
         for exerciseTemplate in template.exercises {

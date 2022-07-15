@@ -16,14 +16,16 @@ struct PracticeExercise: Exercise, Equatable {
     let id = UUID()
     let exerciseType: ExerciseType
     let name: String
+    let description: String
     var exerciseIntensity: Intensity
     var isService: Bool
     
     private(set) var tasks: [Task]
     
-    init(type: ExerciseType, name: String, intensity: Intensity, isService: Bool = false, tasks: [Task] = []) {
+    private init(type: ExerciseType, name: String, description: String, intensity: Intensity, isService: Bool = false, tasks: [Task] = []) {
         self.exerciseType = type
-        self.name = name
+        self.name = name.trim()
+        self.description = description.trim()
         self.exerciseIntensity = intensity
         self.isService = isService
         self.tasks = tasks
@@ -34,7 +36,7 @@ struct PracticeExercise: Exercise, Equatable {
             return nil
         }
         
-        self.init(type: template.type!, name: template.name, intensity: template.intensity!, isService: template.isService)
+        self.init(type: template.type!, name: template.name, description: template.description, intensity: template.intensity!, isService: template.isService)
         self.tasks = prepareTasks(from: template)
     }
     
