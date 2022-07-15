@@ -14,11 +14,15 @@ struct ExerciseDurationView: View {
     private let isVerbose: Bool
     
     init<T>(for template: T, mode: DurationView.Mode = .padded, isVerbose: Bool = false) where T: Exercise {
-        self.init(type: template.type, duration: template.duration, mode: mode, isVerbose: isVerbose)
-    }
-    
-    init(type: ExerciseType?, duration: Duration, mode: DurationView.Mode = .padded, isVerbose: Bool = false) {
-        self.duration = type == .tabata ? .known(SettingsManager.tabataExerciseDuration) : duration
+        var duration: Duration
+        if template.type == .tabata {
+            duration = .known(SettingsManager.tabataExerciseDuration)
+        } else if template.isService {
+            duration = .known(SettingsManager.pauseDurationItem.value)
+        } else {
+            duration = template.duration
+        }
+        self.duration = duration
         self.mode = mode
         self.isVerbose = isVerbose
     }

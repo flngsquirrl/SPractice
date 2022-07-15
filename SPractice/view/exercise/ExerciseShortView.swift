@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ExerciseShortView<T>: View where T: Exercise {
     
+    @EnvironmentObject var settings: Settings
+    
     private let exercise: T
     private var displayDetails = false
     private var isIconAccented = false
@@ -31,17 +33,24 @@ struct ExerciseShortView<T>: View where T: Exercise {
             } else {
                 ExerciseTypeImage(type: exercise.type)
             }
-            Text(exercise.name)
+            Text(name)
             
             if displayDetails {
                 HStack {
                     Spacer()
-                    ExerciseDurationView(type: exercise.type, duration: exercise.duration)
+                    ExerciseDurationView(for: exercise)
                     IntensityView(intensity: exercise.intensity)
                 }
                 .foregroundColor(.secondary)
             }
         }
+    }
+    
+    var name: String {
+        if exercise.isService {
+            return SettingsManager.pauseName
+        }
+        return exercise.name
     }
 }
 

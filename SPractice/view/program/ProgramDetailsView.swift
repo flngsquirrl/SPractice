@@ -16,6 +16,7 @@ struct ProgramDetailsView: DetailsView {
     @ObservedObject var programs = Programs.shared
     
     @Environment(\.horizontalSizeClass) var sizeClass
+    
     var isDeleted: Bool {
         !programs.contains(viewModel.template)
     }

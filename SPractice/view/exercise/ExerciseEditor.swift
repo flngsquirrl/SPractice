@@ -60,7 +60,7 @@ struct ExerciseEditor: View {
                     } else {
                         HStack {
                             durationControlContent
-                            ExerciseDurationView(type: viewModel.exercise.type, duration: viewModel.exercise.duration)
+                            ExerciseDurationView(for: viewModel.exercise)
                                 .foregroundColor(.secondary)
                         }
                     }

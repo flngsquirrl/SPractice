@@ -40,7 +40,7 @@ struct ExerciseShortDecorativeView<T>: View where T: Exercise {
             HStack {
                 if displayDetails {
                     Spacer()
-                    ExerciseDurationView(type: exercise.type, duration: exercise.duration)
+                    ExerciseDurationView(for: exercise)
                     IntensityView(intensity: exercise.intensity, mode: .icon)
                 }
             }

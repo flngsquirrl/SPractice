@@ -56,6 +56,11 @@ struct ExerciseTemplate: Exercise, Named, Hashable, Codable {
             self.duration = .unknown
             self.isService = false
         }
+        
+        if isService {
+            self.name = ""
+            self.duration = .unknown
+        }
     }
     
     /** the result has an id different from the source */
@@ -68,9 +73,7 @@ struct ExerciseTemplate: Exercise, Named, Hashable, Codable {
     }
     
     static var pauseTemplate: ExerciseTemplate {
-        let name = SettingsManager.pauseName
-        let duration: Duration = .known(SettingsManager.pauseDurationItem.value)
-        return ExerciseTemplate(type: .timer, name: name, isService: true, intensity: .rest, duration: duration)
+        return ExerciseTemplate(type: .timer, isService: true, intensity: .rest)
     }
     
     static var template: ExerciseTemplate {

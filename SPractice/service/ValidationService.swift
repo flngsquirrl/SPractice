@@ -22,7 +22,10 @@ struct ValidationService {
     }
     
     private static func isValidTimer(_ template: ExerciseTemplate) -> Bool {
-        template.duration != .unknown
+        if !template.isService {
+            return template.duration != .unknown
+        }
+        return true
     }
     
     static func isValid(_ template: ExerciseTemplate) -> Bool {
