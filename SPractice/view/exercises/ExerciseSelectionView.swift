@@ -138,7 +138,7 @@ struct ExerciseSelectionView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 7))
                     .overlay(
                         RoundedRectangle(cornerRadius: 7)
-                            .stroke(.customAccentColor, lineWidth: 1)
+                            .stroke(.customAccentColor, lineWidth: 1.3)
                     )
                 
                 ExerciseShortView(for: item.template)
