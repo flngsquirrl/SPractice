@@ -48,7 +48,7 @@ struct ExerciseSelectionView: View {
                     }
                 }
             }
-            .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer)
+            .searchable(text: $viewModel.searchText.animation(), placement: .navigationBarDrawer)
             .disableAutocorrection(true)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
