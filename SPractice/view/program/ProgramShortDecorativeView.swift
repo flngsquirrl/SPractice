@@ -29,12 +29,6 @@ struct ProgramShortDecorativeView: View {
                     Text("\(program.name)")
                         .fontWeight(.semibold)
                 }
-                    
-                Group {
-                    Text("\(program.templateExercises.count) ") +
-                    Text(program.templateExercises.count == 1 ? "exercise" : "exercises")
-                }
-                .foregroundColor(.secondary)
             }
             Spacer()
             ProgramDurationView(for: program)
