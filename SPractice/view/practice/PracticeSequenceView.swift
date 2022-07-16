@@ -19,6 +19,7 @@ struct PracticeSequenceView: View {
                 
                 if let nextExercise = practice.nextExercise {
                     Text(nextExercise.name)
+                        .truncated()
                 } else {
                     Text("finish")
                 }
