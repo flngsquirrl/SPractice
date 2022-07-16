@@ -33,8 +33,8 @@ struct ExerciseSelectionView: View {
                 Section {
                     ForEach(viewModel.sortedElements) { item in
                         SelectionRow(item: item, isAdded: viewModel.itemsGroup == .prepared) {
-                                viewModel.onChange($0, counter: $1)
-                            }
+                            viewModel.onChange()
+                        }
                     }
                     .onDelete(perform: viewModel.itemsGroup == .prepared ? onDelete : nil)
                 } header: {
@@ -89,7 +89,7 @@ struct ExerciseSelectionView: View {
         }
     }
     
-    struct SelectionItem: Identifiable, Named {
+    class SelectionItem: Identifiable, Named {
         var template: ExerciseTemplate
         var counter: Int
         
@@ -110,41 +110,31 @@ struct ExerciseSelectionView: View {
     struct SelectionRow: View {
         var item: SelectionItem
         var isAdded: Bool = false
-        var onChange: (SelectionItem, Int) -> Void
-        
-        @State private var counter: Int
-        
-        init(item: SelectionItem, isAdded: Bool = false, onChange: @escaping (SelectionItem, Int) -> Void) {
-            self.item = item
-            self.isAdded = isAdded
-            self.onChange = onChange
-            
-            self._counter = State<Int>(initialValue: item.counter)
-        }
+        var onChange: () -> Void
 
         var body: some View {
             HStack {
                 Button() {
                     if isAdded {
-                        if counter > 0 {
-                            counter -= 1
+                        if item.counter > 0 {
+                            item.counter -= 1
                         }
                     } else {
-                        counter += 1
+                        item.counter += 1
                     }
+                    onChange()
                 } label: {
                     Image(systemName: isAdded ? "minus.circle" : "plus.circle")
                         .foregroundColor(.customAccentColor)
                 }
-                .onChange(of: counter) { newCounter in
-                    onChange(item, newCounter)
-                }
                 
-                Text("\(counter)")
+                Text("\(item.counter)")
                     .font(.callout)
-                    .foregroundColor(counter > 0 ? .creamy : .customAccentColor)
+                    .foregroundColor(item.counter > 0 ? .creamy : .customAccentColor)
                     .frame(minWidth: 25)
-                    .background(counter > 0 ? .customAccentColor : Color(UIColor.systemBackground))
+                    .if(item.counter > 0) {
+                        $0.background(.customAccentColor)
+                    }
                     .clipShape(RoundedRectangle(cornerRadius: 7))
                     .overlay(
                         RoundedRectangle(cornerRadius: 7)
@@ -155,6 +145,16 @@ struct ExerciseSelectionView: View {
             }
         }
     }
+}
+
+extension View {
+    func `if`<Content: View>(_ conditional: Bool, content: (Self) -> Content) -> some View {
+         if conditional {
+             return AnyView(content(self))
+         } else {
+             return AnyView(self)
+         }
+     }
 }
 
 struct ExerciseSelectionView_Previews: PreviewProvider {

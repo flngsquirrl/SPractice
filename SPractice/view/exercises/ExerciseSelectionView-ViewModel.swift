@@ -37,6 +37,8 @@ extension ExerciseSelectionView {
         }
         
         func onDeleteSelectionItem(at offsets: IndexSet) {
+            objectWillChange.send()
+            
             for index in offsets {
                 let item = getSortedElement(index: index)
                 deleteSelectionItem(item)
@@ -44,21 +46,20 @@ extension ExerciseSelectionView {
         }
         
         func deleteSelectionItem(_ item: SelectionItem) {
-            if let itemIndex = selectionItems.firstIndex(where: { $0.id == item.id}) {
-                selectionItems[itemIndex] = SelectionItem(for: item.template)
+            if let item = selectionItems.first(where: { $0.id == item.id}) {
+                item.counter = 0
             }
         }
         
         func deleteFiltered() {
+            objectWillChange.send()
             for item in filteredElements {
                 deleteSelectionItem(item)
             }
         }
         
-        func onChange(_ item: SelectionItem, counter: Int) {
-            if let itemIndex = selectionItems.firstIndex(where: { $0.id == item.id}) {
-                selectionItems[itemIndex] = SelectionItem(for: item.template, counter: counter)
-            }
+        func onChange() {
+            objectWillChange.send()
         }
         
         var preparedNumber: Int {
