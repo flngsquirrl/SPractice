@@ -65,7 +65,7 @@ extension ManagedList {
         }
     }
     
-    func getElementToDelete(index: Int) -> Element {
+    func getSortedElement(index: Int) -> Element {
         sortedElements[index]
     }
 }

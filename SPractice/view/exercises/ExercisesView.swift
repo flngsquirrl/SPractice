@@ -38,7 +38,7 @@ struct ExercisesView: View, ManagedList {
             }
             .onDelete { indexSet in
                 showDeleteConfirmation = true
-                selectedToDelete = getElementToDelete(index: indexSet.first!)
+                selectedToDelete = getSortedElement(index: indexSet.first!)
             }
         }
         .listStyle(.inset)

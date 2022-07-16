@@ -38,7 +38,7 @@ extension ExerciseSelectionView {
         
         func onDeleteSelectionItem(at offsets: IndexSet) {
             for index in offsets {
-                let item = getElementToDelete(index: index)
+                let item = getSortedElement(index: index)
                 deleteSelectionItem(item)
             }
         }
