@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ManagedList {
+@MainActor protocol ManagedList {
     associatedtype Element: Named
     
     var searchText: String {get}

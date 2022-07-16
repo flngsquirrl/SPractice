@@ -7,12 +7,7 @@
 
 import SwiftUI
 
-struct ExerciseSelectionView: View, ManagedList {
-    
-    @AppStorage("exercisesSortProperty") internal var sortProperty: SortProperty = .date
-    @AppStorage("exercisesSortOrder") internal var sortOrder: SortOrder = .desc
-    
-    typealias Element = ExerciseTemplate
+struct ExerciseSelectionView: View {
     
     enum ItemsGroup: String, CaseIterable {
         case all
@@ -27,37 +22,28 @@ struct ExerciseSelectionView: View, ManagedList {
     init(onAdd: @escaping ([ExerciseTemplate]) -> Void) {
         self.onAdd = onAdd
     }
+    
+    func onDelete(_ indexSet: IndexSet) {
+        viewModel.onDeleteSelectionItem(at: indexSet)
+    }
 
     var body: some View {
         NavigationView {
             List {
-                if viewModel.itemsGroup == .all {
-                    Section {
-                        ForEach(sortedElements) { template in
-                            SelectionRow(template: template) {
-                                viewModel.onAdd(template: $0)
+                Section {
+                    ForEach(viewModel.sortedElements) { item in
+                        SelectionRow(item: item, isAdded: viewModel.itemsGroup == .prepared) {
+                                viewModel.onChange($0, counter: $1)
                             }
-                        }
-                    } header: {
-                        HStack {
-                            Text("\(ItemsGroup.all.rawValue) templates")
-                        }
                     }
-                } else {
-                    Section {
-                        ForEach(sortedElements) { template in
-                            SelectionRow(template: template, isAdded: true) {
-                                viewModel.onDelete(template: $0)
-                            }
-                            .transition(.opacity)
-                        }
-                        .onDelete { viewModel.removeItems(at: $0) }
-                    } header: {
-                        HStack {
-                            Text("\(ItemsGroup.prepared.rawValue)")
+                    .onDelete(perform: viewModel.itemsGroup == .prepared ? onDelete : nil)
+                } header: {
+                    HStack {
+                        Text(viewModel.headerText)
+                        if viewModel.itemsGroup == .prepared {
                             Spacer()
-                            Button("Delete") { deleteFiltered() }
-                                .disabled(viewModel.preparedExercises.isEmpty)
+                            Button("Clear") { viewModel.deleteFiltered() }
+                                .disabled(viewModel.filteredElements.isEmpty)
                         }
                     }
                 }
@@ -67,7 +53,7 @@ struct ExerciseSelectionView: View, ManagedList {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Picker("Group of templates", selection: $viewModel.itemsGroup.animation()) {
+                    Picker("Group of templates", selection: $viewModel.itemsGroup) {
                         ForEach(ItemsGroup.allCases, id: \.self) { group in
                             Image(systemName: getImageName(for: group))
                         }
@@ -77,11 +63,11 @@ struct ExerciseSelectionView: View, ManagedList {
                 }
                     
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Add (\(viewModel.preparedExercises.count))") {
-                        onAdd(viewModel.preparedExercises)
+                    Button("Add") {
+                        onAdd(viewModel.exercises)
                         dismiss()
                     }
-                    .disabled(viewModel.preparedExercises.isEmpty)
+                    .disabled(viewModel.filteredElements.isEmpty)
                 }
                 
                 ToolbarItem(placement: .cancellationAction) {
@@ -103,33 +89,69 @@ struct ExerciseSelectionView: View, ManagedList {
         }
     }
     
-    var searchText: String {
-        viewModel.searchText
-    }
-    
-    var elements: [ExerciseTemplate] {
-        viewModel.exercises
-    }
-    
-    func deleteFiltered() {
-        for exercise in filteredElements {
-            viewModel.onDelete(template: exercise)
+    struct SelectionItem: Identifiable, Named {
+        var template: ExerciseTemplate
+        var counter: Int
+        
+        init(for template: ExerciseTemplate, counter: Int = 0) {
+            self.template = template
+            self.counter = counter
+        }
+        
+        var id: UUID {
+            template.id
+        }
+        
+        var name: String {
+            template.name
         }
     }
     
     struct SelectionRow: View {
-        var template: ExerciseTemplate
+        var item: SelectionItem
         var isAdded: Bool = false
-        var action: (ExerciseTemplate) -> Void
+        var onChange: (SelectionItem, Int) -> Void
+        
+        @State private var counter: Int
+        
+        init(item: SelectionItem, isAdded: Bool = false, onChange: @escaping (SelectionItem, Int) -> Void) {
+            self.item = item
+            self.isAdded = isAdded
+            self.onChange = onChange
+            
+            self._counter = State<Int>(initialValue: item.counter)
+        }
 
         var body: some View {
             HStack {
                 Button() {
-                    action(template)
+                    if isAdded {
+                        if counter > 0 {
+                            counter -= 1
+                        }
+                    } else {
+                        counter += 1
+                    }
                 } label: {
                     Image(systemName: isAdded ? "minus.circle" : "plus.circle")
+                        .foregroundColor(.customAccentColor)
                 }
-                ExerciseShortView(for: template, displayDetails: true)
+                .onChange(of: counter) { newCounter in
+                    onChange(item, newCounter)
+                }
+                
+                Text("\(counter)")
+                    .font(.callout)
+                    .foregroundColor(counter > 0 ? .creamy : .customAccentColor)
+                    .frame(minWidth: 25)
+                    .background(counter > 0 ? .customAccentColor : Color(UIColor.systemBackground))
+                    .clipShape(RoundedRectangle(cornerRadius: 7))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 7)
+                            .stroke(.customAccentColor, lineWidth: 1)
+                    )
+                
+                ExerciseShortView(for: item.template)
             }
         }
     }
