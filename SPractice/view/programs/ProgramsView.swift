@@ -24,22 +24,24 @@ struct ProgramsView: View, ManagedList {
     
     var body: some View {
         List {
-            ForEach(sortedElements) { program in
-                HStack {
-                    NavigationLink(tag: program.id, selection: $selection) {
-                        ProgramDetailsView(for: program) {
-                            programs.update($0)
-                        } onDelete: {
-                            programs.delete($0)
+            Section {
+                ForEach(sortedElements) { program in
+                    HStack {
+                        NavigationLink(tag: program.id, selection: $selection) {
+                            ProgramDetailsView(for: program) {
+                                programs.update($0)
+                            } onDelete: {
+                                programs.delete($0)
+                            }
+                        } label: {
+                            ProgramShortDecorativeView(for: program, isAccented: program.id == selectedToDelete?.id, accentColor: .red)
                         }
-                    } label: {
-                        ProgramShortDecorativeView(for: program, isAccented: program.id == selectedToDelete?.id, accentColor: .red)
                     }
                 }
-            }
-            .onDelete { indexSet in
-                showDeleteConfirmation = true
-                selectedToDelete = getSortedElement(index: indexSet.first!)
+                .onDelete { indexSet in
+                    showDeleteConfirmation = true
+                    selectedToDelete = getSortedElement(index: indexSet.first!)
+                }
             }
         }
         .listStyle(.inset)
@@ -50,7 +52,7 @@ struct ProgramsView: View, ManagedList {
                 }
             }
         }
-        .searchable(text: $searchText)
+        .searchable(text: $searchText.animation())
         .disableAutocorrection(true)
         .alert(DeleteAlertConstants.title, isPresented: $showDeleteConfirmation, presenting: selectedToDelete) { item in
             DeleteAlertContent(item: item) {

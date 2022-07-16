@@ -24,21 +24,23 @@ struct ExercisesView: View, ManagedList {
 
     var body: some View {
         List {
-            ForEach(sortedElements) { exercise in
-                HStack {
-                    NavigationLink(tag: exercise.id, selection: $selection) {
-                        ExerciseDetailsView(for: exercise) {
-                            exercises.update($0)
-                            
-                        } onDelete: { exercises.delete($0) }
-                    } label: {
-                        ExerciseShortDecorativeView(for: exercise, isIconAccented: exercise.id == selectedToDelete?.id, accentColor: .red, isFilled: true)
+            Section {
+                ForEach(sortedElements) { exercise in
+                    HStack {
+                        NavigationLink(tag: exercise.id, selection: $selection) {
+                            ExerciseDetailsView(for: exercise) {
+                                exercises.update($0)
+                                
+                            } onDelete: { exercises.delete($0) }
+                        } label: {
+                            ExerciseShortDecorativeView(for: exercise, isIconAccented: exercise.id == selectedToDelete?.id, accentColor: .red, isFilled: true)
+                        }
                     }
                 }
-            }
-            .onDelete { indexSet in
-                showDeleteConfirmation = true
-                selectedToDelete = getSortedElement(index: indexSet.first!)
+                .onDelete { indexSet in
+                    showDeleteConfirmation = true
+                    selectedToDelete = getSortedElement(index: indexSet.first!)
+                }
             }
         }
         .listStyle(.inset)
@@ -49,7 +51,7 @@ struct ExercisesView: View, ManagedList {
                 }
             }
         }
-        .searchable(text: $searchText)
+        .searchable(text: $searchText.animation())
         .disableAutocorrection(true)
         .alert(DeleteAlertConstants.title, isPresented: $showDeleteConfirmation, presenting: selectedToDelete) { item in
             DeleteAlertContent(item: item) {
