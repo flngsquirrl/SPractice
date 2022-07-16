@@ -36,8 +36,8 @@ struct ExerciseShortView<T>: View where T: Exercise {
             Text(name)
             
             if displayDetails {
-                HStack {
-                    Spacer()
+                Spacer()
+                Group {
                     ExerciseDurationView(for: exercise)
                     IntensityView(intensity: exercise.intensity)
                 }

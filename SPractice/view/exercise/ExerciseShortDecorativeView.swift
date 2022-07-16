@@ -37,7 +37,7 @@ struct ExerciseShortDecorativeView<T>: View where T: Exercise {
             Text(exercise.name)
                     .fontWeight(.semibold)
             
-            HStack {
+            Group {
                 if displayDetails {
                     Spacer()
                     ExerciseDurationView(for: exercise)
@@ -45,7 +45,6 @@ struct ExerciseShortDecorativeView<T>: View where T: Exercise {
                 }
             }
             .foregroundColor(.secondary)
-            
         }
     }
 }
