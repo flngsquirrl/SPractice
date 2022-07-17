@@ -49,7 +49,7 @@ struct ExerciseDetailsView: DetailsView {
             } footer: {
                 if viewModel.exercise.isExample {
                     HStack(spacing: 0) {
-                        Text("This exercise is an example ")
+                        Text("This exercise is an example template ")
                         InfoButton()
                     }
                 }

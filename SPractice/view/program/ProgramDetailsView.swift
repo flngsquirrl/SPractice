@@ -48,7 +48,7 @@ struct ProgramDetailsView: DetailsView {
             } footer: {
                 if viewModel.template.isExample {
                     HStack(spacing: 0) {
-                        Text("This program is an example ")
+                        Text("This program is an example template ")
                         InfoButton()
                     }
                 }
