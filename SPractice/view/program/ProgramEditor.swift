@@ -31,7 +31,7 @@ struct ProgramEditor: View {
                     .disableAutocorrection(true)
             }
             
-            ProgramDurationSection(program: viewModel.template)
+            ProgramDurationSection(program: viewModel.preparedProgram)
             
             Section() {
                 Button() {
@@ -47,7 +47,7 @@ struct ProgramEditor: View {
                 }
                 .disabled(editMode.isEditing)
                 
-                ForEach(viewModel.template.templateExercises) { exercise in
+                ForEach(viewModel.preparedProgram.exercises) { exercise in
                     HStack {
                         if !editMode.isEditing {
                             Button() {
