@@ -17,20 +17,10 @@ struct SettingsLinkView: View {
     static let settingsText = Text("Settings").foregroundColor(.customAccentColor)
     
     var body: some View {
-        Group {
-            Text(trimmedText + " ") +
-            Self.settingsText
-        }
-        .onTapGesture {
-            showSettings = true
-        }
-        .sheet(isPresented: $showSettings) {
-            SettingsSubgroupView(subgroup: settingsSubGroup)
-        }
-    }
-    
-    var trimmedText: String {
-        text.trimmingCharacters(in: .whitespacesAndNewlines)
+        SettingsLink(text: text, showSettings: $showSettings)
+            .sheet(isPresented: $showSettings) {
+                SettingsSubgroupView(subgroup: settingsSubGroup)
+            }
     }
 }
 

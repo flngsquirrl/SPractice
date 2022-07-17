@@ -36,14 +36,11 @@ struct ContentView: View {
                 SettingsView()
             }
             .sheet(isPresented: $showAddNewView) {
-                NavigationView {
-                    if viewModel.contentType == .programs {
-                        AddProgramView() { programs.addNew($0) }
-                    } else {
-                        AddExerciseView() { exercises.addNew($0) }
-                    }
+                if viewModel.contentType == .programs {
+                    AddProgramView() { programs.addNew($0) }
+                } else {
+                    AddExerciseView() { exercises.addNew($0) }
                 }
-                .accentColor(.customAccentColor)
             }
             .toolbar {
                 ToolbarItemGroup(placement: .principal) {

@@ -24,6 +24,7 @@
 		C95011CE28196FFE0043EC75 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C95011CD28196FFE0043EC75 /* Preview Assets.xcassets */; };
 		C95011D52819703D0043EC75 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95011D42819703D0043EC75 /* ClockView.swift */; };
 		C95F17832884194A00E8446D /* PreparedProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95F17822884194A00E8446D /* PreparedProgram.swift */; };
+		C95F17852884431700E8446D /* SettingsLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95F17842884431700E8446D /* SettingsLink.swift */; };
 		C967287C2874553600B4990C /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967287B2874553600B4990C /* Exercise.swift */; };
 		C967287E287457B500B4990C /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967287D287457B500B4990C /* Program.swift */; };
 		C96728832874E11A00B4990C /* IconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96728822874E11A00B4990C /* IconTextView.swift */; };
@@ -134,6 +135,7 @@
 		C95011CD28196FFE0043EC75 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C95011D42819703D0043EC75 /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		C95F17822884194A00E8446D /* PreparedProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparedProgram.swift; sourceTree = "<group>"; };
+		C95F17842884431700E8446D /* SettingsLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLink.swift; sourceTree = "<group>"; };
 		C967287B2874553600B4990C /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		C967287D287457B500B4990C /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
 		C96728822874E11A00B4990C /* IconTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTextView.swift; sourceTree = "<group>"; };
@@ -497,6 +499,7 @@
 				C9CEAA01287C307D00D15A16 /* PauseSettingsView.swift */,
 				C9CEAA03287C309D00D15A16 /* ExamplesSettingsView.swift */,
 				C9CEAA1A287EB83B00D15A16 /* SettingsLinkView.swift */,
+				C95F17842884431700E8446D /* SettingsLink.swift */,
 				C9ADD738287F602F00F465D5 /* RestoreDefaultsButton.swift */,
 				C9E0C42628801CDE00B8FBA8 /* SettingsConstants.swift */,
 			);
@@ -704,6 +707,7 @@
 				C9A0D001281BE4C8000CF439 /* PlayerView.swift in Sources */,
 				C9CEAA11287D964900D15A16 /* NumberSelectionControl.swift in Sources */,
 				C9741A3C2860CD6300E1F670 /* ExerciseTypeImage.swift in Sources */,
+				C95F17852884431700E8446D /* SettingsLink.swift in Sources */,
 				C9A028FC287833F200032FF9 /* ManagedList.swift in Sources */,
 				C9CEAA00287C2DFF00D15A16 /* SettingsSubgroupDetailsView.swift in Sources */,
 				C9741A322860857F00E1F670 /* AddProgramView.swift in Sources */,

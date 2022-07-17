@@ -13,6 +13,8 @@ struct ExerciseTasksView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    @State private var showSettings: Bool = false
+    
     var body: some View {
         NavigationView {
             List {
@@ -25,9 +27,12 @@ struct ExerciseTasksView: View {
                     case .flow, .timer:
                         Text("Intensity and duration of the task are based on the exercise configuration")
                     case .tabata:
-                        SettingsLinkView(text: "Sequence and duration of the tasks are based on", settingsSubGroup: .tabata)
+                        SettingsLink(text: "Sequence and duration of the tasks are based on", showSettings: $showSettings)
                     }
                 }
+            }
+            .sheet(isPresented: $showSettings) {
+                SettingsSubgroupView(subgroup: .tabata)
             }
             .navigationTitle("Tasks")
             .navigationBarTitleDisplayMode(.inline)

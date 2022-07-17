@@ -11,6 +11,8 @@ struct ExerciseEditor: View {
     
     @ObservedObject private var viewModel: ViewModel
     
+    @State private var showSettings: Bool = false
+    
     init(for template: Binding<EditorTemplate>) {
         self.viewModel = ViewModel(for: template)
     }
@@ -74,7 +76,7 @@ struct ExerciseEditor: View {
                         if viewModel.template.type! == .flow {
                             Text("Duration of a flow exercise is not limited")
                         } else {
-                            SettingsLinkView(text: "Duration of a tabata exercise is based on", settingsSubGroup: .tabata)
+                            SettingsLink(text: "Duration of a tabata exercise is based on", showSettings: $showSettings)
                         }
                     }
                 }
@@ -89,6 +91,9 @@ struct ExerciseEditor: View {
                     }
                 }
             }
+        }
+        .sheet(isPresented: $showSettings) {
+            SettingsSubgroupView(subgroup: .tabata)
         }
     }
     

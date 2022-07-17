@@ -20,24 +20,27 @@ struct AddProgramView: View {
     }
     
     var body: some View {
-        ProgramEditor(for: $viewModel.newTemplate, editMode: $viewModel.editMode)
-            .navigationTitle("New program")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItemGroup(placement: .confirmationAction) {
-                    Button("Add") {
-                        onAdd(viewModel.newTemplate)
-                        dismiss()
+        NavigationView {
+            ProgramEditor(for: $viewModel.newTemplate, editMode: $viewModel.editMode)
+                .navigationTitle("New program")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItemGroup(placement: .confirmationAction) {
+                        Button("Add") {
+                            onAdd(viewModel.newTemplate)
+                            dismiss()
+                        }
+                        .disabled(viewModel.isAddDisabled)
                     }
-                    .disabled(viewModel.isAddDisabled)
-                }
-                
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") {
-                        dismiss()
+                    
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button("Cancel") {
+                            dismiss()
+                        }
                     }
                 }
-            }
+        }
+        .accentColor(.customAccentColor)
     }
 }
 
