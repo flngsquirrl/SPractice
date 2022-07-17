@@ -46,6 +46,13 @@ struct ExerciseDetailsView: DetailsView {
                     Text(viewModel.exercise.description)
                         .foregroundColor(.secondary)
                 }
+            } footer: {
+                if viewModel.exercise.isExample {
+                    HStack(spacing: 0) {
+                        Text("This exercise is an example ")
+                        InfoButton()
+                    }
+                }
             }
             
             Section {

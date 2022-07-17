@@ -45,6 +45,13 @@ struct ProgramDetailsView: DetailsView {
                     Text(viewModel.template.description)
                         .foregroundColor(.secondary)
                 }
+            } footer: {
+                if viewModel.template.isExample {
+                    HStack(spacing: 0) {
+                        Text("This program is an example ")
+                        InfoButton()
+                    }
+                }
             }
             
             Section {
