@@ -68,16 +68,31 @@ extension ExerciseSelectionView {
             return number
         }
         
-        var exercises: [ExerciseTemplate] {
+        var preparedItems: [SelectionItem] {
+            return selectionItems.filter { $0.counter > 0 }
+        }
+        
+        var preparedExercisesCount: Int {
+            var counter = 0
+            preparedItems.forEach {
+                counter += $0.counter
+            }
+            return counter
+        }
+        
+        var preparedExercises: [ExerciseTemplate] {
             var preparedExercises: [ExerciseTemplate] = []
-            for item in selectionItems {
-                if item.counter > 0 {
-                    for _ in 0..<item.counter {
-                        preparedExercises.append(ExerciseTemplate(from: item.template))
-                    }
-                }
+            
+            let preparedItems = sort(preparedItems)
+            
+            preparedItems.forEach {
+                preparedExercises.append(contentsOf: Array(repeating: ExerciseTemplate(from: $0.template), count: $0.counter))
             }
             return preparedExercises
+        }
+        
+        var isAddDisabled: Bool {
+            preparedExercisesCount == 0
         }
     }
 }

@@ -64,10 +64,10 @@ struct ExerciseSelectionView: View {
                     
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Add") {
-                        onAdd(viewModel.exercises)
+                        onAdd(viewModel.preparedExercises)
                         dismiss()
                     }
-                    .disabled(viewModel.filteredElements.isEmpty)
+                    .disabled(viewModel.isAddDisabled)
                 }
                 
                 ToolbarItem(placement: .cancellationAction) {

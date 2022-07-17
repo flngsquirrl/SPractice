@@ -24,40 +24,49 @@ protocol Named {
 }
 
 extension ManagedList {
+    
     var sortedElements: [Element] {
+        sort(filteredElements)
+    }
+        
+    func sort(_ elements: [Element]) -> [Element] {
         let sorted: [Element]
         switch sortProperty {
         case .date:
-            sorted = sortByDate()
+            sorted = sortByDate(elements)
         case .name:
-            sorted = sortByName()
+            sorted = sortByName(elements)
         }
         return sorted
     }
     
-    func sortByDate() -> [Element] {
+    func sortByDate(_ elements: [Element]) -> [Element] {
         var result: [Element]
         switch sortOrder {
         case .asc:
-            result = filteredElements
+            result = elements
         case .desc:
-            result = filteredElements.reversed()
+            result = elements.reversed()
         }
         return result
     }
     
-    func sortByName() -> [Element] {
+    func sortByName(_ elements: [Element]) -> [Element] {
         var result: [Element]
         switch sortOrder {
             case .asc:
-                result = filteredElements.sorted(by: { $0.name < $1.name })
+                result = elements.sorted(by: { $0.name < $1.name })
             case .desc:
-                result = filteredElements.sorted(by: { $0.name > $1.name })
+                result = elements.sorted(by: { $0.name > $1.name })
         }
         return result
     }
     
     var filteredElements: [Element] {
+        filter(elements)
+    }
+    
+    func filter(_ elements: [Element]) -> [Element] {
         if searchText.isEmpty {
             return elements
         } else {
