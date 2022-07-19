@@ -19,7 +19,7 @@ extension AddProgramView {
         }
         
         var isAddDisabled: Bool {
-            editMode.isEditing || !ValidationService.isValid(newTemplate)
+            !ValidationService.isValid(newTemplate)
         }
     }
 }
