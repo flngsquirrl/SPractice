@@ -108,6 +108,7 @@ struct PracticeView: View {
             }
         } label: {
             Image(systemName: isSoundOn ? "bell" : "bell.slash")
+                .frame(width: 25)
         }
     }
     
