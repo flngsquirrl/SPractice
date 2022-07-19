@@ -9,9 +9,10 @@ import Foundation
 
 @MainActor protocol DataManager: AnyObject {
     
-    associatedtype Item: Identifiable
+    associatedtype Item: WithID
     
     var items: Array<Item> {get set}
+    var selection: UUID? {get set}
     
     func addNew(_ item: Item)
     
@@ -24,10 +25,16 @@ import Foundation
     func save()
 }
 
+protocol WithID: Identifiable {
+    var id: UUID {get}
+}
+
 extension DataManager {
     func addNew(_ item: Item) {
         items.append(item)
         save()
+        
+        selection = item.id
     }
     
     func update(_ item: Item) {
@@ -42,6 +49,8 @@ extension DataManager {
             items.remove(at: index)
             save()
         }
+        
+        selection = nil
     }
     
     func contains(_ item: Item) -> Bool {

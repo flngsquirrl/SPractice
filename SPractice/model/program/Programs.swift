@@ -12,6 +12,8 @@ import Foundation
     
     @Published internal var items: [ProgramTemplate] = [ProgramTemplate.personal, ProgramTemplate.dailyShort, ProgramTemplate.shortForBack]
     
+    @Published var selection: UUID?
+    
     static let shared = Programs()
     
     let savePath = FileManager.documentsDirectory.appendingPathComponent("Programs")

@@ -11,6 +11,8 @@ import Foundation
     
     @Published internal var items: [ExerciseTemplate] = [ExerciseTemplate.catCow, ExerciseTemplate.balasana, ExerciseTemplate.shavasana, ExerciseTemplate.vasihsthasana, ExerciseTemplate.catCowNoDuration, ExerciseTemplate.surjaNamascarA, ExerciseTemplate.catCowNoType]
     
+    @Published var selection: UUID?
+    
     static let shared = Exercises()
     
     let savePath = FileManager.documentsDirectory.appendingPathComponent("Exercises")

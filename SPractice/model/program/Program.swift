@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Program {
+protocol Program: WithID, Named {
     associatedtype Item where Item: Exercise
     
     var id: UUID {get}

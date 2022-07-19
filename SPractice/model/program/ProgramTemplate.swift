@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProgramTemplate: Program, Named, Identifiable, Codable {
+struct ProgramTemplate: Program, Codable {
     var id: UUID
     var name: String
     var description: String

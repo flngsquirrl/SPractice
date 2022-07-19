@@ -20,14 +20,12 @@ struct ProgramsView: View, ManagedList {
     @AppStorage("programsSortProperty") internal var sortProperty: SortProperty = .date
     @AppStorage("programsSortOrder") internal var sortOrder: SortOrder = .desc
     
-    @State private var selection: UUID? = nil
-    
     var body: some View {
         List {
             Section {
                 ForEach(sortedElements) { program in
                     HStack {
-                        NavigationLink(tag: program.id, selection: $selection) {
+                        NavigationLink(tag: program.id, selection: $programs.selection) {
                             ProgramDetailsView(for: program) {
                                 programs.update($0)
                             } onDelete: {

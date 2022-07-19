@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Exercise: Identifiable {
+protocol Exercise: WithID, Named {
     var id: UUID {get}
     var name: String {get}
     var description: String {get}
