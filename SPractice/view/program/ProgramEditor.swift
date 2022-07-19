@@ -93,10 +93,7 @@ struct ProgramEditor: View {
             ExerciseSelectionView() { viewModel.addNewExercises(exercises: $0) }
         }
         .sheet(isPresented: $showNewExerciseView) {
-            NavigationView {
-                AddExerciseView() { viewModel.addNewExercise(exercise: $0) }
-            }
-            .accentColor(.customAccentColor)
+            AddExerciseView() { viewModel.addNewExercise(exercise: $0) }
         }
     }
 }
