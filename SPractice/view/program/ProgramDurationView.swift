@@ -45,8 +45,12 @@ struct ProgramDurationView: View {
 struct ProgramDurationView_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            ProgramDurationView(for: PracticeProgram.personal, mode: .extended)
-            ProgramDurationView(for: PracticeProgram.personal, mode: .padded)
+            HStack {
+                ProgramDurationView(for: PracticeProgram.personal, mode: .extended)
+            }
+            HStack {
+                ProgramDurationView(for: PracticeProgram.personal, mode: .padded)
+            }
         }
     }
 }
