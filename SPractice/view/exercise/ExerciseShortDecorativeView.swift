@@ -27,11 +27,11 @@ struct ExerciseShortDecorativeView<T>: View where T: Exercise {
         HStack {
             if isIconAccented {
                 ExerciseTypeImage(type: exercise.type, isFilled: isFilled)
-                    .font(.title.weight(.light))
+                    .decorated()
                     .foregroundColor(accentColor)
             } else {
                 ExerciseTypeImage(type: exercise.type)
-                    .font(.title.weight(.light))
+                    .decorated()
             }
             
             Text(exercise.name)

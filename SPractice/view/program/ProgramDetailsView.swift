@@ -58,7 +58,11 @@ struct ProgramDetailsView: DetailsView {
                 Button() {
                     viewModel.showPracticeView = true
                 } label: {
-                    Label("Practice", systemImage: "play.rectangle")
+                    HStack {
+                        Image(systemName: "play.rectangle.fill")
+                            .decorated()
+                        Text("Practice")
+                    }
                 }
                 .disabled(viewModel.isPracticeDisabled)
             } footer: {

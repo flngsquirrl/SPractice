@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C915931F288758C100301338 /* Decorated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C915931E288758C100301338 /* Decorated.swift */; };
 		C91982572876E297005D049C /* InfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91982562876E297005D049C /* InfoButton.swift */; };
 		C9198259287786C7005D049C /* SortOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9198258287786C7005D049C /* SortOptions.swift */; };
 		C92F6C37286C525A00D7BA59 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C36286C525A00D7BA59 /* FileManager.swift */; };
@@ -117,6 +118,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C915931E288758C100301338 /* Decorated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decorated.swift; sourceTree = "<group>"; };
 		C91982562876E297005D049C /* InfoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButton.swift; sourceTree = "<group>"; };
 		C9198258287786C7005D049C /* SortOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOptions.swift; sourceTree = "<group>"; };
 		C92F6C36286C525A00D7BA59 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 				C9A028FB287833F200032FF9 /* ManagedList.swift */,
 				C9A029022878478E00032FF9 /* DeleteAlert.swift */,
 				C99D281528799AE700596FBD /* DetailsView.swift */,
+				C915931E288758C100301338 /* Decorated.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -723,6 +726,7 @@
 				C9A0CFF7281BD815000CF439 /* ExerciseTemplate.swift in Sources */,
 				C9CEAA15287DC98E00D15A16 /* SettingsItem.swift in Sources */,
 				C9198259287786C7005D049C /* SortOptions.swift in Sources */,
+				C915931F288758C100301338 /* Decorated.swift in Sources */,
 				C9A028FA287831CC00032FF9 /* ContentView-ViewModel.swift in Sources */,
 				C9A0D003281C03F5000CF439 /* Clock.swift in Sources */,
 				C9741A5A2861EB0C00E1F670 /* ExerciseDetailsView-ViewModel.swift in Sources */,
