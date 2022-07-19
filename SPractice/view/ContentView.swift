@@ -58,6 +58,7 @@ struct ContentView: View {
                         showAddNewView = true
                     } label: {
                         Image(systemName: "plus")
+                            .frame(width: 25)
                     }
                     
                     Menu {
@@ -70,6 +71,7 @@ struct ContentView: View {
                         }
                     } label: {
                         Image(systemName: "ellipsis.circle")
+                            .frame(width: 25)
                     }
                 }
             }
