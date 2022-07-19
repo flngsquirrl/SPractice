@@ -53,7 +53,7 @@ struct ProgramTemplate: Program, Codable {
     }
     
     // examples
-    static let personal = ProgramTemplate(name: "Personal", description: "Do once or twice a week", exercises: [.catCow, .surjaNamascarA, .vasihsthasana, .shavasana], isExample: true)
+    static let personal = ProgramTemplate(name: "Personal", description: "Practice once or twice a week", exercises: [.catCow, .surjaNamascarA, .vasihsthasana, .shavasana], isExample: true)
     static let dailyShort = ProgramTemplate(name: "Daily short", description: "Simple short practice for every day", exercises: [.catCow, .surjaNamascarA, .shavasana], isExample: true)
     static let shortForBack = ProgramTemplate(name: "Short for back", exercises: [.catCow], isExample: true)
 }
