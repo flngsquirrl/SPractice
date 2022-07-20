@@ -25,12 +25,21 @@ extension ContentView {
         @AppStorage("programsSortProperty") var programsSortProperty: SortProperty = .date
         @AppStorage("programsSortOrder") var programsSortOrder: SortOrder = .desc
         
-        func isSortingSet(property: SortProperty, order: SortOrder) -> Bool {
+        var sortProperty: SortProperty {
             switch contentType {
             case .programs:
-                return property == programsSortProperty && order == programsSortOrder
+                return programsSortProperty
             case .exercises:
-                return property == exercisesSortProperty && order == exercisesSortOrder
+                return exercisesSortProperty
+            }
+        }
+        
+        var sortOrder: SortOrder {
+            switch contentType {
+            case .programs:
+                return programsSortOrder
+            case .exercises:
+                return exercisesSortOrder
             }
         }
         

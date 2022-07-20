@@ -62,7 +62,8 @@ struct ContentView: View {
                     }
                     
                     Menu {
-                        SortingMenu(onChange: { viewModel.setSorting(property: $0, order: $1) }, isSet: { viewModel.isSortingSet(property: $0, order: $1) })
+                        SortingMenu(sortProperty: viewModel.sortProperty, sortOrder: viewModel.sortOrder)
+                            { viewModel.setSorting(property: $0, order: $1) }
                         
                         Button() {
                             showSettingsView = true

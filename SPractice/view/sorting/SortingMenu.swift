@@ -8,33 +8,51 @@
 import SwiftUI
 
 struct SortingMenu: View {
+    var sortProperty: SortProperty
+    var sortOrder: SortOrder
     var onChange: (SortProperty, SortOrder) -> Void
-    var isSet: (SortProperty, SortOrder) -> Bool
     
     var body: some View {
         Menu {
             ForEach(SortProperty.allCases, id: \.self) { property in
-                ForEach(SortOrder.allCases, id: \.self) { order in
-                    Button() {
-                        onChange(property, order)
-                    } label: {
-                        let optionName = "\(property.rawValue) (\(order.rawValue))"
-                        if isSet(property, order) {
-                            Label(optionName, systemImage: "checkmark")
-                        } else {
-                            Text(optionName)
-                        }
-                    }
+                Button() {
+                    onChange(property, getOrderToSet(property: property))
+                } label: {
+                    Label("\(property.rawValue)", systemImage: getOptionImage(property: property))
                 }
             }
         } label: {
-            Label("Sort by", systemImage: "arrow.up.arrow.down")
+            Text("Sort by")
         }
+    }
+    
+    func getOrderToSet(property: SortProperty) -> SortOrder {
+        let order: SortOrder
+        if property == sortProperty {
+            order = sortOrder.opposite
+        } else {
+            order = SortOrder.asc
+        }
+        return order
+    }
+    
+    func getOptionImage(property: SortProperty) -> String {
+        var optionImage: String = ""
+        if property == sortProperty {
+            if sortOrder == .asc {
+                optionImage = "arrow.down"
+            } else {
+                optionImage = "arrow.up"
+            }
+        } else {
+            optionImage = "arrow.up.arrow.down"
+        }
+        return optionImage
     }
 }
 
 struct SortingMenu_Previews: PreviewProvider {
     static var previews: some View {
-        SortingMenu(onChange: {_, _ in }, isSet: {_, _ in return false})
+        SortingMenu(sortProperty: .date, sortOrder: .asc, onChange: { _,_ in })
     }
 }
