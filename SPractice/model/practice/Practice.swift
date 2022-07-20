@@ -107,12 +107,22 @@ class Practice: ObservableObject {
     }
     
     func restart() {
+        let runAfterReset = isRunning
         reset()
+        processRunAfterReset(shouldStart: runAfterReset)
     }
     
     func restartExercise() {
+        let runAfterReset = isRunning
         pause()
         moveToExercise(withIndex: currentExerciseIndex)
+        processRunAfterReset(shouldStart: runAfterReset)
+    }
+    
+    func processRunAfterReset(shouldStart: Bool) {
+        if shouldStart {
+            run()
+        }
     }
     
     func prepare() {
