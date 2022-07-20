@@ -16,6 +16,9 @@ struct PracticeView: View {
     @State private var isPracticeDetailsShown = false
     @State private var isSoundOn = true
     
+    @State private var showRestartConfirmation = false
+    @State private var wasRunningAtPracticeRestartRequest = false
+    
     @ObservedObject var practice: Practice
     
     var body: some View {
@@ -57,7 +60,7 @@ struct PracticeView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
-                        closeButton
+                        closePracticeButton
                     }
                     
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
@@ -73,16 +76,40 @@ struct PracticeView: View {
                 }
                 .alert("Namaste", isPresented: $practice.isCompleted) {
                     restartButton
-                    closeButton
+                    closePracticeButton
                 } message: {
-                    Text("You have finished the practice")
+                    endOfPracticeText
+                }
+                .alert("Please, note", isPresented: $showRestartConfirmation) {
+                    restartButton
+                    closeAlertButton
+                } message: {
+                    Text("If you restart the practice, you progress will be lost")
                 }
             }
             .accentColor(.customAccentColor)
         }
     }
     
-    var closeButton: some View {
+    var endOfPracticeText: some View {
+        var text: String
+        if practice.isStarted {
+            text = "You have finished the practice"
+        } else {
+            text = "You have reached the end of the practice"
+        }
+        return Text(text)
+    }
+    
+    var closeAlertButton: some View {
+        Button("Close", role: .cancel) {
+            if wasRunningAtPracticeRestartRequest {
+                practice.resumeClock()
+            }
+        }
+    }
+    
+    var closePracticeButton: some View {
         Button("Close", role: .cancel) {
             dismiss()
         }
@@ -96,9 +123,20 @@ struct PracticeView: View {
     
     var restartButtonWithIcon: some View {
         RestartIconButton {
-            practice.restart()
+            if practice.isStarted {
+                wasRunningAtPracticeRestartRequest = practice.isRunning
+                practice.pauseClock()
+                showRestartConfirmation = true
+            } else {
+                practice.restart()
+            }
         }
-        .disabled(!practice.isStarted)
+        .animation(.default, value: isRestartPracticeDisabled)
+        .disabled(isRestartPracticeDisabled)
+    }
+    
+    var isRestartPracticeDisabled: Bool {
+        practice.isFirstExercise && !practice.isCurrentExerciseStarted
     }
     
     var soundButton: some View {
