@@ -28,10 +28,10 @@ struct ExerciseShortView<T>: View where T: Exercise {
     var body: some View {
         HStack {
             if isIconAccented {
-                ExerciseTypeImage(type: exercise.type, isFilled: true)
+                ExerciseTypeImage(type: exercise.type, isFilled: isFilled)
                     .foregroundColor(accentColor)
             } else {
-                ExerciseTypeImage(type: exercise.type)
+                ExerciseTypeImage(type: exercise.type, isFilled: isFilled)
             }
             Text(name)
             
@@ -57,36 +57,36 @@ struct ExerciseShortView<T>: View where T: Exercise {
 struct ExerciseShortView_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            Group {
-                Text("exercises")
-                ExerciseShortView(for: PracticeExercise.catCow)
-                ExerciseShortView(for: PracticeExercise.surjaNamascarA)
-                ExerciseShortView(for: PracticeExercise.vasihsthasana)
-            }
-            
-            Group {
-                Text("templates with durations")
-                ExerciseShortView(for: ExerciseTemplate.catCowNoDuration, displayDetails: true)
-                ExerciseShortView(for: ExerciseTemplate.catCow, displayDetails: true)
-                ExerciseShortView(for: ExerciseTemplate.surjaNamascarA, displayDetails: true)
-                ExerciseShortView(for: ExerciseTemplate.vasihsthasana, displayDetails: true)
-                ExerciseShortView(for: ExerciseTemplate.catCowNoType, displayDetails: true)
-            }
-            
-            Group {
-                Text("templates without durations")
-                ExerciseShortView(for: ExerciseTemplate.catCowNoDuration)
-                ExerciseShortView(for: ExerciseTemplate.catCow)
-                ExerciseShortView(for: ExerciseTemplate.surjaNamascarA)
-                ExerciseShortView(for: ExerciseTemplate.vasihsthasana)
-                ExerciseShortView(for: ExerciseTemplate.catCowNoType)
-            }
+//            Group {
+//                Text("exercises")
+//                ExerciseShortView(for: PracticeExercise.catCow)
+//                ExerciseShortView(for: PracticeExercise.surjaNamascarA)
+//                ExerciseShortView(for: PracticeExercise.vasihsthasana)
+//            }
+//
+//            Group {
+//                Text("templates with durations")
+//                ExerciseShortView(for: ExerciseTemplate.catCowNoDuration, displayDetails: true)
+//                ExerciseShortView(for: ExerciseTemplate.catCow, displayDetails: true)
+//                ExerciseShortView(for: ExerciseTemplate.surjaNamascarA, displayDetails: true)
+//                ExerciseShortView(for: ExerciseTemplate.vasihsthasana, displayDetails: true)
+//                ExerciseShortView(for: ExerciseTemplate.catCowNoType, displayDetails: true)
+//            }
+//
+//            Group {
+//                Text("templates without durations")
+//                ExerciseShortView(for: ExerciseTemplate.catCowNoDuration)
+//                ExerciseShortView(for: ExerciseTemplate.catCow)
+//                ExerciseShortView(for: ExerciseTemplate.surjaNamascarA)
+//                ExerciseShortView(for: ExerciseTemplate.vasihsthasana)
+//                ExerciseShortView(for: ExerciseTemplate.catCowNoType)
+//            }
             
             Group {
                 Text("color test")
                 ExerciseShortView(for: PracticeExercise.catCow)
                     .foregroundColor(.secondary)
-                ExerciseShortView(for: PracticeExercise.catCow, isIconAccented: true)
+                ExerciseShortView(for: PracticeExercise.catCow, isIconAccented: true, accentColor: .red)
             }
         }
     }

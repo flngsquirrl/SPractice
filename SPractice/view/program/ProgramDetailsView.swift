@@ -67,7 +67,7 @@ struct ProgramDetailsView: DetailsView {
                 .disabled(viewModel.isPracticeDisabled)
             } footer: {
                 if viewModel.isPracticeDisabled {
-                    Text("Type and duration should be defined for all the exercises to start the practice. Please, review the exercises marked with red")
+                    Text("Type and duration should be defined for all the exercises to start the practice")
                 }
             }
             
