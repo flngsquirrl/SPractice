@@ -12,13 +12,15 @@ struct ExerciseShortDecorativeView<T>: View where T: Exercise {
     private let exercise: T
     private var displayDetails: Bool
     private var isIconAccented: Bool
+    private var isNameAccented: Bool
     private var accentColor: Color
     private var isFilled: Bool
     
-    init(for exercise: T, displayDetails: Bool = true, isIconAccented: Bool = false, accentColor: Color = .primary, isFilled: Bool = false) {
+    init(for exercise: T, displayDetails: Bool = true, isIconAccented: Bool = false, isNameAccented: Bool = false, accentColor: Color = .customAccentColor, isFilled: Bool = false) {
         self.exercise = exercise
         self.displayDetails = displayDetails && exercise.isTypeSet
         self.isIconAccented = isIconAccented
+        self.isNameAccented = isNameAccented
         self.accentColor = accentColor
         self.isFilled = isFilled
     }
@@ -34,8 +36,14 @@ struct ExerciseShortDecorativeView<T>: View where T: Exercise {
                     .decorated()
             }
             
-            Text(exercise.name)
+            if isNameAccented {
+                Text(exercise.name)
                     .fontWeight(.semibold)
+                    .foregroundColor(accentColor)
+            } else {
+                Text(exercise.name)
+                    .fontWeight(.semibold)
+            }
             
             Group {
                 if displayDetails {
