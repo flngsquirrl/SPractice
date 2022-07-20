@@ -32,7 +32,7 @@ struct ProgramsView: View, ManagedList {
                                 programs.delete($0)
                             }
                         } label: {
-                            ProgramShortDecorativeView(for: program, isAccented: program.id == selectedToDelete?.id, accentColor: .red)
+                            ProgramShortDecorativeView(for: program, isAccented: program.id == selectedToDelete?.id, accentColor: .customAccentColor)
                         }
                     }
                 }

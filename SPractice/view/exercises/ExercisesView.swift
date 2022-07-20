@@ -31,7 +31,8 @@ struct ExercisesView: View, ManagedList {
                                 
                             } onDelete: { exercises.delete($0) }
                         } label: {
-                            ExerciseShortDecorativeView(for: exercise, isIconAccented: exercise.id == selectedToDelete?.id, accentColor: .red, isFilled: true)
+                            let isAccented = exercise.id == selectedToDelete?.id
+                            ExerciseShortDecorativeView(for: exercise, isIconAccented: isAccented, isNameAccented: isAccented, isFilled: true)
                         }
                     }
                 }
