@@ -17,7 +17,7 @@ struct ExerciseShortView<T>: View where T: Exercise {
     private var accentColor: Color
     private var isFilled: Bool
     
-    init(for exercise: T, displayDetails: Bool = true, isIconAccented: Bool = false, accentColor: Color = .primary, isFilled: Bool = false) {
+    init(for exercise: T, displayDetails: Bool = true, isIconAccented: Bool = false, accentColor: Color = .customAccentColor, isFilled: Bool = false) {
         self.exercise = exercise
         self.displayDetails = displayDetails && exercise.isTypeSet
         self.isIconAccented = isIconAccented
