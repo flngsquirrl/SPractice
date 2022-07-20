@@ -25,9 +25,7 @@ struct PracticeExerciseView: View {
                 Spacer()
 
                 Button {
-                    withAnimation {
-                        practice.restartExercise()
-                    }
+                    practice.restartExercise()
                 } label: {
                     ZStack {
                         Circle()
@@ -43,6 +41,7 @@ struct PracticeExerciseView: View {
                     }
                     
                 }
+                .animation(.default, value: practice.isCurrentExerciseStarted)
                 .disabled(!practice.isCurrentExerciseStarted)
             }
             
