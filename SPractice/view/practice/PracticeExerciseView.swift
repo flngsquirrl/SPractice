@@ -17,17 +17,31 @@ struct PracticeExerciseView: View {
                 Image(systemName: ExerciseTypeImage.imageName(for: practice.currentExercise.type, isFilled: true))
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 50)
-                    .opacity(0.8)
+                    .frame(width: 50, height: 50)
+                    .opacity(0.6)
                     .foregroundColor(.lightOrange)
                     .font(.largeTitle.bold())
         
                 Spacer()
 
-                RestartIconButton {
+                Button {
                     withAnimation {
                         practice.restartExercise()
                     }
+                } label: {
+                    ZStack {
+                        Circle()
+                            .fill(.lightOrange)
+                            .opacity(practice.isCurrentExerciseStarted ? 1 : 0.6)
+                            .frame(width: 50, height: 50)
+                        
+                        Image(systemName: "arrow.clockwise.circle.fill")
+                            .foregroundColor(Color(UIColor.secondarySystemBackground))
+                            .font(.largeTitle.bold())
+                            .frame(width: 50, height: 50)
+                            .clipShape(Circle())
+                    }
+                    
                 }
                 .disabled(!practice.isCurrentExerciseStarted)
             }
