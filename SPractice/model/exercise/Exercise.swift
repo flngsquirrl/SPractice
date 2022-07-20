@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Exercise: WithID, Named {
+protocol Exercise: HavingID, Named {
     var id: UUID {get}
     var name: String {get}
     var description: String {get}

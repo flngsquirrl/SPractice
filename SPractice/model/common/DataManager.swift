@@ -9,7 +9,7 @@ import Foundation
 
 @MainActor protocol DataManager: AnyObject {
     
-    associatedtype Item: WithID
+    associatedtype Item: HavingID
     
     var items: Array<Item> {get set}
     var selection: UUID? {get set}
@@ -25,8 +25,7 @@ import Foundation
     func save()
 }
 
-protocol WithID: Identifiable {
-    var id: UUID {get}
+protocol HavingID: Identifiable where Self.ID == UUID {
 }
 
 extension DataManager {
