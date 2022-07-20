@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @Environment(\.horizontalSizeClass) var sizeClass
+    
     @State private var editMode: EditMode = .inactive
     
     @State private var showSettingsView = false
@@ -37,9 +39,9 @@ struct ContentView: View {
             }
             .sheet(isPresented: $showAddNewView) {
                 if viewModel.contentType == .programs {
-                    AddProgramView() { programs.addNew($0) }
+                    AddProgramView() { programs.addNew($0, updateSelection: showNewItemAfterCreation) }
                 } else {
-                    AddExerciseView() { exercises.addNew($0) }
+                    AddExerciseView() { exercises.addNew($0, updateSelection: showNewItemAfterCreation) }
                 }
             }
             .toolbar {
@@ -81,6 +83,10 @@ struct ContentView: View {
         }
         .environmentObject(settings)
         .accentColor(.customAccentColor)
+    }
+    
+    var showNewItemAfterCreation: Bool {
+        sizeClass == .regular
     }
     
     func getImageName(for type: ContentType) -> String {

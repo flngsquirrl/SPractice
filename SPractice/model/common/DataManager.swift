@@ -14,7 +14,7 @@ import Foundation
     var items: Array<Item> {get set}
     var selection: UUID? {get set}
     
-    func addNew(_ item: Item)
+    func addNew(_ item: Item, updateSelection: Bool)
     
     func update(_ item: Item)
     
@@ -29,11 +29,13 @@ protocol HavingID: Identifiable where Self.ID == UUID {
 }
 
 extension DataManager {
-    func addNew(_ item: Item) {
+    func addNew(_ item: Item, updateSelection: Bool) {
         items.append(item)
         save()
         
-        selection = item.id
+        if updateSelection {
+            selection = item.id
+        }
     }
     
     func update(_ item: Item) {
@@ -49,7 +51,9 @@ extension DataManager {
             save()
         }
         
-        selection = nil
+        if selection == item.id {
+            selection = nil
+        }
     }
     
     func contains(_ item: Item) -> Bool {
