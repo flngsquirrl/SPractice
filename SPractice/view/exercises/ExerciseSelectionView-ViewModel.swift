@@ -86,7 +86,9 @@ extension ExerciseSelectionView {
             let preparedItems = sort(preparedItems)
             
             preparedItems.forEach {
-                preparedExercises.append(contentsOf: Array(repeating: ExerciseTemplate(from: $0.template), count: $0.counter))
+                for _ in 0..<$0.counter {
+                    preparedExercises.append(ExerciseTemplate(from: $0.template))
+                }
             }
             return preparedExercises
         }
