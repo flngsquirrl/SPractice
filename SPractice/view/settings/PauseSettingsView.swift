@@ -21,7 +21,9 @@ struct PauseSettingsView: View {
             TextField("Exercise name", text: $nameItem.value)
                 .disableAutocorrection(true)
         } footer: {
-            Text("The name used in program sequences and during practices")
+            HStack {
+                Text("Name used in program sequences and practices")
+            }
         }
         
         Section {
