@@ -15,7 +15,7 @@ struct TabataSettingsView: View {
     @ObservedObject var tabataCoolDownDurationItem = SettingsManager.tabataCoolDownDurationItem
     @ObservedObject var tabataCyclesItem = SettingsManager.tabataCyclesItem
     
-    @State private var areDefaultsRestored = false
+    @State private var areResetToDefaults = false
     
     var body: some View {
         Section {
@@ -39,7 +39,7 @@ struct TabataSettingsView: View {
             Text("Repeating \"activity + rest\" sequences in one tabata exercise")
         }
         
-        RestoreDefaultsButton(subgroup: .tabata, areDefaultsRestored: $areDefaultsRestored)
+        ResetToDefaultsButton(subgroup: .tabata, areResetToDefaults: $areResetToDefaults)
             .id(UUID())
     }
 }

@@ -18,17 +18,26 @@ struct ExamplesSettingsView: View {
     @State private var restoreGroup: RestoreGroup = .all
     
     var body: some View {
-        Section {
+        
             Picker("Templates for", selection: $restoreGroup) {
                 ForEach(RestoreGroup.allCases, id: \.self) { group in
                     Text(group.rawValue)
                 }
             }
-            Button("Restore") {
-                
+        
+        
+        Section {
+            Button("Restore deleted") {
             }
         } footer: {
-            Text("Deleted example templates will be restored")
+            Text("Recreate deleted examples")
+        }
+        
+        Section {
+            Button("Reset modified", role: .destructive) {
+            }
+        } footer: {
+            Text("Reset modified examples to defaults")
         }
     }
 }

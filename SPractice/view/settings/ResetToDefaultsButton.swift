@@ -1,5 +1,5 @@
 //
-//  RestoreDefaultsButton.swift
+//  ResetToDefaultsButton.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 14.07.22.
@@ -7,32 +7,32 @@
 
 import SwiftUI
 
-struct RestoreDefaultsButton: View {
+struct ResetToDefaultsButton: View {
     
     var subgroup: SettingsSubGroup
 
     @State private var showResetConfirmation: Bool = false
-    @Binding var areDefaultsRestored: Bool
+    @Binding var areResetToDefaults: Bool
     
     var body: some View {
-        Button("Restore defaults", role: .destructive) {
+        Button("Reset to defaults", role: .destructive) {
             showResetConfirmation = true
         }
         .disabled(isResetDisabled)
         .alert(LayoutUtils.warningAlertTitle, isPresented: $showResetConfirmation) {
-            Button("Restore", role: .destructive) {
+            Button("Reset", role: .destructive) {
                 withAnimation {
                     SettingsManager.resetToDefauls(subgroup: subgroup)
-                    areDefaultsRestored = true
+                    areResetToDefaults = true
                 }
             }
             
             Button("Cancel", role: .cancel) {}
         } message: {
-            SettingsConstants.restoreMessage
+            SettingsConstants.resetMessage
         }
         .onAppear() {
-            areDefaultsRestored = false
+            areResetToDefaults = false
         }
     }
     
@@ -41,8 +41,8 @@ struct RestoreDefaultsButton: View {
     }
 }
 
-struct RestoreDefaultsButton_Previews: PreviewProvider {
+struct ResetToDefaultsButton_Previews: PreviewProvider {
     static var previews: some View {
-        RestoreDefaultsButton(subgroup: .tabata, areDefaultsRestored: .constant(.random()))
+        ResetToDefaultsButton(subgroup: .tabata, areResetToDefaults: .constant(.random()))
     }
 }

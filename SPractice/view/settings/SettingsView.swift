@@ -12,13 +12,19 @@ struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
     
     @State private var showResetConfirmation = false
-    @State private var restoreAllDisabled = false
+    @State private var resetAllDisabled = true
+    
+    static private var groupFooter: [SettingsGroup: String] = [
+        .exercise: "Set exercise configuration",
+        .practice: "Configure practice parameters",
+        .templates: "Manage default examples"
+    ]
     
     var body: some View {
         NavigationView {
             List {
                 ForEach(SettingsGroup.allCases, id: \.self) { group in
-                    Section(group.rawValue) {
+                    Section {
                         let subgroups = SettingsGroup.hierarchy[group]!
                         ForEach(subgroups, id: \.self) { subgroup in
                             NavigationLink {
@@ -27,26 +33,37 @@ struct SettingsView: View {
                                 Text(subgroup.rawValue)
                             }
                         }
+                    } header: {
+                        Text(group.rawValue)
+                    } footer: {
+                        Text(Self.groupFooter[group] ?? "")
                     }
                 }
                 
-                Button("Restore all defaults", role: .destructive) {
-                    showResetConfirmation = true
+                Section {
+                    Button("Reset all to defaults", role: .destructive) {
+                        showResetConfirmation = true
+                    }
+                    .disabled(resetAllDisabled)
+                } footer: {
+                    Text("Undo all custom settings and reset example templates to the initial state")
                 }
-                .disabled(restoreAllDisabled)
+            }
+            .onAppear() {
+                updateResetAllDisabled()
             }
             .onDisappear() {
                 SettingsManager.saveSettings()
             }
             .alert(LayoutUtils.warningAlertTitle, isPresented: $showResetConfirmation) {
-                Button("Restore", role: .destructive) {
+                Button("Reset", role: .destructive) {
                     SettingsManager.resetToDefauls()
-                    restoreAllDisabled = true
+                    resetAllDisabled = true
                 }
                 
                 Button("Cancel", role: .cancel) {}
             } message: {
-                SettingsConstants.restoreMessage
+                SettingsConstants.resetMessage
             }
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
@@ -61,8 +78,8 @@ struct SettingsView: View {
         .accentColor(.customAccentColor)
     }
     
-    var resoreAllDisabled: Bool {
-        !SettingsManager.hasChangesFromDefaults
+    func updateResetAllDisabled() {
+        resetAllDisabled = !SettingsManager.hasChangesFromDefaults
     }
 }
 

@@ -12,7 +12,7 @@ struct PauseSettingsView: View {
     @ObservedObject private var nameItem = SettingsManager.pauseNameItem
     @ObservedObject private var durationItem = SettingsManager.pauseDurationItem
     
-    @State private var areDefaultsRestored = false
+    @State private var areResetToDefaults = false
     
     let range = Array(stride(from: 10, through: 60, by: 10))
     
@@ -36,7 +36,7 @@ struct PauseSettingsView: View {
             Text("You can use pauses to take a deep breath and prepare for the next exercise. Take your time!")
         }
         
-        RestoreDefaultsButton(subgroup: .pause, areDefaultsRestored: $areDefaultsRestored)
+        ResetToDefaultsButton(subgroup: .pause, areResetToDefaults: $areResetToDefaults)
             .id(UUID())
     }
 }

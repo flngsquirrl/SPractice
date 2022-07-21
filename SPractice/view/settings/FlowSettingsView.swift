@@ -12,7 +12,7 @@ struct FlowSettingsView: View {
     @ObservedObject private var flowAutoFinishItem = SettingsManager.flowAutoFinishItem
     @ObservedObject private var flowAutoFinishAfterTimeItem = SettingsManager.flowAutoFinishAfterTimeItem
     
-    @State private var areDefaultsRestored = false
+    @State private var areResetToDefaults = false
     
     var body: some View {
         Section {
@@ -41,7 +41,7 @@ struct FlowSettingsView: View {
             }
         }
         
-        RestoreDefaultsButton(subgroup: .flow, areDefaultsRestored: $areDefaultsRestored)
+        ResetToDefaultsButton(subgroup: .flow, areResetToDefaults: $areResetToDefaults)
             .id(UUID())
     }
 }
