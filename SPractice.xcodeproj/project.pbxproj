@@ -10,6 +10,7 @@
 		C915931F288758C100301338 /* Decorated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C915931E288758C100301338 /* Decorated.swift */; };
 		C91982572876E297005D049C /* InfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91982562876E297005D049C /* InfoButton.swift */; };
 		C9198259287786C7005D049C /* SortOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9198258287786C7005D049C /* SortOptions.swift */; };
+		C91B828E28896D1100900239 /* ExerciseExampleId.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91B828D28896D1100900239 /* ExerciseExampleId.swift */; };
 		C92F6C37286C525A00D7BA59 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C36286C525A00D7BA59 /* FileManager.swift */; };
 		C92F6C3C286D9D2100D7BA59 /* ProgramSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C3B286D9D2100D7BA59 /* ProgramSummaryView.swift */; };
 		C92F6C3E286DDFF400D7BA59 /* View-Wrapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C3D286DDFF400D7BA59 /* View-Wrapped.swift */; };
@@ -121,6 +122,7 @@
 		C915931E288758C100301338 /* Decorated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decorated.swift; sourceTree = "<group>"; };
 		C91982562876E297005D049C /* InfoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButton.swift; sourceTree = "<group>"; };
 		C9198258287786C7005D049C /* SortOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOptions.swift; sourceTree = "<group>"; };
+		C91B828D28896D1100900239 /* ExerciseExampleId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseExampleId.swift; sourceTree = "<group>"; };
 		C92F6C36286C525A00D7BA59 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		C92F6C3B286D9D2100D7BA59 /* ProgramSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramSummaryView.swift; sourceTree = "<group>"; };
 		C92F6C3D286DDFF400D7BA59 /* View-Wrapped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-Wrapped.swift"; sourceTree = "<group>"; };
@@ -545,6 +547,7 @@
 				C9A0CFF6281BD815000CF439 /* ExerciseTemplate.swift */,
 				C9DE151E2868AADE0011324C /* ExerciseType.swift */,
 				C9DE15272868B3CE0011324C /* Exercises.swift */,
+				C91B828D28896D1100900239 /* ExerciseExampleId.swift */,
 			);
 			path = exercise;
 			sourceTree = "<group>";
@@ -676,6 +679,7 @@
 				C9CEAA19287EB35100D15A16 /* ExerciseTasksButton.swift in Sources */,
 				C99D281628799AE700596FBD /* DetailsView.swift in Sources */,
 				C9DE152A2868B5500011324C /* Programs.swift in Sources */,
+				C91B828E28896D1100900239 /* ExerciseExampleId.swift in Sources */,
 				C9CCCE9A284B6E09005665C8 /* ProgramDetailsView-ViewModel.swift in Sources */,
 				C9A029032878478E00032FF9 /* DeleteAlert.swift in Sources */,
 				C9A0D01A2827CEC9000CF439 /* Squirrel.swift in Sources */,

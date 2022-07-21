@@ -18,8 +18,9 @@ struct ExerciseTemplate: Exercise, Hashable, Codable {
     private(set) var isService: Bool
     
     private(set) var isExample: Bool
+    private(set) var exampleId: ExerciseExampleId?
     
-    private init(id: UUID = UUID(), type: ExerciseType? = nil, name: String = "", description: String = "", isService: Bool = false, intensity: Intensity? = .activity, duration: Duration = .unknown, isExample: Bool = false) {
+    private init(id: UUID = UUID(), type: ExerciseType? = nil, name: String = "", description: String = "", isService: Bool = false, intensity: Intensity? = .activity, duration: Duration = .unknown, isExample: Bool = false, exampleId: ExerciseExampleId? = nil) {
         self.id = id
         self.type = type
         self.name = name.trim()
@@ -30,6 +31,9 @@ struct ExerciseTemplate: Exercise, Hashable, Codable {
         self.intensity = intensity
         
         self.isExample = isExample
+        if isExample {
+            self.exampleId = exampleId
+        }
         
         normalize()
     }
@@ -81,11 +85,11 @@ struct ExerciseTemplate: Exercise, Hashable, Codable {
     }
     
     // examples
-    static let catCow = ExerciseTemplate(type: .timer, name: "Cat-Cow", description: "Gently change between two poses warming the body and bringing flexibility to the spine", intensity: .activity, duration: .known(90), isExample: true)
-    static let balasana = ExerciseTemplate(type: .flow, name: "Balasana", description: "Child pose with the forehead on the mat", intensity: .rest, duration: .unlimited, isExample: true)
-    static let surjaNamascarA = ExerciseTemplate(type: .flow, name: "Surja Namascar A", description: "Sun Salutation, start in Tadasana, go for at least five cycles", intensity: .activity, duration: .unlimited, isExample: true)
-    static let vasihsthasana = ExerciseTemplate(type: .tabata, name: "Vasihsthasana", description: "Side plank on the straight arm or on the elbow",  duration: .unknown, isExample: true)
-    static let shavasana = ExerciseTemplate(type: .timer, name: "Shavasana", description: "Relax all your body lying on the back with arms and legs on the floor", intensity: .rest, duration: .known(600), isExample: true)
+    static let catCow = ExerciseTemplate(type: .timer, name: "Cat-Cow", description: "Gently change between two poses warming the body and bringing flexibility to the spine", intensity: .activity, duration: .known(90), isExample: true, exampleId: .catCow)
+    static let balasana = ExerciseTemplate(type: .timer, name: "Balasana", description: "Child pose with the forehead on the mat", intensity: .rest, duration: .known(30), isExample: true, exampleId: .balasana)
+    static let surjaNamascarA = ExerciseTemplate(type: .flow, name: "Surja Namascar A", description: "Sun Salutation, start in Tadasana, go for at least five cycles", intensity: .activity, duration: .unlimited, isExample: true, exampleId: .surjaNamascarA)
+    static let vasihsthasana = ExerciseTemplate(type: .tabata, name: "Vasihsthasana", description: "Side plank on the straight arm or on the elbow",  duration: .unknown, isExample: true, exampleId: .vasihsthasana)
+    static let shavasana = ExerciseTemplate(type: .flow, name: "Shavasana", description: "Relax all your body lying on the back with arms and legs on the floor", intensity: .rest, duration: .unknown, isExample: true, exampleId: .shavasana)
     static let catCowNoDuration = ExerciseTemplate(type: .timer, name: "Cat-Cow", intensity: .activity, duration: .unknown)
-    static let catCowNoType = ExerciseTemplate(name: "Cat-Cow", isExample: true)
+    static let catCowNoType = ExerciseTemplate(name: "Cat-Cow")
 }
