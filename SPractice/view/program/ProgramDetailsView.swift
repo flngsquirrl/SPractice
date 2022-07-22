@@ -32,27 +32,7 @@ struct ProgramDetailsView: DetailsView {
     
     var detailsContent: some View {
         List {
-            Section {
-                HStack(alignment: .top) {
-                    if viewModel.template.isExample {
-                        Image(systemName: "bookmark")
-                            .foregroundColor(.secondary)
-                    }
-                    Text(viewModel.template.name)
-                        .fontWeight(.semibold)
-                }
-                if viewModel.showDescription {
-                    Text(viewModel.template.description)
-                        .foregroundColor(.secondary)
-                }
-            } footer: {
-                if viewModel.template.isExample {
-                    HStack(spacing: 0) {
-                        Text("This is an example ")
-                        InfoButton()
-                    }
-                }
-            }
+            ProgramCardView(program: viewModel.template)
             
             Section {
                 Button() {
