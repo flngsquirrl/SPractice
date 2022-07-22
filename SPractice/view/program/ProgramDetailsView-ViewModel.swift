@@ -27,7 +27,7 @@ extension ProgramDetailsView {
             !ValidationService.isValidToPractice(template: template)
         }
         
-        var isusePausesDisabled: Bool {
+        var isUsePausesDisabled: Bool {
             template.exercises.count == 1
         }
     }
