@@ -14,38 +14,16 @@ struct PracticeExerciseView: View {
     var body: some View {
         VStack {
             HStack(alignment: .top) {
-                Button {
+                RoundIconButton(imageName: ExerciseTypeImage.imageName(for: practice.currentExercise.type), disabled: false) {
                     // show details modal
-                } label: {
-                Image(systemName: ExerciseTypeImage.imageName(for: practice.currentExercise.type, isFilled: true))
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 50, height: 50)
-                    .foregroundColor(.lightOrange)
-                    .font(.largeTitle.bold())
                 }
         
                 Spacer()
 
-                Button {
+                RoundIconButton(imageName: "arrow.clockwise.circle.fill", disabled: !practice.isCurrentExerciseStarted) {
                     practice.restartExercise()
-                } label: {
-                    ZStack {
-                        Circle()
-                            .fill(.lightOrange)
-                            .opacity(practice.isCurrentExerciseStarted ? 1 : 0.6)
-                            .frame(width: 50, height: 50)
-                        
-                        Image(systemName: "arrow.clockwise.circle.fill")
-                            .foregroundColor(Color(UIColor.secondarySystemBackground))
-                            .font(.largeTitle.bold())
-                            .frame(width: 50, height: 50)
-                            .clipShape(Circle())
-                    }
-                    
                 }
                 .animation(.default, value: practice.isCurrentExerciseStarted)
-                .disabled(!practice.isCurrentExerciseStarted)
             }
             
             Text("\(practice.currentExercise.name)")

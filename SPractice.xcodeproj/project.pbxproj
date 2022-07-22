@@ -12,6 +12,7 @@
 		C9198259287786C7005D049C /* SortOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9198258287786C7005D049C /* SortOptions.swift */; };
 		C91B828E28896D1100900239 /* ExerciseExampleId.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91B828D28896D1100900239 /* ExerciseExampleId.swift */; };
 		C91B8290288B41AF00900239 /* ProgramCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91B828F288B41AF00900239 /* ProgramCardView.swift */; };
+		C91B8292288B491B00900239 /* RoundIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91B8291288B491B00900239 /* RoundIconButton.swift */; };
 		C92F6C37286C525A00D7BA59 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C36286C525A00D7BA59 /* FileManager.swift */; };
 		C92F6C3C286D9D2100D7BA59 /* ProgramSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C3B286D9D2100D7BA59 /* ProgramSummaryView.swift */; };
 		C92F6C3E286DDFF400D7BA59 /* View-Wrapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C3D286DDFF400D7BA59 /* View-Wrapped.swift */; };
@@ -125,6 +126,7 @@
 		C9198258287786C7005D049C /* SortOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOptions.swift; sourceTree = "<group>"; };
 		C91B828D28896D1100900239 /* ExerciseExampleId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseExampleId.swift; sourceTree = "<group>"; };
 		C91B828F288B41AF00900239 /* ProgramCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramCardView.swift; sourceTree = "<group>"; };
+		C91B8291288B491B00900239 /* RoundIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundIconButton.swift; sourceTree = "<group>"; };
 		C92F6C36286C525A00D7BA59 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		C92F6C3B286D9D2100D7BA59 /* ProgramSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramSummaryView.swift; sourceTree = "<group>"; };
 		C92F6C3D286DDFF400D7BA59 /* View-Wrapped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-Wrapped.swift"; sourceTree = "<group>"; };
@@ -484,6 +486,7 @@
 				C92F6C3D286DDFF400D7BA59 /* View-Wrapped.swift */,
 				C9EB6D962882B9D10026186C /* View-Truncated.swift */,
 				C9CEAA1C287EC63600D15A16 /* RestartIconButton.swift */,
+				C91B8291288B491B00900239 /* RoundIconButton.swift */,
 			);
 			path = practice;
 			sourceTree = "<group>";
@@ -722,6 +725,7 @@
 				C9A028FC287833F200032FF9 /* ManagedList.swift in Sources */,
 				C9CEAA00287C2DFF00D15A16 /* SettingsSubgroupDetailsView.swift in Sources */,
 				C9741A322860857F00E1F670 /* AddProgramView.swift in Sources */,
+				C91B8292288B491B00900239 /* RoundIconButton.swift in Sources */,
 				C9692C832850A78300373730 /* TemplateManager.swift in Sources */,
 				C9692C852850F47500373730 /* ExerciseSelectionView.swift in Sources */,
 				C9B1E746287C293F00C92571 /* TabataSettingsView.swift in Sources */,
