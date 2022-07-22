@@ -14,13 +14,16 @@ struct PracticeExerciseView: View {
     var body: some View {
         VStack {
             HStack(alignment: .top) {
+                Button {
+                    // show details modal
+                } label: {
                 Image(systemName: ExerciseTypeImage.imageName(for: practice.currentExercise.type, isFilled: true))
                     .resizable()
                     .scaledToFit()
                     .frame(width: 50, height: 50)
-                    .opacity(0.6)
                     .foregroundColor(.lightOrange)
                     .font(.largeTitle.bold())
+                }
         
                 Spacer()
 
