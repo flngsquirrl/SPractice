@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ExerciseDetailsView: DetailsView {
     
-    @EnvironmentObject var settings: Settings
     @ObservedObject private var viewModel: ViewModel
     
     private var onChange: (ExerciseTemplate) -> Void
@@ -84,7 +83,11 @@ struct ExerciseDetailsView: DetailsView {
             }
             
             if viewModel.showTasks {
-                ExerciseTasksButton(exercise: viewModel.exercise)
+                Section {
+                    ExerciseTasksButton(exercise: viewModel.exercise)
+                } footer: {
+                    SettingsLinkView(text: "Sequence and duration of the tasks are based on", settingsSubGroup: .tabata)
+                }
             }
         }
         .navigationTitle("Exercise")

@@ -13,26 +13,10 @@ struct ExerciseTasksView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @State private var showSettings: Bool = false
-    
     var body: some View {
         NavigationView {
-            List {
-                Section {
-                    ForEach(exercise.tasks) { task in
-                        TaskDetailsShortView(task: task, exerciseType: exercise.exerciseType)
-                    }
-                } footer: {
-                    switch exercise.exerciseType {
-                    case .flow, .timer:
-                        Text("Intensity and duration of the task are based on the exercise configuration")
-                    case .tabata:
-                        SettingsLink(text: "Sequence and duration of the tasks are based on", showSettings: $showSettings)
-                    }
-                }
-            }
-            .sheet(isPresented: $showSettings) {
-                SettingsSubgroupView(subgroup: .tabata)
+            List(exercise.tasks) { task in
+                TaskDetailsShortView(task: task, exerciseType: exercise.exerciseType)
             }
             .navigationTitle("Tasks")
             .navigationBarTitleDisplayMode(.inline)

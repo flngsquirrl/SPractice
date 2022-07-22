@@ -7,28 +7,24 @@
 
 import SwiftUI
 
-struct ExerciseDurationView: View {
+struct ExerciseDurationView<T>: View where T: Exercise {
     
+    private let template: T
     private let duration: Duration
     private let mode: DurationView.Mode
     private let isVerbose: Bool
     
-    init<T>(for template: T, mode: DurationView.Mode = .padded, isVerbose: Bool = false) where T: Exercise {
-        var duration: Duration
-        if template.type == .tabata {
-            duration = .known(SettingsManager.tabataExerciseDuration)
-        } else if template.isService {
-            duration = .known(SettingsManager.pauseDurationItem.value)
-        } else {
-            duration = template.duration
-        }
-        self.duration = duration
+    @ObservedObject var settings = SettingsManager.settings
+    
+    init(for template: T, mode: DurationView.Mode = .padded, isVerbose: Bool = false) where T: Exercise {
+        self.template = template
+        self.duration = template.duration
         self.mode = mode
         self.isVerbose = isVerbose
     }
     
     var body: some View {
-        switch duration {
+        switch definedDuration {
         case .known(let time):
             DurationView(duration: time, mode: mode)
         case .unknown:
@@ -40,8 +36,18 @@ struct ExerciseDurationView: View {
             }
         case .unlimited:
             HStack {
-            LayoutUtils.unlimitedDurationImage
+                LayoutUtils.unlimitedDurationImage
             }
+        }
+    }
+    
+    var definedDuration: Duration {
+        if template.type == .tabata {
+            return .known(SettingsManager.tabataExerciseDuration)
+        } else if template.isService {
+            return .known(SettingsManager.pauseDurationItem.value)
+        } else {
+            return duration
         }
     }
 }

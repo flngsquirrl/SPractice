@@ -12,6 +12,7 @@ struct ProgramsView: View, ManagedList {
     typealias Element = ProgramTemplate
     
     @ObservedObject var programs = Programs.shared
+    
     @State internal var searchText = ""
     
     @State private var showDeleteConfirmation = false

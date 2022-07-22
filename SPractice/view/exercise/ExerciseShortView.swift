@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ExerciseShortView<T>: View where T: Exercise {
     
-    @EnvironmentObject var settings: Settings
+    @ObservedObject var settings = SettingsManager.settings
     
     private let exercise: T
     private var displayDetails = false

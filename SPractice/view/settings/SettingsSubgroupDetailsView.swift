@@ -19,6 +19,9 @@ struct SettingsSubgroupDetailsView: View {
         }
         .navigationTitle(subgroup.rawValue)
         .navigationBarTitleDisplayMode(.inline)
+        .onDisappear() {
+            SettingsManager.saveSettings()
+        }
     }
     
     func getSubgroupView(_ subgroup: SettingsSubGroup) -> AnyView {

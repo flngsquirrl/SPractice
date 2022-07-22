@@ -76,7 +76,7 @@ struct ExerciseEditor: View {
                         if viewModel.template.type! == .flow {
                             Text("Duration of a flow exercise is not limited")
                         } else {
-                            SettingsLink(text: "Duration of a tabata exercise is based on", showSettings: $showSettings)
+                            SettingsLink(text: "Sequence and duration of the tasks are based on", showSettings: $showSettings)
                         }
                     }
                 }

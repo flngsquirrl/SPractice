@@ -24,7 +24,7 @@ class SettingsManager {
     static var tabataCyclesItem: SettingsItemIntWrapper = SettingsItemIntWrapper(for: settings.getItem(.tabataCycles))
     
     static var tabataExerciseDuration: Int {
-        tabataActivityDurationItem.value + (tabataActivityDurationItem.value + tabataRestDurationItem.value) * tabataCyclesItem.value + tabataCoolDownDurationItem.value
+        tabataWarmUpDurationItem.value + (tabataActivityDurationItem.value + tabataRestDurationItem.value) * tabataCyclesItem.value + tabataCoolDownDurationItem.value
     }
     
     static var flowAutoFinishAfterTime: Int {

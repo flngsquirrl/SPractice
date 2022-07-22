@@ -21,8 +21,6 @@ struct ContentView: View {
     
     @StateObject private var viewModel = ViewModel()
     
-    @ObservedObject private var settings = SettingsManager.settings
-    
     var body: some View {
         NavigationView {
             Group {
@@ -81,7 +79,6 @@ struct ContentView: View {
             
             WelcomeView()
         }
-        .environmentObject(settings)
         .accentColor(.customAccentColor)
     }
     
