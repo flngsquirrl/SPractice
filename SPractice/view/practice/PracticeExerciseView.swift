@@ -14,7 +14,7 @@ struct PracticeExerciseView: View {
     var body: some View {
         VStack {
             HStack(alignment: .top) {
-                RoundIconButton(imageName: ExerciseTypeImage.imageName(for: practice.currentExercise.type), disabled: false) {
+                RoundIconButton(imageName: ExerciseTypeImage.imageName(for: practice.currentExercise.type, isFilled: true), disabled: false) {
                     // show details modal
                 }
         
