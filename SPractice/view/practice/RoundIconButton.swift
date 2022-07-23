@@ -21,12 +21,14 @@ struct RoundIconButton: View {
                 Circle()
                     .fill(.lightOrange)
                     .opacity(disabled ? 0.6 : 1)
-                    .frame(width: 50, height: 50)
+                    .frame(width: 35, height: 35)
                 
                 Image(systemName: imageName)
+                    .resizable()
+                    .scaledToFit()
                     .foregroundColor(Color(UIColor.secondarySystemBackground))
-                    .font(.largeTitle.bold())
-                    .frame(width: 50, height: 50)
+                    .font(.title.bold())
+                    .frame(width: 27, height: 27)
                     .clipShape(Circle())
             }
         }
@@ -39,11 +41,7 @@ struct RoundIconButton_Previews: PreviewProvider {
         List {
             RoundIconButton(imageName: "arrow.clockwise.circle.fill", disabled: false, action: {})
             
-            RoundIconButton(imageName: ExerciseTypeImage.imageName(for: .tabata), disabled: false, action: {})
-            
-            RoundIconButton(imageName: ExerciseTypeImage.imageName(for: .flow), disabled: false, action: {})
-            
-            RoundIconButton(imageName: ExerciseTypeImage.imageName(for: .timer), disabled: false, action: {})
+            RoundIconButton(imageName: "info.circle.fill", disabled: false, action: {})
         }
     }
 }

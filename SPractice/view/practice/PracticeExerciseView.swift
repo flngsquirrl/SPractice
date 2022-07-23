@@ -14,12 +14,20 @@ struct PracticeExerciseView: View {
     var body: some View {
         VStack {
             HStack(alignment: .top) {
-                RoundIconButton(imageName: ExerciseTypeImage.imageName(for: practice.currentExercise.type, isFilled: true), disabled: false) {
-                    // show details modal
-                }
+                Image(systemName: ExerciseTypeImage.imageName(for: practice.currentExercise.type, isFilled: true))
+                    .resizable()
+                    .scaledToFit()
+                    .opacity(0.6)
+                    .frame(width: 35, height: 35)
+                    .foregroundColor(.lightOrange)
+                    .font(.largeTitle.bold())
         
                 Spacer()
 
+                RoundIconButton(imageName: "info.circle.fill", disabled: false) {
+                    // show details
+                }
+                
                 RoundIconButton(imageName: "arrow.clockwise.circle.fill", disabled: !practice.isCurrentExerciseStarted) {
                     practice.restartExercise()
                 }
