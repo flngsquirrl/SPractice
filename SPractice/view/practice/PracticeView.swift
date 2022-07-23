@@ -27,19 +27,21 @@ struct PracticeView: View {
                 Group {
                     if sizeClass == .compact {
                         HStack(alignment: .top) {
-                            PracticeExerciseView(practice: practice)
-                                .frame(maxHeight: .infinity)
-                                .wrapped()
+                            VStack {
+                                Spacer()
+                                PracticeExerciseView(practice: practice)
+                                    .wrapped()
+                                Spacer()
+                            }
                             VStack {
                                 Spacer()
                                 PracticeSequenceView(practice: practice)
-                                    .frame(maxWidth: .infinity)
                                 Spacer()
                                 PlayerView(player: practice.player)
                                 Spacer()
                             }
-                            .padding(.leading)
                         }
+                        .frame(width: geo.size.width)
                     } else {
                         VStack {
                             Spacer()
@@ -47,7 +49,6 @@ struct PracticeView: View {
                                 .wrapped()
 
                             PracticeSequenceView(practice: practice)
-                                .frame(maxWidth: .infinity)
                             Spacer()
                             PlayerView(player: practice.player)
                             Spacer()
