@@ -11,6 +11,7 @@ import Foundation
     typealias Item = ProgramTemplate
     
     @Published internal var items: [ProgramTemplate] = [ProgramTemplate.personal, ProgramTemplate.dailyShort, ProgramTemplate.shortForBack]
+    //@Published internal var items: [ProgramTemplate]
     
     @Published var selection: UUID?
     
@@ -25,6 +26,20 @@ import Foundation
 //        } catch {
 //            templates = []
 //        }
+        
+//        for lots of items
+//
+//        let templates = [ProgramTemplate.personal, ProgramTemplate.dailyShort, ProgramTemplate.shortForBack]
+//        var programs: [ProgramTemplate] = []
+//        for template in templates {
+//            for i in 1...25 {
+//                var program = ProgramTemplate(from: template)
+//                program.name += " \(i)"
+//                programs.append(program)
+//            }
+//        }
+//
+//        items = programs
     }
     
     internal func save() {

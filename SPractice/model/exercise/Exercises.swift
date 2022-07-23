@@ -11,6 +11,8 @@ import Foundation
     
     @Published internal var items: [ExerciseTemplate] = [ExerciseTemplate.catCow, ExerciseTemplate.balasana, ExerciseTemplate.shavasana, ExerciseTemplate.vasihsthasana, ExerciseTemplate.catCowNoDuration, ExerciseTemplate.surjaNamascarA, ExerciseTemplate.catCowNoType]
     
+    //@Published internal var items: [ExerciseTemplate]
+    
     @Published var selection: UUID?
     
     static let shared = Exercises()
@@ -24,6 +26,20 @@ import Foundation
 //        } catch {
 //            templates = []
 //        }
+        
+//        for lots of items
+//
+//        let templates = [ExerciseTemplate.catCow, ExerciseTemplate.balasana, ExerciseTemplate.shavasana, ExerciseTemplate.vasihsthasana, ExerciseTemplate.catCowNoDuration, ExerciseTemplate.surjaNamascarA, ExerciseTemplate.catCowNoType]
+//        var exercises: [ExerciseTemplate] = []
+//        for template in templates {
+//            for i in 1...25 {
+//                var exercise = ExerciseTemplate(from: template)
+//                exercise.name += " \(i)"
+//                exercises.append(exercise)
+//            }
+//        }
+//        
+//        items = exercises
     }
     
     internal func save() {
