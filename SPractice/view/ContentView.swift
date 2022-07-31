@@ -32,6 +32,7 @@ struct ContentView: View {
                 }
             }
             .navigationTitle(viewModel.contentType == .exercises ? "Exercises" : "Programs")
+            .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $showSettingsView) {
                 SettingsView()
             }
@@ -43,7 +44,7 @@ struct ContentView: View {
                 }
             }
             .toolbar {
-                ToolbarItemGroup(placement: .principal) {
+                ToolbarItemGroup(placement: .bottomBar) {
                     Picker("Content type", selection: $viewModel.contentType.animation()) {
                         ForEach(ContentType.allCases, id: \.self) { type in
                             Image(systemName: getImageName(for: type))
