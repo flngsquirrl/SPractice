@@ -50,7 +50,7 @@ struct ExercisesView: View, ManagedList {
                 }
             }
         }
-        .searchable(text: $searchText)
+        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
         .disableAutocorrection(true)
         .alert(DeleteAlertConstants.title, isPresented: $showDeleteConfirmation, presenting: selectedToDelete) { item in
             DeleteAlertContent(item: item) {
