@@ -31,6 +31,7 @@ struct ContentView: View {
                     ExercisesView()
                 }
             }
+            .clipped()
             .navigationTitle(viewModel.contentType == .exercises ? "Exercises" : "Programs")
             .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $showSettingsView) {
