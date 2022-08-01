@@ -54,13 +54,7 @@ struct ContentView: View {
             }
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
-                    Picker("Content type", selection: $viewModel.contentType.animation()) {
-                        ForEach(ContentType.allCases, id: \.self) { type in
-                            Image(systemName: getImageName(for: type))
-                        }
-                    }
-                    .fixedSize()
-                    .pickerStyle(.segmented)
+                    contentTypePicker
                 }
                 
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
@@ -90,6 +84,28 @@ struct ContentView: View {
             WelcomeView()
         }
         .accentColor(.customAccentColor)
+    }
+    
+    @ViewBuilder var contentTypePicker: some View {
+        ForEach(ContentType.allCases, id: \.self) { type in
+            Spacer()
+            Button {
+                withAnimation {
+                    viewModel.contentType = type
+                }
+            } label: {
+                VStack {
+                    Image(systemName: getImageName(for: type))
+                    Text(type.rawValue)
+                        .font(.caption2)
+                }
+                .foregroundColor(type == viewModel.contentType ? .customAccentColor : .secondary)
+            }
+            Spacer()
+        }
+        .onChange(of: viewModel.contentType) { _ in
+            processContentTypeChange()
+        }
     }
     
     func processContentTypeChange() {
