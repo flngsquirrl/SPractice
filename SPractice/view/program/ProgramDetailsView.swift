@@ -13,12 +13,16 @@ struct ProgramDetailsView: DetailsView {
     
     @State private var showDeleteConfirmation = false
     
-    @ObservedObject var programs = Programs.shared
+    @ObservedObject var programSelection = ProgramSelectionManager.shared
     
     @Environment(\.horizontalSizeClass) var sizeClass
     
-    var isDeleted: Bool {
-        !programs.contains(viewModel.template)
+    var isClosed: Bool {
+        programSelection.detailsItem != viewModel.template.id
+    }
+    
+    func onAppear() {
+        programSelection.onItemDetailsOpened(id: viewModel.template.id)
     }
 
     var onChange: (ProgramTemplate) -> Void

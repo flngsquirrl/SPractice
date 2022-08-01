@@ -16,8 +16,10 @@ struct ContentView: View {
     @State private var showSettingsView = false
     @State private var showAddNewView = false
     
-    @ObservedObject private var programs = Programs.shared
-    @ObservedObject private var exercises = Exercises.shared
+    @ObservedObject var programs = Programs.shared
+    var programSelection = ProgramSelectionManager.shared
+    @ObservedObject var exercises = Exercises.shared
+    var exerciseSelection = ExerciseSelectionManager.shared
     
     @StateObject private var viewModel = ViewModel()
     
@@ -39,9 +41,15 @@ struct ContentView: View {
             }
             .sheet(isPresented: $showAddNewView) {
                 if viewModel.contentType == .programs {
-                    AddProgramView() { programs.addNew($0, updateSelection: showNewItemAfterCreation) }
+                    AddProgramView() {
+                        programs.addNew($0)
+                        programSelection.onNewItemAdded(id: $0.id, isRegularSize: isRegularSize)
+                    }
                 } else {
-                    AddExerciseView() { exercises.addNew($0, updateSelection: showNewItemAfterCreation) }
+                    AddExerciseView() {
+                        exercises.addNew($0)
+                        exerciseSelection.onNewItemAdded(id: $0.id, isRegularSize: isRegularSize)
+                    }
                 }
             }
             .toolbar {
@@ -84,16 +92,23 @@ struct ContentView: View {
         .accentColor(.customAccentColor)
     }
     
-    var showNewItemAfterCreation: Bool {
+    func processContentTypeChange() {
+        if isRegularSize {
+            programSelection.switchInUse()
+            exerciseSelection.switchInUse()
+        }
+    }
+    
+    var isRegularSize: Bool {
         sizeClass == .regular
     }
     
     func getImageName(for type: ContentType) -> String {
         switch type {
         case .programs:
-            return "heart.text.square"
+            return "heart.text.square.fill"
         case .exercises:
-            return "staroflife.circle"
+            return "staroflife.circle.fill"
         }
     }
 }

@@ -9,23 +9,30 @@ import Foundation
 import SwiftUI
 
 protocol DetailsView: View {
-    var isDeleted: Bool {get}
+    var isClosed: Bool {get}
     var sizeClass: UserInterfaceSizeClass? {get}
     
     associatedtype Content: View
     var detailsContent: Content {get}
+    
+    func onAppear()
 }
 
 extension DetailsView {
-     @ViewBuilder var body: some View {
-        if sizeClass == .regular {
-            if isDeleted {
-                WelcomeView()
+    @ViewBuilder var body: some View {
+        Group {
+            if sizeClass == .regular {
+                if isClosed {
+                    WelcomeView()
+                } else {
+                    detailsContent
+                }
             } else {
                 detailsContent
             }
-        } else {
-            detailsContent
+        }
+        .onAppear() {
+            onAppear()
         }
     }
 }

@@ -14,7 +14,7 @@ struct ExerciseDetailsView: DetailsView {
     private var onChange: (ExerciseTemplate) -> Void
     private var onDelete: (ExerciseTemplate) -> Void
     
-    @ObservedObject var exercises = Exercises.shared
+    @ObservedObject var exerciseSelection = ExerciseSelectionManager.shared
     @Environment(\.horizontalSizeClass) var sizeClass
     
     @State private var showEditView = false
@@ -24,6 +24,10 @@ struct ExerciseDetailsView: DetailsView {
         self.viewModel = ViewModel(for: exercise)
         self.onChange = onChange
         self.onDelete = onDelete
+    }
+    
+    func onAppear() {
+        exerciseSelection.onItemDetailsOpened(id: viewModel.exercise.id)
     }
     
     var detailsContent: some View {
@@ -116,8 +120,8 @@ struct ExerciseDetailsView: DetailsView {
         }
     }
     
-    var isDeleted: Bool {
-        !exercises.contains(viewModel.exercise)
+    var isClosed: Bool {
+        exerciseSelection.detailsItem != viewModel.exercise.id
     }
 }
 

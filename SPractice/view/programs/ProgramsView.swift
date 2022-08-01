@@ -12,6 +12,7 @@ struct ProgramsView: View, ManagedList {
     typealias Element = ProgramTemplate
     
     @ObservedObject var programs = Programs.shared
+    @ObservedObject var programsSelection = ProgramSelectionManager.shared
     
     @State internal var searchText = ""
     
@@ -22,44 +23,56 @@ struct ProgramsView: View, ManagedList {
     @AppStorage("programsSortOrder") internal var sortOrder: SortOrder = .desc
     
     var body: some View {
-        List {
-            Section {
-                ForEach(sortedElements) { program in
-                    HStack {
-                        NavigationLink(tag: program.id, selection: $programs.selection) {
-                            ProgramDetailsView(for: program) {
-                                programs.update($0)
-                            } onDelete: {
-                                programs.delete($0)
+        ScrollViewReader { proxy in
+            List {
+                Section {
+                    ForEach(sortedElements) { program in
+                        HStack {
+                            NavigationLink(tag: program.id, selection: $programsSelection.selection) {
+                                ProgramDetailsView(for: program) {
+                                    programs.update($0)
+                                } onDelete: {
+                                    deleteItem($0)
+                                }
+                            } label: {
+                                ProgramShortDecorativeView(for: program, isAccented: program.id == selectedToDelete?.id, accentColor: .customAccentColor)
                             }
-                        } label: {
-                            ProgramShortDecorativeView(for: program, isAccented: program.id == selectedToDelete?.id, accentColor: .customAccentColor)
                         }
                     }
+                    .onDelete { indexSet in
+                        showDeleteConfirmation = true
+                        selectedToDelete = getSortedElement(index: indexSet.first!)
+                    }
                 }
-                .onDelete { indexSet in
-                    showDeleteConfirmation = true
-                    selectedToDelete = getSortedElement(index: indexSet.first!)
+            }
+            .listStyle(.inset)
+            .onChange(of: showDeleteConfirmation) { shouldShow in
+                if !shouldShow {
+                    withAnimation {
+                        selectedToDelete = nil
+                    }
+                }
+            }
+            .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
+            .disableAutocorrection(true)
+            .alert(DeleteAlertConstants.title, isPresented: $showDeleteConfirmation, presenting: selectedToDelete) { item in
+                DeleteAlertContent(item: item) {
+                    deleteItem($0)
+                }
+            }
+            .onChange(of: programsSelection.newItem) { _ in
+                if programsSelection.newItem != nil {
+                    withAnimation {
+                        proxy.scrollTo(programsSelection.newItem!, anchor: .center)
+                    }
                 }
             }
         }
-        .listStyle(.inset)
-        .onChange(of: showDeleteConfirmation) { shouldShow in
-            if !shouldShow {
-                withAnimation {
-                    selectedToDelete = nil
-                }
-            }
-        }
-        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
-        .disableAutocorrection(true)
-        .alert(DeleteAlertConstants.title, isPresented: $showDeleteConfirmation, presenting: selectedToDelete) { item in
-            DeleteAlertContent(item: item) {
-                programs.delete($0)
-            }
-        } message: { _ in
-            DeleteAlertConstants.messageText
-        }
+    }
+    
+    func deleteItem(_ item: ProgramTemplate) {
+        programs.delete(item)
+        programsSelection.onItemDelete(id: item.id)
     }
     
     var elements: [ProgramTemplate] {

@@ -12,9 +12,8 @@ import Foundation
     associatedtype Item: HavingID
     
     var items: Array<Item> {get set}
-    var selection: UUID? {get set}
     
-    func addNew(_ item: Item, updateSelection: Bool)
+    func addNew(_ item: Item)
     
     func update(_ item: Item)
     
@@ -29,13 +28,9 @@ protocol HavingID: Identifiable where Self.ID == UUID {
 }
 
 extension DataManager {
-    func addNew(_ item: Item, updateSelection: Bool) {
+    func addNew(_ item: Item) {
         items.append(item)
         save()
-        
-        if updateSelection {
-            selection = item.id
-        }
     }
     
     func update(_ item: Item) {
@@ -49,10 +44,6 @@ extension DataManager {
         if let index = items.firstIndex(where: {$0.id == item.id}) {
             items.remove(at: index)
             save()
-        }
-        
-        if selection == item.id {
-            selection = nil
         }
     }
     
