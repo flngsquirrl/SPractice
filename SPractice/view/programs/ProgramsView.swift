@@ -61,7 +61,6 @@ struct ProgramsView: View, MainListView, ManagedList {
                    selectedToDelete = getSortedElement(index: indexSet.first!)
                }
            }
-           .listStyle(.inset)
            .onChange(of: showDeleteConfirmation) { shouldShow in
                if !shouldShow {
                    withAnimation {
