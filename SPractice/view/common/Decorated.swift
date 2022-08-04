@@ -1,5 +1,5 @@
 //
-//  DecoratedImage.swift
+//  Decorated.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 20.07.22.
