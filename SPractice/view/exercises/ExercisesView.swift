@@ -60,6 +60,7 @@ struct ExercisesView: View, MainListView, ManagedList {
                    selectedToDelete = getSortedElement(index: indexSet.first!)
                }
            }
+           .listStyle(.insetGrouped)
            .onChange(of: showDeleteConfirmation) { shouldShow in
                if !shouldShow {
                    withAnimation {

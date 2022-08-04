@@ -49,6 +49,7 @@ struct SettingsView: View {
                     Text("Undo all custom settings and reset example templates to the initial state")
                 }
             }
+            .listStyle(.insetGrouped)
             .onAppear() {
                 updateResetAllDisabled()
             }
