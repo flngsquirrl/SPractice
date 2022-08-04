@@ -19,7 +19,7 @@ struct RoundIconButton: View {
         } label: {
             ZStack {
                 Circle()
-                    .fill(.lightOrange)
+                    .fill(disabled ? Color(UIColor.systemGray) : .lightOrange)
                     .opacity(disabled ? 0.6 : 1)
                     .frame(width: 35, height: 35)
                 
@@ -40,8 +40,10 @@ struct RoundIconButton_Previews: PreviewProvider {
     static var previews: some View {
         List {
             RoundIconButton(imageName: "arrow.clockwise.circle.fill", disabled: false, action: {})
+            RoundIconButton(imageName: "arrow.clockwise.circle.fill", disabled: true, action: {})
             
             RoundIconButton(imageName: "info.circle.fill", disabled: false, action: {})
+            RoundIconButton(imageName: "info.circle.fill", disabled: true, action: {})
         }
     }
 }
