@@ -109,8 +109,6 @@ struct ExercisesView: View, MainListView, ManagedList {
 
 struct ExercisesView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            ExercisesView()
-        }
+        ExercisesView()
     }
 }

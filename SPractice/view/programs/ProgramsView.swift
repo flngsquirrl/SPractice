@@ -116,8 +116,6 @@ struct ProgramsView: View, MainListView, ManagedList {
 struct ProgramsView_Previews: PreviewProvider {
     
     static var previews: some View {
-        NavigationView {
-            ProgramsView()
-        }
+        ProgramsView()
     }
 }
