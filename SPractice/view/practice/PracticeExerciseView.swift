@@ -17,7 +17,7 @@ struct PracticeExerciseView: View {
                 Image(systemName: ExerciseTypeImage.imageName(for: practice.currentExercise.type, isFilled: true))
                     .resizable()
                     .scaledToFit()
-                    .opacity(0.6)
+                    .opacity(0.8)
                     .frame(width: 35, height: 35)
                     .foregroundColor(.lightOrange)
                     .font(.largeTitle.bold())
