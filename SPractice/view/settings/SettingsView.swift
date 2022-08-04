@@ -66,14 +66,6 @@ struct SettingsView: View {
                 SettingsConstants.resetMessage
             }
             .navigationTitle("Settings")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") {
-                        dismiss()
-                    }
-                }
-            }
         }
         .accentColor(.customAccentColor)
     }

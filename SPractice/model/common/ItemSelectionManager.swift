@@ -12,7 +12,6 @@ import SwiftUI
     var selection: UUID? {get set}
     var newItem: UUID? {get set}
     var detailsItem: UUID? {get set}
-    var isInUse: Bool {get set}
 }
 
 extension ItemSelectionManager {
@@ -41,14 +40,6 @@ extension ItemSelectionManager {
     
     func onItemDetailsOpened(id: UUID) {
         detailsItem = id
-    }
-    
-    func switchInUse() {
-        withAnimation {
-            isInUse.toggle()
-            newItem = nil
-            selection = nil
-        }
     }
 }
 

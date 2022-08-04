@@ -8,21 +8,20 @@
 import SwiftUI
 
 struct SortingMenu: View {
-    var sortProperty: SortProperty
-    var sortOrder: SortOrder
-    var onChange: (SortProperty, SortOrder) -> Void
+    @Binding var sortProperty: SortProperty
+    @Binding var sortOrder: SortOrder
     
     var body: some View {
         Menu {
             ForEach(SortProperty.allCases, id: \.self) { property in
                 Button() {
-                    onChange(property, getOrderToSet(property: property))
+                    setSorting(property: property, order: getOrderToSet(property: property))
                 } label: {
                     Label("\(property.rawValue)", systemImage: getOptionImage(property: property))
                 }
             }
         } label: {
-            Text("Sort by")
+            Image(systemName: "arrow.up.arrow.down")
         }
     }
     
@@ -49,10 +48,15 @@ struct SortingMenu: View {
         }
         return optionImage
     }
+    
+    func setSorting(property: SortProperty, order: SortOrder) {
+        sortProperty = property
+        sortOrder = order
+    }
 }
 
 struct SortingMenu_Previews: PreviewProvider {
     static var previews: some View {
-        SortingMenu(sortProperty: .date, sortOrder: .asc, onChange: { _,_ in })
+        SortingMenu(sortProperty: .constant(.date), sortOrder: .constant(.asc))
     }
 }
