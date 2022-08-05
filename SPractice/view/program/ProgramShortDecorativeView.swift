@@ -41,6 +41,7 @@ struct ProgramShortDecorativeView: View {
             ProgramDurationView(for: program)
                 .foregroundColor(.secondary)
         }
+        .padding([.top, .bottom], 5)
     }
 }
 
@@ -48,6 +49,9 @@ struct ProgramShortDecorativeView_Previews: PreviewProvider {
     static var previews: some View {
         List {
             ProgramShortDecorativeView(for: ProgramTemplate.personal)
+            ProgramShortDecorativeView(for: ProgramTemplate.dailyShort)
+            ProgramShortDecorativeView(for: ProgramTemplate.shortForBack)
         }
+        .listStyle(.insetGrouped)
     }
 }

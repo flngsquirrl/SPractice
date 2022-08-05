@@ -54,6 +54,7 @@ struct ExerciseShortDecorativeView<T>: View where T: Exercise {
             }
             .foregroundColor(.secondary)
         }
+        .padding([.top, .bottom], 5)
     }
 }
 
