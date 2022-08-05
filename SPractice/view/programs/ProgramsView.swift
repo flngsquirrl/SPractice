@@ -69,7 +69,7 @@ struct ProgramsView: View, MainListView {
                    }
                }
            }
-           .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
+           .searchable(text: $searchText)
            .disableAutocorrection(true)
            .onChange(of: selectionManager.newItem) { _ in
                if selectionManager.newItem != nil {
