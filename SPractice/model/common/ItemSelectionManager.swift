@@ -47,7 +47,6 @@ extension ItemSelectionManager {
     @Published var selection: UUID?
     var newItem: UUID?
     @Published var detailsItem: UUID?
-    var isInUse: Bool = true
     
     static let shared = ProgramSelectionManager()
 }
@@ -56,7 +55,6 @@ extension ItemSelectionManager {
     @Published var selection: UUID?
     var newItem: UUID?
     @Published var detailsItem: UUID?
-    @Published var isInUse: Bool = false
     
     static let shared = ExerciseSelectionManager()
 }
