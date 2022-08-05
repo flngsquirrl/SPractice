@@ -7,12 +7,9 @@
 
 import SwiftUI
 
-@MainActor protocol MainListView {
+@MainActor protocol MainListView: ManagedList {
     associatedtype ListSelectionManager: ItemSelectionManager
     associatedtype ListDataManager: DataManager
-    
-    var sortProperty: SortProperty {get set}
-    var sortOrder: SortOrder {get set}
     
     var selectionManager: ListSelectionManager {get}
     var dataManager: ListDataManager {get}

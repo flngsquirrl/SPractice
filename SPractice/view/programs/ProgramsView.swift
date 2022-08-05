@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProgramsView: View, MainListView, ManagedList {
+struct ProgramsView: View, MainListView {
     
     typealias Element = ProgramTemplate
     

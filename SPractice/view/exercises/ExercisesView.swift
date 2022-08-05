@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExercisesView: View, MainListView, ManagedList {
+struct ExercisesView: View, MainListView {
     
     typealias Element = ExerciseTemplate
    
