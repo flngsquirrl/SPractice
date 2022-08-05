@@ -15,9 +15,23 @@ struct SortingMenu: View {
         Menu {
             ForEach(SortProperty.allCases, id: \.self) { property in
                 Button() {
-                    setSorting(property: property, order: getOrderToSet(property: property))
+                    setSortProperty(property)
                 } label: {
-                    Label("\(property.rawValue)", systemImage: getOptionImage(property: property))
+                    if property == sortProperty {
+                        Image(systemName: "checkmark")
+                    }
+                    Text("\(property.rawValue)")
+                }
+            }
+            Divider()
+            ForEach(SortOrder.allCases, id: \.self) { order in
+                Button() {
+                    setSortOrder(order)
+                } label: {
+                    if order == sortOrder {
+                        Image(systemName: "checkmark")
+                    }
+                    Text("\(order.rawValue)")
                 }
             }
         } label: {
@@ -35,22 +49,11 @@ struct SortingMenu: View {
         return order
     }
     
-    func getOptionImage(property: SortProperty) -> String {
-        var optionImage: String = ""
-        if property == sortProperty {
-            if sortOrder == .asc {
-                optionImage = "arrow.down"
-            } else {
-                optionImage = "arrow.up"
-            }
-        } else {
-            optionImage = "arrow.up.arrow.down"
-        }
-        return optionImage
+    func setSortProperty(_ property: SortProperty) {
+        sortProperty = property
     }
     
-    func setSorting(property: SortProperty, order: SortOrder) {
-        sortProperty = property
+    func setSortOrder(_ order: SortOrder) {
         sortOrder = order
     }
 }
