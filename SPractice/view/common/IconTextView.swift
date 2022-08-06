@@ -33,8 +33,8 @@ extension IconTextView {
            text
         case .iconAndText:
             HStack {
-                icon
                 text
+                icon
             }
         }
     }
