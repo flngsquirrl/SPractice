@@ -112,8 +112,7 @@ struct ExerciseEditor: View {
             InfoButton()
             Spacer()
             HStack {
-                IntensityImage(intensity: viewModel.template.intensity!)
-                Text(viewModel.template.intensity!.rawValue)
+                IntensityView(intensity: viewModel.template.intensity!, mode: .iconAndText)
             }
             .foregroundColor(.secondary)
         }
