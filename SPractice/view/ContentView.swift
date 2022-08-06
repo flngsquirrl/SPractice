@@ -31,6 +31,11 @@ struct ContentView: View {
                 }
                 .tag(ContentType.settings)
         }
+        .onAppear {
+            let tabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithOpaqueBackground()
+            UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+        }
         .accentColor(.customAccentColor)
     }
     
