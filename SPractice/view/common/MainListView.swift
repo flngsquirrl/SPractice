@@ -25,7 +25,7 @@ extension MainListView {
     
     func addItem(_ item: ListDataManager.Item) {
         dataManager.addNew(item)
-        selectionManager.onNewItemAdded(id: item.id, isRegularSize: isRegularSize)
+        selectionManager.onNewItemAdded(id: item.id)
     }
     
     func deleteItem(_ item: ListDataManager.Item) {

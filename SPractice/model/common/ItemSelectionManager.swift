@@ -15,12 +15,9 @@ import SwiftUI
 }
 
 extension ItemSelectionManager {
-    func onNewItemAdded(id: UUID, isRegularSize: Bool) {
+    func onNewItemAdded(id: UUID) {
         withAnimation {
             newItem = id
-            if isRegularSize {
-                selection = id
-            }
         }
     }
     
