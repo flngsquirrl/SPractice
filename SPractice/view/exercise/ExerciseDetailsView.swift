@@ -14,7 +14,7 @@ struct ExerciseDetailsView: DetailsView {
     private var onChange: (ExerciseTemplate) -> Void
     private var onDelete: (ExerciseTemplate) -> Void
     
-    @ObservedObject var exerciseSelection = ExerciseSelectionManager.shared
+    @ObservedObject var exercises = Exercises.shared
     @Environment(\.horizontalSizeClass) var sizeClass
     
     @State private var showEditView = false
@@ -26,8 +26,8 @@ struct ExerciseDetailsView: DetailsView {
         self.onDelete = onDelete
     }
     
-    func onAppear() {
-        exerciseSelection.onItemDetailsOpened(id: viewModel.exercise.id)
+    var isDeleted: Bool {
+        !exercises.contains(viewModel.exercise)
     }
     
     var detailsContent: some View {
@@ -118,10 +118,6 @@ struct ExerciseDetailsView: DetailsView {
             }
             .accentColor(.customAccentColor)
         }
-    }
-    
-    var isClosed: Bool {
-        exerciseSelection.detailsItem != viewModel.exercise.id
     }
 }
 

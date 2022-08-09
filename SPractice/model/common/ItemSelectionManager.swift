@@ -10,7 +10,6 @@ import SwiftUI
 
 @MainActor protocol ItemSelectionManager: AnyObject {
     var newItem: UUID? {get set}
-    var detailsItem: UUID? {get set}
 }
 
 extension ItemSelectionManager {
@@ -18,16 +17,6 @@ extension ItemSelectionManager {
         withAnimation {
             newItem = id
         }
-    }
-    
-    func onItemDelete(id: UUID) {
-        if detailsItem == id {
-            detailsItem = nil
-        }
-    }
-    
-    func onItemDetailsOpened(id: UUID) {
-        detailsItem = id
     }
 }
 

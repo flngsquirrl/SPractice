@@ -52,6 +52,5 @@ extension MainList {
     func deleteItem(_ item: Item) {
         delete(item)
         dataManager.delete(item)
-        selectionManager.onItemDelete(id: item.id)
     }
 }

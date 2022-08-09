@@ -13,17 +13,9 @@ struct ProgramDetailsView: DetailsView {
     
     @State private var showDeleteConfirmation = false
     
-    @ObservedObject var programSelection = ProgramSelectionManager.shared
+    @ObservedObject var programs = Programs.shared
     
     @Environment(\.horizontalSizeClass) var sizeClass
-    
-    var isClosed: Bool {
-        programSelection.detailsItem != viewModel.template.id
-    }
-    
-    func onAppear() {
-        programSelection.onItemDetailsOpened(id: viewModel.template.id)
-    }
 
     var onChange: (ProgramTemplate) -> Void
     var onDelete: (ProgramTemplate) -> Void
@@ -32,6 +24,10 @@ struct ProgramDetailsView: DetailsView {
         self.viewModel = ViewModel(for: program)
         self.onChange = onChange
         self.onDelete = onDelete
+    }
+    
+    var isDeleted: Bool {
+        !programs.contains(viewModel.template)
     }
     
     var detailsContent: some View {
