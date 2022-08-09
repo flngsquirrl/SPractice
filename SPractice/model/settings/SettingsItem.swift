@@ -21,7 +21,7 @@ enum SettingsItemName: Codable {
     case pauseDuration
 }
 
-struct Time {
+struct Time: Equatable {
     var minutes: Int
     var seconds: Int
     

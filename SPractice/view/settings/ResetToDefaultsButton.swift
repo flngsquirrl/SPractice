@@ -9,10 +9,11 @@ import SwiftUI
 
 struct ResetToDefaultsButton: View {
     
+    @ObservedObject var settings = SettingsManager.settings
+    
     var subgroup: SettingsSubGroup
 
     @State private var showResetConfirmation: Bool = false
-    @Binding var areResetToDefaults: Bool
     
     var body: some View {
         Button("Reset to defaults", role: .destructive) {
@@ -23,16 +24,12 @@ struct ResetToDefaultsButton: View {
             Button("Reset", role: .destructive) {
                 withAnimation {
                     SettingsManager.resetToDefauls(subgroup: subgroup)
-                    areResetToDefaults = true
                 }
             }
             
             Button("Cancel", role: .cancel) {}
         } message: {
             SettingsConstants.resetMessage
-        }
-        .onAppear() {
-            areResetToDefaults = false
         }
     }
     
@@ -43,6 +40,6 @@ struct ResetToDefaultsButton: View {
 
 struct ResetToDefaultsButton_Previews: PreviewProvider {
     static var previews: some View {
-        ResetToDefaultsButton(subgroup: .tabata, areResetToDefaults: .constant(.random()))
+        ResetToDefaultsButton(subgroup: .tabata)
     }
 }

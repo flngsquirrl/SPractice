@@ -15,14 +15,24 @@ struct TabataSettingsView: View {
     @ObservedObject var tabataCoolDownDurationItem = SettingsManager.tabataCoolDownDurationItem
     @ObservedObject var tabataCyclesItem = SettingsManager.tabataCyclesItem
     
-    @State private var areResetToDefaults = false
-    
     var body: some View {
         Section {
             TabataItemIntervalView(value: $tabataWarmUpDurationItem.value, name: "warm-up", intensity: .rest)
+                .onChange(of: tabataWarmUpDurationItem.value) { _ in
+                    SettingsManager.saveSettings()
+                }
             TabataItemIntervalView(value: $tabataActivityDurationItem.value, name: "activity", intensity: .activity)
+                .onChange(of: tabataActivityDurationItem.value) { _ in
+                    SettingsManager.saveSettings()
+                }
             TabataItemIntervalView(value: $tabataRestDurationItem.value, name: "rest", intensity: .rest)
+                .onChange(of: tabataRestDurationItem.value) { _ in
+                    SettingsManager.saveSettings()
+                }
             TabataItemIntervalView(value: $tabataCoolDownDurationItem.value, name: "cool-down", intensity: .rest)
+                .onChange(of: tabataCoolDownDurationItem.value) { _ in
+                    SettingsManager.saveSettings()
+                }
         } header: {
             Text("Tasks")
         } footer: {
@@ -39,8 +49,7 @@ struct TabataSettingsView: View {
             Text("Repeating \"activity + rest\" sequences in one tabata exercise")
         }
         
-        ResetToDefaultsButton(subgroup: .tabata, areResetToDefaults: $areResetToDefaults)
-            .id(UUID())
+        ResetToDefaultsButton(subgroup: .tabata)
     }
 }
 

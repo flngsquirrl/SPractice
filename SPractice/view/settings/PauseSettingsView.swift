@@ -12,14 +12,15 @@ struct PauseSettingsView: View {
     @ObservedObject private var nameItem = SettingsManager.pauseNameItem
     @ObservedObject private var durationItem = SettingsManager.pauseDurationItem
     
-    @State private var areResetToDefaults = false
-    
     let range = Array(stride(from: 10, through: 60, by: 10))
     
     var body: some View {
         Section {
             TextField("Exercise name", text: $nameItem.value)
                 .disableAutocorrection(true)
+                .onChange(of: nameItem.value) { _ in
+                    SettingsManager.saveSettings()
+                }
         } footer: {
             HStack {
                 Text("Name used in program sequences and practices")
@@ -31,13 +32,15 @@ struct PauseSettingsView: View {
                 Text("Duration")
                 Spacer()
                 DurationSecondsControl(seconds: $durationItem.value, range: range)
+                    .onChange(of: durationItem.value) { _ in
+                        SettingsManager.saveSettings()
+                    }
             }
         } footer: {
             Text("You can use pauses to take a deep breath and prepare for the next exercise. Take your time!")
         }
         
-        ResetToDefaultsButton(subgroup: .pause, areResetToDefaults: $areResetToDefaults)
-            .id(UUID())
+        ResetToDefaultsButton(subgroup: .pause)
     }
 }
 

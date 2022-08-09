@@ -12,12 +12,13 @@ struct FlowSettingsView: View {
     @ObservedObject private var flowAutoFinishItem = SettingsManager.flowAutoFinishItem
     @ObservedObject private var flowAutoFinishAfterTimeItem = SettingsManager.flowAutoFinishAfterTimeItem
     
-    @State private var areResetToDefaults = false
-    
     var body: some View {
         Section {
             Toggle("Auto-finish", isOn: $flowAutoFinishItem.value.animation())
                 .tint(.customAccentColor)
+                .onChange(of: flowAutoFinishItem.value) { _ in
+                    SettingsManager.saveSettings()
+                }
         } header: {
             Text("Practice")
         } footer: {
@@ -36,13 +37,15 @@ struct FlowSettingsView: View {
                     Text("After")
                     Spacer()
                 }
+                .onChange(of: flowAutoFinishAfterTimeItem.value) { _ in
+                    SettingsManager.saveSettings()
+                }
             } footer: {
                 Text("You can still finish earlier moving to another exercise or finishing the practice")
             }
         }
         
-        ResetToDefaultsButton(subgroup: .flow, areResetToDefaults: $areResetToDefaults)
-            .id(UUID())
+        ResetToDefaultsButton(subgroup: .flow)
     }
 }
 

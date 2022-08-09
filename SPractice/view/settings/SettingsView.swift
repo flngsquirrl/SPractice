@@ -9,9 +9,6 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @State private var showResetConfirmation = false
-    @State private var resetAllDisabled = true
-    
     static private var groupFooter: [SettingsGroup: String] = [
         .exercise: "Set exercise configuration",
         .practice: "Configure practice parameters",
@@ -37,42 +34,13 @@ struct SettingsView: View {
                         Text(Self.groupFooter[group] ?? "")
                     }
                 }
-                
-                Section {
-                    Button("Reset all to defaults", role: .destructive) {
-                        showResetConfirmation = true
-                    }
-                    .disabled(resetAllDisabled)
-                } footer: {
-                    Text("Undo all custom settings and reset example templates to the initial state")
-                }
             }
             .listStyle(.insetGrouped)
-            .onAppear() {
-                updateResetAllDisabled()
-            }
-            .onDisappear() {
-                SettingsManager.saveSettings()
-            }
-            .alert(LayoutUtils.warningAlertTitle, isPresented: $showResetConfirmation) {
-                Button("Reset", role: .destructive) {
-                    SettingsManager.resetToDefauls()
-                    resetAllDisabled = true
-                }
-                
-                Button("Cancel", role: .cancel) {}
-            } message: {
-                SettingsConstants.resetMessage
-            }
             .navigationTitle("Settings")
             
             WelcomeView()
         }
         .accentColor(.customAccentColor)
-    }
-    
-    func updateResetAllDisabled() {
-        resetAllDisabled = !SettingsManager.hasChangesFromDefaults
     }
 }
 
