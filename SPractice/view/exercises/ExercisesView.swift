@@ -7,17 +7,13 @@
 
 import SwiftUI
 
-struct ExercisesView: View, MainListView {
+struct ExercisesView: View {
     
-    typealias Element = ExerciseTemplate
+    @StateObject private var viewModel = ViewModel()
     
     @ObservedObject var dataManager = Exercises.shared
     @ObservedObject var selectionManager = ExerciseSelectionManager.shared
     @Environment(\.horizontalSizeClass) var sizeClass
-    
-    @State internal var searchText = ""
-    @AppStorage("exercisesSortProperty") internal var sortProperty: SortProperty = .date
-    @AppStorage("exercisesSortOrder") internal var sortOrder: SortOrder = .desc
     
     @State private var showDeleteConfirmation = false
     @State private var selectedToDelete: ExerciseTemplate?
@@ -43,12 +39,14 @@ struct ExercisesView: View, MainListView {
     var list: some View {
         ScrollViewReader { proxy in
             List {
-                ForEach(sortedElements) { exercise in
+                ForEach(viewModel.exercises) { exercise in
                     HStack {
                         NavigationLink(tag: exercise.id, selection: $selectionManager.selection) {
                             ExerciseDetailsView(for: exercise) {
-                                dataManager.update($0)
-                            } onDelete: { deleteItem($0) }
+                                viewModel.updateItem($0)
+                            } onDelete: {
+                                viewModel.deleteItem($0)
+                            }
                         } label: {
                             let isAccented = exercise.id == selectedToDelete?.id
                             ExerciseShortDecorativeView(for: exercise, isIconAccented: isAccented, isNameAccented: isAccented, isFilled: true)
@@ -57,7 +55,7 @@ struct ExercisesView: View, MainListView {
                 }
                 .onDelete { indexSet in
                     showDeleteConfirmation = true
-                    selectedToDelete = getSortedElement(index: indexSet.first!)
+                    selectedToDelete = viewModel.getElement(index: indexSet.first!)
                 }
             }
             .listStyle(.inset)
@@ -68,7 +66,7 @@ struct ExercisesView: View, MainListView {
                     }
                 }
             }
-            .searchable(text: $searchText)
+            .searchable(text: $viewModel.searchText)
             .disableAutocorrection(true)
             .onChange(of: selectionManager.newItem) { _ in
                 if selectionManager.newItem != nil {
@@ -79,7 +77,7 @@ struct ExercisesView: View, MainListView {
             }
             .alert(DeleteAlertConstants.title, isPresented: $showDeleteConfirmation, presenting: selectedToDelete) { item in
                 DeleteAlertContent(item: item) {
-                    deleteItem($0)
+                    viewModel.deleteItem($0)
                 }
             } message: { _ in
                 DeleteAlertConstants.messageText
@@ -89,7 +87,7 @@ struct ExercisesView: View, MainListView {
     
     var addItemView: some View {
         AddExerciseView() {
-            addItem($0)
+            viewModel.addItem($0)
         }
     }
     
@@ -102,8 +100,14 @@ struct ExercisesView: View, MainListView {
                     .frame(width: 25)
             }
             
-            SortingMenu(sortProperty: $sortProperty, sortOrder: $sortOrder)
+            SortingMenu(sortProperty: $viewModel.sortProperty, sortOrder: $viewModel.sortOrder) {
+                viewModel.applySorting()
+            }
         }
+    }
+    
+    var secondaryView: some View {
+        WelcomeView()
     }
 }
 

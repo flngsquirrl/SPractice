@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C91110DC289BDCCC00B9BC03 /* MainListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91110DB289BDCCC00B9BC03 /* MainListView.swift */; };
+		C91110DC289BDCCC00B9BC03 /* MainList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91110DB289BDCCC00B9BC03 /* MainList.swift */; };
 		C915931F288758C100301338 /* Decorated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C915931E288758C100301338 /* Decorated.swift */; };
+		C91696A628A2543500053E90 /* ProgramsView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91696A528A2543500053E90 /* ProgramsView-ViewModel.swift */; };
+		C91696A928A2910000053E90 /* ExercisesView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91696A828A2910000053E90 /* ExercisesView-ViewModel.swift */; };
 		C91982572876E297005D049C /* InfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91982562876E297005D049C /* InfoButton.swift */; };
 		C9198259287786C7005D049C /* SortOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9198258287786C7005D049C /* SortOptions.swift */; };
 		C91B828E28896D1100900239 /* ExerciseExampleId.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91B828D28896D1100900239 /* ExerciseExampleId.swift */; };
@@ -122,8 +124,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C91110DB289BDCCC00B9BC03 /* MainListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListView.swift; sourceTree = "<group>"; };
+		C91110DB289BDCCC00B9BC03 /* MainList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainList.swift; sourceTree = "<group>"; };
 		C915931E288758C100301338 /* Decorated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decorated.swift; sourceTree = "<group>"; };
+		C91696A528A2543500053E90 /* ProgramsView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgramsView-ViewModel.swift"; sourceTree = "<group>"; };
+		C91696A828A2910000053E90 /* ExercisesView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExercisesView-ViewModel.swift"; sourceTree = "<group>"; };
 		C91982562876E297005D049C /* InfoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButton.swift; sourceTree = "<group>"; };
 		C9198258287786C7005D049C /* SortOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOptions.swift; sourceTree = "<group>"; };
 		C91B828D28896D1100900239 /* ExerciseExampleId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseExampleId.swift; sourceTree = "<group>"; };
@@ -248,6 +252,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C91696A728A268D800053E90 /* sorting */ = {
+			isa = PBXGroup;
+			children = (
+				C9198258287786C7005D049C /* SortOptions.swift */,
+			);
+			path = sorting;
+			sourceTree = "<group>";
+		};
 		C92F6C38286C5A4D00D7BA59 /* utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				C9A0D00728228078000CF439 /* ProgramsView.swift */,
+				C91696A528A2543500053E90 /* ProgramsView-ViewModel.swift */,
 			);
 			path = programs;
 			sourceTree = "<group>";
@@ -325,7 +338,7 @@
 				C9A029022878478E00032FF9 /* DeleteAlert.swift */,
 				C99D281528799AE700596FBD /* DetailsView.swift */,
 				C915931E288758C100301338 /* Decorated.swift */,
-				C91110DB289BDCCC00B9BC03 /* MainListView.swift */,
+				C91110DB289BDCCC00B9BC03 /* MainList.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -344,6 +357,7 @@
 			isa = PBXGroup;
 			children = (
 				C9692C7E2850A35A00373730 /* ExercisesView.swift */,
+				C91696A828A2910000053E90 /* ExercisesView-ViewModel.swift */,
 				C9692C822850A78300373730 /* TemplateManager.swift */,
 				C9692C842850F47500373730 /* ExerciseSelectionView.swift */,
 				C9D156AD28533DD7007F5176 /* ExerciseSelectionView-ViewModel.swift */,
@@ -387,6 +401,7 @@
 				C9DE15222868B2C70011324C /* practice */,
 				C9DE15252868B34A0011324C /* program */,
 				C9DE15232868B2D90011324C /* settings */,
+				C91696A728A268D800053E90 /* sorting */,
 				C99D28192879AA7E00596FBD /* common */,
 			);
 			path = model;
@@ -543,7 +558,6 @@
 				C9CEAA16287DCCFD00D15A16 /* SettingsGroup.swift */,
 				C9CEAA0C287C619F00D15A16 /* SettingsManager.swift */,
 				C9CEAA14287DC98E00D15A16 /* SettingsItem.swift */,
-				C9198258287786C7005D049C /* SortOptions.swift */,
 			);
 			path = settings;
 			sourceTree = "<group>";
@@ -660,6 +674,7 @@
 				C9D53FB128704B3800FD2B6F /* AddExerciseView-ViewModel.swift in Sources */,
 				C9692C76284F4E9100373730 /* ClockTime.swift in Sources */,
 				C967287E287457B500B4990C /* Program.swift in Sources */,
+				C91696A928A2910000053E90 /* ExercisesView-ViewModel.swift in Sources */,
 				C9DE15282868B3CE0011324C /* Exercises.swift in Sources */,
 				C9A0CFEA281AB32B000CF439 /* Task.swift in Sources */,
 				C9A0D027282A613A000CF439 /* PracticeSequenceView.swift in Sources */,
@@ -717,7 +732,7 @@
 				C9741A34286085E400E1F670 /* EditProgramView.swift in Sources */,
 				C96728852874E71700B4990C /* PracticeSummaryView.swift in Sources */,
 				C99E4EB928959D6D0046A50C /* ItemSelectionManager.swift in Sources */,
-				C91110DC289BDCCC00B9BC03 /* MainListView.swift in Sources */,
+				C91110DC289BDCCC00B9BC03 /* MainList.swift in Sources */,
 				C9CEAA08287C44EB00D15A16 /* DurationMinutesControl.swift in Sources */,
 				C91982572876E297005D049C /* InfoButton.swift in Sources */,
 				C9A0CFF2281B3733000CF439 /* PracticeExerciseView.swift in Sources */,
@@ -725,6 +740,7 @@
 				C9EB6D952881902B0026186C /* String-Empty.swift in Sources */,
 				C9A0D001281BE4C8000CF439 /* PlayerView.swift in Sources */,
 				C9CEAA11287D964900D15A16 /* NumberSelectionControl.swift in Sources */,
+				C91696A628A2543500053E90 /* ProgramsView-ViewModel.swift in Sources */,
 				C9741A3C2860CD6300E1F670 /* ExerciseTypeImage.swift in Sources */,
 				C95F17852884431700E8446D /* SettingsLink.swift in Sources */,
 				C9A028FC287833F200032FF9 /* ManagedList.swift in Sources */,

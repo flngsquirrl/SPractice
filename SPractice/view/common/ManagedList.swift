@@ -77,4 +77,8 @@ extension ManagedList {
     func getSortedElement(index: Int) -> Element {
         sortedElements[index]
     }
+    
+    func getElement(index: Int) -> Element {
+        elements[index]
+    }
 }

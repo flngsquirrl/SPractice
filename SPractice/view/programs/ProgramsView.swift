@@ -7,17 +7,12 @@
 
 import SwiftUI
 
-struct ProgramsView: View, MainListView {
+struct ProgramsView: View {
     
-    typealias Element = ProgramTemplate
+    @StateObject private var viewModel = ViewModel()
     
-    @ObservedObject var dataManager = Programs.shared
     @ObservedObject var selectionManager = ProgramSelectionManager.shared
     @Environment(\.horizontalSizeClass) var sizeClass
-    
-    @State internal var searchText = ""
-    @AppStorage("programsSortProperty") internal var sortProperty: SortProperty = .date
-    @AppStorage("programsSortOrder") internal var sortOrder: SortOrder = .desc
     
     @State private var showDeleteConfirmation = false
     @State private var selectedToDelete: ProgramTemplate?
@@ -43,13 +38,13 @@ struct ProgramsView: View, MainListView {
     var list: some View {
         ScrollViewReader { proxy in
             List {
-                ForEach(sortedElements) { program in
+                ForEach(viewModel.programs) { program in
                     HStack {
                         NavigationLink(tag: program.id, selection: $selectionManager.selection) {
                             ProgramDetailsView(for: program) {
-                                dataManager.update($0)
+                                viewModel.updateItem($0)
                             } onDelete: {
-                                deleteItem($0)
+                                viewModel.deleteItem($0)
                             }
                         } label: {
                             ProgramShortDecorativeView(for: program, isAccented: program.id == selectedToDelete?.id, accentColor: .customAccentColor)
@@ -58,7 +53,7 @@ struct ProgramsView: View, MainListView {
                 }
                 .onDelete { indexSet in
                     showDeleteConfirmation = true
-                    selectedToDelete = getSortedElement(index: indexSet.first!)
+                    selectedToDelete = viewModel.getElement(index: indexSet.first!)
                 }
             }
             .listStyle(.inset)
@@ -69,7 +64,7 @@ struct ProgramsView: View, MainListView {
                     }
                 }
             }
-            .searchable(text: $searchText)
+            .searchable(text: $viewModel.searchText)
             .disableAutocorrection(true)
             .onChange(of: selectionManager.newItem) { _ in
                 if selectionManager.newItem != nil {
@@ -80,7 +75,7 @@ struct ProgramsView: View, MainListView {
             }
             .alert(DeleteAlertConstants.title, isPresented: $showDeleteConfirmation, presenting: selectedToDelete) { item in
                 DeleteAlertContent(item: item) {
-                    deleteItem($0)
+                    viewModel.deleteItem($0)
                 }
             } message: { _ in
                 DeleteAlertConstants.messageText
@@ -90,7 +85,7 @@ struct ProgramsView: View, MainListView {
     
     var addItemView: some View {
         AddProgramView() {
-            addItem($0)
+            viewModel.addItem($0)
         }
     }
     
@@ -103,13 +98,18 @@ struct ProgramsView: View, MainListView {
                     .frame(width: 25)
             }
             
-            SortingMenu(sortProperty: $sortProperty, sortOrder: $sortOrder)
+            SortingMenu(sortProperty: $viewModel.sortProperty, sortOrder: $viewModel.sortOrder) {
+                viewModel.setSorting()
+            }
         }
     }
     
-    func setSorting(property: SortProperty, order: SortOrder) {
-        sortProperty = property
-        sortOrder = order
+    var secondaryView: some View {
+        WelcomeView()
+    }
+    
+    var isRegularSize: Bool {
+        sizeClass == .regular
     }
 }
 

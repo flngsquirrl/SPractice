@@ -11,11 +11,14 @@ struct SortingMenu: View {
     @Binding var sortProperty: SortProperty
     @Binding var sortOrder: SortOrder
     
+    var onApplySorting: () -> Void
+    
     var body: some View {
         Menu {
             ForEach(SortProperty.allCases, id: \.self) { property in
                 Button() {
                     setSortProperty(property)
+                    onApplySorting()
                 } label: {
                     if property == sortProperty {
                         Image(systemName: "checkmark")
@@ -27,6 +30,7 @@ struct SortingMenu: View {
             ForEach(SortOrder.allCases, id: \.self) { order in
                 Button() {
                     setSortOrder(order)
+                    onApplySorting()
                 } label: {
                     if order == sortOrder {
                         Image(systemName: "checkmark")
@@ -60,6 +64,6 @@ struct SortingMenu: View {
 
 struct SortingMenu_Previews: PreviewProvider {
     static var previews: some View {
-        SortingMenu(sortProperty: .constant(.date), sortOrder: .constant(.asc))
+        SortingMenu(sortProperty: .constant(.date), sortOrder: .constant(.asc)) { }
     }
 }

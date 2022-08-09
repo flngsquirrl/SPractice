@@ -7,7 +7,7 @@
 
 import Foundation
 
-@MainActor class Programs: ObservableObject, DataManager {
+@MainActor class Programs: ObservableObject, PersistentDataManager {
     
     typealias Item = ProgramTemplate
     
