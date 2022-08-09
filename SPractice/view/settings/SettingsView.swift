@@ -9,8 +9,6 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @Environment(\.dismiss) var dismiss
-    
     @State private var showResetConfirmation = false
     @State private var resetAllDisabled = true
     
@@ -67,6 +65,8 @@ struct SettingsView: View {
                 SettingsConstants.resetMessage
             }
             .navigationTitle("Settings")
+            
+            WelcomeView()
         }
         .accentColor(.customAccentColor)
     }
