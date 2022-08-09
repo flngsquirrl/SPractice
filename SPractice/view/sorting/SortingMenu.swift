@@ -1,5 +1,5 @@
 //
-//  SortingMenu.swift
+//  SortingControl.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 8.07.22.
@@ -7,50 +7,35 @@
 
 import SwiftUI
 
-struct SortingMenu: View {
+struct SortingControl: View {
     @Binding var sortingProperty: SortingProperty
     @Binding var sortingOrder: SortingOrder
     
     var onApplySorting: () -> Void
     
+    @State private var showConfirmation = false
+    
     var body: some View {
-        Menu {
-            ForEach(SortingProperty.allCases, id: \.self) { property in
-                Button() {
-                    setSortingProperty(property)
-                    onApplySorting()
-                } label: {
-                    if property == sortingProperty {
-                        Image(systemName: "checkmark")
-                    }
-                    Text("\(property.rawValue)")
-                }
-            }
-            Divider()
-            ForEach(SortingOrder.allCases, id: \.self) { order in
-                Button() {
-                    setSortingOrder(order)
-                    onApplySorting()
-                } label: {
-                    if order == sortingOrder {
-                        Image(systemName: "checkmark")
-                    }
-                    Text("\(order.rawValue)")
-                }
-            }
+        Button {
+            showConfirmation = true
         } label: {
             Image(systemName: "arrow.up.arrow.down")
         }
+        .confirmationDialog("Apply sorting", isPresented: $showConfirmation) {
+            Button("name (A-Z)") { setSorting(property: .name, order: .asc) }
+            Button("name (Z-A)") { setSorting(property: .name, order: .desc) }
+            Button("creation time (oldest first)") { setSorting(property: .date, order: .asc) }
+            Button("creation time (newest first)") { setSorting(property: .date, order: .desc) }
+        } message: {
+            Text("Sort by")
+        }
     }
     
-    func getOrderToSet(property: SortingProperty) -> SortingOrder {
-        let order: SortingOrder
-        if property == sortingProperty {
-            order = sortingOrder.opposite
-        } else {
-            order = SortingOrder.asc
-        }
-        return order
+    func setSorting(property: SortingProperty, order: SortingOrder) {
+        setSortingProperty(property)
+        setSortingOrder(order)
+        
+        onApplySorting()
     }
     
     func setSortingProperty(_ property: SortingProperty) {
@@ -62,9 +47,9 @@ struct SortingMenu: View {
     }
 }
 
-struct SortingMenu_Previews: PreviewProvider {
+struct SortingControl_Previews: PreviewProvider {
     static var previews: some View {
-        SortingMenu(sortingProperty: .constant(.date), sortingOrder: .constant(.asc)) { }
+        SortingControl(sortingProperty: .constant(.date), sortingOrder: .constant(.asc)) { }
     }
 }
 

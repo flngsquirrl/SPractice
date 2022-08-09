@@ -98,7 +98,7 @@ struct ExercisesView: View {
                     .frame(width: 25)
             }
             
-            SortingMenu(sortingProperty: $viewModel.sortingProperty, sortingOrder: $viewModel.sortingOrder) {
+            SortingControl(sortingProperty: $viewModel.sortingProperty, sortingOrder: $viewModel.sortingOrder) {
                 viewModel.applySorting()
             }
         }
