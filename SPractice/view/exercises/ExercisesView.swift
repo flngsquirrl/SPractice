@@ -11,9 +11,7 @@ struct ExercisesView: View {
     
     @StateObject private var viewModel = ViewModel()
     
-    @ObservedObject var dataManager = Exercises.shared
     @ObservedObject var selectionManager = ExerciseSelectionManager.shared
-    @Environment(\.horizontalSizeClass) var sizeClass
     
     @State private var showDeleteConfirmation = false
     @State private var selectedToDelete: ExerciseTemplate?

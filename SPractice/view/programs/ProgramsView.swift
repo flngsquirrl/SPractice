@@ -12,7 +12,6 @@ struct ProgramsView: View {
     @StateObject private var viewModel = ViewModel()
     
     @ObservedObject var selectionManager = ProgramSelectionManager.shared
-    @Environment(\.horizontalSizeClass) var sizeClass
     
     @State private var showDeleteConfirmation = false
     @State private var selectedToDelete: ProgramTemplate?
@@ -108,9 +107,6 @@ struct ProgramsView: View {
         WelcomeView()
     }
     
-    var isRegularSize: Bool {
-        sizeClass == .regular
-    }
 }
 
 struct ProgramsView_Previews: PreviewProvider {
