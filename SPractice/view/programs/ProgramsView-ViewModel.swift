@@ -17,10 +17,10 @@ extension ProgramsView {
         
         @Published var searchText = ""
         
-        var sortPropertyKey: String = "programsSortProperty"
-        var sortOrderKey: String = "programsSortOrder"
-        var sortProperty: SortProperty = .date
-        var sortOrder: SortOrder = .desc
+        var sortingPropertyKey: String = "programsSortingProperty"
+        var sortingOrderKey: String = "programsSortingOrder"
+        var sortingProperty: SortingProperty = .date
+        var sortingOrder: SortingOrder = .desc
         
         @Published var items = Programs.shared.items
         

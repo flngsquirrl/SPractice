@@ -13,8 +13,8 @@ import Foundation
     var searchText: String {get}
     
     var elements: [Element] {get}
-    var sortProperty: SortProperty {get}
-    var sortOrder: SortOrder {get}
+    var sortingProperty: SortingProperty {get}
+    var sortingOrder: SortingOrder {get}
     var filteredElements: [Element] {get}
     var sortedElements: [Element] {get}
 }
@@ -31,7 +31,7 @@ extension ManagedList {
         
     func sort(_ elements: [Element]) -> [Element] {
         let sorted: [Element]
-        switch sortProperty {
+        switch sortingProperty {
         case .date:
             sorted = sortByDate(elements)
         case .name:
@@ -42,7 +42,7 @@ extension ManagedList {
     
     func sortByDate(_ elements: [Element]) -> [Element] {
         var result: [Element]
-        switch sortOrder {
+        switch sortingOrder {
         case .asc:
             result = elements
         case .desc:
@@ -53,7 +53,7 @@ extension ManagedList {
     
     func sortByName(_ elements: [Element]) -> [Element] {
         var result: [Element]
-        switch sortOrder {
+        switch sortingOrder {
             case .asc:
                 result = elements.sorted(by: { $0.name < $1.name })
             case .desc:

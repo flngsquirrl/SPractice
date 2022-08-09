@@ -8,31 +8,31 @@
 import SwiftUI
 
 struct SortingMenu: View {
-    @Binding var sortProperty: SortProperty
-    @Binding var sortOrder: SortOrder
+    @Binding var sortingProperty: SortingProperty
+    @Binding var sortingOrder: SortingOrder
     
     var onApplySorting: () -> Void
     
     var body: some View {
         Menu {
-            ForEach(SortProperty.allCases, id: \.self) { property in
+            ForEach(SortingProperty.allCases, id: \.self) { property in
                 Button() {
-                    setSortProperty(property)
+                    setSortingProperty(property)
                     onApplySorting()
                 } label: {
-                    if property == sortProperty {
+                    if property == sortingProperty {
                         Image(systemName: "checkmark")
                     }
                     Text("\(property.rawValue)")
                 }
             }
             Divider()
-            ForEach(SortOrder.allCases, id: \.self) { order in
+            ForEach(SortingOrder.allCases, id: \.self) { order in
                 Button() {
-                    setSortOrder(order)
+                    setSortingOrder(order)
                     onApplySorting()
                 } label: {
-                    if order == sortOrder {
+                    if order == sortingOrder {
                         Image(systemName: "checkmark")
                     }
                     Text("\(order.rawValue)")
@@ -43,27 +43,28 @@ struct SortingMenu: View {
         }
     }
     
-    func getOrderToSet(property: SortProperty) -> SortOrder {
-        let order: SortOrder
-        if property == sortProperty {
-            order = sortOrder.opposite
+    func getOrderToSet(property: SortingProperty) -> SortingOrder {
+        let order: SortingOrder
+        if property == sortingProperty {
+            order = sortingOrder.opposite
         } else {
-            order = SortOrder.asc
+            order = SortingOrder.asc
         }
         return order
     }
     
-    func setSortProperty(_ property: SortProperty) {
-        sortProperty = property
+    func setSortingProperty(_ property: SortingProperty) {
+        sortingProperty = property
     }
     
-    func setSortOrder(_ order: SortOrder) {
-        sortOrder = order
+    func setSortingOrder(_ order: SortingOrder) {
+        sortingOrder = order
     }
 }
 
 struct SortingMenu_Previews: PreviewProvider {
     static var previews: some View {
-        SortingMenu(sortProperty: .constant(.date), sortOrder: .constant(.asc)) { }
+        SortingMenu(sortingProperty: .constant(.date), sortingOrder: .constant(.asc)) { }
     }
 }
+

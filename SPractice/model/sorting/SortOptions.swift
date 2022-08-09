@@ -8,50 +8,54 @@
 import Foundation
 
 @MainActor protocol SortingManager: AnyObject {
-    var sortPropertyKey: String {get}
-    var sortOrderKey: String {get}
+    var sortingPropertyKey: String {get}
+    var sortingOrderKey: String {get}
     
-    var sortProperty: SortProperty {get set}
-    var sortOrder: SortOrder {get set}
+    var sortingProperty: SortingProperty {get set}
+    var sortingOrder: SortingOrder {get set}
 }
 
 extension SortingManager {
     
-    func readSortSetup() {
-        readSortProperty()
-        readSortOrder()
+    func readSortingSetup() {
+        readSortingProperty()
+        readSortingOrder()
     }
     
-    func readSortProperty() {
-        let savedValue = UserDefaults.standard.string(forKey: sortPropertyKey)
+    func readSortingProperty() {
+        let savedValue = UserDefaults.standard.string(forKey: sortingPropertyKey)
         if let savedValue = savedValue {
-            sortProperty = SortProperty(rawValue: savedValue)!
+            sortingProperty = SortingProperty(rawValue: savedValue)!
+        } else {
+            sortingProperty = .date
         }
     }
     
-    func readSortOrder() {
-        let savedValue = UserDefaults.standard.string(forKey: sortOrderKey)
+    func readSortingOrder() {
+        let savedValue = UserDefaults.standard.string(forKey: sortingOrderKey)
         if let savedValue = savedValue {
-            sortOrder = SortOrder(rawValue: savedValue)!
+            sortingOrder = SortingOrder(rawValue: savedValue)!
+        } else {
+            sortingOrder = .desc
         }
     }
     
     func saveSorting() {
-        UserDefaults.standard.set(sortProperty.rawValue, forKey: sortPropertyKey)
-        UserDefaults.standard.set(sortOrder.rawValue, forKey: sortOrderKey)
+        UserDefaults.standard.set(sortingProperty.rawValue, forKey: sortingPropertyKey)
+        UserDefaults.standard.set(sortingOrder.rawValue, forKey: sortingOrderKey)
     }
 }
 
-enum SortProperty: String, CaseIterable {
+enum SortingProperty: String, CaseIterable {
     case date = "creation time"
     case name = "name"
 }
 
-enum SortOrder: String, CaseIterable {
+enum SortingOrder: String, CaseIterable {
     case asc = "ascending"
     case desc = "descending"
     
-    var opposite: SortOrder {
+    var opposite: SortingOrder {
         if self == .asc {
             return .desc
         } else {

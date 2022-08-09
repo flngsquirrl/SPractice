@@ -17,10 +17,10 @@ extension ExercisesView {
         
         @Published var searchText = ""
         
-        var sortPropertyKey: String = "exercisesSortProperty"
-        var sortOrderKey: String = "exercisesSortOrder"
-        var sortProperty: SortProperty = .date
-        var sortOrder: SortOrder = .desc
+        var sortingPropertyKey: String = "exercisesSortingProperty"
+        var sortingOrderKey: String = "exercisesSortingOrder"
+        var sortingProperty: SortingProperty = .date
+        var sortingOrder: SortingOrder = .desc
         
         @Published var items = Exercises.shared.items
         

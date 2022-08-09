@@ -11,8 +11,8 @@ import SwiftUI
 extension ExerciseSelectionView {
     @MainActor class ViewModel: ObservableObject, ManagedList {
 
-        @AppStorage("exercisesSortProperty") internal var sortProperty: SortProperty = .date
-        @AppStorage("exercisesSortOrder") internal var sortOrder: SortOrder = .desc
+        @AppStorage("exercisesSortingProperty") internal var sortingProperty: SortingProperty = .date
+        @AppStorage("exercisesSortingOrder") internal var sortingOrder: SortingOrder = .desc
         
         typealias Element = SelectionItem
         

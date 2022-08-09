@@ -19,7 +19,7 @@ import SwiftUI
 extension MainList {
     
     func initialSetup() {
-        readSortSetup()
+        readSortingSetup()
         applySorting()
     }
     
