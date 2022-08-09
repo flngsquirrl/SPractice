@@ -39,7 +39,7 @@ struct ExercisesView: View {
             List {
                 ForEach(viewModel.exercises) { exercise in
                     HStack {
-                        NavigationLink(tag: exercise.id, selection: $selectionManager.selection) {
+                        NavigationLink {
                             ExerciseDetailsView(for: exercise) {
                                 viewModel.updateItem($0)
                             } onDelete: {

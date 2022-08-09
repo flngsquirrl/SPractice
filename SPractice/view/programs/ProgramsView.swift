@@ -39,7 +39,7 @@ struct ProgramsView: View {
             List {
                 ForEach(viewModel.programs) { program in
                     HStack {
-                        NavigationLink(tag: program.id, selection: $selectionManager.selection) {
+                        NavigationLink {
                             ProgramDetailsView(for: program) {
                                 viewModel.updateItem($0)
                             } onDelete: {

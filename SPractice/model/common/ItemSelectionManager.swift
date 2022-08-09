@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 @MainActor protocol ItemSelectionManager: AnyObject {
-    var selection: UUID? {get set}
     var newItem: UUID? {get set}
     var detailsItem: UUID? {get set}
 }
@@ -22,14 +21,6 @@ extension ItemSelectionManager {
     }
     
     func onItemDelete(id: UUID) {
-        if selection == id {
-            selection = nil
-        }
-        
-        if newItem == id {
-            newItem = nil
-        }
-        
         if detailsItem == id {
             detailsItem = nil
         }
@@ -41,7 +32,6 @@ extension ItemSelectionManager {
 }
 
 @MainActor class ProgramSelectionManager: ObservableObject, ItemSelectionManager {
-    @Published var selection: UUID?
     var newItem: UUID?
     @Published var detailsItem: UUID?
     
@@ -49,7 +39,6 @@ extension ItemSelectionManager {
 }
 
 @MainActor class ExerciseSelectionManager: ObservableObject, ItemSelectionManager {
-    @Published var selection: UUID?
     var newItem: UUID?
     @Published var detailsItem: UUID?
     
