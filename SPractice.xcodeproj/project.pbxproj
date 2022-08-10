@@ -78,6 +78,7 @@
 		C9A0D027282A613A000CF439 /* PracticeSequenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D026282A613A000CF439 /* PracticeSequenceView.swift */; };
 		C9A0D029282BD603000CF439 /* Practice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D028282BD603000CF439 /* Practice.swift */; };
 		C9A0D02B282BE586000CF439 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D02A282BE586000CF439 /* Player.swift */; };
+		C9ACBA2128A440E70067F07F /* AboutSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACBA2028A440E70067F07F /* AboutSettingsView.swift */; };
 		C9ADD739287F602F00F465D5 /* ResetToDefaultsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ADD738287F602F00F465D5 /* ResetToDefaultsButton.swift */; };
 		C9B1E744287C266000C92571 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B1E743287C266000C92571 /* SettingsView.swift */; };
 		C9B1E746287C293F00C92571 /* TabataSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B1E745287C293F00C92571 /* TabataSettingsView.swift */; };
@@ -196,6 +197,7 @@
 		C9A0D026282A613A000CF439 /* PracticeSequenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeSequenceView.swift; sourceTree = "<group>"; };
 		C9A0D028282BD603000CF439 /* Practice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Practice.swift; sourceTree = "<group>"; };
 		C9A0D02A282BE586000CF439 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		C9ACBA2028A440E70067F07F /* AboutSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSettingsView.swift; sourceTree = "<group>"; };
 		C9ADD738287F602F00F465D5 /* ResetToDefaultsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetToDefaultsButton.swift; sourceTree = "<group>"; };
 		C9B1E743287C266000C92571 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C9B1E745287C293F00C92571 /* TabataSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabataSettingsView.swift; sourceTree = "<group>"; };
@@ -523,6 +525,7 @@
 				C9B1E743287C266000C92571 /* SettingsView.swift */,
 				C9CEAA12287DA76A00D15A16 /* SettingsSubgroupView.swift */,
 				C9CEA9FF287C2DFF00D15A16 /* SettingsSubgroupDetailsView.swift */,
+				C9ACBA2028A440E70067F07F /* AboutSettingsView.swift */,
 				C9B1E745287C293F00C92571 /* TabataSettingsView.swift */,
 				C9B1E747287C295900C92571 /* FlowSettingsView.swift */,
 				C9CEAA01287C307D00D15A16 /* PauseSettingsView.swift */,
@@ -774,6 +777,7 @@
 				C9CEAA1D287EC63600D15A16 /* RestartIconButton.swift in Sources */,
 				C92F6C3E286DDFF400D7BA59 /* View-Wrapped.swift in Sources */,
 				C9B1E748287C295900C92571 /* FlowSettingsView.swift in Sources */,
+				C9ACBA2128A440E70067F07F /* AboutSettingsView.swift in Sources */,
 				C9CEAA17287DCCFD00D15A16 /* SettingsGroup.swift in Sources */,
 				C9A0CFEC281AB382000CF439 /* PracticeExercise.swift in Sources */,
 				C92F6C42286F00EB00D7BA59 /* LayoutUtils.swift in Sources */,

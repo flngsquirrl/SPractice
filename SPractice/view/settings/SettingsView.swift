@@ -18,6 +18,16 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             List {
+                Section {
+                    NavigationLink {
+                        AboutSettingsView()
+                    } label: {
+                        Text("About")
+                    }
+                } header: {
+                    Text("General")
+                }
+                
                 ForEach(SettingsGroup.allCases, id: \.self) { group in
                     Section {
                         let subgroups = SettingsGroup.hierarchy[group]!

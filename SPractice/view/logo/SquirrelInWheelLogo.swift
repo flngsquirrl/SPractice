@@ -21,13 +21,10 @@ struct SquirrelInWheelLogo: View {
             let strokeStyle = StrokeStyle(lineWidth: lineWidth, lineCap: .round, lineJoin: .round)
             
             ZStack {
-//                Rectangle()
-//                    .fill(gragient)
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(.lightOrange)
                 
                 Group {
-//                    Circle()
-//                        .fill(gragient)
-                    
                     Group {
                         SquirrelInWheel()
                             .stroke(color, style: strokeStyle)
