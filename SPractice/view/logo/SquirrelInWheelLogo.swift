@@ -17,11 +17,11 @@ struct SquirrelInWheelLogo: View {
     
     var body: some View {
         GeometryReader { geo in
-            let lineWidth = geo.size.width * 0.055
+            let lineWidth = geo.size.width * 0.06
             let strokeStyle = StrokeStyle(lineWidth: lineWidth, lineCap: .round, lineJoin: .round)
             
             ZStack {
-                RoundedRectangle(cornerRadius: 25)
+                RoundedRectangle(cornerRadius: geo.size.width * 0.2)
                     .fill(.lightOrange)
                 
                 Group {
@@ -33,7 +33,7 @@ struct SquirrelInWheelLogo: View {
                             .fill(color)
                             .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
                     }
-                    .frame(width: geo.size.width * 0.8, height: geo.size.width * 0.8)
+                    .frame(width: geo.size.width * 0.75, height: geo.size.width * 0.75)
                 }
                 .frame(width: geo.size.width, height: geo.size.width)
             }
@@ -47,7 +47,7 @@ struct WingShape_Previews: PreviewProvider {
             Color.black
             VStack {
                 SquirrelInWheelLogo()
-                    .frame(width: 400, height: 400)
+                    .frame(width: 100, height: 100)
             }
         }
     }
