@@ -9,14 +9,14 @@ import SwiftUI
 
 struct ExerciseTasksView: View {
     
-    var exercise: PracticeExercise
+    var tasks: [Task]
     
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
         NavigationView {
-            List(exercise.tasks) { task in
-                TaskDetailsShortView(task: task, exerciseType: exercise.exerciseType)
+            List(tasks) { task in
+                TaskDetailsShortView(task: task)
             }
             .navigationTitle("Tasks")
             .navigationBarTitleDisplayMode(.inline)
@@ -34,6 +34,6 @@ struct ExerciseTasksView: View {
 
 struct ExerciseTasksView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseTasksView(exercise: PracticeExercise.vasihsthasana)
+        ExerciseTasksView(tasks: PracticeExercise.vasihsthasana.tasks)
     }
 }

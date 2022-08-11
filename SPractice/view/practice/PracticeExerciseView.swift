@@ -11,6 +11,8 @@ struct PracticeExerciseView: View {
     
     @ObservedObject var practice: Practice
     
+    @State var showDetails = false
+    
     var body: some View {
         VStack {
             HStack(alignment: .top) {
@@ -25,7 +27,8 @@ struct PracticeExerciseView: View {
                 Spacer()
 
                 RoundIconButton(imageName: "info.circle.fill", disabled: false) {
-                    // show details
+                    showDetails = true
+                    practice.pauseClock()
                 }
                 
                 RoundIconButton(imageName: "arrow.clockwise.circle.fill", disabled: !practice.isCurrentExerciseStarted) {
@@ -46,6 +49,11 @@ struct PracticeExerciseView: View {
             Text("\(practice.currentTask.name)")
                 .font(.body.bold())
                 .foregroundColor(.secondary)
+        }
+        .sheet(isPresented: $showDetails) {
+            practice.resumeClock()
+        } content: {
+            PracticeExerciseInfoView(exercise: practice.currentExercise)
         }
     }
 }

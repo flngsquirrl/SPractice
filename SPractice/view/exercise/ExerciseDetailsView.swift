@@ -32,59 +32,11 @@ struct ExerciseDetailsView: DetailsView {
     
     var detailsContent: some View {
         List {
-            Section {
-                HStack(alignment: .top) {
-                    if viewModel.exercise.isExample {
-                        Image(systemName: "bookmark")
-                            .foregroundColor(.secondary)
-                    }
-                    Text(viewModel.exercise.name)
-                        .fontWeight(.semibold)
-                }
-                if viewModel.showDescription {
-                    Text(viewModel.exercise.description)
-                        .foregroundColor(.secondary)
-                }
-            } footer: {
-                if viewModel.exercise.isExample {
-                    HStack(spacing: 0) {
-                        Text("This is an example ")
-                        InfoButton()
-                    }
-                }
-            }
-            
-            Section {
-                HStack {
-                    Text("Type")
-                    InfoButton()
-                    Spacer()
-                    ExerciseTypeView(type: viewModel.exercise.type, mode: .iconAndText)
-                        .foregroundColor(.secondary)
-                }
-                
-                if viewModel.showDetails {
-                    HStack {
-                        Text("Duration")
-                        InfoButton()
-                        Spacer()
-                        ExerciseDurationView(for: viewModel.exercise, isVerbose: true)
-                            .foregroundColor(.secondary)
-                    }
-                
-                    HStack {
-                        Text("Intensity")
-                        InfoButton()
-                        Spacer()
-                        IntensityView(intensity: viewModel.exercise.intensity, mode: .iconAndText)
-                            .foregroundColor(.secondary)
-                    }
-                }
-            }
+            ExerciseDetailsContent(exercise: viewModel.exercise)
             
             if viewModel.showTasks {
                 Section {
-                    ExerciseTasksButton(exercise: viewModel.exercise)
+                    ExerciseTasksButton(tasks: viewModel.tasks)
                 } footer: {
                     SettingsLinkView(text: "Sequence and duration of the tasks are based on", settingsSubGroup: .tabata)
                 }

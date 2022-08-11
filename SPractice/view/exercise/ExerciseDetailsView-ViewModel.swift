@@ -17,19 +17,11 @@ extension ExerciseDetailsView {
         }
         
         var showTasks: Bool {
-            showDetails && exercise.type == .tabata
+            exercise.isTypeSet && exercise.type == .tabata
         }
         
         var tasks: [Task] {
-            PracticeExercise(from: exercise)?.tasks ?? []
-        }
-        
-        var showDetails: Bool {
-            exercise.isTypeSet
-        }
-        
-        var showDescription: Bool {
-            !exercise.description.isEmptyString
+            PracticeExercise(from: exercise)!.tasks
         }
     }
 }

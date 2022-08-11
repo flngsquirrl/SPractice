@@ -9,7 +9,7 @@ import Foundation
 
 struct PracticeExercise: Exercise, Equatable {
 
-   static func == (lhs: PracticeExercise, rhs: PracticeExercise) -> Bool {
+    static func == (lhs: PracticeExercise, rhs: PracticeExercise) -> Bool {
         lhs.id == rhs.id
     }
     
@@ -19,15 +19,17 @@ struct PracticeExercise: Exercise, Equatable {
     let description: String
     var exerciseIntensity: Intensity
     var isService: Bool
+    var isExample: Bool
     
     private(set) var tasks: [Task]
     
-    private init(type: ExerciseType, name: String, description: String, intensity: Intensity, isService: Bool = false, tasks: [Task] = []) {
+    private init(type: ExerciseType, name: String, description: String, intensity: Intensity, isService: Bool = false, isExample: Bool = false, tasks: [Task] = []) {
         self.exerciseType = type
         self.name = name.trim()
         self.description = description.trim()
         self.exerciseIntensity = intensity
         self.isService = isService
+        self.isExample = isExample
         self.tasks = tasks
     }
     
@@ -37,7 +39,7 @@ struct PracticeExercise: Exercise, Equatable {
         }
         
         let name = template.isService ? SettingsManager.pauseName : template.name
-        self.init(type: template.type!, name: name, description: template.description, intensity: template.intensity!, isService: template.isService)
+        self.init(type: template.type!, name: name, description: template.description, intensity: template.intensity!, isService: template.isService, isExample: template.isExample)
         self.tasks = prepareTasks(from: template)
     }
     

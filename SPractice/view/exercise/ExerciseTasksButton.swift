@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ExerciseTasksButton: View {
     
-    var exercise: ExerciseTemplate
+    var tasks: [Task]
     
     @State private var showTasks = false
     
@@ -18,17 +18,13 @@ struct ExerciseTasksButton: View {
             showTasks = true
         }
         .sheet(isPresented: $showTasks) {
-            ExerciseTasksView(exercise: practiceExercise)
+            ExerciseTasksView(tasks: tasks)
         }
-    }
-    
-    var practiceExercise: PracticeExercise {
-        return PracticeExercise(from: exercise)!
     }
 }
 
 struct ExerciseTasksButton_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseTasksButton(exercise: ExerciseTemplate.vasihsthasana)
+        ExerciseTasksButton(tasks: PracticeExercise(from: ExerciseTemplate.vasihsthasana)!.tasks)
     }
 }

@@ -34,6 +34,10 @@ extension ExerciseEditor {
             return ExerciseTemplate(from: template)
         }
         
+        var practiceExercise: PracticeExercise {
+            return PracticeExercise(from: exercise)!
+        }
+        
         var isTypeDefined: Bool {
             template.type != nil
         }
@@ -100,6 +104,7 @@ extension ExerciseEditor {
         var intensity: Intensity? // not set when type not set
         var duration: Duration
         var isService: Bool
+        var isExample: Bool
         
         init(from template: ExerciseTemplate) {
             self.id = template.id
@@ -109,6 +114,7 @@ extension ExerciseEditor {
             self.intensity = template.intensity
             self.duration = template.duration
             self.isService = template.isService
+            self.isExample = template.isExample
         }
         
         mutating func updateDuration() {

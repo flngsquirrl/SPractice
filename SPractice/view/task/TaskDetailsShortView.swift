@@ -10,7 +10,6 @@ import SwiftUI
 struct TaskDetailsShortView: View {
     
     var task: Task
-    var exerciseType: ExerciseType
     
     var body: some View {
         HStack {
@@ -37,11 +36,11 @@ struct TaskDetailsShortView: View {
 struct TaskDetailsShortView_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            TaskDetailsShortView(task: Task.activityTabata1, exerciseType: .tabata)
-            TaskDetailsShortView(task: Task.restTabata1, exerciseType: .tabata)
-            TaskDetailsShortView(task: Task.activity60, exerciseType: .timer)
-            TaskDetailsShortView(task: Task.activityFlow, exerciseType: .flow)
-            TaskDetailsShortView(task: Task.restTimer, exerciseType: .timer)
+            TaskDetailsShortView(task: Task.activityTabata1)
+            TaskDetailsShortView(task: Task.restTabata1)
+            TaskDetailsShortView(task: Task.activity60)
+            TaskDetailsShortView(task: Task.activityFlow)
+            TaskDetailsShortView(task: Task.restTimer)
         }
     }
 }

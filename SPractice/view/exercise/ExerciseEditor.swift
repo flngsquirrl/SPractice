@@ -68,7 +68,7 @@ struct ExerciseEditor: View {
                     }
                 }
                 if viewModel.showTasks {
-                    ExerciseTasksButton(exercise: viewModel.exercise)
+                    ExerciseTasksButton(tasks: viewModel.practiceExercise.tasks)
                 }
             } footer: {
                 if viewModel.showDurationFooter {
