@@ -8,9 +8,9 @@
 import Foundation
 
 enum ExerciseExampleId: Codable {
-    case balasana
     case catCow
-    case shavasana
     case surjaNamascarA
+    case balasana
     case vasihsthasana
+    case shavasana
 }

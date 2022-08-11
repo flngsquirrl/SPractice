@@ -84,7 +84,19 @@ struct ExerciseTemplate: Exercise, Hashable, Codable {
         ExerciseTemplate(type: .flow)
     }
     
+    func isEqualToExample(example: ExerciseTemplate) -> Bool {
+        self.name == example.name &&
+        self.type == example.type &&
+        self.description == example.description &&
+        self.intensity == example.intensity &&
+        self.isExample == example.isExample &&
+        self.exampleId == example.exampleId
+    }
+    
     // examples
+    
+    static let defaultExamples = [catCow, surjaNamascarA, balasana, vasihsthasana, shavasana]
+    
     static let catCow = ExerciseTemplate(type: .timer, name: "Cat-Cow", description: "Gently change between two poses warming the body and bringing flexibility to the spine", intensity: .activity, duration: .known(90), isExample: true, exampleId: .catCow)
     static let balasana = ExerciseTemplate(type: .timer, name: "Balasana", description: "Child pose with the forehead on the mat", intensity: .rest, duration: .known(30), isExample: true, exampleId: .balasana)
     static let surjaNamascarA = ExerciseTemplate(type: .flow, name: "Surja Namascar A", description: "Sun Salutation, start in Tadasana, go for at least five cycles", intensity: .activity, duration: .unlimited, isExample: true, exampleId: .surjaNamascarA)
