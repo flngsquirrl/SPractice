@@ -25,6 +25,9 @@ struct ProgramTemplate: Program, Codable {
         self.templateExercises = exercises
         
         self.isExample = isExample
+        if isExample {
+            self.exampleId = exampleId
+        }
     }
     
     init(from template: ProgramTemplate) {
