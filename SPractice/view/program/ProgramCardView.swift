@@ -10,21 +10,11 @@ import SwiftUI
 struct ProgramCardView<T>: View where T: Program {
     
     var program: T
-    var isExample: Bool
-    
-    init(program: T) {
-        self.program = program
-        if program is ProgramTemplate {
-            self.isExample = (program as! ProgramTemplate).isExample
-        } else {
-            self.isExample = false
-        }
-    }
     
     var body: some View {
         Section {
             HStack(alignment: .top) {
-                if isExample {
+                if program.isExample {
                     Image(systemName: "bookmark")
                         .foregroundColor(.secondary)
                 }
@@ -36,7 +26,7 @@ struct ProgramCardView<T>: View where T: Program {
                     .foregroundColor(.secondary)
             }
         } footer: {
-            if isExample {
+            if program.isExample {
                 HStack(spacing: 0) {
                     Text("This is an example ")
                     InfoButton()

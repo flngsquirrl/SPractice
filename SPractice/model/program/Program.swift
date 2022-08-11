@@ -14,6 +14,8 @@ protocol Program: HavingID, Named {
     var name: String {get}
     var description: String {get}
     var exercises: [Item] {get}
+    
+    var isExample: Bool {get}
 }
 
 extension Program {

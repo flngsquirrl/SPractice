@@ -30,6 +30,10 @@ struct PreparedProgram: Program, Named, Identifiable {
         }
     }
     
+    var isExample: Bool {
+        template.isExample
+    }
+    
     init(from template: ProgramTemplate, countPauses: Bool = false) {
         self.template = template
         self.countPauses = countPauses

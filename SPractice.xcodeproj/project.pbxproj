@@ -447,11 +447,11 @@
 				C9D53FB92870519200FD2B6F /* EditProgramView-ViewModel.swift */,
 				C9CCCE97284B6DE5005665C8 /* ProgramDetailsView.swift */,
 				C9CCCE99284B6E09005665C8 /* ProgramDetailsView-ViewModel.swift */,
+				C91B828F288B41AF00900239 /* ProgramCardView.swift */,
 				C92F6C3B286D9D2100D7BA59 /* ProgramSummaryView.swift */,
 				C9F604E1287AD57E00838462 /* ProgramShortDecorativeView.swift */,
 				C9D53FBB287064E200FD2B6F /* ProgramDurationSection.swift */,
 				C92F6C43286F0B0000D7BA59 /* ProgramDurationView.swift */,
-				C91B828F288B41AF00900239 /* ProgramCardView.swift */,
 			);
 			path = program;
 			sourceTree = "<group>";
