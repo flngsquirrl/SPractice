@@ -49,4 +49,17 @@ import Foundation
 //            print("Unable to save data.")
 //        }
     }
+    
+    func areAnyExamplesDeleted() -> Bool {
+        !items.contains {$0.exampleId == ProgramExampleId.simple}
+    }
+    
+    func areAnyExamplesModified() -> Bool {
+        let example = items.first {$0.exampleId == ProgramExampleId.simple}
+        if let example = example {
+            return !example.isEqualToExample(example: ProgramTemplate.simple)
+        } else {
+            return false
+        }
+    }
 }

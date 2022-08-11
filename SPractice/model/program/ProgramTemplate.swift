@@ -60,7 +60,20 @@ struct ProgramTemplate: Program, Codable {
         self.name == example.name &&
         self.description == example.description &&
         self.isExample == example.isExample &&
-        self.exampleId == example.exampleId
+        self.exampleId == example.exampleId &&
+        exercisesEqualToExample(example: example)
+    }
+    
+    func exercisesEqualToExample(example: ProgramTemplate) -> Bool {
+        return true
+    }
+    
+    mutating func resetToExample(example: ProgramTemplate) {
+        self.name = example.name
+        self.description = example.description
+        self.isExample = example.isExample
+        self.exampleId = example.exampleId
+        self.templateExercises = example.templateExercises
     }
     
     // examples
