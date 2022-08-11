@@ -9,9 +9,9 @@ import Foundation
 
 @MainActor class Exercises: ObservableObject, PersistentDataManager {
     
-    //@Published internal var items: [ExerciseTemplate] = [ExerciseTemplate.catCow, ExerciseTemplate.balasana, ExerciseTemplate.shavasana, ExerciseTemplate.vasihsthasana, ExerciseTemplate.catCowNoDuration, ExerciseTemplate.surjaNamascarA, ExerciseTemplate.catCowNoType]
+    @Published internal var items: [ExerciseTemplate] = [ExerciseTemplate.catCow, ExerciseTemplate.balasana, ExerciseTemplate.shavasana, ExerciseTemplate.vasihsthasana, ExerciseTemplate.catCowNoDuration, ExerciseTemplate.surjaNamascarA, ExerciseTemplate.catCowNoType]
     
-    @Published internal var items: [ExerciseTemplate]
+    //@Published internal var items: [ExerciseTemplate]
     
     static let shared = Exercises()
     
@@ -27,17 +27,17 @@ import Foundation
         
 //        for lots of items
 //
-       let templates = [ExerciseTemplate.catCow, ExerciseTemplate.balasana, ExerciseTemplate.shavasana, ExerciseTemplate.vasihsthasana, ExerciseTemplate.catCowNoDuration, ExerciseTemplate.surjaNamascarA, ExerciseTemplate.catCowNoType]
-        var exercises: [ExerciseTemplate] = []
-        for template in templates {
-            for i in 1...25 {
-                var exercise = ExerciseTemplate(from: template)
-                exercise.name += " \(i)"
-                exercises.append(exercise)
-            }
-        }
-        
-        items = exercises
+//       let templates = [ExerciseTemplate.catCow, ExerciseTemplate.balasana, ExerciseTemplate.shavasana, ExerciseTemplate.vasihsthasana, ExerciseTemplate.catCowNoDuration, ExerciseTemplate.surjaNamascarA, ExerciseTemplate.catCowNoType]
+//        var exercises: [ExerciseTemplate] = []
+//        for template in templates {
+//            for i in 1...25 {
+//                var exercise = ExerciseTemplate(from: template)
+//                exercise.name += " \(i)"
+//                exercises.append(exercise)
+//            }
+//        }
+//
+//        items = exercises
     }
     
     internal func save() {
