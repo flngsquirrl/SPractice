@@ -15,8 +15,9 @@ struct ProgramTemplate: Program, Codable {
     var templateExercises = [ExerciseTemplate]()
     
     var isExample: Bool
+    var exampleId: ProgramExampleId?
     
-    private init(id: UUID = UUID(), name: String = "", description: String = "", usePauses: Bool = false, exercises: [ExerciseTemplate] = [], isExample: Bool = false) {
+    private init(id: UUID = UUID(), name: String = "", description: String = "", usePauses: Bool = false, exercises: [ExerciseTemplate] = [], isExample: Bool = false, exampleId: ProgramExampleId? = nil) {
         self.id = id
         self.name = name.trim()
         self.description = description.trim()
@@ -52,8 +53,16 @@ struct ProgramTemplate: Program, Codable {
         ProgramTemplate()
     }
     
+    func isEqualToExample(example: ProgramTemplate) -> Bool {
+        self.name == example.name &&
+        self.description == example.description &&
+        self.isExample == example.isExample &&
+        self.exampleId == example.exampleId
+    }
+    
     // examples
-    static let personal = ProgramTemplate(name: "Personal", description: "Practice once or twice a week", exercises: [.catCow, .surjaNamascarA, .vasihsthasana, .shavasana], isExample: true)
-    static let dailyShort = ProgramTemplate(name: "Daily short", description: "Simple short practice for every day", exercises: [.catCow, .surjaNamascarA, .shavasana], isExample: true)
-    static let shortForBack = ProgramTemplate(name: "Short for back", exercises: [.catCow], isExample: true)
+    static let simple = ProgramTemplate(name: "Simple", description: "An example demo practice", exercises: [.catCow, .surjaNamascarA, .balasana, .vasihsthasana, .shavasana], isExample: true, exampleId: .simple)
+    static let personal = ProgramTemplate(name: "Personal", description: "Practice once or twice a week", exercises: [.catCow, .surjaNamascarA, .vasihsthasana, .shavasana])
+    static let dailyShort = ProgramTemplate(name: "Daily short", description: "Simple short practice for every day", exercises: [.catCow, .surjaNamascarA, .shavasana])
+    static let shortForBack = ProgramTemplate(name: "Short for back", exercises: [.catCow])
 }

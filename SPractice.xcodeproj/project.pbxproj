@@ -82,6 +82,7 @@
 		C9ACBA2328A55DA80067F07F /* ExerciseDetailsContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACBA2228A55DA80067F07F /* ExerciseDetailsContent.swift */; };
 		C9ACC8E228A5693B00FC5343 /* PracticeExerciseInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC8E128A5693B00FC5343 /* PracticeExerciseInfoView.swift */; };
 		C9ACC8E428A56AE100FC5343 /* ExerciseTasksButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC8E328A56AE100FC5343 /* ExerciseTasksButton.swift */; };
+		C9ACC8E628A5927D00FC5343 /* ProgramExampleId.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC8E528A5927D00FC5343 /* ProgramExampleId.swift */; };
 		C9ADD739287F602F00F465D5 /* ResetToDefaultsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ADD738287F602F00F465D5 /* ResetToDefaultsButton.swift */; };
 		C9B1E744287C266000C92571 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B1E743287C266000C92571 /* SettingsView.swift */; };
 		C9B1E746287C293F00C92571 /* TabataSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B1E745287C293F00C92571 /* TabataSettingsView.swift */; };
@@ -203,6 +204,7 @@
 		C9ACBA2228A55DA80067F07F /* ExerciseDetailsContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailsContent.swift; sourceTree = "<group>"; };
 		C9ACC8E128A5693B00FC5343 /* PracticeExerciseInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeExerciseInfoView.swift; sourceTree = "<group>"; };
 		C9ACC8E328A56AE100FC5343 /* ExerciseTasksButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTasksButton.swift; sourceTree = "<group>"; };
+		C9ACC8E528A5927D00FC5343 /* ProgramExampleId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramExampleId.swift; sourceTree = "<group>"; };
 		C9ADD738287F602F00F465D5 /* ResetToDefaultsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetToDefaultsButton.swift; sourceTree = "<group>"; };
 		C9B1E743287C266000C92571 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C9B1E745287C293F00C92571 /* TabataSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabataSettingsView.swift; sourceTree = "<group>"; };
@@ -592,6 +594,7 @@
 				C9A0CFF4281BD588000CF439 /* ProgramTemplate.swift */,
 				C9DE15292868B5500011324C /* Programs.swift */,
 				C95F17822884194A00E8446D /* PreparedProgram.swift */,
+				C9ACC8E528A5927D00FC5343 /* ProgramExampleId.swift */,
 			);
 			path = program;
 			sourceTree = "<group>";
@@ -742,6 +745,7 @@
 				C9741A34286085E400E1F670 /* EditProgramView.swift in Sources */,
 				C96728852874E71700B4990C /* PracticeSummaryView.swift in Sources */,
 				C99E4EB928959D6D0046A50C /* ItemSelectionManager.swift in Sources */,
+				C9ACC8E628A5927D00FC5343 /* ProgramExampleId.swift in Sources */,
 				C91110DC289BDCCC00B9BC03 /* MainList.swift in Sources */,
 				C9CEAA08287C44EB00D15A16 /* DurationMinutesControl.swift in Sources */,
 				C91982572876E297005D049C /* InfoButton.swift in Sources */,
