@@ -1,5 +1,5 @@
 //
-//  ExercisesView-ViewModel.swift
+//  ExercisesManager.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 9.08.22.
