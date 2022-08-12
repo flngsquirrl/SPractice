@@ -29,6 +29,7 @@ struct ExamplesSettingsView: View {
         
         Section {
             Button("Restore deleted") {
+                restoreDeleted()
             }
             .disabled(isRestoreDeletedDisabled)
         } footer: {
@@ -70,8 +71,21 @@ struct ExamplesSettingsView: View {
     func resetModified() {
         switch restoreGroup {
         case .all:
-            programsManager.resetModified()
+            programsManager.resetModifiedExamples()
         case .programs:
+            programsManager.resetModifiedExamples()
+            return
+        case .exercises:
+            return
+        }
+    }
+    
+    func restoreDeleted() {
+        switch restoreGroup {
+        case .all:
+            programsManager.restoreDeletedExamples()
+        case .programs:
+            programsManager.restoreDeletedExamples()
             return
         case .exercises:
             return
