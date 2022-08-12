@@ -9,12 +9,13 @@ import SwiftUI
 
 struct ExercisesView: View {
     
-    @StateObject private var viewModel = ViewModel()
+    @ObservedObject private var exercisesManager = ExercisesManager.shared
     
     @State private var showDeleteConfirmation = false
     @State private var selectedToDelete: ExerciseTemplate?
     
     @State private var showAddNewView = false
+    @State private var searchText = ""
     
     var body: some View {
         NavigationView {
@@ -35,13 +36,13 @@ struct ExercisesView: View {
     var list: some View {
         ScrollViewReader { proxy in
             List {
-                ForEach(viewModel.exercises) { exercise in
+                ForEach(exercisesManager.filter(by: searchText)) { exercise in
                     HStack {
                         NavigationLink {
                             ExerciseDetailsView(for: exercise) {
-                                viewModel.updateItem($0)
+                                exercisesManager.updateItem($0)
                             } onDelete: {
-                                viewModel.deleteItem($0)
+                                exercisesManager.deleteItem($0)
                             }
                         } label: {
                             let isAccented = exercise.id == selectedToDelete?.id
@@ -51,7 +52,7 @@ struct ExercisesView: View {
                 }
                 .onDelete { indexSet in
                     showDeleteConfirmation = true
-                    selectedToDelete = viewModel.getElement(index: indexSet.first!)
+                    selectedToDelete = exercisesManager.getElement(index: indexSet.first!)
                 }
             }
             .listStyle(.inset)
@@ -62,18 +63,18 @@ struct ExercisesView: View {
                     }
                 }
             }
-            .searchable(text: $viewModel.searchText)
+            .searchable(text: $searchText)
             .disableAutocorrection(true)
-            .onChange(of: viewModel.newItem) { _ in
-                if viewModel.newItem != nil {
+            .onChange(of: exercisesManager.newItem) { _ in
+                if exercisesManager.newItem != nil {
                     withAnimation {
-                        proxy.scrollTo(viewModel.newItem!, anchor: .center)
+                        proxy.scrollTo(exercisesManager.newItem!, anchor: .center)
                     }
                 }
             }
             .alert(DeleteAlertConstants.title, isPresented: $showDeleteConfirmation, presenting: selectedToDelete) { item in
                 DeleteAlertContent(item: item) {
-                    viewModel.deleteItem($0)
+                    exercisesManager.deleteItem($0)
                 }
             } message: { _ in
                 DeleteAlertConstants.messageText
@@ -83,7 +84,7 @@ struct ExercisesView: View {
     
     var addItemView: some View {
         AddExerciseView() {
-            viewModel.addItem($0)
+            exercisesManager.addItem($0)
         }
     }
     
@@ -96,8 +97,8 @@ struct ExercisesView: View {
                     .frame(width: 25)
             }
             
-            SortingControl(sortingProperty: $viewModel.sortingProperty, sortingOrder: $viewModel.sortingOrder) {
-                viewModel.applySorting()
+            SortingControl(sortingProperty: $exercisesManager.sortingProperty, sortingOrder: $exercisesManager.sortingOrder) {
+                exercisesManager.applySorting()
             }
         }
     }

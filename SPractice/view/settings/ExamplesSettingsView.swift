@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ExamplesSettingsView: View {
     
-    @ObservedObject var programs = Programs.shared
-    @ObservedObject var exercises = Exercises.shared
+    @ObservedObject var programsManager = ProgramsManager.shared
+    @ObservedObject private var exercisesManager = ExercisesManager.shared
     
     enum RestoreGroup: String, CaseIterable {
         case all = "all"
@@ -37,6 +37,7 @@ struct ExamplesSettingsView: View {
         
         Section {
             Button("Reset modified", role: .destructive) {
+                resetModified()
             }
             .disabled(isResetModifiedDisabled)
         } footer: {
@@ -47,22 +48,33 @@ struct ExamplesSettingsView: View {
     var isResetModifiedDisabled: Bool {
         switch restoreGroup {
         case .all:
-            return !(programs.areAnyExamplesModified() || exercises.areAnyExamplesModified())
+            return !(programsManager.areAnyExamplesModified() || exercisesManager.areAnyExamplesModified())
         case .programs:
-            return !programs.areAnyExamplesModified()
+            return !programsManager.areAnyExamplesModified()
         case .exercises:
-            return !exercises.areAnyExamplesModified()
+            return !exercisesManager.areAnyExamplesModified()
         }
     }
     
     var isRestoreDeletedDisabled: Bool {
         switch restoreGroup {
         case .all:
-            return !(programs.areAnyExamplesDeleted() || exercises.areAnyExamplesDeleted())
+            return !(programsManager.areAnyExamplesDeleted() || exercisesManager.areAnyExamplesDeleted())
         case .programs:
-            return !programs.areAnyExamplesDeleted()
+            return !programsManager.areAnyExamplesDeleted()
         case .exercises:
-            return !exercises.areAnyExamplesDeleted()
+            return !exercisesManager.areAnyExamplesDeleted()
+        }
+    }
+    
+    func resetModified() {
+        switch restoreGroup {
+        case .all:
+            programsManager.resetModified()
+        case .programs:
+            return
+        case .exercises:
+            return
         }
     }
 }

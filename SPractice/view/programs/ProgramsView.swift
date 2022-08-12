@@ -9,12 +9,13 @@ import SwiftUI
 
 struct ProgramsView: View {
     
-    @StateObject private var viewModel = ViewModel.shared
+    @ObservedObject var programsManager = ProgramsManager.shared
     
     @State private var showDeleteConfirmation = false
     @State private var selectedToDelete: ProgramTemplate?
     
     @State private var showAddNewView = false
+    @State private var searchText = ""
     
     var body: some View {
         NavigationView {
@@ -35,13 +36,13 @@ struct ProgramsView: View {
     var list: some View {
         ScrollViewReader { proxy in
             List {
-                ForEach(viewModel.programs) { program in
+                ForEach(programsManager.filter(by: searchText)) { program in
                     HStack {
                         NavigationLink {
                             ProgramDetailsView(for: program) {
-                                viewModel.updateItem($0)
+                                programsManager.updateItem($0)
                             } onDelete: {
-                                viewModel.deleteItem($0)
+                                programsManager.deleteItem($0)
                             }
                         } label: {
                             ProgramShortDecorativeView(for: program, isAccented: program.id == selectedToDelete?.id, accentColor: .customAccentColor)
@@ -50,7 +51,7 @@ struct ProgramsView: View {
                 }
                 .onDelete { indexSet in
                     showDeleteConfirmation = true
-                    selectedToDelete = viewModel.getElement(index: indexSet.first!)
+                    selectedToDelete = programsManager.getElement(index: indexSet.first!)
                 }
             }
             .listStyle(.inset)
@@ -61,18 +62,18 @@ struct ProgramsView: View {
                     }
                 }
             }
-            .searchable(text: $viewModel.searchText)
+            .searchable(text: $searchText)
             .disableAutocorrection(true)
-            .onChange(of: viewModel.newItem) { _ in
-                if viewModel.newItem != nil {
+            .onChange(of: programsManager.newItem) { _ in
+                if programsManager.newItem != nil {
                     withAnimation {
-                        proxy.scrollTo(viewModel.newItem!, anchor: .center)
+                        proxy.scrollTo(programsManager.newItem!, anchor: .center)
                     }
                 }
             }
             .alert(DeleteAlertConstants.title, isPresented: $showDeleteConfirmation, presenting: selectedToDelete) { item in
                 DeleteAlertContent(item: item) {
-                    viewModel.deleteItem($0)
+                    programsManager.deleteItem($0)
                 }
             } message: { _ in
                 DeleteAlertConstants.messageText
@@ -82,7 +83,7 @@ struct ProgramsView: View {
     
     var addItemView: some View {
         AddProgramView() {
-            viewModel.addItem($0)
+            programsManager.addItem($0)
         }
     }
     
@@ -95,8 +96,8 @@ struct ProgramsView: View {
                     .frame(width: 25)
             }
             
-            SortingControl(sortingProperty: $viewModel.sortingProperty, sortingOrder: $viewModel.sortingOrder) {
-                viewModel.setSorting()
+            SortingControl(sortingProperty: $programsManager.sortingProperty, sortingOrder: $programsManager.sortingOrder) {
+                programsManager.setSorting()
             }
         }
     }

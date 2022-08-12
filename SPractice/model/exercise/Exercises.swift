@@ -48,29 +48,4 @@ import Foundation
 //            print("Unable to save data.")
 //        }
     }
-    
-    func areAnyExamplesDeleted() -> Bool {
-        for example in ExerciseTemplate.defaultExamples {
-            let exampleExists = items.contains {$0.exampleId == example.exampleId}
-            if !exampleExists {
-                return true
-            }
-        }
-        
-        return false
-    }
-    
-    func areAnyExamplesModified() -> Bool {
-        for example in ExerciseTemplate.defaultExamples {
-            let item = items.first {$0.exampleId == example.exampleId}
-            if let item = item {
-                let isModified = !item.isEqualToExample(example: example)
-                if isModified {
-                    return true
-                }
-            }
-        }
-        
-        return false
-    }
 }

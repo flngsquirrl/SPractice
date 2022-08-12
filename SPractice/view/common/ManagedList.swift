@@ -10,13 +10,9 @@ import Foundation
 @MainActor protocol ManagedList {
     associatedtype Element: Named
     
-    var searchText: String {get}
-    
     var elements: [Element] {get}
     var sortingProperty: SortingProperty {get}
     var sortingOrder: SortingOrder {get}
-    var filteredElements: [Element] {get}
-    var sortedElements: [Element] {get}
 }
 
 protocol Named {
@@ -63,10 +59,14 @@ extension ManagedList {
     }
     
     var filteredElements: [Element] {
-        filter(elements)
+        filter(elements, by: "")
     }
     
-    func filter(_ elements: [Element]) -> [Element] {
+    func filter(by searchText: String) -> [Element] {
+        filter(elements, by: searchText)
+    }
+    
+    func filter(_ elements: [Element], by searchText: String) -> [Element] {
         if searchText.isEmpty {
             return elements
         } else {
