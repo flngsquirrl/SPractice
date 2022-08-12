@@ -9,11 +9,10 @@ import SwiftUI
 
 @MainActor protocol MainList: ObservableObject, ManagedList, DataManager, SortingManager where Self.Element == Self.Item {
     
-    associatedtype ListSelectionManager: ItemSelectionManager
     associatedtype ListDataManager: PersistentDataManager where ListDataManager.Item == Self.Item
     
+    var newItem: UUID? {get set}
     var dataManager: ListDataManager {get}
-    var selectionManager: ListSelectionManager {get}
 }
 
 extension MainList {
@@ -41,7 +40,7 @@ extension MainList {
         applySorting()
         
         dataManager.addNew(item)
-        selectionManager.onNewItemAdded(id: item.id)
+        newItem = item.id
     }
     
     func updateItem(_ item: Item) {

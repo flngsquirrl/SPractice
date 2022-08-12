@@ -13,7 +13,7 @@ extension ExercisesView {
         typealias Element = ExerciseTemplate
         
         var dataManager = Exercises.shared
-        var selectionManager = ExerciseSelectionManager.shared
+        var newItem: UUID?
         
         @Published var searchText = ""
         

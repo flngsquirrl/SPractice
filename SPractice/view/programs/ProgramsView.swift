@@ -9,9 +9,7 @@ import SwiftUI
 
 struct ProgramsView: View {
     
-    @StateObject private var viewModel = ViewModel()
-    
-    @ObservedObject var selectionManager = ProgramSelectionManager.shared
+    @StateObject private var viewModel = ViewModel.shared
     
     @State private var showDeleteConfirmation = false
     @State private var selectedToDelete: ProgramTemplate?
@@ -65,10 +63,10 @@ struct ProgramsView: View {
             }
             .searchable(text: $viewModel.searchText)
             .disableAutocorrection(true)
-            .onChange(of: selectionManager.newItem) { _ in
-                if selectionManager.newItem != nil {
+            .onChange(of: viewModel.newItem) { _ in
+                if viewModel.newItem != nil {
                     withAnimation {
-                        proxy.scrollTo(selectionManager.newItem!, anchor: .center)
+                        proxy.scrollTo(viewModel.newItem!, anchor: .center)
                     }
                 }
             }

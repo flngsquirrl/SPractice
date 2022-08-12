@@ -10,10 +10,12 @@ import Foundation
 extension ProgramsView {
     @MainActor class ViewModel: MainList {
         
+        static let shared = ViewModel()
+        
         typealias Element = ProgramTemplate
         
         var dataManager = Programs.shared
-        var selectionManager = ProgramSelectionManager.shared
+        var newItem: UUID?
         
         @Published var searchText = ""
         
