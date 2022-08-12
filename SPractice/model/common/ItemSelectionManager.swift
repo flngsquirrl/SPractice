@@ -22,14 +22,12 @@ extension ItemSelectionManager {
 
 @MainActor class ProgramSelectionManager: ObservableObject, ItemSelectionManager {
     var newItem: UUID?
-    @Published var detailsItem: UUID?
     
     static let shared = ProgramSelectionManager()
 }
 
 @MainActor class ExerciseSelectionManager: ObservableObject, ItemSelectionManager {
     var newItem: UUID?
-    @Published var detailsItem: UUID?
     
     static let shared = ExerciseSelectionManager()
 }
