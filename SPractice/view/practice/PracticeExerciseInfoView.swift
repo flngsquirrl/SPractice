@@ -32,6 +32,7 @@ struct PracticeExerciseInfoView: View {
                 }
             }
         }
+        .navigationViewStyle(.stack)
         .accentColor(.customAccentColor)
     }
     
