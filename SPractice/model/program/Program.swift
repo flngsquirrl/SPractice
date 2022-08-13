@@ -16,6 +16,7 @@ protocol Program: HavingID, Named {
     var exercises: [Item] {get}
     
     var isExample: Bool {get}
+    var exampleId: String? {get}
 }
 
 extension Program {

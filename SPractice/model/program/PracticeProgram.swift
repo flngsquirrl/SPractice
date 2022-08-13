@@ -15,6 +15,7 @@ struct PracticeProgram: Program {
     let exercises: [PracticeExercise]
     
     let isExample: Bool
+    var exampleId: String?
     
     init(from template: ProgramTemplate) {
         self.name = template.name.trim()
@@ -27,6 +28,7 @@ struct PracticeProgram: Program {
         }
         self.exercises = exercises
         self.isExample = template.isExample
+        self.exampleId = template.exampleId
     }
     
     // examples

@@ -106,7 +106,7 @@ extension ExerciseEditor {
         var isService: Bool
         
         var isExample: Bool
-        var exampleId: ExerciseExampleId?
+        var exampleId: String?
         
         init(from template: ExerciseTemplate) {
             self.id = template.id

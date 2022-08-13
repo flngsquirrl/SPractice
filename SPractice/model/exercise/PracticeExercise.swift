@@ -21,11 +21,11 @@ struct PracticeExercise: Exercise, Equatable {
     var isService: Bool
     
     var isExample: Bool
-    var exampleId: ExerciseExampleId?
+    var exampleId: String?
     
     private(set) var tasks: [Task]
     
-    private init(type: ExerciseType, name: String, description: String, intensity: Intensity, isService: Bool = false, isExample: Bool = false, exampleId: ExerciseExampleId? = nil, tasks: [Task] = []) {
+    private init(type: ExerciseType, name: String, description: String, intensity: Intensity, isService: Bool = false, isExample: Bool = false, exampleId: String? = nil, tasks: [Task] = []) {
         self.exerciseType = type
         self.name = name.trim()
         self.description = description.trim()

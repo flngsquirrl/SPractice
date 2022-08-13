@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum ProgramExampleId: Codable {
+enum ProgramExampleId: String, Codable {
     case simple
 }

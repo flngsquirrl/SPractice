@@ -22,55 +22,14 @@ import Foundation
     var sortingOrder: SortingOrder = .desc
     
     @Published var items = Exercises.shared.items
+    var defaultExamples = ExerciseTemplate.defaultExamples
     
     init() {
         initialSetup()
     }
-    
-    func areAnyExamplesDeleted() -> Bool {
-        for example in ExerciseTemplate.defaultExamples {
-            let exampleExists = items.contains {$0.exampleId == example.exampleId}
-            if !exampleExists {
-                return true
-            }
-        }
-        
-        return false
+
+    func prepareExample(from item: ExerciseTemplate) -> ExerciseTemplate {
+        ExerciseTemplate(from: item)
     }
     
-    func areAnyExamplesModified() -> Bool {
-        for example in ExerciseTemplate.defaultExamples {
-            let item = items.first {$0.exampleId == example.exampleId}
-            if let item = item {
-                let isModified = !item.isEqualToExample(example: example)
-                if isModified {
-                    return true
-                }
-            }
-        }
-        
-        return false
-    }
-    
-    func restoreDeletedExamples() {
-        for example in ExerciseTemplate.defaultExamples {
-            let exampleExists = items.contains {$0.exampleId == example.exampleId}
-            if !exampleExists {
-                addItem(ExerciseTemplate(from: example))
-            }
-        }
-    }
-    
-    func resetModifiedExamples() {
-        for example in ExerciseTemplate.defaultExamples {
-            let item = items.first {$0.exampleId == example.exampleId}
-            if var item = item {
-                let isModified = !item.isEqualToExample(example: example)
-                if isModified {
-                    item.resetToExample(example: example)
-                    updateItem(item)
-                }
-            }
-        }
-    }
 }

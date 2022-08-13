@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct ProgramTemplate: Program, HavingCreationDate, Codable {
+struct ProgramTemplate: Program, HavingCreationDate, ExampleItem, Codable {
+    
     var id: UUID
     var name: String
     var description: String
@@ -15,11 +16,11 @@ struct ProgramTemplate: Program, HavingCreationDate, Codable {
     var templateExercises = [ExerciseTemplate]()
     
     var isExample: Bool
-    var exampleId: ProgramExampleId?
+    var exampleId: String?
     
     private(set) var creationDate: Date
     
-    private init(id: UUID = UUID(), name: String = "", description: String = "", usePauses: Bool = false, exercises: [ExerciseTemplate] = [], isExample: Bool = false, exampleId: ProgramExampleId? = nil) {
+    private init(id: UUID = UUID(), name: String = "", description: String = "", usePauses: Bool = false, exercises: [ExerciseTemplate] = [], isExample: Bool = false, exampleId: String? = nil) {
         self.id = id
         self.name = name.trim()
         self.description = description.trim()
@@ -93,8 +94,13 @@ struct ProgramTemplate: Program, HavingCreationDate, Codable {
     }
     
     // examples
+    
+    static var defaultExamples: [ProgramTemplate] {
+        [simple]
+    }
+    
     static let simple =
-    ProgramTemplate(name: "Simple", description: "An example demo practice", exercises: [ExerciseTemplate.getTemplate(from: .catCow), ExerciseTemplate.getTemplate(from: .surjaNamascarA), ExerciseTemplate.getTemplate(from: .balasana), ExerciseTemplate.getTemplate(from: .vasihsthasana), ExerciseTemplate.getTemplate(from: .shavasana)], isExample: true, exampleId: .simple)
+    ProgramTemplate(name: "Simple", description: "An example demo practice", exercises: [ExerciseTemplate.getTemplate(from: .catCow), ExerciseTemplate.getTemplate(from: .surjaNamascarA), ExerciseTemplate.getTemplate(from: .balasana), ExerciseTemplate.getTemplate(from: .vasihsthasana), ExerciseTemplate.getTemplate(from: .shavasana)], isExample: true, exampleId: ProgramExampleId.simple.rawValue)
     
     static let personal = ProgramTemplate(name: "Personal", description: "Practice once or twice a week", exercises: [ExerciseTemplate.getTemplate(from: .catCow), ExerciseTemplate.getTemplate(from: .surjaNamascarA), ExerciseTemplate.getTemplate(from: .vasihsthasana), ExerciseTemplate.getTemplate(from: .shavasana)])
     static let dailyShort = ProgramTemplate(name: "Daily short", description: "Simple short practice for every day", exercises: [ExerciseTemplate.getTemplate(from: .catCow), ExerciseTemplate.getTemplate(from: .surjaNamascarA), ExerciseTemplate.getTemplate(from: .shavasana)])

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ExerciseExampleId: Codable {
+enum ExerciseExampleId: String, Codable {
     case catCow
     case surjaNamascarA
     case balasana

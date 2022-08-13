@@ -22,33 +22,13 @@ import Foundation
     var sortingOrder: SortingOrder = .desc
     
     @Published var items = Programs.shared.items
+    var defaultExamples = ProgramTemplate.defaultExamples
     
     init() {
         initialSetup()
     }
     
-    func areAnyExamplesDeleted() -> Bool {
-        !items.contains {$0.exampleId == ProgramExampleId.simple}
-    }
-    
-    func areAnyExamplesModified() -> Bool {
-        let example = items.first {$0.exampleId == ProgramExampleId.simple}
-        if let example = example {
-            return !example.isEqualToExample(example: ProgramTemplate.simple)
-        } else {
-            return false
-        }
-    }
-    
-    func resetModifiedExamples() {
-        let item = items.first {$0.exampleId == ProgramExampleId.simple}
-        if var item = item {
-            item.resetToExample(example: ProgramTemplate.simple)
-            updateItem(item)
-        }
-    }
-    
-    func restoreDeletedExamples() {
-        addItem(ProgramTemplate(from: ProgramTemplate.simple))
+    func prepareExample(from item: ProgramTemplate) -> ProgramTemplate {
+        ProgramTemplate(from: item)
     }
 }

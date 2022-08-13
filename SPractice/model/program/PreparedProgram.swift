@@ -34,6 +34,10 @@ struct PreparedProgram: Program, Named, Identifiable {
         template.isExample
     }
     
+    var exampleId: String? {
+        template.exampleId
+    }
+    
     init(from template: ProgramTemplate, countPauses: Bool = false) {
         self.template = template
         self.countPauses = countPauses

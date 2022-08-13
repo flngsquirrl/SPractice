@@ -16,7 +16,7 @@ protocol Exercise: HavingID, Named {
     var intensity: Intensity? {get}
     var isService: Bool {get}
     var isExample: Bool {get}
-    var exampleId: ExerciseExampleId? {get}
+    var exampleId: String? {get}
 }
 
 extension Exercise {
