@@ -67,13 +67,13 @@ struct ProgramTemplate: Program, HavingCreationDate, Codable {
     }
     
     func exercisesEqualToExample(example: ProgramTemplate) -> Bool {
-        guard example.exercises.count == exercises.count else {
+        guard example.exercises.count == templateExercises.count else {
             return false
         }
         
         for i in 0..<example.exercises.count {
             let exampleExercise = example.exercises[i]
-            let exercise = exercises[i]
+            let exercise = templateExercises[i]
             if !exercise.isEqualTo(exercise: exampleExercise) {
                 return false
             }
