@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProgramTemplate: Program, Codable {
+struct ProgramTemplate: Program, HavingCreationDate, Codable {
     var id: UUID
     var name: String
     var description: String
@@ -16,6 +16,8 @@ struct ProgramTemplate: Program, Codable {
     
     var isExample: Bool
     var exampleId: ProgramExampleId?
+    
+    private(set) var creationDate: Date
     
     private init(id: UUID = UUID(), name: String = "", description: String = "", usePauses: Bool = false, exercises: [ExerciseTemplate] = [], isExample: Bool = false, exampleId: ProgramExampleId? = nil) {
         self.id = id
@@ -28,6 +30,8 @@ struct ProgramTemplate: Program, Codable {
         if isExample {
             self.exampleId = exampleId
         }
+        
+        self.creationDate = Date.now
     }
     
     init(from template: ProgramTemplate) {
@@ -77,7 +81,10 @@ struct ProgramTemplate: Program, Codable {
     }
     
     // examples
-    static let simple = ProgramTemplate(name: "Simple", description: "An example demo practice", exercises: [.catCow, .surjaNamascarA, .balasana, .vasihsthasana, .shavasana], isExample: true, exampleId: .simple)
+    static var simple: ProgramTemplate {
+        ProgramTemplate(name: "Simple", description: "An example demo practice", exercises: [.catCow, .surjaNamascarA, .balasana, .vasihsthasana, .shavasana], isExample: true, exampleId: .simple)
+    }
+    
     static let personal = ProgramTemplate(name: "Personal", description: "Practice once or twice a week", exercises: [.catCow, .surjaNamascarA, .vasihsthasana, .shavasana])
     static let dailyShort = ProgramTemplate(name: "Daily short", description: "Simple short practice for every day", exercises: [.catCow, .surjaNamascarA, .shavasana])
     static let shortForBack = ProgramTemplate(name: "Short for back", exercises: [.catCow])

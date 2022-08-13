@@ -98,7 +98,7 @@ struct ExercisesView: View {
             }
             
             SortingControl(sortingProperty: $exercisesManager.sortingProperty, sortingOrder: $exercisesManager.sortingOrder) {
-                exercisesManager.applySorting()
+                exercisesManager.setSorting()
             }
         }
     }

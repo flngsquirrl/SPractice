@@ -89,7 +89,7 @@ struct ExerciseSelectionView: View {
         }
     }
     
-    class SelectionItem: Identifiable, Named {
+    class SelectionItem: Identifiable, Named, HavingCreationDate {
         var template: ExerciseTemplate
         var counter: Int
         
@@ -104,6 +104,10 @@ struct ExerciseSelectionView: View {
         
         var name: String {
             template.name
+        }
+        
+        var creationDate: Date {
+            template.creationDate
         }
     }
     

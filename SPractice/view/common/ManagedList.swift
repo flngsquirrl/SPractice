@@ -7,8 +7,8 @@
 
 import Foundation
 
-@MainActor protocol ManagedList {
-    associatedtype Element: Named
+@MainActor protocol ManagedList: AnyObject {
+    associatedtype Element: Named, HavingCreationDate
     
     var elements: [Element] {get}
     var sortingProperty: SortingProperty {get}
@@ -17,6 +17,10 @@ import Foundation
 
 protocol Named {
     var name: String {get}
+}
+
+protocol HavingCreationDate {
+    var creationDate: Date {get}
 }
 
 extension ManagedList {
@@ -40,9 +44,9 @@ extension ManagedList {
         var result: [Element]
         switch sortingOrder {
         case .asc:
-            result = elements
+            result = elements.sorted(by: { $0.creationDate < $1.creationDate })
         case .desc:
-            result = elements.reversed()
+            result = elements.sorted(by: { $0.creationDate > $1.creationDate })
         }
         return result
     }

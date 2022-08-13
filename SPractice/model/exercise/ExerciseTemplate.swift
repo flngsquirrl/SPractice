@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ExerciseTemplate: Exercise, Hashable, Codable {
+struct ExerciseTemplate: Exercise, HavingCreationDate, Hashable, Codable {
     
     private(set) var id: UUID
     private(set) var type: ExerciseType?
@@ -19,6 +19,8 @@ struct ExerciseTemplate: Exercise, Hashable, Codable {
     
     private(set) var isExample: Bool
     private(set) var exampleId: ExerciseExampleId?
+    
+    private(set) var creationDate: Date
     
     private init(id: UUID = UUID(), type: ExerciseType? = nil, name: String = "", description: String = "", isService: Bool = false, intensity: Intensity? = .activity, duration: Duration = .unknown, isExample: Bool = false, exampleId: ExerciseExampleId? = nil) {
         self.id = id
@@ -34,6 +36,8 @@ struct ExerciseTemplate: Exercise, Hashable, Codable {
         if isExample {
             self.exampleId = exampleId
         }
+        
+        self.creationDate = Date.now
         
         normalize()
     }
