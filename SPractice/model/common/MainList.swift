@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@MainActor protocol MainList: ObservableObject, ManagedList, ListWithExamples, DataManager, SortingManager where Self.Element == Self.Item {
+@MainActor protocol MainList: ObservableObject, DataManager, SortableFilterableList, ExamplesManager, SortingSettingsManager {
     
     associatedtype ListDataManager: PersistentDataManager where ListDataManager.Item == Self.Item
     
@@ -21,10 +21,6 @@ extension MainList {
     func initialSetup() {
         readSortingSetup()
         applySorting()
-    }
-    
-    var elements: [Item] {
-        items
     }
     
     func applySorting() {

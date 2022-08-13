@@ -1,5 +1,5 @@
 //
-//  ListWithExamples.swift
+//  ExamplesManager.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 13.08.22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-@MainActor protocol ListWithExamples {
+@MainActor protocol ExamplesManager {
     associatedtype Item: ExampleItem
     
     var defaultExamples: [Item] {get}
@@ -27,7 +27,7 @@ protocol ExampleItem {
     mutating func resetToExample(example: Self)
 }
 
-extension ListWithExamples {
+extension ExamplesManager {
     func areAnyExamplesDeleted() -> Bool {
         for example in defaultExamples {
             let exampleExists = isExampleExist(exampleId: example.exampleId!)

@@ -11,8 +11,6 @@ import Foundation
     
     static let shared = ProgramsManager()
     
-    typealias Element = ProgramTemplate
-    
     var dataManager = Programs.shared
     var newItem: UUID?
     

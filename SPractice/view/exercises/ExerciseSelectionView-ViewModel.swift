@@ -9,19 +9,17 @@ import Foundation
 import SwiftUI
 
 extension ExerciseSelectionView {
-    @MainActor class ViewModel: ObservableObject, ManagedList {
+    @MainActor class ViewModel: ObservableObject, SortableFilterableList {
 
         @AppStorage("exercisesSortingProperty") internal var sortingProperty: SortingProperty = .date
         @AppStorage("exercisesSortingOrder") internal var sortingOrder: SortingOrder = .desc
-        
-        typealias Element = SelectionItem
         
         @Published var itemsGroup: ItemsGroup = .all
         @Published var searchText = ""
         
         @Published var selectionItems: [SelectionItem] = Exercises.shared.items.map {SelectionItem(for: $0)}
 
-        var elements: [SelectionItem] {
+        var items: [SelectionItem] {
             if itemsGroup == .prepared {
                 return selectionItems.filter {$0.counter != 0}
             }

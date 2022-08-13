@@ -10,8 +10,6 @@ import Foundation
 @MainActor class ExercisesManager: MainList {
     
     static let shared = ExercisesManager()
-        
-    typealias Element = ExerciseTemplate
     
     var dataManager = Exercises.shared
     var newItem: UUID?
