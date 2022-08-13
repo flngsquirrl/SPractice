@@ -27,6 +27,7 @@ struct EditProgramView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .confirmationAction) {
                     Button("Save") {
+                        viewModel.template.isExample = false
                         onSave(viewModel.template)
                         dismiss()
                     }

@@ -25,7 +25,10 @@ struct EditExerciseView: View {
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
-                        onSave(viewModel.templateToSave)
+                        var exerciseTemplate: ExerciseTemplate = viewModel.templateToSave
+                        exerciseTemplate.isExample = false
+                        
+                        onSave(exerciseTemplate)
                         dismiss()
                     }
                     .disabled(viewModel.isSaveDisabled)

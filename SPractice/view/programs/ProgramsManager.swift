@@ -41,14 +41,14 @@ import Foundation
     }
     
     func resetModifiedExamples() {
-        let example = items.first {$0.exampleId == ProgramExampleId.simple}
-        if var example = example {
-            example.resetToExample(example: ProgramTemplate.simple)
-            updateItem(example)
+        let item = items.first {$0.exampleId == ProgramExampleId.simple}
+        if var item = item {
+            item.resetToExample(example: ProgramTemplate.simple)
+            updateItem(item)
         }
     }
     
     func restoreDeletedExamples() {
-        addItem(ProgramTemplate.simple)
+        addItem(ProgramTemplate(from: ProgramTemplate.simple))
     }
 }

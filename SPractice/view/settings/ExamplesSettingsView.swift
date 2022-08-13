@@ -10,7 +10,7 @@ import SwiftUI
 struct ExamplesSettingsView: View {
     
     @ObservedObject var programsManager = ProgramsManager.shared
-    @ObservedObject private var exercisesManager = ExercisesManager.shared
+    @ObservedObject var exercisesManager = ExercisesManager.shared
     
     enum RestoreGroup: String, CaseIterable {
         case all = "all"
@@ -72,10 +72,12 @@ struct ExamplesSettingsView: View {
         switch restoreGroup {
         case .all:
             programsManager.resetModifiedExamples()
+            exercisesManager.resetModifiedExamples()
         case .programs:
             programsManager.resetModifiedExamples()
             return
         case .exercises:
+            exercisesManager.resetModifiedExamples()
             return
         }
     }
@@ -84,11 +86,11 @@ struct ExamplesSettingsView: View {
         switch restoreGroup {
         case .all:
             programsManager.restoreDeletedExamples()
+            exercisesManager.restoreDeletedExamples()
         case .programs:
             programsManager.restoreDeletedExamples()
-            return
         case .exercises:
-            return
+            exercisesManager.restoreDeletedExamples()
         }
     }
 }

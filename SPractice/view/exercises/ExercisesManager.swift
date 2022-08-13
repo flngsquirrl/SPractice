@@ -51,4 +51,26 @@ import Foundation
         
         return false
     }
+    
+    func restoreDeletedExamples() {
+        for example in ExerciseTemplate.defaultExamples {
+            let exampleExists = items.contains {$0.exampleId == example.exampleId}
+            if !exampleExists {
+                addItem(ExerciseTemplate(from: example))
+            }
+        }
+    }
+    
+    func resetModifiedExamples() {
+        for example in ExerciseTemplate.defaultExamples {
+            let item = items.first {$0.exampleId == example.exampleId}
+            if var item = item {
+                let isModified = !item.isEqualToExample(example: example)
+                if isModified {
+                    item.resetToExample(example: example)
+                    updateItem(item)
+                }
+            }
+        }
+    }
 }
