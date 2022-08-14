@@ -44,6 +44,9 @@ struct TabataSettingsView: View {
                 Text("Number of cycles")
                 Spacer()
                 NumberSelectionControl(number: $tabataCyclesItem.value)
+                    .onChange(of: tabataCyclesItem.value) { _ in
+                        SettingsManager.saveSettings()
+                    }
             }
         } footer: {
             Text("Repeating \"activity + rest\" sequences in one tabata exercise")
