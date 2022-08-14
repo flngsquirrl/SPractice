@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ExamplesSettingsView: View {
     
+    @StateObject var viewModel = ViewModel()
+    
     @ObservedObject var programsManager = ProgramsManager.shared
     @ObservedObject var exercisesManager = ExercisesManager.shared
     
@@ -18,10 +20,8 @@ struct ExamplesSettingsView: View {
         case exercises = "exercises" 
     }
     
-    @State private var restoreGroup: RestoreGroup = .all
-    
     var body: some View {
-        Picker("Templates for", selection: $restoreGroup) {
+        Picker("Templates for", selection: $viewModel.restoreGroup.animation()) {
             ForEach(RestoreGroup.allCases, id: \.self) { group in
                 Text(group.rawValue)
             }
@@ -29,68 +29,26 @@ struct ExamplesSettingsView: View {
         
         Section {
             Button("Restore deleted") {
-                restoreDeleted()
+                withAnimation {
+                    viewModel.restoreDeleted()
+                }
             }
-            .disabled(isRestoreDeletedDisabled)
+            .disabled(!viewModel.hasDeletedItems)
         } footer: {
-            Text("Recreate deleted examples")
+            VStack {
+                Text(viewModel.restoreFooterText)
+            }
         }
         
         Section {
             Button("Reset modified", role: .destructive) {
-                resetModified()
+                withAnimation {
+                    viewModel.resetModified()
+                }
             }
-            .disabled(isResetModifiedDisabled)
+            .disabled(!viewModel.hasModifiedItems)
         } footer: {
-            Text("Reset modified examples to defaults")
-        }
-    }
-    
-    var isResetModifiedDisabled: Bool {
-        switch restoreGroup {
-        case .all:
-            return !(programsManager.areAnyExamplesModified() || exercisesManager.areAnyExamplesModified())
-        case .programs:
-            return !programsManager.areAnyExamplesModified()
-        case .exercises:
-            return !exercisesManager.areAnyExamplesModified()
-        }
-    }
-    
-    var isRestoreDeletedDisabled: Bool {
-        switch restoreGroup {
-        case .all:
-            return !(programsManager.areAnyExamplesDeleted() || exercisesManager.areAnyExamplesDeleted())
-        case .programs:
-            return !programsManager.areAnyExamplesDeleted()
-        case .exercises:
-            return !exercisesManager.areAnyExamplesDeleted()
-        }
-    }
-    
-    func resetModified() {
-        switch restoreGroup {
-        case .all:
-            programsManager.resetModifiedExamples()
-            exercisesManager.resetModifiedExamples()
-        case .programs:
-            programsManager.resetModifiedExamples()
-            return
-        case .exercises:
-            exercisesManager.resetModifiedExamples()
-            return
-        }
-    }
-    
-    func restoreDeleted() {
-        switch restoreGroup {
-        case .all:
-            programsManager.restoreDeletedExamples()
-            exercisesManager.restoreDeletedExamples()
-        case .programs:
-            programsManager.restoreDeletedExamples()
-        case .exercises:
-            exercisesManager.restoreDeletedExamples()
+            Text(viewModel.resetFooterText)
         }
     }
 }

@@ -18,9 +18,13 @@ import Foundation
     func prepareExample(from: Item) -> Item
     func restoreExample(_ item: Item)
     func resetExample(_ item: Item)
+    
+    var modifiedExamplesNames: [String] {get}
+    var deletedExamplesNames: [String] {get}
 }
 
 protocol ExampleItem {
+    var name: String {get}
     var isExample: Bool {get}
     var exampleId: String? {get}
     
@@ -74,5 +78,31 @@ extension ExamplesManager {
                 }
             }
         }
+    }
+    
+    var modifiedExamplesNames: [String] {
+        var names: [String] = []
+        for example in defaultExamples {
+            let item = getExample(exampleId: example.exampleId!)
+            if let item = item {
+                let isModified = !item.isEqualToExample(example: example)
+                if isModified {
+                    names.append(example.name)
+                }
+            }
+        }
+        return names
+    }
+    
+    var deletedExamplesNames: [String] {
+        var names: [String] = []
+        for example in defaultExamples {
+            let exampleExists = isExampleExist(exampleId: example.exampleId!)
+            if !exampleExists {
+                names.append(example.name)
+            }
+        }
+        
+        return names
     }
 }

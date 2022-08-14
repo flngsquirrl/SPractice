@@ -85,6 +85,7 @@
 		C9ACC8EA28A81C1500FC5343 /* PersistentDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC8E928A81C1500FC5343 /* PersistentDataManager.swift */; };
 		C9ACC8EC28A81C9C00FC5343 /* SortingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC8EB28A81C9C00FC5343 /* SortingOptions.swift */; };
 		C9ACC8F028A93B7200FC5343 /* SaveItemToolbarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC8EF28A93B7200FC5343 /* SaveItemToolbarButton.swift */; };
+		C9ACC8F228A993FC00FC5343 /* ExamplesSettingsView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC8F128A993FC00FC5343 /* ExamplesSettingsView-ViewModel.swift */; };
 		C9ADD739287F602F00F465D5 /* ResetToDefaultsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ADD738287F602F00F465D5 /* ResetToDefaultsButton.swift */; };
 		C9B1E744287C266000C92571 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B1E743287C266000C92571 /* SettingsView.swift */; };
 		C9B1E746287C293F00C92571 /* TabataSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B1E745287C293F00C92571 /* TabataSettingsView.swift */; };
@@ -209,6 +210,7 @@
 		C9ACC8E928A81C1500FC5343 /* PersistentDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentDataManager.swift; sourceTree = "<group>"; };
 		C9ACC8EB28A81C9C00FC5343 /* SortingOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingOptions.swift; sourceTree = "<group>"; };
 		C9ACC8EF28A93B7200FC5343 /* SaveItemToolbarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveItemToolbarButton.swift; sourceTree = "<group>"; };
+		C9ACC8F128A993FC00FC5343 /* ExamplesSettingsView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExamplesSettingsView-ViewModel.swift"; sourceTree = "<group>"; };
 		C9ADD738287F602F00F465D5 /* ResetToDefaultsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetToDefaultsButton.swift; sourceTree = "<group>"; };
 		C9B1E743287C266000C92571 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C9B1E745287C293F00C92571 /* TabataSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabataSettingsView.swift; sourceTree = "<group>"; };
@@ -548,6 +550,7 @@
 				C95F17842884431700E8446D /* SettingsLink.swift */,
 				C9ADD738287F602F00F465D5 /* ResetToDefaultsButton.swift */,
 				C9E0C42628801CDE00B8FBA8 /* SettingsConstants.swift */,
+				C9ACC8F128A993FC00FC5343 /* ExamplesSettingsView-ViewModel.swift */,
 			);
 			path = settings;
 			sourceTree = "<group>";
@@ -774,6 +777,7 @@
 				C9B1E746287C293F00C92571 /* TabataSettingsView.swift in Sources */,
 				C9741A5D2861F54600E1F670 /* IntensityImage.swift in Sources */,
 				C9B1E744287C266000C92571 /* SettingsView.swift in Sources */,
+				C9ACC8F228A993FC00FC5343 /* ExamplesSettingsView-ViewModel.swift in Sources */,
 				C9CCCE96284A31B9005665C8 /* ClockTime-Calculator.swift in Sources */,
 				C9D156AE28533DD7007F5176 /* ExerciseSelectionView-ViewModel.swift in Sources */,
 				C9A0CFFF281BDDEA000CF439 /* PracticeView.swift in Sources */,
