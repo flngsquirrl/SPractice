@@ -9,7 +9,34 @@ import SwiftUI
 
 struct DeleteAlertConstants {
     static let title = "Please, note"
-    static let messageText = Text("It won't be possible to restore the template")
+    static let simpleWarningText = Text("It won't be possible to restore the template")
+    static let exampleWarningText = Text("This template is an example. You will be able to restore it later from Settings")
+    
+    static func getWarningText(isExampleTemplate: Bool = false) -> Text {
+        isExampleTemplate ? exampleWarningText : simpleWarningText 
+    }
+}
+
+struct DeleteToolbarButton<T>: View where T: ExampleItem {
+    var item: T
+    var onDelete: (T) -> Void
+    
+    @State private var showDeleteConfirmation: Bool = false
+    
+    var body: some View {
+        Button {
+            showDeleteConfirmation = true
+        } label: {
+            Image(systemName: "trash")
+        }
+        .alert(DeleteAlertConstants.title, isPresented: $showDeleteConfirmation) {
+            DeleteAlertContent(item: item) {
+                onDelete($0)
+            }
+        } message: {
+            DeleteAlertConstants.getWarningText(isExampleTemplate: item.isExample)
+        }
+    }
 }
 
 struct DeleteAlertContent<T>: View {

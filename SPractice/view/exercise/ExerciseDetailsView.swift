@@ -18,7 +18,6 @@ struct ExerciseDetailsView: DetailsView {
     @Environment(\.horizontalSizeClass) var sizeClass
     
     @State private var showEditView = false
-    @State private var showDeleteConfirmation = false
     
     init(for exercise: ExerciseTemplate, onChange: @escaping (ExerciseTemplate) -> Void, onDelete: @escaping (ExerciseTemplate) -> Void) {
         self.viewModel = ViewModel(for: exercise)
@@ -46,23 +45,14 @@ struct ExerciseDetailsView: DetailsView {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Button {
-                    showDeleteConfirmation = true
-                } label: {
-                    Image(systemName: "trash")
+                DeleteToolbarButton(item: viewModel.exercise) {
+                    onDelete($0)
                 }
                 
                 Button("Edit") {
                     showEditView = true
                 }
             }
-        }
-        .alert(DeleteAlertConstants.title, isPresented: $showDeleteConfirmation) {
-            DeleteAlertContent(item: viewModel.exercise) {
-                onDelete($0)
-            }
-        } message: {
-            DeleteAlertConstants.messageText
         }
         .sheet(isPresented: $showEditView) {
             NavigationView {

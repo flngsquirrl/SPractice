@@ -76,8 +76,8 @@ struct ExercisesView: View {
                 DeleteAlertContent(item: item) {
                     exercisesManager.deleteItem($0)
                 }
-            } message: { _ in
-                DeleteAlertConstants.messageText
+            } message: { item in
+                DeleteAlertConstants.getWarningText(isExampleTemplate: item.isExample)
             }
         }
     }

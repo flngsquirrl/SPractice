@@ -75,8 +75,8 @@ struct ProgramsView: View {
                 DeleteAlertContent(item: item) {
                     programsManager.deleteItem($0)
                 }
-            } message: { _ in
-                DeleteAlertConstants.messageText
+            } message: { item in
+                DeleteAlertConstants.getWarningText(isExampleTemplate: item.isExample)
             }
         }
     }

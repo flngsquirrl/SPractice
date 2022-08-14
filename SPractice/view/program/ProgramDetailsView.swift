@@ -11,8 +11,6 @@ struct ProgramDetailsView: DetailsView {
     
     @ObservedObject private var viewModel: ViewModel
     
-    @State private var showDeleteConfirmation = false
-    
     @ObservedObject var programs = Programs.shared
     
     @Environment(\.horizontalSizeClass) var sizeClass
@@ -78,21 +76,12 @@ struct ProgramDetailsView: DetailsView {
             }
             .accentColor(.customAccentColor)
         }
-        .alert(DeleteAlertConstants.title, isPresented: $showDeleteConfirmation) {
-            DeleteAlertContent(item: viewModel.template) {
-                onDelete($0)
-            }
-        } message: {
-            DeleteAlertConstants.messageText
-        }
         .navigationTitle("Program")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Button {
-                    showDeleteConfirmation = true
-                } label: {
-                    Image(systemName: "trash")
+                DeleteToolbarButton(item: viewModel.template) {
+                    onDelete($0)
                 }
 
                 Button("Edit") {

@@ -21,6 +21,7 @@ import Foundation
 }
 
 protocol ExampleItem {
+    var isExample: Bool {get}
     var exampleId: String? {get}
     
     func isEqualToExample(example: Self) -> Bool
