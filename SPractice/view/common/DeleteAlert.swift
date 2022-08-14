@@ -10,7 +10,7 @@ import SwiftUI
 struct DeleteAlertConstants {
     static let title = "Please, note"
     static let simpleWarningText = Text("It won't be possible to restore the template")
-    static let exampleWarningText = Text("This template is an example. You will be able to restore it later from Settings")
+    static let exampleWarningText = Text("This template is a default example. You can later restore it from Settings")
     
     static func getWarningText(isExampleTemplate: Bool = false) -> Text {
         isExampleTemplate ? exampleWarningText : simpleWarningText 

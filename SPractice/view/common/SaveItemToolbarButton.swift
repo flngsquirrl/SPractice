@@ -25,7 +25,7 @@ struct SaveItemToolbarButton: View {
             Button("Save") { onSave(true) }
             Button("Cancel", role: .cancel) {}
         } message: {
-            Text("This is an example template. You can later reset the changes made to it in Settings")
+            Text("This template is a default example. You can later reset the changes made to it from Settings")
         }
     }
 }
