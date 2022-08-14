@@ -22,5 +22,27 @@ extension EditExerciseView {
         var isSaveDisabled: Bool {
             !ValidationService.isValid(template.exercise)
         }
+        
+        var showExampleUpdateConfirmation: Bool {
+            let exerciseTemplate = templateToSave
+            if exerciseTemplate.isExample {
+                let example = ExercisesManager.shared.getExample(exampleId: exerciseTemplate.exampleId!)
+                if let example = example {
+                    if !exerciseTemplate.isEqualToExample(example: example) {
+                        return true
+                    }
+                }
+            }
+            
+            return false
+        }
+        
+        func prepareTemplate(markAsNonExample: Bool) -> ExerciseTemplate {
+            var exerciseTemplate = templateToSave
+            if markAsNonExample {
+                exerciseTemplate.isExample = false
+            }
+            return exerciseTemplate
+        }
     }
 }

@@ -24,12 +24,10 @@ struct EditExerciseView: View {
         ExerciseEditor(for: $viewModel.template)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Save") {
-                        var exerciseTemplate: ExerciseTemplate = viewModel.templateToSave
-                        exerciseTemplate.isExample = false
-                        
-                        onSave(exerciseTemplate)
-                        dismiss()
+                    SaveItemToolbarButton {
+                        viewModel.showExampleUpdateConfirmation
+                    } onSave: {
+                        saveChanges(markAsNonExample: $0)
                     }
                     .disabled(viewModel.isSaveDisabled)
                 }
@@ -42,6 +40,12 @@ struct EditExerciseView: View {
             }
             .navigationTitle("Edit exercise")
             .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    func saveChanges(markAsNonExample: Bool = false) {
+        let template = viewModel.prepareTemplate(markAsNonExample: markAsNonExample)
+        onSave(template)
+        dismiss()
     }
 }
 

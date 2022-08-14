@@ -26,10 +26,11 @@ struct EditProgramView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup(placement: .confirmationAction) {
-                    Button("Save") {
-                        viewModel.template.isExample = false
-                        onSave(viewModel.template)
-                        dismiss()
+                    
+                    SaveItemToolbarButton {
+                        viewModel.showExampleUpdateConfirmation
+                    } onSave: {
+                        saveChanges(markAsNonExample: $0)
                     }
                     .disabled(viewModel.isSaveDisabled)
                 }
@@ -40,6 +41,12 @@ struct EditProgramView: View {
                     }
                 }
             }
+    }
+    
+    func saveChanges(markAsNonExample: Bool = false) {
+        let template = viewModel.prepareTemplate(markAsNonExample: markAsNonExample)
+        onSave(template)
+        dismiss()
     }
 }
 

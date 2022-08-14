@@ -45,8 +45,6 @@ struct AddExerciseView: View {
 
 struct AddExerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            AddExerciseView() { _ in }
-        }
+        AddExerciseView() { _ in }
     }
 }
