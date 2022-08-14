@@ -46,7 +46,6 @@
 		C9741A362860860C00E1F670 /* ProgramEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A352860860C00E1F670 /* ProgramEditor.swift */; };
 		C9741A382860862900E1F670 /* ProgramEditor-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A372860862900E1F670 /* ProgramEditor-ViewModel.swift */; };
 		C9741A3C2860CD6300E1F670 /* ExerciseTypeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A3B2860CD6200E1F670 /* ExerciseTypeImage.swift */; };
-		C9741A3E2861128800E1F670 /* View-ImageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A3D2861128800E1F670 /* View-ImageRenderer.swift */; };
 		C9741A5A2861EB0C00E1F670 /* ExerciseDetailsView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A592861EB0C00E1F670 /* ExerciseDetailsView-ViewModel.swift */; };
 		C9741A5D2861F54600E1F670 /* IntensityImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A5C2861F54600E1F670 /* IntensityImage.swift */; };
 		C9741A5F2863208100E1F670 /* TaskDetailsShortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A5E2863208100E1F670 /* TaskDetailsShortView.swift */; };
@@ -171,7 +170,6 @@
 		C9741A352860860C00E1F670 /* ProgramEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramEditor.swift; sourceTree = "<group>"; };
 		C9741A372860862900E1F670 /* ProgramEditor-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgramEditor-ViewModel.swift"; sourceTree = "<group>"; };
 		C9741A3B2860CD6200E1F670 /* ExerciseTypeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTypeImage.swift; sourceTree = "<group>"; };
-		C9741A3D2861128800E1F670 /* View-ImageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-ImageRenderer.swift"; sourceTree = "<group>"; };
 		C9741A592861EB0C00E1F670 /* ExerciseDetailsView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseDetailsView-ViewModel.swift"; sourceTree = "<group>"; };
 		C9741A5C2861F54600E1F670 /* IntensityImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntensityImage.swift; sourceTree = "<group>"; };
 		C9741A5E2863208100E1F670 /* TaskDetailsShortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsShortView.swift; sourceTree = "<group>"; };
@@ -499,7 +497,6 @@
 				C9A0D01F28280F13000CF439 /* SquirrelInWheel.swift */,
 				C9A0D0192827CEC9000CF439 /* Squirrel.swift */,
 				C9A0D02128280F3E000CF439 /* RightWing.swift */,
-				C9741A3D2861128800E1F670 /* View-ImageRenderer.swift */,
 			);
 			path = logo;
 			sourceTree = "<group>";
@@ -753,7 +750,6 @@
 				C9A0D02028280F13000CF439 /* SquirrelInWheel.swift in Sources */,
 				C9CEAA02287C307D00D15A16 /* PauseSettingsView.swift in Sources */,
 				C932522028798B7A009D5479 /* WelcomeView.swift in Sources */,
-				C9741A3E2861128800E1F670 /* View-ImageRenderer.swift in Sources */,
 				C9741A34286085E400E1F670 /* EditProgramView.swift in Sources */,
 				C96728852874E71700B4990C /* PracticeSummaryView.swift in Sources */,
 				C9ACC8E628A5927D00FC5343 /* ProgramExampleId.swift in Sources */,
