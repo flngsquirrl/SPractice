@@ -28,6 +28,7 @@ struct ExerciseTasksView: View {
                 }
             }
         }
+        .navigationViewStyle(.stack)
         .accentColor(.customAccentColor)
     }
 }
