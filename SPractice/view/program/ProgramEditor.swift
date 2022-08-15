@@ -17,8 +17,13 @@ struct ProgramEditor: View {
     @State private var selectedExercise: ExerciseTemplate? = nil
     @Binding private var editMode: EditMode
     
-    init(for template: Binding<ProgramTemplate>, editMode: Binding<EditMode>) {
+    @FocusState private var fieldInFocus: FocusableField?
+    
+    private var mode: EditorMode
+    
+    init(for template: Binding<ProgramTemplate>, mode: EditorMode, editMode: Binding<EditMode>) {
         self.viewModel = ViewModel(for: template)
+        self.mode = mode
         self._editMode = editMode
     }
     
@@ -27,8 +32,17 @@ struct ProgramEditor: View {
             Section {
                 TextField("Name", text: $viewModel.template.name)
                     .disableAutocorrection(true)
+                    .focused($fieldInFocus, equals: .name)
+                    .onAppear() {
+                        if mode == .add {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
+                                fieldInFocus = .name
+                            }
+                        }
+                    }
                 TextField("Description", text: $viewModel.template.description)
                     .disableAutocorrection(true)
+                    .focused($fieldInFocus, equals: .description)
             }
             
             ProgramDurationSection(program: viewModel.preparedProgram)
@@ -82,6 +96,9 @@ struct ProgramEditor: View {
                 }
             }
         }
+        .onSubmit {
+            toggleFocus()
+        }
         .environment(\.editMode, $editMode.animation())
         .sheet(item: $selectedExercise) { exercise in
             NavigationView {
@@ -96,6 +113,10 @@ struct ProgramEditor: View {
             AddExerciseView() { viewModel.addNewExercise(exercise: $0) }
         }
     }
+    
+    func toggleFocus() {
+        fieldInFocus = FocusableField.moveFocusFrom(field: fieldInFocus)
+    }
 }
 
 struct ProgramEditor_Previews: PreviewProvider {
@@ -106,11 +127,11 @@ struct ProgramEditor_Previews: PreviewProvider {
     
     static var previews: some View {
         NavigationView {
-            ProgramEditor(for: $defaultTemplate, editMode: $editMode)
+            ProgramEditor(for: $defaultTemplate, mode:.add, editMode: $editMode)
         }
         
         NavigationView {
-            ProgramEditor(for: $exampleTemplate, editMode: $editMode)
+            ProgramEditor(for: $exampleTemplate, mode: .add, editMode: $editMode)
         }
     }
 }

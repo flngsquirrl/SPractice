@@ -13,8 +13,12 @@ struct ExerciseEditor: View {
     
     @State private var showSettings: Bool = false
     
-    init(for template: Binding<EditorTemplate>) {
+    @FocusState private var fieldInFocus: FocusableField?
+    var mode: EditorMode
+    
+    init(for template: Binding<EditorTemplate>, mode: EditorMode) {
         self.viewModel = ViewModel(for: template)
+        self.mode = mode
     }
     
     var body: some View {
@@ -22,9 +26,19 @@ struct ExerciseEditor: View {
             Section {
                 TextField("Name", text: $viewModel.template.name)
                     .disableAutocorrection(true)
+                    .focused($fieldInFocus, equals: .name)
+                    .onAppear() {
+                        if mode == .add {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
+                                fieldInFocus = .name
+                            }
+                        }
+                    }
+                
                 TextField("Description", text: $viewModel.template.description)
                     .disableAutocorrection(true)
                     .lineLimit(5)
+                    .focused($fieldInFocus, equals: .description)
             }
             
             Section {
@@ -92,9 +106,16 @@ struct ExerciseEditor: View {
                 }
             }
         }
+        .onSubmit {
+            toggleFocus()
+        }
         .sheet(isPresented: $showSettings) {
             SettingsSubgroupView(subgroup: .tabata)
         }
+    }
+    
+    func toggleFocus() {
+        fieldInFocus = FocusableField.moveFocusFrom(field: fieldInFocus)
     }
     
     @ViewBuilder var intensityControl: some View {
@@ -142,7 +163,7 @@ struct ExerciseEditor_Previews: PreviewProvider {
 //        }
         
         NavigationView {
-            ExerciseEditor(for: $exampleTemplate)
+            ExerciseEditor(for: $exampleTemplate, mode: .edit)
         }
     }
 }

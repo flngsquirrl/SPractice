@@ -92,6 +92,8 @@
 		C9B1E744287C266000C92571 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B1E743287C266000C92571 /* SettingsView.swift */; };
 		C9B1E746287C293F00C92571 /* TabataSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B1E745287C293F00C92571 /* TabataSettingsView.swift */; };
 		C9B1E748287C295900C92571 /* FlowSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B1E747287C295900C92571 /* FlowSettingsView.swift */; };
+		C9B49E8B28AAD6EB007713A1 /* FocusableField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B49E8A28AAD6EB007713A1 /* FocusableField.swift */; };
+		C9B49E8D28AAD894007713A1 /* EditorMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B49E8C28AAD894007713A1 /* EditorMode.swift */; };
 		C9C2727C2848C91500F7DA0E /* Array-Wrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C2727B2848C91500F7DA0E /* Array-Wrapper.swift */; };
 		C9CCCE94284A311A005665C8 /* ExerciseEditor-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCCE93284A311A005665C8 /* ExerciseEditor-ViewModel.swift */; };
 		C9CCCE96284A31B9005665C8 /* ClockTime-Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCCE95284A31B9005665C8 /* ClockTime-Calculator.swift */; };
@@ -219,6 +221,8 @@
 		C9B1E743287C266000C92571 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C9B1E745287C293F00C92571 /* TabataSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabataSettingsView.swift; sourceTree = "<group>"; };
 		C9B1E747287C295900C92571 /* FlowSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowSettingsView.swift; sourceTree = "<group>"; };
+		C9B49E8A28AAD6EB007713A1 /* FocusableField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusableField.swift; sourceTree = "<group>"; };
+		C9B49E8C28AAD894007713A1 /* EditorMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorMode.swift; sourceTree = "<group>"; };
 		C9C2727B2848C91500F7DA0E /* Array-Wrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array-Wrapper.swift"; sourceTree = "<group>"; };
 		C9CCCE93284A311A005665C8 /* ExerciseEditor-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseEditor-ViewModel.swift"; sourceTree = "<group>"; };
 		C9CCCE95284A31B9005665C8 /* ClockTime-Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClockTime-Calculator.swift"; sourceTree = "<group>"; };
@@ -358,6 +362,8 @@
 				C915931E288758C100301338 /* Decorated.swift */,
 				C9ACC8EF28A93B7200FC5343 /* SaveItemToolbarButton.swift */,
 				C9ACC8F328AA78D000FC5343 /* View-if.swift */,
+				C9B49E8A28AAD6EB007713A1 /* FocusableField.swift */,
+				C9B49E8C28AAD894007713A1 /* EditorMode.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -753,6 +759,7 @@
 				C9A0D02228280F3E000CF439 /* RightWing.swift in Sources */,
 				C9A0CFEE281AB484000CF439 /* PracticeProgram.swift in Sources */,
 				C9692C7C284F787700373730 /* ExerciseShortView.swift in Sources */,
+				C9B49E8D28AAD894007713A1 /* EditorMode.swift in Sources */,
 				C9ACC8EA28A81C1500FC5343 /* PersistentDataManager.swift in Sources */,
 				C9E0C42728801CDE00B8FBA8 /* SettingsConstants.swift in Sources */,
 				C9CCCE98284B6DE5005665C8 /* ProgramDetailsView.swift in Sources */,
@@ -779,6 +786,7 @@
 				C9CEAA00287C2DFF00D15A16 /* SettingsSubgroupDetailsView.swift in Sources */,
 				C9741A322860857F00E1F670 /* AddProgramView.swift in Sources */,
 				C91B8292288B491B00900239 /* RoundIconButton.swift in Sources */,
+				C9B49E8B28AAD6EB007713A1 /* FocusableField.swift in Sources */,
 				C9692C832850A78300373730 /* TemplateManager.swift in Sources */,
 				C9692C852850F47500373730 /* ExerciseSelectionView.swift in Sources */,
 				C9ACC8EC28A81C9C00FC5343 /* SortingOptions.swift in Sources */,

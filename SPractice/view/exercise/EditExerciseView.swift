@@ -21,7 +21,7 @@ struct EditExerciseView: View {
     }
     
     var body: some View {
-        ExerciseEditor(for: $viewModel.template)
+        ExerciseEditor(for: $viewModel.template, mode: .edit)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     SaveItemToolbarButton {

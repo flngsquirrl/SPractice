@@ -21,7 +21,7 @@ struct AddProgramView: View {
     
     var body: some View {
         NavigationView {
-            ProgramEditor(for: $viewModel.newTemplate, editMode: $viewModel.editMode)
+            ProgramEditor(for: $viewModel.newTemplate, mode: .add, editMode: $viewModel.editMode)
                 .navigationTitle("New program")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
