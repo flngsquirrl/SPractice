@@ -86,6 +86,7 @@
 		C9ACC8EC28A81C9C00FC5343 /* SortingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC8EB28A81C9C00FC5343 /* SortingOptions.swift */; };
 		C9ACC8F028A93B7200FC5343 /* SaveItemToolbarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC8EF28A93B7200FC5343 /* SaveItemToolbarButton.swift */; };
 		C9ACC8F228A993FC00FC5343 /* ExamplesSettingsView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC8F128A993FC00FC5343 /* ExamplesSettingsView-ViewModel.swift */; };
+		C9ACC8F428AA78D000FC5343 /* View-if.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC8F328AA78D000FC5343 /* View-if.swift */; };
 		C9ADD739287F602F00F465D5 /* ResetToDefaultsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ADD738287F602F00F465D5 /* ResetToDefaultsButton.swift */; };
 		C9B1E744287C266000C92571 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B1E743287C266000C92571 /* SettingsView.swift */; };
 		C9B1E746287C293F00C92571 /* TabataSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B1E745287C293F00C92571 /* TabataSettingsView.swift */; };
@@ -211,6 +212,7 @@
 		C9ACC8EB28A81C9C00FC5343 /* SortingOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingOptions.swift; sourceTree = "<group>"; };
 		C9ACC8EF28A93B7200FC5343 /* SaveItemToolbarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveItemToolbarButton.swift; sourceTree = "<group>"; };
 		C9ACC8F128A993FC00FC5343 /* ExamplesSettingsView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExamplesSettingsView-ViewModel.swift"; sourceTree = "<group>"; };
+		C9ACC8F328AA78D000FC5343 /* View-if.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-if.swift"; sourceTree = "<group>"; };
 		C9ADD738287F602F00F465D5 /* ResetToDefaultsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetToDefaultsButton.swift; sourceTree = "<group>"; };
 		C9B1E743287C266000C92571 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C9B1E745287C293F00C92571 /* TabataSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabataSettingsView.swift; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 				C99D281528799AE700596FBD /* DetailsView.swift */,
 				C915931E288758C100301338 /* Decorated.swift */,
 				C9ACC8EF28A93B7200FC5343 /* SaveItemToolbarButton.swift */,
+				C9ACC8F328AA78D000FC5343 /* View-if.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -767,6 +770,7 @@
 				C91696A628A2543500053E90 /* ProgramsManager.swift in Sources */,
 				C9741A3C2860CD6300E1F670 /* ExerciseTypeImage.swift in Sources */,
 				C95F17852884431700E8446D /* SettingsLink.swift in Sources */,
+				C9ACC8F428AA78D000FC5343 /* View-if.swift in Sources */,
 				C9A028FC287833F200032FF9 /* SortableFilterableList.swift in Sources */,
 				C9CEAA00287C2DFF00D15A16 /* SettingsSubgroupDetailsView.swift in Sources */,
 				C9741A322860857F00E1F670 /* AddProgramView.swift in Sources */,

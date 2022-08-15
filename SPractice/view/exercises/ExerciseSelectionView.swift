@@ -151,16 +151,6 @@ struct ExerciseSelectionView: View {
     }
 }
 
-extension View {
-    func `if`<Content: View>(_ conditional: Bool, content: (Self) -> Content) -> some View {
-         if conditional {
-             return AnyView(content(self))
-         } else {
-             return AnyView(self)
-         }
-     }
-}
-
 struct ExerciseSelectionView_Previews: PreviewProvider {
     static var previews: some View {
         ExerciseSelectionView() { _ in }
