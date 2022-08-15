@@ -13,10 +13,9 @@ struct ExerciseDetailsContent<T>: View where T: Exercise {
     
     var body: some View {
         Section {
-            HStack(alignment: .top) {
+            HStack(alignment: .center) {
                 if exercise.isExample {
-                    Image(systemName: "bookmark")
-                        .foregroundColor(.secondary)
+                    SquirrelIcon()
                 }
                 Text(exercise.name)
                     .fontWeight(.semibold)

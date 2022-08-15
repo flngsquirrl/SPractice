@@ -13,10 +13,9 @@ struct ProgramCardView<T>: View where T: Program {
     
     var body: some View {
         Section {
-            HStack(alignment: .top) {
+            HStack(alignment: .center) {
                 if program.isExample {
-                    Image(systemName: "bookmark")
-                        .foregroundColor(.secondary)
+                    SquirrelIcon()
                 }
                 Text(program.name)
                     .fontWeight(.semibold)
@@ -42,6 +41,6 @@ struct ProgramCardView<T>: View where T: Program {
 
 struct ProgramCardView_Previews: PreviewProvider {
     static var previews: some View {
-        ProgramCardView(program: ProgramTemplate.personal)
+        ProgramCardView(program: ProgramTemplate.simple)
     }
 }
