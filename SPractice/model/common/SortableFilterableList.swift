@@ -18,6 +18,7 @@ import Foundation
     var sortingProperty: SortingProperty {get}
     var sortingOrder: SortingOrder {get}
     
+    func sort() -> [Item]
     func sort(_ items: [Item]) -> [Item]
 }
 
@@ -26,6 +27,7 @@ import Foundation
     
     var items: [Item] {get}
     
+    func filter(by searchText: String) -> [Item]
     func filter(_ items: [Item], by searchText: String) -> [Item]
 }
 
@@ -38,6 +40,10 @@ protocol HavingCreationDate {
 }
 
 extension SortableList {
+    
+    func sort() -> [Item] {
+        sort(items)
+    }
     
     func sort(_ items: [Item]) -> [Item] {
         let sorted: [Item]
@@ -83,27 +89,8 @@ extension FilterableList {
         }
     }
     
-}
-
-extension SortableFilterableList {
-    
-    var sortedElements: [Item] {
-        sort(filteredElements)
-    }
-    
     func filter(by searchText: String) -> [Item] {
         filter(items, by: searchText)
     }
     
-    var filteredElements: [Item] {
-        filter(items, by: "")
-    }
-    
-    func getSortedElement(index: Int) -> Item {
-        sortedElements[index]
-    }
-    
-    func getElement(index: Int) -> Item {
-        items[index]
-    }
 }

@@ -24,7 +24,7 @@ extension MainList {
     }
     
     func applySorting() {
-        items = sort(items)
+        items = sort()
     }
     
     func setSorting() {
@@ -48,6 +48,10 @@ extension MainList {
     func deleteItem(_ item: Item) {
         delete(item)
         dataManager.delete(item)
+    }
+    
+    func getItem(index: Int) -> Item {
+        items[index]
     }
     
     func isExampleExist(exampleId: String) -> Bool {

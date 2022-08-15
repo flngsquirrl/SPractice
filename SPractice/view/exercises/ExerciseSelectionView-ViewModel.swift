@@ -18,6 +18,18 @@ extension ExerciseSelectionView {
         @Published var searchText = ""
         
         @Published var selectionItems: [SelectionItem] = Exercises.shared.items.map {SelectionItem(for: $0)}
+        
+        var sortedElements: [Item] {
+            sort(filteredElements)
+        }
+        
+        var filteredElements: [Item] {
+            filter(by: searchText)
+        }
+        
+        func getSortedElement(index: Int) -> Item {
+            sortedElements[index]
+        }
 
         var items: [SelectionItem] {
             if itemsGroup == .prepared {

@@ -52,7 +52,7 @@ struct ExercisesView: View {
                 }
                 .onDelete { indexSet in
                     showDeleteConfirmation = true
-                    selectedToDelete = exercisesManager.getElement(index: indexSet.first!)
+                    selectedToDelete = exercisesManager.getItem(index: indexSet.first!)
                 }
             }
             .listStyle(.inset)

@@ -51,7 +51,7 @@ struct ProgramsView: View {
                 }
                 .onDelete { indexSet in
                     showDeleteConfirmation = true
-                    selectedToDelete = programsManager.getElement(index: indexSet.first!)
+                    selectedToDelete = programsManager.getItem(index: indexSet.first!)
                 }
             }
             .listStyle(.inset)
