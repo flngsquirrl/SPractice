@@ -15,7 +15,7 @@ struct ExerciseDetailsContent<T>: View where T: Exercise {
         Section {
             HStack(alignment: .center) {
                 if exercise.isExample {
-                    SquirrelIcon()
+                    ExampleMark()
                 }
                 Text(exercise.name)
                     .fontWeight(.semibold)
