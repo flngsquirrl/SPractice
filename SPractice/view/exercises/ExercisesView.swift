@@ -90,15 +90,15 @@ struct ExercisesView: View {
     
     var listToolbar: some ToolbarContent {
         ToolbarItemGroup(placement: .navigationBarTrailing) {
+            SortingControl(sortingProperty: $exercisesManager.sortingProperty, sortingOrder: $exercisesManager.sortingOrder) {
+                exercisesManager.setSorting()
+            }
+            
             Button() {
                 showAddNewView = true
             } label: {
                 Image(systemName: "plus")
                     .frame(width: 25)
-            }
-            
-            SortingControl(sortingProperty: $exercisesManager.sortingProperty, sortingOrder: $exercisesManager.sortingOrder) {
-                exercisesManager.setSorting()
             }
         }
     }

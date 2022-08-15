@@ -89,15 +89,15 @@ struct ProgramsView: View {
     
     var listToolbar: some ToolbarContent {
         ToolbarItemGroup(placement: .navigationBarTrailing) {
+            SortingControl(sortingProperty: $programsManager.sortingProperty, sortingOrder: $programsManager.sortingOrder) {
+                programsManager.setSorting()
+            }
+            
             Button() {
                 showAddNewView = true
             } label: {
                 Image(systemName: "plus")
                     .frame(width: 25)
-            }
-            
-            SortingControl(sortingProperty: $programsManager.sortingProperty, sortingOrder: $programsManager.sortingOrder) {
-                programsManager.setSorting()
             }
         }
     }
