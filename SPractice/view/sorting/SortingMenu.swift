@@ -20,6 +20,7 @@ struct SortingControl: View {
             showConfirmation = true
         } label: {
             Image(systemName: "arrow.up.arrow.down")
+                .scaleEffect(0.9)
         }
         .confirmationDialog("Apply sorting", isPresented: $showConfirmation) {
             Button("name (A-Z)") { setSorting(property: .name, order: .asc) }
