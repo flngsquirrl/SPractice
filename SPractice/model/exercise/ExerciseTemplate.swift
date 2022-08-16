@@ -69,8 +69,8 @@ struct ExerciseTemplate: Exercise, HavingCreationDate, ExampleItem, Hashable, Co
         }
     }
     
-    init<T>(from template: T, changeId: Bool = true) where T: Exercise {
-        self.init(id: changeId ? UUID() : template.id, type: template.type, name: template.name, description: template.description, isService: template.isService, intensity: template.intensity, duration: template.duration, isExample: template.isExample, exampleId: template.exampleId)
+    init<T>(from template: T, changeId: Bool = true, resetExampleState: Bool = false) where T: Exercise {
+        self.init(id: changeId ? UUID() : template.id, type: template.type, name: template.name, description: template.description, isService: template.isService, intensity: template.intensity, duration: template.duration, isExample: resetExampleState ? false : template.isExample, exampleId: template.exampleId)
     }
     
     static func getTemplate(from example: ExerciseTemplate) -> ExerciseTemplate {

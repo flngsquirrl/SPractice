@@ -97,7 +97,7 @@ extension ExerciseSelectionView {
             
             preparedItems.forEach {
                 for _ in 0..<$0.counter {
-                    preparedExercises.append(ExerciseTemplate(from: $0.template))
+                    preparedExercises.append(ExerciseTemplate(from: $0.template, resetExampleState: true))
                 }
             }
             return preparedExercises
