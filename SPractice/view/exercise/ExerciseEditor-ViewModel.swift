@@ -108,6 +108,8 @@ extension ExerciseEditor {
         var isExample: Bool
         var exampleId: String?
         
+        var saveAsTemplate: Bool = false
+        
         init(from template: ExerciseTemplate) {
             self.id = template.id
             self.name = template.name

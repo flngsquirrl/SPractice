@@ -15,10 +15,12 @@ struct ExerciseEditor: View {
     
     @FocusState private var fieldInFocus: FocusableField?
     var mode: EditorMode
+    var navigatedFromProgram: Bool
     
-    init(for template: Binding<EditorTemplate>, mode: EditorMode) {
+    init(for template: Binding<EditorTemplate>, mode: EditorMode, navigatedFromProgram: Bool = false) {
         self.viewModel = ViewModel(for: template)
         self.mode = mode
+        self.navigatedFromProgram = navigatedFromProgram
     }
     
     var body: some View {
@@ -104,6 +106,11 @@ struct ExerciseEditor: View {
                         Text("Intensity of a tabata exercise can't be configured")
                     }
                 }
+            }
+            
+            if navigatedFromProgram {
+                Toggle("Save as template", isOn: $viewModel.template.saveAsTemplate)
+                    .tint(.customAccentColor)
             }
         }
         .onSubmit {

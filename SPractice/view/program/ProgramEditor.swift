@@ -117,7 +117,7 @@ struct ProgramEditor: View {
             ExerciseSelectionView() { viewModel.addNewExercises(exercises: $0) }
         }
         .sheet(isPresented: $showNewExerciseView) {
-            AddExerciseView() { viewModel.addNewExercise(exercise: $0) }
+            AddExerciseView(navigatedFromProgram: true) { viewModel.addNewExercise(exercise: $0) }
         }
     }
     
