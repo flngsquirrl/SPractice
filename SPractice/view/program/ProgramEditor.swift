@@ -49,12 +49,14 @@ struct ProgramEditor: View {
             
             Section() {
                 Button() {
+                    hideKeyboard()
                     showNewExerciseView = true
                 } label: {
                     Label("Add new", systemImage: "plus")
                 }
                 .disabled(editMode.isEditing)
                 Button() {
+                    hideKeyboard()
                     showExerciseSelectionView = true
                 } label: {
                     Label("Add from templates", systemImage: "plus")
@@ -85,6 +87,7 @@ struct ProgramEditor: View {
                         }
                     } else {
                         Button("Edit") {
+                            hideKeyboard()
                             withAnimation {
                                 editMode = .active
                             }
@@ -96,6 +99,12 @@ struct ProgramEditor: View {
         }
         .onSubmit {
             toggleFocus()
+        }
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                HideKeyboardButton()
+            }
         }
         .environment(\.editMode, $editMode.animation())
         .sheet(item: $selectedExercise) { exercise in

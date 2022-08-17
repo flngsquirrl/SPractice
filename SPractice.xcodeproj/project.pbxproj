@@ -98,6 +98,8 @@
 		C9B49E9328ACFA27007713A1 /* ExerciseContentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B49E9228ACFA27007713A1 /* ExerciseContentsView.swift */; };
 		C9B49E9528ACFF51007713A1 /* ExerciseIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B49E9428ACFF51007713A1 /* ExerciseIcon.swift */; };
 		C9B49E9728AD001B007713A1 /* ExerciseIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B49E9628AD001B007713A1 /* ExerciseIconButton.swift */; };
+		C9B49E9928AD258F007713A1 /* HideKeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B49E9828AD258F007713A1 /* HideKeyboardButton.swift */; };
+		C9B49E9B28AD5BEF007713A1 /* View-hideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B49E9A28AD5BEF007713A1 /* View-hideKeyboard.swift */; };
 		C9C2727C2848C91500F7DA0E /* Array-Wrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C2727B2848C91500F7DA0E /* Array-Wrapper.swift */; };
 		C9CCCE94284A311A005665C8 /* ExerciseEditor-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCCE93284A311A005665C8 /* ExerciseEditor-ViewModel.swift */; };
 		C9CCCE96284A31B9005665C8 /* ClockTime-Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCCE95284A31B9005665C8 /* ClockTime-Calculator.swift */; };
@@ -231,6 +233,8 @@
 		C9B49E9228ACFA27007713A1 /* ExerciseContentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseContentsView.swift; sourceTree = "<group>"; };
 		C9B49E9428ACFF51007713A1 /* ExerciseIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseIcon.swift; sourceTree = "<group>"; };
 		C9B49E9628AD001B007713A1 /* ExerciseIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseIconButton.swift; sourceTree = "<group>"; };
+		C9B49E9828AD258F007713A1 /* HideKeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboardButton.swift; sourceTree = "<group>"; };
+		C9B49E9A28AD5BEF007713A1 /* View-hideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-hideKeyboard.swift"; sourceTree = "<group>"; };
 		C9C2727B2848C91500F7DA0E /* Array-Wrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array-Wrapper.swift"; sourceTree = "<group>"; };
 		C9CCCE93284A311A005665C8 /* ExerciseEditor-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseEditor-ViewModel.swift"; sourceTree = "<group>"; };
 		C9CCCE95284A31B9005665C8 /* ClockTime-Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClockTime-Calculator.swift"; sourceTree = "<group>"; };
@@ -373,6 +377,8 @@
 				C9B49E8A28AAD6EB007713A1 /* FocusableField.swift */,
 				C9B49E8C28AAD894007713A1 /* EditorMode.swift */,
 				C9B49E8E28AAE585007713A1 /* ExampleMark.swift */,
+				C9B49E9828AD258F007713A1 /* HideKeyboardButton.swift */,
+				C9B49E9A28AD5BEF007713A1 /* View-hideKeyboard.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -717,6 +723,7 @@
 				C92F6C3C286D9D2100D7BA59 /* ProgramSummaryView.swift in Sources */,
 				C9CEAA1B287EB83B00D15A16 /* SettingsLinkView.swift in Sources */,
 				C9A0CFF5281BD588000CF439 /* ProgramTemplate.swift in Sources */,
+				C9B49E9928AD258F007713A1 /* HideKeyboardButton.swift in Sources */,
 				C9D53FB128704B3800FD2B6F /* AddExerciseView-ViewModel.swift in Sources */,
 				C9692C76284F4E9100373730 /* ClockTime.swift in Sources */,
 				C9ACBA2328A55DA80067F07F /* ExercisePropertiesView.swift in Sources */,
@@ -793,6 +800,7 @@
 				C9ADD739287F602F00F465D5 /* ResetToDefaultsButton.swift in Sources */,
 				C9EB6D952881902B0026186C /* String-Empty.swift in Sources */,
 				C9A0D001281BE4C8000CF439 /* PlayerView.swift in Sources */,
+				C9B49E9B28AD5BEF007713A1 /* View-hideKeyboard.swift in Sources */,
 				C9CEAA11287D964900D15A16 /* NumberSelectionControl.swift in Sources */,
 				C91696A628A2543500053E90 /* ProgramsManager.swift in Sources */,
 				C9741A3C2860CD6300E1F670 /* ExerciseTypeImage.swift in Sources */,

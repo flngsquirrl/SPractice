@@ -109,6 +109,12 @@ struct ExerciseEditor: View {
         .onSubmit {
             toggleFocus()
         }
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                HideKeyboardButton()
+            }
+        }
         .sheet(isPresented: $showSettings) {
             SettingsSubgroupView(subgroup: .tabata)
         }

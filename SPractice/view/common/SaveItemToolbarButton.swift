@@ -16,6 +16,7 @@ struct SaveItemToolbarButton: View {
     
     var body: some View {
         Button("Save") {
+            hideKeyboard()
             showExampleUpdateConfirmation = isExampleModified()
             if !showExampleUpdateConfirmation {
                 onSave(false)
