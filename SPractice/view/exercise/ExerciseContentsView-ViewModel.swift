@@ -1,5 +1,5 @@
 //
-//  ExerciseTemplateDetailsView-ViewModel.swift
+//  ExerciseContentsView-ViewModel.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 21.06.22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension ExerciseDetailsView {
+extension ExerciseContentsView {
     @MainActor class ViewModel: ObservableObject {
         
         @Published var exercise: ExerciseTemplate

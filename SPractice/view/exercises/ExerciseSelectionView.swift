@@ -145,7 +145,7 @@ struct ExerciseSelectionView: View {
                             .stroke(.customAccentColor, lineWidth: 1.3)
                     )
                 
-                ExerciseShortView(for: item.template)
+                ExerciseShortView(for: item.template, icon: ExerciseIcon(for: item.template.exerciseType))
             }
         }
     }

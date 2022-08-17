@@ -16,7 +16,7 @@ struct PracticeExerciseInfoView: View {
     var body: some View {
         NavigationView {
             List {
-                ExerciseDetailsContent(exercise: exercise)
+                ExercisePropertiesView(exercise: exercise)
                 
                 if showTasks {
                     ExerciseTasksButton(tasks: exercise.tasks)

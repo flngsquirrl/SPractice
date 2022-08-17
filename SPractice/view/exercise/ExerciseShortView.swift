@@ -7,32 +7,23 @@
 
 import SwiftUI
 
-struct ExerciseShortView<T>: View where T: Exercise {
+struct ExerciseShortView<T, IconContent>: View where T: Exercise, IconContent: View {
     
     @ObservedObject var settings = SettingsManager.settings
     
     private let exercise: T
     private var displayDetails = false
-    private var isIconAccented = false
-    private var accentColor: Color
-    private var isFilled: Bool
+    @ViewBuilder var icon: IconContent
     
-    init(for exercise: T, displayDetails: Bool = true, isIconAccented: Bool = false, accentColor: Color = .customAccentColor, isFilled: Bool = false) {
+    init(for exercise: T, displayDetails: Bool = true, icon: IconContent) {
         self.exercise = exercise
         self.displayDetails = displayDetails && exercise.isTypeSet
-        self.isIconAccented = isIconAccented
-        self.accentColor = accentColor
-        self.isFilled = isFilled
+        self.icon = icon
     }
     
     var body: some View {
         HStack {
-            if isIconAccented {
-                ExerciseTypeImage(type: exercise.type, isFilled: isFilled)
-                    .foregroundColor(accentColor)
-            } else {
-                ExerciseTypeImage(type: exercise.type, isFilled: isFilled)
-            }
+            icon
             Text(name)
             
             if displayDetails {
@@ -83,10 +74,10 @@ struct ExerciseShortView_Previews: PreviewProvider {
 //            }
             
             Group {
-                Text("color test")
-                ExerciseShortView(for: PracticeExercise.catCow)
+                Text("icon test")
+                ExerciseShortView(for: PracticeExercise.catCow, icon: ExerciseTypeImage(type: .flow))
                     .foregroundColor(.secondary)
-                ExerciseShortView(for: PracticeExercise.catCow, isIconAccented: true, accentColor: .red)
+                ExerciseShortView(for: PracticeExercise.catCow, icon: ExerciseTypeImage(type: .flow))
             }
         }
     }

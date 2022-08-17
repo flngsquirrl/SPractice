@@ -1,5 +1,5 @@
 //
-//  ExerciseDetailsContent.swift
+//  ExercisePropertiesView.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 11.08.22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExerciseDetailsContent<T>: View where T: Exercise {
+struct ExercisePropertiesView<T>: View where T: Exercise {
     
     var exercise: T
     
@@ -73,6 +73,6 @@ struct ExerciseDetailsContent<T>: View where T: Exercise {
 
 struct ExerciseDetailsContent_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseDetailsContent(exercise: PracticeExercise(from: ExerciseTemplate.catCow)!)
+        ExercisePropertiesView(exercise: PracticeExercise(from: ExerciseTemplate.catCow)!)
     }
 }

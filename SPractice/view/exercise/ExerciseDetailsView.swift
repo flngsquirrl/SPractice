@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ExerciseDetailsView: DetailsView {
     
-    @ObservedObject private var viewModel: ViewModel
+    private var exercise: ExerciseTemplate
     
     private var onChange: (ExerciseTemplate) -> Void
     private var onDelete: (ExerciseTemplate) -> Void
@@ -20,46 +20,36 @@ struct ExerciseDetailsView: DetailsView {
     @State private var showEditView = false
     
     init(for exercise: ExerciseTemplate, onChange: @escaping (ExerciseTemplate) -> Void, onDelete: @escaping (ExerciseTemplate) -> Void) {
-        self.viewModel = ViewModel(for: exercise)
+        self.exercise = exercise
         self.onChange = onChange
         self.onDelete = onDelete
     }
     
     var isDeleted: Bool {
-        !exercises.contains(viewModel.exercise)
+        !exercises.contains(exercise)
     }
     
     var detailsContent: some View {
-        List {
-            ExerciseDetailsContent(exercise: viewModel.exercise)
-            
-            if viewModel.showTasks {
-                Section {
-                    ExerciseTasksButton(tasks: viewModel.tasks)
-                } footer: {
-                    SettingsLinkView(text: "Sequence and duration of the tasks are based on", settingsSubGroup: .tabata)
+        ExerciseContentsView(exercise: exercise)
+            .navigationTitle("Exercise")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    DeleteToolbarButton(item: exercise) {
+                        onDelete($0)
+                    }
+                    
+                    Button("Edit") {
+                        showEditView = true
+                    }
                 }
             }
-        }
-        .navigationTitle("Exercise")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItemGroup(placement: .navigationBarTrailing) {
-                DeleteToolbarButton(item: viewModel.exercise) {
-                    onDelete($0)
+            .sheet(isPresented: $showEditView) {
+                NavigationView {
+                    EditExerciseView(for: exercise, onSave: onChange)
                 }
-                
-                Button("Edit") {
-                    showEditView = true
-                }
+                .accentColor(.customAccentColor)
             }
-        }
-        .sheet(isPresented: $showEditView) {
-            NavigationView {
-                EditExerciseView(for: viewModel.exercise, onSave: onChange)
-            }
-            .accentColor(.customAccentColor)
-        }
     }
 }
 
