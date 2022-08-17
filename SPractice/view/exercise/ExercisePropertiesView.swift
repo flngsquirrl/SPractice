@@ -17,7 +17,7 @@ struct ExercisePropertiesView<T>: View where T: Exercise {
                 if exercise.isExample {
                     ExampleMark()
                 }
-                Text(exercise.name)
+                Text(name)
                     .fontWeight(.semibold)
             }
             if showDescription {
@@ -60,6 +60,13 @@ struct ExercisePropertiesView<T>: View where T: Exercise {
                 }
             }
         }
+    }
+    
+    var name: String {
+        if exercise.isService {
+            return SettingsManager.pauseName
+        }
+        return exercise.name
     }
     
     var showDetails: Bool {

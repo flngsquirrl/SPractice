@@ -97,7 +97,6 @@
 		C9B49E9128ACF910007713A1 /* ProgramExerciseInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B49E9028ACF910007713A1 /* ProgramExerciseInfoView.swift */; };
 		C9B49E9328ACFA27007713A1 /* ExerciseContentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B49E9228ACFA27007713A1 /* ExerciseContentsView.swift */; };
 		C9B49E9528ACFF51007713A1 /* ExerciseIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B49E9428ACFF51007713A1 /* ExerciseIcon.swift */; };
-		C9B49E9728AD001B007713A1 /* ExerciseIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B49E9628AD001B007713A1 /* ExerciseIconButton.swift */; };
 		C9B49E9928AD258F007713A1 /* HideKeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B49E9828AD258F007713A1 /* HideKeyboardButton.swift */; };
 		C9B49E9B28AD5BEF007713A1 /* View-hideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B49E9A28AD5BEF007713A1 /* View-hideKeyboard.swift */; };
 		C9C2727C2848C91500F7DA0E /* Array-Wrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C2727B2848C91500F7DA0E /* Array-Wrapper.swift */; };
@@ -232,7 +231,6 @@
 		C9B49E9028ACF910007713A1 /* ProgramExerciseInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramExerciseInfoView.swift; sourceTree = "<group>"; };
 		C9B49E9228ACFA27007713A1 /* ExerciseContentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseContentsView.swift; sourceTree = "<group>"; };
 		C9B49E9428ACFF51007713A1 /* ExerciseIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseIcon.swift; sourceTree = "<group>"; };
-		C9B49E9628AD001B007713A1 /* ExerciseIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseIconButton.swift; sourceTree = "<group>"; };
 		C9B49E9828AD258F007713A1 /* HideKeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboardButton.swift; sourceTree = "<group>"; };
 		C9B49E9A28AD5BEF007713A1 /* View-hideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-hideKeyboard.swift"; sourceTree = "<group>"; };
 		C9C2727B2848C91500F7DA0E /* Array-Wrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array-Wrapper.swift"; sourceTree = "<group>"; };
@@ -467,7 +465,6 @@
 				C9D53FAE287040DD00FD2B6F /* ExerciseTasksView.swift */,
 				C9692C7B284F787700373730 /* ExerciseShortView.swift */,
 				C9B49E9428ACFF51007713A1 /* ExerciseIcon.swift */,
-				C9B49E9628AD001B007713A1 /* ExerciseIconButton.swift */,
 				C9DE152B2868FE170011324C /* ExerciseShortDecorativeView.swift */,
 				C996981728646E53009836BD /* ExerciseDurationView.swift */,
 				C9969819286477CB009836BD /* ExerciseTypeView.swift */,
@@ -775,7 +772,6 @@
 				C9CEAA13287DA76A00D15A16 /* SettingsSubgroupView.swift in Sources */,
 				C9CEAA04287C309D00D15A16 /* ExamplesSettingsView.swift in Sources */,
 				C9B49E8F28AAE585007713A1 /* ExampleMark.swift in Sources */,
-				C9B49E9728AD001B007713A1 /* ExerciseIconButton.swift in Sources */,
 				C9ACC8E228A5693B00FC5343 /* PracticeExerciseInfoView.swift in Sources */,
 				C9A0D02228280F3E000CF439 /* RightWing.swift in Sources */,
 				C9A0CFEE281AB484000CF439 /* PracticeProgram.swift in Sources */,

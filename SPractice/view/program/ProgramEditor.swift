@@ -65,13 +65,16 @@ struct ProgramEditor: View {
                 
                 ForEach(viewModel.preparedProgram.exercises) { exercise in
                     HStack {
-                        if editMode.isEditing {
-                            ExerciseShortView(for: exercise, icon: ExerciseIcon(for: exercise.exerciseType, isIconAccented: !ValidationService.isValidToPractice(exercise), accentColor: .red, isFilled: false))
-                        } else {
-                            ExerciseShortView(for: exercise, icon: ExerciseIconButton(for: exercise.exerciseType, isIconAccented: true, accentColor: ValidationService.isValidToPractice(exercise) ? .accentColor : .red) { selectedExercise = exercise })
+                        if !editMode.isEditing {
+                            Button() {
+                                selectedExercise = exercise
+                            } label: {
+                                Image(systemName: "pencil.circle")
+                            }
                         }
+                        let isExerciseValid = ValidationService.isValidToPractice(exercise)
+                        ExerciseShortView(for: exercise, icon: ExerciseIcon(for: exercise.exerciseType, isIconAccented: !isExerciseValid, accentColor: .red))
                     }
-                    .foregroundColor(exercise.isService ? .secondary : .primary)
                 }
                 .onDelete { viewModel.removeItems(at: $0) }
                 .onMove{ viewModel.moveItems(from: $0, to: $1) }
