@@ -18,9 +18,13 @@ struct ProgramSummaryView: View {
         Section("Sequence") {
             ForEach(program.exercises) { exercise in
                 HStack {
-                    ExerciseShortView(for: exercise, icon: ExerciseIconButton(for: exercise.exerciseType, isIconAccented: true, accentColor: ValidationService.isValidToPractice(exercise) ? .accentColor : .red) { selectedExercise = exercise })
-                        .foregroundColor(exercise.isService ? .secondary : .primary)
+                    if exercise.isService {
+                        ExerciseShortView(for: exercise, icon: ExerciseIcon(for: exercise.exerciseType))
+                    } else {
+                        ExerciseShortView(for: exercise, icon: ExerciseIconButton(for: exercise.exerciseType, isIconAccented: true, accentColor: ValidationService.isValidToPractice(exercise) ? .accentColor : .red) { selectedExercise = exercise })
+                    }
                 }
+                .foregroundColor(exercise.isService ? .secondary : .primary)
             }
         }
         .sheet(item: $selectedExercise) { item in
