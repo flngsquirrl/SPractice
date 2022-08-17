@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct DeleteAlertConstants {
-    static let title = "Please, note"
-    static let simpleWarningText = Text("It won't be possible to restore the template")
-    static let exampleWarningText = Text("This template is a default example. You can later restore it from Settings")
+    static let simpleWarning = "It won't be possible to restore the template."
+    static let exampleWarning = "You can later restore this example template from Settings."
     
-    static func getWarningText(isExampleTemplate: Bool = false) -> Text {
-        isExampleTemplate ? exampleWarningText : simpleWarningText 
+    static func getTitle(isExampleTemplate: Bool = false) -> String {
+        isExampleTemplate ? exampleWarning : simpleWarning
     }
 }
 
@@ -29,12 +28,10 @@ struct DeleteToolbarButton<T>: View where T: ExampleItem {
         } label: {
             Image(systemName: "trash")
         }
-        .alert(DeleteAlertConstants.title, isPresented: $showDeleteConfirmation) {
+        .alert(DeleteAlertConstants.getTitle(isExampleTemplate: item.isExample), isPresented: $showDeleteConfirmation) {
             DeleteAlertContent(item: item) {
                 onDelete($0)
             }
-        } message: {
-            DeleteAlertConstants.getWarningText(isExampleTemplate: item.isExample)
         }
     }
 }

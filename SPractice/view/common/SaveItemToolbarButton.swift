@@ -22,11 +22,9 @@ struct SaveItemToolbarButton: View {
                 onSave(false)
             }
         }
-        .alert("Please, note", isPresented: $showExampleUpdateConfirmation) {
+        .alert("You can later reset the changes made to this example template from Settings.", isPresented: $showExampleUpdateConfirmation) {
             Button("Save") { onSave(true) }
             Button("Cancel", role: .cancel) {}
-        } message: {
-            Text("This template is a default example. You can later reset the changes made to it from Settings")
         }
     }
 }

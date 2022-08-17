@@ -10,6 +10,6 @@ import SwiftUI
 
 enum SettingsConstants {
     
-    static let resetMessage = Text("These settings influence your exercises and programs")
+    static let resetTitle = "These settings influence existing exercises and programs."
     
 }

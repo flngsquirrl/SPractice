@@ -20,7 +20,7 @@ struct ResetToDefaultsButton: View {
             showResetConfirmation = true
         }
         .disabled(isResetDisabled)
-        .alert(LayoutUtils.warningAlertTitle, isPresented: $showResetConfirmation) {
+        .alert(SettingsConstants.resetTitle, isPresented: $showResetConfirmation) {
             Button("Reset", role: .destructive) {
                 withAnimation {
                     SettingsManager.resetToDefauls(subgroup: subgroup)
@@ -28,8 +28,6 @@ struct ResetToDefaultsButton: View {
             }
             
             Button("Cancel", role: .cancel) {}
-        } message: {
-            SettingsConstants.resetMessage
         }
     }
     

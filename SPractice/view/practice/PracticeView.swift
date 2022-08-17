@@ -75,31 +75,27 @@ struct PracticeView: View {
                 } content: {
                     PracticeSummaryView(practice: practice)
                 }
-                .alert("Namaste", isPresented: $practice.isCompleted) {
+                .alert(endOfPracticeTitle, isPresented: $practice.isCompleted) {
                     restartButton
                     closePracticeButton
-                } message: {
-                    endOfPracticeText
                 }
-                .alert("Please, note", isPresented: $showRestartConfirmation) {
+                .alert("If you restart the practice, your progress will be lost.", isPresented: $showRestartConfirmation) {
                     restartButton
                     closeAlertButton
-                } message: {
-                    Text("If you restart the practice, you progress will be lost")
                 }
             }
             .accentColor(.customAccentColor)
         }
     }
     
-    var endOfPracticeText: some View {
+    var endOfPracticeTitle: String {
         var text: String
         if practice.isStarted {
-            text = "You have finished the practice"
+            text = "You have finished the practice."
         } else {
-            text = "You have reached the end of the practice"
+            text = "You have reached the end of the practice."
         }
-        return Text(text)
+        return text
     }
     
     var closeAlertButton: some View {

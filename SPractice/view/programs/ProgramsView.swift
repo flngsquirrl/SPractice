@@ -71,14 +71,16 @@ struct ProgramsView: View {
                     }
                 }
             }
-            .alert(DeleteAlertConstants.title, isPresented: $showDeleteConfirmation, presenting: selectedToDelete) { item in
+            .alert(deleteAlertTitle, isPresented: $showDeleteConfirmation, presenting: selectedToDelete) { item in
                 DeleteAlertContent(item: item) {
                     programsManager.deleteItem($0)
                 }
-            } message: { item in
-                DeleteAlertConstants.getWarningText(isExampleTemplate: item.isExample)
             }
         }
+    }
+    
+    var deleteAlertTitle: String {
+        DeleteAlertConstants.getTitle(isExampleTemplate: selectedToDelete?.isExample ?? false)
     }
     
     var addItemView: some View {
