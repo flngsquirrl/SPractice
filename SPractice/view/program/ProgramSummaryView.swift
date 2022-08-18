@@ -21,7 +21,7 @@ struct ProgramSummaryView: View {
                     Button() {
                         selectedExercise = exercise
                     } label: {
-                        Image(systemName: "arrow.right.circle")
+                        Image(systemName: "info.circle")
                     }
                     let isExerciseValid = ValidationService.isValidToPractice(exercise)
                     ExerciseShortView(for: exercise, icon: ExerciseIcon(for: exercise.exerciseType, isIconAccented: !isExerciseValid, accentColor: .red))
