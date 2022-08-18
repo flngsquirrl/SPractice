@@ -14,7 +14,6 @@ struct PracticeView: View {
     @Environment(\.verticalSizeClass) var sizeClass
     
     @State private var isPracticeDetailsShown = false
-    @State private var isSoundOn = true
     
     @State private var showRestartConfirmation = false
     @State private var wasRunningAtPracticeRestartRequest = false
@@ -139,12 +138,16 @@ struct PracticeView: View {
     var soundButton: some View {
         Button() {
             withAnimation {
-                isSoundOn.toggle()
+                practice.toggleSound()
             }
         } label: {
             Image(systemName: isSoundOn ? "bell" : "bell.slash")
                 .frame(width: 25)
         }
+    }
+    
+    var isSoundOn: Bool {
+        practice.isSoundOn
     }
     
     var summaryButton: some View {

@@ -5,6 +5,7 @@
 //  Created by Yuliya Charniak on 11.05.22.
 //
 
+import AVFoundation
 import Foundation
 import SwiftUI
 
@@ -13,6 +14,8 @@ class Practice: ObservableObject {
     let program: PracticeProgram
     let clock: Clock
     let player: Player
+    
+    @Published var isSoundOn: Bool = true
     
     var isRunning = false
     @Published var isStarted = false // play was clicked
@@ -238,10 +241,48 @@ class Practice: ObservableObject {
     func prepareClock() {
         clock.onFinished = { self.processCountingFinished() }
         clock.onTick = {
-            self.updateDurationRemaining()
-            self.isCurrentExerciseStarted = true
+            self.onClockTick()
         }
         setClock()
+    }
+    
+    func onClockTick() {
+        updateDurationRemaining()
+        isCurrentExerciseStarted = true
+        
+        if isSoundOn {
+            playSound()
+        }
+    }
+    
+    func toggleSound() {
+        isSoundOn.toggle()
+    }
+    
+    func playSound() {
+        if clock.isCountdown {
+            let taskRemainingTime = clock.time.timeInSeconds
+            if taskRemainingTime <= 5 {
+                switch taskRemainingTime {
+                case 0:
+                    playEndSound()
+                default:
+                    SoundManager.shared.playSound(type: .taskCountdown)
+                }
+            }
+        }
+    }
+    
+    func playEndSound() {
+        var soundType: SoundType
+        if isLastExercise && isLastTask {
+            soundType = .endOfPractice
+        } else if isLastTask {
+            soundType = .endOfExercise
+        } else {
+            soundType = .endOfTask
+        }
+        SoundManager.shared.playSound(type: soundType)
     }
     
     func setDurationRemaining() {
