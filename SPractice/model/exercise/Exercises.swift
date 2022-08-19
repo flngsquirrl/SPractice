@@ -9,21 +9,21 @@ import Foundation
 
 @MainActor class Exercises: ObservableObject, PersistentDataManager {
     
-    @Published internal var items: [ExerciseTemplate] = [ExerciseTemplate.catCow, ExerciseTemplate.balasana, ExerciseTemplate.shavasana, ExerciseTemplate.vasihsthasana, ExerciseTemplate.catCowNoDuration, ExerciseTemplate.surjaNamascarA, ExerciseTemplate.catCowNoType]
+    //@Published internal var items: [ExerciseTemplate] = [ExerciseTemplate.catCow, ExerciseTemplate.balasana, ExerciseTemplate.shavasana, ExerciseTemplate.vasihsthasana, ExerciseTemplate.catCowNoDuration, ExerciseTemplate.surjaNamascarA, ExerciseTemplate.catCowNoType]
     
-    //@Published internal var items: [ExerciseTemplate]
+    @Published internal var items: [ExerciseTemplate]
     
     static let shared = Exercises()
     
     let savePath = FileManager.documentsDirectory.appendingPathComponent("Exercises")
 
     private init() {
-//        do {
-//            let data = try Data(contentsOf: savePath)
-//            templates = try JSONDecoder().decode([ExerciseTemplate].self, from: data)
-//        } catch {
-//            templates = []
-//        }
+        do {
+            let data = try Data(contentsOf: savePath)
+            items = try JSONDecoder().decode([ExerciseTemplate].self, from: data)
+        } catch {
+            items = ExerciseTemplate.defaultExamples
+        }
         
 //        for lots of items
 //
@@ -41,11 +41,11 @@ import Foundation
     }
     
     internal func save() {
-//        do {
-//            let data = try JSONEncoder().encode(templates)
-//            try data.write(to: savePath, options: [.atomic, .completeFileProtection])
-//        } catch {
-//            print("Unable to save data.")
-//        }
+        do {
+            let data = try JSONEncoder().encode(items)
+            try data.write(to: savePath, options: [.atomic, .completeFileProtection])
+        } catch {
+            print("Unable to save data.")
+        }
     }
 }

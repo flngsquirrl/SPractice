@@ -11,20 +11,20 @@ import Foundation
     
     typealias Item = ProgramTemplate
     
-    @Published internal var items: [ProgramTemplate] = [.simple, .personal, .dailyShort, .shortForBack]
-    //@Published internal var items: [ProgramTemplate]
+    //@Published internal var items: [ProgramTemplate] = [.simple, .personal, .dailyShort, .shortForBack]
+    @Published internal var items: [ProgramTemplate]
     
     static let shared = Programs()
     
     let savePath = FileManager.documentsDirectory.appendingPathComponent("Programs")
 
     private init() {
-//        do {
-//            let data = try Data(contentsOf: savePath)
-//            templates = try JSONDecoder().decode([ProgramTemplate].self, from: data)
-//        } catch {
-//            templates = []
-//        }
+        do {
+            let data = try Data(contentsOf: savePath)
+            items = try JSONDecoder().decode([ProgramTemplate].self, from: data)
+        } catch {
+            items = ProgramTemplate.defaultExamples
+        }
         
 //        for lots of items
 //
@@ -42,11 +42,11 @@ import Foundation
     }
     
     internal func save() {
-//        do {
-//            let data = try JSONEncoder().encode(templates)
-//            try data.write(to: savePath, options: [.atomic, .completeFileProtection])
-//        } catch {
-//            print("Unable to save data.")
-//        }
+        do {
+            let data = try JSONEncoder().encode(items)
+            try data.write(to: savePath, options: [.atomic, .completeFileProtection])
+        } catch {
+            print("Unable to save data.")
+        }
     }
 }
