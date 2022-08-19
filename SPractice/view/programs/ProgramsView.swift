@@ -84,7 +84,7 @@ struct ProgramsView: View {
     }
     
     var addItemView: some View {
-        AddProgramView() {
+        AddProgramView {
             programsManager.addItem($0)
         }
     }
@@ -95,7 +95,7 @@ struct ProgramsView: View {
                 programsManager.setSorting()
             }
             
-            Button() {
+            Button {
                 showAddNewView = true
             } label: {
                 Image(systemName: "plus")

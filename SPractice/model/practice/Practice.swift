@@ -286,7 +286,7 @@ class Practice: ObservableObject {
     }
     
     func setDurationRemaining() {
-        durationRemaining = program.calculateDuration(fromIndex: currentExerciseIndex)
+        durationRemaining = program.calculateDuration(from: currentExerciseIndex)
     }
     
     func resetDurationRemaining() {

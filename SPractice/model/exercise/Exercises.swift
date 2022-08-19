@@ -9,7 +9,7 @@ import Foundation
 
 @MainActor class Exercises: ObservableObject, PersistentDataManager {
     
-    //@Published internal var items: [ExerciseTemplate] = [ExerciseTemplate.catCow, ExerciseTemplate.balasana, ExerciseTemplate.shavasana, ExerciseTemplate.vasihsthasana, ExerciseTemplate.catCowNoDuration, ExerciseTemplate.surjaNamascarA, ExerciseTemplate.catCowNoType]
+    // @Published internal var items: [ExerciseTemplate] = [ExerciseTemplate.catCow, ExerciseTemplate.balasana, ExerciseTemplate.shavasana, ExerciseTemplate.vasihsthasana, ExerciseTemplate.catCowNoDuration, ExerciseTemplate.surjaNamascarA, ExerciseTemplate.catCowNoType]
     
     @Published internal var items: [ExerciseTemplate]
     

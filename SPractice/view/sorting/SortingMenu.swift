@@ -53,4 +53,3 @@ struct SortingControl_Previews: PreviewProvider {
         SortingControl(sortingProperty: .constant(.date), sortingOrder: .constant(.asc)) { }
     }
 }
-

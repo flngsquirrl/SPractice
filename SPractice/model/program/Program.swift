@@ -22,13 +22,13 @@ protocol Program: HavingID, Named {
 extension Program {
     
     var duration: Duration {
-        calculateDuration(fromIndex: 0)
+        calculateDuration(from: 0)
     }
     
-    func calculateDuration(fromIndex index: Int) -> Duration {
+    func calculateDuration(from startIndex: Int) -> Duration {
         var totalDuration = 0
-        for i in index..<exercises.count {
-            let exercise = exercises[i]
+        for index in startIndex..<exercises.count {
+            let exercise = exercises[index]
             var exerciseDuration: Int = 0
             if case .known(let duration) = exercise.duration {
                 exerciseDuration = duration
@@ -39,7 +39,7 @@ extension Program {
             }
             totalDuration += exerciseDuration
         }
-        return totalDuration == 0 ? (hasFlowExercises(fromIndex: index) ? .unlimited : .unknown) : .known(totalDuration)
+        return totalDuration == 0 ? (hasFlowExercises(fromIndex: startIndex) ? .unlimited : .unknown) : .known(totalDuration)
     }
     
     var hasExercises: Bool {

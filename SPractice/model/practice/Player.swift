@@ -17,10 +17,10 @@ class Player: ObservableObject {
     @Published var isPlayEnabled = true
     @Published var isPauseEnabled = false
     
-    var onBackwardClicked: (() -> Void)? = nil
-    var onPlayClicked: (() -> Void)? = nil
-    var onPauseClicked: (() -> Void)? = nil
-    var onForwardClicked: (() -> Void)? = nil
+    var onBackwardClicked: (() -> Void)?
+    var onPlayClicked: (() -> Void)?
+    var onPauseClicked: (() -> Void)?
+    var onForwardClicked: (() -> Void)?
     
     func pauseClicked() {
         withAnimation {

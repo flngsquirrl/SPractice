@@ -61,7 +61,7 @@ struct ExerciseSelectionView: View {
                     .fixedSize()
                     .pickerStyle(.segmented)
                 }
-                    
+
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Add") {
                         onAdd(viewModel.preparedExercises)
@@ -118,7 +118,7 @@ struct ExerciseSelectionView: View {
 
         var body: some View {
             HStack {
-                Button() {
+                Button {
                     if isAdded {
                         if item.counter > 0 {
                             item.counter -= 1
@@ -153,6 +153,6 @@ struct ExerciseSelectionView: View {
 
 struct ExerciseSelectionView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseSelectionView() { _ in }
+        ExerciseSelectionView { _ in }
     }
 }

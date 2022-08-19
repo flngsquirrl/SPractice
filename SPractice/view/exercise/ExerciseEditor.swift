@@ -29,7 +29,7 @@ struct ExerciseEditor: View {
                 TextField("Name", text: $viewModel.template.name)
                     .disableAutocorrection(true)
                     .focused($fieldInFocus, equals: .name)
-                    .onAppear() {
+                    .onAppear {
                         if mode == .add {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
                                 fieldInFocus = .name
@@ -61,7 +61,7 @@ struct ExerciseEditor: View {
                     }
                     .pickerStyle(.segmented)
                 }
-            
+
                 HStack {
                     Text("Type")
                     InfoButton()
@@ -153,9 +153,7 @@ struct ExerciseEditor: View {
     }
     
     var timerDurationControl: some View {
-        DurationControl(minutes: $viewModel.minutes, seconds: $viewModel.seconds, onMinutesChange: {viewModel.onMinutesChange(newValue: $0)}, onSecondsChange: {viewModel.onSecondsChange(newValue: $0)}) {
-            durationControlContent
-        }
+        DurationControl(minutes: $viewModel.minutes, seconds: $viewModel.seconds, onMinutesChange: {viewModel.onMinutesChange(newValue: $0)}, onSecondsChange: {viewModel.onSecondsChange(newValue: $0)}, content: {durationControlContent})
     }
     
     @ViewBuilder var durationControlContent: some View {
@@ -171,9 +169,9 @@ struct ExerciseEditor_Previews: PreviewProvider {
     @State static private var exampleTemplate = ExerciseEditor.EditorTemplate(from: ExerciseTemplate.vasihsthasana)
     
     static var previews: some View {
-//        NavigationView {
-//            ExerciseTemplateEditor(for: $defaultTemplate)
-//        }
+        //        NavigationView {
+        //            ExerciseTemplateEditor(for: $defaultTemplate)
+        //        }
         
         NavigationView {
             ExerciseEditor(for: $exampleTemplate, mode: .edit)

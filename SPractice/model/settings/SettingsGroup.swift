@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SettingsGroup: String, CaseIterable, Codable  {
+enum SettingsGroup: String, CaseIterable, Codable {
     case exercise = "Exercise"
     case practice = "Practice"
     case templates = "Templates"

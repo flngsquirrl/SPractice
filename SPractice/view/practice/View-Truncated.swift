@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct Truncated: ViewModifier {
     func body(content: Content) -> some View {
         content

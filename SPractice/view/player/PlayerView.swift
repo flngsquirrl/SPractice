@@ -19,17 +19,17 @@ struct PlayerButton: View {
     
     var body: some View {
         VStack {
-            Button() { onClick?() }
-            label: {
-                Image(systemName: systemImageName)
-                    .frame(width: width, height: 70)
-                    .font(mainFont)
-                    .foregroundColor(.creamy)
-                    .background(.lightOrange)
-                    .opacity(isEnabled ? 1 : 0.6)
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
-            }
-            .disabled(!isEnabled)
+            Button { onClick?() }
+        label: {
+            Image(systemName: systemImageName)
+                .frame(width: width, height: 70)
+                .font(mainFont)
+                .foregroundColor(.creamy)
+                .background(.lightOrange)
+                .opacity(isEnabled ? 1 : 0.6)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+        }
+        .disabled(!isEnabled)
         }
     }
 }
@@ -52,7 +52,7 @@ struct PlayerView: View {
                         .animation(.default, value: player.isBackwardEnabled)
                     
                     Group {
-                        if (player.isPlaying) {
+                        if player.isPlaying {
                             PlayerButton(systemImageName: "pause.fill", onClick: player.pauseClicked, isEnabled: player.isPauseEnabled, width: width)
                                 .animation(.default, value: player.isPauseEnabled)
                         } else {

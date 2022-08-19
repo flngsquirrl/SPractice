@@ -12,8 +12,8 @@ struct DurationControl<Content: View>: View {
     @Binding var minutes: Int
     @Binding var seconds: Int
     
-    var onMinutesChange: ((Int) -> Void)? = nil
-    var onSecondsChange: ((Int) -> Void)? = nil
+    var onMinutesChange: ((Int) -> Void)?
+    var onSecondsChange: ((Int) -> Void)?
     
     @ViewBuilder var content: Content
     
@@ -62,10 +62,11 @@ struct DurationControl<Content: View>: View {
 struct DurationControl_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            DurationControl(minutes: .constant(2), seconds: .constant(30), onMinutesChange: { _ in }, onSecondsChange: { _ in }) {
+            DurationControl(minutes: .constant(2), seconds: .constant(30), onMinutesChange: { _ in }, onSecondsChange: { _ in },
+                            content: {
                 Text("Duration")
                 Spacer()
-            }
+            })
         }
     }
 }

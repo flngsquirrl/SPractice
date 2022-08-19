@@ -34,4 +34,3 @@ struct SaveItemToolbarButton_Previews: PreviewProvider {
         SaveItemToolbarButton { true } onSave: { _ in }
     }
 }
-

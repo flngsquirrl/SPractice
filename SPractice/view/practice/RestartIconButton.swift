@@ -12,7 +12,7 @@ struct RestartIconButton: View {
     var onClick: () -> Void
     
     var body: some View {
-        Button() {
+        Button {
             onClick()
         } label: {
             Image(systemName: "arrow.clockwise")

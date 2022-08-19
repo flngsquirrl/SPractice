@@ -15,9 +15,9 @@ struct ExamplesSettingsView: View {
     @ObservedObject var exercisesManager = ExercisesManager.shared
     
     enum RestoreGroup: String, CaseIterable {
-        case all = "all"
-        case programs = "programs"
-        case exercises = "exercises" 
+        case all
+        case programs
+        case exercises
     }
     
     var body: some View {

@@ -83,15 +83,15 @@ struct PracticeExercise: Exercise, Equatable {
         return tasks
     }
     
-    private func prepareTabataTasks(from template: ExerciseTemplate) -> [Task]  {
+    private func prepareTabataTasks(from template: ExerciseTemplate) -> [Task] {
         var tasks = [Task]()
         
         let warmUp = Task(intensity: .rest, name: "warm-up", duration: .known(SettingsManager.tabataWarmUpDurationItem.value))
         tasks.append(warmUp)
         
-        for i in 1...SettingsManager.tabataCyclesItem.value {
-            let activity = Task(intensity: .activity, name: "\(Intensity.activity.rawValue) \(i)", duration: .known(SettingsManager.tabataActivityDurationItem.value))
-            let rest = Task(intensity: .rest, name: "\(Intensity.rest.rawValue) \(i)", duration: .known(SettingsManager.tabataRestDurationItem.value))
+        for number in 1...SettingsManager.tabataCyclesItem.value {
+            let activity = Task(intensity: .activity, name: "\(Intensity.activity.rawValue) \(number)", duration: .known(SettingsManager.tabataActivityDurationItem.value))
+            let rest = Task(intensity: .rest, name: "\(Intensity.rest.rawValue) \(number)", duration: .known(SettingsManager.tabataRestDurationItem.value))
             tasks.append(activity)
             tasks.append(rest)
         }
@@ -104,14 +104,14 @@ struct PracticeExercise: Exercise, Equatable {
     
     private func prepareFlowTasks(from template: ExerciseTemplate) -> [Task] {
         let task = Task(intensity: template.intensity!, name: template.intensity!.rawValue, duration: .unlimited)
-        return Array<Task>.wrapElement(element: task)
+        return [Task].wrapElement(element: task)
     }
     
     private func prepareTimerTasks(from template: ExerciseTemplate) -> [Task] {
         let intensity: Intensity = template.isService ? .rest : template.intensity!
         let duration: Duration = template.isService ? .known(SettingsManager.pauseDurationItem.value) : template.duration
         let task = Task(intensity: intensity, name: intensity.rawValue, duration: duration)
-        return Array<Task>.wrapElement(element: task)
+        return [Task].wrapElement(element: task)
     }
     
     static let catCow = PracticeExercise(from: ExerciseTemplate.catCow)!

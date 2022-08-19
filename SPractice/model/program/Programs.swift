@@ -11,7 +11,7 @@ import Foundation
     
     typealias Item = ProgramTemplate
     
-    //@Published internal var items: [ProgramTemplate] = [.simple, .personal, .dailyShort, .shortForBack]
+    // @Published internal var items: [ProgramTemplate] = [.simple, .personal, .dailyShort, .shortForBack]
     @Published internal var items: [ProgramTemplate]
     
     static let shared = Programs()

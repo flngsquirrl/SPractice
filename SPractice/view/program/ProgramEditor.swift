@@ -14,7 +14,7 @@ struct ProgramEditor: View {
     @State private var showNewExerciseView = false
     @State private var showExerciseSelectionView = false
     
-    @State private var selectedExercise: ExerciseTemplate? = nil
+    @State private var selectedExercise: ExerciseTemplate?
     @Binding private var editMode: EditMode
     
     @FocusState private var fieldInFocus: FocusableField?
@@ -33,7 +33,7 @@ struct ProgramEditor: View {
                 TextField("Name", text: $viewModel.template.name)
                     .disableAutocorrection(true)
                     .focused($fieldInFocus, equals: .name)
-                    .onAppear() {
+                    .onAppear {
                         if mode == .add {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
                                 fieldInFocus = .name
@@ -47,15 +47,16 @@ struct ProgramEditor: View {
             
             ProgramDurationSection(program: viewModel.preparedProgram)
             
-            Section() {
-                Button() {
+            Section {
+                Button {
                     hideKeyboard()
                     showNewExerciseView = true
                 } label: {
                     Label("Add new", systemImage: "plus")
                 }
                 .disabled(editMode.isEditing)
-                Button() {
+                
+                Button {
                     hideKeyboard()
                     showExerciseSelectionView = true
                 } label: {
@@ -66,7 +67,7 @@ struct ProgramEditor: View {
                 ForEach(viewModel.preparedProgram.exercises) { exercise in
                     HStack {
                         if !editMode.isEditing {
-                            Button() {
+                            Button {
                                 selectedExercise = exercise
                             } label: {
                                 Image(systemName: "pencil.circle")
@@ -77,7 +78,7 @@ struct ProgramEditor: View {
                     }
                 }
                 .onDelete { viewModel.removeItems(at: $0) }
-                .onMove{ viewModel.moveItems(from: $0, to: $1) }
+                .onMove { viewModel.moveItems(from: $0, to: $1) }
             } header: {
                 HStack {
                     Text("Exercises (\(viewModel.template.exercises.count))")
@@ -113,11 +114,11 @@ struct ProgramEditor: View {
         .sheet(item: $selectedExercise) { exercise in
             NavigationView {
                 EditExerciseView(for: exercise) { viewModel.updateExercise(exercise: $0) }
-                }
-                .accentColor(.customAccentColor)
+            }
+            .accentColor(.customAccentColor)
         }
         .sheet(isPresented: $showExerciseSelectionView) {
-            ExerciseSelectionView() { viewModel.addNewExercises(exercises: $0) }
+            ExerciseSelectionView { viewModel.addNewExercises(exercises: $0) }
         }
         .sheet(isPresented: $showNewExerciseView) {
             AddExerciseView(navigatedFromProgram: true) { viewModel.addNewExercise(exercise: $0) }
@@ -137,7 +138,7 @@ struct ProgramEditor_Previews: PreviewProvider {
     
     static var previews: some View {
         NavigationView {
-            ProgramEditor(for: $defaultTemplate, mode:.add, editMode: $editMode)
+            ProgramEditor(for: $defaultTemplate, mode: .add, editMode: $editMode)
         }
         
         NavigationView {

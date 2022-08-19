@@ -99,7 +99,7 @@ class SettingsManager {
 
 class Settings: ObservableObject {
     
-    typealias SettingsType = Dictionary<SettingsSubGroup, [SettingsItem]>
+    typealias SettingsType = [SettingsSubGroup: [SettingsItem]]
     var groups: SettingsType
     
     static private let saveKey = "settingsNew"
@@ -115,7 +115,7 @@ class Settings: ObservableObject {
     }
     
     fileprivate init() {
-        //UserDefaults.standard.removeObject(forKey: "settings")
+        // UserDefaults.standard.removeObject(forKey: "settings")
         if let savedItems = UserDefaults.standard.data(forKey: Self.saveKey) {
             let decoder = JSONDecoder()
             
@@ -139,7 +139,7 @@ class Settings: ObservableObject {
     }
     
     fileprivate func getItem(_ name: SettingsItemName) -> SettingsItem {
-        let items = groups.flatMap{ $1 }
+        let items = groups.flatMap { $1 }
         let item = items.first(where: { $0.name == name})
         guard let item = item else {
             fatalError("Error getting value of \(name)")
@@ -148,7 +148,7 @@ class Settings: ObservableObject {
     }
     
     fileprivate func getDefault(_ name: SettingsItemName) -> SettingsItem {
-        let items = defaults.flatMap{ $1 }
+        let items = defaults.flatMap { $1 }
         let item = items.first(where: { $0.name == name})
         guard let item = item else {
             fatalError("Error getting default value of \(name)")
@@ -157,15 +157,13 @@ class Settings: ObservableObject {
     }
     
     fileprivate func resetToDefauls(subgroup: SettingsSubGroup) {
-        guard let _ = groups[subgroup] else {
-            return
+        if groups[subgroup] != nil {
+            guard let defaultGroup = defaults[subgroup] else {
+                return
+            }
+
+            groups[subgroup] = defaultGroup
         }
-        
-        guard let defaultGroup = defaults[subgroup] else {
-            return
-        }
-        
-        groups[subgroup] = defaultGroup
     }
     
     fileprivate func resetToDefauls() {

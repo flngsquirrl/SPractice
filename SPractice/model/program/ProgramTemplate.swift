@@ -38,21 +38,19 @@ struct ProgramTemplate: Program, HavingCreationDate, ExampleItem, Codable {
     }
     
     var exercises: [ExerciseTemplate] {
-        get {
-            guard usePauses else {
-                return templateExercises
-            }
-
-            var all = [ExerciseTemplate]()
-            for (index, exercise) in templateExercises.enumerated() {
-                all.append(exercise)
-
-                if usePauses && index != templateExercises.count - 1 {
-                    all.append(ExerciseTemplate.pauseTemplate)
-                }
-            }
-            return all
+        guard usePauses else {
+            return templateExercises
         }
+
+        var all = [ExerciseTemplate]()
+        for (index, exercise) in templateExercises.enumerated() {
+            all.append(exercise)
+
+            if usePauses && index != templateExercises.count - 1 {
+                all.append(ExerciseTemplate.pauseTemplate)
+            }
+        }
+        return all
     }
     
     static var template: ProgramTemplate {
@@ -72,9 +70,9 @@ struct ProgramTemplate: Program, HavingCreationDate, ExampleItem, Codable {
             return false
         }
         
-        for i in 0..<example.exercises.count {
-            let exampleExercise = example.exercises[i]
-            let exercise = templateExercises[i]
+        for index in 0..<example.exercises.count {
+            let exampleExercise = example.exercises[index]
+            let exercise = templateExercises[index]
             if !exercise.isEqualTo(exercise: exampleExercise) {
                 return false
             }
@@ -99,8 +97,7 @@ struct ProgramTemplate: Program, HavingCreationDate, ExampleItem, Codable {
         [simple]
     }
     
-    static let simple =
-    ProgramTemplate(name: "Simple", description: "An example demo practice", exercises: [ExerciseTemplate.getTemplate(from: .catCow), ExerciseTemplate.getTemplate(from: .surjaNamascarA), ExerciseTemplate.getTemplate(from: .balasana), ExerciseTemplate.getTemplate(from: .vasihsthasana), ExerciseTemplate.getTemplate(from: .shavasana)], isExample: true, exampleId: ProgramExampleId.simple.rawValue)
+    static let simple = ProgramTemplate(name: "Simple", description: "An example demo practice", exercises: [ExerciseTemplate.getTemplate(from: .catCow), ExerciseTemplate.getTemplate(from: .surjaNamascarA), ExerciseTemplate.getTemplate(from: .balasana), ExerciseTemplate.getTemplate(from: .vasihsthasana), ExerciseTemplate.getTemplate(from: .shavasana)], isExample: true, exampleId: ProgramExampleId.simple.rawValue)
     
     static let personal = ProgramTemplate(name: "Personal", description: "Practice once or twice a week", exercises: [ExerciseTemplate.getTemplate(from: .catCow), ExerciseTemplate.getTemplate(from: .surjaNamascarA), ExerciseTemplate.getTemplate(from: .vasihsthasana), ExerciseTemplate.getTemplate(from: .shavasana)])
     static let dailyShort = ProgramTemplate(name: "Daily short", description: "Simple short practice for every day", exercises: [ExerciseTemplate.getTemplate(from: .catCow), ExerciseTemplate.getTemplate(from: .surjaNamascarA), ExerciseTemplate.getTemplate(from: .shavasana)])

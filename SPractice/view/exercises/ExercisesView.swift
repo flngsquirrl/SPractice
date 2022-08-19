@@ -85,7 +85,7 @@ struct ExercisesView: View {
     }
     
     var addItemView: some View {
-        AddExerciseView() {
+        AddExerciseView {
             exercisesManager.addItem($0)
         }
     }
@@ -96,7 +96,7 @@ struct ExercisesView: View {
                 exercisesManager.setSorting()
             }
             
-            Button() {
+            Button {
                 showAddNewView = true
             } label: {
                 Image(systemName: "plus")

@@ -39,11 +39,11 @@ struct AboutSettingsView: View {
     }
     
     var name: String {
-        readBundleProperty(key:"CFBundleName")
+        readBundleProperty(key: "CFBundleName")
     }
     
     var version: String {
-        readBundleProperty(key:"CFBundleShortVersionString")
+        readBundleProperty(key: "CFBundleShortVersionString")
     }
     
     func readBundleProperty(key: String) -> String {

@@ -136,7 +136,7 @@ struct PracticeView: View {
     }
     
     var soundButton: some View {
-        Button() {
+        Button {
             withAnimation {
                 practice.toggleSound()
             }
@@ -151,7 +151,7 @@ struct PracticeView: View {
     }
     
     var summaryButton: some View {
-        Button() {
+        Button {
             isPracticeDetailsShown.toggle()
             practice.pauseClock()
         } label: {

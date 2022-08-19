@@ -70,17 +70,17 @@ extension SortableList {
     private func sortByName(_ items: [Item]) -> [Item] {
         var result: [Item]
         switch sortingOrder {
-            case .asc:
-                result = items.sorted(by: { $0.name < $1.name })
-            case .desc:
-                result = items.sorted(by: { $0.name > $1.name })
+        case .asc:
+            result = items.sorted(by: { $0.name < $1.name })
+        case .desc:
+            result = items.sorted(by: { $0.name > $1.name })
         }
         return result
     }
 }
 
 extension FilterableList {
-
+    
     func filter(_ items: [Item], by searchText: String) -> [Item] {
         if searchText.isEmpty {
             return items

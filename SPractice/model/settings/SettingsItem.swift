@@ -85,11 +85,11 @@ class SettingsItem: ObservableObject, Codable {
 
 protocol SettingsItemWrapper: ObservableObject {
     
-    associatedtype T
+    associatedtype ValueType
     
     var settingsItem: SettingsItem {get}
     
-    var value: T {get set}
+    var value: ValueType {get set}
 }
 
 class SettingsItemStringWrapper: SettingsItemWrapper {

@@ -14,7 +14,7 @@ struct ProgramDetailsView: DetailsView {
     @ObservedObject var programs = Programs.shared
     
     @Environment(\.horizontalSizeClass) var sizeClass
-
+    
     var onChange: (ProgramTemplate) -> Void
     var onDelete: (ProgramTemplate) -> Void
     
@@ -33,7 +33,7 @@ struct ProgramDetailsView: DetailsView {
             ProgramCardView(program: viewModel.template)
             
             Section {
-                Button() {
+                Button {
                     viewModel.showPracticeView = true
                 } label: {
                     HStack {
@@ -83,7 +83,7 @@ struct ProgramDetailsView: DetailsView {
                 DeleteToolbarButton(item: viewModel.template) {
                     onDelete($0)
                 }
-
+                
                 Button("Edit") {
                     viewModel.showEditTemplateView = true
                 }

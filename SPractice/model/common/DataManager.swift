@@ -11,7 +11,7 @@ import Foundation
     
     associatedtype Item: HavingID
     
-    var items: Array<Item> {get set}
+    var items: [Item] {get set}
     
     func addNew(_ item: Item)
     

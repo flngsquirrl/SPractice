@@ -18,7 +18,7 @@ struct ProgramSummaryView: View {
         Section("Sequence") {
             ForEach(program.exercises) { exercise in
                 HStack {
-                    Button() {
+                    Button {
                         selectedExercise = exercise
                     } label: {
                         Image(systemName: "info.circle")

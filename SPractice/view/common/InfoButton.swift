@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InfoButton: View {
     var body: some View {
-        Button() {
+        Button {
             
         } label: {
             Image(systemName: "info.circle")

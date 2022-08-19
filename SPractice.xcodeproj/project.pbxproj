@@ -39,7 +39,6 @@
 		C9692C76284F4E9100373730 /* ClockTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C75284F4E9100373730 /* ClockTime.swift */; };
 		C9692C7C284F787700373730 /* ExerciseShortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C7B284F787700373730 /* ExerciseShortView.swift */; };
 		C9692C7F2850A35A00373730 /* ExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C7E2850A35A00373730 /* ExercisesView.swift */; };
-		C9692C832850A78300373730 /* TemplateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C822850A78300373730 /* TemplateManager.swift */; };
 		C9692C852850F47500373730 /* ExerciseSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C842850F47500373730 /* ExerciseSelectionView.swift */; };
 		C9741A322860857F00E1F670 /* AddProgramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A312860857F00E1F670 /* AddProgramView.swift */; };
 		C9741A34286085E400E1F670 /* EditProgramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A33286085E400E1F670 /* EditProgramView.swift */; };
@@ -76,6 +75,7 @@
 		C9A0D027282A613A000CF439 /* PracticeSequenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D026282A613A000CF439 /* PracticeSequenceView.swift */; };
 		C9A0D029282BD603000CF439 /* Practice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D028282BD603000CF439 /* Practice.swift */; };
 		C9A0D02B282BE586000CF439 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0D02A282BE586000CF439 /* Player.swift */; };
+		C9A2FE5128AFA97400A3EA90 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C9A2FE5028AFA97400A3EA90 /* .swiftlint.yml */; };
 		C9ACBA2128A440E70067F07F /* AboutSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACBA2028A440E70067F07F /* AboutSettingsView.swift */; };
 		C9ACBA2328A55DA80067F07F /* ExercisePropertiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACBA2228A55DA80067F07F /* ExercisePropertiesView.swift */; };
 		C9ACC8E228A5693B00FC5343 /* PracticeExerciseInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC8E128A5693B00FC5343 /* PracticeExerciseInfoView.swift */; };
@@ -175,7 +175,6 @@
 		C9692C75284F4E9100373730 /* ClockTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockTime.swift; sourceTree = "<group>"; };
 		C9692C7B284F787700373730 /* ExerciseShortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseShortView.swift; sourceTree = "<group>"; };
 		C9692C7E2850A35A00373730 /* ExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesView.swift; sourceTree = "<group>"; };
-		C9692C822850A78300373730 /* TemplateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateManager.swift; sourceTree = "<group>"; };
 		C9692C842850F47500373730 /* ExerciseSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSelectionView.swift; sourceTree = "<group>"; };
 		C9741A312860857F00E1F670 /* AddProgramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProgramView.swift; sourceTree = "<group>"; };
 		C9741A33286085E400E1F670 /* EditProgramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProgramView.swift; sourceTree = "<group>"; };
@@ -212,6 +211,7 @@
 		C9A0D026282A613A000CF439 /* PracticeSequenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeSequenceView.swift; sourceTree = "<group>"; };
 		C9A0D028282BD603000CF439 /* Practice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Practice.swift; sourceTree = "<group>"; };
 		C9A0D02A282BE586000CF439 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		C9A2FE5028AFA97400A3EA90 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		C9ACBA2028A440E70067F07F /* AboutSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSettingsView.swift; sourceTree = "<group>"; };
 		C9ACBA2228A55DA80067F07F /* ExercisePropertiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePropertiesView.swift; sourceTree = "<group>"; };
 		C9ACC8E128A5693B00FC5343 /* PracticeExerciseInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeExerciseInfoView.swift; sourceTree = "<group>"; };
@@ -327,6 +327,7 @@
 		C95011BA28196FFD0043EC75 = {
 			isa = PBXGroup;
 			children = (
+				C9A2FE5028AFA97400A3EA90 /* .swiftlint.yml */,
 				C95011C528196FFD0043EC75 /* SPractice */,
 				C95011C428196FFD0043EC75 /* Products */,
 			);
@@ -400,7 +401,6 @@
 			children = (
 				C9692C7E2850A35A00373730 /* ExercisesView.swift */,
 				C91696A828A2910000053E90 /* ExercisesManager.swift */,
-				C9692C822850A78300373730 /* TemplateManager.swift */,
 				C9692C842850F47500373730 /* ExerciseSelectionView.swift */,
 				C9D156AD28533DD7007F5176 /* ExerciseSelectionView-ViewModel.swift */,
 			);
@@ -669,6 +669,7 @@
 				C95011BF28196FFD0043EC75 /* Sources */,
 				C95011C028196FFD0043EC75 /* Frameworks */,
 				C95011C128196FFD0043EC75 /* Resources */,
+				C9A2FE4E28AFA06500A3EA90 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -717,12 +718,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9A2FE5128AFA97400A3EA90 /* .swiftlint.yml in Resources */,
 				C95011CE28196FFE0043EC75 /* Preview Assets.xcassets in Resources */,
 				C95011CB28196FFE0043EC75 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C9A2FE4E28AFA06500A3EA90 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C95011BF28196FFD0043EC75 /* Sources */ = {
@@ -822,7 +844,6 @@
 				C9741A322860857F00E1F670 /* AddProgramView.swift in Sources */,
 				C91B8292288B491B00900239 /* RoundIconButton.swift in Sources */,
 				C9B49E8B28AAD6EB007713A1 /* FocusableField.swift in Sources */,
-				C9692C832850A78300373730 /* TemplateManager.swift in Sources */,
 				C9692C852850F47500373730 /* ExerciseSelectionView.swift in Sources */,
 				C9ACC8EC28A81C9C00FC5343 /* SortingOptions.swift in Sources */,
 				C9B1E746287C293F00C92571 /* TabataSettingsView.swift in Sources */,
