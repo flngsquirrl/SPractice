@@ -158,7 +158,7 @@ class Practice: ObservableObject {
     }
     
     func finish() {
-        cancel()
+        stopClock()
         moveToLastTask()
         resetDurationRemaining()
         isCurrentExerciseStarted = false
@@ -168,10 +168,6 @@ class Practice: ObservableObject {
         }
         isCompleted = true
         updatePlayerState()
-    }
-
-    func cancel() {
-        stopClock()
     }
     
     func resetTiming() {
@@ -312,11 +308,17 @@ class Practice: ObservableObject {
     }
     
     func startClock() {
+        manageIdleTimer(disabled: true)
         clock.start()
     }
     
     func stopClock() {
+        manageIdleTimer(disabled: false)
         clock.stop()
+    }
+
+    func manageIdleTimer(disabled: Bool) {
+        UIApplication.shared.isIdleTimerDisabled = disabled
     }
     
     func updatePlayerState() {
