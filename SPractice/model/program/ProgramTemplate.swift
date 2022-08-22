@@ -81,9 +81,9 @@ struct ProgramTemplate: Program, HavingCreationDate, ExampleItem, Codable {
         [simple]
     }
     
-    static let simple = ProgramTemplate(name: "Simple", description: "An example demo practice", exercises: [ExerciseTemplate.getTemplate(from: .catCow), ExerciseTemplate.getTemplate(from: .surjaNamascarA), ExerciseTemplate.getTemplate(from: .balasana), ExerciseTemplate.getTemplate(from: .vasihsthasana), ExerciseTemplate.getTemplate(from: .shavasana)], isExample: true, exampleId: ProgramExampleId.simple.rawValue)
+    static let simple = ProgramTemplate(name: "Simple", description: "An example demo program", exercises: [ExerciseTemplate.getTemplate(from: .catCow), ExerciseTemplate.getTemplate(from: .surjaNamascarA), ExerciseTemplate.getTemplate(from: .balasana), ExerciseTemplate.getTemplate(from: .vasihsthasana), ExerciseTemplate.getTemplate(from: .shavasana)], isExample: true, exampleId: ProgramExampleId.simple.rawValue)
     
-    static let personal = ProgramTemplate(name: "Personal", description: "Practice once or twice a week", exercises: [ExerciseTemplate.getTemplate(from: .catCow), ExerciseTemplate.getTemplate(from: .surjaNamascarA), ExerciseTemplate.getTemplate(from: .vasihsthasana), ExerciseTemplate.getTemplate(from: .shavasana)])
-    static let dailyShort = ProgramTemplate(name: "Daily short", description: "Simple short practice for every day", exercises: [ExerciseTemplate.getTemplate(from: .catCow), ExerciseTemplate.getTemplate(from: .surjaNamascarA), ExerciseTemplate.getTemplate(from: .shavasana)])
+    static let personal = ProgramTemplate(name: "Personal", description: "Your personal program", exercises: [ExerciseTemplate.getTemplate(from: .catCow), ExerciseTemplate.getTemplate(from: .surjaNamascarA), ExerciseTemplate.getTemplate(from: .vasihsthasana), ExerciseTemplate.getTemplate(from: .shavasana)])
+    static let dailyShort = ProgramTemplate(name: "Daily short", description: "Simple short everyday", exercises: [ExerciseTemplate.getTemplate(from: .catCow), ExerciseTemplate.getTemplate(from: .surjaNamascarA), ExerciseTemplate.getTemplate(from: .shavasana)])
     static let shortForBack = ProgramTemplate(name: "Short for back", exercises: [ExerciseTemplate.getTemplate(from: .catCow)])
 }
