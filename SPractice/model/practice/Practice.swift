@@ -41,7 +41,7 @@ class Practice: ObservableObject {
     }
     
     convenience init(from template: ProgramTemplate) {
-        self.init(for: PracticeProgram(from: template))
+        self.init(for: PracticeProgram(for: template))
     }
     
     var isFirstExercise: Bool {

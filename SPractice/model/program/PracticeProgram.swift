@@ -19,7 +19,7 @@ struct PracticeProgram: Program {
     let isExample: Bool
     var exampleId: String?
     
-    init(from template: ProgramTemplate, useRest: Bool = false) {
+    init(for template: ProgramTemplate, useRest: Bool = false) {
         self.name = template.name.trim()
         self.description = template.description.trim()
         
@@ -40,7 +40,7 @@ struct PracticeProgram: Program {
         if !useRest {
             return baseExercises
         }
-        
+
         var all = [PracticeExercise]()
         for (index, exercise) in baseExercises.enumerated() {
             all.append(exercise)
@@ -53,5 +53,5 @@ struct PracticeProgram: Program {
     }
     
     // examples
-    static let personal = PracticeProgram(from: ProgramTemplate.personal)
+    static let personal = PracticeProgram(for: ProgramTemplate.personal)
 }

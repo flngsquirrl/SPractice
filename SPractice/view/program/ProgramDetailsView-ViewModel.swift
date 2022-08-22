@@ -41,5 +41,9 @@ extension ProgramDetailsView {
         func updatePracticeSettings() {
             PracticeSettingsManager.shared.updateOrAdd(practiceSettings)
         }
+
+        var practiceProgram: PracticeProgram {
+            PracticeProgram(for: template, useRest: practiceSettings.addRestIntervals)
+        }
     }
 }
