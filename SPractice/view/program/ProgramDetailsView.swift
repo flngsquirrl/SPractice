@@ -50,12 +50,19 @@ struct ProgramDetailsView: DetailsView {
             }
             
             Section {
-                Toggle("Add pauses", isOn: $viewModel.template.usePauses.animation())
-                    .onChange(of: viewModel.template.usePauses) { _ in
-                        onChange(viewModel.template)
-                    }
-                    .tint(.customAccentColor)
-                    .disabled(viewModel.isUsePausesDisabled)
+                Group {
+                    Toggle("Add pauses", isOn: $viewModel.template.usePauses.animation())
+                        .onChange(of: viewModel.template.usePauses) { _ in
+                            onChange(viewModel.template)
+                        }
+
+                    Toggle("Pause after exercise", isOn: $viewModel.practiceSettings.pauseAfterExercise)
+                }
+                .tint(.customAccentColor)
+                .disabled(!viewModel.hasMultipleExercises)
+                .onChange(of: viewModel.practiceSettings) { _ in
+                    viewModel.updatePracticeSettings()
+                }
             } header: {
                 Text("Settings")
             } footer: {

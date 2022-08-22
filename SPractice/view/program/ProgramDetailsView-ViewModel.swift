@@ -14,9 +14,12 @@ extension ProgramDetailsView {
         
         @Published var showPracticeView = false
         @Published var showEditTemplateView = false
+
+        @Published var practiceSettings: PracticeSettings
         
         init(for template: ProgramTemplate) {
             self.template = template
+            self.practiceSettings = PracticeSettingsManager.shared.getSettings(for: template.id)
         }
         
         func updateProgramTemplate(template: ProgramTemplate) {
@@ -29,6 +32,14 @@ extension ProgramDetailsView {
         
         var isUsePausesDisabled: Bool {
             template.exercises.count == 1
+        }
+
+        var hasMultipleExercises: Bool {
+            template.exercises.count > 1
+        }
+
+        func updatePracticeSettings() {
+            PracticeSettingsManager.shared.updateOrAdd(practiceSettings)
         }
     }
 }

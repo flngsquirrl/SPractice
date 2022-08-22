@@ -48,6 +48,8 @@
 		C9741A5A2861EB0C00E1F670 /* ExerciseContentsView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A592861EB0C00E1F670 /* ExerciseContentsView-ViewModel.swift */; };
 		C9741A5D2861F54600E1F670 /* IntensityImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A5C2861F54600E1F670 /* IntensityImage.swift */; };
 		C9741A5F2863208100E1F670 /* TaskDetailsShortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A5E2863208100E1F670 /* TaskDetailsShortView.swift */; };
+		C97DE6BA28B3EA9D005D53D1 /* PracticeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97DE6B928B3EA9D005D53D1 /* PracticeSettings.swift */; };
+		C97DE6BC28B3EADB005D53D1 /* PracticeSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97DE6BB28B3EADB005D53D1 /* PracticeSettingsManager.swift */; };
 		C996981828646E53009836BD /* ExerciseDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C996981728646E53009836BD /* ExerciseDurationView.swift */; };
 		C996981A286477CB009836BD /* ExerciseTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9969819286477CB009836BD /* ExerciseTypeView.swift */; };
 		C99D20E228719BB300F655C8 /* IntensityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99D20E128719BB300F655C8 /* IntensityView.swift */; };
@@ -184,6 +186,8 @@
 		C9741A592861EB0C00E1F670 /* ExerciseContentsView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseContentsView-ViewModel.swift"; sourceTree = "<group>"; };
 		C9741A5C2861F54600E1F670 /* IntensityImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntensityImage.swift; sourceTree = "<group>"; };
 		C9741A5E2863208100E1F670 /* TaskDetailsShortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsShortView.swift; sourceTree = "<group>"; };
+		C97DE6B928B3EA9D005D53D1 /* PracticeSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeSettings.swift; sourceTree = "<group>"; };
+		C97DE6BB28B3EADB005D53D1 /* PracticeSettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeSettingsManager.swift; sourceTree = "<group>"; };
 		C996981728646E53009836BD /* ExerciseDurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDurationView.swift; sourceTree = "<group>"; };
 		C9969819286477CB009836BD /* ExerciseTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTypeView.swift; sourceTree = "<group>"; };
 		C99D20E128719BB300F655C8 /* IntensityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntensityView.swift; sourceTree = "<group>"; };
@@ -417,6 +421,15 @@
 			path = task;
 			sourceTree = "<group>";
 		};
+		C97DE6B828B3EA88005D53D1 /* practice */ = {
+			isa = PBXGroup;
+			children = (
+				C97DE6B928B3EA9D005D53D1 /* PracticeSettings.swift */,
+				C97DE6BB28B3EADB005D53D1 /* PracticeSettingsManager.swift */,
+			);
+			path = practice;
+			sourceTree = "<group>";
+		};
 		C99D28192879AA7E00596FBD /* common */ = {
 			isa = PBXGroup;
 			children = (
@@ -616,6 +629,7 @@
 		C9DE15232868B2D90011324C /* settings */ = {
 			isa = PBXGroup;
 			children = (
+				C97DE6B828B3EA88005D53D1 /* practice */,
 				C9CEAA16287DCCFD00D15A16 /* SettingsGroup.swift */,
 				C9CEAA0C287C619F00D15A16 /* SettingsManager.swift */,
 				C9CEAA14287DC98E00D15A16 /* SettingsItem.swift */,
@@ -752,6 +766,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9A0D02B282BE586000CF439 /* Player.swift in Sources */,
+				C97DE6BA28B3EA9D005D53D1 /* PracticeSettings.swift in Sources */,
 				C9ACC8F028A93B7200FC5343 /* SaveItemToolbarButton.swift in Sources */,
 				C92F6C3C286D9D2100D7BA59 /* ProgramSummaryView.swift in Sources */,
 				C9CEAA1B287EB83B00D15A16 /* SettingsLinkView.swift in Sources */,
@@ -806,6 +821,7 @@
 				C9B49E9128ACF910007713A1 /* ProgramExerciseInfoView.swift in Sources */,
 				C9B49E9E28AEC8E2007713A1 /* SoundManager.swift in Sources */,
 				C9D53FAD286F2C4800FD2B6F /* Duration.swift in Sources */,
+				C97DE6BC28B3EADB005D53D1 /* PracticeSettingsManager.swift in Sources */,
 				C9CEAA13287DA76A00D15A16 /* SettingsSubgroupView.swift in Sources */,
 				C9CEAA04287C309D00D15A16 /* ExamplesSettingsView.swift in Sources */,
 				C9B49E8F28AAE585007713A1 /* ExampleMark.swift in Sources */,

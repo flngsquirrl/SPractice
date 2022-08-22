@@ -23,6 +23,15 @@ extension PersistentDataManager {
             save()
         }
     }
+
+    func updateOrAdd(_ item: Item) {
+        if let index = items.firstIndex(where: {$0.id == item.id}) {
+            items[index] = item
+        } else {
+            items.append(item)
+        }
+        save()
+    }
     
     func delete(_ item: Item) {
         if let index = items.firstIndex(where: {$0.id == item.id}) {
