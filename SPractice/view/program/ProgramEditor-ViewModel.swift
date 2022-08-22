@@ -18,25 +18,25 @@ extension ProgramEditor {
         }
         
         func addNewExercises(exercises: [ExerciseTemplate]) {
-            template.templateExercises.append(contentsOf: exercises)
+            template.exercises.append(contentsOf: exercises)
         }
         
         func addNewExercise(exercise: ExerciseTemplate) {
-            template.templateExercises.append(exercise)
+            template.exercises.append(exercise)
         }
         
         func updateExercise(exercise: ExerciseTemplate) {
-            if let index = template.templateExercises.firstIndex(where: {$0.id == exercise.id}) {
-                template.templateExercises[index] = exercise
+            if let index = template.exercises.firstIndex(where: {$0.id == exercise.id}) {
+                template.exercises[index] = exercise
             }
         }
         
         func removeItems(at offsets: IndexSet) {
-            template.templateExercises.remove(atOffsets: offsets)
+            template.exercises.remove(atOffsets: offsets)
         }
         
         func moveItems(from fromOffsets: IndexSet, to toOffsets: Int) {
-            template.templateExercises.move(fromOffsets: fromOffsets, toOffset: toOffsets)
+            template.exercises.move(fromOffsets: fromOffsets, toOffset: toOffsets)
         }
         
         var preparedProgram: PreparedProgram {

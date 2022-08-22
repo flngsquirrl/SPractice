@@ -51,11 +51,7 @@ struct ProgramDetailsView: DetailsView {
             
             Section {
                 Group {
-                    Toggle("Add pauses", isOn: $viewModel.template.usePauses.animation())
-                        .onChange(of: viewModel.template.usePauses) { _ in
-                            onChange(viewModel.template)
-                        }
-
+                    Toggle("Add rest intervals", isOn: $viewModel.practiceSettings.addRestIntervals.animation())
                     Toggle("Pause after exercise", isOn: $viewModel.practiceSettings.pauseAfterExercise)
                 }
                 .tint(.customAccentColor)

@@ -12,20 +12,20 @@ struct ProgramTemplate: Program, HavingCreationDate, ExampleItem, Codable {
     var id: UUID
     var name: String
     var description: String
-    var usePauses: Bool
-    var templateExercises = [ExerciseTemplate]()
+
+    var exercises = [ExerciseTemplate]()
     
     var isExample: Bool
     var exampleId: String?
     
     private(set) var creationDate: Date
     
-    private init(id: UUID = UUID(), name: String = "", description: String = "", usePauses: Bool = false, exercises: [ExerciseTemplate] = [], isExample: Bool = false, exampleId: String? = nil) {
+    private init(id: UUID = UUID(), name: String = "", description: String = "", exercises: [ExerciseTemplate] = [], isExample: Bool = false, exampleId: String? = nil) {
         self.id = id
         self.name = name.trim()
         self.description = description.trim()
-        self.usePauses = usePauses
-        self.templateExercises = exercises
+
+        self.exercises = exercises
         
         self.isExample = isExample
         self.exampleId = exampleId
@@ -34,23 +34,7 @@ struct ProgramTemplate: Program, HavingCreationDate, ExampleItem, Codable {
     }
     
     init(from template: ProgramTemplate) {
-        self.init(name: template.name, description: template.description, usePauses: template.usePauses, exercises: template.templateExercises, isExample: template.isExample, exampleId: template.exampleId)
-    }
-    
-    var exercises: [ExerciseTemplate] {
-        guard usePauses else {
-            return templateExercises
-        }
-
-        var all = [ExerciseTemplate]()
-        for (index, exercise) in templateExercises.enumerated() {
-            all.append(exercise)
-
-            if usePauses && index != templateExercises.count - 1 {
-                all.append(ExerciseTemplate.pauseTemplate)
-            }
-        }
-        return all
+        self.init(name: template.name, description: template.description, exercises: template.exercises, isExample: template.isExample, exampleId: template.exampleId)
     }
     
     static var template: ProgramTemplate {
@@ -66,13 +50,13 @@ struct ProgramTemplate: Program, HavingCreationDate, ExampleItem, Codable {
     }
     
     func exercisesEqualToExample(example: ProgramTemplate) -> Bool {
-        guard example.exercises.count == templateExercises.count else {
+        guard example.exercises.count == exercises.count else {
             return false
         }
         
         for index in 0..<example.exercises.count {
             let exampleExercise = example.exercises[index]
-            let exercise = templateExercises[index]
+            let exercise = exercises[index]
             if !exercise.isEqualTo(exercise: exampleExercise) {
                 return false
             }
@@ -88,7 +72,7 @@ struct ProgramTemplate: Program, HavingCreationDate, ExampleItem, Codable {
         self.isExample = example.isExample
         self.exampleId = example.exampleId
         
-        self.templateExercises = example.templateExercises
+        self.exercises = example.exercises
     }
     
     // examples

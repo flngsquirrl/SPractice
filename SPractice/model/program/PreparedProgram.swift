@@ -26,7 +26,7 @@ struct PreparedProgram: Program, Named, Identifiable {
         if countPauses {
             return template.exercises
         } else {
-            return template.templateExercises
+            return template.exercises
         }
     }
     

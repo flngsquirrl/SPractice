@@ -32,8 +32,8 @@ struct ProgramShortDecorativeView: View {
                         .fontWeight(.semibold)
                 }
                 Group {
-                    Text("\(program.templateExercises.count) ") +
-                    Text(program.templateExercises.count == 1 ? "exercise" : "exercises")
+                    Text("\(program.exercises.count) ") +
+                    Text(program.exercises.count == 1 ? "exercise" : "exercises")
                 }
                 .foregroundColor(.secondary)
             }
