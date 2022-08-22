@@ -62,7 +62,7 @@ struct ProgramDetailsView: DetailsView {
             } header: {
                 Text("Settings")
             } footer: {
-                SettingsLinkView(text: "Pauses are added between the exercises, their configuration is based on", settingsSubGroup: .pause)
+                SettingsLinkView(text: "Pauses are added between the exercises, their configuration is based on", settingsSubGroup: .rest)
             }
             
             ProgramSummaryView(program: viewModel.template)

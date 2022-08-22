@@ -109,7 +109,7 @@
 		C9CCCE98284B6DE5005665C8 /* ProgramDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCCE97284B6DE5005665C8 /* ProgramDetailsView.swift */; };
 		C9CCCE9A284B6E09005665C8 /* ProgramDetailsView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCCE99284B6E09005665C8 /* ProgramDetailsView-ViewModel.swift */; };
 		C9CEAA00287C2DFF00D15A16 /* SettingsSubgroupDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEA9FF287C2DFF00D15A16 /* SettingsSubgroupDetailsView.swift */; };
-		C9CEAA02287C307D00D15A16 /* PauseSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAA01287C307D00D15A16 /* PauseSettingsView.swift */; };
+		C9CEAA02287C307D00D15A16 /* RestSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAA01287C307D00D15A16 /* RestSettingsView.swift */; };
 		C9CEAA04287C309D00D15A16 /* ExamplesSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAA03287C309D00D15A16 /* ExamplesSettingsView.swift */; };
 		C9CEAA06287C438500D15A16 /* DurationSecondsControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAA05287C438500D15A16 /* DurationSecondsControl.swift */; };
 		C9CEAA08287C44EB00D15A16 /* DurationMinutesControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAA07287C44EB00D15A16 /* DurationMinutesControl.swift */; };
@@ -247,7 +247,7 @@
 		C9CCCE97284B6DE5005665C8 /* ProgramDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDetailsView.swift; sourceTree = "<group>"; };
 		C9CCCE99284B6E09005665C8 /* ProgramDetailsView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgramDetailsView-ViewModel.swift"; sourceTree = "<group>"; };
 		C9CEA9FF287C2DFF00D15A16 /* SettingsSubgroupDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSubgroupDetailsView.swift; sourceTree = "<group>"; };
-		C9CEAA01287C307D00D15A16 /* PauseSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseSettingsView.swift; sourceTree = "<group>"; };
+		C9CEAA01287C307D00D15A16 /* RestSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestSettingsView.swift; sourceTree = "<group>"; };
 		C9CEAA03287C309D00D15A16 /* ExamplesSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplesSettingsView.swift; sourceTree = "<group>"; };
 		C9CEAA05287C438500D15A16 /* DurationSecondsControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationSecondsControl.swift; sourceTree = "<group>"; };
 		C9CEAA07287C44EB00D15A16 /* DurationMinutesControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationMinutesControl.swift; sourceTree = "<group>"; };
@@ -598,7 +598,7 @@
 				C9ACBA2028A440E70067F07F /* AboutSettingsView.swift */,
 				C9B1E745287C293F00C92571 /* TabataSettingsView.swift */,
 				C9B1E747287C295900C92571 /* FlowSettingsView.swift */,
-				C9CEAA01287C307D00D15A16 /* PauseSettingsView.swift */,
+				C9CEAA01287C307D00D15A16 /* RestSettingsView.swift */,
 				C9CEAA03287C309D00D15A16 /* ExamplesSettingsView.swift */,
 				C9CEAA1A287EB83B00D15A16 /* SettingsLinkView.swift */,
 				C95F17842884431700E8446D /* SettingsLink.swift */,
@@ -835,7 +835,7 @@
 				C9CCCE98284B6DE5005665C8 /* ProgramDetailsView.swift in Sources */,
 				C9D53FB528704E4000FD2B6F /* ValidationService.swift in Sources */,
 				C9A0D02028280F13000CF439 /* SquirrelInWheel.swift in Sources */,
-				C9CEAA02287C307D00D15A16 /* PauseSettingsView.swift in Sources */,
+				C9CEAA02287C307D00D15A16 /* RestSettingsView.swift in Sources */,
 				C932522028798B7A009D5479 /* WelcomeView.swift in Sources */,
 				C9B49E9328ACFA27007713A1 /* ExerciseContentsView.swift in Sources */,
 				C9741A34286085E400E1F670 /* EditProgramView.swift in Sources */,

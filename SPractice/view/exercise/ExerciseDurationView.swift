@@ -45,7 +45,7 @@ struct ExerciseDurationView<T>: View where T: Exercise {
         if template.type == .tabata {
             return .known(SettingsManager.tabataExerciseDuration)
         } else if template.isService {
-            return .known(SettingsManager.pauseDurationItem.value)
+            return .known(SettingsManager.restDurationItem.value)
         } else {
             return duration
         }

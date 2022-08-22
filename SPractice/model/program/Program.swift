@@ -35,7 +35,7 @@ extension Program {
             } else if exercise.type == .tabata {
                 exerciseDuration = SettingsManager.tabataExerciseDuration
             } else if exercise.isService {
-                exerciseDuration = SettingsManager.pauseDurationItem.value
+                exerciseDuration = SettingsManager.restDurationItem.value
             }
             totalDuration += exerciseDuration
         }

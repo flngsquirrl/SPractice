@@ -64,7 +64,7 @@ struct ExercisePropertiesView<T>: View where T: Exercise {
     
     var name: String {
         if exercise.isService {
-            return SettingsManager.pauseName
+            return SettingsManager.restName
         }
         return exercise.name
     }

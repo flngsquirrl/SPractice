@@ -39,7 +39,7 @@ struct ExerciseShortView<T, IconContent>: View where T: Exercise, IconContent: V
     
     var name: String {
         if exercise.isService {
-            return SettingsManager.pauseName
+            return SettingsManager.restName
         }
         return exercise.name
     }

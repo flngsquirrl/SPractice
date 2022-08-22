@@ -17,8 +17,8 @@ enum SettingsItemName: Codable {
     case flowAutoFinish
     case flowAutoFinishAfterTime
     
-    case pauseName
-    case pauseDuration
+    case restName
+    case restDuration
 }
 
 struct Time: Equatable {
@@ -79,8 +79,8 @@ class SettingsItem: ObservableObject, Codable {
     static let defaultTabataCycles = SettingsItem(name: .tabataCycles, value: "8")
     static let defaultFlowAutoFinish = SettingsItem(name: .flowAutoFinish, value: "true")
     static let defaultFlowAutoFinishAfterTime = SettingsItem(name: .flowAutoFinishAfterTime, value: "3600")
-    static let defaultPauseName = SettingsItem(name: .pauseName, value: "Pause")
-    static let defaultPauseDuration = SettingsItem(name: .pauseDuration, value: "10")
+    static let defaultRestName = SettingsItem(name: .restName, value: "Rest")
+    static let defaultRestDuration = SettingsItem(name: .restDuration, value: "10")
 }
 
 protocol SettingsItemWrapper: ObservableObject {

@@ -27,8 +27,8 @@ struct SettingsSubgroupDetailsView: View {
             return AnyView(TabataSettingsView())
         case .flow:
             return AnyView(FlowSettingsView())
-        case .pause:
-            return AnyView(PauseSettingsView())
+        case .rest:
+            return AnyView(RestSettingsView())
         case .examples:
             return AnyView(ExamplesSettingsView())
         }
@@ -46,7 +46,7 @@ struct SettingsSubgroupDetailsView_Previews: PreviewProvider {
         }
         
         NavigationView {
-            SettingsSubgroupDetailsView(subgroup: .pause)
+            SettingsSubgroupDetailsView(subgroup: .rest)
         }
         
         NavigationView {

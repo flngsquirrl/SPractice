@@ -14,7 +14,7 @@ enum SettingsGroup: String, CaseIterable, Codable {
     
     static let hierarchy: [SettingsGroup: [SettingsSubGroup]] = [
         .exercise: [.tabata],
-        .practice: [.pause, .flow],
+        .practice: [.rest, .flow],
         .templates: [.examples]
     ]
 }
@@ -22,6 +22,6 @@ enum SettingsGroup: String, CaseIterable, Codable {
 enum SettingsSubGroup: String, CaseIterable, Codable {
     case tabata = "Tabata"
     case flow = "Flow"
-    case pause = "Pause"
+    case rest = "Rest"
     case examples = "Examples"
 }

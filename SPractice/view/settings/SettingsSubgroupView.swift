@@ -30,6 +30,6 @@ struct SettingsSubgroupView: View {
 
 struct SettingsSubgroupView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsSubgroupView(subgroup: .pause)
+        SettingsSubgroupView(subgroup: .rest)
     }
 }

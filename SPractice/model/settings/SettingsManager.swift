@@ -13,8 +13,8 @@ class SettingsManager {
     private init() {
     }
     
-    static var pauseNameItem: SettingsItemStringWrapper = SettingsItemStringWrapper(for: settings.getItem(.pauseName))
-    static var pauseDurationItem: SettingsItemIntWrapper = SettingsItemIntWrapper(for: settings.getItem(.pauseDuration))
+    static var restNameItem: SettingsItemStringWrapper = SettingsItemStringWrapper(for: settings.getItem(.restName))
+    static var restDurationItem: SettingsItemIntWrapper = SettingsItemIntWrapper(for: settings.getItem(.restDuration))
     static var flowAutoFinishItem: SettingsItemBoolWrapper = SettingsItemBoolWrapper(for: settings.getItem(.flowAutoFinish))
     static var flowAutoFinishAfterTimeItem: SettingsItemTimeWrapper = SettingsItemTimeWrapper(for: settings.getItem(.flowAutoFinishAfterTime))
     static var tabataWarmUpDurationItem: SettingsItemIntWrapper = SettingsItemIntWrapper(for: settings.getItem(.tabataWarmUpDuration))
@@ -35,10 +35,10 @@ class SettingsManager {
         return setupValue.timeInSeconds
     }
     
-    static var pauseName: String {
-        let setupValue = pauseNameItem.value.trimmingCharacters(in: .whitespacesAndNewlines)
+    static var restName: String {
+        let setupValue = restNameItem.value.trimmingCharacters(in: .whitespacesAndNewlines)
         if setupValue.isEmpty {
-            return settings.getDefault(.pauseName).value
+            return settings.getDefault(.restName).value
         }
         return setupValue
     }
@@ -63,7 +63,7 @@ class SettingsManager {
             updateTabataWrappers()
         case .flow:
             updateFlowWrappers()
-        case .pause:
+        case .rest:
             updatePauseWrappers()
         case .examples:
             return
@@ -71,8 +71,8 @@ class SettingsManager {
     }
     
     static func updatePauseWrappers() {
-        pauseNameItem.updateWith(settings.getItem(.pauseName))
-        pauseDurationItem.updateWith(settings.getItem(.pauseDuration))
+        restNameItem.updateWith(settings.getItem(.restName))
+        restDurationItem.updateWith(settings.getItem(.restDuration))
     }
     
     static func updateFlowWrappers() {
@@ -107,7 +107,7 @@ class Settings: ObservableObject {
     static private let defaults: SettingsType = [
         .tabata: [.defaultTabataWarmUpDuration, .defaultTabataActivityDuration, .defaultTabataRestDuration, .defaultTabataCoolDownDuration, .defaultTabataCycles],
         .flow: [.defaultFlowAutoFinish, .defaultFlowAutoFinishAfterTime],
-        .pause: [.defaultPauseName, .defaultPauseDuration]
+        .rest: [.defaultRestName, .defaultRestDuration]
     ]
     
     private var defaults: SettingsType {

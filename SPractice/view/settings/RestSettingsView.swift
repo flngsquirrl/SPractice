@@ -1,5 +1,5 @@
 //
-//  PauseSettingsView.swift
+//  RestSettingsView.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 11.07.22.
@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct PauseSettingsView: View {
+struct RestSettingsView: View {
     
-    @ObservedObject private var nameItem = SettingsManager.pauseNameItem
-    @ObservedObject private var durationItem = SettingsManager.pauseDurationItem
+    @ObservedObject private var nameItem = SettingsManager.restNameItem
+    @ObservedObject private var durationItem = SettingsManager.restDurationItem
     
     let range = Array(stride(from: 10, through: 60, by: 10))
     
@@ -23,7 +23,7 @@ struct PauseSettingsView: View {
                 }
         } footer: {
             HStack {
-                Text("Name used in program sequences and practices")
+                Text("Name of the exercise in practice")
             }
         }
         
@@ -37,10 +37,10 @@ struct PauseSettingsView: View {
                     }
             }
         } footer: {
-            Text("You can use pauses to take a deep breath and prepare for the next exercise. Take your time!")
+            Text("You can use rest intervals to take a deep breath and prepare for the next exercise")
         }
         
-        ResetToDefaultsButton(subgroup: .pause)
+        ResetToDefaultsButton(subgroup: .rest)
     }
 }
 
@@ -48,7 +48,7 @@ struct PauseSettingsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             List {
-                PauseSettingsView()
+                RestSettingsView()
             }
         }
     }
