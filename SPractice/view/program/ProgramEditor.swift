@@ -45,7 +45,7 @@ struct ProgramEditor: View {
                     .focused($fieldInFocus, equals: .description)
             }
             
-            ProgramDurationSection(program: viewModel.preparedProgram)
+            ProgramDurationSection(program: viewModel.template)
             
             Section {
                 Button {
@@ -64,7 +64,7 @@ struct ProgramEditor: View {
                 }
                 .disabled(editMode.isEditing)
                 
-                ForEach(viewModel.preparedProgram.exercises) { exercise in
+                ForEach(viewModel.template.exercises) { exercise in
                     HStack {
                         if !editMode.isEditing {
                             Button {

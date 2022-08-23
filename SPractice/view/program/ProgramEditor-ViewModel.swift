@@ -38,9 +38,5 @@ extension ProgramEditor {
         func moveItems(from fromOffsets: IndexSet, to toOffsets: Int) {
             template.exercises.move(fromOffsets: fromOffsets, toOffset: toOffsets)
         }
-        
-        var preparedProgram: PreparedProgram {
-            PreparedProgram(from: template)
-        }
     }
 }

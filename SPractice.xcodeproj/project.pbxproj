@@ -30,7 +30,6 @@
 		C95011CB28196FFE0043EC75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C95011CA28196FFE0043EC75 /* Assets.xcassets */; };
 		C95011CE28196FFE0043EC75 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C95011CD28196FFE0043EC75 /* Preview Assets.xcassets */; };
 		C95011D52819703D0043EC75 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95011D42819703D0043EC75 /* ClockView.swift */; };
-		C95F17832884194A00E8446D /* PreparedProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95F17822884194A00E8446D /* PreparedProgram.swift */; };
 		C95F17852884431700E8446D /* SettingsLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95F17842884431700E8446D /* SettingsLink.swift */; };
 		C967287C2874553600B4990C /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967287B2874553600B4990C /* Exercise.swift */; };
 		C967287E287457B500B4990C /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967287D287457B500B4990C /* Program.swift */; };
@@ -170,7 +169,6 @@
 		C95011CA28196FFE0043EC75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C95011CD28196FFE0043EC75 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C95011D42819703D0043EC75 /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
-		C95F17822884194A00E8446D /* PreparedProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparedProgram.swift; sourceTree = "<group>"; };
 		C95F17842884431700E8446D /* SettingsLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLink.swift; sourceTree = "<group>"; };
 		C967287B2874553600B4990C /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		C967287D287457B500B4990C /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
@@ -663,7 +661,6 @@
 				C9A0CFED281AB484000CF439 /* PracticeProgram.swift */,
 				C9A0CFF4281BD588000CF439 /* ProgramTemplate.swift */,
 				C9DE15292868B5500011324C /* Programs.swift */,
-				C95F17822884194A00E8446D /* PreparedProgram.swift */,
 				C9ACC8E528A5927D00FC5343 /* ProgramExampleId.swift */,
 			);
 			path = program;
@@ -804,7 +801,6 @@
 				C9D53FB82870507400FD2B6F /* AddProgramView-ViewModel.swift in Sources */,
 				C996981A286477CB009836BD /* ExerciseTypeView.swift in Sources */,
 				C9D156B028534E88007F5176 /* AddExerciseView.swift in Sources */,
-				C95F17832884194A00E8446D /* PreparedProgram.swift in Sources */,
 				C9CEAA0D287C619F00D15A16 /* SettingsManager.swift in Sources */,
 				C99D28182879A05F00596FBD /* DataManager.swift in Sources */,
 				C96728832874E11A00B4990C /* IconTextView.swift in Sources */,
