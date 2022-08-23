@@ -12,6 +12,9 @@ struct ProgramDetailsView: DetailsView {
     @ObservedObject private var viewModel: ViewModel
     
     @ObservedObject var programs = Programs.shared
+
+    @State private var showPracticeView = false
+    @State private var showEditTemplateView = false
     
     @Environment(\.horizontalSizeClass) var sizeClass
     
@@ -31,10 +34,10 @@ struct ProgramDetailsView: DetailsView {
     var detailsContent: some View {
         List {
             ProgramCardView(program: viewModel.template)
-            
+
             Section {
                 Button {
-                    viewModel.showPracticeView = true
+                    showPracticeView = true
                 } label: {
                     HStack {
                         Image(systemName: "play.rectangle.fill")
@@ -49,28 +52,12 @@ struct ProgramDetailsView: DetailsView {
                 }
             }
             
-            Section {
-                Group {
-                    Toggle("Add rest intervals", isOn: $viewModel.practiceSettings.addRestIntervals.animation())
-                    Toggle("Pause after exercise", isOn: $viewModel.practiceSettings.pauseAfterExercise)
-                }
-                .tint(.customAccentColor)
-                .disabled(!viewModel.hasMultipleExercises)
-                .onChange(of: viewModel.practiceSettings) { _ in
-                    viewModel.updatePracticeSettings()
-                }
-            } header: {
-                Text("Settings")
-            } footer: {
-                SettingsLinkView(text: "Pauses are added between the exercises, their configuration is based on", settingsSubGroup: .rest)
-            }
-            
             ProgramSummaryView(program: viewModel.template)
         }
-        .fullScreenCover(isPresented: $viewModel.showPracticeView) {
-            PracticeView(practice: Practice(for: viewModel.practiceProgram))
+        .fullScreenCover(isPresented: $showPracticeView) {
+            PracticeView(for: viewModel.template)
         }
-        .sheet(isPresented: $viewModel.showEditTemplateView) {
+        .sheet(isPresented: $showEditTemplateView) {
             NavigationView {
                 EditProgramView(for: viewModel.template) {
                     viewModel.updateProgramTemplate(template: $0)
@@ -88,7 +75,7 @@ struct ProgramDetailsView: DetailsView {
                 }
                 
                 Button("Edit") {
-                    viewModel.showEditTemplateView = true
+                    showEditTemplateView = true
                 }
             }
         }

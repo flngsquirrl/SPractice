@@ -10,7 +10,8 @@ import Foundation
 import SwiftUI
 
 class Practice: ObservableObject {
-    
+
+    let template: ProgramTemplate
     let program: PracticeProgram
     let clock: Clock
     let player: Player
@@ -26,22 +27,22 @@ class Practice: ObservableObject {
     @Published var currentTaskIndex = 0
     @Published var durationRemaining: Duration
     
-    init(for program: PracticeProgram) {
-        self.program = program
-        
+    init(for template: ProgramTemplate) {
+        self.template = template
+
+        let useRest = false
+        // PracticeSettingsManager.shared.getSettings(for: template.id).addRestIntervals
+        self.program = PracticeProgram(for: template, useRest: useRest)
+
         self.durationRemaining = program.duration
-        
+
         self.player = Player()
         self.clock = Clock()
-        
+
         setToInitialState()
-        
+
         prepareClock()
         preparePlayer()
-    }
-    
-    convenience init(from template: ProgramTemplate) {
-        self.init(for: PracticeProgram(for: template))
     }
     
     var isFirstExercise: Bool {

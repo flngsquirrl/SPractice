@@ -55,6 +55,6 @@ struct PracticeSummaryView: View {
 
 struct PracticeSummaryView_Previews: PreviewProvider {
     static var previews: some View {
-        PracticeSummaryView(practice: Practice(from: ProgramTemplate.personal))
+        PracticeSummaryView(practice: Practice(for: ProgramTemplate.personal))
     }
 }

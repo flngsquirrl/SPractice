@@ -14,11 +14,16 @@ struct PracticeView: View {
     @Environment(\.verticalSizeClass) var sizeClass
     
     @State private var isPracticeDetailsShown = false
+    @State private var showPracticeSettings = false
     
     @State private var showRestartConfirmation = false
     @State private var wasRunningAtPracticeRestartRequest = false
-    
+
     @ObservedObject var practice: Practice
+
+    init(for template: ProgramTemplate) {
+        self.practice = Practice(for: template)
+    }
     
     var body: some View {
         GeometryReader { geo in
@@ -66,6 +71,7 @@ struct PracticeView: View {
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
                         restartButtonWithIcon
                         soundButton
+                        configButton
                         summaryButton
                     }
                 }
@@ -73,6 +79,11 @@ struct PracticeView: View {
                     practice.resumeClock()
                 } content: {
                     PracticeSummaryView(practice: practice)
+                }
+                .sheet(isPresented: $showPracticeSettings) {
+                    practice.resumeClock()
+                } content: {
+                    PracticeSettingsView(for: practice)
                 }
                 .alert(endOfPracticeTitle, isPresented: $practice.isCompleted) {
                     restartButton
@@ -108,6 +119,15 @@ struct PracticeView: View {
     var closePracticeButton: some View {
         Button("Close", role: .cancel) {
             dismiss()
+        }
+    }
+
+    var configButton: some View {
+        Button {
+            practice.pauseClock()
+            showPracticeSettings = true
+        } label: {
+            Image(systemName: "gearshape")
         }
     }
     
@@ -162,6 +182,6 @@ struct PracticeView: View {
 
 struct PracticeView_Previews: PreviewProvider {
     static var previews: some View {
-        PracticeView(practice: Practice(from: ProgramTemplate.personal))
+        PracticeView(for: ProgramTemplate.personal)
     }
 }

@@ -50,6 +50,8 @@
 		C9741A5F2863208100E1F670 /* TaskDetailsShortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A5E2863208100E1F670 /* TaskDetailsShortView.swift */; };
 		C97DE6BA28B3EA9D005D53D1 /* PracticeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97DE6B928B3EA9D005D53D1 /* PracticeSettings.swift */; };
 		C97DE6BC28B3EADB005D53D1 /* PracticeSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97DE6BB28B3EADB005D53D1 /* PracticeSettingsManager.swift */; };
+		C97DE6BE28B5142E005D53D1 /* PracticeSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97DE6BD28B5142E005D53D1 /* PracticeSettingsView.swift */; };
+		C97DE6C028B5155A005D53D1 /* PracticeSettings-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97DE6BF28B5155A005D53D1 /* PracticeSettings-ViewModel.swift */; };
 		C996981828646E53009836BD /* ExerciseDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C996981728646E53009836BD /* ExerciseDurationView.swift */; };
 		C996981A286477CB009836BD /* ExerciseTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9969819286477CB009836BD /* ExerciseTypeView.swift */; };
 		C99D20E228719BB300F655C8 /* IntensityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99D20E128719BB300F655C8 /* IntensityView.swift */; };
@@ -188,6 +190,8 @@
 		C9741A5E2863208100E1F670 /* TaskDetailsShortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsShortView.swift; sourceTree = "<group>"; };
 		C97DE6B928B3EA9D005D53D1 /* PracticeSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeSettings.swift; sourceTree = "<group>"; };
 		C97DE6BB28B3EADB005D53D1 /* PracticeSettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeSettingsManager.swift; sourceTree = "<group>"; };
+		C97DE6BD28B5142E005D53D1 /* PracticeSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeSettingsView.swift; sourceTree = "<group>"; };
+		C97DE6BF28B5155A005D53D1 /* PracticeSettings-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PracticeSettings-ViewModel.swift"; sourceTree = "<group>"; };
 		C996981728646E53009836BD /* ExerciseDurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDurationView.swift; sourceTree = "<group>"; };
 		C9969819286477CB009836BD /* ExerciseTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTypeView.swift; sourceTree = "<group>"; };
 		C99D20E128719BB300F655C8 /* IntensityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntensityView.swift; sourceTree = "<group>"; };
@@ -571,6 +575,8 @@
 				C9A0CFFE281BDDEA000CF439 /* PracticeView.swift */,
 				C96728842874E71700B4990C /* PracticeSummaryView.swift */,
 				C9A0D026282A613A000CF439 /* PracticeSequenceView.swift */,
+				C97DE6BD28B5142E005D53D1 /* PracticeSettingsView.swift */,
+				C97DE6BF28B5155A005D53D1 /* PracticeSettings-ViewModel.swift */,
 				C9A0CFF1281B3733000CF439 /* PracticeExerciseView.swift */,
 				C9ACC8E128A5693B00FC5343 /* PracticeExerciseInfoView.swift */,
 				C92F6C3D286DDFF400D7BA59 /* View-Wrapped.swift */,
@@ -828,6 +834,7 @@
 				C9ACC8E228A5693B00FC5343 /* PracticeExerciseInfoView.swift in Sources */,
 				C9A0D02228280F3E000CF439 /* RightWing.swift in Sources */,
 				C9A0CFEE281AB484000CF439 /* PracticeProgram.swift in Sources */,
+				C97DE6C028B5155A005D53D1 /* PracticeSettings-ViewModel.swift in Sources */,
 				C9692C7C284F787700373730 /* ExerciseShortView.swift in Sources */,
 				C9B49E8D28AAD894007713A1 /* EditorMode.swift in Sources */,
 				C9ACC8EA28A81C1500FC5343 /* PersistentDataManager.swift in Sources */,
@@ -841,6 +848,7 @@
 				C9741A34286085E400E1F670 /* EditProgramView.swift in Sources */,
 				C96728852874E71700B4990C /* PracticeSummaryView.swift in Sources */,
 				C9ACC8E628A5927D00FC5343 /* ProgramExampleId.swift in Sources */,
+				C97DE6BE28B5142E005D53D1 /* PracticeSettingsView.swift in Sources */,
 				C9B49E9528ACFF51007713A1 /* ExerciseIcon.swift in Sources */,
 				C91110DC289BDCCC00B9BC03 /* MainList.swift in Sources */,
 				C9CEAA08287C44EB00D15A16 /* DurationMinutesControl.swift in Sources */,
