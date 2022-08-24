@@ -9,10 +9,10 @@ import SwiftUI
 
 struct PlayerButton: View {
     let systemImageName: String
-    let onClick: (() -> Void)?
     let isEnabled: Bool
-    
     let width: CGFloat
+
+    let onClick: (() -> Void)?
     
     private let mainFont: Font = .title.weight(.semibold)
     private let noteFont: Font = .body.weight(.semibold)
@@ -48,22 +48,30 @@ struct PlayerView: View {
             
             VStack {
                 HStack {
-                    PlayerButton(systemImageName: "backward.frame.fill", onClick: player.backwardClicked, isEnabled: player.isBackwardEnabled, width: width)
-                        .animation(.default, value: player.isBackwardEnabled)
+                    PlayerButton(systemImageName: "backward.frame.fill", isEnabled: player.isBackwardEnabled, width: width) {
+                        player.backwardClicked()
+                    }
+                    .animation(.default, value: player.isBackwardEnabled)
                     
                     Group {
                         if player.isPlaying {
-                            PlayerButton(systemImageName: "pause.fill", onClick: player.pauseClicked, isEnabled: player.isPauseEnabled, width: width)
-                                .animation(.default, value: player.isPauseEnabled)
+                            PlayerButton(systemImageName: "pause.fill", isEnabled: player.isPauseEnabled, width: width) {
+                                player.pauseClicked()
+                            }
+                            .animation(.default, value: player.isPauseEnabled)
                         } else {
-                            PlayerButton(systemImageName: "play.fill", onClick: player.playClicked, isEnabled: player.isPlayEnabled, width: width)
-                                .animation(.default, value: player.isPlayEnabled)
+                            PlayerButton(systemImageName: "play.fill", isEnabled: player.isPlayEnabled, width: width) {
+                                player.playClicked()
+                            }
+                            .animation(.default, value: player.isPlayEnabled)
                         }
                     }
                     .padding([.leading, .trailing], 10)
                     
-                    PlayerButton(systemImageName: "forward.frame.fill", onClick: player.forwardClicked, isEnabled: player.isForwardEnabled, width: width)
-                        .animation(.default, value: player.isForwardEnabled)
+                    PlayerButton(systemImageName: "forward.frame.fill", isEnabled: player.isForwardEnabled, width: width) {
+                        player.forwardClicked()
+                    }
+                    .animation(.default, value: player.isForwardEnabled)
                 }
             }
             .frame(width: geo.size.width)

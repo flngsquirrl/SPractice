@@ -432,6 +432,14 @@
 			path = practice;
 			sourceTree = "<group>";
 		};
+		C98675D128B6B49F00F06D6A /* player */ = {
+			isa = PBXGroup;
+			children = (
+				C9A0D02A282BE586000CF439 /* Player.swift */,
+			);
+			path = player;
+			sourceTree = "<group>";
+		};
 		C99D28192879AA7E00596FBD /* common */ = {
 			isa = PBXGroup;
 			children = (
@@ -459,6 +467,7 @@
 				C9DE15242868B32E0011324C /* exercise */,
 				C9DE15262868B3560011324C /* task */,
 				C9DE15222868B2C70011324C /* practice */,
+				C98675D128B6B49F00F06D6A /* player */,
 				C9DE15252868B34A0011324C /* program */,
 				C9B49E9C28AEC8BD007713A1 /* sound */,
 				C9DE15232868B2D90011324C /* settings */,
@@ -625,7 +634,6 @@
 			isa = PBXGroup;
 			children = (
 				C9A0D028282BD603000CF439 /* Practice.swift */,
-				C9A0D02A282BE586000CF439 /* Player.swift */,
 			);
 			path = practice;
 			sourceTree = "<group>";

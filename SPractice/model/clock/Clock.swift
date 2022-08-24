@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-class Clock: ObservableObject {
+@MainActor class Clock: ObservableObject {
     
     @Published var time: ClockTime
     @Published var isCountdown: Bool

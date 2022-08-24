@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class Player: ObservableObject {
+@MainActor class Player: ObservableObject {
     
     @Published var isPlaying = false
     
@@ -17,10 +17,10 @@ class Player: ObservableObject {
     @Published var isPlayEnabled = true
     @Published var isPauseEnabled = false
     
-    var onBackwardClicked: (() -> Void)?
-    var onPlayClicked: (() -> Void)?
-    var onPauseClicked: (() -> Void)?
-    var onForwardClicked: (() -> Void)?
+    var onBackwardClicked: (@MainActor () -> Void)?
+    var onPlayClicked: (@MainActor () -> Void)?
+    var onPauseClicked: (@MainActor () -> Void)?
+    var onForwardClicked: (@MainActor () -> Void)?
     
     func pauseClicked() {
         withAnimation {

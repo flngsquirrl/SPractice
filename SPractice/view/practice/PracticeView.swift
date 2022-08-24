@@ -60,8 +60,12 @@ struct PracticeView: View {
                         .frame(width: min(geo.size.width * 0.8, 500))
                     }
                 }
-                .onAppear(perform: practice.prepare)
-                .onDisappear(perform: practice.pause)
+                .onAppear {
+                    practice.prepare()
+                }
+                .onDisappear {
+                    practice.pause()
+                }
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
