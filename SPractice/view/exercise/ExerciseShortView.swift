@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-struct ExerciseShortView<T, IconContent>: View where T: Exercise, IconContent: View {
+struct ExerciseShortView<E: Exercise, Icon: View>: View {
     
     @ObservedObject var settings = SettingsManager.settings
     
-    private let exercise: T
+    private let exercise: E
     private var displayDetails = false
-    @ViewBuilder var icon: IconContent
+    @ViewBuilder private var icon: Icon
     
-    init(for exercise: T, displayDetails: Bool = true, icon: IconContent) {
+    init(for exercise: E, displayDetails: Bool = true, icon: () -> Icon) {
         self.exercise = exercise
         self.displayDetails = displayDetails && exercise.isTypeSet
-        self.icon = icon
+        self.icon = icon()
     }
     
     var body: some View {
@@ -75,9 +75,13 @@ struct ExerciseShortView_Previews: PreviewProvider {
             
             Group {
                 Text("icon test")
-                ExerciseShortView(for: PracticeExercise.catCow, icon: ExerciseTypeImage(type: .flow))
-                    .foregroundColor(.secondary)
-                ExerciseShortView(for: PracticeExercise.catCow, icon: ExerciseTypeImage(type: .flow))
+                ExerciseShortView(for: PracticeExercise.catCow) {
+                    ExerciseTypeImage(type: .flow)
+                }
+                .foregroundColor(.secondary)
+                ExerciseShortView(for: PracticeExercise.catCow) {
+                    ExerciseTypeImage(type: .flow)
+                }
             }
         }
     }

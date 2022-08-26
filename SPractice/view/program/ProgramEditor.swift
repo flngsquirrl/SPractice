@@ -74,7 +74,9 @@ struct ProgramEditor: View {
                             }
                         }
                         let isExerciseValid = ValidationService.isValidToPractice(exercise)
-                        ExerciseShortView(for: exercise, icon: ExerciseIcon(for: exercise.exerciseType, isIconAccented: !isExerciseValid, accentColor: .red))
+                        ExerciseShortView(for: exercise) {
+                            ExerciseIcon(for: exercise.exerciseType, isIconAccented: !isExerciseValid, accentColor: .red)
+                        }
                     }
                 }
                 .onDelete { viewModel.removeItems(at: $0) }

@@ -24,8 +24,10 @@ struct ProgramSummaryView: View {
                         Image(systemName: "info.circle")
                     }
                     let isExerciseValid = ValidationService.isValidToPractice(exercise)
-                    ExerciseShortView(for: exercise, icon: ExerciseIcon(for: exercise.exerciseType, isIconAccented: !isExerciseValid, accentColor: .red))
-                        .foregroundColor(exercise.isService ? .secondary : .primary)
+                    ExerciseShortView(for: exercise) {
+                        ExerciseIcon(for: exercise.exerciseType, isIconAccented: !isExerciseValid, accentColor: .red)
+                    }
+                    .foregroundColor(exercise.isService ? .secondary : .primary)
                 }
             }
         }
