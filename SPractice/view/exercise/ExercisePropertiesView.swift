@@ -18,7 +18,7 @@ struct ExercisePropertiesView<T>: View where T: Exercise {
                     ExampleMark()
                 }
                 Text(name)
-                    .fontWeight(.semibold)
+                    .font(.headline)
             }
             if showDescription {
                 Text(exercise.description)

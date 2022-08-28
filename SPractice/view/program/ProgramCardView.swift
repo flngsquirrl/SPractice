@@ -18,7 +18,7 @@ struct ProgramCardView<T>: View where T: Program {
                     ExampleMark()
                 }
                 Text(program.name)
-                    .fontWeight(.semibold)
+                    .font(.headline)
             }
             if showDescription {
                 Text(program.description)

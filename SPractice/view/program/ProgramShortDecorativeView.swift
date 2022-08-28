@@ -25,11 +25,11 @@ struct ProgramShortDecorativeView: View {
             VStack(alignment: .leading) {
                 if isAccented {
                     Text("\(program.name)")
-                        .fontWeight(.semibold)
+                        .font(.headline)
                         .foregroundColor(accentColor)
                 } else {
                     Text("\(program.name)")
-                        .fontWeight(.semibold)
+                        .font(.headline)
                 }
                 Group {
                     Text("\(program.exercises.count) ") +
