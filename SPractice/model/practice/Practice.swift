@@ -9,7 +9,6 @@ import AVFoundation
 import Foundation
 import SwiftUI
 
-class Practice: ObservableObject {
 @MainActor class Practice: ObservableObject {
 
     let template: ProgramTemplate
