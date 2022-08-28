@@ -10,7 +10,6 @@ import SwiftUI
 struct ExerciseShortDecorativeView<T>: View where T: Exercise {
     
     private let exercise: T
-    private var displayDetails: Bool
     private var isIconAccented: Bool
     private var isNameAccented: Bool
     private var accentColor: Color
@@ -18,9 +17,8 @@ struct ExerciseShortDecorativeView<T>: View where T: Exercise {
     
     @ObservedObject private var settings = SettingsManager.settings
     
-    init(for exercise: T, displayDetails: Bool = true, isIconAccented: Bool = false, isNameAccented: Bool = false, accentColor: Color = .customAccentColor, isFilled: Bool = false) {
+    init(for exercise: T, isIconAccented: Bool = false, isNameAccented: Bool = false, accentColor: Color = .customAccentColor, isFilled: Bool = false) {
         self.exercise = exercise
-        self.displayDetails = displayDetails && exercise.isTypeSet
         self.isIconAccented = isIconAccented
         self.isNameAccented = isNameAccented
         self.accentColor = accentColor
@@ -35,26 +33,14 @@ struct ExerciseShortDecorativeView<T>: View where T: Exercise {
             } else {
                 ExerciseTypeImage(type: exercise.type)
             }
-            
+
             if isNameAccented {
                 Text(exercise.name)
-                    .fontWeight(.semibold)
                     .foregroundColor(accentColor)
             } else {
                 Text(exercise.name)
-                    .fontWeight(.semibold)
             }
-            
-            Group {
-                if displayDetails {
-                    Spacer()
-                    ExerciseDurationView(for: exercise)
-                    IntensityView(intensity: exercise.intensity, mode: .icon)
-                }
-            }
-            .foregroundColor(.secondary)
         }
-        .padding([.top, .bottom], 5)
     }
 }
 
@@ -70,11 +56,11 @@ struct ExerciseShortDecorativeView_Previews: PreviewProvider {
             
             Group {
                 Text("templates with durations")
-                ExerciseShortDecorativeView(for: ExerciseTemplate.catCowNoDuration, displayDetails: true)
-                ExerciseShortDecorativeView(for: ExerciseTemplate.catCow, displayDetails: true)
-                ExerciseShortDecorativeView(for: ExerciseTemplate.surjaNamascarA, displayDetails: true)
-                ExerciseShortDecorativeView(for: ExerciseTemplate.vasihsthasana, displayDetails: true)
-                ExerciseShortDecorativeView(for: ExerciseTemplate.catCowNoType, displayDetails: true)
+                ExerciseShortDecorativeView(for: ExerciseTemplate.catCowNoDuration)
+                ExerciseShortDecorativeView(for: ExerciseTemplate.catCow)
+                ExerciseShortDecorativeView(for: ExerciseTemplate.surjaNamascarA)
+                ExerciseShortDecorativeView(for: ExerciseTemplate.vasihsthasana)
+                ExerciseShortDecorativeView(for: ExerciseTemplate.catCowNoType)
             }
             
             Group {
