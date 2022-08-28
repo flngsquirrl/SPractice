@@ -54,7 +54,7 @@ struct ProgramsView: View {
                     selectedToDelete = programsManager.getItem(index: indexSet.first!)
                 }
             }
-            .listStyle(.inset)
+            .listStyle(.insetGrouped)
             .onChange(of: showDeleteConfirmation) { shouldShow in
                 if !shouldShow {
                     withAnimation {

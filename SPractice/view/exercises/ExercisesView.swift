@@ -55,7 +55,7 @@ struct ExercisesView: View {
                     selectedToDelete = exercisesManager.getItem(index: indexSet.first!)
                 }
             }
-            .listStyle(.inset)
+            .listStyle(.insetGrouped)
             .onChange(of: showDeleteConfirmation) { shouldShow in
                 if !shouldShow {
                     withAnimation {
