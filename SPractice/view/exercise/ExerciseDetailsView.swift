@@ -31,7 +31,6 @@ struct ExerciseDetailsView: DetailsView {
     
     var detailsContent: some View {
         ExerciseContentsView(exercise: exercise)
-            .navigationTitle("Exercise")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {

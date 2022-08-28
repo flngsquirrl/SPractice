@@ -66,7 +66,6 @@ struct ProgramDetailsView: DetailsView {
             }
             .accentColor(.customAccentColor)
         }
-        .navigationTitle("Program")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
