@@ -15,6 +15,7 @@ struct ProgramDetailsView: DetailsView {
 
     @State private var showPracticeView = false
     @State private var showEditTemplateView = false
+    @State private var showPracticeSettings = false
     
     @Environment(\.horizontalSizeClass) var sizeClass
     
@@ -39,13 +40,17 @@ struct ProgramDetailsView: DetailsView {
                 Button {
                     showPracticeView = true
                 } label: {
-                    HStack {
-                        Image(systemName: "play.rectangle.fill")
-                            .decorated()
-                        Text("Practice")
-                    }
+                    Label("Run", systemImage: "play.rectangle.fill")
                 }
                 .disabled(viewModel.isPracticeDisabled)
+
+                Button {
+                    showPracticeSettings = true
+                } label: {
+                    Label("Configure", systemImage: "slider.horizontal.3")
+                }
+            } header: {
+                Text("Practice")
             } footer: {
                 if viewModel.isPracticeDisabled {
                     Text("Type and duration should be defined for all the exercises to start the practice")
@@ -53,6 +58,9 @@ struct ProgramDetailsView: DetailsView {
             }
             
             ProgramSummaryView(program: viewModel.template)
+        }
+        .sheet(isPresented: $showPracticeSettings) {
+            PracticeSettingsView(for: viewModel.template)
         }
         .fullScreenCover(isPresented: $showPracticeView) {
             PracticeView(for: viewModel.template)

@@ -10,16 +10,12 @@ import Foundation
 extension PracticeSettingsView {
     @MainActor class ViewModel: ObservableObject {
 
-        var practice: Practice
+        var template: ProgramTemplate
         @Published var settings: PracticeSettings
 
-        init(for practice: Practice) {
-            self.practice = practice
-            self.settings = PracticeSettingsManager.shared.getSettings(for: practice.template.id)
-        }
-
-        var hasMultipleExercises: Bool {
-            practice.program.exercises.count > 1
+        init(for template: ProgramTemplate) {
+            self.template = template
+            self.settings = PracticeSettingsManager.shared.getSettings(for: template.id)
         }
 
         func savePracticeSettings() {
@@ -27,17 +23,12 @@ extension PracticeSettingsView {
         }
 
         var hasChangedSettings: Bool {
-            let baseSettings = PracticeSettingsManager.shared.getSettings(for: practice.template.id)
+            let baseSettings = PracticeSettingsManager.shared.getSettings(for: template.id)
             return settings != baseSettings
-        }
-
-        var shouldGetConfirmationForApply: Bool {
-            return !practice.isFirstExercise || practice.isStarted
         }
 
         func applyNewSettings() {
             savePracticeSettings()
-            practice.reset()
         }
     }
 }

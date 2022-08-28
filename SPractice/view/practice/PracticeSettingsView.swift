@@ -13,10 +13,8 @@ struct PracticeSettingsView: View {
 
     @ObservedObject var viewModel: ViewModel
 
-    @State private var showApplyConfirmation = false
-
-    init(for practice: Practice) {
-        viewModel = ViewModel(for: practice)
+    init(for template: ProgramTemplate) {
+        viewModel = ViewModel(for: template)
     }
 
     var body: some View {
@@ -28,7 +26,6 @@ struct PracticeSettingsView: View {
                         Toggle("Pause after exercise", isOn: $viewModel.settings.pauseAfterExercise.animation())
                     }
                     .tint(.customAccentColor)
-                    .disabled(!viewModel.hasMultipleExercises)
                 } footer: {
                     SettingsLinkView(text: "Rest intervals configuration is based on", settingsSubGroup: .rest)
                 }
@@ -44,18 +41,10 @@ struct PracticeSettingsView: View {
 
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Apply") {
-                        if viewModel.shouldGetConfirmationForApply {
-                            showApplyConfirmation = true
-                        } else {
-                            applyNewSettings()
-                        }
+                        applyNewSettings()
                     }
                     .disabled(!viewModel.hasChangedSettings)
                 }
-            }
-            .alert("Practice should be reset for applying new settings.", isPresented: $showApplyConfirmation) {
-                resetButton
-                cancelButton
             }
         }
         .accentColor(.customAccentColor)
@@ -80,6 +69,6 @@ struct PracticeSettingsView: View {
 
 struct PracticeSettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        PracticeSettingsView(for: Practice(for: ProgramTemplate.personal))
+        PracticeSettingsView(for: ProgramTemplate.personal)
     }
 }
