@@ -50,17 +50,6 @@ struct PracticeSettingsView: View {
         .accentColor(.customAccentColor)
     }
 
-    var cancelButton: some View {
-        Button("Cancel", role: .cancel) {
-        }
-    }
-
-    var resetButton: some View {
-        Button("Reset") {
-            applyNewSettings()
-        }
-    }
-
     func applyNewSettings() {
         viewModel.applyNewSettings()
         dismiss()
