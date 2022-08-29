@@ -15,7 +15,7 @@ struct ProgramSummaryView: View {
     var body: some View {
         ProgramDurationSection(program: program)
         
-        Section("Sequence") {
+        Section("Exercises (\(program.exercises.count))") {
             ForEach(program.exercises) { exercise in
                 HStack {
                     Button {
