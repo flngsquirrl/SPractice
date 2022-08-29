@@ -24,6 +24,7 @@ struct SettingsSubgroupView: View {
                     }
                 }
         }
+        .navigationViewStyle(.stack)
         .accentColor(.customAccentColor)
     }
 }
