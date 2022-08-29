@@ -43,11 +43,17 @@ struct ProgramDetailsView: DetailsView {
                     Label("Run", systemImage: "play.rectangle.fill")
                 }
                 .disabled(viewModel.isPracticeDisabled)
+                .fullScreenCover(isPresented: $showPracticeView) {
+                    PracticeView(for: viewModel.template)
+                }
 
                 Button {
                     showPracticeSettings = true
                 } label: {
                     Label("Configure", systemImage: "slider.horizontal.3")
+                }
+                .sheet(isPresented: $showPracticeSettings) {
+                    PracticeSettingsView(for: viewModel.template)
                 }
             } header: {
                 Text("Practice")
@@ -58,12 +64,6 @@ struct ProgramDetailsView: DetailsView {
             }
             
             ProgramSummaryView(program: viewModel.template)
-        }
-        .sheet(isPresented: $showPracticeSettings) {
-            PracticeSettingsView(for: viewModel.template)
-        }
-        .fullScreenCover(isPresented: $showPracticeView) {
-            PracticeView(for: viewModel.template)
         }
         .sheet(isPresented: $showEditTemplateView) {
             NavigationView {
