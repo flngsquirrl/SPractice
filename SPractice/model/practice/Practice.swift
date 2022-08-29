@@ -236,9 +236,9 @@ import SwiftUI
     }
     
     func prepareClock() {
-        clock.onFinished = { self.processCountingFinished() }
+        clock.onFinished = { [weak self] in self?.processCountingFinished() }
         clock.onTick = {
-            self.onClockTick()
+            [weak self] in self?.onClockTick()
         }
         setClock()
     }
@@ -295,7 +295,7 @@ import SwiftUI
     func updateDurationRemaining() {
         if currentExercise.type != .flow {
             if case .known(let time) = durationRemaining {
-                self.durationRemaining = .known(time - 1)
+                durationRemaining = .known(time - 1)
             }
         }
     }
