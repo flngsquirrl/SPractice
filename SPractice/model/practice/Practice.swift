@@ -15,7 +15,7 @@ import SwiftUI
     let program: PracticeProgram
     let clock: Clock
     let player: Player
-    
+
     @Published var isSoundOn: Bool = true
     
     var isRunning = false
@@ -331,10 +331,10 @@ import SwiftUI
     }
     
     func preparePlayer() {
-        player.onBackwardClicked = moveToPreviousExercise
-        player.onForwardClicked = moveToNextExercise
-        player.onPlayClicked = run
-        player.onPauseClicked = pause
+        player.onBackwardClicked = { [weak self] in self?.moveToPreviousExercise() }
+        player.onForwardClicked = { [weak self] in self?.moveToNextExercise() }
+        player.onPlayClicked = { [weak self] in self?.run() }
+        player.onPauseClicked = { [weak self] in self?.pause() }
         
         updatePlayerState()
     }
