@@ -38,8 +38,9 @@ struct PracticeExerciseView: View {
             }
             
             Text("\(practice.currentExercise.name)")
-                .font(.title.bold())
+                .font(.title2.bold())
                 .truncated()
+                .padding()
             
             Text("\(practice.currentExercise.exerciseType.rawValue)")
                 .font(.body.bold())
