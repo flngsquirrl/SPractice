@@ -21,8 +21,6 @@ struct ProgramDurationSection<T>: View where T: Program {
                 ProgramDurationView(for: program, mode: .extended)
                     .foregroundColor(.secondary)
             }
-        } header: {
-            Text("Summary")
         }
     }
 }
