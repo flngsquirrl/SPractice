@@ -16,8 +16,6 @@ struct PracticeSummaryView: View {
     var body: some View {
         NavigationView {
             List {
-                ProgramCardView(program: practice.program)
-                
                 ProgramDurationSection(program: practice.program)
                 
                 Section("Sequence") {
