@@ -296,12 +296,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C912749D28BFB21B0051B4C3 /* modifier */ = {
+		C912749D28BFB21B0051B4C3 /* extension */ = {
 			isa = PBXGroup;
 			children = (
 				C912749E28BFB25A0051B4C3 /* Toggle-Decorated.swift */,
 			);
-			path = modifier;
+			path = extension;
 			sourceTree = "<group>";
 		};
 		C91696A728A268D800053E90 /* sorting */ = {
@@ -382,7 +382,7 @@
 		C96728812874E0FF00B4990C /* common */ = {
 			isa = PBXGroup;
 			children = (
-				C912749D28BFB21B0051B4C3 /* modifier */,
+				C912749D28BFB21B0051B4C3 /* extension */,
 				C9CEAA09287C462F00D15A16 /* DurationControl.swift */,
 				C9CEAA05287C438500D15A16 /* DurationSecondsControl.swift */,
 				C9CEAA07287C44EB00D15A16 /* DurationMinutesControl.swift */,
