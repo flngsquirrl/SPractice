@@ -15,7 +15,7 @@ struct Truncated: ViewModifier {
     }
 }
 
-extension View {
+extension Text {
     func truncated() -> some View {
         modifier(Truncated())
     }
