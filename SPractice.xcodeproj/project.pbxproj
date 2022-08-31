@@ -613,11 +613,11 @@
 				C9B1E747287C295900C92571 /* FlowSettingsView.swift */,
 				C9CEAA01287C307D00D15A16 /* RestSettingsView.swift */,
 				C9CEAA03287C309D00D15A16 /* ExamplesSettingsView.swift */,
+				C9ACC8F128A993FC00FC5343 /* ExamplesSettingsView-ViewModel.swift */,
 				C9CEAA1A287EB83B00D15A16 /* SettingsLinkView.swift */,
 				C95F17842884431700E8446D /* SettingsLink.swift */,
 				C9ADD738287F602F00F465D5 /* ResetToDefaultsButton.swift */,
 				C9E0C42628801CDE00B8FBA8 /* SettingsConstants.swift */,
-				C9ACC8F128A993FC00FC5343 /* ExamplesSettingsView-ViewModel.swift */,
 			);
 			path = settings;
 			sourceTree = "<group>";
