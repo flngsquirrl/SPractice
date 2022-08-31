@@ -11,12 +11,12 @@ import SwiftUI
 
 @MainActor class Practice: ObservableObject {
 
-    let template: ProgramTemplate
     let program: PracticeProgram
     let clock: Clock
     let player: Player
 
-    @Published var isSoundOn: Bool = true
+    @Published var isSoundOn: Bool
+    var usePauses: Bool
     
     var isRunning = false
     @Published var isStarted = false // play was clicked
@@ -27,12 +27,10 @@ import SwiftUI
     @Published var currentTaskIndex = 0
     @Published var durationRemaining: Duration
     
-    init(for template: ProgramTemplate) {
-        self.template = template
-
-        let useRest = false
-        // PracticeSettingsManager.shared.getSettings(for: template.id).addRestIntervals
-        self.program = PracticeProgram(for: template, useRest: useRest)
+    init(for template: ProgramTemplate, with settings: PracticeSettings) {
+        self.program = PracticeProgram(for: template, useRest: settings.addRestIntervals)
+        self.usePauses = settings.pauseAfterExercise
+        self.isSoundOn = settings.playSounds
 
         self.durationRemaining = program.duration
 
@@ -129,14 +127,6 @@ import SwiftUI
         }
     }
     
-    func prepare() {
-        guard isStarted else { return }
-        
-        if isCompleted {
-            reset()
-        }
-    }
-    
     func reset() {
         setToInitialState()
         resetComponents()
@@ -208,6 +198,10 @@ import SwiftUI
         resetTiming()
         updatePlayerState()
         setDurationRemaining()
+
+        if usePauses {
+            pause()
+        }
     }
     
     func moveToNextTask() {
@@ -237,9 +231,7 @@ import SwiftUI
     
     func prepareClock() {
         clock.onFinished = { [weak self] in self?.processCountingFinished() }
-        clock.onTick = {
-            [weak self] in self?.onClockTick()
-        }
+        clock.onTick = { [weak self] in self?.onClockTick() }
         setClock()
     }
     

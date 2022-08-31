@@ -32,6 +32,11 @@ struct PracticeSettingsView: View {
                 } footer: {
                     SettingsLinkView(text: "Rest intervals configuration is based on", settingsSubGroup: .rest)
                 }
+
+                Section {
+                    Toggle("Play sounds", isOn: $viewModel.settings.playSounds)
+                        .decorated()
+                }
             }
             .navigationTitle("Practice settings")
             .navigationBarTitleDisplayMode(.inline)

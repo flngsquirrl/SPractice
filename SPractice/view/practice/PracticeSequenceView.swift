@@ -47,7 +47,7 @@ struct PracticeSequenceView: View {
 struct PracticeSequenceView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            PracticeSequenceView(practice: Practice(for: ProgramTemplate.personal))
+            PracticeSequenceView(practice: Practice(for: .personal, with: PracticeSettings(programId: ProgramTemplate.personal.id)))
                 .frame(width: 320)
         }
     }

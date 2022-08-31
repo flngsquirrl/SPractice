@@ -12,16 +12,15 @@ struct PracticeView: View {
     
     @Environment(\.dismiss) var dismiss
     @Environment(\.verticalSizeClass) var sizeClass
-    
-    @State private var isPracticeDetailsShown = false
-    
-    @State private var showRestartConfirmation = false
-    @State private var wasRunningAtPracticeRestartRequest = false
 
     @ObservedObject var practice: Practice
+    @ObservedObject var viewModel: ViewModel
 
     init(for template: ProgramTemplate) {
-        self.practice = Practice(for: template)
+        let settings = PracticeSettingsManager.shared.getSettings(for: template.id)
+        let practice = Practice(for: template, with: settings)
+        self.practice = practice
+        self.viewModel = ViewModel(for: practice, with: settings)
     }
     
     var body: some View {
@@ -59,11 +58,8 @@ struct PracticeView: View {
                         .frame(width: min(geo.size.width * 0.8, 500))
                     }
                 }
-                .onAppear {
-                    practice.prepare()
-                }
                 .onDisappear {
-                    practice.pause()
+                    practice.pauseClock()
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
@@ -72,22 +68,22 @@ struct PracticeView: View {
                     }
                     
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
-                        restartButtonWithIcon
+                        restartButton
                         soundButton
                         summaryButton
                     }
                 }
-                .sheet(isPresented: $isPracticeDetailsShown) {
+                .sheet(isPresented: $viewModel.isPracticeDetailsShown) {
                     practice.resumeClock()
                 } content: {
                     PracticeSummaryView(practice: practice)
                 }
                 .alert(endOfPracticeTitle, isPresented: $practice.isCompleted) {
-                    restartButton
+                    restartAlertButton
                     closePracticeButton
                 }
-                .alert("If you restart the practice, your progress will be lost.", isPresented: $showRestartConfirmation) {
-                    restartButton
+                .alert("If you restart the practice, your progress will be lost.", isPresented: $viewModel.needRestartConfirmation) {
+                    restartAlertButton
                     closeAlertButton
                 }
             }
@@ -107,9 +103,13 @@ struct PracticeView: View {
     
     var closeAlertButton: some View {
         Button("Close", role: .cancel) {
-            if wasRunningAtPracticeRestartRequest {
-                practice.resumeClock()
-            }
+            viewModel.resumeAfterRestartPractice()
+        }
+    }
+
+    var restartAlertButton: some View {
+        Button("Restart") {
+            practice.restart()
         }
     }
     
@@ -120,48 +120,25 @@ struct PracticeView: View {
     }
     
     var restartButton: some View {
-        Button("Restart") {
-            practice.restart()
-        }
-    }
-    
-    var restartButtonWithIcon: some View {
         RestartIconButton {
-            if practice.isStarted {
-                wasRunningAtPracticeRestartRequest = practice.isRunning
-                practice.pauseClock()
-                showRestartConfirmation = true
-            } else {
-                practice.restart()
-            }
+            viewModel.processRestartRequest()
         }
-        .animation(.default, value: isRestartPracticeDisabled)
-        .disabled(isRestartPracticeDisabled)
-    }
-    
-    var isRestartPracticeDisabled: Bool {
-        practice.isFirstExercise && !practice.isCurrentExerciseStarted
+        .animation(.default, value: viewModel.isRestartPracticeDisabled)
+        .disabled(viewModel.isRestartPracticeDisabled)
     }
     
     var soundButton: some View {
         Button {
-            withAnimation {
-                practice.toggleSound()
-            }
+            viewModel.toggleSound()
         } label: {
-            Image(systemName: isSoundOn ? "bell" : "bell.slash")
+            Image(systemName: practice.isSoundOn ? "bell" : "bell.slash")
                 .frame(width: 25)
         }
     }
     
-    var isSoundOn: Bool {
-        practice.isSoundOn
-    }
-    
     var summaryButton: some View {
         Button {
-            isPracticeDetailsShown.toggle()
-            practice.pauseClock()
+            viewModel.showSummary()
         } label: {
             Image(systemName: "list.bullet.rectangle")
         }
@@ -170,6 +147,6 @@ struct PracticeView: View {
 
 struct PracticeView_Previews: PreviewProvider {
     static var previews: some View {
-        PracticeView(for: ProgramTemplate.personal)
+        PracticeView(for: .personal)
     }
 }
