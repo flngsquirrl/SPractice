@@ -45,7 +45,7 @@ struct ExerciseEditor: View {
             
             Section {
                 Toggle("Set type", isOn: $viewModel.isTypeSet.animation())
-                    .tint(.customAccentColor)
+                    .decorated()
                     .onChange(of: viewModel.isTypeSet) { newValue in
                         withAnimation {
                             viewModel.onTypeSetChange(newValue: newValue)
@@ -110,7 +110,7 @@ struct ExerciseEditor: View {
             
             if navigatedFromProgram {
                 Toggle("Save as template", isOn: $viewModel.template.saveAsTemplate)
-                    .tint(.customAccentColor)
+                    .decorated()
             }
         }
         .onSubmit {

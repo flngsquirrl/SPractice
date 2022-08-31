@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C91110DC289BDCCC00B9BC03 /* MainList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91110DB289BDCCC00B9BC03 /* MainList.swift */; };
+		C912749F28BFB25A0051B4C3 /* Toggle-Decorated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C912749E28BFB25A0051B4C3 /* Toggle-Decorated.swift */; };
 		C915931F288758C100301338 /* Decorated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C915931E288758C100301338 /* Decorated.swift */; };
 		C91696A628A2543500053E90 /* ProgramsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91696A528A2543500053E90 /* ProgramsManager.swift */; };
 		C91696A928A2910000053E90 /* ExercisesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91696A828A2910000053E90 /* ExercisesManager.swift */; };
@@ -146,6 +147,7 @@
 
 /* Begin PBXFileReference section */
 		C91110DB289BDCCC00B9BC03 /* MainList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainList.swift; sourceTree = "<group>"; };
+		C912749E28BFB25A0051B4C3 /* Toggle-Decorated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Toggle-Decorated.swift"; sourceTree = "<group>"; };
 		C915931E288758C100301338 /* Decorated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decorated.swift; sourceTree = "<group>"; };
 		C91696A528A2543500053E90 /* ProgramsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramsManager.swift; sourceTree = "<group>"; };
 		C91696A828A2910000053E90 /* ExercisesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesManager.swift; sourceTree = "<group>"; };
@@ -294,6 +296,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C912749D28BFB21B0051B4C3 /* modifier */ = {
+			isa = PBXGroup;
+			children = (
+				C912749E28BFB25A0051B4C3 /* Toggle-Decorated.swift */,
+			);
+			path = modifier;
+			sourceTree = "<group>";
+		};
 		C91696A728A268D800053E90 /* sorting */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +382,7 @@
 		C96728812874E0FF00B4990C /* common */ = {
 			isa = PBXGroup;
 			children = (
+				C912749D28BFB21B0051B4C3 /* modifier */,
 				C9CEAA09287C462F00D15A16 /* DurationControl.swift */,
 				C9CEAA05287C438500D15A16 /* DurationSecondsControl.swift */,
 				C9CEAA07287C44EB00D15A16 /* DurationMinutesControl.swift */,
@@ -873,6 +884,7 @@
 				C91B8292288B491B00900239 /* RoundIconButton.swift in Sources */,
 				C9B49E8B28AAD6EB007713A1 /* FocusableField.swift in Sources */,
 				C9692C852850F47500373730 /* ExerciseSelectionView.swift in Sources */,
+				C912749F28BFB25A0051B4C3 /* Toggle-Decorated.swift in Sources */,
 				C9ACC8EC28A81C9C00FC5343 /* SortingOptions.swift in Sources */,
 				C9B1E746287C293F00C92571 /* TabataSettingsView.swift in Sources */,
 				C9741A5D2861F54600E1F670 /* IntensityImage.swift in Sources */,

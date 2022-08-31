@@ -15,7 +15,7 @@ struct FlowSettingsView: View {
     var body: some View {
         Section {
             Toggle("Auto-finish", isOn: $flowAutoFinishItem.value.animation())
-                .tint(.customAccentColor)
+                .decorated()
                 .onChange(of: flowAutoFinishItem.value) { _ in
                     SettingsManager.saveSettings()
                 }

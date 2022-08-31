@@ -22,10 +22,13 @@ struct PracticeSettingsView: View {
             List {
                 Section {
                     Group {
-                        Toggle("Add rest intervals", isOn: $viewModel.settings.addRestIntervals.animation())
-                        Toggle("Pause after exercise", isOn: $viewModel.settings.pauseAfterExercise.animation())
+                        Toggle("Add rest intervals", isOn: $viewModel.settings.addRestIntervals)
+                            .decorated()
+                        Toggle("Pause after exercise", isOn: $viewModel.settings.pauseAfterExercise)
+                            .decorated()
                     }
-                    .tint(.customAccentColor)
+                } header: {
+                    Text("Sequence")
                 } footer: {
                     SettingsLinkView(text: "Rest intervals configuration is based on", settingsSubGroup: .rest)
                 }
