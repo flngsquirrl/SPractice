@@ -44,6 +44,7 @@ struct ExerciseSelectionView: View {
                             Spacer()
                             Button("Clear") { viewModel.deleteFiltered() }
                                 .disabled(viewModel.filteredElements.isEmpty)
+                                .font(.footnote)
                         }
                     }
                 }

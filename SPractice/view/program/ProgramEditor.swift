@@ -102,6 +102,7 @@ struct ProgramEditor: View {
                         .disabled(!viewModel.template.hasExercises)
                     }
                 }
+                .font(.footnote)
             }
         }
         .onSubmit {
