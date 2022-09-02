@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ExerciseTasksButton: View {
-    
+
     var tasks: [Task]
-    
+
     @State private var showTasks = false
-    
+
     var body: some View {
         Button("View tasks") {
             showTasks = true

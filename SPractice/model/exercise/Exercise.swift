@@ -23,7 +23,7 @@ extension Exercise {
     var isTimer: Bool {
         type == .timer
     }
-    
+
     var isTypeSet: Bool {
         type != nil
     }

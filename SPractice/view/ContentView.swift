@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+
     @State private var contentType: ContentType = .programs
-    
+
     var body: some View {
         TabView(selection: $contentType) {
             ProgramsView()
@@ -18,13 +18,13 @@ struct ContentView: View {
                     Label(ContentType.programs.rawValue, systemImage: ContentType.programs.image)
                 }
                 .tag(ContentType.programs)
-           
+
             ExercisesView()
                 .tabItem {
                     Label(ContentType.exercises.rawValue, systemImage: ContentType.exercises.image)
                 }
                 .tag(ContentType.exercises)
-            
+
             SettingsView()
                 .tabItem {
                     Label(ContentType.settings.rawValue, systemImage: ContentType.settings.image)
@@ -38,12 +38,12 @@ struct ContentView: View {
         }
         .accentColor(.customAccentColor)
     }
-    
+
     enum ContentType: String, CaseIterable {
         case programs = "Programs"
         case exercises = "Exercises"
         case settings = "Settings"
-        
+
         var image: String {
             switch self {
             case .programs:

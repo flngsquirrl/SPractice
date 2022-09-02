@@ -12,7 +12,7 @@ struct DurationView: View {
         case padded
         case extended
     }
-    
+
     let duration: Int
     let mode: Mode
 
@@ -24,11 +24,11 @@ struct DurationView: View {
             Text(extendedDuration)
         }
     }
-    
+
     var paddedDuration: String {
         ClockTime.getPaddedPresentation(for: duration)
     }
-    
+
     var extendedDuration: String {
         ClockTime.getExtendedPresentation(for: duration)
     }
@@ -39,7 +39,7 @@ struct DurationView_Previews: PreviewProvider {
         List {
             DurationView(duration: 130, mode: .padded)
             DurationView(duration: 130, mode: .extended)
-            
+
             DurationView(duration: 60 * 60 * 2 + 130, mode: .padded)
             DurationView(duration: 60 * 60 * 2 + 130, mode: .extended)
         }

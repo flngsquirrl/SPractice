@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct AddExerciseView: View {
-    
+
     @Environment(\.dismiss) var dismiss
-    
+
     var navigatedFromProgram: Bool = false
     var onAdd: (ExerciseTemplate) -> Void
-    
+
     @StateObject private var viewModel = ViewModel()
-    
+
     init(navigatedFromProgram: Bool = false, onAdd: @escaping (ExerciseTemplate) -> Void) {
         self.navigatedFromProgram = navigatedFromProgram
         self.onAdd = onAdd
     }
-    
+
     var body: some View {
         NavigationView {
             ExerciseEditor(for: $viewModel.template, mode: .add, navigatedFromProgram: navigatedFromProgram)
@@ -37,7 +37,7 @@ struct AddExerciseView: View {
                         }
                         .disabled(viewModel.isAddDisabled)
                     }
-                    
+
                     ToolbarItemGroup(placement: .cancellationAction) {
                         Button("Cancel") {
                             dismiss()

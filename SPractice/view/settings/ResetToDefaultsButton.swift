@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ResetToDefaultsButton: View {
-    
+
     @ObservedObject var settings = SettingsManager.settings
-    
+
     var subgroup: SettingsSubGroup
 
     @State private var showResetConfirmation: Bool = false
-    
+
     var body: some View {
         Button("Reset to defaults", role: .destructive) {
             showResetConfirmation = true
@@ -26,11 +26,11 @@ struct ResetToDefaultsButton: View {
                     SettingsManager.resetToDefauls(subgroup: subgroup)
                 }
             }
-            
+
             Button("Cancel", role: .cancel) {}
         }
     }
-    
+
     var isResetDisabled: Bool {
         !SettingsManager.hasChangesFromDefaults(in: subgroup)
     }

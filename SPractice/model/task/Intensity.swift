@@ -11,6 +11,6 @@ enum Intensity: String, Codable {
     case activity
     case rest
     case mixed
-    
+
     static let managedIntensities: [Intensity] = [.activity, .rest]
 }

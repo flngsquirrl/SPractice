@@ -10,19 +10,19 @@ import Foundation
 extension EditExerciseView {
     @MainActor class ViewModel: ObservableObject {
         @Published var template: ExerciseEditor.EditorTemplate
-        
+
         init(template: ExerciseTemplate) {
             self.template = ExerciseEditor.EditorTemplate(from: template)
         }
-        
+
         var templateToSave: ExerciseTemplate {
             template.exercise
         }
-        
+
         var isSaveDisabled: Bool {
             !ValidationService.isValid(template.exercise)
         }
-        
+
         var showExampleUpdateConfirmation: Bool {
             let exerciseTemplate = templateToSave
             if exerciseTemplate.isExample {
@@ -33,10 +33,10 @@ extension EditExerciseView {
                     }
                 }
             }
-            
+
             return false
         }
-        
+
         func prepareTemplate(markAsNonExample: Bool) -> ExerciseTemplate {
             var exerciseTemplate = templateToSave
             if markAsNonExample {

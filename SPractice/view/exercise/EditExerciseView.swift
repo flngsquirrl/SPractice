@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct EditExerciseView: View {
-    
+
     @Environment(\.dismiss) var dismiss
-    
+
     @ObservedObject private var viewModel: ViewModel
-    
+
     var onSave: (ExerciseTemplate) -> Void
-    
+
     init(for template: ExerciseTemplate, onSave: @escaping (ExerciseTemplate) -> Void) {
         self.viewModel = ViewModel(template: template)
         self.onSave = onSave
     }
-    
+
     var body: some View {
         ExerciseEditor(for: $viewModel.template, mode: .edit)
             .toolbar {
@@ -31,7 +31,7 @@ struct EditExerciseView: View {
                     }
                     .disabled(viewModel.isSaveDisabled)
                 }
-                
+
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {
                         dismiss()
@@ -41,7 +41,7 @@ struct EditExerciseView: View {
             .navigationTitle("Exercise")
             .navigationBarTitleDisplayMode(.inline)
     }
-    
+
     func saveChanges(markAsNonExample: Bool = false) {
         let template = viewModel.prepareTemplate(markAsNonExample: markAsNonExample)
         onSave(template)

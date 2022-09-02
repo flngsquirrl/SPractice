@@ -9,7 +9,7 @@ import Combine
 import SwiftUI
 
 struct PracticeView: View {
-    
+
     @Environment(\.dismiss) var dismiss
     @Environment(\.verticalSizeClass) var sizeClass
 
@@ -22,7 +22,7 @@ struct PracticeView: View {
         self.practice = practice
         self.viewModel = ViewModel(for: practice, with: settings)
     }
-    
+
     var body: some View {
         GeometryReader { geo in
             NavigationView {
@@ -66,7 +66,7 @@ struct PracticeView: View {
                     ToolbarItem(placement: .navigationBarLeading) {
                         closePracticeButton
                     }
-                    
+
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
                         restartButton
                         soundButton
@@ -90,7 +90,7 @@ struct PracticeView: View {
             .accentColor(.customAccentColor)
         }
     }
-    
+
     var endOfPracticeTitle: String {
         var text: String
         if practice.isStarted {
@@ -100,7 +100,7 @@ struct PracticeView: View {
         }
         return text
     }
-    
+
     var closeAlertButton: some View {
         Button("Close", role: .cancel) {
             viewModel.resumeAfterRestartPractice()
@@ -112,13 +112,13 @@ struct PracticeView: View {
             practice.restart()
         }
     }
-    
+
     var closePracticeButton: some View {
         Button("Close", role: .cancel) {
             dismiss()
         }
     }
-    
+
     var restartButton: some View {
         RestartIconButton {
             viewModel.processRestartRequest()
@@ -126,7 +126,7 @@ struct PracticeView: View {
         .animation(.default, value: viewModel.isRestartPracticeDisabled)
         .disabled(viewModel.isRestartPracticeDisabled)
     }
-    
+
     var soundButton: some View {
         Button {
             viewModel.toggleSound()
@@ -135,7 +135,7 @@ struct PracticeView: View {
                 .frame(width: 25)
         }
     }
-    
+
     var summaryButton: some View {
         Button {
             viewModel.showSummary()

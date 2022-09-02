@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ProgramSummaryView: View {
-    
+
     var program: ProgramTemplate
     @State private var selectedExercise: ExerciseTemplate?
-    
+
     var body: some View {
         ProgramDurationSection(program: program)
-        
+
         Section("Exercises (\(program.exercises.count))") {
             ForEach(program.exercises) { exercise in
                 HStack {

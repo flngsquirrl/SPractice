@@ -8,21 +8,21 @@
 import Foundation
 
 struct PracticeProgram: Program {
-    
+
     let id = UUID()
     let name: String
     let description: String
     let baseExercises: [PracticeExercise]
 
     var useRest: Bool
-    
+
     let isExample: Bool
     var exampleId: String?
-    
+
     init(for template: ProgramTemplate, useRest: Bool = false) {
         self.name = template.name.trim()
         self.description = template.description.trim()
-        
+
         var baseExercises = [PracticeExercise]()
         for exerciseTemplate in template.exercises {
             let exercise = PracticeExercise(from: exerciseTemplate)
@@ -51,7 +51,7 @@ struct PracticeProgram: Program {
         }
         return all
     }
-    
+
     // examples
     static let personal = PracticeProgram(for: ProgramTemplate.personal)
 }

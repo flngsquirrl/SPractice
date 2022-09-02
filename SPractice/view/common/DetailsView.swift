@@ -11,7 +11,7 @@ import SwiftUI
 protocol DetailsView: View {
     var isDeleted: Bool {get}
     var sizeClass: UserInterfaceSizeClass? {get}
-    
+
     associatedtype Content: View
     var detailsContent: Content {get}
 }

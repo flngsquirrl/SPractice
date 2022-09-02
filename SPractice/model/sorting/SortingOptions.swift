@@ -15,7 +15,7 @@ enum SortingProperty: String, CaseIterable {
 enum SortingOrder: String, CaseIterable {
     case asc = "ascending"
     case desc = "descending"
-    
+
     var opposite: SortingOrder {
         if self == .asc {
             return .desc

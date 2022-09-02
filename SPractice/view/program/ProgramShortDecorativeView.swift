@@ -11,15 +11,15 @@ struct ProgramShortDecorativeView: View {
     private var program: ProgramTemplate
     private var isAccented: Bool
     private var accentColor: Color
-    
+
     @ObservedObject var settings = SettingsManager.settings
-    
+
     init(for program: ProgramTemplate, isAccented: Bool = false, accentColor: Color = .customAccentColor) {
         self.program = program
         self.isAccented = isAccented
         self.accentColor = accentColor
     }
-    
+
     var body: some View {
         HStack {
             VStack(alignment: .leading) {

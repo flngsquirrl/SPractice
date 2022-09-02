@@ -9,22 +9,22 @@ import Foundation
 
 protocol Program: HavingID, Named {
     associatedtype Item where Item: Exercise
-    
+
     var id: UUID {get}
     var name: String {get}
     var description: String {get}
     var exercises: [Item] {get}
-    
+
     var isExample: Bool {get}
     var exampleId: String? {get}
 }
 
 extension Program {
-    
+
     var duration: Duration {
         calculateDuration(from: 0)
     }
-    
+
     func calculateDuration(from startIndex: Int) -> Duration {
         var totalDuration = 0
         for index in startIndex..<exercises.count {
@@ -41,15 +41,15 @@ extension Program {
         }
         return totalDuration == 0 ? (hasFlowExercises(fromIndex: startIndex) ? .unlimited : .unknown) : .known(totalDuration)
     }
-    
+
     var hasExercises: Bool {
         !exercises.isEmpty
     }
-    
+
     var hasFlowExercises: Bool {
         hasFlowExercises(fromIndex: 0)
     }
-    
+
     func hasFlowExercises(fromIndex index: Int) -> Bool {
         let subrange = Array(exercises[index...])
         let exerciseMissingDuration = subrange.first(where: {
@@ -57,11 +57,11 @@ extension Program {
         })
         return exerciseMissingDuration != nil
     }
-    
+
     var hasExercisesMissingDuration: Bool {
         hasExercisesMissingDuration()
     }
-    
+
     func hasExercisesMissingDuration(excludeTabata: Bool = true, excludeService: Bool = true) -> Bool {
         let exerciseMissingDuration = exercises.first(where: {
             if case .unknown = $0.duration {
@@ -74,12 +74,12 @@ extension Program {
         })
         return exerciseMissingDuration != nil
     }
-    
+
     var hasExercisesWithoutType: Bool {
         let exerciseWithoutType = exercises.first(where: {
             $0.type == nil
         })
-        
+
         return exerciseWithoutType != nil
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 struct ExerciseTemplate: Exercise, HavingCreationDate, ExampleItem, Hashable, Codable {
-    
+
     private(set) var id: UUID
     private(set) var type: ExerciseType?
     private(set) var name: String
@@ -16,12 +16,12 @@ struct ExerciseTemplate: Exercise, HavingCreationDate, ExampleItem, Hashable, Co
     private(set) var intensity: Intensity? // not set when type not set
     private(set) var duration: Duration
     private(set) var isService: Bool
-    
+
     var isExample: Bool
     private(set) var exampleId: String?
-    
+
     private(set) var creationDate: Date
-    
+
     private init(id: UUID = UUID(), type: ExerciseType? = nil, name: String = "", description: String = "", isService: Bool = false,
                  intensity: Intensity? = .activity, duration: Duration = .unknown, isExample: Bool = false, exampleId: String? = nil) {
         self.id = id
@@ -32,15 +32,15 @@ struct ExerciseTemplate: Exercise, HavingCreationDate, ExampleItem, Hashable, Co
         self.isService = isService
         self.duration = duration
         self.intensity = intensity
-        
+
         self.isExample = isExample
         self.exampleId = exampleId
-        
+
         self.creationDate = Date.now
-        
+
         normalize()
     }
-    
+
     mutating func normalize() {
         if let type = type {
             switch type {
@@ -63,36 +63,36 @@ struct ExerciseTemplate: Exercise, HavingCreationDate, ExampleItem, Hashable, Co
             self.duration = .unknown
             self.isService = false
         }
-        
+
         if isService {
             self.name = ""
             self.duration = .unknown
         }
     }
-    
+
     init<T>(from template: T, changeId: Bool = true, resetExampleState: Bool = false) where T: Exercise {
         self.init(id: changeId ? UUID() : template.id, type: template.type, name: template.name, description: template.description,
                   isService: template.isService, intensity: template.intensity, duration: template.duration,
                   isExample: resetExampleState ? false : template.isExample, exampleId: template.exampleId)
     }
-    
+
     static func getTemplate(from example: ExerciseTemplate) -> ExerciseTemplate {
         return ExerciseTemplate(type: example.type, name: example.name, description: example.description,
                                 isService: example.isService, intensity: example.intensity, duration: example.duration)
     }
-    
+
     var exerciseType: ExerciseType? {
         return type
     }
-    
+
     static var pauseTemplate: ExerciseTemplate {
         return ExerciseTemplate(type: .timer, isService: true, intensity: .rest)
     }
-    
+
     static var template: ExerciseTemplate {
         ExerciseTemplate(type: .flow)
     }
-    
+
     func isEqualTo(exercise: ExerciseTemplate) -> Bool {
         self.name == exercise.name &&
         self.type == exercise.type &&
@@ -101,13 +101,13 @@ struct ExerciseTemplate: Exercise, HavingCreationDate, ExampleItem, Hashable, Co
         self.duration == exercise.duration &&
         self.isService == exercise.isService
     }
-    
+
     func isEqualToExample(example: ExerciseTemplate) -> Bool {
         self.isEqualTo(exercise: example) &&
         self.isExample == example.isExample &&
         self.exampleId == example.exampleId
     }
-    
+
     mutating func resetToExample(example: ExerciseTemplate) {
         self.name = example.name
         self.type = example.type
@@ -115,17 +115,17 @@ struct ExerciseTemplate: Exercise, HavingCreationDate, ExampleItem, Hashable, Co
         self.intensity = example.intensity
         self.duration = example.duration
         self.isService = example.isService
-        
+
         self.isExample = example.isExample
         self.exampleId = example.exampleId
     }
-    
+
     // examples
-    
+
     static var defaultExamples: [ExerciseTemplate] {
         [catCow, surjaNamascarA, balasana, vasihsthasana, shavasana]
     }
-    
+
     static let catCow = ExerciseTemplate(type: .timer, name: "Cat-Cow",
                                          description: "Gently change between two poses warming the body and bringing flexibility to the spine",
                                          intensity: .activity, duration: .known(90), isExample: true, exampleId: ExerciseExampleId.catCow.rawValue)
@@ -142,7 +142,7 @@ struct ExerciseTemplate: Exercise, HavingCreationDate, ExampleItem, Hashable, Co
     static let shavasana = ExerciseTemplate(type: .flow, name: "Shavasana",
                                             description: "Relax all your body lying on the back with arms and legs on the floor",
                                             intensity: .rest, duration: .unknown, isExample: true, exampleId: ExerciseExampleId.shavasana.rawValue)
-    
+
     static let catCowNoDuration = ExerciseTemplate(type: .timer, name: "Cat-Cow", intensity: .activity, duration: .unknown)
     static let catCowNoType = ExerciseTemplate(name: "Cat-Cow")
 }

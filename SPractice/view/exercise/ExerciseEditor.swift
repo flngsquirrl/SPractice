@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct ExerciseEditor: View {
-    
+
     @ObservedObject private var viewModel: ViewModel
-    
+
     @State private var showSettings: Bool = false
-    
+
     @FocusState private var fieldInFocus: FocusableField?
     var mode: EditorMode
     var navigatedFromProgram: Bool
-    
+
     init(for template: Binding<EditorTemplate>, mode: EditorMode, navigatedFromProgram: Bool = false) {
         self.viewModel = ViewModel(for: template)
         self.mode = mode
         self.navigatedFromProgram = navigatedFromProgram
     }
-    
+
     var body: some View {
         Form {
             Section {
@@ -36,13 +36,13 @@ struct ExerciseEditor: View {
                             }
                         }
                     }
-                
+
                 TextField("Description", text: $viewModel.template.description)
                     .disableAutocorrection(true)
                     .lineLimit(5)
                     .focused($fieldInFocus, equals: .description)
             }
-            
+
             Section {
                 Toggle("Set type", isOn: $viewModel.isTypeSet.animation())
                     .decorated()
@@ -51,7 +51,7 @@ struct ExerciseEditor: View {
                             viewModel.onTypeSetChange(newValue: newValue)
                         }
                     }
-                
+
                 if viewModel.isTypeDefined {
                     Picker("Type", selection: $viewModel.template.type.animation()) {
                         ForEach(ExerciseType.allCases, id: \.self) { type in
@@ -70,7 +70,7 @@ struct ExerciseEditor: View {
                         .foregroundColor(.secondary)
                 }
             }
-            
+
             Section {
                 if viewModel.isTypeDefined {
                     if viewModel.template.isTimer {
@@ -97,7 +97,7 @@ struct ExerciseEditor: View {
                     }
                 }
             }
-            
+
             if viewModel.showIntensity {
                 Section {
                     intensityControl
@@ -107,7 +107,7 @@ struct ExerciseEditor: View {
                     }
                 }
             }
-            
+
             if navigatedFromProgram {
                 Toggle("Save as template", isOn: $viewModel.template.saveAsTemplate)
                     .decorated()
@@ -126,11 +126,11 @@ struct ExerciseEditor: View {
             SettingsSubgroupView(subgroup: .tabata)
         }
     }
-    
+
     func toggleFocus() {
         fieldInFocus = FocusableField.moveFocusFrom(field: fieldInFocus)
     }
-    
+
     @ViewBuilder var intensityControl: some View {
         if viewModel.showIntensitySelection {
             Picker("Intensity", selection: $viewModel.template.intensity.animation()) {
@@ -140,7 +140,7 @@ struct ExerciseEditor: View {
             }
             .pickerStyle(.segmented)
         }
-        
+
         HStack {
             Text("Intensity")
             InfoButton()
@@ -151,14 +151,14 @@ struct ExerciseEditor: View {
             .foregroundColor(.secondary)
         }
     }
-    
+
     var timerDurationControl: some View {
         DurationControl(minutes: $viewModel.minutes, seconds: $viewModel.seconds,
                         onMinutesChange: {viewModel.onMinutesChange(newValue: $0)},
                         onSecondsChange: {viewModel.onSecondsChange(newValue: $0)},
                         content: { durationControlContent })
     }
-    
+
     @ViewBuilder var durationControlContent: some View {
         Text("Duration")
         InfoButton()
@@ -167,15 +167,15 @@ struct ExerciseEditor: View {
 }
 
 struct ExerciseEditor_Previews: PreviewProvider {
-    
+
     @State static private var defaultTemplate = ExerciseTemplate.template
     @State static private var exampleTemplate = ExerciseEditor.EditorTemplate(from: ExerciseTemplate.vasihsthasana)
-    
+
     static var previews: some View {
         //        NavigationView {
         //            ExerciseTemplateEditor(for: $defaultTemplate)
         //        }
-        
+
         NavigationView {
             ExerciseEditor(for: $exampleTemplate, mode: .edit)
         }

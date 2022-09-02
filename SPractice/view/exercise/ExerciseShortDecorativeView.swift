@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct ExerciseShortDecorativeView<T>: View where T: Exercise {
-    
+
     private let exercise: T
     private var isIconAccented: Bool
     private var isNameAccented: Bool
     private var accentColor: Color
     private var isFilled: Bool
-    
+
     @ObservedObject private var settings = SettingsManager.settings
-    
+
     init(for exercise: T, isIconAccented: Bool = false, isNameAccented: Bool = false,
          accentColor: Color = .customAccentColor, isFilled: Bool = false) {
         self.exercise = exercise
@@ -25,7 +25,7 @@ struct ExerciseShortDecorativeView<T>: View where T: Exercise {
         self.accentColor = accentColor
         self.isFilled = isFilled
     }
-    
+
     var body: some View {
         HStack {
             if isIconAccented {
@@ -54,7 +54,7 @@ struct ExerciseShortDecorativeView_Previews: PreviewProvider {
                 ExerciseShortDecorativeView(for: ExerciseTemplate.surjaNamascarA)
                 ExerciseShortDecorativeView(for: ExerciseTemplate.vasihsthasana)
             }
-            
+
             Group {
                 Text("templates with durations")
                 ExerciseShortDecorativeView(for: ExerciseTemplate.catCowNoDuration)
@@ -63,7 +63,7 @@ struct ExerciseShortDecorativeView_Previews: PreviewProvider {
                 ExerciseShortDecorativeView(for: ExerciseTemplate.vasihsthasana)
                 ExerciseShortDecorativeView(for: ExerciseTemplate.catCowNoType)
             }
-            
+
             Group {
                 Text("templates without durations")
                 ExerciseShortDecorativeView(for: ExerciseTemplate.catCowNoDuration)

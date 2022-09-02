@@ -8,25 +8,25 @@
 import SwiftUI
 
 struct ExamplesSettingsView: View {
-    
+
     @StateObject var viewModel = ViewModel()
-    
+
     @ObservedObject var programsManager = ProgramsManager.shared
     @ObservedObject var exercisesManager = ExercisesManager.shared
-    
+
     enum RestoreGroup: String, CaseIterable {
         case all
         case programs
         case exercises
     }
-    
+
     var body: some View {
         Picker("Templates for", selection: $viewModel.restoreGroup.animation()) {
             ForEach(RestoreGroup.allCases, id: \.self) { group in
                 Text(group.rawValue)
             }
         }
-        
+
         Section {
             Button("Restore deleted") {
                 withAnimation {
@@ -39,7 +39,7 @@ struct ExamplesSettingsView: View {
                 Text(viewModel.restoreFooterText)
             }
         }
-        
+
         Section {
             Button("Reset modified", role: .destructive) {
                 withAnimation {

@@ -8,13 +8,13 @@
 import Foundation
 
 @MainActor class Exercises: ObservableObject, PersistentDataManager {
-    
+
     // @Published internal var items: [ExerciseTemplate] = [ExerciseTemplate.catCow, ExerciseTemplate.balasana, ExerciseTemplate.shavasana, ExerciseTemplate.vasihsthasana, ExerciseTemplate.catCowNoDuration, ExerciseTemplate.surjaNamascarA, ExerciseTemplate.catCowNoType]
-    
+
     @Published internal var items: [ExerciseTemplate]
-    
+
     static let shared = Exercises()
-    
+
     let savePath = FileManager.documentsDirectory.appendingPathComponent("Exercises")
 
     private init() {
@@ -24,7 +24,7 @@ import Foundation
         } catch {
             items = ExerciseTemplate.defaultExamples
         }
-        
+
 //        for lots of items
 //
 //       let templates = [ExerciseTemplate.catCow, ExerciseTemplate.balasana, ExerciseTemplate.shavasana, ExerciseTemplate.vasihsthasana, ExerciseTemplate.catCowNoDuration, ExerciseTemplate.surjaNamascarA, ExerciseTemplate.catCowNoType]
@@ -39,7 +39,7 @@ import Foundation
 //
 //        items = exercises
     }
-    
+
     internal func save() {
         do {
             let data = try JSONEncoder().encode(items)

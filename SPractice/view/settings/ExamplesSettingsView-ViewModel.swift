@@ -9,15 +9,15 @@ import Foundation
 
 extension ExamplesSettingsView {
     @MainActor class ViewModel: ObservableObject {
-        
+
         @Published var restoreGroup: RestoreGroup = .all
-        
+
         static let defaultResetText = "Reset modified examples to defaults"
         static let programsDetailsText = "Programs: "
         static let exercisesDetailsText = "Exercises: "
-        
+
         static let defaultRestoreText = "Recreate deleted examples"
-        
+
         var modifiedPrograms: [String] {
             programsManager.modifiedExamplesNames
         }
@@ -30,15 +30,15 @@ extension ExamplesSettingsView {
         var deletedExercises: [String] {
             exercisesManager.deletedExamplesNames
         }
-        
+
         var programsManager: ProgramsManager {
             ProgramsManager.shared
         }
-        
+
         var exercisesManager: ExercisesManager {
             ExercisesManager.shared
         }
-        
+
         var resetFooterText: String {
             switch restoreGroup {
             case .all:
@@ -49,7 +49,7 @@ extension ExamplesSettingsView {
                 return exercisesModifiedFooterText
             }
         }
-        
+
         var exercisesModifiedFooterText: String {
             if hasModifiedExercises {
                 return "\(Self.defaultResetText)\n\(Self.exercisesDetailsText)\(modifiedExercises.joined(separator: ", "))"
@@ -57,7 +57,7 @@ extension ExamplesSettingsView {
                 return Self.defaultResetText
             }
         }
-        
+
         var programsModifiedFooterText: String {
             if hasModifiedPrograms {
                 return "\(Self.defaultResetText)\n\(Self.programsDetailsText)\(modifiedPrograms.joined(separator: ", "))"
@@ -65,7 +65,7 @@ extension ExamplesSettingsView {
                 return Self.defaultResetText
             }
         }
-        
+
         var allModifiedFooterText: String {
             if hasModifiedPrograms && !hasModifiedExercises {
                 return "\(Self.defaultResetText)\n\(Self.programsDetailsText)\(modifiedPrograms.joined(separator: ", "))"
@@ -81,7 +81,7 @@ extension ExamplesSettingsView {
                 return Self.defaultResetText
             }
         }
-        
+
         var hasModifiedItems: Bool {
             switch restoreGroup {
             case .all:
@@ -92,15 +92,15 @@ extension ExamplesSettingsView {
                 return hasModifiedExercises
             }
         }
-        
+
         var hasModifiedPrograms: Bool {
             programsManager.areAnyExamplesModified()
         }
-        
+
         var hasModifiedExercises: Bool {
             exercisesManager.areAnyExamplesModified()
         }
-        
+
         var exercisesDeletedFooterText: String {
             if hasDeletedExercises {
                 return "\(Self.defaultRestoreText)\n\(Self.exercisesDetailsText)\(deletedExercises.joined(separator: ", "))"
@@ -108,7 +108,7 @@ extension ExamplesSettingsView {
                 return Self.defaultRestoreText
             }
         }
-        
+
         var programsDeletedFooterText: String {
             if hasDeletedPrograms {
                 return "\(Self.defaultRestoreText)\n\(Self.programsDetailsText)\(deletedPrograms.joined(separator: ", "))"
@@ -116,7 +116,7 @@ extension ExamplesSettingsView {
                 return Self.defaultRestoreText
             }
         }
-        
+
         var allDeletedFooterText: String {
             if hasDeletedPrograms && !hasDeletedExercises {
                 return "\(Self.defaultRestoreText)\n\(Self.programsDetailsText)\(deletedPrograms.joined(separator: ", "))"
@@ -132,7 +132,7 @@ extension ExamplesSettingsView {
                 return Self.defaultRestoreText
             }
         }
-        
+
         var restoreFooterText: String {
             switch restoreGroup {
             case .all:
@@ -143,7 +143,7 @@ extension ExamplesSettingsView {
                 return exercisesDeletedFooterText
             }
         }
-        
+
         var hasDeletedItems: Bool {
             switch restoreGroup {
             case .all:
@@ -154,15 +154,15 @@ extension ExamplesSettingsView {
                 return hasDeletedExercises
             }
         }
-        
+
         var hasDeletedPrograms: Bool {
             programsManager.areAnyExamplesDeleted()
         }
-        
+
         var hasDeletedExercises: Bool {
             exercisesManager.areAnyExamplesDeleted()
         }
-        
+
         func resetModified() {
             switch restoreGroup {
             case .all:
@@ -176,7 +176,7 @@ extension ExamplesSettingsView {
                 return
             }
         }
-        
+
         func restoreDeleted() {
             switch restoreGroup {
             case .all:

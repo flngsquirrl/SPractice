@@ -10,11 +10,11 @@ import SwiftUI
 struct SortingControl: View {
     @Binding var sortingProperty: SortingProperty
     @Binding var sortingOrder: SortingOrder
-    
+
     var onApplySorting: () -> Void
-    
+
     @State private var showConfirmation = false
-    
+
     var body: some View {
         Button {
             showConfirmation = true
@@ -31,18 +31,18 @@ struct SortingControl: View {
             Text("Sort by")
         }
     }
-    
+
     func setSorting(property: SortingProperty, order: SortingOrder) {
         setSortingProperty(property)
         setSortingOrder(order)
-        
+
         onApplySorting()
     }
-    
+
     func setSortingProperty(_ property: SortingProperty) {
         sortingProperty = property
     }
-    
+
     func setSortingOrder(_ order: SortingOrder) {
         sortingOrder = order
     }

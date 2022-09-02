@@ -9,17 +9,17 @@ import Foundation
 
 extension ProgramDetailsView {
     @MainActor class ViewModel: ObservableObject {
-        
+
         @Published var template: ProgramTemplate
-        
+
         init(for template: ProgramTemplate) {
             self.template = template
         }
-        
+
         func updateProgramTemplate(template: ProgramTemplate) {
             self.template = template
         }
-        
+
         var isPracticeDisabled: Bool {
             !ValidationService.isValidToPractice(template: template)
         }

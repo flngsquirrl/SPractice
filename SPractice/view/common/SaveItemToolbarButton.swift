@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct SaveItemToolbarButton: View {
-    
+
     var isExampleModified: () -> Bool
     var onSave: (_ markAsNonExample: Bool) -> Void
-    
+
     @State private var showExampleUpdateConfirmation = false
-    
+
     var body: some View {
         Button("Save") {
             hideKeyboard()

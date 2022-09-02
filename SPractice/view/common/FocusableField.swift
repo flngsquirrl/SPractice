@@ -10,12 +10,12 @@ import Foundation
 enum FocusableField {
     case name
     case description
-    
+
     static func moveFocusFrom(field: FocusableField?) -> FocusableField? {
         if field == .name {
             return .description
         }
-        
+
         return nil
     }
 }

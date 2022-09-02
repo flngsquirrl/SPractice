@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct ClockView: View {
-    
+
     @ObservedObject var clock: Clock
-    
+
     private static let countupImageName = "infinity"
-    
+
     private static let mainFont: Font = .largeTitle.weight(.semibold)
     private static let noteFont: Font = .body.weight(.semibold)
-    
+
     private static let elementColor: Color = .lightOrange
     private static let textColor: Color = .creamy
     private static let backgroundColor: Color = Color(UIColor.tertiarySystemBackground)
-    
+
     public static let simpleCountdown = ClockView(clock: Clock.simpleCountdown)
     public static let simpleCountup = ClockView(clock: Clock.simpleCountup)
-    
+
     var body: some View {
         ZStack(alignment: .topTrailing) {
             Group {
@@ -46,7 +46,7 @@ struct ClockView: View {
             .frame(maxWidth: .infinity, minHeight: 120)
             .background(ClockView.backgroundColor)
             .clipShape(RoundedRectangle(cornerRadius: 12))
-            
+
             if clock.isCountup {
                 let time = ClockTime.getPaddedPresentation(for: clock.time.timeInSeconds)
                 Text("\(time)")
@@ -60,7 +60,7 @@ struct ClockView: View {
 
 struct ClockNumber: View {
     var number: Int = 0
-    
+
     var body: some View {
         Text("\(number)")
             .frame(width: 50, height: 80)

@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct ExerciseSelectionView: View {
-    
+
     enum ItemsGroup: String, CaseIterable {
         case all
         case prepared
     }
-    
+
     @StateObject private var viewModel = ViewModel()
     @Environment(\.dismiss) var dismiss
-    
+
     private var onAdd: ([ExerciseTemplate]) -> Void
-    
+
     init(onAdd: @escaping ([ExerciseTemplate]) -> Void) {
         self.onAdd = onAdd
     }
-    
+
     func onDelete(_ indexSet: IndexSet) {
         viewModel.onDeleteSelectionItem(at: indexSet)
     }
@@ -69,7 +69,7 @@ struct ExerciseSelectionView: View {
                     }
                     .disabled(viewModel.isAddDisabled)
                 }
-                
+
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {
                         dismiss()
@@ -79,7 +79,7 @@ struct ExerciseSelectionView: View {
         }
         .accentColor(.customAccentColor)
     }
-    
+
     func getImageName(for group: ItemsGroup) -> String {
         switch group {
         case .all:
@@ -88,29 +88,29 @@ struct ExerciseSelectionView: View {
             return "checkmark"
         }
     }
-    
+
     class SelectionItem: Identifiable, Named, HavingCreationDate {
         var template: ExerciseTemplate
         var counter: Int
-        
+
         init(for template: ExerciseTemplate, counter: Int = 0) {
             self.template = template
             self.counter = counter
         }
-        
+
         var id: UUID {
             template.id
         }
-        
+
         var name: String {
             template.name
         }
-        
+
         var creationDate: Date {
             template.creationDate
         }
     }
-    
+
     struct SelectionRow: View {
         var item: SelectionItem
         var isAdded: Bool = false
@@ -131,7 +131,7 @@ struct ExerciseSelectionView: View {
                     Image(systemName: isAdded ? "minus.circle" : "plus.circle")
                         .foregroundColor(.customAccentColor)
                 }
-                
+
                 Text("\(item.counter)")
                     .font(.callout)
                     .foregroundColor(item.counter > 0 ? .creamy : .customAccentColor)
@@ -144,7 +144,7 @@ struct ExerciseSelectionView: View {
                         RoundedRectangle(cornerRadius: 7)
                             .stroke(.customAccentColor, lineWidth: 1.3)
                     )
-                
+
                 ExerciseShortView(for: item.template) {
                     ExerciseIcon(for: item.template.exerciseType)
                 }

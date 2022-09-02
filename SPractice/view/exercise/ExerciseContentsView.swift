@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct ExerciseContentsView: View {
-    
+
     @ObservedObject private var viewModel: ViewModel
-    
+
     init(exercise: ExerciseTemplate) {
         viewModel = ViewModel(for: exercise)
     }
-    
+
     var body: some View {
         List {
             ExercisePropertiesView(exercise: viewModel.exercise)
-            
+
             if viewModel.showTasks {
                 Section {
                     ExerciseTasksButton(tasks: viewModel.tasks)

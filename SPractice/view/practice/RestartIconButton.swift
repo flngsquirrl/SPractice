@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct RestartIconButton: View {
-    
+
     var onClick: () -> Void
-    
+
     var body: some View {
         Button {
             onClick()

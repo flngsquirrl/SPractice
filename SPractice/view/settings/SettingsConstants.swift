@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 enum SettingsConstants {
-    
+
     static let resetTitle = "These settings influence existing exercises and programs."
-    
+
 }

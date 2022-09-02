@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct SettingsSubgroupDetailsView: View {
-    
+
     @State private var showResetConfirmation = false
-    
+
     var subgroup: SettingsSubGroup
-    
+
     var body: some View {
         List {
             getSubgroupView(subgroup)
@@ -20,7 +20,7 @@ struct SettingsSubgroupDetailsView: View {
         .navigationTitle(subgroup.rawValue)
         .navigationBarTitleDisplayMode(.inline)
     }
-    
+
     func getSubgroupView(_ subgroup: SettingsSubGroup) -> AnyView {
         switch subgroup {
         case .tabata:
@@ -40,15 +40,15 @@ struct SettingsSubgroupDetailsView_Previews: PreviewProvider {
         NavigationView {
             SettingsSubgroupDetailsView(subgroup: .tabata)
         }
-        
+
         NavigationView {
             SettingsSubgroupDetailsView(subgroup: .flow)
         }
-        
+
         NavigationView {
             SettingsSubgroupDetailsView(subgroup: .rest)
         }
-        
+
         NavigationView {
             SettingsSubgroupDetailsView(subgroup: .examples)
         }

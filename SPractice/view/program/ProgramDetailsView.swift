@@ -8,30 +8,30 @@
 import SwiftUI
 
 struct ProgramDetailsView: DetailsView {
-    
+
     @ObservedObject private var viewModel: ViewModel
-    
+
     @ObservedObject var programs = Programs.shared
 
     @State private var showPracticeView = false
     @State private var showEditTemplateView = false
     @State private var showPracticeSettings = false
-    
+
     @Environment(\.horizontalSizeClass) var sizeClass
-    
+
     var onChange: (ProgramTemplate) -> Void
     var onDelete: (ProgramTemplate) -> Void
-    
+
     init(for program: ProgramTemplate, onChange: @escaping (ProgramTemplate) -> Void, onDelete: @escaping (ProgramTemplate) -> Void) {
         self.viewModel = ViewModel(for: program)
         self.onChange = onChange
         self.onDelete = onDelete
     }
-    
+
     var isDeleted: Bool {
         !programs.contains(viewModel.template)
     }
-    
+
     var detailsContent: some View {
         List {
             ProgramCardView(program: viewModel.template)
@@ -62,7 +62,7 @@ struct ProgramDetailsView: DetailsView {
                     Text("Type and duration should be defined for all the exercises to start the practice")
                 }
             }
-            
+
             ProgramSummaryView(program: viewModel.template)
         }
         .sheet(isPresented: $showEditTemplateView) {
@@ -80,7 +80,7 @@ struct ProgramDetailsView: DetailsView {
                 DeleteToolbarButton(item: viewModel.template) {
                     onDelete($0)
                 }
-                
+
                 Button("Edit") {
                     showEditTemplateView = true
                 }

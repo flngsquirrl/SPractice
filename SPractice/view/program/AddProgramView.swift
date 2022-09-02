@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct AddProgramView: View {
-    
+
     @Environment(\.dismiss) var dismiss
-    
+
     var onAdd: (ProgramTemplate) -> Void
-    
+
     @StateObject private var viewModel = ViewModel()
-    
+
     init(onAdd: @escaping (ProgramTemplate) -> Void) {
         self.onAdd = onAdd
     }
-    
+
     var body: some View {
         NavigationView {
             ProgramEditor(for: $viewModel.newTemplate, mode: .add, editMode: $viewModel.editMode)
@@ -32,7 +32,7 @@ struct AddProgramView: View {
                         }
                         .disabled(viewModel.isAddDisabled)
                     }
-                    
+
                     ToolbarItem(placement: .cancellationAction) {
                         Button("Cancel") {
                             dismiss()

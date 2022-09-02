@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct PracticeExerciseView: View {
-    
+
     @ObservedObject var practice: Practice
-    
+
     @State var showDetails = false
-    
+
     var body: some View {
         VStack {
             HStack(alignment: .top) {
@@ -23,29 +23,29 @@ struct PracticeExerciseView: View {
                     .frame(width: 35, height: 35)
                     .foregroundColor(.lightOrange)
                     .font(.largeTitle.bold())
-        
+
                 Spacer()
 
                 RoundIconButton(imageName: "info.circle.fill", disabled: false) {
                     showDetails = true
                     practice.pauseClock()
                 }
-                
+
                 RoundIconButton(imageName: "arrow.clockwise.circle.fill", disabled: !practice.isCurrentExerciseStarted) {
                     practice.restartExercise()
                 }
                 .animation(.default, value: practice.isCurrentExerciseStarted)
             }
-            
+
             Text("\(practice.currentExercise.name)")
                 .font(.title2.bold())
                 .truncated()
                 .padding()
-            
+
             Text("\(practice.currentExercise.exerciseType.rawValue)")
                 .font(.body.bold())
                 .foregroundColor(.secondary)
-            
+
             ClockView(clock: practice.clock)
             Text("\(practice.currentTask.name)")
                 .font(.body.bold())
@@ -67,7 +67,7 @@ struct PracticeExerciseView_Previews: PreviewProvider {
             PracticeExerciseView(practice: Practice(for: .personal, with: PracticeSettings(programId: ProgramTemplate.personal.id)))
                 .wrapped()
                 .frame(width: 320)
-            
+
         }
     }
 }

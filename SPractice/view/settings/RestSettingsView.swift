@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct RestSettingsView: View {
-    
+
     @ObservedObject private var nameItem = SettingsManager.restNameItem
     @ObservedObject private var durationItem = SettingsManager.restDurationItem
-    
+
     let range = Array(stride(from: 10, through: 60, by: 10))
-    
+
     var body: some View {
         Section {
             TextField("Exercise name", text: $nameItem.value)
@@ -26,7 +26,7 @@ struct RestSettingsView: View {
                 Text("Name of the exercise in practice")
             }
         }
-        
+
         Section {
             HStack {
                 Text("Duration")
@@ -39,7 +39,7 @@ struct RestSettingsView: View {
         } footer: {
             Text("You can use rest intervals to take a deep breath and prepare for the next exercise")
         }
-        
+
         ResetToDefaultsButton(subgroup: .rest)
     }
 }

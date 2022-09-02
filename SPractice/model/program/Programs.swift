@@ -8,14 +8,14 @@
 import Foundation
 
 @MainActor class Programs: ObservableObject, PersistentDataManager {
-    
+
     typealias Item = ProgramTemplate
-    
+
     // @Published internal var items: [ProgramTemplate] = [.simple, .personal, .dailyShort, .shortForBack]
     @Published internal var items: [ProgramTemplate]
-    
+
     static let shared = Programs()
-    
+
     let savePath = FileManager.documentsDirectory.appendingPathComponent("Programs")
 
     private init() {
@@ -25,7 +25,7 @@ import Foundation
         } catch {
             items = ProgramTemplate.defaultExamples
         }
-        
+
 //        for lots of items
 //
 //        let templates = [ProgramTemplate.personal, ProgramTemplate.dailyShort, ProgramTemplate.shortForBack]
@@ -40,7 +40,7 @@ import Foundation
 //
 //        items = programs
     }
-    
+
     internal func save() {
         do {
             let data = try JSONEncoder().encode(items)

@@ -8,24 +8,24 @@
 import SwiftUI
 
 struct ExerciseShortView<E: Exercise, Icon: View>: View {
-    
+
     @ObservedObject var settings = SettingsManager.settings
-    
+
     private let exercise: E
     private var displayDetails = false
     @ViewBuilder private var icon: Icon
-    
+
     init(for exercise: E, displayDetails: Bool = true, icon: () -> Icon) {
         self.exercise = exercise
         self.displayDetails = displayDetails && exercise.isTypeSet
         self.icon = icon()
     }
-    
+
     var body: some View {
         HStack {
             icon
             Text(name)
-            
+
             if displayDetails {
                 Spacer()
                 Group {
@@ -36,7 +36,7 @@ struct ExerciseShortView<E: Exercise, Icon: View>: View {
             }
         }
     }
-    
+
     var name: String {
         if exercise.isService {
             return SettingsManager.restName
@@ -72,7 +72,7 @@ struct ExerciseShortView_Previews: PreviewProvider {
 //                ExerciseShortView(for: ExerciseTemplate.vasihsthasana)
 //                ExerciseShortView(for: ExerciseTemplate.catCowNoType)
 //            }
-            
+
             Group {
                 Text("icon test")
                 ExerciseShortView(for: PracticeExercise.catCow) {

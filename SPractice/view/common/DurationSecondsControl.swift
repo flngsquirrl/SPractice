@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct DurationSecondsControl: View {
-    
+
     @Binding var seconds: Int
-    
+
     var range: [Int] = Array(stride(from: 0, through: 60, by: 10))
     var format = "%02d"
-    
+
     var body: some View {
         HStack(spacing: 0) {
             Picker("Duration seconds", selection: $seconds) {
@@ -23,12 +23,12 @@ struct DurationSecondsControl: View {
             }
             .labelsHidden()
             .pickerStyle(.menu)
-            
+
             Text("\(Self.secondsUnit)")
                 .foregroundColor(.secondary)
         }
     }
-    
+
     static var secondsUnit: String {
         MeasurementFormatter().string(from: UnitDuration.seconds)
     }

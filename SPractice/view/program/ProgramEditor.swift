@@ -8,25 +8,25 @@
 import SwiftUI
 
 struct ProgramEditor: View {
-    
+
     @ObservedObject var viewModel: ViewModel
-    
+
     @State private var showNewExerciseView = false
     @State private var showExerciseSelectionView = false
-    
+
     @State private var selectedExercise: ExerciseTemplate?
     @Binding private var editMode: EditMode
-    
+
     @FocusState private var fieldInFocus: FocusableField?
-    
+
     private var mode: EditorMode
-    
+
     init(for template: Binding<ProgramTemplate>, mode: EditorMode, editMode: Binding<EditMode>) {
         self.viewModel = ViewModel(for: template)
         self.mode = mode
         self._editMode = editMode
     }
-    
+
     var body: some View {
         Form {
             Section {
@@ -44,9 +44,9 @@ struct ProgramEditor: View {
                     .disableAutocorrection(true)
                     .focused($fieldInFocus, equals: .description)
             }
-            
+
             ProgramDurationSection(program: viewModel.template)
-            
+
             Section {
                 Button {
                     hideKeyboard()
@@ -55,7 +55,7 @@ struct ProgramEditor: View {
                     Label("Add new", systemImage: "plus")
                 }
                 .disabled(editMode.isEditing)
-                
+
                 Button {
                     hideKeyboard()
                     showExerciseSelectionView = true
@@ -63,7 +63,7 @@ struct ProgramEditor: View {
                     Label("Add from templates", systemImage: "plus")
                 }
                 .disabled(editMode.isEditing)
-                
+
                 ForEach(viewModel.template.exercises) { exercise in
                     HStack {
                         if !editMode.isEditing {
@@ -126,7 +126,7 @@ struct ProgramEditor: View {
             AddExerciseView(navigatedFromProgram: true) { viewModel.addNewExercise(exercise: $0) }
         }
     }
-    
+
     func toggleFocus() {
         fieldInFocus = FocusableField.moveFocusFrom(field: fieldInFocus)
     }
@@ -134,15 +134,15 @@ struct ProgramEditor: View {
 
 struct ProgramEditor_Previews: PreviewProvider {
     @State static private var editMode: EditMode = .inactive
-    
+
     @State static private var defaultTemplate = ProgramTemplate.template
     @State static private var exampleTemplate = ProgramTemplate.personal
-    
+
     static var previews: some View {
         NavigationView {
             ProgramEditor(for: $defaultTemplate, mode: .add, editMode: $editMode)
         }
-        
+
         NavigationView {
             ProgramEditor(for: $exampleTemplate, mode: .add, editMode: $editMode)
         }

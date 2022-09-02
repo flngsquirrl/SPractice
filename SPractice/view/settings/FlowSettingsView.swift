@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct FlowSettingsView: View {
-    
+
     @ObservedObject private var flowAutoFinishItem = SettingsManager.flowAutoFinishItem
     @ObservedObject private var flowAutoFinishAfterTimeItem = SettingsManager.flowAutoFinishAfterTimeItem
-    
+
     var body: some View {
         Section {
             Toggle("Auto-finish", isOn: $flowAutoFinishItem.value.animation())
@@ -30,7 +30,7 @@ struct FlowSettingsView: View {
                 }
             }
         }
-        
+
         if flowAutoFinishItem.value {
             Section {
                 DurationControl(minutes: $flowAutoFinishAfterTimeItem.value.minutes, seconds: $flowAutoFinishAfterTimeItem.value.seconds) {
@@ -44,7 +44,7 @@ struct FlowSettingsView: View {
                 Text("You can still finish earlier moving to another exercise or finishing the practice")
             }
         }
-        
+
         ResetToDefaultsButton(subgroup: .flow)
     }
 }

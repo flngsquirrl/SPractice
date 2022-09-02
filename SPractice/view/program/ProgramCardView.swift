@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ProgramCardView<T>: View where T: Program {
-    
+
     var program: T
-    
+
     var body: some View {
         Section {
             HStack(alignment: .center) {
@@ -33,7 +33,7 @@ struct ProgramCardView<T>: View where T: Program {
             }
         }
     }
-    
+
     var showDescription: Bool {
         !program.description.isEmpty
     }

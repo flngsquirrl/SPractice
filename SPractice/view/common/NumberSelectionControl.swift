@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct NumberSelectionControl: View {
-    
+
     @Binding var number: Int
-    
+
     var range: [Int] = Array(stride(from: 1, through: 10, by: 1))
-    
+
     var body: some View {
         HStack(spacing: 0) {
             Picker("Number selection", selection: $number) {
@@ -24,7 +24,7 @@ struct NumberSelectionControl: View {
             .pickerStyle(.menu)
         }
     }
-    
+
     static var secondsUnit: String {
         MeasurementFormatter().string(from: UnitDuration.seconds)
     }

@@ -11,7 +11,7 @@ enum ExerciseType: String, CaseIterable, Codable {
     case flow
     case timer
     case tabata
-    
+
     var hasDuration: Bool {
         self != .flow
     }

@@ -10,10 +10,10 @@ import SwiftUI
 
 protocol IconTextView: View {
     var mode: IconTextMode {get}
-    
+
     associatedtype IconPart: View
     associatedtype TextPart: View
-    
+
     @ViewBuilder var icon: Self.IconPart {get}
     @ViewBuilder var text: Self.TextPart {get}
 }

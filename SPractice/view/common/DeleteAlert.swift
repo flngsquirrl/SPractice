@@ -10,7 +10,7 @@ import SwiftUI
 struct DeleteAlertConstants {
     static let simpleWarning = "It won't be possible to restore the template."
     static let exampleWarning = "You can later restore this example template from Settings."
-    
+
     static func getTitle(isExampleTemplate: Bool = false) -> String {
         isExampleTemplate ? exampleWarning : simpleWarning
     }
@@ -19,9 +19,9 @@ struct DeleteAlertConstants {
 struct DeleteToolbarButton<T>: View where T: ExampleItem {
     var item: T
     var onDelete: (T) -> Void
-    
+
     @State private var showDeleteConfirmation: Bool = false
-    
+
     var body: some View {
         Button {
             showDeleteConfirmation = true
@@ -39,7 +39,7 @@ struct DeleteToolbarButton<T>: View where T: ExampleItem {
 struct DeleteAlertContent<T>: View {
     var item: T
     var onDelete: (T) -> Void
-    
+
     var body: some View {
         Button("Delete", role: .destructive) {
             withAnimation {

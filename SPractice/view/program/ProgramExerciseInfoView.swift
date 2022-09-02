@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ProgramExerciseInfoView: View {
-    
+
     @Environment(\.dismiss) var dismiss
-    
+
     var exercise: ExerciseTemplate
-    
+
     var body: some View {
         NavigationView {
             ExerciseContentsView(exercise: exercise)
@@ -31,7 +31,7 @@ struct ProgramExerciseInfoView: View {
         .navigationViewStyle(.stack)
         .accentColor(.customAccentColor)
     }
-    
+
     var showTasks: Bool {
         exercise.type == .tabata
     }

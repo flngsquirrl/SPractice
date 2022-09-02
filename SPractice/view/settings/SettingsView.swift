@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct SettingsView: View {
-    
+
     static private var groupFooter: [SettingsGroup: String] = [
         .exercise: "Set exercise configuration",
         .practice: "Configure practice parameters",
         .templates: "Manage default examples"
     ]
-    
+
     var body: some View {
         NavigationView {
             List {
@@ -27,7 +27,7 @@ struct SettingsView: View {
                 } header: {
                     Text("General")
                 }
-                
+
                 ForEach(SettingsGroup.allCases, id: \.self) { group in
                     Section {
                         let subgroups = SettingsGroup.hierarchy[group]!
@@ -47,7 +47,7 @@ struct SettingsView: View {
             }
             .listStyle(.insetGrouped)
             .navigationTitle("Settings")
-            
+
             WelcomeView()
         }
         .accentColor(.customAccentColor)

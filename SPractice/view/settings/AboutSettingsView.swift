@@ -18,7 +18,7 @@ struct AboutSettingsView: View {
                     Spacer()
                 }
                 .padding()
-                
+
                 HStack {
                     Text("Application")
                     Spacer()
@@ -37,15 +37,15 @@ struct AboutSettingsView: View {
             }
         }
     }
-    
+
     var name: String {
         readBundleProperty(key: "CFBundleName")
     }
-    
+
     var version: String {
         readBundleProperty(key: "CFBundleShortVersionString")
     }
-    
+
     func readBundleProperty(key: String) -> String {
         if let name = Bundle.main.object(forInfoDictionaryKey: key) {
             if let nameString = name as? String {

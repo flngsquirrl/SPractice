@@ -13,10 +13,10 @@ struct PlayerButton: View {
     let width: CGFloat
 
     let onClick: (() -> Void)?
-    
+
     private let mainFont: Font = .title.weight(.semibold)
     private let noteFont: Font = .body.weight(.semibold)
-    
+
     var body: some View {
         VStack {
             Button { onClick?() }
@@ -35,24 +35,24 @@ struct PlayerButton: View {
 }
 
 struct PlayerView: View {
-    
+
     @ObservedObject private var player: Player
-    
+
     init(player: Player) {
         self.player = player
     }
-    
+
     var body: some View {
         GeometryReader { geo in
             let width = (geo.size.width - 20) * 0.315
-            
+
             VStack {
                 HStack {
                     PlayerButton(systemImageName: "backward.frame.fill", isEnabled: player.isBackwardEnabled, width: width) {
                         player.backwardClicked()
                     }
                     .animation(.default, value: player.isBackwardEnabled)
-                    
+
                     Group {
                         if player.isPlaying {
                             PlayerButton(systemImageName: "pause.fill", isEnabled: player.isPauseEnabled, width: width) {
@@ -67,7 +67,7 @@ struct PlayerView: View {
                         }
                     }
                     .padding([.leading, .trailing], 10)
-                    
+
                     PlayerButton(systemImageName: "forward.frame.fill", isEnabled: player.isForwardEnabled, width: width) {
                         player.forwardClicked()
                     }
@@ -86,7 +86,7 @@ struct PlayerView_Previews: PreviewProvider {
             RoundedRectangle(cornerRadius: 12)
                 .stroke(.black)
                 .frame(width: geo.size.width * 0.8, height: 70)
-            
+
             PlayerView(player: Player())
                 .frame(width: geo.size.width * 0.8, height: 70)
         }

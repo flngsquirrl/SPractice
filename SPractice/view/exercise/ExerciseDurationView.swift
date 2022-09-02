@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct ExerciseDurationView<T>: View where T: Exercise {
-    
+
     private let template: T
     private let duration: Duration
     private let mode: DurationView.Mode
     private let isVerbose: Bool
-    
+
     @ObservedObject var settings = SettingsManager.settings
-    
+
     init(for template: T, mode: DurationView.Mode = .padded, isVerbose: Bool = false) where T: Exercise {
         self.template = template
         self.duration = template.duration
         self.mode = mode
         self.isVerbose = isVerbose
     }
-    
+
     var body: some View {
         switch definedDuration {
         case .known(let time):
@@ -40,7 +40,7 @@ struct ExerciseDurationView<T>: View where T: Exercise {
             }
         }
     }
-    
+
     var definedDuration: Duration {
         if template.type == .tabata {
             return .known(SettingsManager.tabataExerciseDuration)
@@ -59,12 +59,12 @@ struct ExerciseDurationView_Previews: PreviewProvider {
             ExerciseDurationView(for: ExerciseTemplate.catCowNoType)
             ExerciseDurationView(for: ExerciseTemplate.catCowNoDuration)
             ExerciseDurationView(for: ExerciseTemplate.surjaNamascarA)
-            
+
             Text("templates verbose")
             ExerciseDurationView(for: ExerciseTemplate.catCowNoType, isVerbose: true)
             ExerciseDurationView(for: ExerciseTemplate.catCowNoDuration, isVerbose: true)
             ExerciseDurationView(for: ExerciseTemplate.surjaNamascarA, isVerbose: true)
-            
+
             Text("exercises")
             ExerciseDurationView(for: PracticeExercise.catCow)
         }

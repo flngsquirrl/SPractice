@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct SettingsSubgroupView: View {
-    
+
     @Environment(\.dismiss) var dismiss
-    
+
     var subgroup: SettingsSubGroup
-    
+
     var body: some View {
         NavigationView {
             SettingsSubgroupDetailsView(subgroup: subgroup)

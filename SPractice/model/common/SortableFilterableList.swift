@@ -12,21 +12,21 @@ import Foundation
 
 @MainActor protocol SortableList: AnyObject {
     associatedtype Item: Named, HavingCreationDate
-    
+
     var items: [Item] {get}
-    
+
     var sortingProperty: SortingProperty {get}
     var sortingOrder: SortingOrder {get}
-    
+
     func sort() -> [Item]
     func sort(_ items: [Item]) -> [Item]
 }
 
 @MainActor protocol FilterableList: AnyObject {
     associatedtype Item: Named
-    
+
     var items: [Item] {get}
-    
+
     func filter(by searchText: String) -> [Item]
     func filter(_ items: [Item], by searchText: String) -> [Item]
 }
@@ -40,11 +40,11 @@ protocol HavingCreationDate {
 }
 
 extension SortableList {
-    
+
     func sort() -> [Item] {
         sort(items)
     }
-    
+
     func sort(_ items: [Item]) -> [Item] {
         let sorted: [Item]
         switch sortingProperty {
@@ -55,7 +55,7 @@ extension SortableList {
         }
         return sorted
     }
-    
+
     private func sortByDate(_ items: [Item]) -> [Item] {
         var result: [Item]
         switch sortingOrder {
@@ -66,7 +66,7 @@ extension SortableList {
         }
         return result
     }
-    
+
     private func sortByName(_ items: [Item]) -> [Item] {
         var result: [Item]
         switch sortingOrder {
@@ -80,7 +80,7 @@ extension SortableList {
 }
 
 extension FilterableList {
-    
+
     func filter(_ items: [Item], by searchText: String) -> [Item] {
         if searchText.isEmpty {
             return items
@@ -88,9 +88,9 @@ extension FilterableList {
             return items.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
         }
     }
-    
+
     func filter(by searchText: String) -> [Item] {
         filter(items, by: searchText)
     }
-    
+
 }

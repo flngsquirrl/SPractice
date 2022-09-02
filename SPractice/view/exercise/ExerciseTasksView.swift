@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ExerciseTasksView: View {
-    
+
     var tasks: [Task]
-    
+
     @Environment(\.dismiss) var dismiss
-    
+
     var body: some View {
         NavigationView {
             List(tasks) { task in

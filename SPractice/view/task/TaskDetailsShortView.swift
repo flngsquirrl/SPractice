@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct TaskDetailsShortView: View {
-    
+
     var task: Task
-    
+
     var body: some View {
         HStack {
             IntensityImage(intensity: task.intensity)
-            
+
             Text(task.name)
             Spacer()
-            
+
             Group {
                 switch task.duration {
                 case .known(let time):

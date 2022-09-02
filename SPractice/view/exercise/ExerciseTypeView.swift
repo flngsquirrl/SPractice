@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct ExerciseTypeView: IconTextView {
-    
+
     var type: ExerciseType?
     var mode: IconTextMode = .icon
-    
+
     var icon: some View {
         ExerciseTypeImage(type: type)
     }
-    
+
     var text: some View {
         if let type = type {
             Text(type.rawValue)

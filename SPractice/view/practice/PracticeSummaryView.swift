@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct PracticeSummaryView: View {
-    
+
     @Environment(\.dismiss) var dismiss
-    
+
     var practice: Practice
-    
+
     var body: some View {
         NavigationView {
             List {
                 ProgramDurationSection(program: practice.program)
-                
+
                 Section("Sequence") {
                     let count = practice.program.exercises.count
                     ForEach(0..<count, id: \.self) { index in
@@ -30,7 +30,7 @@ struct PracticeSummaryView: View {
                                 Image(systemName: practice.currentExerciseIndex == index ? "checkmark.circle.fill" : "arrow.forward.circle")
                                     .foregroundColor(.lightOrange)
                             }
-                            
+
                             ExerciseShortView(for: exercise) {
                                 ExerciseIcon(for: exercise.exerciseType)
                             }

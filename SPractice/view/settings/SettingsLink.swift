@@ -9,18 +9,18 @@ import SwiftUI
 
 struct SettingsLink: View {
     var text: String
-    
+
     @Binding var showSettings: Bool
-    
+
     static let settingsText = Text("Settings").foregroundColor(.customAccentColor)
-    
+
     var body: some View {
         content
             .onTapGesture {
                 showSettings = true
             }
     }
-    
+
     var content: some View {
         Group {
             Text(text.trim() + " ") +

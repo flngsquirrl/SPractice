@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ExercisePropertiesView<T>: View where T: Exercise {
-    
+
     var exercise: T
-    
+
     var body: some View {
         Section {
             HStack(alignment: .center) {
@@ -32,7 +32,7 @@ struct ExercisePropertiesView<T>: View where T: Exercise {
                 }
             }
         }
-        
+
         Section {
             HStack {
                 Text("Type")
@@ -41,7 +41,7 @@ struct ExercisePropertiesView<T>: View where T: Exercise {
                 ExerciseTypeView(type: exercise.type, mode: .iconAndText)
                     .foregroundColor(.secondary)
             }
-            
+
             if showDetails {
                 HStack {
                     Text("Duration")
@@ -50,7 +50,7 @@ struct ExercisePropertiesView<T>: View where T: Exercise {
                     ExerciseDurationView(for: exercise, isVerbose: true)
                         .foregroundColor(.secondary)
                 }
-            
+
                 HStack {
                     Text("Intensity")
                     InfoButton()
@@ -61,18 +61,18 @@ struct ExercisePropertiesView<T>: View where T: Exercise {
             }
         }
     }
-    
+
     var name: String {
         if exercise.isService {
             return SettingsManager.restName
         }
         return exercise.name
     }
-    
+
     var showDetails: Bool {
         exercise.isTypeSet
     }
-    
+
     var showDescription: Bool {
         !exercise.description.isEmptyString
     }

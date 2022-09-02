@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ProgramDurationSection<T>: View where T: Program {
     var program: T
-    
+
     @ObservedObject var settings = SettingsManager.settings
-    
+
     var body: some View {
         Section {
             HStack {

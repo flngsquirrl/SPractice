@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct IntensityView: IconTextView {
-    
+
     var intensity: Intensity?
     var mode: IconTextMode = .icon
-    
+
     var icon: some View {
         IntensityImage(intensity: intensity)
     }
-    
+
     var text: some View {
         if let intensity = intensity {
             Text("\(intensity.rawValue)")

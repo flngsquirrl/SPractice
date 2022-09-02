@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct ExerciseTypeImage: View {
-    
+
     var type: ExerciseType?
     var isFilled = false
 
     var body: some View {
         Image(systemName: Self.imageName(for: type, isFilled: isFilled))
     }
-    
+
     static func imageName(for type: ExerciseType?, isFilled: Bool = false) -> String {
         let postfix = isFilled ? ".fill" : ""
         if let type = type {
@@ -40,7 +40,7 @@ struct ExerciseTypeImage_Previews: PreviewProvider {
             ExerciseTypeImage(type: .timer)
             ExerciseTypeImage(type: .tabata)
             ExerciseTypeImage(type: nil)
-            
+
             ExerciseTypeImage(type: .flow, isFilled: true)
             ExerciseTypeImage(type: .timer, isFilled: true)
             ExerciseTypeImage(type: .tabata, isFilled: true)

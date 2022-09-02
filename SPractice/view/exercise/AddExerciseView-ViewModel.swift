@@ -10,11 +10,11 @@ import Foundation
 extension AddExerciseView {
     @MainActor class ViewModel: ObservableObject {
         @Published var template = ExerciseEditor.EditorTemplate(from: ExerciseTemplate.template)
-        
+
         var templateToAdd: ExerciseTemplate {
             ExerciseTemplate(from: template.exercise)
         }
-        
+
         var isAddDisabled: Bool {
             !ValidationService.isValid(template.exercise)
         }

@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct ExercisesView: View {
-    
+
     @ObservedObject private var exercisesManager = ExercisesManager.shared
-    
+
     @State private var showDeleteConfirmation = false
     @State private var selectedToDelete: ExerciseTemplate?
-    
+
     @State private var showAddNewView = false
     @State private var searchText = ""
-    
+
     var body: some View {
         NavigationView {
             list
@@ -27,12 +27,12 @@ struct ExercisesView: View {
                 .toolbar {
                     listToolbar
                 }
-            
+
             secondaryView
         }
         .accentColor(.customAccentColor)
     }
-    
+
     var list: some View {
         ScrollViewReader { proxy in
             List {
@@ -79,23 +79,23 @@ struct ExercisesView: View {
             }
         }
     }
-    
+
     var deleteAlertTitle: String {
         DeleteAlertConstants.getTitle(isExampleTemplate: selectedToDelete?.isExample ?? false)
     }
-    
+
     var addItemView: some View {
         AddExerciseView {
             exercisesManager.addItem($0)
         }
     }
-    
+
     var listToolbar: some ToolbarContent {
         ToolbarItemGroup(placement: .navigationBarTrailing) {
             SortingControl(sortingProperty: $exercisesManager.sortingProperty, sortingOrder: $exercisesManager.sortingOrder) {
                 exercisesManager.setSorting()
             }
-            
+
             Button {
                 showAddNewView = true
             } label: {
@@ -104,7 +104,7 @@ struct ExercisesView: View {
             }
         }
     }
-    
+
     var secondaryView: some View {
         WelcomeView()
     }

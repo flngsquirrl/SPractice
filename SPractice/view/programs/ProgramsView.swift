@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct ProgramsView: View {
-    
+
     @ObservedObject var programsManager = ProgramsManager.shared
-    
+
     @State private var showDeleteConfirmation = false
     @State private var selectedToDelete: ProgramTemplate?
-    
+
     @State private var showAddNewView = false
     @State private var searchText = ""
-    
+
     var body: some View {
         NavigationView {
             list
@@ -27,12 +27,12 @@ struct ProgramsView: View {
                 .toolbar {
                     listToolbar
                 }
-            
+
             secondaryView
         }
         .accentColor(.customAccentColor)
     }
-    
+
     var list: some View {
         ScrollViewReader { proxy in
             List {
@@ -78,23 +78,23 @@ struct ProgramsView: View {
             }
         }
     }
-    
+
     var deleteAlertTitle: String {
         DeleteAlertConstants.getTitle(isExampleTemplate: selectedToDelete?.isExample ?? false)
     }
-    
+
     var addItemView: some View {
         AddProgramView {
             programsManager.addItem($0)
         }
     }
-    
+
     var listToolbar: some ToolbarContent {
         ToolbarItemGroup(placement: .navigationBarTrailing) {
             SortingControl(sortingProperty: $programsManager.sortingProperty, sortingOrder: $programsManager.sortingOrder) {
                 programsManager.setSorting()
             }
-            
+
             Button {
                 showAddNewView = true
             } label: {
@@ -103,15 +103,15 @@ struct ProgramsView: View {
             }
         }
     }
-    
+
     var secondaryView: some View {
         WelcomeView()
     }
-    
+
 }
 
 struct ProgramsView_Previews: PreviewProvider {
-    
+
     static var previews: some View {
         ProgramsView()
     }

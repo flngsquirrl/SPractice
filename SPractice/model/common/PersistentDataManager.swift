@@ -16,7 +16,7 @@ extension PersistentDataManager {
         items.append(item)
         save()
     }
-    
+
     func update(_ item: Item) {
         if let index = items.firstIndex(where: {$0.id == item.id}) {
             items[index] = item
@@ -32,14 +32,14 @@ extension PersistentDataManager {
         }
         save()
     }
-    
+
     func delete(_ item: Item) {
         if let index = items.firstIndex(where: {$0.id == item.id}) {
             items.remove(at: index)
             save()
         }
     }
-    
+
     func contains(_ item: Item) -> Bool {
         items.firstIndex(where: {$0.id == item.id}) != nil
     }

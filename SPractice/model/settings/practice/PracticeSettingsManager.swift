@@ -13,7 +13,7 @@ import Foundation
 
     var items: [PracticeSettings]
     let saveKey = "practiceSettings"
-    
+
     init() {
         if let data = UserDefaults.standard.data(forKey: saveKey) {
             if let decoded = try? JSONDecoder().decode([PracticeSettings].self, from: data) {

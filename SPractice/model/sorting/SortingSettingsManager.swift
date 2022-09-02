@@ -10,20 +10,20 @@ import Foundation
 @MainActor protocol SortingSettingsManager: AnyObject {
     var sortingPropertyKey: String {get}
     var sortingOrderKey: String {get}
-    
+
     var sortingProperty: SortingProperty {get set}
     var sortingOrder: SortingOrder {get set}
-    
+
     func saveSorting()
 }
 
 extension SortingSettingsManager {
-    
+
     func readSortingSetup() {
         readSortingProperty()
         readSortingOrder()
     }
-    
+
     func readSortingProperty() {
         let savedValue = UserDefaults.standard.string(forKey: sortingPropertyKey)
         if let savedValue = savedValue {
@@ -32,7 +32,7 @@ extension SortingSettingsManager {
             sortingProperty = .date
         }
     }
-    
+
     func readSortingOrder() {
         let savedValue = UserDefaults.standard.string(forKey: sortingOrderKey)
         if let savedValue = savedValue {
@@ -41,7 +41,7 @@ extension SortingSettingsManager {
             sortingOrder = .desc
         }
     }
-    
+
     func saveSorting() {
         UserDefaults.standard.set(sortingProperty.rawValue, forKey: sortingPropertyKey)
         UserDefaults.standard.set(sortingOrder.rawValue, forKey: sortingOrderKey)

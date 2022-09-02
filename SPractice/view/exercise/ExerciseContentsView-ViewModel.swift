@@ -9,17 +9,17 @@ import Foundation
 
 extension ExerciseContentsView {
     @MainActor class ViewModel: ObservableObject {
-        
+
         @Published var exercise: ExerciseTemplate
-        
+
         init(for template: ExerciseTemplate) {
             self.exercise = template
         }
-        
+
         var showTasks: Bool {
             exercise.isTypeSet && exercise.type == .tabata
         }
-        
+
         var tasks: [Task] {
             PracticeExercise(from: exercise)!.tasks
         }

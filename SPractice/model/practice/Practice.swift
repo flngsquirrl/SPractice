@@ -17,16 +17,16 @@ import SwiftUI
 
     @Published var isSoundOn: Bool
     var usePauses: Bool
-    
+
     var isRunning = false
     @Published var isStarted = false // play was clicked
     @Published var isCompleted = false
     @Published var isCurrentExerciseStarted = false
-    
+
     @Published var currentExerciseIndex = 0
     @Published var currentTaskIndex = 0
     @Published var durationRemaining: Duration
-    
+
     init(for template: ProgramTemplate, with settings: PracticeSettings) {
         self.program = PracticeProgram(for: template, useRest: settings.addRestIntervals)
         self.usePauses = settings.pauseAfterExercise
@@ -42,142 +42,142 @@ import SwiftUI
         prepareClock()
         preparePlayer()
     }
-    
+
     var isFirstExercise: Bool {
         currentExerciseIndex == 0
     }
-    
+
     var isLastExercise: Bool {
         currentExerciseIndex == program.exercises.count - 1
     }
-    
+
     var currentExercise: PracticeExercise {
         program.exercises[currentExerciseIndex]
     }
-    
+
     public var nextExercise: PracticeExercise? {
         guard currentExerciseIndex < program.exercises.count - 1 else {
             return nil
         }
-        
+
         return program.exercises[currentExerciseIndex + 1]
     }
-    
+
     var isLastTask: Bool {
         currentTaskIndex == currentExercise.tasks.count - 1
     }
-    
+
     var currentTask: Task {
         currentExercise.tasks[currentTaskIndex]
     }
-    
+
     var isDurationRemainingApproximate: Bool {
         program.hasFlowExercises(fromIndex: currentExerciseIndex)
     }
-    
+
     func run() {
         if !isStarted {
             start()
         }
-        
+
         startClock()
         isRunning = true
         updatePlayerState()
     }
-    
+
     func start() {
         setClock()
         isStarted = true
     }
-    
+
     func pause() {
         stopClock()
         isRunning = false
         updatePlayerState()
     }
-    
+
     func pauseClock() {
         if isRunning {
             stopClock()
         }
     }
-    
+
     func resumeClock() {
         if isRunning {
             startClock()
         }
     }
-    
+
     func restart() {
         let runAfterReset = isRunning
         reset()
         processRunAfterReset(shouldStart: runAfterReset)
     }
-    
+
     func restartExercise() {
         let runAfterReset = isRunning
         pause()
         moveToExercise(withIndex: currentExerciseIndex)
         processRunAfterReset(shouldStart: runAfterReset)
     }
-    
+
     func processRunAfterReset(shouldStart: Bool) {
         if shouldStart {
             run()
         }
     }
-    
+
     func reset() {
         setToInitialState()
         resetComponents()
     }
-    
+
     func setToInitialState() {
         isRunning = false
         isStarted = false
         isCompleted = false
         isCurrentExerciseStarted = false
-        
+
         durationRemaining = program.duration
         currentExerciseIndex = 0
         currentTaskIndex = 0
     }
-    
+
     func resetComponents() {
         resetTiming()
         updatePlayerState()
     }
-    
+
     func finish() {
         stopClock()
         moveToLastTask()
         resetDurationRemaining()
         isCurrentExerciseStarted = false
-        
+
         if currentExercise.type != .flow {
             clock.resetTime()
         }
         isCompleted = true
         updatePlayerState()
     }
-    
+
     func resetTiming() {
         stopClock()
         setClock()
-        
+
         if isRunning {
             startClock()
         }
     }
-    
+
     func moveToExercise(withIndex index: Int) {
         guard index < program.exercises.count else {
-            return 
+            return
         }
         currentExerciseIndex = index
         onMoveToExercise()
     }
-    
+
     func moveToNextExercise() {
         if isLastExercise {
             finish()
@@ -186,12 +186,12 @@ import SwiftUI
             onMoveToExercise()
         }
     }
-    
+
     func moveToPreviousExercise() {
         currentExerciseIndex -= 1
         onMoveToExercise()
     }
-    
+
     func onMoveToExercise() {
         isCurrentExerciseStarted = false
         currentTaskIndex = 0
@@ -203,12 +203,12 @@ import SwiftUI
             pause()
         }
     }
-    
+
     func moveToNextTask() {
         currentTaskIndex += 1
         resetTiming()
     }
-    
+
     func moveToLastTask() {
         let lastTaskIndex = currentExercise.tasks.count - 1
         guard currentTaskIndex != lastTaskIndex else {
@@ -216,7 +216,7 @@ import SwiftUI
         }
         currentTaskIndex = lastTaskIndex
     }
-    
+
     func processCountingFinished() {
         if isLastTask {
             if isLastExercise {
@@ -228,26 +228,26 @@ import SwiftUI
             moveToNextTask()
         }
     }
-    
+
     func prepareClock() {
         clock.onFinished = { [weak self] in self?.processCountingFinished() }
         clock.onTick = { [weak self] in self?.onClockTick() }
         setClock()
     }
-    
+
     func onClockTick() {
         updateDurationRemaining()
         isCurrentExerciseStarted = true
-        
+
         if isSoundOn {
             playSound()
         }
     }
-    
+
     func toggleSound() {
         isSoundOn.toggle()
     }
-    
+
     func playSound() {
         if clock.isCountdown {
             let taskRemainingTime = clock.time.timeInSeconds
@@ -261,7 +261,7 @@ import SwiftUI
             }
         }
     }
-    
+
     func playEndSound() {
         var soundType: SoundType
         if isLastExercise && isLastTask {
@@ -273,17 +273,17 @@ import SwiftUI
         }
         SoundManager.shared.playSound(type: soundType)
     }
-    
+
     func setDurationRemaining() {
         durationRemaining = program.calculateDuration(from: currentExerciseIndex)
     }
-    
+
     func resetDurationRemaining() {
         if case .known = durationRemaining {
             durationRemaining = .known(0)
         }
     }
-    
+
     func updateDurationRemaining() {
         if currentExercise.type != .flow {
             if case .known(let time) = durationRemaining {
@@ -291,7 +291,7 @@ import SwiftUI
             }
         }
     }
-    
+
     func setClock() {
         if case .known(let time) = currentTask.duration {
             clock.reset(to: time, isCountdown: true)
@@ -299,12 +299,12 @@ import SwiftUI
             clock.reset()
         }
     }
-    
+
     func startClock() {
         manageIdleTimer(disabled: true)
         clock.start()
     }
-    
+
     func stopClock() {
         manageIdleTimer(disabled: false)
         clock.stop()
@@ -313,7 +313,7 @@ import SwiftUI
     func manageIdleTimer(disabled: Bool) {
         UIApplication.shared.isIdleTimerDisabled = disabled
     }
-    
+
     func updatePlayerState() {
         player.isPlaying = isRunning
         player.isPlayEnabled = !isRunning && !isCompleted
@@ -321,14 +321,14 @@ import SwiftUI
         player.isBackwardEnabled = !isFirstExercise && !isCompleted
         player.isForwardEnabled = !isCompleted
     }
-    
+
     func preparePlayer() {
         player.onBackwardClicked = { [weak self] in self?.moveToPreviousExercise() }
         player.onForwardClicked = { [weak self] in self?.moveToNextExercise() }
         player.onPlayClicked = { [weak self] in self?.run() }
         player.onPauseClicked = { [weak self] in self?.pause() }
-        
+
         updatePlayerState()
     }
-    
+
 }

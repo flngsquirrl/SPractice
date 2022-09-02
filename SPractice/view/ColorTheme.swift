@@ -17,19 +17,19 @@ extension ShapeStyle where Self == Color {
         Color(red: 28/255, green: 80/255, blue: 112/255)
             .opacity(0.8)
     }
-    
+
     static var lightOrange: Color {
         Color(red: 216/255, green: 153/255, blue: 91/255)
     }
-    
+
     static var darkOrange: Color {
         Color(red: 224/255, green: 77/255, blue: 1/255)
     }
-    
+
     static var creamy: Color {
         Color(red: 239/255, green: 239/255, blue: 239/255)
     }
-    
+
     static var customAccentColor: Color {
         lightOrange
     }

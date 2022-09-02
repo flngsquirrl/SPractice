@@ -14,10 +14,10 @@ struct IntensityImage: View {
     var body: some View {
         Image(systemName: Self.imageName(for: intensity, isFilled: isFilled))
     }
-    
+
     static func imageName(for intensity: Intensity?, isFilled: Bool = false) -> String {
         let postfix = isFilled ? ".fill" : ""
-        
+
         if let intensity = intensity {
             switch intensity {
             case .activity:
@@ -30,7 +30,7 @@ struct IntensityImage: View {
         } else {
             return "questionmark.circle\(postfix)"
         }
-        
+
     }
 }
 
@@ -40,7 +40,7 @@ struct IntensityImage_Previews: PreviewProvider {
             IntensityImage(intensity: .activity)
             IntensityImage(intensity: .rest)
             IntensityImage(intensity: .mixed)
-            
+
             IntensityImage(intensity: .activity, isFilled: true)
             IntensityImage(intensity: .rest, isFilled: true)
             IntensityImage(intensity: .mixed, isFilled: true)

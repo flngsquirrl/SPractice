@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct PracticeSequenceView: View {
-    
+
     @ObservedObject var practice: Practice
-    
+
     var body: some View {
         Group {
             HStack {
                 Image(systemName: "arrow.forward.circle")
                     .foregroundColor(practice.isCompleted ? .secondary : .lightOrange)
-                
+
                 if let nextExercise = practice.nextExercise {
                     Text(nextExercise.name)
                         .truncated()
@@ -32,7 +32,7 @@ struct PracticeSequenceView: View {
                     practice.moveToNextExercise()
                 }
             }
-            
+
             HStack {
                 Text("remaining time")
                 Spacer()
