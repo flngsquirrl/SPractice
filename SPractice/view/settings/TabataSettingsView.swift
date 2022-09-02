@@ -38,6 +38,7 @@ struct TabataSettingsView: View {
         } footer: {
             Text("These tasks compose one tabata exercise")
         }
+        .rowLeadingAligned()
 
         Section {
             HStack {

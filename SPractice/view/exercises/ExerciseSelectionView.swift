@@ -150,6 +150,7 @@ struct ExerciseSelectionView: View {
                     ExerciseIcon(for: item.template.exerciseType)
                 }
             }
+            .rowLeadingAligned()
         }
     }
 }

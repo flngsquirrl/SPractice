@@ -49,6 +49,7 @@ struct ExercisesView: View {
                             ExerciseShortDecorativeView(for: exercise, isIconAccented: isAccented, isNameAccented: isAccented, isFilled: true)
                         }
                     }
+                    .rowLeadingAligned()
                 }
                 .onDelete { indexSet in
                     showDeleteConfirmation = true

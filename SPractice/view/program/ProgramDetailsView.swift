@@ -62,6 +62,7 @@ struct ProgramDetailsView: DetailsView {
                     Text("Type and duration should be defined for all the exercises to start the practice")
                 }
             }
+            .rowLeadingAligned()
 
             ProgramSummaryView(program: viewModel.template)
         }

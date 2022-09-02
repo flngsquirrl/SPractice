@@ -104,6 +104,7 @@ struct ProgramEditor: View {
                 }
                 .font(.footnote)
             }
+            .rowLeadingAligned()
         }
         .onSubmit {
             toggleFocus()

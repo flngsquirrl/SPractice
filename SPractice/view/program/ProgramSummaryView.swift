@@ -27,6 +27,7 @@ struct ProgramSummaryView: View {
                         }
                     }
                 }
+                .rowLeadingAligned()
             }
         }
     }

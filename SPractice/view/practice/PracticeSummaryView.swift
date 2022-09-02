@@ -35,7 +35,8 @@ struct PracticeSummaryView: View {
                                 ExerciseIcon(for: exercise.exerciseType)
                             }
                             .foregroundColor(exercise.isService ? .secondary : .primary)
-                       }
+                        }
+                        .rowLeadingAligned()
                     }
                 }
             }

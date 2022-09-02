@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C90B302728C2A8BC00B00DD3 /* View-RowLeadingAligned.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90B302628C2A8BC00B00DD3 /* View-RowLeadingAligned.swift */; };
 		C91110DC289BDCCC00B9BC03 /* MainList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91110DB289BDCCC00B9BC03 /* MainList.swift */; };
 		C912749F28BFB25A0051B4C3 /* Toggle-Decorated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C912749E28BFB25A0051B4C3 /* Toggle-Decorated.swift */; };
 		C91274A128BFBAD40051B4C3 /* PracticeView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91274A028BFBAD40051B4C3 /* PracticeView-ViewModel.swift */; };
@@ -164,6 +165,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C90B302628C2A8BC00B00DD3 /* View-RowLeadingAligned.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-RowLeadingAligned.swift"; sourceTree = "<group>"; };
 		C91110DB289BDCCC00B9BC03 /* MainList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainList.swift; sourceTree = "<group>"; };
 		C912749E28BFB25A0051B4C3 /* Toggle-Decorated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Toggle-Decorated.swift"; sourceTree = "<group>"; };
 		C91274A028BFBAD40051B4C3 /* PracticeView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PracticeView-ViewModel.swift"; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 				C9EB6D962882B9D10026186C /* Text-Truncated.swift */,
 				C912749E28BFB25A0051B4C3 /* Toggle-Decorated.swift */,
 				C92F6C3D286DDFF400D7BA59 /* View-Wrapped.swift */,
+				C90B302628C2A8BC00B00DD3 /* View-RowLeadingAligned.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -913,6 +916,7 @@
 				C967287C2874553600B4990C /* Exercise.swift in Sources */,
 				C91B8290288B41AF00900239 /* ProgramCardView.swift in Sources */,
 				C9BF1EEA28C6A30D00D67A99 /* IntroAppView.swift in Sources */,
+				C90B302728C2A8BC00B00DD3 /* View-RowLeadingAligned.swift in Sources */,
 				C99D281628799AE700596FBD /* DetailsView.swift in Sources */,
 				C9DE152A2868B5500011324C /* Programs.swift in Sources */,
 				C91B828E28896D1100900239 /* ExerciseExampleId.swift in Sources */,
