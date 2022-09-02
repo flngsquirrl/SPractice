@@ -15,7 +15,7 @@ struct DurationMinutesControl: View {
     var format = "%02d"
 
     var body: some View {
-        HStack(spacing: 0) {
+        HStack {
             Picker("Duration minutes", selection: $minutes) {
                 ForEach(range, id: \.self) {
                     Text(String(format: format, $0))
