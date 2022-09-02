@@ -37,9 +37,9 @@ struct ExerciseEditor: View {
                         }
                     }
 
-                TextField("Description", text: $viewModel.template.description)
+                TextField("Description", text: $viewModel.template.description, axis: .vertical)
                     .disableAutocorrection(true)
-                    .lineLimit(5)
+                    .lineLimit(2...4)
                     .focused($fieldInFocus, equals: .description)
             }
 
