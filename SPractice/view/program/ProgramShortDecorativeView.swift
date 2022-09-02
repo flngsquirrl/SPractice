@@ -38,7 +38,6 @@ struct ProgramShortDecorativeView: View {
                 .foregroundColor(.secondary)
             }
         }
-        .padding([.top, .bottom], 5)
     }
 }
 
