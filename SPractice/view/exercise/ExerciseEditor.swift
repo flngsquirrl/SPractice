@@ -153,7 +153,10 @@ struct ExerciseEditor: View {
     }
     
     var timerDurationControl: some View {
-        DurationControl(minutes: $viewModel.minutes, seconds: $viewModel.seconds, onMinutesChange: {viewModel.onMinutesChange(newValue: $0)}, onSecondsChange: {viewModel.onSecondsChange(newValue: $0)}, content: {durationControlContent})
+        DurationControl(minutes: $viewModel.minutes, seconds: $viewModel.seconds,
+                        onMinutesChange: {viewModel.onMinutesChange(newValue: $0)},
+                        onSecondsChange: {viewModel.onSecondsChange(newValue: $0)},
+                        content: { durationControlContent })
     }
     
     @ViewBuilder var durationControlContent: some View {

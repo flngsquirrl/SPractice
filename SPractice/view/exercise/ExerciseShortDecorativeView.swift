@@ -17,7 +17,8 @@ struct ExerciseShortDecorativeView<T>: View where T: Exercise {
     
     @ObservedObject private var settings = SettingsManager.settings
     
-    init(for exercise: T, isIconAccented: Bool = false, isNameAccented: Bool = false, accentColor: Color = .customAccentColor, isFilled: Bool = false) {
+    init(for exercise: T, isIconAccented: Bool = false, isNameAccented: Bool = false,
+         accentColor: Color = .customAccentColor, isFilled: Bool = false) {
         self.exercise = exercise
         self.isIconAccented = isIconAccented
         self.isNameAccented = isNameAccented

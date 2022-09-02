@@ -24,7 +24,8 @@ class SettingsManager {
     static var tabataCyclesItem: SettingsItemIntWrapper = SettingsItemIntWrapper(for: settings.getItem(.tabataCycles))
     
     static var tabataExerciseDuration: Int {
-        tabataWarmUpDurationItem.value + (tabataActivityDurationItem.value + tabataRestDurationItem.value) * tabataCyclesItem.value + tabataCoolDownDurationItem.value
+        tabataWarmUpDurationItem.value + (tabataActivityDurationItem.value + tabataRestDurationItem.value)
+            * tabataCyclesItem.value + tabataCoolDownDurationItem.value
     }
     
     static var flowAutoFinishAfterTime: Int {
@@ -105,7 +106,8 @@ class Settings: ObservableObject {
     static private let saveKey = "settingsNew"
     
     static private let defaults: SettingsType = [
-        .tabata: [.defaultTabataWarmUpDuration, .defaultTabataActivityDuration, .defaultTabataRestDuration, .defaultTabataCoolDownDuration, .defaultTabataCycles],
+        .tabata: [.defaultTabataWarmUpDuration, .defaultTabataActivityDuration, .defaultTabataRestDuration,
+            .defaultTabataCoolDownDuration, .defaultTabataCycles],
         .flow: [.defaultFlowAutoFinish, .defaultFlowAutoFinishAfterTime],
         .rest: [.defaultRestName, .defaultRestDuration]
     ]

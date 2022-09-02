@@ -20,7 +20,8 @@ struct ProgramTemplate: Program, HavingCreationDate, ExampleItem, Codable {
     
     private(set) var creationDate: Date
     
-    private init(id: UUID = UUID(), name: String = "", description: String = "", exercises: [ExerciseTemplate] = [], isExample: Bool = false, exampleId: String? = nil) {
+    private init(id: UUID = UUID(), name: String = "", description: String = "", exercises: [ExerciseTemplate] = [],
+                 isExample: Bool = false, exampleId: String? = nil) {
         self.id = id
         self.name = name.trim()
         self.description = description.trim()
@@ -34,7 +35,8 @@ struct ProgramTemplate: Program, HavingCreationDate, ExampleItem, Codable {
     }
     
     init(from template: ProgramTemplate) {
-        self.init(name: template.name, description: template.description, exercises: template.exercises, isExample: template.isExample, exampleId: template.exampleId)
+        self.init(name: template.name, description: template.description,
+                  exercises: template.exercises, isExample: template.isExample, exampleId: template.exampleId)
     }
     
     static var template: ProgramTemplate {
@@ -81,9 +83,17 @@ struct ProgramTemplate: Program, HavingCreationDate, ExampleItem, Codable {
         [simple]
     }
     
-    static let simple = ProgramTemplate(name: "Simple", description: "An example demo program", exercises: [ExerciseTemplate.getTemplate(from: .catCow), ExerciseTemplate.getTemplate(from: .surjaNamascarA), ExerciseTemplate.getTemplate(from: .balasana), ExerciseTemplate.getTemplate(from: .vasihsthasana), ExerciseTemplate.getTemplate(from: .shavasana)], isExample: true, exampleId: ProgramExampleId.simple.rawValue)
+    static let simple = ProgramTemplate(name: "Simple", description: "An example demo program",
+                                        exercises: [.getTemplate(from: .catCow), .getTemplate(from: .surjaNamascarA),
+                                                    .getTemplate(from: .balasana), .getTemplate(from: .vasihsthasana),
+                                                    ExerciseTemplate.getTemplate(from: .shavasana)],
+                                        isExample: true, exampleId: ProgramExampleId.simple.rawValue)
     
-    static let personal = ProgramTemplate(name: "Personal", description: "Your personal program", exercises: [ExerciseTemplate.getTemplate(from: .catCow), ExerciseTemplate.getTemplate(from: .surjaNamascarA), ExerciseTemplate.getTemplate(from: .vasihsthasana), ExerciseTemplate.getTemplate(from: .shavasana)])
-    static let dailyShort = ProgramTemplate(name: "Daily short", description: "Simple short everyday", exercises: [ExerciseTemplate.getTemplate(from: .catCow), ExerciseTemplate.getTemplate(from: .surjaNamascarA), ExerciseTemplate.getTemplate(from: .shavasana)])
+    static let personal = ProgramTemplate(name: "Personal", description: "Your personal program",
+                                          exercises: [.getTemplate(from: .catCow), .getTemplate(from: .surjaNamascarA),
+                                                      .getTemplate(from: .vasihsthasana), .getTemplate(from: .shavasana)])
+    static let dailyShort = ProgramTemplate(name: "Daily short", description: "Simple short everyday",
+                                            exercises: [.getTemplate(from: .catCow), .getTemplate(from: .surjaNamascarA),
+                                                        .getTemplate(from: .shavasana)])
     static let shortForBack = ProgramTemplate(name: "Short for back", exercises: [ExerciseTemplate.getTemplate(from: .catCow)])
 }

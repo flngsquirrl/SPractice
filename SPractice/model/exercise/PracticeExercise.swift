@@ -25,7 +25,8 @@ struct PracticeExercise: Exercise, Equatable {
     
     private(set) var tasks: [Task]
     
-    private init(type: ExerciseType, name: String, description: String, intensity: Intensity, isService: Bool = false, isExample: Bool = false, exampleId: String? = nil, tasks: [Task] = []) {
+    private init(type: ExerciseType, name: String, description: String, intensity: Intensity, isService: Bool = false,
+                 isExample: Bool = false, exampleId: String? = nil, tasks: [Task] = []) {
         self.exerciseType = type
         self.name = name.trim()
         self.description = description.trim()
@@ -42,8 +43,9 @@ struct PracticeExercise: Exercise, Equatable {
         }
         
         let name = template.isService ? SettingsManager.restName : template.name
-        self.init(type: template.type!, name: name, description: template.description, intensity: template.intensity!, isService: template.isService, isExample: template.isExample,
-            exampleId: template.exampleId)
+        self.init(type: template.type!, name: name, description: template.description, intensity: template.intensity!,
+                  isService: template.isService, isExample: template.isExample,
+                  exampleId: template.exampleId)
         self.tasks = prepareTasks(from: template)
     }
     
@@ -90,8 +92,10 @@ struct PracticeExercise: Exercise, Equatable {
         tasks.append(warmUp)
         
         for number in 1...SettingsManager.tabataCyclesItem.value {
-            let activity = Task(intensity: .activity, name: "\(Intensity.activity.rawValue) \(number)", duration: .known(SettingsManager.tabataActivityDurationItem.value))
-            let rest = Task(intensity: .rest, name: "\(Intensity.rest.rawValue) \(number)", duration: .known(SettingsManager.tabataRestDurationItem.value))
+            let activity = Task(intensity: .activity, name: "\(Intensity.activity.rawValue) \(number)",
+                                duration: .known(SettingsManager.tabataActivityDurationItem.value))
+            let rest = Task(intensity: .rest, name: "\(Intensity.rest.rawValue) \(number)",
+                            duration: .known(SettingsManager.tabataRestDurationItem.value))
             tasks.append(activity)
             tasks.append(rest)
         }
