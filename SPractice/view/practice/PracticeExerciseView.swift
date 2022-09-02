@@ -37,10 +37,14 @@ struct PracticeExerciseView: View {
                 .animation(.default, value: practice.isCurrentExerciseStarted)
             }
 
-            Text("\(practice.currentExercise.name)")
-                .font(.title2.bold())
-                .truncated()
-                .padding()
+            VStack(alignment: .center) {
+                Text("\(practice.currentExercise.name)")
+                    .multilineTextAlignment(.center)
+                    .font(.title2.bold())
+                    .lineLimit(2)
+                    .padding()
+            }
+            .frame(minHeight: 100)
 
             Text("\(practice.currentExercise.exerciseType.rawValue)")
                 .font(.body.bold())
