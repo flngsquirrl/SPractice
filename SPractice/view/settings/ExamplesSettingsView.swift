@@ -21,10 +21,16 @@ struct ExamplesSettingsView: View {
     }
 
     var body: some View {
-        Picker("Templates for", selection: $viewModel.restoreGroup.animation()) {
-            ForEach(RestoreGroup.allCases, id: \.self) { group in
-                Text(group.rawValue)
+        HStack {
+            Text("Templates for")
+            Spacer()
+            Picker("Type of templates", selection: $viewModel.restoreGroup) {
+                ForEach(RestoreGroup.allCases, id: \.self) { group in
+                    Text(group.rawValue)
+                }
             }
+            .labelsHidden()
+            .pickerStyle(.menu)
         }
 
         Section {
