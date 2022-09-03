@@ -16,7 +16,7 @@ struct ClockTime {
     }
 
     var isOut: Bool {
-        timeInSeconds == 0
+        timeInSeconds == 1
     }
 
     var secondsPart: Int {

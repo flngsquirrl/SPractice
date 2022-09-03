@@ -14,7 +14,7 @@ import Foundation
     @Published var isCountdown: Bool
 
     var onFinished: (() -> Void)?
-    var onTick: (() -> Void)?
+    var onTick: ((Bool) -> Void)?
 
     var isTicking = false
 
@@ -22,6 +22,7 @@ import Foundation
     private var timerSubscription: Cancellable?
 
     static let maxMinutesPart = 60
+    static let warningTime = 5
 
     static var stopCountingUpAutomatically: Bool {
         SettingsManager.flowAutoFinishItem.value
@@ -35,7 +36,7 @@ import Foundation
     public static let simpleCountdown = Clock(setTo: 130, isCountdown: true)
     public static let simpleCountup = Clock(setTo: 33, isCountdown: false)
 
-    init(setTo timeInSeconds: Int = 0, isCountdown: Bool = false, onFinished: (() -> Void)? = nil, onTick: (() -> Void)? = nil) {
+    init(setTo timeInSeconds: Int = 0, isCountdown: Bool = false, onFinished: (() -> Void)? = nil, onTick: ((Bool) -> Void)? = nil) {
         self.time = ClockTime(timeInSeconds: timeInSeconds)
         self.isCountdown = isCountdown
         self.onFinished = onFinished
@@ -46,12 +47,16 @@ import Foundation
         isCountdown && time.isOut
     }
 
+    var setupMax: Int {
+        Self.maxCountUpTime
+    }
+
     var countupReachedSetupMax: Bool {
-        isCountup && time.timeInSeconds == Self.maxCountUpTime
+        isCountup && time.timeInSeconds == setupMax - 1
     }
 
     var countupReachedClockMax: Bool {
-        isCountup && time.minutesPart == Self.maxMinutesPart
+        isCountup && time.minutesPart == Self.maxMinutesPart - 1
     }
 
     var isCountup: Bool {
@@ -86,7 +91,20 @@ import Foundation
         } else {
             time.substractSecond()
         }
-        onTick?()
+
+        var withWarning = false
+        if isCountdown {
+            withWarning = shouldSignalWarning(time: time.timeInSeconds)
+        } else {
+            if Self.stopCountingUpAutomatically {
+                withWarning = shouldSignalWarning(time: setupMax - time.timeInSeconds)
+            }
+        }
+        onTick?(withWarning)
+    }
+
+    func shouldSignalWarning(time: Int) -> Bool {
+        time <= Self.warningTime
     }
 
     func processCountFinished() {

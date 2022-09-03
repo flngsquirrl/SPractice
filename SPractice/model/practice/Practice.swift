@@ -218,6 +218,8 @@ import SwiftUI
     }
 
     func processCountingFinished() {
+        updateDurationRemaining()
+        
         if isLastTask {
             if isLastExercise {
                 finish()
@@ -227,19 +229,23 @@ import SwiftUI
         } else {
             moveToNextTask()
         }
+
+        if isSoundOn {
+            playSound(isEnd: true)
+        }
     }
 
     func prepareClock() {
         clock.onFinished = { [weak self] in self?.processCountingFinished() }
-        clock.onTick = { [weak self] in self?.onClockTick() }
+        clock.onTick = { [weak self] in self?.onClockTick(withWarning: $0) }
         setClock()
     }
 
-    func onClockTick() {
+    func onClockTick(withWarning: Bool) {
         updateDurationRemaining()
         isCurrentExerciseStarted = true
 
-        if isSoundOn {
+        if withWarning && isSoundOn {
             playSound()
         }
     }
@@ -248,17 +254,11 @@ import SwiftUI
         isSoundOn.toggle()
     }
 
-    func playSound() {
-        if clock.isCountdown {
-            let taskRemainingTime = clock.time.timeInSeconds
-            if taskRemainingTime <= 5 {
-                switch taskRemainingTime {
-                case 0:
-                    playEndSound()
-                default:
-                    SoundManager.shared.playSound(type: .taskCountdown)
-                }
-            }
+    func playSound(isEnd: Bool = false) {
+        if isEnd {
+            playEndSound()
+        } else {
+            SoundManager.shared.playSound(type: .taskCountdown)
         }
     }
 
