@@ -219,7 +219,11 @@ import SwiftUI
 
     func processCountingFinished() {
         updateDurationRemaining()
-        
+
+        if isSoundOn {
+            playSound(isEnd: true)
+        }
+
         if isLastTask {
             if isLastExercise {
                 finish()
@@ -228,10 +232,6 @@ import SwiftUI
             }
         } else {
             moveToNextTask()
-        }
-
-        if isSoundOn {
-            playSound(isEnd: true)
         }
     }
 
@@ -243,11 +243,12 @@ import SwiftUI
 
     func onClockTick(withWarning: Bool) {
         updateDurationRemaining()
-        isCurrentExerciseStarted = true
 
         if withWarning && isSoundOn {
             playSound()
         }
+
+        isCurrentExerciseStarted = true
     }
 
     func toggleSound() {
