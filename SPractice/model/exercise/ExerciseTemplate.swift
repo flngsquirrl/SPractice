@@ -137,17 +137,16 @@ struct ExerciseTemplate: Exercise, HavingCreationDate, ExampleItem, Hashable, Co
                                            exampleId: ExerciseExampleId.balasana.rawValue)
 
     static let surjaNamascarA = ExerciseTemplate(type: .flow, name: "Surja Namascar A",
-                                                 description: "Sun Salutation, start in Tadasana, go for at least five cycles",
+                                                 description: "Sun Salutation, start in Tadasana, go for at least 5 cycles",
                                                  intensity: .activity, duration: .unlimited, isExample: true,
                                                  exampleId: ExerciseExampleId.surjaNamascarA.rawValue)
     static let vasihsthasana = ExerciseTemplate(type: .tabata, name: "Vasihsthasana",
                                                 description: "Side plank on the straight arm or on the elbow",
-                                                duration: .unknown,
                                                 isExample: true, exampleId: ExerciseExampleId.vasihsthasana.rawValue)
 
     static let shavasana = ExerciseTemplate(type: .flow, name: "Shavasana",
                                             description: "Relax all your body lying on the back with arms and legs on the floor",
-                                            intensity: .rest, duration: .unknown, isExample: true,
+                                            intensity: .rest, duration: .unlimited, isExample: true,
                                             exampleId: ExerciseExampleId.shavasana.rawValue)
 
     static let plank = ExerciseTemplate(type: .tabata, name: "Plank (dynamic)",
