@@ -45,9 +45,8 @@ struct ProgramShortDecorativeView: View {
 struct ProgramShortDecorativeView_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            ProgramShortDecorativeView(for: ProgramTemplate.personal)
-            ProgramShortDecorativeView(for: ProgramTemplate.dailyShort)
-            ProgramShortDecorativeView(for: ProgramTemplate.shortForBack)
+            ProgramShortDecorativeView(for: ProgramTemplate.simpleWorkout)
+            ProgramShortDecorativeView(for: .simpleYoga)
         }
         .listStyle(.insetGrouped)
     }

@@ -80,20 +80,17 @@ struct ProgramTemplate: Program, HavingCreationDate, ExampleItem, Codable {
     // examples
 
     static var defaultExamples: [ProgramTemplate] {
-        [simple]
+        [simpleYoga, simpleWorkout]
     }
 
-    static let simple = ProgramTemplate(name: "Simple", description: "An example demo program",
+    static let simpleYoga = ProgramTemplate(name: "Simple yoga", description: "Demo yoga program",
                                         exercises: [.getTemplate(from: .catCow), .getTemplate(from: .surjaNamascarA),
                                                     .getTemplate(from: .balasana), .getTemplate(from: .vasihsthasana),
                                                     ExerciseTemplate.getTemplate(from: .shavasana)],
                                         isExample: true, exampleId: ProgramExampleId.simple.rawValue)
 
-    static let personal = ProgramTemplate(name: "Personal", description: "Your personal program",
-                                          exercises: [.getTemplate(from: .catCow), .getTemplate(from: .surjaNamascarA),
-                                                      .getTemplate(from: .vasihsthasana), .getTemplate(from: .shavasana)])
-    static let dailyShort = ProgramTemplate(name: "Daily short", description: "Simple short everyday",
-                                            exercises: [.getTemplate(from: .catCow), .getTemplate(from: .surjaNamascarA),
-                                                        .getTemplate(from: .shavasana)])
-    static let shortForBack = ProgramTemplate(name: "Short for back", exercises: [ExerciseTemplate.getTemplate(from: .catCow)])
+    static let simpleWorkout = ProgramTemplate(name: "Simple workout", description: "Demo workout program",
+                                               exercises: [.getTemplate(from: .plank), .getTemplate(from: .squats),
+                                                           .getTemplate(from: .jumpRope)],
+                                        isExample: true, exampleId: ProgramExampleId.simple.rawValue)
 }

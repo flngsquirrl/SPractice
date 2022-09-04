@@ -42,7 +42,7 @@ struct ProgramCardView<T>: View where T: Program {
 struct ProgramCardView_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            ProgramCardView(program: ProgramTemplate.simple)
+            ProgramCardView(program: ProgramTemplate.simpleYoga)
         }
     }
 }

@@ -66,6 +66,6 @@ struct PracticeSettingsView: View {
 
 struct PracticeSettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        PracticeSettingsView(for: ProgramTemplate.personal)
+        PracticeSettingsView(for: .simpleYoga)
     }
 }

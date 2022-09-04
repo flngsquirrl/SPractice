@@ -28,7 +28,7 @@ import Foundation
 
 //        for lots of items
 //
-//        let templates = [ProgramTemplate.personal, ProgramTemplate.dailyShort, ProgramTemplate.shortForBack]
+//        let templates = [.simpleYoga, ProgramTemplate.dailyShort, ProgramTemplate.shortForBack]
 //        var programs: [ProgramTemplate] = []
 //        for template in templates {
 //            for i in 1...25 {

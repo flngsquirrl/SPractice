@@ -53,7 +53,7 @@ struct EditProgramView: View {
 struct EditProgramView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            EditProgramView(for: ProgramTemplate.personal, onSave: {_ in })
+            EditProgramView(for: .simpleYoga, onSave: {_ in })
         }
     }
 }

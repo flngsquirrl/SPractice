@@ -136,7 +136,7 @@ struct ProgramEditor_Previews: PreviewProvider {
     @State static private var editMode: EditMode = .inactive
 
     @State static private var defaultTemplate = ProgramTemplate.template
-    @State static private var exampleTemplate = ProgramTemplate.personal
+    @State static private var exampleTemplate = ProgramTemplate.simpleYoga
 
     static var previews: some View {
         NavigationView {
@@ -144,7 +144,7 @@ struct ProgramEditor_Previews: PreviewProvider {
         }
 
         NavigationView {
-            ProgramEditor(for: $exampleTemplate, mode: .add, editMode: $editMode)
+            ProgramEditor(for: $exampleTemplate, mode: .edit, editMode: $editMode)
         }
     }
 }

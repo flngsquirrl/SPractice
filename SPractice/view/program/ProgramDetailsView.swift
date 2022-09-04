@@ -92,7 +92,7 @@ struct ProgramDetailsView: DetailsView {
 struct ProgramDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ProgramDetailsView(for: ProgramTemplate.personal) { _ in } onDelete: { _ in }
+            ProgramDetailsView(for: .simpleYoga) { _ in } onDelete: { _ in }
         }
     }
 }

@@ -53,5 +53,5 @@ struct PracticeProgram: Program {
     }
 
     // examples
-    static let personal = PracticeProgram(for: ProgramTemplate.personal)
+    static let personal = PracticeProgram(for: .simpleYoga)
 }

@@ -40,7 +40,7 @@ struct ProgramSummaryView: View {
 struct ProgramSummaryView_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            ProgramSummaryView(program: ProgramTemplate.personal)
+            ProgramSummaryView(program: .simpleYoga)
         }
     }
 }

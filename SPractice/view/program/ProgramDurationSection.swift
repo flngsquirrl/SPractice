@@ -28,7 +28,7 @@ struct ProgramDurationSection<T>: View where T: Program {
 struct ProgramDurationSection_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            ProgramDurationSection(program: ProgramTemplate.personal)
+            ProgramDurationSection(program: ProgramTemplate.simpleYoga)
         }
     }
 }
