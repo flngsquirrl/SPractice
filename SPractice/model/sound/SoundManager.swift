@@ -14,7 +14,10 @@ class SoundManager {
 
     private init() {}
 
-    func playSound(type: SoundType) {
-        AudioServicesPlaySystemSound(type.rawValue)
+    private let basicPlayer = BasicAudioPlayer()
+
+    var player: AudioPlayer {
+        return basicPlayer
     }
+
 }

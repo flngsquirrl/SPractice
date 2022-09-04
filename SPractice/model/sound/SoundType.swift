@@ -5,12 +5,11 @@
 //  Created by Yuliya Charniak on 18.08.22.
 //
 
-import AVFoundation
 import Foundation
 
-enum SoundType: SystemSoundID {
-    case taskCountdown = 1103
-    case endOfTask = 1016
-    case endOfExercise = 1107
-    case endOfPractice = 1106
+enum SoundType: String {
+    case taskCountdown = "bell3"
+    case endOfTask = "bell2-3"
+    case endOfExercise = "bell1-2-3"
+    case endOfPractice = "happy-bell"
 }

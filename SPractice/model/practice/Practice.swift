@@ -259,7 +259,7 @@ import SwiftUI
         if isEnd {
             playEndSound()
         } else {
-            SoundManager.shared.playSound(type: .taskCountdown)
+            SoundManager.shared.player.play(type: .taskCountdown)
         }
     }
 
@@ -272,7 +272,7 @@ import SwiftUI
         } else {
             soundType = .endOfTask
         }
-        SoundManager.shared.playSound(type: soundType)
+        SoundManager.shared.player.play(type: soundType)
     }
 
     func setDurationRemaining() {

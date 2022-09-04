@@ -143,6 +143,12 @@
 		C9E0C42728801CDE00B8FBA8 /* SettingsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0C42628801CDE00B8FBA8 /* SettingsConstants.swift */; };
 		C9EB6D952881902B0026186C /* String-Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EB6D942881902B0026186C /* String-Empty.swift */; };
 		C9EB6D972882B9D10026186C /* Text-Truncated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EB6D962882B9D10026186C /* Text-Truncated.swift */; };
+		C9F2B42428C5089100DE6F65 /* bell2-3.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9F2B42028C5089100DE6F65 /* bell2-3.wav */; };
+		C9F2B42528C5089100DE6F65 /* bell3.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9F2B42128C5089100DE6F65 /* bell3.wav */; };
+		C9F2B42628C5089100DE6F65 /* happy-bell.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9F2B42228C5089100DE6F65 /* happy-bell.wav */; };
+		C9F2B42828C52C4E00DE6F65 /* bell1-2-3.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9F2B42728C52C4E00DE6F65 /* bell1-2-3.wav */; };
+		C9F2B42A28C52FFA00DE6F65 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F2B42928C52FFA00DE6F65 /* AudioPlayer.swift */; };
+		C9F2B42C28C5304100DE6F65 /* BasicAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F2B42B28C5304100DE6F65 /* BasicAudioPlayer.swift */; };
 		C9F604E2287AD57E00838462 /* ProgramShortDecorativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F604E1287AD57E00838462 /* ProgramShortDecorativeView.swift */; };
 /* End PBXBuildFile section */
 
@@ -284,6 +290,12 @@
 		C9E0C42628801CDE00B8FBA8 /* SettingsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsConstants.swift; sourceTree = "<group>"; };
 		C9EB6D942881902B0026186C /* String-Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-Empty.swift"; sourceTree = "<group>"; };
 		C9EB6D962882B9D10026186C /* Text-Truncated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text-Truncated.swift"; sourceTree = "<group>"; };
+		C9F2B42028C5089100DE6F65 /* bell2-3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "bell2-3.wav"; sourceTree = "<group>"; };
+		C9F2B42128C5089100DE6F65 /* bell3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bell3.wav; sourceTree = "<group>"; };
+		C9F2B42228C5089100DE6F65 /* happy-bell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "happy-bell.wav"; sourceTree = "<group>"; };
+		C9F2B42728C52C4E00DE6F65 /* bell1-2-3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "bell1-2-3.wav"; sourceTree = "<group>"; };
+		C9F2B42928C52FFA00DE6F65 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		C9F2B42B28C5304100DE6F65 /* BasicAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAudioPlayer.swift; sourceTree = "<group>"; };
 		C9F604E1287AD57E00838462 /* ProgramShortDecorativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramShortDecorativeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -365,6 +377,7 @@
 		C95011C528196FFD0043EC75 /* SPractice */ = {
 			isa = PBXGroup;
 			children = (
+				C9F2B40028C4C08900DE6F65 /* sounds */,
 				C9A0D00F2823DE83000CF439 /* view */,
 				C9A0CFEF281AB554000CF439 /* model */,
 				C9D53FB628704EE900FD2B6F /* service */,
@@ -585,6 +598,8 @@
 		C9B49E9C28AEC8BD007713A1 /* sound */ = {
 			isa = PBXGroup;
 			children = (
+				C9F2B42928C52FFA00DE6F65 /* AudioPlayer.swift */,
+				C9F2B42B28C5304100DE6F65 /* BasicAudioPlayer.swift */,
 				C9B49E9D28AEC8E2007713A1 /* SoundManager.swift */,
 				C9B49E9F28AEC941007713A1 /* SoundType.swift */,
 			);
@@ -698,6 +713,17 @@
 			path = task;
 			sourceTree = "<group>";
 		};
+		C9F2B40028C4C08900DE6F65 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				C9F2B42728C52C4E00DE6F65 /* bell1-2-3.wav */,
+				C9F2B42028C5089100DE6F65 /* bell2-3.wav */,
+				C9F2B42128C5089100DE6F65 /* bell3.wav */,
+				C9F2B42228C5089100DE6F65 /* happy-bell.wav */,
+			);
+			path = sounds;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -757,9 +783,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9F2B42528C5089100DE6F65 /* bell3.wav in Resources */,
+				C9F2B42428C5089100DE6F65 /* bell2-3.wav in Resources */,
 				C9A2FE5128AFA97400A3EA90 /* .swiftlint.yml in Resources */,
 				C95011CE28196FFE0043EC75 /* Preview Assets.xcassets in Resources */,
+				C9F2B42628C5089100DE6F65 /* happy-bell.wav in Resources */,
 				C95011CB28196FFE0043EC75 /* Assets.xcassets in Resources */,
+				C9F2B42828C52C4E00DE6F65 /* bell1-2-3.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -792,6 +822,7 @@
 			files = (
 				C9A0D02B282BE586000CF439 /* Player.swift in Sources */,
 				C97DE6BA28B3EA9D005D53D1 /* PracticeSettings.swift in Sources */,
+				C9F2B42A28C52FFA00DE6F65 /* AudioPlayer.swift in Sources */,
 				C9ACC8F028A93B7200FC5343 /* SaveItemToolbarButton.swift in Sources */,
 				C92F6C3C286D9D2100D7BA59 /* ProgramSummaryView.swift in Sources */,
 				C9CEAA1B287EB83B00D15A16 /* SettingsLinkView.swift in Sources */,
@@ -871,6 +902,7 @@
 				C9B49E9528ACFF51007713A1 /* ExerciseIcon.swift in Sources */,
 				C91110DC289BDCCC00B9BC03 /* MainList.swift in Sources */,
 				C9CEAA08287C44EB00D15A16 /* DurationMinutesControl.swift in Sources */,
+				C9F2B42C28C5304100DE6F65 /* BasicAudioPlayer.swift in Sources */,
 				C91982572876E297005D049C /* InfoButton.swift in Sources */,
 				C9A0CFF2281B3733000CF439 /* PracticeExerciseView.swift in Sources */,
 				C9ADD739287F602F00F465D5 /* ResetToDefaultsButton.swift in Sources */,
