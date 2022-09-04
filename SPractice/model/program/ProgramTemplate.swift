@@ -87,10 +87,10 @@ struct ProgramTemplate: Program, HavingCreationDate, ExampleItem, Codable {
                                         exercises: [.getTemplate(from: .catCow), .getTemplate(from: .surjaNamascarA),
                                                     .getTemplate(from: .balasana), .getTemplate(from: .vasihsthasana),
                                                     ExerciseTemplate.getTemplate(from: .shavasana)],
-                                        isExample: true, exampleId: ProgramExampleId.simple.rawValue)
+                                        isExample: true, exampleId: ProgramExampleId.simpleYoga.rawValue)
 
     static let simpleWorkout = ProgramTemplate(name: "Simple workout", description: "Demo workout program",
                                                exercises: [.getTemplate(from: .plank), .getTemplate(from: .squats),
                                                            .getTemplate(from: .jumpRope)],
-                                        isExample: true, exampleId: ProgramExampleId.simple.rawValue)
+                                        isExample: true, exampleId: ProgramExampleId.simpleWorkout.rawValue)
 }

@@ -8,5 +8,6 @@
 import Foundation
 
 enum ProgramExampleId: String, Codable {
-    case simple
+    case simpleYoga
+    case simpleWorkout
 }
