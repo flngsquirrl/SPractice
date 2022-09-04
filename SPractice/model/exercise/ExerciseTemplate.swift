@@ -123,7 +123,7 @@ struct ExerciseTemplate: Exercise, HavingCreationDate, ExampleItem, Hashable, Co
     // examples
 
     static var defaultExamples: [ExerciseTemplate] {
-        [catCow, surjaNamascarA, balasana, vasihsthasana, shavasana]
+        [catCow, surjaNamascarA, balasana, vasihsthasana, shavasana, plank, squats, jumpRope]
     }
 
     static let catCow = ExerciseTemplate(type: .timer, name: "Cat-Cow",
@@ -142,6 +142,21 @@ struct ExerciseTemplate: Exercise, HavingCreationDate, ExampleItem, Hashable, Co
     static let shavasana = ExerciseTemplate(type: .flow, name: "Shavasana",
                                             description: "Relax all your body lying on the back with arms and legs on the floor",
                                             intensity: .rest, duration: .unknown, isExample: true, exampleId: ExerciseExampleId.shavasana.rawValue)
+    static let plank = ExerciseTemplate(type: .tabata, name: "Plank (dynamic)",
+                                        description: "Begin in high plank, lift one hand, move it to the body, place the hand back on the floor,"
+                                        + " repeat changing sides",
+                                        isExample: true, exampleId: ExerciseExampleId.plank.rawValue)
+
+    static let squats = ExerciseTemplate(type: .flow, name: "Squats",
+                                         description: "Send your hips back as if you’re sitting into an invisible chair,"
+                                         + " keep the heels down and the chest lifted; repeat 50 times",
+                                         intensity: .activity, duration: .unlimited, isExample: true,
+                                         exampleId: ExerciseExampleId.squats.rawValue)
+
+    static let jumpRope = ExerciseTemplate(type: .timer, name: "Jump rope",
+                                         description: "Just keep jumping",
+                                         intensity: .activity, duration: .known(120), isExample: true,
+                                         exampleId: ExerciseExampleId.jumpRope.rawValue)
 
     static let catCowNoDuration = ExerciseTemplate(type: .timer, name: "Cat-Cow", intensity: .activity, duration: .unknown)
     static let catCowNoType = ExerciseTemplate(name: "Cat-Cow")

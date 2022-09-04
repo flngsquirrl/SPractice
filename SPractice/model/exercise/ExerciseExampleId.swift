@@ -13,4 +13,7 @@ enum ExerciseExampleId: String, Codable {
     case balasana
     case vasihsthasana
     case shavasana
+    case plank
+    case squats
+    case jumpRope
 }
