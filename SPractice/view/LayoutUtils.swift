@@ -15,4 +15,8 @@ struct LayoutUtils {
     static let unknownDurationText = Text("?")
     static let unlimitedDurationImage = Image(systemName: "infinity")
     static let approximationMark = Image(systemName: ExerciseTypeImage.imageName(for: .flow))
+
+    static func getPreferredLogoSize(parentContainerSize: CGSize) -> CGFloat {
+        return min(min(parentContainerSize.width, parentContainerSize.height) * 0.5, 300)
+    }
 }

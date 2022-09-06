@@ -13,7 +13,7 @@ struct WelcomeView: View {
             ZStack {
                 Color.lightOrange
                 VStack {
-                    let size = min(geo.size.width, geo.size.height) * 0.5
+                    let size = LayoutUtils.getPreferredLogoSize(parentContainerSize: geo.size)
                     SquirrelInWheelLogo()
                         .frame(width: size, height: size)
                 }
