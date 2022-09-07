@@ -12,7 +12,6 @@ struct StabView: View {
         GeometryReader { geo in
             ZStack {
                 Color(uiColor: .secondarySystemBackground)
-                    .ignoresSafeArea()
                 VStack {
                     let size = LayoutUtils.getPreferredLogoSize(parentContainerSize: geo.size)
                     LayoutUtils.logo
