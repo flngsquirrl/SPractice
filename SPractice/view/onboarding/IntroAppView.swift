@@ -15,8 +15,9 @@ struct IntroAppView: View {
                     .introTitle(geo: geo)
 
                 let size = LayoutUtils.getPreferredLogoSize(parentContainerSize: geo.size)
-                SquirrelInWheelLogo()
+                LayoutUtils.logo
                     .frame(width: size, height: size)
+                    .padding()
             }
         }
     }
@@ -24,6 +25,7 @@ struct IntroAppView: View {
 
 struct IntroAppView_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeView()
+        IntroAppView()
+            .foregroundColor(.lightOrange)
     }
 }

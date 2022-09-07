@@ -28,6 +28,7 @@
 		C9321C9D28C7870C008C6BA4 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9321C9C28C7870C008C6BA4 /* ViewRouter.swift */; };
 		C9321CA128C7CC82008C6BA4 /* ExerciseMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9321CA028C7CC82008C6BA4 /* ExerciseMatrix.swift */; };
 		C9321CA328C7CCEA008C6BA4 /* Text-IntroTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9321CA228C7CCEA008C6BA4 /* Text-IntroTitle.swift */; };
+		C9321CA528C8C074008C6BA4 /* SquirrelInWheelIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9321CA428C8C074008C6BA4 /* SquirrelInWheelIcon.swift */; };
 		C932522028798B7A009D5479 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C932521F28798B7A009D5479 /* WelcomeView.swift */; };
 		C9445C6D285E00D000DF2A08 /* ExerciseDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9445C6C285E00D000DF2A08 /* ExerciseDetailsView.swift */; };
 		C9445C71285E0A9300DF2A08 /* ExerciseEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9445C70285E0A9300DF2A08 /* ExerciseEditor.swift */; };
@@ -183,6 +184,7 @@
 		C9321C9C28C7870C008C6BA4 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		C9321CA028C7CC82008C6BA4 /* ExerciseMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseMatrix.swift; sourceTree = "<group>"; };
 		C9321CA228C7CCEA008C6BA4 /* Text-IntroTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text-IntroTitle.swift"; sourceTree = "<group>"; };
+		C9321CA428C8C074008C6BA4 /* SquirrelInWheelIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquirrelInWheelIcon.swift; sourceTree = "<group>"; };
 		C932521F28798B7A009D5479 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		C9445C6C285E00D000DF2A08 /* ExerciseDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailsView.swift; sourceTree = "<group>"; };
 		C9445C70285E0A9300DF2A08 /* ExerciseEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseEditor.swift; sourceTree = "<group>"; };
@@ -599,9 +601,10 @@
 		C9A0D0182827CE9F000CF439 /* logo */ = {
 			isa = PBXGroup;
 			children = (
+				C9321CA428C8C074008C6BA4 /* SquirrelInWheelIcon.swift */,
 				C9A0D01D28280E77000CF439 /* SquirrelInWheelLogo.swift */,
-				C9A0D01B28280DFA000CF439 /* SquirrelDrawer.swift */,
 				C9A0D01F28280F13000CF439 /* SquirrelInWheel.swift */,
+				C9A0D01B28280DFA000CF439 /* SquirrelDrawer.swift */,
 				C9A0D0192827CEC9000CF439 /* Squirrel.swift */,
 				C9A0D02128280F3E000CF439 /* RightWing.swift */,
 			);
@@ -999,6 +1002,7 @@
 				C9A0CFEC281AB382000CF439 /* PracticeExercise.swift in Sources */,
 				C92F6C42286F00EB00D7BA59 /* LayoutUtils.swift in Sources */,
 				C9A0D01E28280E77000CF439 /* SquirrelInWheelLogo.swift in Sources */,
+				C9321CA528C8C074008C6BA4 /* SquirrelInWheelIcon.swift in Sources */,
 				C95011C728196FFD0043EC75 /* SPracticeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

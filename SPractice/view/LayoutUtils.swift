@@ -16,8 +16,10 @@ struct LayoutUtils {
     static let unlimitedDurationImage = Image(systemName: "infinity")
     static let approximationMark = Image(systemName: ExerciseTypeImage.imageName(for: .flow))
 
+    static let logo = SquirrelInWheelLogo(lineWidth: 7, color: .lightOrange)
+
     static func getPreferredLogoSize(parentContainerSize: CGSize) -> CGFloat {
-        min(min(parentContainerSize.width, parentContainerSize.height) * 0.5, 300)
+        min(min(parentContainerSize.width, parentContainerSize.height) * 0.5, 160)
     }
 
     static func centeralFrameWidth(parentContainerSize: CGSize) -> CGFloat {

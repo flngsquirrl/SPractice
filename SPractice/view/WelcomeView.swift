@@ -11,10 +11,11 @@ struct WelcomeView: View {
     var body: some View {
         GeometryReader { geo in
             ZStack {
-                Color.lightOrange
+                Color(uiColor: .secondarySystemBackground)
+                    .ignoresSafeArea()
                 VStack {
                     let size = LayoutUtils.getPreferredLogoSize(parentContainerSize: geo.size)
-                    SquirrelInWheelLogo()
+                    LayoutUtils.logo
                         .frame(width: size, height: size)
                 }
             }
