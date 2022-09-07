@@ -17,6 +17,10 @@ struct LayoutUtils {
     static let approximationMark = Image(systemName: ExerciseTypeImage.imageName(for: .flow))
 
     static func getPreferredLogoSize(parentContainerSize: CGSize) -> CGFloat {
-        return min(min(parentContainerSize.width, parentContainerSize.height) * 0.5, 300)
+        min(min(parentContainerSize.width, parentContainerSize.height) * 0.5, 300)
+    }
+
+    static func centeralFrameWidth(parentContainerSize: CGSize) -> CGFloat {
+        min(parentContainerSize.width * 0.8, 500)
     }
 }

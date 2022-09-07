@@ -10,7 +10,7 @@ import SwiftUI
 extension Text {
 
     func introTitle(geo: GeometryProxy) -> some View {
-        self.foregroundColor(.white)
+        self
             .font(.title)
             .fontWeight(.semibold)
             .frame(width: geo.size.width, height: geo.size.height * 0.3, alignment: .bottom)

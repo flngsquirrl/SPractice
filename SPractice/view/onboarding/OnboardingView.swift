@@ -17,47 +17,62 @@ struct OnboardingView: View {
 
     @EnvironmentObject var viewRouter: ViewRouter
     @State private var selectedTab = IntroTab.exercises
+    @State private var isIntoEnded = false
 
     var body: some View {
-        ZStack {
-            Color.lightOrange
-                .ignoresSafeArea()
-
-            TabView(selection: $selectedTab) {
-                IntroExercisesView()
-                    .tag(IntroTab.exercises)
-
-                IntroProgramsView()
-                    .tag(IntroTab.programs)
-
-                IntroAppView()
-                    .tag(IntroTab.app)
-            }
-            .tabViewStyle(.page)
-
+        GeometryReader { geo in
             VStack {
-                Spacer()
-                HStack {
-                    if selectedTab != .app {
-                        Button("Skip") {
-                            close()
+                ZStack {
+                    TabView(selection: $selectedTab) {
+                        IntroExercisesView()
+                            .tag(IntroTab.exercises)
+
+                        IntroProgramsView()
+                            .tag(IntroTab.programs)
+
+                        IntroAppView()
+                            .tag(IntroTab.app)
+                    }
+                    .tabViewStyle(.page)
+                    .indexViewStyle(.page(backgroundDisplayMode: .always))
+                    .onChange(of: selectedTab) { _ in
+                        if selectedTab == .app {
+                            withAnimation {
+                                isIntoEnded = true
+                            }
                         }
                     }
-                    Spacer()
-                    if selectedTab == .app {
-                        Button("Start") {
-                            close()
-                        }
-                    } else {
-                        Button("Next") {
 
+                    VStack {
+                        Spacer()
+                        HStack {
+                            if !isIntoEnded {
+                                Button("Skip") {
+                                    close()
+                                }
+                                .transition(.opacity)
+                            }
+                            Spacer()
+                            if isIntoEnded {
+                                Button {
+                                    close()
+                                } label: {
+                                    Text("Start")
+                                        .fontWeight(.semibold)
+                                }
+                                .transition(.opacity)
+                            }
                         }
+                        .padding()
+                        .buttonStyle(.plain)
                     }
                 }
-                .padding()
-                .foregroundColor(.white)
-                .buttonStyle(.plain)
             }
+            .foregroundColor(.lightOrange)
+            .frame(width: LayoutUtils.centeralFrameWidth(parentContainerSize: geo.size),
+                   height: min(geo.size.height * 0.8, 650))
+            .wrapped()
+            .frame(width: geo.size.width, height: geo.size.height)
         }
     }
 

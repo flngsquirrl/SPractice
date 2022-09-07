@@ -55,7 +55,7 @@ struct PracticeView: View {
                             PlayerView(player: practice.player)
                             Spacer()
                         }
-                        .frame(width: min(geo.size.width * 0.8, 500))
+                        .frame(width: LayoutUtils.centeralFrameWidth(parentContainerSize: geo.size))
                     }
                 }
                 .onDisappear {
