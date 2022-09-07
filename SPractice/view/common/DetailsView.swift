@@ -21,7 +21,7 @@ extension DetailsView {
         Group {
             if sizeClass == .regular {
                 if isDeleted {
-                    WelcomeView()
+                    StabView()
                 } else {
                     detailsContent
                 }

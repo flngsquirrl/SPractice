@@ -105,7 +105,7 @@ struct ProgramsView: View {
     }
 
     var secondaryView: some View {
-        WelcomeView()
+        StabView()
     }
 
 }

@@ -48,7 +48,7 @@ struct SettingsView: View {
             .listStyle(.insetGrouped)
             .navigationTitle("Settings")
 
-            WelcomeView()
+            StabView()
         }
         .accentColor(.customAccentColor)
     }

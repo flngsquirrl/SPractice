@@ -106,7 +106,7 @@ struct ExercisesView: View {
     }
 
     var secondaryView: some View {
-        WelcomeView()
+        StabView()
     }
 }
 
