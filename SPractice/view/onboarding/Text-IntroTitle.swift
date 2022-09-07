@@ -13,7 +13,7 @@ extension Text {
         self
             .font(.title)
             .fontWeight(.semibold)
-            .frame(width: geo.size.width, height: geo.size.height * 0.3, alignment: .bottom)
+            .frame(width: geo.size.width, height: geo.size.height * 0.2, alignment: .bottom)
     }
 
 }

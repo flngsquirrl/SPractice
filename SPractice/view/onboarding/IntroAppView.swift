@@ -14,10 +14,14 @@ struct IntroAppView: View {
                 Text("Just keep practicing")
                     .introTitle(geo: geo)
 
+                Spacer()
                 let size = LayoutUtils.getPreferredLogoSize(parentContainerSize: geo.size)
                 LayoutUtils.logo
                     .frame(width: size, height: size)
-                    .padding()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
             }
         }
     }
