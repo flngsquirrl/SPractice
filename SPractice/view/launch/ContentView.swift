@@ -19,7 +19,20 @@ struct ContentView: View {
         case .onboarding:
             OnboardingView()
                 .environmentObject(viewRouter)
+                .transition(.asymmetric(insertion: .opacity, removal: .move(edge: .leading)))
+        case .welcome:
+            WelcomeView()
                 .transition(.opacity)
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        withAnimation {
+                            viewRouter.goHome()
+                        }
+                    }
+                }
+        default:
+            Color.lightOrange
+                .ignoresSafeArea()
         }
     }
 }

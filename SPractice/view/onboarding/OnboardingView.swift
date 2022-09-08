@@ -78,7 +78,7 @@ struct OnboardingView: View {
 
     func close() {
         withAnimation {
-            viewRouter.goHome()
+            viewRouter.onboard()
         }
     }
 }
