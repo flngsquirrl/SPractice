@@ -60,5 +60,13 @@ extension PracticeView {
         var isRestartPracticeDisabled: Bool {
             practice.isFirstExercise && !practice.isCurrentExerciseStarted
         }
+
+        func processScenePhaseChange(isActive: Bool) {
+            if isActive {
+                practice.resumeClock()
+            } else {
+                practice.pauseClock()
+            }
+        }
     }
 }

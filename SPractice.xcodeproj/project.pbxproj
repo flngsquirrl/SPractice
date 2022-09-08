@@ -30,6 +30,7 @@
 		C9321CA328C7CCEA008C6BA4 /* Text-IntroTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9321CA228C7CCEA008C6BA4 /* Text-IntroTitle.swift */; };
 		C9321CA528C8C074008C6BA4 /* SquirrelInWheelIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9321CA428C8C074008C6BA4 /* SquirrelInWheelIcon.swift */; };
 		C9321CA728C9FAEB008C6BA4 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9321CA628C9FAEB008C6BA4 /* WelcomeView.swift */; };
+		C9321CAA28CA282C008C6BA4 /* ScenePhaseMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9321CA928CA282C008C6BA4 /* ScenePhaseMonitor.swift */; };
 		C932522028798B7A009D5479 /* StubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C932521F28798B7A009D5479 /* StubView.swift */; };
 		C9445C6D285E00D000DF2A08 /* ExerciseDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9445C6C285E00D000DF2A08 /* ExerciseDetailsView.swift */; };
 		C9445C71285E0A9300DF2A08 /* ExerciseEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9445C70285E0A9300DF2A08 /* ExerciseEditor.swift */; };
@@ -187,6 +188,7 @@
 		C9321CA228C7CCEA008C6BA4 /* Text-IntroTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text-IntroTitle.swift"; sourceTree = "<group>"; };
 		C9321CA428C8C074008C6BA4 /* SquirrelInWheelIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquirrelInWheelIcon.swift; sourceTree = "<group>"; };
 		C9321CA628C9FAEB008C6BA4 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		C9321CA928CA282C008C6BA4 /* ScenePhaseMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePhaseMonitor.swift; sourceTree = "<group>"; };
 		C932521F28798B7A009D5479 /* StubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubView.swift; sourceTree = "<group>"; };
 		C9445C6C285E00D000DF2A08 /* ExerciseDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailsView.swift; sourceTree = "<group>"; };
 		C9445C70285E0A9300DF2A08 /* ExerciseEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseEditor.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 				C95011C828196FFD0043EC75 /* HomeView.swift */,
 				C9321CA628C9FAEB008C6BA4 /* WelcomeView.swift */,
 				C9321C9C28C7870C008C6BA4 /* ViewRouter.swift */,
+				C9321CA928CA282C008C6BA4 /* ScenePhaseMonitor.swift */,
 			);
 			path = launch;
 			sourceTree = "<group>";
@@ -998,6 +1001,7 @@
 				C9741A5A2861EB0C00E1F670 /* ExerciseContentsView-ViewModel.swift in Sources */,
 				C9D53FBA2870519200FD2B6F /* EditProgramView-ViewModel.swift in Sources */,
 				C9ACC8E428A56AE100FC5343 /* ExerciseTasksButton.swift in Sources */,
+				C9321CAA28CA282C008C6BA4 /* ScenePhaseMonitor.swift in Sources */,
 				C9DE15212868AB520011324C /* Intensity.swift in Sources */,
 				C9445C71285E0A9300DF2A08 /* ExerciseEditor.swift in Sources */,
 				C9A0D01C28280DFA000CF439 /* SquirrelDrawer.swift in Sources */,

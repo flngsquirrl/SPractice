@@ -13,6 +13,8 @@ struct PracticeView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.verticalSizeClass) var sizeClass
 
+    @EnvironmentObject var activityMonitor: ScenePhaseMonitor
+
     @ObservedObject var practice: Practice
     @ObservedObject var viewModel: ViewModel
 
@@ -85,6 +87,9 @@ struct PracticeView: View {
                 .alert("If you restart the practice, your progress will be lost.", isPresented: $viewModel.needRestartConfirmation) {
                     restartAlertButton
                     closeAlertButton
+                }
+                .onChange(of: activityMonitor.isActive) { isActive in
+                    viewModel.processScenePhaseChange(isActive: isActive)
                 }
             }
             .accentColor(.customAccentColor)
