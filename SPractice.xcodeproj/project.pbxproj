@@ -106,7 +106,6 @@
 		C9B49E8B28AAD6EB007713A1 /* FocusableField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B49E8A28AAD6EB007713A1 /* FocusableField.swift */; };
 		C9B49E8D28AAD894007713A1 /* EditorMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B49E8C28AAD894007713A1 /* EditorMode.swift */; };
 		C9B49E8F28AAE585007713A1 /* ExampleMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B49E8E28AAE585007713A1 /* ExampleMark.swift */; };
-		C9B49E9128ACF910007713A1 /* ProgramExerciseInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B49E9028ACF910007713A1 /* ProgramExerciseInfoView.swift */; };
 		C9B49E9328ACFA27007713A1 /* ExerciseContentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B49E9228ACFA27007713A1 /* ExerciseContentsView.swift */; };
 		C9B49E9528ACFF51007713A1 /* ExerciseIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B49E9428ACFF51007713A1 /* ExerciseIcon.swift */; };
 		C9B49E9928AD258F007713A1 /* HideKeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B49E9828AD258F007713A1 /* HideKeyboardButton.swift */; };
@@ -265,7 +264,6 @@
 		C9B49E8A28AAD6EB007713A1 /* FocusableField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusableField.swift; sourceTree = "<group>"; };
 		C9B49E8C28AAD894007713A1 /* EditorMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorMode.swift; sourceTree = "<group>"; };
 		C9B49E8E28AAE585007713A1 /* ExampleMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleMark.swift; sourceTree = "<group>"; };
-		C9B49E9028ACF910007713A1 /* ProgramExerciseInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramExerciseInfoView.swift; sourceTree = "<group>"; };
 		C9B49E9228ACFA27007713A1 /* ExerciseContentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseContentsView.swift; sourceTree = "<group>"; };
 		C9B49E9428ACFF51007713A1 /* ExerciseIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseIcon.swift; sourceTree = "<group>"; };
 		C9B49E9828AD258F007713A1 /* HideKeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboardButton.swift; sourceTree = "<group>"; };
@@ -583,7 +581,6 @@
 				C9F604E1287AD57E00838462 /* ProgramShortDecorativeView.swift */,
 				C9D53FBB287064E200FD2B6F /* ProgramDurationSection.swift */,
 				C92F6C43286F0B0000D7BA59 /* ProgramDurationView.swift */,
-				C9B49E9028ACF910007713A1 /* ProgramExerciseInfoView.swift */,
 			);
 			path = program;
 			sourceTree = "<group>";
@@ -930,7 +927,6 @@
 				C95011C928196FFD0043EC75 /* HomeView.swift in Sources */,
 				C9C2727C2848C91500F7DA0E /* Array-Wrapper.swift in Sources */,
 				C9D53FBC287064E200FD2B6F /* ProgramDurationSection.swift in Sources */,
-				C9B49E9128ACF910007713A1 /* ProgramExerciseInfoView.swift in Sources */,
 				C9B49E9E28AEC8E2007713A1 /* SoundManager.swift in Sources */,
 				C9D53FAD286F2C4800FD2B6F /* Duration.swift in Sources */,
 				C97DE6BC28B3EADB005D53D1 /* PracticeSettingsManager.swift in Sources */,

@@ -17,22 +17,17 @@ struct ProgramSummaryView: View {
 
         Section("Exercises (\(program.exercises.count))") {
             ForEach(program.exercises) { exercise in
-                HStack {
-                    let isExerciseValid = ValidationService.isValidToPractice(exercise)
-                    ExerciseShortView(for: exercise) {
-                        ExerciseIcon(for: exercise.exerciseType, isIconAccented: !isExerciseValid, accentColor: .red)
-                    }
-                    .foregroundColor(exercise.isService ? .secondary : .primary)
-                    Button {
-                        selectedExercise = exercise
-                    } label: {
-                        Image(systemName: "info.circle")
+                NavigationLink {
+                    ExerciseContentsView(exercise: exercise)
+                } label: {
+                    HStack {
+                        let isExerciseValid = ValidationService.isValidToPractice(exercise)
+                        ExerciseShortView(for: exercise) {
+                            ExerciseIcon(for: exercise.exerciseType, isIconAccented: !isExerciseValid, accentColor: .red)
+                        }
                     }
                 }
             }
-        }
-        .sheet(item: $selectedExercise) { item in
-            ProgramExerciseInfoView(exercise: item)
         }
     }
 }
