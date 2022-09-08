@@ -434,6 +434,7 @@
 			isa = PBXGroup;
 			children = (
 				C912749D28BFB21B0051B4C3 /* extension */,
+				C932521F28798B7A009D5479 /* StubView.swift */,
 				C9CEAA09287C462F00D15A16 /* DurationControl.swift */,
 				C9CEAA05287C438500D15A16 /* DurationSecondsControl.swift */,
 				C9CEAA07287C44EB00D15A16 /* DurationMinutesControl.swift */,
@@ -602,7 +603,6 @@
 				C9A028FD2878353200032FF9 /* sorting */,
 				C9A0D0182827CE9F000CF439 /* logo */,
 				C9BF1EE428C6995E00D67A99 /* onboarding */,
-				C932521F28798B7A009D5479 /* StubView.swift */,
 				C9A0D023282813F2000CF439 /* ColorTheme.swift */,
 				C92F6C41286F00EB00D7BA59 /* LayoutUtils.swift */,
 			);
