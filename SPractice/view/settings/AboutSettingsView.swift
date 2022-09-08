@@ -12,30 +12,30 @@ struct AboutSettingsView: View {
         List {
             Section {
                 HStack {
-                    Spacer()
-                    SquirrelInWheelLogo()
-                        .frame(width: 200, height: 200)
-                    Spacer()
-                }
-                .padding()
+                    SquirrelInWheelIcon(lineWidth: 5)
+                        .frame(width: 100, height: 100)
+                        .padding([.top, .bottom])
 
-                HStack {
-                    Text("Application")
-                    Spacer()
-                    Text(name)
+                    VStack(alignment: .leading) {
+                        Text(name)
+                            .font(.headline)
+                        Group {
+                            Text("Version ") + Text(version)
+                        }
                         .foregroundColor(.secondary)
-                }
 
-                HStack {
-                    Text("Version")
-                    Spacer()
-                    Text(version)
-                        .foregroundColor(.secondary)
+                        Spacer()
+                        Text("crafted by @flngsquirrl")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+
+                    }
+                    .padding()
                 }
-            } footer: {
-                Text("Crafted by @flng.squirrl")
             }
         }
+        .navigationTitle("About")
+        .navigationBarTitleDisplayMode(.inline)
     }
 
     var name: String {
