@@ -9,15 +9,15 @@ import SwiftUI
 
 struct SquirrelInWheelIcon: View {
 
+    var lineWidth: CGFloat = 5
     var color: Color = .white
+    var backgroundColor: Color = .lightOrange
 
     var body: some View {
         GeometryReader { geo in
-            let lineWidth = geo.size.width * 0.06
-
             ZStack {
                 RoundedRectangle(cornerRadius: geo.size.width * 0.2)
-                    .fill(.lightOrange)
+                    .fill(backgroundColor)
 
                 Group {
                     SquirrelInWheelLogo(lineWidth: lineWidth, color: color)
