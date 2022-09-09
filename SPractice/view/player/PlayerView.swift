@@ -45,7 +45,7 @@ struct PlayerView: View {
     var body: some View {
         GeometryReader { geo in
             let width = max(geo.size.width - 20, 0) * 0.33
-            
+
             VStack {
                 HStack(spacing: 0) {
                     PlayerButton(systemImageName: "backward.frame.fill", isEnabled: player.isBackwardEnabled, width: width) {
