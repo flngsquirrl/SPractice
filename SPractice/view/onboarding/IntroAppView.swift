@@ -15,9 +15,7 @@ struct IntroAppView: View {
                     .introTitle(geo: geo)
 
                 Spacer()
-                let size = LayoutUtils.getPreferredLogoSize(parentContainerSize: geo.size)
-                LayoutUtils.getLogo()
-                    .frame(width: size, height: size)
+                LayoutUtils.getLogo(parentContainerSize: geo.size)
                 Spacer()
                 Spacer()
                 Spacer()

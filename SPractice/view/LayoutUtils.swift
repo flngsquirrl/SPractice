@@ -24,7 +24,10 @@ struct LayoutUtils {
         min(parentContainerSize.width * 0.8, 500)
     }
 
-    static func getLogo(of color: Color = .lightOrange) -> SquirrelInWheelLogo {
-        SquirrelInWheelLogo(lineWidth: 7, color: color)
+    static func getLogo(of color: Color = .lightOrange, parentContainerSize: CGSize) -> some View {
+        let size = LayoutUtils.getPreferredLogoSize(parentContainerSize: parentContainerSize)
+        return SquirrelInWheelLogo(lineWidth: 7, color: color)
+            .frame(width: size, height: size)
+
     }
 }
