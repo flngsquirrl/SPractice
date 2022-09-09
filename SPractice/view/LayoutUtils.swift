@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct LayoutUtils {
+enum LayoutUtils {
 
     static let timeFont: Font = .system(.callout).monospacedDigit()
 
