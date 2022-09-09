@@ -42,10 +42,8 @@ struct ContentView: View {
         }
         .onChange(of: scenePhase) { newPhase in
             if newPhase == .active {
-                print("Active")
                 activityMonitor.activate()
             } else {
-                print("Inactive")
                 activityMonitor.inactivate()
             }
         }
