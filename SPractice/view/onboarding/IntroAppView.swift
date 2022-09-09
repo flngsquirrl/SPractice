@@ -16,10 +16,9 @@ struct IntroAppView: View {
 
                 Spacer()
                 LayoutUtils.getLogo(parentContainerSize: geo.size)
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
+                ForEach(1..<5, id: \.self) { _ in
+                    Spacer()
+                }
             }
         }
     }
