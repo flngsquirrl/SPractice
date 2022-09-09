@@ -373,6 +373,7 @@
 		C9321CA828CA0986008C6BA4 /* launch */ = {
 			isa = PBXGroup;
 			children = (
+				C9BF1EE428C6995E00D67A99 /* onboarding */,
 				C9321C9A28C786DA008C6BA4 /* ContentView.swift */,
 				C95011C828196FFD0043EC75 /* HomeView.swift */,
 				C9321CA628C9FAEB008C6BA4 /* WelcomeView.swift */,
@@ -602,7 +603,6 @@
 				C96728812874E0FF00B4990C /* common */,
 				C9A028FD2878353200032FF9 /* sorting */,
 				C9A0D0182827CE9F000CF439 /* logo */,
-				C9BF1EE428C6995E00D67A99 /* onboarding */,
 				C9A0D023282813F2000CF439 /* ColorTheme.swift */,
 				C92F6C41286F00EB00D7BA59 /* LayoutUtils.swift */,
 			);
