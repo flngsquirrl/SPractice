@@ -88,10 +88,12 @@ struct ProgramsView: View {
 
     @ViewBuilder var detail: some View {
         if let selected {
-            ProgramDetailsView(for: selected) {
-                programsManager.updateItem($0)
-            } onDelete: {
-                programsManager.deleteItem($0)
+            NavigationStack {
+                ProgramDetailsView(for: selected) {
+                    programsManager.updateItem($0)
+                } onDelete: {
+                    programsManager.deleteItem($0)
+                }
             }
         } else {
             secondaryView
