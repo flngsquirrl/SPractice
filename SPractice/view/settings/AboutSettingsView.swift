@@ -9,33 +9,29 @@ import SwiftUI
 
 struct AboutSettingsView: View {
     var body: some View {
-        List {
-            Section {
-                HStack {
-                    SquirrelInWheelIcon(lineWidth: 5)
-                        .frame(width: 100, height: 100)
-                        .padding([.top, .bottom])
+        Section {
+            HStack {
+                SquirrelInWheelIcon(lineWidth: 5)
+                    .frame(width: 100, height: 100)
+                    .padding([.top, .bottom])
 
-                    VStack(alignment: .leading) {
-                        Text(name)
-                            .font(.headline)
-                        Group {
-                            Text("Version ") + Text(version)
-                        }
+                VStack(alignment: .leading) {
+                    Text(name)
+                        .font(.headline)
+                    Group {
+                        Text("Version ") + Text(version)
+                    }
+                    .foregroundColor(.secondary)
+
+                    Spacer()
+                    Text("crafted by @flngsquirrl")
+                        .font(.caption)
                         .foregroundColor(.secondary)
 
-                        Spacer()
-                        Text("crafted by @flngsquirrl")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-
-                    }
-                    .padding()
                 }
+                .padding()
             }
         }
-        .navigationTitle("About")
-        .navigationBarTitleDisplayMode(.inline)
     }
 
     var name: String {

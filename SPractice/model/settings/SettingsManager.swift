@@ -66,7 +66,7 @@ class SettingsManager {
             updateFlowWrappers()
         case .rest:
             updatePauseWrappers()
-        case .examples:
+        default:
             return
         }
     }

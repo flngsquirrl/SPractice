@@ -23,6 +23,8 @@ struct SettingsSubgroupDetailsView: View {
 
     func getSubgroupView(_ subgroup: SettingsSubGroup) -> AnyView {
         switch subgroup {
+        case .about:
+            return AnyView(AboutSettingsView())
         case .tabata:
             return AnyView(TabataSettingsView())
         case .flow:
