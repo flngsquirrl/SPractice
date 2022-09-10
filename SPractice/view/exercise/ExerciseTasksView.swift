@@ -14,7 +14,7 @@ struct ExerciseTasksView: View {
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List(tasks) { task in
                 TaskDetailsShortView(task: task)
             }
@@ -28,7 +28,6 @@ struct ExerciseTasksView: View {
                 }
             }
         }
-        .navigationViewStyle(.stack)
         .accentColor(.customAccentColor)
     }
 }

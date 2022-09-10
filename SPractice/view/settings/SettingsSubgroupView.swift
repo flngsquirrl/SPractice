@@ -14,7 +14,7 @@ struct SettingsSubgroupView: View {
     var subgroup: SettingsSubGroup
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             SettingsSubgroupDetailsView(subgroup: subgroup)
                 .toolbar {
                     ToolbarItem(placement: .confirmationAction) {
@@ -24,7 +24,6 @@ struct SettingsSubgroupView: View {
                     }
                 }
         }
-        .navigationViewStyle(.stack)
         .accentColor(.customAccentColor)
     }
 }

@@ -14,7 +14,7 @@ struct PracticeExerciseInfoView: View {
     var exercise: PracticeExercise
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 ExercisePropertiesView(exercise: exercise)
 
@@ -32,7 +32,6 @@ struct PracticeExerciseInfoView: View {
                 }
             }
         }
-        .navigationViewStyle(.stack)
         .accentColor(.customAccentColor)
     }
 
