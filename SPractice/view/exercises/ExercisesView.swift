@@ -35,41 +35,42 @@ struct ExercisesView: View {
 
     var list: some View {
         ScrollViewReader { proxy in
-            List {
-                ForEach(exercisesManager.filter(by: searchText)) { exercise in
-                    HStack {
-                        NavigationLink {
-                            ExerciseDetailsView(for: exercise) {
-                                exercisesManager.updateItem($0)
-                            } onDelete: {
-                                exercisesManager.deleteItem($0)
-                            }
-                        } label: {
-                            let isAccented = exercise.id == selectedToDelete?.id
-                            ExerciseShortDecorativeView(for: exercise, isIconAccented: isAccented, isNameAccented: isAccented, isFilled: true)
+            List(exercisesManager.filter(by: searchText)) { exercise in
+                HStack {
+                    NavigationLink {
+                        ExerciseDetailsView(for: exercise) {
+                            exercisesManager.updateItem($0)
+                        } onDelete: {
+                            exercisesManager.deleteItem($0)
                         }
+                    } label: {
+                        let isAccented = exercise.id == selectedToDelete?.id
+                        ExerciseShortDecorativeView(for: exercise, isIconAccented: isAccented, isNameAccented: isAccented, isFilled: true)
                     }
-                    .rowLeadingAligned()
                 }
-                .onDelete { indexSet in
-                    showDeleteConfirmation = true
-                    selectedToDelete = exercisesManager.getItem(index: indexSet.first!)
+                .rowLeadingAligned()
+                .swipeActions(edge: .trailing) {
+                    SwipeDeleteButton {
+                        selectedToDelete = exercise
+                        showDeleteConfirmation = true
+
+                    }
                 }
             }
             .listStyle(.insetGrouped)
-            .onChange(of: showDeleteConfirmation) { shouldShow in
-                if !shouldShow {
-                    withAnimation {
-                        selectedToDelete = nil
-                    }
-                }
-            }
             .searchable(text: $searchText)
             .disableAutocorrection(true)
             .onChange(of: exercisesManager.newItem) { _ in
                 if exercisesManager.newItem != nil {
                     withAnimation {
                         proxy.scrollTo(exercisesManager.newItem!, anchor: .center)
+                    }
+                }
+            }
+            .onChange(of: showDeleteConfirmation) { isShown in
+                if !isShown {
+                    withAnimation {
+                        selectedToDelete = nil
                     }
                 }
             }

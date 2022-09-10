@@ -35,39 +35,42 @@ struct ProgramsView: View {
 
     var list: some View {
         ScrollViewReader { proxy in
-            List {
-                ForEach(programsManager.filter(by: searchText)) { program in
-                    HStack {
-                        NavigationLink {
-                            ProgramDetailsView(for: program) {
-                                programsManager.updateItem($0)
-                            } onDelete: {
-                                programsManager.deleteItem($0)
-                            }
-                        } label: {
-                            ProgramShortDecorativeView(for: program, isAccented: program.id == selectedToDelete?.id, accentColor: .customAccentColor)
+            List(programsManager.filter(by: searchText)) { program in
+                HStack {
+                    NavigationLink {
+                        ProgramDetailsView(for: program) {
+                            programsManager.updateItem($0)
+                        } onDelete: {
+                            programsManager.deleteItem($0)
                         }
+                    } label: {
+                        ProgramShortDecorativeView(for: program, isAccented: program.id == selectedToDelete?.id, accentColor: .customAccentColor)
                     }
                 }
-                .onDelete { indexSet in
-                    showDeleteConfirmation = true
-                    selectedToDelete = programsManager.getItem(index: indexSet.first!)
+                .swipeActions(edge: .trailing) {
+                    Button {
+                        selectedToDelete = program
+                        showDeleteConfirmation = true
+                    } label: {
+                        Label("Delete", systemImage: "trash")
+                    }
+                    .tint(.red)
                 }
             }
             .listStyle(.insetGrouped)
-            .onChange(of: showDeleteConfirmation) { shouldShow in
-                if !shouldShow {
-                    withAnimation {
-                        selectedToDelete = nil
-                    }
-                }
-            }
             .searchable(text: $searchText)
             .disableAutocorrection(true)
             .onChange(of: programsManager.newItem) { _ in
                 if programsManager.newItem != nil {
                     withAnimation {
                         proxy.scrollTo(programsManager.newItem!, anchor: .center)
+                    }
+                }
+            }
+            .onChange(of: showDeleteConfirmation) { shouldShow in
+                if !shouldShow {
+                    withAnimation {
+                        selectedToDelete = nil
                     }
                 }
             }
