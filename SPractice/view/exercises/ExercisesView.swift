@@ -31,6 +31,7 @@ struct ExercisesView: View {
         } detail: {
             detail
         }
+        .navigationSplitViewStyle(.balanced)
         .accentColor(.customAccentColor)
     }
 

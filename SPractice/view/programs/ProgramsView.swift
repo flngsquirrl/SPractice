@@ -31,6 +31,7 @@ struct ProgramsView: View {
         } detail: {
             detail
         }
+        .navigationSplitViewStyle(.balanced)
         .accentColor(.customAccentColor)
     }
 
