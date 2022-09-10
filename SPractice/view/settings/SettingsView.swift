@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SettingsView: View {
 
+    @State private var selection: SettingsSubGroup?
+
     static private var groupFooter: [SettingsGroup: String] = [
         .exercise: "Set exercise configuration",
         .practice: "Configure practice parameters",
@@ -16,30 +18,29 @@ struct SettingsView: View {
     ]
 
     var body: some View {
-        NavigationStack {
-            List {
-                ForEach(SettingsGroup.allCases, id: \.self) { group in
-                    Section {
-                        let subgroups = SettingsGroup.hierarchy[group]!
-                        ForEach(subgroups, id: \.self) { subgroup in
-                            NavigationLink {
-                                SettingsSubgroupDetailsView(subgroup: subgroup)
-                            } label: {
-                                Text(subgroup.rawValue)
-                            }
-                        }
-                    } header: {
-                        Text(group.rawValue)
-                    } footer: {
-                        Text(Self.groupFooter[group] ?? "")
+        NavigationSplitView {
+            List(SettingsGroup.allCases, id: \.self, selection: $selection) { group in
+                Section {
+                    let subgroups = SettingsGroup.hierarchy[group]!
+                    ForEach(subgroups, id: \.self) { subgroup in
+                        NavigationLink(subgroup.rawValue, value: subgroup)
                     }
+                } header: {
+                    Text(group.rawValue)
+                } footer: {
+                    Text(Self.groupFooter[group] ?? "")
                 }
             }
             .listStyle(.insetGrouped)
             .navigationTitle("Settings")
-
-            StabView()
+        } detail: {
+            if let selection = selection {
+                SettingsSubgroupDetailsView(subgroup: selection)
+            } else {
+                StabView()
+            }
         }
+        .navigationSplitViewStyle(.balanced)
         .accentColor(.customAccentColor)
     }
 }
