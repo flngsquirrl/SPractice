@@ -27,6 +27,7 @@ struct ExerciseContentsView: View {
                 }
             }
         }
+        .listStyle(.insetGrouped)
     }
 }
 

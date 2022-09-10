@@ -66,6 +66,7 @@ struct ProgramDetailsView: DetailsView {
 
             ProgramSummaryView(program: viewModel.template)
         }
+        .listStyle(.insetGrouped)
         .sheet(isPresented: $showEditTemplateView) {
             NavigationStack {
                 EditProgramView(for: viewModel.template) {
