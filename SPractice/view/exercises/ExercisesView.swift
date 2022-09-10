@@ -10,6 +10,7 @@ import SwiftUI
 struct ExercisesView: View {
 
     @ObservedObject private var exercisesManager = ExercisesManager.shared
+    @State private var selected: ExerciseTemplate?
 
     @State private var showDeleteConfirmation = false
     @State private var selectedToDelete: ExerciseTemplate?
@@ -18,7 +19,7 @@ struct ExercisesView: View {
     @State private var searchText = ""
 
     var body: some View {
-        NavigationView {
+        NavigationSplitView {
             list
                 .navigationTitle("Exercises")
                 .sheet(isPresented: $showAddNewView) {
@@ -27,26 +28,19 @@ struct ExercisesView: View {
                 .toolbar {
                     listToolbar
                 }
-
-            secondaryView
+        } detail: {
+            detail
         }
         .accentColor(.customAccentColor)
     }
 
     var list: some View {
         ScrollViewReader { proxy in
-            List(exercisesManager.filter(by: searchText)) { exercise in
-                HStack {
-                    NavigationLink {
-                        ExerciseDetailsView(for: exercise) {
-                            exercisesManager.updateItem($0)
-                        } onDelete: {
-                            exercisesManager.deleteItem($0)
-                        }
-                    } label: {
-                        let isAccented = exercise.id == selectedToDelete?.id
-                        ExerciseShortDecorativeView(for: exercise, isIconAccented: isAccented, isNameAccented: isAccented, isFilled: true)
-                    }
+            let exercises = exercisesManager.filter(by: searchText)
+            List(exercises, selection: $selected) { exercise in
+                NavigationLink(value: exercise) {
+                    let isAccented = exercise.id == selectedToDelete?.id
+                    ExerciseShortDecorativeView(for: exercise, isIconAccented: isAccented, isNameAccented: isAccented, isFilled: true)
                 }
                 .rowLeadingAligned()
                 .swipeActions(edge: .trailing) {
@@ -89,6 +83,18 @@ struct ExercisesView: View {
     var addItemView: some View {
         AddExerciseView {
             exercisesManager.addItem($0)
+        }
+    }
+
+    @ViewBuilder var detail: some View {
+        if let selected {
+            ExerciseDetailsView(for: selected) {
+                exercisesManager.updateItem($0)
+            } onDelete: {
+                exercisesManager.deleteItem($0)
+            }
+        } else {
+            secondaryView
         }
     }
 

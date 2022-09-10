@@ -10,6 +10,7 @@ import SwiftUI
 struct ProgramsView: View {
 
     @ObservedObject var programsManager = ProgramsManager.shared
+    @State private var selected: ProgramTemplate?
 
     @State private var showDeleteConfirmation = false
     @State private var selectedToDelete: ProgramTemplate?
@@ -18,7 +19,7 @@ struct ProgramsView: View {
     @State private var searchText = ""
 
     var body: some View {
-        NavigationView {
+        NavigationSplitView {
             list
                 .navigationTitle("Programs")
                 .sheet(isPresented: $showAddNewView) {
@@ -27,25 +28,18 @@ struct ProgramsView: View {
                 .toolbar {
                     listToolbar
                 }
-
-            secondaryView
+        } detail: {
+            detail
         }
         .accentColor(.customAccentColor)
     }
 
     var list: some View {
         ScrollViewReader { proxy in
-            List(programsManager.filter(by: searchText)) { program in
-                HStack {
-                    NavigationLink {
-                        ProgramDetailsView(for: program) {
-                            programsManager.updateItem($0)
-                        } onDelete: {
-                            programsManager.deleteItem($0)
-                        }
-                    } label: {
-                        ProgramShortDecorativeView(for: program, isAccented: program.id == selectedToDelete?.id, accentColor: .customAccentColor)
-                    }
+            let programs = programsManager.filter(by: searchText)
+            List(programs, selection: $selected) { program in
+                NavigationLink(value: program) {
+                    ProgramShortDecorativeView(for: program, isAccented: program.id == selectedToDelete?.id, accentColor: .customAccentColor)
                 }
                 .swipeActions(edge: .trailing) {
                     Button {
@@ -89,6 +83,18 @@ struct ProgramsView: View {
     var addItemView: some View {
         AddProgramView {
             programsManager.addItem($0)
+        }
+    }
+
+    @ViewBuilder var detail: some View {
+        if let selected {
+            ProgramDetailsView(for: selected) {
+                programsManager.updateItem($0)
+            } onDelete: {
+                programsManager.deleteItem($0)
+            }
+        } else {
+            secondaryView
         }
     }
 
