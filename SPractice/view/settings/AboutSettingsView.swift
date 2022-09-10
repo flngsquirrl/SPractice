@@ -13,7 +13,6 @@ struct AboutSettingsView: View {
             HStack {
                 SquirrelInWheelIcon(lineWidth: 5)
                     .frame(width: 100, height: 100)
-                    .padding([.top, .bottom])
 
                 VStack(alignment: .leading) {
                     Text(name)
@@ -54,6 +53,8 @@ struct AboutSettingsView: View {
 
 struct AboutSettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        AboutSettingsView()
+        List {
+            AboutSettingsView()
+        }
     }
 }
