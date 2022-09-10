@@ -78,7 +78,7 @@ struct TabataItemIntervalView: View {
 
 struct TabataSettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 TabataSettingsView()
             }

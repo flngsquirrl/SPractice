@@ -37,19 +37,19 @@ struct SettingsSubgroupDetailsView: View {
 
 struct SettingsSubgroupDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
+        NavigationStack {
             SettingsSubgroupDetailsView(subgroup: .tabata)
         }
 
-        NavigationView {
+        NavigationStack {
             SettingsSubgroupDetailsView(subgroup: .flow)
         }
 
-        NavigationView {
+        NavigationStack {
             SettingsSubgroupDetailsView(subgroup: .rest)
         }
 
-        NavigationView {
+        NavigationStack {
             SettingsSubgroupDetailsView(subgroup: .examples)
         }
     }

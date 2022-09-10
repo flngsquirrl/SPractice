@@ -44,7 +44,7 @@ struct ExerciseDetailsView: DetailsView {
                 }
             }
             .sheet(isPresented: $showEditView) {
-                NavigationView {
+                NavigationStack {
                     EditExerciseView(for: exercise, onSave: onChange)
                 }
                 .accentColor(.customAccentColor)
@@ -54,15 +54,15 @@ struct ExerciseDetailsView: DetailsView {
 
 struct ExerciseDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
+        NavigationStack {
             ExerciseDetailsView(for: ExerciseTemplate.catCow, onChange: { _ in }, onDelete: { _ in })
         }
 
-        NavigationView {
+        NavigationStack {
             ExerciseDetailsView(for: ExerciseTemplate.vasihsthasana, onChange: { _ in }, onDelete: { _ in })
         }
 
-        NavigationView {
+        NavigationStack {
             ExerciseDetailsView(for: ExerciseTemplate.surjaNamascarA, onChange: { _ in }, onDelete: { _ in })
         }
     }

@@ -67,7 +67,7 @@ struct ProgramDetailsView: DetailsView {
             ProgramSummaryView(program: viewModel.template)
         }
         .sheet(isPresented: $showEditTemplateView) {
-            NavigationView {
+            NavigationStack {
                 EditProgramView(for: viewModel.template) {
                     viewModel.updateProgramTemplate(template: $0)
                     onChange($0)
@@ -92,7 +92,7 @@ struct ProgramDetailsView: DetailsView {
 
 struct ProgramDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
+        NavigationStack {
             ProgramDetailsView(for: .simpleYoga) { _ in } onDelete: { _ in }
         }
     }

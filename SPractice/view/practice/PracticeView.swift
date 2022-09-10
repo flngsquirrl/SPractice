@@ -27,7 +27,7 @@ struct PracticeView: View {
 
     var body: some View {
         GeometryReader { geo in
-            NavigationView {
+            NavigationStack {
                 Group {
                     if sizeClass == .compact {
                         HStack(alignment: .top) {

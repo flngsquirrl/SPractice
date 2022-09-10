@@ -172,11 +172,11 @@ struct ExerciseEditor_Previews: PreviewProvider {
     @State static private var exampleTemplate = ExerciseEditor.EditorTemplate(from: ExerciseTemplate.vasihsthasana)
 
     static var previews: some View {
-        //        NavigationView {
+        //        NavigationStack {
         //            ExerciseTemplateEditor(for: $defaultTemplate)
         //        }
 
-        NavigationView {
+        NavigationStack {
             ExerciseEditor(for: $exampleTemplate, mode: .edit)
         }
     }

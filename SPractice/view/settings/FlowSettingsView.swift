@@ -51,7 +51,7 @@ struct FlowSettingsView: View {
 
 struct FlowSettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 FlowSettingsView()
             }

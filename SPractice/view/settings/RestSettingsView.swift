@@ -46,7 +46,7 @@ struct RestSettingsView: View {
 
 struct PauseSettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 RestSettingsView()
             }

@@ -20,7 +20,7 @@ struct AddProgramView: View {
     }
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ProgramEditor(for: $viewModel.newTemplate, mode: .add, editMode: $viewModel.editMode)
                 .navigationTitle("New program")
                 .navigationBarTitleDisplayMode(.inline)
@@ -46,7 +46,7 @@ struct AddProgramView: View {
 
 struct AddProgramView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
+        NavigationStack {
             AddProgramView(onAdd: { _ in })
         }
     }

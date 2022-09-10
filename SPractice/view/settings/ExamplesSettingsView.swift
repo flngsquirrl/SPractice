@@ -61,7 +61,7 @@ struct ExamplesSettingsView: View {
 
 struct ExamplesSettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 ExamplesSettingsView()
             }

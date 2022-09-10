@@ -28,7 +28,7 @@ struct ExerciseSelectionView: View {
     }
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 Section {
                     ForEach(viewModel.sortedElements) { item in

@@ -22,7 +22,7 @@ struct AddExerciseView: View {
     }
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ExerciseEditor(for: $viewModel.template, mode: .add, navigatedFromProgram: navigatedFromProgram)
                 .navigationTitle("New exercise")
                 .navigationBarTitleDisplayMode(.inline)

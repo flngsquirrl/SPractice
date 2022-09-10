@@ -117,7 +117,7 @@ struct ProgramEditor: View {
         }
         .environment(\.editMode, $editMode.animation())
         .sheet(item: $selectedExercise) { exercise in
-            NavigationView {
+            NavigationStack {
                 EditExerciseView(for: exercise) { viewModel.updateExercise(exercise: $0) }
             }
             .accentColor(.customAccentColor)
@@ -142,11 +142,11 @@ struct ProgramEditor_Previews: PreviewProvider {
     @State static private var exampleTemplate = ProgramTemplate.simpleYoga
 
     static var previews: some View {
-        NavigationView {
+        NavigationStack {
             ProgramEditor(for: $defaultTemplate, mode: .add, editMode: $editMode)
         }
 
-        NavigationView {
+        NavigationStack {
             ProgramEditor(for: $exampleTemplate, mode: .edit, editMode: $editMode)
         }
     }
