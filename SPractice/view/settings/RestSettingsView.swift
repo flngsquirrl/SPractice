@@ -37,7 +37,7 @@ struct RestSettingsView: View {
                     }
             }
         } footer: {
-            Text("You can use rest intervals to take a deep breath and prepare for the next exercise")
+            Text("You can use rest intervals to prepare for the next exercise")
         }
 
         ResetToDefaultsButton(subgroup: .rest)
