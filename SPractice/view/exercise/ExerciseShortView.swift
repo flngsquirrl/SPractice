@@ -12,12 +12,10 @@ struct ExerciseShortView<E: Exercise, Icon: View>: View {
     @ObservedObject var settings = SettingsManager.settings
 
     private let exercise: E
-    private var displayDetails = false
     @ViewBuilder private var icon: Icon
 
-    init(for exercise: E, displayDetails: Bool = true, icon: () -> Icon) {
+    init(for exercise: E, icon: () -> Icon) {
         self.exercise = exercise
-        self.displayDetails = displayDetails && exercise.isTypeSet
         self.icon = icon()
     }
 
@@ -37,6 +35,10 @@ struct ExerciseShortView<E: Exercise, Icon: View>: View {
         }
     }
 
+    var displayDetails: Bool {
+        exercise.isTypeSet
+    }
+
     var name: String {
         if exercise.isService {
             return SettingsManager.restName
@@ -48,37 +50,13 @@ struct ExerciseShortView<E: Exercise, Icon: View>: View {
 struct ExerciseShortView_Previews: PreviewProvider {
     static var previews: some View {
         List {
-//            Group {
-//                Text("exercises")
-//                ExerciseShortView(for: PracticeExercise.catCow)
-//                ExerciseShortView(for: PracticeExercise.surjaNamascarA)
-//                ExerciseShortView(for: PracticeExercise.vasihsthasana)
-//            }
-//
-//            Group {
-//                Text("templates with durations")
-//                ExerciseShortView(for: ExerciseTemplate.catCowNoDuration, displayDetails: true)
-//                ExerciseShortView(for: ExerciseTemplate.catCow, displayDetails: true)
-//                ExerciseShortView(for: ExerciseTemplate.surjaNamascarA, displayDetails: true)
-//                ExerciseShortView(for: ExerciseTemplate.vasihsthasana, displayDetails: true)
-//                ExerciseShortView(for: ExerciseTemplate.catCowNoType, displayDetails: true)
-//            }
-//
-//            Group {
-//                Text("templates without durations")
-//                ExerciseShortView(for: ExerciseTemplate.catCowNoDuration)
-//                ExerciseShortView(for: ExerciseTemplate.catCow)
-//                ExerciseShortView(for: ExerciseTemplate.surjaNamascarA)
-//                ExerciseShortView(for: ExerciseTemplate.vasihsthasana)
-//                ExerciseShortView(for: ExerciseTemplate.catCowNoType)
-//            }
-
             Group {
-                Text("icon test")
+                Text("foreground test")
                 ExerciseShortView(for: PracticeExercise.catCow) {
                     ExerciseTypeImage(type: .flow)
                 }
                 .foregroundColor(.secondary)
+
                 ExerciseShortView(for: PracticeExercise.catCow) {
                     ExerciseTypeImage(type: .flow)
                 }
