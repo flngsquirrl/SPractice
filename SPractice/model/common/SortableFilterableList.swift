@@ -71,9 +71,9 @@ extension SortableList {
         var result: [Item]
         switch sortingOrder {
         case .asc:
-            result = items.sorted(by: { $0.name < $1.name })
+            result = items.sorted(by: { $0.name.localizedStandardCompare($1.name) == .orderedAscending })
         case .desc:
-            result = items.sorted(by: { $0.name > $1.name })
+            result = items.sorted(by: { $0.name.localizedStandardCompare($1.name) == .orderedDescending })
         }
         return result
     }
