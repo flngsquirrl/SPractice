@@ -105,19 +105,18 @@ class Settings: ObservableObject {
 
     static private let saveKey = "settingsNew"
 
-    static private let defaults: SettingsType = [
+    static private let defaultSettings: SettingsType = [
         .tabata: [.defaultTabataWarmUpDuration, .defaultTabataActivityDuration, .defaultTabataRestDuration,
             .defaultTabataCoolDownDuration, .defaultTabataCycles],
         .flow: [.defaultFlowAutoFinish, .defaultFlowAutoFinishAfterTime],
         .rest: [.defaultRestName, .defaultRestDuration]
     ]
 
-    private var defaults: SettingsType {
-        return Self.defaults.mapValues { $0.map { item in SettingsItem(from: item)} }
+    static private var defaults: SettingsType {
+        return Self.defaultSettings.mapValues { $0.map { item in SettingsItem(from: item)} }
     }
 
     fileprivate init() {
-        // UserDefaults.standard.removeObject(forKey: "settings")
         if let savedItems = UserDefaults.standard.data(forKey: Self.saveKey) {
             let decoder = JSONDecoder()
 
@@ -150,7 +149,7 @@ class Settings: ObservableObject {
     }
 
     fileprivate func getDefault(_ name: SettingsItemName) -> SettingsItem {
-        let items = defaults.flatMap { $1 }
+        let items = Self.defaults.flatMap { $1 }
         let item = items.first(where: { $0.name == name})
         guard let item = item else {
             fatalError("Error getting default value of \(name)")
@@ -160,7 +159,7 @@ class Settings: ObservableObject {
 
     fileprivate func resetToDefauls(subgroup: SettingsSubGroup) {
         if groups[subgroup] != nil {
-            guard let defaultGroup = defaults[subgroup] else {
+            guard let defaultGroup = Self.defaults[subgroup] else {
                 return
             }
 
@@ -169,7 +168,7 @@ class Settings: ObservableObject {
     }
 
     fileprivate func resetToDefauls() {
-        groups = defaults
+        groups = Self.defaults
     }
 
     var hasChangesFromDefaults: Bool {
@@ -185,7 +184,7 @@ class Settings: ObservableObject {
 
     func hasChangesFromDefaults(in subgroup: SettingsSubGroup) -> Bool {
         let items = groups[subgroup]!
-        let defaultItems = defaults[subgroup]!
+        let defaultItems = Self.defaults[subgroup]!
 
         for item in items {
             let defaultItem = defaultItems.first(where: { $0.name == item.name })!
