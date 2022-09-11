@@ -40,7 +40,7 @@ struct ExercisesView: View {
             List(exercises, selection: $exercisesManager.selected) { exercise in
                 NavigationLink(value: exercise) {
                     let isAccented = exercise.id == selectedToDelete?.id
-                    ExerciseShortDecorativeView(for: exercise, isIconAccented: isAccented, isNameAccented: isAccented, isFilled: true)
+                    ExerciseShortDecorativeView(for: exercise, isAccented: isAccented)
                 }
                 .rowLeadingAligned()
                 .swipeActions(edge: .trailing) {

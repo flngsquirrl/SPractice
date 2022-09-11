@@ -10,38 +10,24 @@ import SwiftUI
 struct ExerciseShortDecorativeView<T>: View where T: Exercise {
 
     private let exercise: T
-    private var isIconAccented: Bool
-    private var isNameAccented: Bool
+    private var isAccented: Bool
     private var accentColor: Color
-    private var isFilled: Bool
 
     @ObservedObject private var settings = SettingsManager.settings
 
-    init(for exercise: T, isIconAccented: Bool = false, isNameAccented: Bool = false,
-         accentColor: Color = .customAccentColor, isFilled: Bool = false) {
+    init(for exercise: T, isAccented: Bool = false, accentColor: Color = .customAccentColor) {
         self.exercise = exercise
-        self.isIconAccented = isIconAccented
-        self.isNameAccented = isNameAccented
+        self.isAccented = isAccented
         self.accentColor = accentColor
-        self.isFilled = isFilled
     }
 
     var body: some View {
         HStack {
-            if isIconAccented {
-                ExerciseTypeImage(type: exercise.type, isFilled: isFilled)
-                    .foregroundColor(accentColor)
-            } else {
-                ExerciseTypeImage(type: exercise.type)
-            }
-
-            if isNameAccented {
-                Text(exercise.name)
-                    .foregroundColor(accentColor)
-            } else {
-                Text(exercise.name)
-            }
+            ExerciseTypeImage(type: exercise.type,
+                              isFilled: isAccented)
+            Text(exercise.name)
         }
+        .foregroundColor(isAccented ? accentColor : nil)
     }
 }
 
@@ -49,28 +35,24 @@ struct ExerciseShortDecorativeView_Previews: PreviewProvider {
     static var previews: some View {
         List {
             Group {
-                Text("exercises")
+                Text("simple")
                 ExerciseShortDecorativeView(for: ExerciseTemplate.catCow)
                 ExerciseShortDecorativeView(for: ExerciseTemplate.surjaNamascarA)
                 ExerciseShortDecorativeView(for: ExerciseTemplate.vasihsthasana)
             }
 
             Group {
-                Text("templates with durations")
-                ExerciseShortDecorativeView(for: ExerciseTemplate.catCowNoDuration)
-                ExerciseShortDecorativeView(for: ExerciseTemplate.catCow)
-                ExerciseShortDecorativeView(for: ExerciseTemplate.surjaNamascarA)
-                ExerciseShortDecorativeView(for: ExerciseTemplate.vasihsthasana)
-                ExerciseShortDecorativeView(for: ExerciseTemplate.catCowNoType)
+                Text("accented with default color")
+                ExerciseShortDecorativeView(for: ExerciseTemplate.catCow, isAccented: true)
+                ExerciseShortDecorativeView(for: ExerciseTemplate.surjaNamascarA, isAccented: true)
+                ExerciseShortDecorativeView(for: ExerciseTemplate.vasihsthasana, isAccented: true)
             }
 
             Group {
-                Text("templates without durations")
-                ExerciseShortDecorativeView(for: ExerciseTemplate.catCowNoDuration)
-                ExerciseShortDecorativeView(for: ExerciseTemplate.catCow)
-                ExerciseShortDecorativeView(for: ExerciseTemplate.surjaNamascarA)
-                ExerciseShortDecorativeView(for: ExerciseTemplate.vasihsthasana)
-                ExerciseShortDecorativeView(for: ExerciseTemplate.catCowNoType)
+                Text("accented with non-default color")
+                ExerciseShortDecorativeView(for: ExerciseTemplate.catCow, isAccented: true, accentColor: .mint)
+                ExerciseShortDecorativeView(for: ExerciseTemplate.surjaNamascarA, isAccented: true, accentColor: .mint)
+                ExerciseShortDecorativeView(for: ExerciseTemplate.vasihsthasana, isAccented: true, accentColor: .mint)
             }
         }
     }
