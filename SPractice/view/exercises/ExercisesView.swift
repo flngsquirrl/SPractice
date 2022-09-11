@@ -10,7 +10,6 @@ import SwiftUI
 struct ExercisesView: View {
 
     @ObservedObject private var exercisesManager = ExercisesManager.shared
-    @State private var selected: ExerciseTemplate?
 
     @State private var showDeleteConfirmation = false
     @State private var selectedToDelete: ExerciseTemplate?
@@ -38,7 +37,7 @@ struct ExercisesView: View {
     var list: some View {
         ScrollViewReader { proxy in
             let exercises = exercisesManager.filter(by: searchText)
-            List(exercises, selection: $selected) { exercise in
+            List(exercises, selection: $exercisesManager.selected) { exercise in
                 NavigationLink(value: exercise) {
                     let isAccented = exercise.id == selectedToDelete?.id
                     ExerciseShortDecorativeView(for: exercise, isIconAccented: isAccented, isNameAccented: isAccented, isFilled: true)
@@ -88,7 +87,7 @@ struct ExercisesView: View {
     }
 
     @ViewBuilder var detail: some View {
-        if let selected {
+        if let selected = exercisesManager.selected {
             ExerciseDetailsView(for: selected) {
                 exercisesManager.updateItem($0)
             } onDelete: {

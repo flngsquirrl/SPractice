@@ -123,7 +123,6 @@
 		C9CCCE94284A311A005665C8 /* ExerciseEditor-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCCE93284A311A005665C8 /* ExerciseEditor-ViewModel.swift */; };
 		C9CCCE96284A31B9005665C8 /* ClockTime-Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCCE95284A31B9005665C8 /* ClockTime-Calculator.swift */; };
 		C9CCCE98284B6DE5005665C8 /* ProgramDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCCE97284B6DE5005665C8 /* ProgramDetailsView.swift */; };
-		C9CCCE9A284B6E09005665C8 /* ProgramDetailsView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCCE99284B6E09005665C8 /* ProgramDetailsView-ViewModel.swift */; };
 		C9CEAA00287C2DFF00D15A16 /* SettingsSubgroupDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEA9FF287C2DFF00D15A16 /* SettingsSubgroupDetailsView.swift */; };
 		C9CEAA02287C307D00D15A16 /* RestSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAA01287C307D00D15A16 /* RestSettingsView.swift */; };
 		C9CEAA04287C309D00D15A16 /* ExamplesSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAA03287C309D00D15A16 /* ExamplesSettingsView.swift */; };
@@ -283,7 +282,6 @@
 		C9CCCE93284A311A005665C8 /* ExerciseEditor-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseEditor-ViewModel.swift"; sourceTree = "<group>"; };
 		C9CCCE95284A31B9005665C8 /* ClockTime-Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClockTime-Calculator.swift"; sourceTree = "<group>"; };
 		C9CCCE97284B6DE5005665C8 /* ProgramDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDetailsView.swift; sourceTree = "<group>"; };
-		C9CCCE99284B6E09005665C8 /* ProgramDetailsView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgramDetailsView-ViewModel.swift"; sourceTree = "<group>"; };
 		C9CEA9FF287C2DFF00D15A16 /* SettingsSubgroupDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSubgroupDetailsView.swift; sourceTree = "<group>"; };
 		C9CEAA01287C307D00D15A16 /* RestSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestSettingsView.swift; sourceTree = "<group>"; };
 		C9CEAA03287C309D00D15A16 /* ExamplesSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplesSettingsView.swift; sourceTree = "<group>"; };
@@ -590,7 +588,6 @@
 				C9741A33286085E400E1F670 /* EditProgramView.swift */,
 				C9D53FB92870519200FD2B6F /* EditProgramView-ViewModel.swift */,
 				C9CCCE97284B6DE5005665C8 /* ProgramDetailsView.swift */,
-				C9CCCE99284B6E09005665C8 /* ProgramDetailsView-ViewModel.swift */,
 				C91B828F288B41AF00900239 /* ProgramCardView.swift */,
 				C92F6C3B286D9D2100D7BA59 /* ProgramSummaryView.swift */,
 				C9F604E1287AD57E00838462 /* ProgramShortDecorativeView.swift */,
@@ -933,7 +930,6 @@
 				C9DE152A2868B5500011324C /* Programs.swift in Sources */,
 				C91B828E28896D1100900239 /* ExerciseExampleId.swift in Sources */,
 				C9BF1EEE28C77E3000D67A99 /* IntroExerciseImage.swift in Sources */,
-				C9CCCE9A284B6E09005665C8 /* ProgramDetailsView-ViewModel.swift in Sources */,
 				C9A029032878478E00032FF9 /* DeleteAlert.swift in Sources */,
 				C9A0D01A2827CEC9000CF439 /* Squirrel.swift in Sources */,
 				C92F6C44286F0B0000D7BA59 /* ProgramDurationView.swift in Sources */,

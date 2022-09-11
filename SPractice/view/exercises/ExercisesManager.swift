@@ -14,6 +14,8 @@ import Foundation
     var dataManager = Exercises.shared
     var newItem: UUID?
 
+    @Published var selected: ExerciseTemplate?
+
     var sortingPropertyKey: String = "exercisesSortingProperty"
     var sortingOrderKey: String = "exercisesSortingOrder"
     var sortingProperty: SortingProperty = .date

@@ -9,8 +9,6 @@ import SwiftUI
 
 struct ProgramDetailsView: DetailsView {
 
-    @ObservedObject private var viewModel: ViewModel
-
     @ObservedObject var programs = Programs.shared
 
     @State private var showPracticeView = false
@@ -19,32 +17,34 @@ struct ProgramDetailsView: DetailsView {
 
     @Environment(\.horizontalSizeClass) var sizeClass
 
-    var onChange: (ProgramTemplate) -> Void
-    var onDelete: (ProgramTemplate) -> Void
+    private var program: ProgramTemplate
+    private var onChange: (ProgramTemplate) -> Void
+    private var onDelete: (ProgramTemplate) -> Void
 
     init(for program: ProgramTemplate, onChange: @escaping (ProgramTemplate) -> Void, onDelete: @escaping (ProgramTemplate) -> Void) {
-        self.viewModel = ViewModel(for: program)
+        self.program = program
         self.onChange = onChange
         self.onDelete = onDelete
     }
 
     var isDeleted: Bool {
-        !programs.contains(viewModel.template)
+        !programs.contains(program)
     }
 
     var detailsContent: some View {
         List {
-            ProgramCardView(program: viewModel.template)
+            ProgramCardView(program: program)
 
+            let isPracticeDisabled = isPracticeDisabled()
             Section {
                 Button {
                     showPracticeView = true
                 } label: {
                     Label("Run", systemImage: "play.rectangle.fill")
                 }
-                .disabled(viewModel.isPracticeDisabled)
+                .disabled(isPracticeDisabled)
                 .fullScreenCover(isPresented: $showPracticeView) {
-                    PracticeView(for: viewModel.template)
+                    PracticeView(for: program)
                 }
 
                 Button {
@@ -53,33 +53,30 @@ struct ProgramDetailsView: DetailsView {
                     Label("Configure", systemImage: "slider.horizontal.3")
                 }
                 .sheet(isPresented: $showPracticeSettings) {
-                    PracticeSettingsView(for: viewModel.template)
+                    PracticeSettingsView(for: program)
                 }
             } header: {
                 Text("Practice")
             } footer: {
-                if viewModel.isPracticeDisabled {
+                if isPracticeDisabled {
                     Text("Type and duration should be defined for all the exercises to start the practice")
                 }
             }
             .rowLeadingAligned()
 
-            ProgramSummaryView(program: viewModel.template)
+            ProgramSummaryView(program: program)
         }
         .listStyle(.insetGrouped)
         .sheet(isPresented: $showEditTemplateView) {
             NavigationStack {
-                EditProgramView(for: viewModel.template) {
-                    viewModel.updateProgramTemplate(template: $0)
-                    onChange($0)
-                }
+                EditProgramView(for: program, onSave: onChange)
             }
             .accentColor(.customAccentColor)
         }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
-                DeleteToolbarButton(item: viewModel.template) {
+                DeleteToolbarButton(item: program) {
                     onDelete($0)
                 }
 
@@ -89,6 +86,11 @@ struct ProgramDetailsView: DetailsView {
             }
         }
     }
+
+    func isPracticeDisabled() -> Bool {
+        !ValidationService.isValidToPractice(template: program)
+    }
+
 }
 
 struct ProgramDetailsView_Previews: PreviewProvider {

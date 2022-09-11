@@ -12,6 +12,7 @@ import SwiftUI
     associatedtype ListDataManager: PersistentDataManager where ListDataManager.Item == Self.Item
 
     var newItem: UUID? {get set}
+    var selected: Item? {get set}
 
     var dataManager: ListDataManager {get}
 }
@@ -43,6 +44,16 @@ extension MainList {
     func updateItem(_ item: Item) {
         update(item)
         dataManager.update(item)
+
+        updateSelected(item)
+    }
+
+    func updateSelected(_ item: Item) {
+        if let selected = selected {
+            if item.id == selected.id {
+                self.selected = item
+            }
+        }
     }
 
     func deleteItem(_ item: Item) {

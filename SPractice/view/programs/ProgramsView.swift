@@ -10,7 +10,6 @@ import SwiftUI
 struct ProgramsView: View {
 
     @ObservedObject var programsManager = ProgramsManager.shared
-    @State private var selected: ProgramTemplate?
 
     @State private var showDeleteConfirmation = false
     @State private var selectedToDelete: ProgramTemplate?
@@ -38,7 +37,7 @@ struct ProgramsView: View {
     var list: some View {
         ScrollViewReader { proxy in
             let programs = programsManager.filter(by: searchText)
-            List(programs, selection: $selected) { program in
+            List(programs, selection: $programsManager.selected) { program in
                 NavigationLink(value: program) {
                     ProgramShortDecorativeView(for: program, isAccented: program.id == selectedToDelete?.id, accentColor: .customAccentColor)
                 }
@@ -88,7 +87,7 @@ struct ProgramsView: View {
     }
 
     @ViewBuilder var detail: some View {
-        if let selected {
+        if let selected = programsManager.selected {
             NavigationStack {
                 ProgramDetailsView(for: selected) {
                     programsManager.updateItem($0)

@@ -14,6 +14,8 @@ import Foundation
     var dataManager = Programs.shared
     var newItem: UUID?
 
+    @Published var selected: ProgramTemplate?
+
     var sortingPropertyKey: String = "programsSortingProperty"
     var sortingOrderKey: String = "programsSortingOrder"
     var sortingProperty: SortingProperty = .date
