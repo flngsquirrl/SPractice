@@ -17,15 +17,14 @@ struct ProgramSummaryView: View {
 
         Section("Exercises (\(program.exercises.count))") {
             ForEach(program.exercises) { exercise in
-                NavigationLink {
-                    ExerciseContentsView(exercise: exercise)
-                } label: {
-                    HStack {
-                        let isExerciseValid = ValidationService.isValidToPractice(exercise)
-                        ExerciseShortView(for: exercise) {
-                            ExerciseIcon(for: exercise.exerciseType, isIconAccented: !isExerciseValid, accentColor: .red)
-                        }
+                NavigationLink(value: exercise) {
+                    let isExerciseValid = ValidationService.isValidToPractice(exercise)
+                    ExerciseShortView(for: exercise) {
+                        ExerciseIcon(for: exercise.exerciseType, isIconAccented: !isExerciseValid, accentColor: .red)
                     }
+                }
+                .navigationDestination(for: ExerciseTemplate.self) { exercise in
+                    ExerciseContentsView(exercise: exercise)
                 }
                 .rowLeadingAligned()
             }
