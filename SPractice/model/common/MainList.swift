@@ -56,9 +56,19 @@ extension MainList {
         }
     }
 
+    func resetSelected(_ item: Item) {
+        if let selected = selected {
+            if item.id == selected.id {
+                self.selected = nil
+            }
+        }
+    }
+
     func deleteItem(_ item: Item) {
         delete(item)
         dataManager.delete(item)
+
+        resetSelected(item)
     }
 
     func getItem(index: Int) -> Item {

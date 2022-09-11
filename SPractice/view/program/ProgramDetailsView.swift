@@ -7,19 +7,15 @@
 
 import SwiftUI
 
-struct ProgramDetailsView: DetailsView {
-
-    @ObservedObject var programs = Programs.shared
-
-    @State private var showPracticeView = false
-    @State private var showEditTemplateView = false
-    @State private var showPracticeSettings = false
-
-    @Environment(\.horizontalSizeClass) var sizeClass
+struct ProgramDetailsView: View {
 
     private var program: ProgramTemplate
     private var onChange: (ProgramTemplate) -> Void
     private var onDelete: (ProgramTemplate) -> Void
+
+    @State private var showPracticeView = false
+    @State private var showEditTemplateView = false
+    @State private var showPracticeSettings = false
 
     init(for program: ProgramTemplate, onChange: @escaping (ProgramTemplate) -> Void, onDelete: @escaping (ProgramTemplate) -> Void) {
         self.program = program
@@ -27,11 +23,7 @@ struct ProgramDetailsView: DetailsView {
         self.onDelete = onDelete
     }
 
-    var isDeleted: Bool {
-        !programs.contains(program)
-    }
-
-    var detailsContent: some View {
+    var body: some View {
         List {
             ProgramCardView(program: program)
 

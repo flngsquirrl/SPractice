@@ -64,7 +64,6 @@
 		C996981828646E53009836BD /* ExerciseDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C996981728646E53009836BD /* ExerciseDurationView.swift */; };
 		C996981A286477CB009836BD /* ExerciseTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9969819286477CB009836BD /* ExerciseTypeView.swift */; };
 		C99D20E228719BB300F655C8 /* IntensityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99D20E128719BB300F655C8 /* IntensityView.swift */; };
-		C99D281628799AE700596FBD /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99D281528799AE700596FBD /* DetailsView.swift */; };
 		C99D28182879A05F00596FBD /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99D28172879A05F00596FBD /* DataManager.swift */; };
 		C99E491828CCED0F008DC90B /* SwipeDeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99E491728CCED0F008DC90B /* SwipeDeleteButton.swift */; };
 		C9A028FC287833F200032FF9 /* SortableFilterableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A028FB287833F200032FF9 /* SortableFilterableList.swift */; };
@@ -223,7 +222,6 @@
 		C996981728646E53009836BD /* ExerciseDurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDurationView.swift; sourceTree = "<group>"; };
 		C9969819286477CB009836BD /* ExerciseTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTypeView.swift; sourceTree = "<group>"; };
 		C99D20E128719BB300F655C8 /* IntensityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntensityView.swift; sourceTree = "<group>"; };
-		C99D281528799AE700596FBD /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		C99D28172879A05F00596FBD /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		C99E491728CCED0F008DC90B /* SwipeDeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeDeleteButton.swift; sourceTree = "<group>"; };
 		C9A028FB287833F200032FF9 /* SortableFilterableList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortableFilterableList.swift; sourceTree = "<group>"; };
@@ -448,7 +446,6 @@
 				C96728822874E11A00B4990C /* IconTextView.swift */,
 				C91982562876E297005D049C /* InfoButton.swift */,
 				C9A029022878478E00032FF9 /* DeleteAlert.swift */,
-				C99D281528799AE700596FBD /* DetailsView.swift */,
 				C9ACC8EF28A93B7200FC5343 /* SaveItemToolbarButton.swift */,
 				C9ACC8F328AA78D000FC5343 /* View-if.swift */,
 				C9B49E8A28AAD6EB007713A1 /* FocusableField.swift */,
@@ -926,7 +923,6 @@
 				C91B8290288B41AF00900239 /* ProgramCardView.swift in Sources */,
 				C9BF1EEA28C6A30D00D67A99 /* IntroAppView.swift in Sources */,
 				C90B302728C2A8BC00B00DD3 /* View-RowLeadingAligned.swift in Sources */,
-				C99D281628799AE700596FBD /* DetailsView.swift in Sources */,
 				C9DE152A2868B5500011324C /* Programs.swift in Sources */,
 				C91B828E28896D1100900239 /* ExerciseExampleId.swift in Sources */,
 				C9BF1EEE28C77E3000D67A99 /* IntroExerciseImage.swift in Sources */,
