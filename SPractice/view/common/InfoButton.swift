@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct InfoButton: View {
+
+    var isFooter: Bool = false
+
     var body: some View {
         Button {
 
         } label: {
             Image(systemName: "info.circle")
         }
+        .font(isFooter ? .footnote : nil)
     }
 }
 

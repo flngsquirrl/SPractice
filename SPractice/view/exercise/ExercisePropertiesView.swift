@@ -28,7 +28,7 @@ struct ExercisePropertiesView<T>: View where T: Exercise {
             if exercise.isExample {
                 HStack(spacing: 0) {
                     Text("This is an example ")
-                    InfoButton()
+                    InfoButton(isFooter: true)
                 }
             }
         }

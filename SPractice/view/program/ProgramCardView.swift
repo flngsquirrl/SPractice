@@ -28,7 +28,7 @@ struct ProgramCardView<T>: View where T: Program {
             if program.isExample {
                 HStack(spacing: 0) {
                     Text("This is an example ")
-                    InfoButton()
+                    InfoButton(isFooter: true)
                 }
             }
         }
