@@ -13,9 +13,7 @@ struct ProgramDetailsView: View {
     private var onChange: (ProgramTemplate) -> Void
     private var onDelete: (ProgramTemplate) -> Void
 
-    @State private var showPracticeView = false
     @State private var showEditTemplateView = false
-    @State private var showPracticeSettings = false
 
     init(for program: ProgramTemplate, onChange: @escaping (ProgramTemplate) -> Void, onDelete: @escaping (ProgramTemplate) -> Void) {
         self.program = program
@@ -26,36 +24,7 @@ struct ProgramDetailsView: View {
     var body: some View {
         List {
             ProgramCardView(program: program)
-
-            let isPracticeDisabled = isPracticeDisabled()
-            Section {
-                Button {
-                    showPracticeView = true
-                } label: {
-                    Label("Run", systemImage: "play.rectangle.fill")
-                }
-                .disabled(isPracticeDisabled)
-                .fullScreenCover(isPresented: $showPracticeView) {
-                    PracticeView(for: program)
-                }
-
-                Button {
-                    showPracticeSettings = true
-                } label: {
-                    Label("Configure", systemImage: "slider.horizontal.3")
-                }
-                .sheet(isPresented: $showPracticeSettings) {
-                    PracticeSettingsView(for: program)
-                }
-            } header: {
-                Text("Practice")
-            } footer: {
-                if isPracticeDisabled {
-                    Text("Type and duration should be defined for all the exercises to start the practice")
-                }
-            }
-            .rowLeadingAligned()
-
+            ProgramPracticeSection(program: program)
             ProgramSummaryView(program: program)
         }
         .listStyle(.insetGrouped)
@@ -78,11 +47,6 @@ struct ProgramDetailsView: View {
             }
         }
     }
-
-    func isPracticeDisabled() -> Bool {
-        !ValidationService.isValidToPractice(template: program)
-    }
-
 }
 
 struct ProgramDetailsView_Previews: PreviewProvider {

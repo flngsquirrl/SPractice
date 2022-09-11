@@ -154,6 +154,7 @@
 		C9E0C42728801CDE00B8FBA8 /* SettingsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0C42628801CDE00B8FBA8 /* SettingsConstants.swift */; };
 		C9EB6D952881902B0026186C /* String-Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EB6D942881902B0026186C /* String-Empty.swift */; };
 		C9EB6D972882B9D10026186C /* Text-Truncated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EB6D962882B9D10026186C /* Text-Truncated.swift */; };
+		C9F13B1228CE69F100A2B39F /* ProgramPracticeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F13B1128CE69F100A2B39F /* ProgramPracticeSection.swift */; };
 		C9F2B42428C5089100DE6F65 /* bell2-3.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9F2B42028C5089100DE6F65 /* bell2-3.wav */; };
 		C9F2B42528C5089100DE6F65 /* bell3.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9F2B42128C5089100DE6F65 /* bell3.wav */; };
 		C9F2B42628C5089100DE6F65 /* happy-bell.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9F2B42228C5089100DE6F65 /* happy-bell.wav */; };
@@ -312,6 +313,7 @@
 		C9E0C42628801CDE00B8FBA8 /* SettingsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsConstants.swift; sourceTree = "<group>"; };
 		C9EB6D942881902B0026186C /* String-Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-Empty.swift"; sourceTree = "<group>"; };
 		C9EB6D962882B9D10026186C /* Text-Truncated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text-Truncated.swift"; sourceTree = "<group>"; };
+		C9F13B1128CE69F100A2B39F /* ProgramPracticeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramPracticeSection.swift; sourceTree = "<group>"; };
 		C9F2B42028C5089100DE6F65 /* bell2-3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "bell2-3.wav"; sourceTree = "<group>"; };
 		C9F2B42128C5089100DE6F65 /* bell3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bell3.wav; sourceTree = "<group>"; };
 		C9F2B42228C5089100DE6F65 /* happy-bell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "happy-bell.wav"; sourceTree = "<group>"; };
@@ -585,6 +587,7 @@
 				C9741A33286085E400E1F670 /* EditProgramView.swift */,
 				C9D53FB92870519200FD2B6F /* EditProgramView-ViewModel.swift */,
 				C9CCCE97284B6DE5005665C8 /* ProgramDetailsView.swift */,
+				C9F13B1128CE69F100A2B39F /* ProgramPracticeSection.swift */,
 				C91B828F288B41AF00900239 /* ProgramCardView.swift */,
 				C92F6C3B286D9D2100D7BA59 /* ProgramSummaryView.swift */,
 				C9F604E1287AD57E00838462 /* ProgramShortDecorativeView.swift */,
@@ -1001,6 +1004,7 @@
 				C9CEAA15287DC98E00D15A16 /* SettingsItem.swift in Sources */,
 				C9BF1EE828C69EB300D67A99 /* IntroExercisesView.swift in Sources */,
 				C9198259287786C7005D049C /* SortingSettingsManager.swift in Sources */,
+				C9F13B1228CE69F100A2B39F /* ProgramPracticeSection.swift in Sources */,
 				C915931F288758C100301338 /* Image-Decorated.swift in Sources */,
 				C9A0D003281C03F5000CF439 /* Clock.swift in Sources */,
 				C9741A5A2861EB0C00E1F670 /* ExerciseContentsView-ViewModel.swift in Sources */,
