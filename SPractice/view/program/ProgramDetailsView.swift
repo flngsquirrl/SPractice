@@ -1,5 +1,5 @@
 //
-//  ProgramTemplateDetailsView.swift
+//  ProgramDetailsView.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 4.06.22.
