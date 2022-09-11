@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct ExerciseShortDecorativeView<T>: View where T: Exercise {
+struct ExerciseShortDecorativeView: View {
 
-    private let exercise: T
+    private let exercise: ExerciseTemplate
     private var isAccented: Bool
     private var accentColor: Color
 
-    init(for exercise: T, isAccented: Bool = false, accentColor: Color = .customAccentColor) {
+    init(for exercise: ExerciseTemplate, isAccented: Bool = false, accentColor: Color = .customAccentColor) {
         self.exercise = exercise
         self.isAccented = isAccented
         self.accentColor = accentColor
