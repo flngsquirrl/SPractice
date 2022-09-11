@@ -52,7 +52,7 @@ struct ProgramsView: View {
                 }
             }
             .listStyle(.insetGrouped)
-            .searchable(text: $searchText)
+            .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
             .disableAutocorrection(true)
             .onChange(of: programsManager.newItem) { _ in
                 if programsManager.newItem != nil {

@@ -52,7 +52,7 @@ struct ExercisesView: View {
                 }
             }
             .listStyle(.insetGrouped)
-            .searchable(text: $searchText)
+            .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
             .disableAutocorrection(true)
             .onChange(of: exercisesManager.newItem) { _ in
                 if exercisesManager.newItem != nil {
