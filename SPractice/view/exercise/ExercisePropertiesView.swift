@@ -32,6 +32,7 @@ struct ExercisePropertiesView<T>: View where T: Exercise {
                 }
             }
         }
+        .rowLeadingAligned()
 
         Section {
             HStack {

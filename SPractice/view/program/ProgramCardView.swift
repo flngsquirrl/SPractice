@@ -32,6 +32,7 @@ struct ProgramCardView<T>: View where T: Program {
                 }
             }
         }
+        .rowLeadingAligned()
     }
 
     var showDescription: Bool {
