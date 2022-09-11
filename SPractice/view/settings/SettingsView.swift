@@ -11,12 +11,6 @@ struct SettingsView: View {
 
     @State private var selection: SettingsSubGroup?
 
-    static private var groupFooter: [SettingsGroup: String] = [
-        .exercise: "Set exercise configuration",
-        .practice: "Configure practice parameters",
-        .templates: "Manage default examples"
-    ]
-
     var body: some View {
         NavigationSplitView {
             List(SettingsGroup.allCases, id: \.self, selection: $selection) { group in
@@ -27,8 +21,6 @@ struct SettingsView: View {
                     }
                 } header: {
                     Text(group.rawValue)
-                } footer: {
-                    Text(Self.groupFooter[group] ?? "")
                 }
             }
             .listStyle(.insetGrouped)
