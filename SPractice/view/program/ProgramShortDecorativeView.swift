@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProgramShortDecorativeView: View {
+
     private var program: ProgramTemplate
     private var isAccented: Bool
     private var accentColor: Color
@@ -23,14 +24,10 @@ struct ProgramShortDecorativeView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                if isAccented {
-                    Text("\(program.name)")
-                        .font(.headline)
-                        .foregroundColor(accentColor)
-                } else {
-                    Text("\(program.name)")
-                        .font(.headline)
-                }
+                Text("\(program.name)")
+                    .font(.headline)
+                    .foregroundColor(isAccented ? accentColor : nil)
+
                 Group {
                     Text("\(program.exercises.count) ") +
                     Text(program.exercises.count == 1 ? "exercise" : "exercises")
@@ -44,7 +41,7 @@ struct ProgramShortDecorativeView: View {
 struct ProgramShortDecorativeView_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            ProgramShortDecorativeView(for: ProgramTemplate.simpleWorkout)
+            ProgramShortDecorativeView(for: .simpleWorkout)
             ProgramShortDecorativeView(for: .simpleYoga)
         }
         .listStyle(.insetGrouped)
