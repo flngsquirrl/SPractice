@@ -16,7 +16,7 @@ struct ProgramDurationSection<T>: View where T: Program {
         Section {
             HStack {
                 Text("Duration")
-                InfoButton()
+                InfoButton(for: .programDuration)
                 Spacer()
                 ProgramDurationView(for: program, mode: .extended)
                     .foregroundColor(.secondary)

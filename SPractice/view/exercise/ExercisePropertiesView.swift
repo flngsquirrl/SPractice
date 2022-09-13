@@ -28,7 +28,7 @@ struct ExercisePropertiesView<T>: View where T: Exercise {
             if exercise.isExample {
                 HStack(spacing: 0) {
                     Text("This is an example ")
-                    InfoButton(isFooter: true)
+                    InfoButton(for: .example, isFooter: true)
                 }
             }
         }
@@ -37,7 +37,7 @@ struct ExercisePropertiesView<T>: View where T: Exercise {
         Section {
             HStack {
                 Text("Type")
-                InfoButton()
+                InfoButton(for: .execiseType)
                 Spacer()
                 ExerciseTypeView(type: exercise.type, mode: .iconAndText)
                     .foregroundColor(.secondary)
@@ -46,7 +46,7 @@ struct ExercisePropertiesView<T>: View where T: Exercise {
             if showDetails {
                 HStack {
                     Text("Duration")
-                    InfoButton()
+                    InfoButton(for: .exerciseDuration)
                     Spacer()
                     ExerciseDurationView(for: exercise, isVerbose: true)
                         .foregroundColor(.secondary)
@@ -54,7 +54,7 @@ struct ExercisePropertiesView<T>: View where T: Exercise {
 
                 HStack {
                     Text("Intensity")
-                    InfoButton()
+                    InfoButton(for: .exerciseIntensity)
                     Spacer()
                     IntensityView(intensity: exercise.intensity, mode: .iconAndText)
                         .foregroundColor(.secondary)

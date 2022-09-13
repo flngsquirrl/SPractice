@@ -64,7 +64,7 @@ struct ExerciseEditor: View {
 
                 HStack {
                     Text("Type")
-                    InfoButton()
+                    InfoButton(for: .execiseType)
                     Spacer()
                     ExerciseTypeView(type: viewModel.template.type, mode: .iconAndText)
                         .foregroundColor(.secondary)
@@ -143,7 +143,7 @@ struct ExerciseEditor: View {
 
         HStack {
             Text("Intensity")
-            InfoButton()
+            InfoButton(for: .exerciseIntensity)
             Spacer()
             HStack {
                 IntensityView(intensity: viewModel.template.intensity!, mode: .iconAndText)
@@ -161,7 +161,7 @@ struct ExerciseEditor: View {
 
     @ViewBuilder var durationControlContent: some View {
         Text("Duration")
-        InfoButton()
+        InfoButton(for: .exerciseDuration)
         Spacer()
     }
 }

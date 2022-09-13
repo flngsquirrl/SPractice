@@ -155,12 +155,21 @@
 		C9EB6D952881902B0026186C /* String-Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EB6D942881902B0026186C /* String-Empty.swift */; };
 		C9EB6D972882B9D10026186C /* Text-Truncated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EB6D962882B9D10026186C /* Text-Truncated.swift */; };
 		C9F13B1228CE69F100A2B39F /* ProgramPracticeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F13B1128CE69F100A2B39F /* ProgramPracticeSection.swift */; };
+		C9F13B1528CF58E100A2B39F /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F13B1428CF58E100A2B39F /* HelpView.swift */; };
+		C9F13B1728CF5B1400A2B39F /* HelpPageContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F13B1628CF5B1400A2B39F /* HelpPageContent.swift */; };
+		C9F13B1928CF624600A2B39F /* ExamplesHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F13B1828CF624600A2B39F /* ExamplesHelp.swift */; };
+		C9F13B1B28CF6AF900A2B39F /* ProgramDurationHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F13B1A28CF6AF900A2B39F /* ProgramDurationHelp.swift */; };
 		C9F2B42428C5089100DE6F65 /* bell2-3.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9F2B42028C5089100DE6F65 /* bell2-3.wav */; };
 		C9F2B42528C5089100DE6F65 /* bell3.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9F2B42128C5089100DE6F65 /* bell3.wav */; };
 		C9F2B42628C5089100DE6F65 /* happy-bell.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9F2B42228C5089100DE6F65 /* happy-bell.wav */; };
 		C9F2B42828C52C4E00DE6F65 /* bell1-2-3.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9F2B42728C52C4E00DE6F65 /* bell1-2-3.wav */; };
 		C9F2B42A28C52FFA00DE6F65 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F2B42928C52FFA00DE6F65 /* AudioPlayer.swift */; };
 		C9F2B42C28C5304100DE6F65 /* BasicAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F2B42B28C5304100DE6F65 /* BasicAudioPlayer.swift */; };
+		C9F30BD128CFC5F900A1C9E2 /* ExerciseTypeHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F30BD028CFC5F900A1C9E2 /* ExerciseTypeHelp.swift */; };
+		C9F30BD328CFC66700A1C9E2 /* Text-Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F30BD228CFC66700A1C9E2 /* Text-Term.swift */; };
+		C9F30BD528CFC92700A1C9E2 /* View-Accented.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F30BD428CFC92700A1C9E2 /* View-Accented.swift */; };
+		C9F30BD728CFD5A000A1C9E2 /* ExerciseDurationHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F30BD628CFD5A000A1C9E2 /* ExerciseDurationHelp.swift */; };
+		C9F30BD928CFD5B500A1C9E2 /* ExerciseIntensityHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F30BD828CFD5B500A1C9E2 /* ExerciseIntensityHelp.swift */; };
 		C9F604E2287AD57E00838462 /* ProgramShortDecorativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F604E1287AD57E00838462 /* ProgramShortDecorativeView.swift */; };
 /* End PBXBuildFile section */
 
@@ -314,12 +323,21 @@
 		C9EB6D942881902B0026186C /* String-Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-Empty.swift"; sourceTree = "<group>"; };
 		C9EB6D962882B9D10026186C /* Text-Truncated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text-Truncated.swift"; sourceTree = "<group>"; };
 		C9F13B1128CE69F100A2B39F /* ProgramPracticeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramPracticeSection.swift; sourceTree = "<group>"; };
+		C9F13B1428CF58E100A2B39F /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
+		C9F13B1628CF5B1400A2B39F /* HelpPageContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPageContent.swift; sourceTree = "<group>"; };
+		C9F13B1828CF624600A2B39F /* ExamplesHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplesHelp.swift; sourceTree = "<group>"; };
+		C9F13B1A28CF6AF900A2B39F /* ProgramDurationHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDurationHelp.swift; sourceTree = "<group>"; };
 		C9F2B42028C5089100DE6F65 /* bell2-3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "bell2-3.wav"; sourceTree = "<group>"; };
 		C9F2B42128C5089100DE6F65 /* bell3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bell3.wav; sourceTree = "<group>"; };
 		C9F2B42228C5089100DE6F65 /* happy-bell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "happy-bell.wav"; sourceTree = "<group>"; };
 		C9F2B42728C52C4E00DE6F65 /* bell1-2-3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "bell1-2-3.wav"; sourceTree = "<group>"; };
 		C9F2B42928C52FFA00DE6F65 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		C9F2B42B28C5304100DE6F65 /* BasicAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAudioPlayer.swift; sourceTree = "<group>"; };
+		C9F30BD028CFC5F900A1C9E2 /* ExerciseTypeHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTypeHelp.swift; sourceTree = "<group>"; };
+		C9F30BD228CFC66700A1C9E2 /* Text-Term.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text-Term.swift"; sourceTree = "<group>"; };
+		C9F30BD428CFC92700A1C9E2 /* View-Accented.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-Accented.swift"; sourceTree = "<group>"; };
+		C9F30BD628CFD5A000A1C9E2 /* ExerciseDurationHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDurationHelp.swift; sourceTree = "<group>"; };
+		C9F30BD828CFD5B500A1C9E2 /* ExerciseIntensityHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseIntensityHelp.swift; sourceTree = "<group>"; };
 		C9F604E1287AD57E00838462 /* ProgramShortDecorativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramShortDecorativeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -446,7 +464,6 @@
 				C9CEAA07287C44EB00D15A16 /* DurationMinutesControl.swift */,
 				C9CEAA10287D964900D15A16 /* NumberSelectionControl.swift */,
 				C96728822874E11A00B4990C /* IconTextView.swift */,
-				C91982562876E297005D049C /* InfoButton.swift */,
 				C9A029022878478E00032FF9 /* DeleteAlert.swift */,
 				C9ACC8EF28A93B7200FC5343 /* SaveItemToolbarButton.swift */,
 				C9ACC8F328AA78D000FC5343 /* View-if.swift */,
@@ -611,6 +628,7 @@
 				C9CCCE9C284BA814005665C8 /* player */,
 				C9A0D02528281BE8000CF439 /* clock */,
 				C9CCCE9D284BA82A005665C8 /* settings */,
+				C9F13B1328CF58BC00A2B39F /* help */,
 				C96728812874E0FF00B4990C /* common */,
 				C9A028FD2878353200032FF9 /* sorting */,
 				C9A0D0182827CE9F000CF439 /* logo */,
@@ -773,6 +791,23 @@
 			path = task;
 			sourceTree = "<group>";
 		};
+		C9F13B1328CF58BC00A2B39F /* help */ = {
+			isa = PBXGroup;
+			children = (
+				C91982562876E297005D049C /* InfoButton.swift */,
+				C9F13B1428CF58E100A2B39F /* HelpView.swift */,
+				C9F13B1628CF5B1400A2B39F /* HelpPageContent.swift */,
+				C9F13B1828CF624600A2B39F /* ExamplesHelp.swift */,
+				C9F13B1A28CF6AF900A2B39F /* ProgramDurationHelp.swift */,
+				C9F30BD028CFC5F900A1C9E2 /* ExerciseTypeHelp.swift */,
+				C9F30BD628CFD5A000A1C9E2 /* ExerciseDurationHelp.swift */,
+				C9F30BD828CFD5B500A1C9E2 /* ExerciseIntensityHelp.swift */,
+				C9F30BD228CFC66700A1C9E2 /* Text-Term.swift */,
+				C9F30BD428CFC92700A1C9E2 /* View-Accented.swift */,
+			);
+			path = help;
+			sourceTree = "<group>";
+		};
 		C9F2B40028C4C08900DE6F65 /* sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -895,6 +930,7 @@
 				C967287E287457B500B4990C /* Program.swift in Sources */,
 				C91696A928A2910000053E90 /* ExercisesManager.swift in Sources */,
 				C9DE15282868B3CE0011324C /* Exercises.swift in Sources */,
+				C9F13B1728CF5B1400A2B39F /* HelpPageContent.swift in Sources */,
 				C9A0CFEA281AB32B000CF439 /* Task.swift in Sources */,
 				C9A0D027282A613A000CF439 /* PracticeSequenceView.swift in Sources */,
 				C9692C7F2850A35A00373730 /* ExercisesView.swift in Sources */,
@@ -932,6 +968,8 @@
 				C9A029032878478E00032FF9 /* DeleteAlert.swift in Sources */,
 				C9A0D01A2827CEC9000CF439 /* Squirrel.swift in Sources */,
 				C92F6C44286F0B0000D7BA59 /* ProgramDurationView.swift in Sources */,
+				C9F30BD728CFD5A000A1C9E2 /* ExerciseDurationHelp.swift in Sources */,
+				C9F30BD328CFC66700A1C9E2 /* Text-Term.swift in Sources */,
 				C9A0D00828228078000CF439 /* ProgramsView.swift in Sources */,
 				C9741A362860860C00E1F670 /* ProgramEditor.swift in Sources */,
 				C99D20E228719BB300F655C8 /* IntensityView.swift in Sources */,
@@ -950,6 +988,7 @@
 				C9A0D02228280F3E000CF439 /* RightWing.swift in Sources */,
 				C9A0CFEE281AB484000CF439 /* PracticeProgram.swift in Sources */,
 				C97DE6C028B5155A005D53D1 /* PracticeSettings-ViewModel.swift in Sources */,
+				C9F13B1928CF624600A2B39F /* ExamplesHelp.swift in Sources */,
 				C9692C7C284F787700373730 /* ExerciseShortView.swift in Sources */,
 				C9B49E8D28AAD894007713A1 /* EditorMode.swift in Sources */,
 				C9BF1EEC28C6A66C00D67A99 /* IntroProgramsView.swift in Sources */,
@@ -970,13 +1009,16 @@
 				C9B49E9528ACFF51007713A1 /* ExerciseIcon.swift in Sources */,
 				C91110DC289BDCCC00B9BC03 /* MainList.swift in Sources */,
 				C9CEAA08287C44EB00D15A16 /* DurationMinutesControl.swift in Sources */,
+				C9F30BD528CFC92700A1C9E2 /* View-Accented.swift in Sources */,
 				C9F2B42C28C5304100DE6F65 /* BasicAudioPlayer.swift in Sources */,
+				C9F30BD128CFC5F900A1C9E2 /* ExerciseTypeHelp.swift in Sources */,
 				C91982572876E297005D049C /* InfoButton.swift in Sources */,
 				C9A0CFF2281B3733000CF439 /* PracticeExerciseView.swift in Sources */,
 				C9ADD739287F602F00F465D5 /* ResetToDefaultsButton.swift in Sources */,
 				C9EB6D952881902B0026186C /* String-Empty.swift in Sources */,
 				C9A0D001281BE4C8000CF439 /* PlayerView.swift in Sources */,
 				C9B49E9B28AD5BEF007713A1 /* View-hideKeyboard.swift in Sources */,
+				C9F30BD928CFD5B500A1C9E2 /* ExerciseIntensityHelp.swift in Sources */,
 				C9CEAA11287D964900D15A16 /* NumberSelectionControl.swift in Sources */,
 				C91696A628A2543500053E90 /* ProgramsManager.swift in Sources */,
 				C9741A3C2860CD6300E1F670 /* ExerciseTypeImage.swift in Sources */,
@@ -988,6 +1030,7 @@
 				C9BF1EE628C6999400D67A99 /* OnboardingView.swift in Sources */,
 				C91B8292288B491B00900239 /* RoundIconButton.swift in Sources */,
 				C9B49E8B28AAD6EB007713A1 /* FocusableField.swift in Sources */,
+				C9F13B1528CF58E100A2B39F /* HelpView.swift in Sources */,
 				C9692C852850F47500373730 /* ExerciseSelectionView.swift in Sources */,
 				C912749F28BFB25A0051B4C3 /* Toggle-Decorated.swift in Sources */,
 				C9ACC8EC28A81C9C00FC5343 /* SortingOptions.swift in Sources */,
@@ -1016,6 +1059,7 @@
 				C9A0D01C28280DFA000CF439 /* SquirrelDrawer.swift in Sources */,
 				C9DE151F2868AADE0011324C /* ExerciseType.swift in Sources */,
 				C9CEAA06287C438500D15A16 /* DurationSecondsControl.swift in Sources */,
+				C9F13B1B28CF6AF900A2B39F /* ProgramDurationHelp.swift in Sources */,
 				C9EB6D972882B9D10026186C /* Text-Truncated.swift in Sources */,
 				C95011D52819703D0043EC75 /* ClockView.swift in Sources */,
 				C9741A382860862900E1F670 /* ProgramEditor-ViewModel.swift in Sources */,

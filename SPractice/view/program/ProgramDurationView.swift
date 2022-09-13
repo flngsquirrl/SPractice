@@ -28,10 +28,12 @@ struct ProgramDurationView: View {
     var body: some View {
         switch duration {
         case .known(let time):
-            if showAsApproximate {
-                LayoutUtils.approximationMark
+            HStack {
+                if showAsApproximate {
+                    LayoutUtils.approximationMark
+                }
+                DurationView(duration: time, mode: mode)
             }
-            DurationView(duration: time, mode: mode)
         case .unknown:
             LayoutUtils.unknownDurationText
         case .unlimited:
