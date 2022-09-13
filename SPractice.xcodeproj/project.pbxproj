@@ -358,6 +358,7 @@
 				C915931E288758C100301338 /* Image-Decorated.swift */,
 				C9EB6D962882B9D10026186C /* Text-Truncated.swift */,
 				C912749E28BFB25A0051B4C3 /* Toggle-Decorated.swift */,
+				C9ACC8F328AA78D000FC5343 /* View-if.swift */,
 				C92F6C3D286DDFF400D7BA59 /* View-Wrapped.swift */,
 				C90B302628C2A8BC00B00DD3 /* View-RowLeadingAligned.swift */,
 			);
@@ -453,25 +454,39 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		C95EE45128D0E07D000D7D3B /* editor */ = {
+			isa = PBXGroup;
+			children = (
+				C9B49E8C28AAD894007713A1 /* EditorMode.swift */,
+				C9B49E8A28AAD6EB007713A1 /* FocusableField.swift */,
+				C9B49E9828AD258F007713A1 /* HideKeyboardButton.swift */,
+				C9ACC8EF28A93B7200FC5343 /* SaveItemToolbarButton.swift */,
+				C9B49E9A28AD5BEF007713A1 /* View-hideKeyboard.swift */,
+			);
+			path = editor;
+			sourceTree = "<group>";
+		};
+		C95EE45228D0E0A2000D7D3B /* duration */ = {
+			isa = PBXGroup;
+			children = (
+				C9CEAA09287C462F00D15A16 /* DurationControl.swift */,
+				C9CEAA07287C44EB00D15A16 /* DurationMinutesControl.swift */,
+				C9CEAA05287C438500D15A16 /* DurationSecondsControl.swift */,
+			);
+			path = duration;
+			sourceTree = "<group>";
+		};
 		C96728812874E0FF00B4990C /* common */ = {
 			isa = PBXGroup;
 			children = (
 				C99E491628CCECEB008DC90B /* delete */,
+				C95EE45228D0E0A2000D7D3B /* duration */,
+				C95EE45128D0E07D000D7D3B /* editor */,
 				C912749D28BFB21B0051B4C3 /* extension */,
 				C932521F28798B7A009D5479 /* StubView.swift */,
-				C9CEAA09287C462F00D15A16 /* DurationControl.swift */,
-				C9CEAA05287C438500D15A16 /* DurationSecondsControl.swift */,
-				C9CEAA07287C44EB00D15A16 /* DurationMinutesControl.swift */,
 				C9CEAA10287D964900D15A16 /* NumberSelectionControl.swift */,
 				C96728822874E11A00B4990C /* IconTextView.swift */,
-				C9A029022878478E00032FF9 /* DeleteAlert.swift */,
-				C9ACC8EF28A93B7200FC5343 /* SaveItemToolbarButton.swift */,
-				C9ACC8F328AA78D000FC5343 /* View-if.swift */,
-				C9B49E8A28AAD6EB007713A1 /* FocusableField.swift */,
-				C9B49E8C28AAD894007713A1 /* EditorMode.swift */,
 				C9B49E8E28AAE585007713A1 /* ExampleMark.swift */,
-				C9B49E9828AD258F007713A1 /* HideKeyboardButton.swift */,
-				C9B49E9A28AD5BEF007713A1 /* View-hideKeyboard.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -539,6 +554,7 @@
 		C99E491628CCECEB008DC90B /* delete */ = {
 			isa = PBXGroup;
 			children = (
+				C9A029022878478E00032FF9 /* DeleteAlert.swift */,
 				C99E491728CCED0F008DC90B /* SwipeDeleteButton.swift */,
 			);
 			path = delete;
