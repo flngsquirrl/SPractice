@@ -19,6 +19,7 @@ struct ExerciseDurationHelp: View {
             Grid(alignment: .top) {
                 GridRow(alignment: .firstTextBaseline) {
                     ExerciseDurationView(for: ExerciseTemplate.vasihsthasana).accented()
+                        .frame(width: 60)
                     Text("defined: you set it for a timer exercise;\nfor a tabata exercises it is calculated based on Settings")
                         .gridColumnAlignment(.leading)
                 }
@@ -28,8 +29,9 @@ struct ExerciseDurationHelp: View {
                 GridRow(alignment: .firstTextBaseline) {
                     LayoutUtils.unlimitedDurationImage
                         .accented()
-                    Group {
+                    HStack {
                         Text("unlimited: you don't limit time for flow exercises")
+                        Spacer()
                     }
 
                 }

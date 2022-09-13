@@ -19,7 +19,9 @@ struct ProgramDurationHelp: View {
             Grid(alignment: .top) {
                 GridRow {
                     LayoutUtils.unknownDurationText.term()
+                        .frame(width: 30)
                     Text("not defined: there are no exercises in the program, or their durations are not set")
+                        .gridColumnAlignment(.leading)
                 }
 
                 Divider()
@@ -35,9 +37,9 @@ struct ProgramDurationHelp: View {
                             Text("can preceed the sum of known exercises durations, like")
                                 .padding([.bottom], 5)
                             ProgramDurationView(for: ProgramTemplate.simpleYoga, mode: .extended)
+                            Spacer()
                         }
                     }
-                    .gridColumnAlignment(.leading)
                 }
             }
         }
