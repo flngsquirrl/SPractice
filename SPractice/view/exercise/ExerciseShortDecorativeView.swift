@@ -24,6 +24,7 @@ struct ExerciseShortDecorativeView: View {
             ExerciseTypeImage(type: exercise.type,
                               isFilled: isAccented)
             Text(exercise.name)
+                .font(.headline)
         }
         .foregroundColor(isAccented ? accentColor : nil)
     }
