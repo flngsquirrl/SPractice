@@ -39,7 +39,7 @@ struct ExercisePropertiesView<T>: View where T: Exercise {
                 Text("Type")
                 InfoButton(for: .execiseType)
                 Spacer()
-                ExerciseTypeView(type: exercise.type, mode: .iconAndText)
+                ExerciseTypeView(type: exercise.type, mode: .textAndIcon)
                     .foregroundColor(.secondary)
             }
 
@@ -56,7 +56,7 @@ struct ExercisePropertiesView<T>: View where T: Exercise {
                     Text("Intensity")
                     InfoButton(for: .exerciseIntensity)
                     Spacer()
-                    IntensityView(intensity: exercise.intensity, mode: .iconAndText)
+                    IntensityView(intensity: exercise.intensity, mode: .textAndIcon)
                         .foregroundColor(.secondary)
                 }
             }

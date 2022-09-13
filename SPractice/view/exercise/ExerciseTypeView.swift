@@ -31,11 +31,11 @@ struct ExerciseTypeView_Previews: PreviewProvider {
             Text("timer")
             ExerciseTypeView(type: .timer, mode: .icon)
             ExerciseTypeView(type: .timer, mode: .text)
-            ExerciseTypeView(type: .timer, mode: .iconAndText)
+            ExerciseTypeView(type: .timer, mode: .textAndIcon)
             Text("unknown")
             ExerciseTypeView(type: nil, mode: .icon)
             ExerciseTypeView(type: nil, mode: .text)
-            ExerciseTypeView(type: nil, mode: .iconAndText)
+            ExerciseTypeView(type: nil, mode: .textAndIcon)
         }
     }
 }

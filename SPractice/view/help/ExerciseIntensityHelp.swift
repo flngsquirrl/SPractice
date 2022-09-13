@@ -21,7 +21,7 @@ struct ExerciseIntensityHelp: View {
 
             Grid(alignment: .top) {
                 GridRow {
-                    IntensityView(intensity: .activity, mode: .iconAndText)
+                    IntensityView(intensity: .activity, mode: .textAndIcon)
                         .accented()
                         .gridColumnAlignment(.leading)
                 }
@@ -29,14 +29,14 @@ struct ExerciseIntensityHelp: View {
                 Divider()
 
                 GridRow {
-                    IntensityView(intensity: .rest, mode: .iconAndText)
+                    IntensityView(intensity: .rest, mode: .textAndIcon)
                         .accented()
                 }
 
                 Divider()
 
                 GridRow {
-                    IntensityView(intensity: .mixed, mode: .iconAndText)
+                    IntensityView(intensity: .mixed, mode: .textAndIcon)
                         .accented()
                 }
             }

@@ -29,11 +29,11 @@ struct IntensityView_Previews: PreviewProvider {
     static var previews: some View {
         List {
             IntensityView(intensity: .rest)
-            IntensityView(intensity: .rest, mode: .iconAndText)
+            IntensityView(intensity: .rest, mode: .textAndIcon)
             IntensityView(intensity: .activity)
-            IntensityView(intensity: .activity, mode: .iconAndText)
+            IntensityView(intensity: .activity, mode: .textAndIcon)
             IntensityView(intensity: nil)
-            IntensityView(intensity: nil, mode: .iconAndText)
+            IntensityView(intensity: nil, mode: .textAndIcon)
         }
     }
 }
