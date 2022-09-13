@@ -27,8 +27,9 @@ struct HelpView: View {
             }
             .if(isFullSized) {
                 $0.navigationTitle("Help")
-                    .navigationBarTitleDisplayMode(.inline)
             }
+            .navigationTitle("")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 if isFullSized {
                     ToolbarItemGroup(placement: .cancellationAction) {
