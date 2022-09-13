@@ -16,13 +16,7 @@ struct PracticeExerciseView: View {
     var body: some View {
         VStack {
             HStack(alignment: .top) {
-                Image(systemName: ExerciseTypeImage.imageName(for: practice.currentExercise.type, isFilled: true))
-                    .resizable()
-                    .scaledToFit()
-                    .opacity(0.8)
-                    .frame(width: 35, height: 35)
-                    .foregroundColor(.lightOrange)
-                    .font(.largeTitle.bold())
+                typeImage
 
                 Spacer()
 
@@ -60,6 +54,16 @@ struct PracticeExerciseView: View {
         } content: {
             PracticeExerciseInfoView(exercise: practice.currentExercise)
         }
+    }
+
+    var typeImage: some View {
+        Image(systemName: ExerciseTypeImage.imageName(for: practice.currentExercise.type, isFilled: true))
+            .resizable()
+            .scaledToFit()
+            .opacity(0.8)
+            .frame(width: 35, height: 35)
+            .foregroundColor(.lightOrange)
+            .font(.largeTitle.bold())
     }
 }
 
