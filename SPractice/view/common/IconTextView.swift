@@ -21,6 +21,7 @@ protocol IconTextView: View {
 enum IconTextMode {
     case icon
     case text
+    case iconAndText
     case textAndIcon
 }
 
@@ -31,6 +32,11 @@ extension IconTextView {
             icon
         case .text:
            text
+        case .iconAndText:
+            HStack {
+                icon
+                text
+            }
         case .textAndIcon:
             HStack {
                 text
