@@ -96,6 +96,9 @@ struct ProgramsView: View {
                     programsManager.deleteItem($0)
                 }
             }
+            .navigationDestination(for: ExerciseTemplate.self) { exercise in
+                ExerciseContentsView(exercise: exercise)
+            }
         } else {
             secondaryView
         }

@@ -10,7 +10,6 @@ import SwiftUI
 struct ProgramSummaryView: View {
 
     var program: ProgramTemplate
-    @State private var selectedExercise: ExerciseTemplate?
 
     var body: some View {
         ProgramDurationSection(program: program)
@@ -22,9 +21,6 @@ struct ProgramSummaryView: View {
                     ExerciseShortView(for: exercise) {
                         ExerciseIcon(for: exercise.exerciseType, isIconAccented: !isExerciseValid, accentColor: .red)
                     }
-                }
-                .navigationDestination(for: ExerciseTemplate.self) { exercise in
-                    ExerciseContentsView(exercise: exercise)
                 }
                 .rowLeadingAligned()
             }
