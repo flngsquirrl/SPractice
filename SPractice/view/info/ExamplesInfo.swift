@@ -1,5 +1,5 @@
 //
-//  ExamplesHelp.swift
+//  ExamplesInfo.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 12.09.22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExamplesHelp: View {
+struct ExamplesInfo: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
@@ -24,8 +24,8 @@ struct ExamplesHelp: View {
     }
 }
 
-struct ExamplesHelp_Previews: PreviewProvider {
+struct ExamplesInfo_Previews: PreviewProvider {
     static var previews: some View {
-        ExamplesHelp()
+        ExamplesInfo()
     }
 }

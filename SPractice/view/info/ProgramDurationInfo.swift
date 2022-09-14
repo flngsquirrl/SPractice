@@ -1,5 +1,5 @@
 //
-//  ProgramDurationHelpContent.swift
+//  ProgramDurationInfo.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 12.09.22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProgramDurationHelp: View {
+struct ProgramDurationInfo: View {
     var body: some View {
         VStack(alignment: .leading) {
             Group {
@@ -46,9 +46,9 @@ struct ProgramDurationHelp: View {
     }
 }
 
-struct ProgramDurationHelpContent_Previews: PreviewProvider {
+struct PProgramDurationInfo_Previews: PreviewProvider {
     static var previews: some View {
-        ProgramDurationHelp()
+        ProgramDurationInfo()
             .wrapped()
     }
 }

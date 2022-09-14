@@ -9,27 +9,25 @@ import SwiftUI
 
 struct InfoButton: View {
 
-    var helpPage: HelpPage
+    @EnvironmentObject var infoManager: InfoManager
+
+    var page: InfoPage
     var isFooter: Bool
 
-    @State private var showHelp = false
-
-    init(for helpPage: HelpPage, isFooter: Bool = false) {
-        self.helpPage = helpPage
+    init(for page: InfoPage, isFooter: Bool = false) {
+        self.page = page
         self.isFooter = isFooter
     }
 
     var body: some View {
         Button {
-            showHelp = true
+            withAnimation {
+                infoManager.showInfo(for: page)
+            }
         } label: {
             Image(systemName: "info.circle")
         }
         .font(isFooter ? .footnote : nil)
-        .sheet(isPresented: $showHelp) {
-            HelpView(for: helpPage)
-                .presentationDetents([.fraction(0.6)])
-        }
     }
 }
 

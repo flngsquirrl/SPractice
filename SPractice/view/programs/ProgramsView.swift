@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProgramsView: View {
 
+    @EnvironmentObject var infoManager: InfoManager
     @ObservedObject var programsManager = ProgramsManager.shared
 
     @State private var showDeleteConfirmation = false
@@ -28,7 +29,7 @@ struct ProgramsView: View {
                     listToolbar
                 }
         } detail: {
-            detail
+            detail.addInfoPanel()
         }
         .navigationSplitViewStyle(.balanced)
         .accentColor(.customAccentColor)

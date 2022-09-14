@@ -28,6 +28,10 @@ struct ProgramEditor: View {
     }
 
     var body: some View {
+        content.addInfoPanel()
+    }
+
+    var content: some View {
         Form {
             Section {
                 TextField("Name", text: $viewModel.template.name)

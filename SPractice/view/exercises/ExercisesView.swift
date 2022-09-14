@@ -28,7 +28,7 @@ struct ExercisesView: View {
                     listToolbar
                 }
         } detail: {
-            detail
+            detail.addInfoPanel()
         }
         .navigationSplitViewStyle(.balanced)
         .accentColor(.customAccentColor)

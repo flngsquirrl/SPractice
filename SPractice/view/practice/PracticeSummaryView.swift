@@ -14,6 +14,11 @@ struct PracticeSummaryView: View {
     var practice: Practice
 
     var body: some View {
+        content.addInfoPanel()
+    }
+
+    @MainActor
+    var content: some View {
         NavigationStack {
             List {
                 ProgramDurationSection(program: practice.program)

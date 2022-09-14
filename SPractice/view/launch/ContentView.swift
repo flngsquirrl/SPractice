@@ -14,12 +14,15 @@ struct ContentView: View {
     @StateObject var activityMonitor = ScenePhaseMonitor()
     @StateObject var viewRouter = ViewRouter()
 
+    @StateObject var infoManager = InfoManager()
+
     var body: some View {
         Group {
             switch viewRouter.currentView {
             case .home:
                 HomeView()
                     .environmentObject(activityMonitor)
+                    .environmentObject(infoManager)
                     .transition(.opacity)
             case .onboarding:
                 OnboardingView()

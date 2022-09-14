@@ -1,5 +1,5 @@
 //
-//  ExerciseTypeHelp.swift
+//  ExerciseTypeInfo.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 12.09.22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExerciseTypeHelp: View {
+struct ExerciseTypeInfo: View {
     var body: some View {
         VStack(alignment: .leading) {
             Group {
@@ -52,8 +52,8 @@ struct ExerciseTypeHelp: View {
     }
 }
 
-struct ExerciseTypeHelp_Previews: PreviewProvider {
+struct ExerciseTypeInfo_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseTypeHelp()
+        ExerciseTypeInfo()
     }
 }

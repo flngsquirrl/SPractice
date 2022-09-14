@@ -16,6 +16,10 @@ struct ExerciseContentsView: View {
     }
 
     var body: some View {
+        content.addInfoPanel()
+    }
+
+    var content: some View {
         List {
             ExercisePropertiesView(exercise: viewModel.exercise)
 
