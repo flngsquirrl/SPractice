@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct DurationView: View {
+
+    @Environment(\.font) var font
+
     enum Mode {
         case padded
         case extended
@@ -19,7 +22,7 @@ struct DurationView: View {
     var body: some View {
         if mode == .padded {
             Text(paddedDuration)
-                .font(LayoutUtils.timeFont)
+                .monospacedDigit(font: font)
         } else {
             Text(extendedDuration)
         }

@@ -48,11 +48,9 @@ struct ClockView: View {
             .clipShape(RoundedRectangle(cornerRadius: 12))
 
             if clock.isCountup {
-                let time = ClockTime.getPaddedPresentation(for: clock.time.timeInSeconds)
-                Text("\(time)")
+                DurationView(duration: clock.time.timeInSeconds, mode: .padded)
                     .offset(x: -10, y: 10)
                     .foregroundColor(.secondary)
-                    .font(LayoutUtils.timeFont)
             }
         }
     }
