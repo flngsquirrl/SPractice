@@ -46,7 +46,7 @@ struct ProgramDurationInfo: View {
     }
 }
 
-struct PProgramDurationInfo_Previews: PreviewProvider {
+struct ProgramDurationInfo_Previews: PreviewProvider {
     static var previews: some View {
         ProgramDurationInfo()
             .wrapped()
