@@ -100,7 +100,7 @@ Ready? Then lets practice!
 
 <p float="left">
 <img width="300" alt="program_details_dark" src="https://user-images.githubusercontent.com/95634326/190728011-54c480b9-26d5-4bfb-9a0c-723fcb16c495.png#gh-dark-mode-only">
-<img width="489" alt="practice_settings_dark" src="https://user-images.githubusercontent.com/95634326/190728069-b8f4463b-1c1e-4bd9-86d4-1a3f66648997.png#gh-dark-mode-only">
+<img width="300" alt="practice_settings_dark" src="https://user-images.githubusercontent.com/95634326/190728069-b8f4463b-1c1e-4bd9-86d4-1a3f66648997.png#gh-dark-mode-only">
 
 <img width="300" alt="program_details_light" src="https://user-images.githubusercontent.com/95634326/190727544-9929de3a-a229-4c3c-9172-4394fc027c6d.png#gh-light-mode-only">
 <img width="300" alt="practice_settings_light" src="https://user-images.githubusercontent.com/95634326/190727583-8b0f4feb-d02e-445b-8428-54197b92e9bd.png#gh-light-mode-only">
@@ -156,7 +156,7 @@ In Settings you can:
 ## Targets
 
 iOS 16
-iPhone, iPads
+iPhone, iPad
 
 ## Implementation details
 
