@@ -115,9 +115,15 @@ Keep practicing)
 
 <p float="left">
 <img width="300" alt="practice_dark" src="https://user-images.githubusercontent.com/95634326/190728856-cc6d00eb-8143-4b85-bfe3-518d2d91d249.png#gh-dark-mode-only">
+<img width="300" alt="practice_2_dark" src="https://user-images.githubusercontent.com/95634326/190747703-e4d6f9d8-a0cd-46f1-9673-4f0afb834d45.png#gh-dark-mode-only">
+<img width="300" alt="practice_3_dark" src="https://user-images.githubusercontent.com/95634326/190747736-29c74498-77e0-479d-9d59-0eeef80d54f0.png#gh-dark-mode-only">
+<img width="300" alt="ex_info_dark" src="https://user-images.githubusercontent.com/95634326/190747896-4f472787-ff17-4885-8f7c-5fb9b26e6094.png#gh-dark-mode-only">
 <img width="300" alt="practice_summary_dark" src="https://user-images.githubusercontent.com/95634326/190729704-1013a984-2a90-4423-a317-419c6621cae8.png#gh-dark-mode-only">
 
 <img width="300" alt="practice_light" src="https://user-images.githubusercontent.com/95634326/190728796-3a5dab6d-fcfe-4cca-b061-126c09733d8e.png#gh-light-mode-only">
+<img width="300" alt="practice_2_light" src="https://user-images.githubusercontent.com/95634326/190748187-b8971b92-bdc7-45f2-8192-261457865594.png#gh-light-mode-only">
+<img width="300" alt="practice_3_light" src="https://user-images.githubusercontent.com/95634326/190748222-24badefc-d059-49ae-981e-d42b9798763f.png#gh-light-mode-only">
+<img width="300" alt="ex_info_light" src="https://user-images.githubusercontent.com/95634326/190748253-8e471337-7df8-44ef-b29b-a5cef440a9e3.png#gh-light-mode-only">
 <img width="300" alt="practice_summary_light" src="https://user-images.githubusercontent.com/95634326/190729658-4f5e32e7-e517-42b0-836e-2a055ec45294.png#gh-light-mode-only">
 
 </p>
