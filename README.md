@@ -83,7 +83,7 @@ This is how long the practice will last.
 
 ## Configure a practice
 
-There are some helpful configs to make the practice better.  
+There are some helpful configs to improve your practice.  
 
 First, you can add Rest intervals between the exercises.  
 You can use them to prepare for the next exercise or take a sip of water.  
