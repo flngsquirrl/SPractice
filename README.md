@@ -64,7 +64,7 @@ Or continue by settings its type, duration and intensity.
 ## Create a program
 
 Start by giving the program a name and, if needed, a description.  
-Then compose the sequence selecting exercises from templates or creating new.  
+Then build a sequence selecting exercises from templates or creating new.  
 
 Take a look at the program's duration.  
 This is how long the practice will last.
