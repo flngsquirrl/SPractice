@@ -86,7 +86,7 @@ This is how long the practice will last.
 There are some helpful configs to improve your practice.  
 
 First, you can add Rest intervals between the exercises.  
-You can use them to prepare for the next exercise or take a sip of water.  
+Use them to prepare for the next exercise or take a sip of water.  
 
 Second, you can pause after every exercise.  
 It means, when an exercise is over, you should press "Run" to start the next.  
@@ -97,14 +97,29 @@ When on, the sound signal will let you know when the exercise or its task is abo
 
 Now, ready? Then lets run the practice!
 
+<p float="left">
+<img width="300" alt="program_details_dark" src="https://user-images.githubusercontent.com/95634326/190728011-54c480b9-26d5-4bfb-9a0c-723fcb16c495.png#gh-dark-mode-only">
+<img width="489" alt="practice_settings_dark" src="https://user-images.githubusercontent.com/95634326/190728069-b8f4463b-1c1e-4bd9-86d4-1a3f66648997.png#gh-dark-mode-only">
+
+<img width="300" alt="program_details_light" src="https://user-images.githubusercontent.com/95634326/190727544-9929de3a-a229-4c3c-9172-4394fc027c6d.png#gh-light-mode-only">
+<img width="300" alt="practice_settings_light" src="https://user-images.githubusercontent.com/95634326/190727583-8b0f4feb-d02e-445b-8428-54197b92e9bd.png#gh-light-mode-only">
+</p>
+
 ## Run a practice
 
-Is Run option disabled?  
+Is "Run" option disabled?  
 Then, please, make sure the following is true for the program's sequence:   
 - type is set for all the exercises
 - duration is set for all timers exercises
 
 Is everyting fine? Ok, then lets practice)
+
+<p float="left">
+<img width="489" alt="invalid_practice_dark" src="https://user-images.githubusercontent.com/95634326/190728639-fc817c96-fb82-4865-adc0-642aed7092c6.png#gh-dark-mode-only">
+    
+<img width="300" alt="invalid_practice_light" src="https://user-images.githubusercontent.com/95634326/190728529-03395dcb-2978-4029-b4c3-43a5efa68d34.png#gh-light-mode-only">
+</p>
+
 
 ## Practice
 
@@ -112,6 +127,12 @@ You can pause, restart an exercise or the whole practice at any moment.
 You can also turn the sound on and off, view exercise details or practice summary.  
 
 Keep practicing)
+
+<p float="left">
+<img width="489" alt="practice_dark" src="https://user-images.githubusercontent.com/95634326/190728856-cc6d00eb-8143-4b85-bfe3-518d2d91d249.pnggh-dark-mode-only">
+
+<img width="489" alt="practice_light" src="https://user-images.githubusercontent.com/95634326/190728796-3a5dab6d-fcfe-4cca-b061-126c09733d8e.png#gh-light-mode-only">
+</p>
 
 ## Settings
 
