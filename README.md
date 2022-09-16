@@ -38,6 +38,8 @@ And restore from Settings, if you change your mind later.
 
 But try to experiment and create your own exercises and programs.
 
+<details>
+  <summary>See screenshots</summary>
 <p float="left">
 <img width="300" alt="programs_dark" src="https://user-images.githubusercontent.com/95634326/190706089-f345b132-5822-4f0b-872f-9c3736d8e413.png#gh-dark-mode-only">
 <img width="300" alt="exercises_dark" src="https://user-images.githubusercontent.com/95634326/190706146-c1b153fe-ac3e-4d91-b8da-0aa71834a4d7.png#gh-dark-mode-only">
@@ -45,6 +47,7 @@ But try to experiment and create your own exercises and programs.
 <img width="300" alt="programs_light" src="https://user-images.githubusercontent.com/95634326/190711976-e55ff19e-f273-44ed-bcf4-ff7eb94726ec.png#gh-light-mode-only">
 <img width="300" alt="exercises_light" src="https://user-images.githubusercontent.com/95634326/190706603-8a2f50ad-8266-4f3b-8044-da23361adbd0.png#gh-light-mode-only">
 </p>
+</details>
 
 ## Create an exercise
 
@@ -150,7 +153,20 @@ In Settings you can:
 <img width="300" alt="rest_light" src="https://user-images.githubusercontent.com/95634326/190738074-e9748dea-ed6f-43d5-88bd-3c1427114c5d.png#gh-light-mode-only">
 <img width="300" alt="flow_light" src="https://user-images.githubusercontent.com/95634326/190738434-8ec7e557-bd0e-409b-9eaf-8710d958ec26.png#gh-light-mode-only">
 <img width="300" alt="examples_light" src="https://user-images.githubusercontent.com/95634326/190738563-d20c5e4e-bd0d-4af0-9136-a171ea5c1e6e.png#gh-light-mode-only">
-    
+</p>
+
+## Additional screenshots
+
+### Onboarding
+
+<p float="left">
+<img width="200" alt="onboarding_1_dark" src="https://user-images.githubusercontent.com/95634326/190816941-8372d885-3223-4030-adf9-cc9682bf24c3.png#gh-dark-mode-only">
+<img width="200" alt="onboarding_2_dark" src="https://user-images.githubusercontent.com/95634326/190817017-cc9398b7-a38d-4bd4-9ab9-5ac393a682d4.png#gh-dark-mode-only">
+<img width="200" alt="onoarding_3_dark" src="https://user-images.githubusercontent.com/95634326/190817101-84eb4e3f-3e0a-4c03-bb30-b7d6b53c0ec7.png#gh-dark-mode-only">
+
+<img width="200" alt="onboarding_1_light" src="https://user-images.githubusercontent.com/95634326/190817852-3a36e8d8-b36c-460c-946c-d0c2c896706d.png#gh-light-mode-only">
+<img width="200" alt="onboarding_2_light" src="https://user-images.githubusercontent.com/95634326/190817919-4a3f276a-4b5b-402c-8a86-c40555611c34.png#gh-light-mode-only">
+<img width="200" alt="onboarding_3_light" src="https://user-images.githubusercontent.com/95634326/190817975-e4cda9cd-0c95-4bae-97e7-8e2539396809.png#gh-light-mode-only">
 </p>
 
 ## Targets
