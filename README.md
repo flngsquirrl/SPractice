@@ -37,11 +37,29 @@ And restore from Settings, if you change your mind later.
 
 But try to experiment and create your own exercises and programs.
 
+<p float="left">
+<img width="300" alt="programs_dark" src="https://user-images.githubusercontent.com/95634326/190706089-f345b132-5822-4f0b-872f-9c3736d8e413.png#gh-dark-mode-only">
+<img width="300" alt="exercises_dark" src="https://user-images.githubusercontent.com/95634326/190706146-c1b153fe-ac3e-4d91-b8da-0aa71834a4d7.png#gh-dark-mode-only">
+
+<img width="300" alt="programs_light" src="https://user-images.githubusercontent.com/95634326/190706588-0be712e9-26f0-4548-a53c-c15002ecfc91.png#gh-light-mode-only">
+<img width="300" alt="exercises_light" src="https://user-images.githubusercontent.com/95634326/190706603-8a2f50ad-8266-4f3b-8044-da23361adbd0.png#gh-light-mode-only">
+</p>
+
 ## Create an exercise
 
 Give the exercise a name and, optionally, a description.  
 You can stop here, if this is the information your want to use as a template.  
 Or continue by settings its type, duration and intensity.
+
+<p float="left">
+<img width="300" alt="exercise_flow_dark" src="https://user-images.githubusercontent.com/95634326/190710950-e5a4fd23-a98e-46e9-ac37-0bcc062ab1a0.png#gh-dark-mode-only">
+<img width="300" alt="exercise_timer_dark" src="https://user-images.githubusercontent.com/95634326/190707345-0f8b1ac8-851f-4347-908c-f76245b1a564.png#gh-dark-mode-only">
+<img width="300" alt="exercise_tabata_dark" src="https://user-images.githubusercontent.com/95634326/190707358-3f8dd431-8900-4953-901a-0fddf52ab055.png#gh-dark-mode-only">
+
+<img width="300" alt="exercise_flow_light" src="https://user-images.githubusercontent.com/95634326/190710816-b3bd25ea-9242-4a91-905a-627880ae86c6.png#gh-light-mode-only">
+<img width="300" alt="exercise_timer_light" src="https://user-images.githubusercontent.com/95634326/190710838-6f64a6ad-9eee-4bfd-836e-3a58548535b8.png#gh-light-mode-only">
+<img width="300" alt="exercise_tabata_light" src="https://user-images.githubusercontent.com/95634326/190710843-8638dce4-5827-4eb2-9409-c0fd3c9db961.png#gh-light-mode-only">
+</p>
 
 ## Create a program
 
@@ -51,7 +69,19 @@ Then compose the sequence selecting exercises from templates or creating new.
 Take a look at the program's duration.  
 This is how long the practice will last.
 
-## Configure the practice
+<p float="left">
+<img width="300" alt="program_create_dark" src="https://user-images.githubusercontent.com/95634326/190708503-b63fa80a-37ed-4bf6-a9c9-96bd3717d468.png#gh-dark-mode-only">
+<img width="300" alt="program_select_dark" src="https://user-images.githubusercontent.com/95634326/190708528-ca0adbaf-17d1-4c8d-a405-2d6db4a1aa62.png#gh-dark-mode-only">
+<img width="300" alt="program_select_2_dark" src="https://user-images.githubusercontent.com/95634326/190708566-6154b9b8-0207-4fd1-b721-14e00d68f21a.png#gh-dark-mode-only">
+<img width="300" alt="program_personal_dark" src="https://user-images.githubusercontent.com/95634326/190708836-e52313a6-5ec5-4dd1-bcd2-13b245eb39cd.png#gh-dark-mode-only">
+
+<img width="300" alt="program_create_light" src="https://user-images.githubusercontent.com/95634326/190710200-41d1faf4-199c-4b9f-9985-16785d613e51.png#gh-light-mode-only">
+<img width="300" alt="program_select_light" src="https://user-images.githubusercontent.com/95634326/190710210-33050e24-e8a1-4741-91ad-48e9087ca6b6.png#gh-light-mode-only">
+<img width="300" alt="program_select_2_light" src="https://user-images.githubusercontent.com/95634326/190710213-4a0b1c2b-31ee-4fa7-8211-17f0817cc6ad.png#gh-light-mode-only">
+<img width="300" alt="program_personal_light" src="https://user-images.githubusercontent.com/95634326/190710217-45443b36-b2fa-4802-961b-259a9d4ed9cd.png#gh-light-mode-only">
+</p>
+
+## Configure a practice
 
 There are some helpful configs to make the practice better.  
 
@@ -67,7 +97,7 @@ When on, the sound signal will let you know when the exercise or its task is abo
 
 Now, ready? Then lets run the practice!
 
-## Run the practice
+## Run a practice
 
 Is Run option disabled?  
 Then, please, make sure the following is true for the program's sequence:   
