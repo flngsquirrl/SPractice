@@ -41,7 +41,7 @@ But try to experiment and create your own exercises and programs.
 <img width="300" alt="programs_dark" src="https://user-images.githubusercontent.com/95634326/190706089-f345b132-5822-4f0b-872f-9c3736d8e413.png#gh-dark-mode-only">
 <img width="300" alt="exercises_dark" src="https://user-images.githubusercontent.com/95634326/190706146-c1b153fe-ac3e-4d91-b8da-0aa71834a4d7.png#gh-dark-mode-only">
 
-<img width="300" alt="programs_light" src="https://user-images.githubusercontent.com/95634326/190706588-0be712e9-26f0-4548-a53c-c15002ecfc91.png#gh-light-mode-only">
+<img width="300" alt="programs_light" src="https://user-images.githubusercontent.com/95634326/190711976-e55ff19e-f273-44ed-bcf4-ff7eb94726ec.png#gh-light-mode-only">
 <img width="300" alt="exercises_light" src="https://user-images.githubusercontent.com/95634326/190706603-8a2f50ad-8266-4f3b-8044-da23361adbd0.png#gh-light-mode-only">
 </p>
 
@@ -75,7 +75,7 @@ This is how long the practice will last.
 <img width="300" alt="program_select_2_dark" src="https://user-images.githubusercontent.com/95634326/190708566-6154b9b8-0207-4fd1-b721-14e00d68f21a.png#gh-dark-mode-only">
 <img width="300" alt="program_personal_dark" src="https://user-images.githubusercontent.com/95634326/190708836-e52313a6-5ec5-4dd1-bcd2-13b245eb39cd.png#gh-dark-mode-only">
 
-<img width="300" alt="program_create_light" src="https://user-images.githubusercontent.com/95634326/190710200-41d1faf4-199c-4b9f-9985-16785d613e51.png#gh-light-mode-only">
+<img width="300" alt="program_create_light" src="https://user-images.githubusercontent.com/95634326/190712267-b161ddf3-4898-47fa-be13-7a093f6636aa.png#gh-light-mode-only">
 <img width="300" alt="program_select_light" src="https://user-images.githubusercontent.com/95634326/190710210-33050e24-e8a1-4741-91ad-48e9087ca6b6.png#gh-light-mode-only">
 <img width="300" alt="program_select_2_light" src="https://user-images.githubusercontent.com/95634326/190710213-4a0b1c2b-31ee-4fa7-8211-17f0817cc6ad.png#gh-light-mode-only">
 <img width="300" alt="program_personal_light" src="https://user-images.githubusercontent.com/95634326/190710217-45443b36-b2fa-4802-961b-259a9d4ed9cd.png#gh-light-mode-only">
