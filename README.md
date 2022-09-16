@@ -6,9 +6,10 @@ And use your time wisely.
 
 This is an application for you personal practice.
 
+
 ## Exercises
 
-There are 3 types of exercises, that define how you practice:
+There are 3 types of exercises, that define how you practice.
 
 - flow  
 You decide when you finish and notify the app by pressing a button.  
@@ -95,7 +96,7 @@ This gives you more control, but requires more interaction.
 Third, you can turn the sound notifications on and off.  
 When on, the sound signal will let you know when the exercise or its task is about to finish.  
 
-Now, ready? Then lets run the practice!
+Ready? Then lets practice!
 
 <p float="left">
 <img width="300" alt="program_details_dark" src="https://user-images.githubusercontent.com/95634326/190728011-54c480b9-26d5-4bfb-9a0c-723fcb16c495.png#gh-dark-mode-only">
@@ -105,22 +106,6 @@ Now, ready? Then lets run the practice!
 <img width="300" alt="practice_settings_light" src="https://user-images.githubusercontent.com/95634326/190727583-8b0f4feb-d02e-445b-8428-54197b92e9bd.png#gh-light-mode-only">
 </p>
 
-## Run a practice
-
-Is "Run" option disabled?  
-Then, please, make sure the following is true for the program's sequence:   
-- type is set for all the exercises
-- duration is set for all timers exercises
-
-Is everyting fine? Ok, then lets practice)
-
-<p float="left">
-<img width="489" alt="invalid_practice_dark" src="https://user-images.githubusercontent.com/95634326/190728639-fc817c96-fb82-4865-adc0-642aed7092c6.png#gh-dark-mode-only">
-    
-<img width="300" alt="invalid_practice_light" src="https://user-images.githubusercontent.com/95634326/190728529-03395dcb-2978-4029-b4c3-43a5efa68d34.png#gh-light-mode-only">
-</p>
-
-
 ## Practice
 
 You can pause, restart an exercise or the whole practice at any moment.  
@@ -129,18 +114,38 @@ You can also turn the sound on and off, view exercise details or practice summar
 Keep practicing)
 
 <p float="left">
-<img width="489" alt="practice_dark" src="https://user-images.githubusercontent.com/95634326/190728856-cc6d00eb-8143-4b85-bfe3-518d2d91d249.pnggh-dark-mode-only">
+<img width="300" alt="practice_dark" src="https://user-images.githubusercontent.com/95634326/190728856-cc6d00eb-8143-4b85-bfe3-518d2d91d249.png#gh-dark-mode-only">
+<img width="300" alt="practice_summary_dark" src="https://user-images.githubusercontent.com/95634326/190729704-1013a984-2a90-4423-a317-419c6621cae8.png#gh-dark-mode-only">
 
-<img width="489" alt="practice_light" src="https://user-images.githubusercontent.com/95634326/190728796-3a5dab6d-fcfe-4cca-b061-126c09733d8e.png#gh-light-mode-only">
+<img width="300" alt="practice_light" src="https://user-images.githubusercontent.com/95634326/190728796-3a5dab6d-fcfe-4cca-b061-126c09733d8e.png#gh-light-mode-only">
+<img width="300" alt="practice_summary_light" src="https://user-images.githubusercontent.com/95634326/190729658-4f5e32e7-e517-42b0-836e-2a055ec45294.png#gh-light-mode-only">
+
 </p>
 
 ## Settings
 
 In Settings you can:
-- set intervals for tabata exercises
-- set name and duration for Rest intervals
-- configure auto-finish for flow exercises
-- manage modified examples
+- set intervals for tabata exercises;
+- set name and duration for Rest intervals;
+- configure auto-finish for flow exercises;
+- manage modified examples.
+
+<p float="left">
+<img width="300" alt="settings_dark" src="https://user-images.githubusercontent.com/95634326/190730731-7a7effa7-47e3-47c9-89fe-0b97e9de0e0a.png#gh-dark-mode-only">
+<img width="300" alt="about_dark" src="https://user-images.githubusercontent.com/95634326/190735067-6a883323-13a0-48df-9e8f-00940c55d720.png#gh-dark-mode-only">
+<img width="300" alt="tabata_dark" src="https://user-images.githubusercontent.com/95634326/190735289-c0a4a7ca-ebfa-47ff-ae13-8e97739c5a0f.png#gh-dark-mode-only">
+<img width="300" alt="rest_dark" src="https://user-images.githubusercontent.com/95634326/190735652-29be3938-7741-4a44-b859-12f16c2e4542.png#gh-dark-mode-only">
+<img width="300" alt="flow_dark" src="https://user-images.githubusercontent.com/95634326/190735882-de11add3-ba3c-449c-a8e1-6e10ddac478b.png#gh-dark-mode-only">
+<img width="300" alt="examples_dark" src="https://user-images.githubusercontent.com/95634326/190736106-cf0af1b8-c66e-416c-8c17-c1b8a566e342.png#gh-dark-mode-only">
+      
+<img width="300" alt="settings_light" src="https://user-images.githubusercontent.com/95634326/190730885-a2d76496-40ec-48ff-9165-e9b92067e9d4.png#gh-light-mode-only">
+ <img width="300" alt="about_light" src="https://user-images.githubusercontent.com/95634326/190737453-bddefc23-7a1e-481d-a096-9ef7d8e9357b.png#gh-light-mode-only">
+ <img width="300" alt="tabata_light" src="https://user-images.githubusercontent.com/95634326/190737936-58b9b9dc-1650-4569-ac36-a9e22c463d72.png#gh-light-mode-only">
+<img width="300" alt="rest_light" src="https://user-images.githubusercontent.com/95634326/190738074-e9748dea-ed6f-43d5-88bd-3c1427114c5d.png#gh-light-mode-only">
+<img width="300" alt="flow_light" src="https://user-images.githubusercontent.com/95634326/190738434-8ec7e557-bd0e-409b-9eaf-8710d958ec26.png#gh-light-mode-only">
+<img width="300" alt="examples_light" src="https://user-images.githubusercontent.com/95634326/190738563-d20c5e4e-bd0d-4af0-9136-a171ea5c1e6e.png#gh-light-mode-only">
+    
+</p>
 
 ## Targets
 
