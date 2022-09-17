@@ -154,6 +154,12 @@ In Settings you can:
 
 ## Demos
 
+### Run practice
+
+https://user-images.githubusercontent.com/95634326/190867364-dbd9bbfd-41a4-49b8-922c-4d539729b8ab.mp4#gh-dark-mode-only
+
+https://user-images.githubusercontent.com/95634326/190867447-1f8eb3ad-34c0-4c65-bd4f-dfa1ad6f1dcf.mp4#gh-light-mode-only
+
 ## Additional screenshots
 
 ### Onboarding
