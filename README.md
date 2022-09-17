@@ -155,6 +155,10 @@ In Settings you can:
 
 ## Demos
 
+### Onboarding
+
+https://user-images.githubusercontent.com/95634326/190871112-ebf494da-b7f5-4de4-8bb4-0772a64deffe.mp4
+
 ### Launch
 
 https://user-images.githubusercontent.com/95634326/190870383-7f771f50-3ff1-4e14-8543-6db7ed6cc08c.mp4
@@ -180,18 +184,6 @@ https://user-images.githubusercontent.com/95634326/190869964-9fc43b22-51d1-4572-
 https://user-images.githubusercontent.com/95634326/190869969-7f9777dd-b92e-4690-892c-449bb133542f.mp4
 
 ## Additional screenshots
-
-### Onboarding
-
-<p float="left">
-<img width="200" alt="onboarding_1_dark" src="https://user-images.githubusercontent.com/95634326/190816941-8372d885-3223-4030-adf9-cc9682bf24c3.png#gh-dark-mode-only">
-<img width="200" alt="onboarding_2_dark" src="https://user-images.githubusercontent.com/95634326/190817017-cc9398b7-a38d-4bd4-9ab9-5ac393a682d4.png#gh-dark-mode-only">
-<img width="200" alt="onoarding_3_dark" src="https://user-images.githubusercontent.com/95634326/190817101-84eb4e3f-3e0a-4c03-bb30-b7d6b53c0ec7.png#gh-dark-mode-only">
-
-<img width="200" alt="onboarding_1_light" src="https://user-images.githubusercontent.com/95634326/190817852-3a36e8d8-b36c-460c-946c-d0c2c896706d.png#gh-light-mode-only">
-<img width="200" alt="onboarding_2_light" src="https://user-images.githubusercontent.com/95634326/190817919-4a3f276a-4b5b-402c-8a86-c40555611c34.png#gh-light-mode-only">
-<img width="200" alt="onboarding_3_light" src="https://user-images.githubusercontent.com/95634326/190817975-e4cda9cd-0c95-4bae-97e7-8e2539396809.png#gh-light-mode-only">
-</p>
 
 ### iPad layout
 
