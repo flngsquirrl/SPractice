@@ -1,5 +1,5 @@
 //
-//  View-if.swift
+//  View-If.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 15.08.22.

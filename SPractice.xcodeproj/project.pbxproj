@@ -19,7 +19,7 @@
 		C91B828E28896D1100900239 /* ExerciseExampleId.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91B828D28896D1100900239 /* ExerciseExampleId.swift */; };
 		C91B8290288B41AF00900239 /* ProgramCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91B828F288B41AF00900239 /* ProgramCardView.swift */; };
 		C91B8292288B491B00900239 /* RoundIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91B8291288B491B00900239 /* RoundIconButton.swift */; };
-		C92F6C37286C525A00D7BA59 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C36286C525A00D7BA59 /* FileManager.swift */; };
+		C92F6C37286C525A00D7BA59 /* FileManager-Documents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C36286C525A00D7BA59 /* FileManager-Documents.swift */; };
 		C92F6C3C286D9D2100D7BA59 /* ProgramSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C3B286D9D2100D7BA59 /* ProgramSummaryView.swift */; };
 		C92F6C3E286DDFF400D7BA59 /* View-Wrapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C3D286DDFF400D7BA59 /* View-Wrapped.swift */; };
 		C92F6C42286F00EB00D7BA59 /* LayoutUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C41286F00EB00D7BA59 /* LayoutUtils.swift */; };
@@ -102,7 +102,7 @@
 		C9ACC8EC28A81C9C00FC5343 /* SortingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC8EB28A81C9C00FC5343 /* SortingOptions.swift */; };
 		C9ACC8F028A93B7200FC5343 /* SaveItemToolbarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC8EF28A93B7200FC5343 /* SaveItemToolbarButton.swift */; };
 		C9ACC8F228A993FC00FC5343 /* ExamplesSettingsView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC8F128A993FC00FC5343 /* ExamplesSettingsView-ViewModel.swift */; };
-		C9ACC8F428AA78D000FC5343 /* View-if.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC8F328AA78D000FC5343 /* View-if.swift */; };
+		C9ACC8F428AA78D000FC5343 /* View-If.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC8F328AA78D000FC5343 /* View-If.swift */; };
 		C9ADD739287F602F00F465D5 /* ResetToDefaultsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ADD738287F602F00F465D5 /* ResetToDefaultsButton.swift */; };
 		C9B1E744287C266000C92571 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B1E743287C266000C92571 /* SettingsView.swift */; };
 		C9B1E746287C293F00C92571 /* TabataSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B1E745287C293F00C92571 /* TabataSettingsView.swift */; };
@@ -171,7 +171,7 @@
 		C9F30BD528CFC92700A1C9E2 /* View-Accented.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F30BD428CFC92700A1C9E2 /* View-Accented.swift */; };
 		C9F30BD728CFD5A000A1C9E2 /* ExerciseDurationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F30BD628CFD5A000A1C9E2 /* ExerciseDurationInfo.swift */; };
 		C9F30BD928CFD5B500A1C9E2 /* ExerciseIntensityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F30BD828CFD5B500A1C9E2 /* ExerciseIntensityInfo.swift */; };
-		C9F426F928D27E2B0028672D /* Text-monospacedDigit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F426F828D27E2B0028672D /* Text-monospacedDigit.swift */; };
+		C9F426F928D27E2B0028672D /* Text-Monospaced.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F426F828D27E2B0028672D /* Text-Monospaced.swift */; };
 		C9F604E2287AD57E00838462 /* ProgramShortDecorativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F604E1287AD57E00838462 /* ProgramShortDecorativeView.swift */; };
 /* End PBXBuildFile section */
 
@@ -188,7 +188,7 @@
 		C91B828D28896D1100900239 /* ExerciseExampleId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseExampleId.swift; sourceTree = "<group>"; };
 		C91B828F288B41AF00900239 /* ProgramCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramCardView.swift; sourceTree = "<group>"; };
 		C91B8291288B491B00900239 /* RoundIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundIconButton.swift; sourceTree = "<group>"; };
-		C92F6C36286C525A00D7BA59 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		C92F6C36286C525A00D7BA59 /* FileManager-Documents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-Documents.swift"; sourceTree = "<group>"; };
 		C92F6C3B286D9D2100D7BA59 /* ProgramSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramSummaryView.swift; sourceTree = "<group>"; };
 		C92F6C3D286DDFF400D7BA59 /* View-Wrapped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-Wrapped.swift"; sourceTree = "<group>"; };
 		C92F6C41286F00EB00D7BA59 /* LayoutUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutUtils.swift; sourceTree = "<group>"; };
@@ -272,7 +272,7 @@
 		C9ACC8EB28A81C9C00FC5343 /* SortingOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingOptions.swift; sourceTree = "<group>"; };
 		C9ACC8EF28A93B7200FC5343 /* SaveItemToolbarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveItemToolbarButton.swift; sourceTree = "<group>"; };
 		C9ACC8F128A993FC00FC5343 /* ExamplesSettingsView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExamplesSettingsView-ViewModel.swift"; sourceTree = "<group>"; };
-		C9ACC8F328AA78D000FC5343 /* View-if.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-if.swift"; sourceTree = "<group>"; };
+		C9ACC8F328AA78D000FC5343 /* View-If.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-If.swift"; sourceTree = "<group>"; };
 		C9ADD738287F602F00F465D5 /* ResetToDefaultsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetToDefaultsButton.swift; sourceTree = "<group>"; };
 		C9B1E743287C266000C92571 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C9B1E745287C293F00C92571 /* TabataSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabataSettingsView.swift; sourceTree = "<group>"; };
@@ -341,7 +341,7 @@
 		C9F30BD428CFC92700A1C9E2 /* View-Accented.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-Accented.swift"; sourceTree = "<group>"; };
 		C9F30BD628CFD5A000A1C9E2 /* ExerciseDurationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDurationInfo.swift; sourceTree = "<group>"; };
 		C9F30BD828CFD5B500A1C9E2 /* ExerciseIntensityInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseIntensityInfo.swift; sourceTree = "<group>"; };
-		C9F426F828D27E2B0028672D /* Text-monospacedDigit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text-monospacedDigit.swift"; sourceTree = "<group>"; };
+		C9F426F828D27E2B0028672D /* Text-Monospaced.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text-Monospaced.swift"; sourceTree = "<group>"; };
 		C9F604E1287AD57E00838462 /* ProgramShortDecorativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramShortDecorativeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -360,10 +360,10 @@
 			isa = PBXGroup;
 			children = (
 				C915931E288758C100301338 /* Image-Decorated.swift */,
-				C9F426F828D27E2B0028672D /* Text-monospacedDigit.swift */,
+				C9F426F828D27E2B0028672D /* Text-Monospaced.swift */,
 				C9EB6D962882B9D10026186C /* Text-Truncated.swift */,
 				C912749E28BFB25A0051B4C3 /* Toggle-Decorated.swift */,
-				C9ACC8F328AA78D000FC5343 /* View-if.swift */,
+				C9ACC8F328AA78D000FC5343 /* View-If.swift */,
 				C92F6C3D286DDFF400D7BA59 /* View-Wrapped.swift */,
 				C90B302628C2A8BC00B00DD3 /* View-RowLeadingAligned.swift */,
 			);
@@ -383,7 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				C9C2727B2848C91500F7DA0E /* Array-Wrapper.swift */,
-				C92F6C36286C525A00D7BA59 /* FileManager.swift */,
+				C92F6C36286C525A00D7BA59 /* FileManager-Documents.swift */,
 				C9EB6D942881902B0026186C /* String-Empty.swift */,
 			);
 			path = utils;
@@ -959,7 +959,7 @@
 				C9445C6D285E00D000DF2A08 /* ExerciseDetailsView.swift in Sources */,
 				C9CCCE94284A311A005665C8 /* ExerciseEditor-ViewModel.swift in Sources */,
 				C9741A5F2863208100E1F670 /* TaskDetailsShortView.swift in Sources */,
-				C92F6C37286C525A00D7BA59 /* FileManager.swift in Sources */,
+				C92F6C37286C525A00D7BA59 /* FileManager-Documents.swift in Sources */,
 				C9D156B228534F5C007F5176 /* EditExerciseView.swift in Sources */,
 				C92F6C46286F1B6500D7BA59 /* DurationView.swift in Sources */,
 				C9A0D029282BD603000CF439 /* Practice.swift in Sources */,
@@ -1032,7 +1032,7 @@
 				C9B49E9528ACFF51007713A1 /* ExerciseIcon.swift in Sources */,
 				C91110DC289BDCCC00B9BC03 /* MainList.swift in Sources */,
 				C9CEAA08287C44EB00D15A16 /* DurationMinutesControl.swift in Sources */,
-				C9F426F928D27E2B0028672D /* Text-monospacedDigit.swift in Sources */,
+				C9F426F928D27E2B0028672D /* Text-Monospaced.swift in Sources */,
 				C9F30BD528CFC92700A1C9E2 /* View-Accented.swift in Sources */,
 				C9F2B42C28C5304100DE6F65 /* BasicAudioPlayer.swift in Sources */,
 				C9F30BD128CFC5F900A1C9E2 /* ExerciseTypeInfo.swift in Sources */,
@@ -1047,7 +1047,7 @@
 				C91696A628A2543500053E90 /* ProgramsManager.swift in Sources */,
 				C9741A3C2860CD6300E1F670 /* ExerciseTypeImage.swift in Sources */,
 				C95F17852884431700E8446D /* SettingsLink.swift in Sources */,
-				C9ACC8F428AA78D000FC5343 /* View-if.swift in Sources */,
+				C9ACC8F428AA78D000FC5343 /* View-If.swift in Sources */,
 				C9A028FC287833F200032FF9 /* SortableFilterableList.swift in Sources */,
 				C9CEAA00287C2DFF00D15A16 /* SettingsSubgroupDetailsView.swift in Sources */,
 				C9741A322860857F00E1F670 /* AddProgramView.swift in Sources */,
