@@ -112,7 +112,7 @@ Ready? Then lets practice!
 You can pause, restart an exercise or the whole practice at any moment.  
 You can also turn the sound on and off, view exercise details or practice summary.  
 
-Now press "Run" and start practicing)
+Press "Run" and start practicing)
 
 <p float="left">
 <img width="300" alt="practice_dark" src="https://user-images.githubusercontent.com/95634326/190728856-cc6d00eb-8143-4b85-bfe3-518d2d91d249.png#gh-dark-mode-only">
