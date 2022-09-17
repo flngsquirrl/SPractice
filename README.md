@@ -125,7 +125,6 @@ Press "Run" and start practicing)
 <img width="300" alt="practice_3_light" src="https://user-images.githubusercontent.com/95634326/190748222-24badefc-d059-49ae-981e-d42b9798763f.png#gh-light-mode-only">
 <img width="300" alt="ex_info_light" src="https://user-images.githubusercontent.com/95634326/190748253-8e471337-7df8-44ef-b29b-a5cef440a9e3.png#gh-light-mode-only">
 <img width="300" alt="practice_summary_light" src="https://user-images.githubusercontent.com/95634326/190729658-4f5e32e7-e517-42b0-836e-2a055ec45294.png#gh-light-mode-only">
-
 </p>
 
 ## Settings
@@ -154,11 +153,29 @@ In Settings you can:
 
 ## Demos
 
+### Launch
+
+https://user-images.githubusercontent.com/95634326/190870383-7f771f50-3ff1-4e14-8543-6db7ed6cc08c.mp4
+
 ### Run practice
 
-https://user-images.githubusercontent.com/95634326/190867364-dbd9bbfd-41a4-49b8-922c-4d539729b8ab.mp4#gh-dark-mode-only
+https://user-images.githubusercontent.com/95634326/190870208-7bdeae32-3d40-49fe-8295-bcb6129d6bbb.mp4
 
-https://user-images.githubusercontent.com/95634326/190867447-1f8eb3ad-34c0-4c65-bd4f-dfa1ad6f1dcf.mp4#gh-light-mode-only
+### Add rest intervals
+
+https://user-images.githubusercontent.com/95634326/190870575-1c660d23-0ced-4206-aa05-73b0781009de.mp4
+
+### Edit program
+
+https://user-images.githubusercontent.com/95634326/190869809-976a9964-615e-4cef-9192-96a6d0edf61b.mp4
+
+### View info
+
+https://user-images.githubusercontent.com/95634326/190869964-9fc43b22-51d1-4572-842f-fef08e7969b1.mp4
+
+### Reset modified example
+
+https://user-images.githubusercontent.com/95634326/190869969-7f9777dd-b92e-4690-892c-449bb133542f.mp4
 
 ## Additional screenshots
 
