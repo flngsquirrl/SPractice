@@ -34,20 +34,17 @@ But even if you don’t, try different combinations to find something that feels
 
 Some examples are provided by default.  
 You can modify or delete them at any time.  
-And restore from Settings, if you change your mind later.
+And restore from [Settings](#settings), if you change your mind later.
 
-But try to experiment and create your own exercises and programs.
+But feel free to create your own exercises and programs.
 
-<details>
-  <summary>See screenshots</summary>
 <p float="left">
 <img width="300" alt="programs_dark" src="https://user-images.githubusercontent.com/95634326/190706089-f345b132-5822-4f0b-872f-9c3736d8e413.png#gh-dark-mode-only">
-<img width="300" alt="exercises_dark" src="https://user-images.githubusercontent.com/95634326/190706146-c1b153fe-ac3e-4d91-b8da-0aa71834a4d7.png#gh-dark-mode-only">
+<img width="300" alt="exercises_dark" src="https://user-images.githubusercontent.com/95634326/190857279-e82493a1-b5d8-46d2-afeb-8b380285fbe2.png#gh-dark-mode-only">
 
 <img width="300" alt="programs_light" src="https://user-images.githubusercontent.com/95634326/190711976-e55ff19e-f273-44ed-bcf4-ff7eb94726ec.png#gh-light-mode-only">
-<img width="300" alt="exercises_light" src="https://user-images.githubusercontent.com/95634326/190706603-8a2f50ad-8266-4f3b-8044-da23361adbd0.png#gh-light-mode-only">
+<img width="300" alt="exercises_light" src="https://user-images.githubusercontent.com/95634326/190857288-cda6a5af-6b4c-40f6-b880-732510eb35f8.png#gh-light-mode-only">
 </p>
-</details>
 
 ## Create an exercise
 
@@ -75,12 +72,13 @@ This is how long the practice will last.
 
 <p float="left">
 <img width="300" alt="program_create_dark" src="https://user-images.githubusercontent.com/95634326/190708503-b63fa80a-37ed-4bf6-a9c9-96bd3717d468.png#gh-dark-mode-only">
-<img width="300" alt="program_select_dark" src="https://user-images.githubusercontent.com/95634326/190708528-ca0adbaf-17d1-4c8d-a405-2d6db4a1aa62.png#gh-dark-mode-only">
+
 <img width="300" alt="program_select_2_dark" src="https://user-images.githubusercontent.com/95634326/190708566-6154b9b8-0207-4fd1-b721-14e00d68f21a.png#gh-dark-mode-only">
 <img width="300" alt="program_personal_dark" src="https://user-images.githubusercontent.com/95634326/190708836-e52313a6-5ec5-4dd1-bcd2-13b245eb39cd.png#gh-dark-mode-only">
+<img width="300" alt="program_select_dark" src="https://user-images.githubusercontent.com/95634326/190857397-5f56d74c-bbea-461a-bbdd-665613a31ec1.png#gh-dark-mode-only">
 
 <img width="300" alt="program_create_light" src="https://user-images.githubusercontent.com/95634326/190712267-b161ddf3-4898-47fa-be13-7a093f6636aa.png#gh-light-mode-only">
-<img width="300" alt="program_select_light" src="https://user-images.githubusercontent.com/95634326/190710210-33050e24-e8a1-4741-91ad-48e9087ca6b6.png#gh-light-mode-only">
+<img width="300" alt="program_select_light" src="https://user-images.githubusercontent.com/95634326/190857405-5da764f9-2409-4e6f-bf96-7e99000591fc.png#gh-light-mode-only">
 <img width="300" alt="program_select_2_light" src="https://user-images.githubusercontent.com/95634326/190710213-4a0b1c2b-31ee-4fa7-8211-17f0817cc6ad.png#gh-light-mode-only">
 <img width="300" alt="program_personal_light" src="https://user-images.githubusercontent.com/95634326/190710217-45443b36-b2fa-4802-961b-259a9d4ed9cd.png#gh-light-mode-only">
 </p>
@@ -89,7 +87,7 @@ This is how long the practice will last.
 
 There are some helpful configs to improve your practice.  
 
-First, you can add Rest intervals between the exercises.  
+First, you can add rest intervals between the exercises.  
 Use them to prepare for the next exercise or take a sip of water.  
 
 Second, you can pause after every exercise.  
@@ -114,7 +112,7 @@ Ready? Then lets practice!
 You can pause, restart an exercise or the whole practice at any moment.  
 You can also turn the sound on and off, view exercise details or practice summary.  
 
-Keep practicing)
+Now press "Run" and start practicing)
 
 <p float="left">
 <img width="300" alt="practice_dark" src="https://user-images.githubusercontent.com/95634326/190728856-cc6d00eb-8143-4b85-bfe3-518d2d91d249.png#gh-dark-mode-only">
@@ -135,7 +133,7 @@ Keep practicing)
 
 In Settings you can:
 - set intervals for tabata exercises;
-- set name and duration for Rest intervals;
+- set name and duration for rest intervals;
 - configure auto-finish for flow exercises;
 - manage modified examples.
 
@@ -168,6 +166,20 @@ In Settings you can:
 <img width="200" alt="onboarding_2_light" src="https://user-images.githubusercontent.com/95634326/190817919-4a3f276a-4b5b-402c-8a86-c40555611c34.png#gh-light-mode-only">
 <img width="200" alt="onboarding_3_light" src="https://user-images.githubusercontent.com/95634326/190817975-e4cda9cd-0c95-4bae-97e7-8e2539396809.png#gh-light-mode-only">
 </p>
+
+### iPad layout
+
+<p float="left">
+<img width="400" alt="ipad_programs_dark" src="https://user-images.githubusercontent.com/95634326/190858872-cb963fe5-2014-4a2e-862f-48405262c266.png#gh-dark-mode-only">
+<img width="400" alt="ipad_exercisses_dark" src="https://user-images.githubusercontent.com/95634326/190858947-131e6a4f-bc94-41a1-b83f-9c406e46177b.png#gh-dark-mode-only">
+<img width="400" alt="ipad_settings_dark" src="https://user-images.githubusercontent.com/95634326/190858951-fd4e1c20-0592-4eb7-a52f-aa81b9cec298.png#gh-dark-mode-only">
+<img width="400" alt="ipad_practice_dark" src="https://user-images.githubusercontent.com/95634326/190859143-9fad50a5-b079-4406-b6d8-b81573958b40.png#gh-dark-mode-only">
+    
+<img width="400" alt="ipad_programs_light" src="https://user-images.githubusercontent.com/95634326/190859003-f6639d28-70d0-4cc3-b8a0-bac6880bc92c.png#gh-light-mode-only">
+<img width="400" alt="ipad_exercises_light" src="https://user-images.githubusercontent.com/95634326/190859008-51591193-831b-4159-8f21-e195ed48c5e6.png#gh-light-mode-only">
+<img width="400" alt="ipad_settings_light" src="https://user-images.githubusercontent.com/95634326/190859010-86260c8d-6d63-48d1-839f-1fc0a95d4d10.png#gh-light-mode-only">
+<img width="400" alt="ipad_practice_light" src="https://user-images.githubusercontent.com/95634326/190859156-bf6b7e31-83a3-467c-af66-0c2ddbc46367.png#gh-light-mode-only">
+</p> 
 
 ## Targets
 
