@@ -140,7 +140,7 @@ struct ExerciseTemplate: Exercise, HavingCreationDate, ExampleItem, Hashable, Co
                                                  description: "Sun Salutation, start in Tadasana, go for at least 5 cycles",
                                                  intensity: .activity, duration: .unlimited, isExample: true,
                                                  exampleId: ExerciseExampleId.surjaNamascarA.rawValue)
-    static let vasihsthasana = ExerciseTemplate(type: .tabata, name: "Vasihsthasana",
+    static let vasihsthasana = ExerciseTemplate(type: .tabata, name: "Vasisthasana",
                                                 description: "Side plank on the straight arm or on the elbow",
                                                 isExample: true, exampleId: ExerciseExampleId.vasihsthasana.rawValue)
 
