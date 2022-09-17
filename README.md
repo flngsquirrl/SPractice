@@ -152,6 +152,8 @@ In Settings you can:
 <img width="300" alt="examples_light" src="https://user-images.githubusercontent.com/95634326/190738563-d20c5e4e-bd0d-4af0-9136-a171ea5c1e6e.png#gh-light-mode-only">
 </p>
 
+## Demos
+
 ## Additional screenshots
 
 ### Onboarding
