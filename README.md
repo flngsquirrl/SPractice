@@ -28,7 +28,7 @@ Works good with all sorts of Planks.
 Programs are built out of exercises.
 
 You probably have a favourite sequence or a few.  
-But even if you don’t, try different combinations to find something that feels righ.
+But even if you don’t, try different combinations to find something that feels right.
 
 ## Examples
 
