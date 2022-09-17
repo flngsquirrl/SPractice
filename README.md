@@ -40,10 +40,10 @@ But feel free to create your own exercises and programs.
 
 <p float="left">
 <img width="300" alt="programs_dark" src="https://user-images.githubusercontent.com/95634326/190706089-f345b132-5822-4f0b-872f-9c3736d8e413.png#gh-dark-mode-only">
-<img width="300" alt="exercises_dark" src="https://user-images.githubusercontent.com/95634326/190857279-e82493a1-b5d8-46d2-afeb-8b380285fbe2.png#gh-dark-mode-only">
+<img width="300" alt="exercises_dark" src="https://user-images.githubusercontent.com/95634326/190860887-a63d1655-661a-4c7f-bcb4-5f0d7cda2edd.png#gh-dark-mode-only">
 
 <img width="300" alt="programs_light" src="https://user-images.githubusercontent.com/95634326/190711976-e55ff19e-f273-44ed-bcf4-ff7eb94726ec.png#gh-light-mode-only">
-<img width="300" alt="exercises_light" src="https://user-images.githubusercontent.com/95634326/190857288-cda6a5af-6b4c-40f6-b880-732510eb35f8.png#gh-light-mode-only">
+<img width="300" alt="exercises_light" src="https://user-images.githubusercontent.com/95634326/190860878-f057e140-45f1-449b-858e-966e3932b4dd.png#gh-light-mode-only">
 </p>
 
 ## Create an exercise
@@ -72,12 +72,12 @@ This is how long the practice will last.
 
 <p float="left">
 <img width="300" alt="program_create_dark" src="https://user-images.githubusercontent.com/95634326/190708503-b63fa80a-37ed-4bf6-a9c9-96bd3717d468.png#gh-dark-mode-only">
-<img width="300" alt="program_select_dark" src="https://user-images.githubusercontent.com/95634326/190857397-5f56d74c-bbea-461a-bbdd-665613a31ec1.png#gh-dark-mode-only">
+<img width="300" alt="program_select_dark" src="https://user-images.githubusercontent.com/95634326/190860914-a4e2f3ef-9875-43cc-afcc-fa1444994bf2.png#gh-dark-mode-only">
 <img width="300" alt="program_select_2_dark" src="https://user-images.githubusercontent.com/95634326/190708566-6154b9b8-0207-4fd1-b721-14e00d68f21a.png#gh-dark-mode-only">
 <img width="300" alt="program_personal_dark" src="https://user-images.githubusercontent.com/95634326/190708836-e52313a6-5ec5-4dd1-bcd2-13b245eb39cd.png#gh-dark-mode-only">
 
 <img width="300" alt="program_create_light" src="https://user-images.githubusercontent.com/95634326/190712267-b161ddf3-4898-47fa-be13-7a093f6636aa.png#gh-light-mode-only">
-<img width="300" alt="program_select_light" src="https://user-images.githubusercontent.com/95634326/190857405-5da764f9-2409-4e6f-bf96-7e99000591fc.png#gh-light-mode-only">
+<img width="300" alt="program_select_light" src="https://user-images.githubusercontent.com/95634326/190860925-45d020fd-69fa-44fc-a71b-59571b18cb4e.png#gh-light-mode-only">
 <img width="300" alt="program_select_2_light" src="https://user-images.githubusercontent.com/95634326/190710213-4a0b1c2b-31ee-4fa7-8211-17f0817cc6ad.png#gh-light-mode-only">
 <img width="300" alt="program_personal_light" src="https://user-images.githubusercontent.com/95634326/190710217-45443b36-b2fa-4802-961b-259a9d4ed9cd.png#gh-light-mode-only">
 </p>
