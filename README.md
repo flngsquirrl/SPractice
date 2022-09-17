@@ -72,10 +72,9 @@ This is how long the practice will last.
 
 <p float="left">
 <img width="300" alt="program_create_dark" src="https://user-images.githubusercontent.com/95634326/190708503-b63fa80a-37ed-4bf6-a9c9-96bd3717d468.png#gh-dark-mode-only">
-
+<img width="300" alt="program_select_dark" src="https://user-images.githubusercontent.com/95634326/190857397-5f56d74c-bbea-461a-bbdd-665613a31ec1.png#gh-dark-mode-only">
 <img width="300" alt="program_select_2_dark" src="https://user-images.githubusercontent.com/95634326/190708566-6154b9b8-0207-4fd1-b721-14e00d68f21a.png#gh-dark-mode-only">
 <img width="300" alt="program_personal_dark" src="https://user-images.githubusercontent.com/95634326/190708836-e52313a6-5ec5-4dd1-bcd2-13b245eb39cd.png#gh-dark-mode-only">
-<img width="300" alt="program_select_dark" src="https://user-images.githubusercontent.com/95634326/190857397-5f56d74c-bbea-461a-bbdd-665613a31ec1.png#gh-dark-mode-only">
 
 <img width="300" alt="program_create_light" src="https://user-images.githubusercontent.com/95634326/190712267-b161ddf3-4898-47fa-be13-7a093f6636aa.png#gh-light-mode-only">
 <img width="300" alt="program_select_light" src="https://user-images.githubusercontent.com/95634326/190857405-5da764f9-2409-4e6f-bf96-7e99000591fc.png#gh-light-mode-only">
@@ -87,14 +86,14 @@ This is how long the practice will last.
 
 There are some helpful configs to improve your practice.  
 
-First, you can add rest intervals between the exercises.  
+First, you can **add rest intervals** between the exercises.  
 Use them to prepare for the next exercise or take a sip of water.  
 
-Second, you can pause after every exercise.  
+Second, you can **pause after every exercise**.  
 It means, when an exercise is over, you should press "Run" to start the next.  
 This gives you more control, but requires more interaction.  
 
-Third, you can turn the sound notifications on and off.  
+Third, you can **turn the sound notifications on and off**.  
 When on, the sound signal will let you know when the exercise or its task is about to finish.  
 
 Ready? Then lets practice!
