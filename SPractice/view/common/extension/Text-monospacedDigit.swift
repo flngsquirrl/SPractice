@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension Text {
-    
+
     func monospacedDigit(font: Font?) -> Text {
         var baseFont = Font.system(.body)
         if let font = font {
