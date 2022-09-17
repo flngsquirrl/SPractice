@@ -1,5 +1,7 @@
 # SPractice
 
+## Intro
+
 How do you practice? Do you prefer workout or yoga?  
 Well, good news are, you can combine or alternate.  
 And use your time wisely.
@@ -7,7 +9,7 @@ And use your time wisely.
 This is an application for you personal practice.
 
 
-## Exercises
+### Exercises
 
 There are 3 types of exercises, that define how you practice.
 
@@ -23,14 +25,14 @@ You set the time and practice with the count down.
 It is a famous HIIT technique, repeated intervals of activity and rest.  
 Works good with all sorts of Planks.
 
-## Programs
+### Programs
 
 Programs are built out of exercises.
 
 You probably have a favourite sequence or a few.  
 But even if you don’t, try different combinations to find something that feels right.
 
-## Examples
+### Examples
 
 Some examples are provided by default.  
 You can modify or delete them at any time.  
@@ -46,7 +48,7 @@ But feel free to create your own exercises and programs.
 <img width="300" alt="exercises_light" src="https://user-images.githubusercontent.com/95634326/190860878-f057e140-45f1-449b-858e-966e3932b4dd.png#gh-light-mode-only">
 </p>
 
-## Create an exercise
+### Create an exercise
 
 Give the exercise a name and, optionally, a description.  
 You can stop here, if this is the information your want to use as a template.  
@@ -62,7 +64,7 @@ Or continue by settings its type, duration and intensity.
 <img width="300" alt="exercise_tabata_light" src="https://user-images.githubusercontent.com/95634326/190710843-8638dce4-5827-4eb2-9409-c0fd3c9db961.png#gh-light-mode-only">
 </p>
 
-## Create a program
+### Create a program
 
 Start by giving the program a name and, if needed, a description.  
 Then build a sequence selecting exercises from templates or creating new.  
@@ -82,7 +84,7 @@ This is how long the practice will last.
 <img width="300" alt="program_personal_light" src="https://user-images.githubusercontent.com/95634326/190710217-45443b36-b2fa-4802-961b-259a9d4ed9cd.png#gh-light-mode-only">
 </p>
 
-## Configure a practice
+### Configure a practice
 
 There are some helpful configs to improve your practice.  
 
@@ -106,7 +108,7 @@ Ready? Then lets practice!
 <img width="300" alt="practice_settings_light" src="https://user-images.githubusercontent.com/95634326/190727583-8b0f4feb-d02e-445b-8428-54197b92e9bd.png#gh-light-mode-only">
 </p>
 
-## Practice
+### Practice
 
 You can pause, restart an exercise or the whole practice at any moment.  
 You can also turn the sound on and off, view exercise details or practice summary.  
@@ -127,7 +129,7 @@ Press "Run" and start practicing)
 <img width="300" alt="practice_summary_light" src="https://user-images.githubusercontent.com/95634326/190729658-4f5e32e7-e517-42b0-836e-2a055ec45294.png#gh-light-mode-only">
 </p>
 
-## Settings
+### Settings
 
 In Settings you can:
 - set intervals for tabata exercises;
