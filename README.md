@@ -205,6 +205,8 @@ https://user-images.githubusercontent.com/95634326/190869969-7f9777dd-b92e-4690-
 
 ### iPad layout
 
+<details open>
+<summary>Screenshots</summary>
 <p float="left">
 <img width="400" alt="ipad_programs_dark" src="https://user-images.githubusercontent.com/95634326/190858872-cb963fe5-2014-4a2e-862f-48405262c266.png#gh-dark-mode-only">
 <img width="400" alt="ipad_exercisses_dark" src="https://user-images.githubusercontent.com/95634326/190858947-131e6a4f-bc94-41a1-b83f-9c406e46177b.png#gh-dark-mode-only">
@@ -216,6 +218,27 @@ https://user-images.githubusercontent.com/95634326/190869969-7f9777dd-b92e-4690-
 <img width="400" alt="ipad_settings_light" src="https://user-images.githubusercontent.com/95634326/190859010-86260c8d-6d63-48d1-839f-1fc0a95d4d10.png#gh-light-mode-only">
 <img width="400" alt="ipad_practice_light" src="https://user-images.githubusercontent.com/95634326/190859156-bf6b7e31-83a3-467c-af66-0c2ddbc46367.png#gh-light-mode-only">
 </p> 
+</details>
+
+### Light vs Dark
+
+<details open>
+<summary>Screenshots</summary>
+<p float="left">
+<img width="300" alt="programs_light" src="https://user-images.githubusercontent.com/95634326/190711976-e55ff19e-f273-44ed-bcf4-ff7eb94726ec.png">
+<img width="300" alt="programs_dark" src="https://user-images.githubusercontent.com/95634326/190706089-f345b132-5822-4f0b-872f-9c3736d8e413.png">
+</p>
+
+<p float="left">
+<img width="300" alt="program_details_light" src="https://user-images.githubusercontent.com/95634326/190727544-9929de3a-a229-4c3c-9172-4394fc027c6d.png">
+<img width="300" alt="program_details_dark" src="https://user-images.githubusercontent.com/95634326/190728011-54c480b9-26d5-4bfb-9a0c-723fcb16c495.png">
+</p>
+
+<p float="left">
+<img width="300" alt="practice_light" src="https://user-images.githubusercontent.com/95634326/190728796-3a5dab6d-fcfe-4cca-b061-126c09733d8e.png">
+<img width="300" alt="practice_dark" src="https://user-images.githubusercontent.com/95634326/190728856-cc6d00eb-8143-4b85-bfe3-518d2d91d249.png">
+</p>
+</details>
 
 ## Targets
 
