@@ -51,7 +51,7 @@ But feel free to create your own exercises and programs.
 ### Create an exercise
 
 Give the exercise a name and, optionally, a description.  
-You can stop here, if this is the information your want to use as a template.  
+You can stop here, if this is what you want to use as a template.  
 Or continue by settings its type, duration and intensity.
 
 <p float="left">
