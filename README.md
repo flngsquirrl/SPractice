@@ -40,6 +40,8 @@ And restore from [Settings](#settings), if you change your mind later.
 
 But feel free to create your own exercises and programs.
 
+<details>
+<summary>See screenshots</summary>
 <p float="left">
 <img width="300" alt="programs_dark" src="https://user-images.githubusercontent.com/95634326/190706089-f345b132-5822-4f0b-872f-9c3736d8e413.png#gh-dark-mode-only">
 <img width="300" alt="exercises_dark" src="https://user-images.githubusercontent.com/95634326/190860887-a63d1655-661a-4c7f-bcb4-5f0d7cda2edd.png#gh-dark-mode-only">
@@ -47,6 +49,7 @@ But feel free to create your own exercises and programs.
 <img width="300" alt="programs_light" src="https://user-images.githubusercontent.com/95634326/190711976-e55ff19e-f273-44ed-bcf4-ff7eb94726ec.png#gh-light-mode-only">
 <img width="300" alt="exercises_light" src="https://user-images.githubusercontent.com/95634326/190860878-f057e140-45f1-449b-858e-966e3932b4dd.png#gh-light-mode-only">
 </p>
+</details>
 
 ### Create an exercise
 
@@ -54,6 +57,8 @@ Give the exercise a name and, optionally, a description.
 You can stop here, if this is what you want to use as a template.  
 Or continue by settings its type, duration and intensity.
 
+<details>
+<summary>See screenshots</summary>
 <p float="left">
 <img width="300" alt="exercise_flow_dark" src="https://user-images.githubusercontent.com/95634326/190710950-e5a4fd23-a98e-46e9-ac37-0bcc062ab1a0.png#gh-dark-mode-only">
 <img width="300" alt="exercise_timer_dark" src="https://user-images.githubusercontent.com/95634326/190707345-0f8b1ac8-851f-4347-908c-f76245b1a564.png#gh-dark-mode-only">
@@ -63,6 +68,7 @@ Or continue by settings its type, duration and intensity.
 <img width="300" alt="exercise_timer_light" src="https://user-images.githubusercontent.com/95634326/190710838-6f64a6ad-9eee-4bfd-836e-3a58548535b8.png#gh-light-mode-only">
 <img width="300" alt="exercise_tabata_light" src="https://user-images.githubusercontent.com/95634326/190710843-8638dce4-5827-4eb2-9409-c0fd3c9db961.png#gh-light-mode-only">
 </p>
+</details>
 
 ### Create a program
 
@@ -72,6 +78,8 @@ Then build a sequence selecting exercises from templates or creating new.
 Take a look at the program's duration.  
 This is how long the practice will last.
 
+<details>
+<summary>See screenshots</summary>
 <p float="left">
 <img width="300" alt="program_create_dark" src="https://user-images.githubusercontent.com/95634326/190708503-b63fa80a-37ed-4bf6-a9c9-96bd3717d468.png#gh-dark-mode-only">
 <img width="300" alt="program_select_dark" src="https://user-images.githubusercontent.com/95634326/190860914-a4e2f3ef-9875-43cc-afcc-fa1444994bf2.png#gh-dark-mode-only">
@@ -83,6 +91,7 @@ This is how long the practice will last.
 <img width="300" alt="program_select_2_light" src="https://user-images.githubusercontent.com/95634326/190710213-4a0b1c2b-31ee-4fa7-8211-17f0817cc6ad.png#gh-light-mode-only">
 <img width="300" alt="program_personal_light" src="https://user-images.githubusercontent.com/95634326/190710217-45443b36-b2fa-4802-961b-259a9d4ed9cd.png#gh-light-mode-only">
 </p>
+</details>
 
 ### Configure a practice
 
@@ -100,6 +109,8 @@ When on, the sound signal will let you know when the exercise or its task is abo
 
 Ready? Then lets practice!
 
+<details>
+<summary>See screenshots</summary>
 <p float="left">
 <img width="300" alt="program_details_dark" src="https://user-images.githubusercontent.com/95634326/190728011-54c480b9-26d5-4bfb-9a0c-723fcb16c495.png#gh-dark-mode-only">
 <img width="300" alt="practice_settings_dark" src="https://user-images.githubusercontent.com/95634326/190728069-b8f4463b-1c1e-4bd9-86d4-1a3f66648997.png#gh-dark-mode-only">
@@ -107,6 +118,7 @@ Ready? Then lets practice!
 <img width="300" alt="program_details_light" src="https://user-images.githubusercontent.com/95634326/190727544-9929de3a-a229-4c3c-9172-4394fc027c6d.png#gh-light-mode-only">
 <img width="300" alt="practice_settings_light" src="https://user-images.githubusercontent.com/95634326/190727583-8b0f4feb-d02e-445b-8428-54197b92e9bd.png#gh-light-mode-only">
 </p>
+</details>
 
 ### Practice
 
@@ -115,6 +127,8 @@ You can also turn the sound on and off, view exercise details or practice summar
 
 Press "Run" and start practicing)
 
+<details>
+<summary>See screenshots</summary>
 <p float="left">
 <img width="300" alt="practice_dark" src="https://user-images.githubusercontent.com/95634326/190728856-cc6d00eb-8143-4b85-bfe3-518d2d91d249.png#gh-dark-mode-only">
 <img width="300" alt="practice_2_dark" src="https://user-images.githubusercontent.com/95634326/190747703-e4d6f9d8-a0cd-46f1-9673-4f0afb834d45.png#gh-dark-mode-only">
@@ -128,6 +142,7 @@ Press "Run" and start practicing)
 <img width="300" alt="ex_info_light" src="https://user-images.githubusercontent.com/95634326/190748253-8e471337-7df8-44ef-b29b-a5cef440a9e3.png#gh-light-mode-only">
 <img width="300" alt="practice_summary_light" src="https://user-images.githubusercontent.com/95634326/190729658-4f5e32e7-e517-42b0-836e-2a055ec45294.png#gh-light-mode-only">
 </p>
+</details>
 
 ### Settings
 
@@ -137,6 +152,8 @@ In Settings you can:
 - configure auto-finish for flow exercises;
 - manage modified examples.
 
+<details>
+<summary>See screenshots</summary>
 <p float="left">
 <img width="300" alt="settings_dark" src="https://user-images.githubusercontent.com/95634326/190730731-7a7effa7-47e3-47c9-89fe-0b97e9de0e0a.png#gh-dark-mode-only">
 <img width="300" alt="about_dark" src="https://user-images.githubusercontent.com/95634326/190735067-6a883323-13a0-48df-9e8f-00940c55d720.png#gh-dark-mode-only">
@@ -152,6 +169,7 @@ In Settings you can:
 <img width="300" alt="flow_light" src="https://user-images.githubusercontent.com/95634326/190738434-8ec7e557-bd0e-409b-9eaf-8710d958ec26.png#gh-light-mode-only">
 <img width="300" alt="examples_light" src="https://user-images.githubusercontent.com/95634326/190738563-d20c5e4e-bd0d-4af0-9136-a171ea5c1e6e.png#gh-light-mode-only">
 </p>
+</details>
 
 ## Demos
 
