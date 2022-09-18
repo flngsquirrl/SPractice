@@ -103,7 +103,7 @@ class Settings: ObservableObject {
     typealias SettingsType = [SettingsSubGroup: [SettingsItem]]
     var groups: SettingsType
 
-    static private let saveKey = "settingsNew"
+    static private let saveKey = "settings"
 
     static private let defaultSettings: SettingsType = [
         .tabata: [.defaultTabataWarmUpDuration, .defaultTabataActivityDuration, .defaultTabataRestDuration,
