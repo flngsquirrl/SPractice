@@ -7,11 +7,7 @@
 
 import Foundation
 
-struct PracticeExercise: Exercise, Equatable {
-
-    static func == (lhs: PracticeExercise, rhs: PracticeExercise) -> Bool {
-        lhs.id == rhs.id
-    }
+struct PracticeExercise: Exercise {
 
     let id = UUID()
     let exerciseType: ExerciseType
