@@ -15,7 +15,7 @@ struct PracticeSequenceView: View {
         Group {
             HStack {
                 Image(systemName: "arrow.forward.circle")
-                    .foregroundColor(practice.isCompleted ? .secondary : .lightOrange)
+                    .foregroundColor(practice.isCompleted ? .secondary : .customAccentColor)
 
                 if let nextExercise = practice.nextExercise {
                     Text(nextExercise.name)

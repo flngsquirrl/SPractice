@@ -10,7 +10,7 @@ import SwiftUI
 struct SquirrelInWheelLogo: View {
 
     var lineWidth: CGFloat = 1
-    var color: Color = .white
+    var color: Color = .textColor
     var withFilledWing = true
 
     var body: some View {
@@ -34,14 +34,14 @@ struct WingShape_Previews: PreviewProvider {
             ZStack {
                 Color.black
                 VStack {
-                    SquirrelInWheelLogo(lineWidth: 5, color: .lightOrange)
+                    SquirrelInWheelLogo(lineWidth: 5, color: .mainColor)
                         .frame(width: 100, height: 100)
                 }
             }
             ZStack {
                 Color.white
                 VStack {
-                    SquirrelInWheelLogo(lineWidth: 5, color: .lightOrange)
+                    SquirrelInWheelLogo(lineWidth: 5, color: .mainColor)
                         .frame(width: 100, height: 100)
                 }
             }

@@ -33,6 +33,7 @@ struct OnboardingView: View {
                         IntroAppView()
                             .tag(IntroTab.app)
                     }
+                    .foregroundColor(.mainColor)
                     .tabViewStyle(.page)
                     .indexViewStyle(.page(backgroundDisplayMode: .always))
                     .onChange(of: selectedTab) { _ in
@@ -66,9 +67,9 @@ struct OnboardingView: View {
                         .padding()
                         .buttonStyle(.plain)
                     }
+                    .foregroundColor(.customAccentColor)
                 }
             }
-            .foregroundColor(.lightOrange)
             .frame(width: LayoutUtils.centralFrameWidth(parentContainerSize: geo.size),
                    height: min(geo.size.height * 0.8, 650))
             .wrapped()

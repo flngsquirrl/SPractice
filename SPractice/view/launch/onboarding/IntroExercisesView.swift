@@ -25,11 +25,6 @@ struct IntroExercisesView: View {
 
 struct IntroExercises_Previews: PreviewProvider {
     static var previews: some View {
-        ZStack {
-            Color.lightOrange
-                .ignoresSafeArea()
-
-            IntroExercisesView()
-        }
+        IntroExercisesView()
     }
 }

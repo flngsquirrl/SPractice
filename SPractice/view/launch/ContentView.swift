@@ -39,7 +39,7 @@ struct ContentView: View {
                         }
                     }
             default:
-                Color.lightOrange
+                Color.mainColor
                     .ignoresSafeArea()
             }
         }

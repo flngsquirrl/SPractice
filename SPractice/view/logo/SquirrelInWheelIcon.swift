@@ -10,8 +10,8 @@ import SwiftUI
 struct SquirrelInWheelIcon: View {
 
     var lineWidth: CGFloat = 5
-    var color: Color = .white
-    var backgroundColor: Color = .lightOrange
+    var color: Color = .textColor
+    var backgroundColor: Color = .mainColor
 
     var body: some View {
         GeometryReader { geo in

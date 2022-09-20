@@ -27,6 +27,6 @@ struct IntroAppView: View {
 struct IntroAppView_Previews: PreviewProvider {
     static var previews: some View {
         IntroAppView()
-            .foregroundColor(.lightOrange)
+            .foregroundColor(.mainColor)
     }
 }

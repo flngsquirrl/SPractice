@@ -62,7 +62,7 @@ struct PracticeExerciseView: View {
             .scaledToFit()
             .opacity(0.8)
             .frame(width: 35, height: 35)
-            .foregroundColor(.lightOrange)
+            .foregroundColor(.mainColor)
             .font(.largeTitle.bold())
     }
 }

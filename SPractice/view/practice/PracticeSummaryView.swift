@@ -33,7 +33,7 @@ struct PracticeSummaryView: View {
                                 dismiss()
                             } label: {
                                 Image(systemName: practice.currentExerciseIndex == index ? "checkmark.circle.fill" : "arrow.forward.circle")
-                                    .foregroundColor(.lightOrange)
+                                    .foregroundColor(.customAccentColor)
                             }
 
                             ExerciseShortView(for: exercise) {

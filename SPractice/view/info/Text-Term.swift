@@ -12,6 +12,6 @@ extension Text {
     func term() -> Text {
         self
             .fontWeight(.semibold)
-            .foregroundColor(.lightOrange)
+            .foregroundColor(.customAccentColor)
     }
 }

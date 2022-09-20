@@ -16,8 +16,8 @@ struct ClockView: View {
     private static let mainFont: Font = .largeTitle.weight(.semibold)
     private static let noteFont: Font = .body.weight(.semibold)
 
-    private static let elementColor: Color = .lightOrange
-    private static let textColor: Color = .creamy
+    private static let elementColor: Color = .mainColor
+    private static let textColor: Color = .textColor
     private static let backgroundColor: Color = Color(UIColor.tertiarySystemBackground)
 
     public static let simpleCountdown = ClockView(clock: Clock.simpleCountdown)
@@ -59,10 +59,12 @@ struct ClockView: View {
 struct ClockNumber: View {
     var number: Int = 0
 
+    private static let panelColor = Color.mainColor
+
     var body: some View {
         Text("\(number)")
             .frame(width: 50, height: 80)
-            .background(.lightOrange.opacity(0.8))
+            .background(Self.panelColor.opacity(0.8))
             .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }

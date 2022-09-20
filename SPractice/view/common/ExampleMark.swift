@@ -11,7 +11,7 @@ struct ExampleMark: View {
     var body: some View {
         Image(systemName: "bookmark.fill")
             .scaleEffect(1.5)
-            .foregroundColor(.lightOrange.opacity(0.6))
+            .foregroundColor(.mainColor.opacity(0.6))
             .offset(x: 0, y: -10)
     }
 }

@@ -24,8 +24,8 @@ struct PlayerButton: View {
                 Image(systemName: systemImageName)
                     .frame(width: width, height: 70)
                     .font(mainFont)
-                    .foregroundColor(.creamy)
-                    .background(.lightOrange)
+                    .foregroundColor(.textColor)
+                    .background(.mainColor)
                     .opacity(isEnabled ? 1 : 0.6)
                     .clipShape(RoundedRectangle(cornerRadius: 12))
             }

@@ -19,7 +19,7 @@ struct RoundIconButton: View {
         } label: {
             ZStack {
                 Circle()
-                    .fill(disabled ? Color(UIColor.systemGray) : .lightOrange)
+                    .fill(disabled ? Color(UIColor.systemGray) : .customAccentColor)
                     .opacity(disabled ? 0.6 : 1)
                     .frame(width: 35, height: 35)
 

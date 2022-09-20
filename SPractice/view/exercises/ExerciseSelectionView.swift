@@ -135,7 +135,7 @@ struct ExerciseSelectionView: View {
 
                 Text("\(item.counter)")
                     .font(.callout)
-                    .foregroundColor(item.counter > 0 ? .creamy : .customAccentColor)
+                    .foregroundColor(item.counter > 0 ? .textColor : .customAccentColor)
                     .frame(minWidth: 25)
                     .if(item.counter > 0) {
                         $0.background(.customAccentColor)

@@ -22,7 +22,7 @@ enum LayoutUtils {
         min(parentContainerSize.width * 0.8, 500)
     }
 
-    static func getLogo(of color: Color = .lightOrange, parentContainerSize: CGSize) -> some View {
+    static func getLogo(of color: Color = .mainColor, parentContainerSize: CGSize) -> some View {
         let size = LayoutUtils.getPreferredLogoSize(parentContainerSize: parentContainerSize)
         return SquirrelInWheelLogo(lineWidth: 7, color: color)
             .frame(width: size, height: size)
