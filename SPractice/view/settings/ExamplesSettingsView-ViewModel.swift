@@ -21,21 +21,24 @@ extension ExamplesSettingsView {
         var modifiedPrograms: [String] {
             programsManager.modifiedExamplesNames
         }
+
         var modifiedExercises: [String] {
             exercisesManager.modifiedExamplesNames
         }
+
         var deletedPrograms: [String] {
             programsManager.deletedExamplesNames
         }
+
         var deletedExercises: [String] {
             exercisesManager.deletedExamplesNames
         }
 
-        var programsManager: ProgramsManager {
+        private var programsManager: ProgramsManager {
             ProgramsManager.shared
         }
 
-        var exercisesManager: ExercisesManager {
+        private var exercisesManager: ExercisesManager {
             ExercisesManager.shared
         }
 
