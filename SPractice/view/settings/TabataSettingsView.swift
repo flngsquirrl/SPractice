@@ -18,21 +18,9 @@ struct TabataSettingsView: View {
     var body: some View {
         Section {
             TabataItemIntervalView(value: $tabataWarmUpDurationItem.value, name: "warm-up", intensity: .rest)
-                .onChange(of: tabataWarmUpDurationItem.value) { _ in
-                    SettingsManager.saveSettings()
-                }
             TabataItemIntervalView(value: $tabataActivityDurationItem.value, name: "activity", intensity: .activity)
-                .onChange(of: tabataActivityDurationItem.value) { _ in
-                    SettingsManager.saveSettings()
-                }
             TabataItemIntervalView(value: $tabataRestDurationItem.value, name: "rest", intensity: .rest)
-                .onChange(of: tabataRestDurationItem.value) { _ in
-                    SettingsManager.saveSettings()
-                }
             TabataItemIntervalView(value: $tabataCoolDownDurationItem.value, name: "cool-down", intensity: .rest)
-                .onChange(of: tabataCoolDownDurationItem.value) { _ in
-                    SettingsManager.saveSettings()
-                }
         } header: {
             Text("Tasks")
         } footer: {
@@ -72,6 +60,9 @@ struct TabataItemIntervalView: View {
             Text(name)
             Spacer()
             DurationSecondsControl(seconds: $value, range: Self.range)
+        }
+        .onChange(of: value) { _ in
+            SettingsManager.saveSettings()
         }
     }
 }
