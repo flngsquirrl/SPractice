@@ -45,7 +45,7 @@ struct PracticeProgram: Program {
         for (index, exercise) in baseExercises.enumerated() {
             all.append(exercise)
             if index != baseExercises.count - 1 {
-                let pause = PracticeExercise(from: ExerciseTemplate.pauseTemplate)
+                let pause = PracticeExercise(from: ExerciseTemplate.restTemplate)
                 all.append(pause!)
             }
         }
