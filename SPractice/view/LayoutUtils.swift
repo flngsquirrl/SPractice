@@ -18,7 +18,7 @@ enum LayoutUtils {
         min(min(parentContainerSize.width, parentContainerSize.height) * 0.5, 160)
     }
 
-    static func centeralFrameWidth(parentContainerSize: CGSize) -> CGFloat {
+    static func centralFrameWidth(parentContainerSize: CGSize) -> CGFloat {
         min(parentContainerSize.width * 0.8, 500)
     }
 

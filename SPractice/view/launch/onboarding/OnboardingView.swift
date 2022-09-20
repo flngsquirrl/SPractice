@@ -69,7 +69,7 @@ struct OnboardingView: View {
                 }
             }
             .foregroundColor(.lightOrange)
-            .frame(width: LayoutUtils.centeralFrameWidth(parentContainerSize: geo.size),
+            .frame(width: LayoutUtils.centralFrameWidth(parentContainerSize: geo.size),
                    height: min(geo.size.height * 0.8, 650))
             .wrapped()
             .frame(width: geo.size.width, height: geo.size.height)
