@@ -90,7 +90,7 @@ struct ExerciseSelectionView: View {
         }
     }
 
-    class SelectionItem: Identifiable, Named, HavingCreationDate {
+    class SelectionItem: Identifiable, Named, Created {
         var template: ExerciseTemplate
         var counter: Int
 

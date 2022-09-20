@@ -11,7 +11,7 @@ import Foundation
 }
 
 @MainActor protocol SortableList: AnyObject {
-    associatedtype Item: Named, HavingCreationDate
+    associatedtype Item: Named, Created
 
     var items: [Item] {get}
 
@@ -35,7 +35,7 @@ protocol Named {
     var name: String {get}
 }
 
-protocol HavingCreationDate {
+protocol Created {
     var creationDate: Date {get}
 }
 
