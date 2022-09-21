@@ -9,22 +9,19 @@ import SwiftUI
 
 struct ExerciseDurationView<T>: View where T: Exercise {
 
-    private let template: T
-    private let duration: Duration
+    @StateObject var viewModel: ViewModel
+
     private let mode: DurationView.Mode
     private let isVerbose: Bool
 
-    @ObservedObject var settings = SettingsManager.settings
-
     init(for template: T, mode: DurationView.Mode = .padded, isVerbose: Bool = false) where T: Exercise {
-        self.template = template
-        self.duration = template.duration
+        self._viewModel = StateObject(wrappedValue: ViewModel(for: template))
         self.mode = mode
         self.isVerbose = isVerbose
     }
 
     var body: some View {
-        switch definedDuration {
+        switch viewModel.duration {
         case .known(let time):
             DurationView(duration: time, mode: mode)
         case .unknown:
@@ -38,16 +35,6 @@ struct ExerciseDurationView<T>: View where T: Exercise {
             HStack {
                 LayoutUtils.unlimitedDurationImage
             }
-        }
-    }
-
-    var definedDuration: Duration {
-        if template.type == .tabata {
-            return .known(SettingsManager.tabataExerciseDuration)
-        } else if template.isService {
-            return .known(SettingsManager.restDurationItem.value)
-        } else {
-            return duration
         }
     }
 }

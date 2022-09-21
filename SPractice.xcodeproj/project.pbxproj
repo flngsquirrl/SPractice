@@ -155,6 +155,9 @@
 		C9DE152A2868B5500011324C /* Programs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE15292868B5500011324C /* Programs.swift */; };
 		C9DE152C2868FE170011324C /* ExerciseShortDecorativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE152B2868FE170011324C /* ExerciseShortDecorativeView.swift */; };
 		C9E0C42728801CDE00B8FBA8 /* SettingsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0C42628801CDE00B8FBA8 /* SettingsConstants.swift */; };
+		C9E17F0F28DB35CB00A7A6A7 /* ExerciseDurationView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F0E28DB35CB00A7A6A7 /* ExerciseDurationView-ViewModel.swift */; };
+		C9E17F1228DB3EEE00A7A6A7 /* Listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1128DB3EEE00A7A6A7 /* Listener.swift */; };
+		C9E17F1428DB457800A7A6A7 /* ViewModelListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1328DB457800A7A6A7 /* ViewModelListener.swift */; };
 		C9EB6D952881902B0026186C /* String-Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EB6D942881902B0026186C /* String-Empty.swift */; };
 		C9EB6D972882B9D10026186C /* Text-Truncated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EB6D962882B9D10026186C /* Text-Truncated.swift */; };
 		C9F13B1228CE69F100A2B39F /* ProgramPracticeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F13B1128CE69F100A2B39F /* ProgramPracticeSection.swift */; };
@@ -325,6 +328,9 @@
 		C9DE15292868B5500011324C /* Programs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Programs.swift; sourceTree = "<group>"; };
 		C9DE152B2868FE170011324C /* ExerciseShortDecorativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseShortDecorativeView.swift; sourceTree = "<group>"; };
 		C9E0C42628801CDE00B8FBA8 /* SettingsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsConstants.swift; sourceTree = "<group>"; };
+		C9E17F0E28DB35CB00A7A6A7 /* ExerciseDurationView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseDurationView-ViewModel.swift"; sourceTree = "<group>"; };
+		C9E17F1128DB3EEE00A7A6A7 /* Listener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listener.swift; sourceTree = "<group>"; };
+		C9E17F1328DB457800A7A6A7 /* ViewModelListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelListener.swift; sourceTree = "<group>"; };
 		C9EB6D942881902B0026186C /* String-Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-Empty.swift"; sourceTree = "<group>"; };
 		C9EB6D962882B9D10026186C /* Text-Truncated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text-Truncated.swift"; sourceTree = "<group>"; };
 		C9F13B1128CE69F100A2B39F /* ProgramPracticeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramPracticeSection.swift; sourceTree = "<group>"; };
@@ -484,6 +490,7 @@
 		C96728812874E0FF00B4990C /* common */ = {
 			isa = PBXGroup;
 			children = (
+				C9E17F1028DB3ECB00A7A6A7 /* listener */,
 				C99E491628CCECEB008DC90B /* delete */,
 				C95EE45228D0E0A2000D7D3B /* duration */,
 				C95EE45128D0E07D000D7D3B /* editor */,
@@ -609,6 +616,7 @@
 				C9B49E9428ACFF51007713A1 /* ExerciseIcon.swift */,
 				C9DE152B2868FE170011324C /* ExerciseShortDecorativeView.swift */,
 				C996981728646E53009836BD /* ExerciseDurationView.swift */,
+				C9E17F0E28DB35CB00A7A6A7 /* ExerciseDurationView-ViewModel.swift */,
 				C9969819286477CB009836BD /* ExerciseTypeView.swift */,
 				C9741A3B2860CD6200E1F670 /* ExerciseTypeImage.swift */,
 			);
@@ -812,6 +820,15 @@
 			path = task;
 			sourceTree = "<group>";
 		};
+		C9E17F1028DB3ECB00A7A6A7 /* listener */ = {
+			isa = PBXGroup;
+			children = (
+				C9E17F1128DB3EEE00A7A6A7 /* Listener.swift */,
+				C9E17F1328DB457800A7A6A7 /* ViewModelListener.swift */,
+			);
+			path = listener;
+			sourceTree = "<group>";
+		};
 		C9F13B1328CF58BC00A2B39F /* info */ = {
 			isa = PBXGroup;
 			children = (
@@ -971,11 +988,13 @@
 				C9DE152C2868FE170011324C /* ExerciseShortDecorativeView.swift in Sources */,
 				C9321C9D28C7870C008C6BA4 /* ViewRouter.swift in Sources */,
 				C996981828646E53009836BD /* ExerciseDurationView.swift in Sources */,
+				C9E17F0F28DB35CB00A7A6A7 /* ExerciseDurationView-ViewModel.swift in Sources */,
 				C9D53FAF287040DD00FD2B6F /* ExerciseTasksView.swift in Sources */,
 				C9CEAA0A287C462F00D15A16 /* DurationControl.swift in Sources */,
 				C9D53FB82870507400FD2B6F /* AddProgramView-ViewModel.swift in Sources */,
 				C996981A286477CB009836BD /* ExerciseTypeView.swift in Sources */,
 				C95EE45628D1EDC2000D7D3B /* InfoPanel.swift in Sources */,
+				C9E17F1228DB3EEE00A7A6A7 /* Listener.swift in Sources */,
 				C95EE45428D1E87D000D7D3B /* InfoManager.swift in Sources */,
 				C9D156B028534E88007F5176 /* AddExerciseView.swift in Sources */,
 				C9CEAA0D287C619F00D15A16 /* SettingsManager.swift in Sources */,
@@ -1038,6 +1057,7 @@
 				C9F30BD128CFC5F900A1C9E2 /* ExerciseTypeInfo.swift in Sources */,
 				C91982572876E297005D049C /* InfoButton.swift in Sources */,
 				C9A0CFF2281B3733000CF439 /* PracticeExerciseView.swift in Sources */,
+				C9E17F1428DB457800A7A6A7 /* ViewModelListener.swift in Sources */,
 				C9ADD739287F602F00F465D5 /* ResetToDefaultsButton.swift in Sources */,
 				C9EB6D952881902B0026186C /* String-Empty.swift in Sources */,
 				C9A0D001281BE4C8000CF439 /* PlayerView.swift in Sources */,
