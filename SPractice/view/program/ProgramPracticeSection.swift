@@ -14,6 +14,8 @@ struct ProgramPracticeSection: View {
     @State private var showPracticeView = false
     @State private var showPracticeSettings = false
 
+    let programValidator = ProgramValidator()
+
     var body: some View {
         let isPracticeDisabled = isPracticeDisabled()
         Section {
@@ -52,7 +54,7 @@ struct ProgramPracticeSection: View {
     }
 
     func isPracticeDisabled() -> Bool {
-        !ValidationService.isValidToPractice(template: program)
+        !programValidator.isValidToPractice(program)
     }
 }
 

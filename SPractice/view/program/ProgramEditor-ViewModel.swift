@@ -13,8 +13,14 @@ extension ProgramEditor {
 
         @Binding var template: ProgramTemplate
 
+        var exerciseValidator = ExerciseValidator()
+
         init(for template: Binding<ProgramTemplate>) {
             self._template = template
+        }
+
+        func isValidToPractice(exercise: ExerciseTemplate) -> Bool {
+            exerciseValidator.isValidToPractice(exercise)
         }
 
         func addNewExercises(exercises: [ExerciseTemplate]) {

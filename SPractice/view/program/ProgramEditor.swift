@@ -78,9 +78,10 @@ struct ProgramEditor: View {
                                 Image(systemName: "pencil.circle")
                             }
                         }
-                        let isExerciseValid = ValidationService.isValidToPractice(exercise)
                         ExerciseShortView(for: exercise) {
-                            ExerciseIcon(for: exercise.exerciseType, isIconAccented: !isExerciseValid, accentColor: .red)
+                            ExerciseIcon(for: exercise.exerciseType,
+                                         isIconAccented: !viewModel.isValidToPractice(exercise: exercise),
+                                         accentColor: .red)
                         }
                     }
                 }

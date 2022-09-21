@@ -145,7 +145,7 @@
 		C9D53FAF287040DD00FD2B6F /* ExerciseTasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D53FAE287040DD00FD2B6F /* ExerciseTasksView.swift */; };
 		C9D53FB128704B3800FD2B6F /* AddExerciseView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D53FB028704B3800FD2B6F /* AddExerciseView-ViewModel.swift */; };
 		C9D53FB328704C6500FD2B6F /* EditExerciseView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D53FB228704C6500FD2B6F /* EditExerciseView-ViewModel.swift */; };
-		C9D53FB528704E4000FD2B6F /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D53FB428704E4000FD2B6F /* ValidationService.swift */; };
+		C9D53FB528704E4000FD2B6F /* ExerciseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D53FB428704E4000FD2B6F /* ExerciseValidator.swift */; };
 		C9D53FB82870507400FD2B6F /* AddProgramView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D53FB72870507400FD2B6F /* AddProgramView-ViewModel.swift */; };
 		C9D53FBA2870519200FD2B6F /* EditProgramView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D53FB92870519200FD2B6F /* EditProgramView-ViewModel.swift */; };
 		C9D53FBC287064E200FD2B6F /* ProgramDurationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D53FBB287064E200FD2B6F /* ProgramDurationSection.swift */; };
@@ -159,6 +159,9 @@
 		C9E17F1228DB3EEE00A7A6A7 /* Listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1128DB3EEE00A7A6A7 /* Listener.swift */; };
 		C9E17F1428DB457800A7A6A7 /* ViewModelListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1328DB457800A7A6A7 /* ViewModelListener.swift */; };
 		C9E17F1628DB4BE600A7A6A7 /* ProgramService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1528DB4BE600A7A6A7 /* ProgramService.swift */; };
+		C9E17F1A28DB4C3100A7A6A7 /* TemplateValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1928DB4C3100A7A6A7 /* TemplateValidator.swift */; };
+		C9E17F1E28DB4E0600A7A6A7 /* ProgramValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1D28DB4E0600A7A6A7 /* ProgramValidator.swift */; };
+		C9E17F2028DB4E5200A7A6A7 /* ValidationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1F28DB4E5200A7A6A7 /* ValidationUtils.swift */; };
 		C9EB6D952881902B0026186C /* String-Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EB6D942881902B0026186C /* String-Empty.swift */; };
 		C9EB6D972882B9D10026186C /* Text-Truncated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EB6D962882B9D10026186C /* Text-Truncated.swift */; };
 		C9F13B1228CE69F100A2B39F /* ProgramPracticeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F13B1128CE69F100A2B39F /* ProgramPracticeSection.swift */; };
@@ -319,7 +322,7 @@
 		C9D53FAE287040DD00FD2B6F /* ExerciseTasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTasksView.swift; sourceTree = "<group>"; };
 		C9D53FB028704B3800FD2B6F /* AddExerciseView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddExerciseView-ViewModel.swift"; sourceTree = "<group>"; };
 		C9D53FB228704C6500FD2B6F /* EditExerciseView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditExerciseView-ViewModel.swift"; sourceTree = "<group>"; };
-		C9D53FB428704E4000FD2B6F /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
+		C9D53FB428704E4000FD2B6F /* ExerciseValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseValidator.swift; sourceTree = "<group>"; };
 		C9D53FB72870507400FD2B6F /* AddProgramView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddProgramView-ViewModel.swift"; sourceTree = "<group>"; };
 		C9D53FB92870519200FD2B6F /* EditProgramView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditProgramView-ViewModel.swift"; sourceTree = "<group>"; };
 		C9D53FBB287064E200FD2B6F /* ProgramDurationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDurationSection.swift; sourceTree = "<group>"; };
@@ -333,6 +336,9 @@
 		C9E17F1128DB3EEE00A7A6A7 /* Listener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listener.swift; sourceTree = "<group>"; };
 		C9E17F1328DB457800A7A6A7 /* ViewModelListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelListener.swift; sourceTree = "<group>"; };
 		C9E17F1528DB4BE600A7A6A7 /* ProgramService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramService.swift; sourceTree = "<group>"; };
+		C9E17F1928DB4C3100A7A6A7 /* TemplateValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateValidator.swift; sourceTree = "<group>"; };
+		C9E17F1D28DB4E0600A7A6A7 /* ProgramValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramValidator.swift; sourceTree = "<group>"; };
+		C9E17F1F28DB4E5200A7A6A7 /* ValidationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationUtils.swift; sourceTree = "<group>"; };
 		C9EB6D942881902B0026186C /* String-Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-Empty.swift"; sourceTree = "<group>"; };
 		C9EB6D962882B9D10026186C /* Text-Truncated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text-Truncated.swift"; sourceTree = "<group>"; };
 		C9F13B1128CE69F100A2B39F /* ProgramPracticeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramPracticeSection.swift; sourceTree = "<group>"; };
@@ -763,7 +769,10 @@
 		C9D53FB628704EE900FD2B6F /* service */ = {
 			isa = PBXGroup;
 			children = (
-				C9D53FB428704E4000FD2B6F /* ValidationService.swift */,
+				C9E17F1928DB4C3100A7A6A7 /* TemplateValidator.swift */,
+				C9E17F1D28DB4E0600A7A6A7 /* ProgramValidator.swift */,
+				C9D53FB428704E4000FD2B6F /* ExerciseValidator.swift */,
+				C9E17F1F28DB4E5200A7A6A7 /* ValidationUtils.swift */,
 				C9E17F1528DB4BE600A7A6A7 /* ProgramService.swift */,
 			);
 			path = service;
@@ -1034,6 +1043,7 @@
 				C9A0D02228280F3E000CF439 /* RightWing.swift in Sources */,
 				C9A0CFEE281AB484000CF439 /* PracticeProgram.swift in Sources */,
 				C97DE6C028B5155A005D53D1 /* PracticeSettings-ViewModel.swift in Sources */,
+				C9E17F2028DB4E5200A7A6A7 /* ValidationUtils.swift in Sources */,
 				C9F13B1928CF624600A2B39F /* ExamplesInfo.swift in Sources */,
 				C9692C7C284F787700373730 /* ExerciseShortView.swift in Sources */,
 				C9B49E8D28AAD894007713A1 /* EditorMode.swift in Sources */,
@@ -1041,9 +1051,11 @@
 				C9ACC8EA28A81C1500FC5343 /* PersistentDataManager.swift in Sources */,
 				C9E0C42728801CDE00B8FBA8 /* SettingsConstants.swift in Sources */,
 				C9CCCE98284B6DE5005665C8 /* ProgramDetailsView.swift in Sources */,
+				C9E17F1A28DB4C3100A7A6A7 /* TemplateValidator.swift in Sources */,
+				C9E17F1E28DB4E0600A7A6A7 /* ProgramValidator.swift in Sources */,
 				C9321CA728C9FAEB008C6BA4 /* WelcomeView.swift in Sources */,
 				C9321CA328C7CCEA008C6BA4 /* Text-IntroTitle.swift in Sources */,
-				C9D53FB528704E4000FD2B6F /* ValidationService.swift in Sources */,
+				C9D53FB528704E4000FD2B6F /* ExerciseValidator.swift in Sources */,
 				C9A0D02028280F13000CF439 /* SquirrelInWheel.swift in Sources */,
 				C9CEAA02287C307D00D15A16 /* RestSettingsView.swift in Sources */,
 				C932522028798B7A009D5479 /* StubView.swift in Sources */,

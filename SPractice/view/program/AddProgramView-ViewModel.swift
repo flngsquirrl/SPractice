@@ -14,12 +14,14 @@ extension AddProgramView {
         @Published var newTemplate = ProgramTemplate.template
         @Published var editMode: EditMode = .inactive
 
+        let programValidator = ProgramValidator()
+
         var isTemplateValid: Bool {
-            ValidationService.isValid(newTemplate)
+            programValidator.isValid(newTemplate)
         }
 
         var isAddDisabled: Bool {
-            !ValidationService.isValid(newTemplate)
+            !programValidator.isValid(newTemplate)
         }
     }
 }

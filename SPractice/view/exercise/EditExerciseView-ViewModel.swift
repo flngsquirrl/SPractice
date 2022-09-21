@@ -9,7 +9,10 @@ import Foundation
 
 extension EditExerciseView {
     @MainActor class ViewModel: ObservableObject {
+
         @Published var template: ExerciseEditor.EditorTemplate
+
+        let exerciseValidator = ExerciseValidator()
 
         init(template: ExerciseTemplate) {
             self.template = ExerciseEditor.EditorTemplate(from: template)
@@ -20,7 +23,7 @@ extension EditExerciseView {
         }
 
         var isSaveDisabled: Bool {
-            !ValidationService.isValid(template.exercise)
+            !exerciseValidator.isValid(template.exercise)
         }
 
         var showExampleUpdateConfirmation: Bool {
