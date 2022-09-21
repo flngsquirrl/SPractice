@@ -94,7 +94,7 @@ struct ExercisesView: View {
                 exercisesManager.deleteItem($0)
             }
         } else {
-            secondaryView
+            StabView()
         }
     }
 
@@ -113,9 +113,6 @@ struct ExercisesView: View {
         }
     }
 
-    var secondaryView: some View {
-        StabView()
-    }
 }
 
 struct ExercisesView_Previews: PreviewProvider {

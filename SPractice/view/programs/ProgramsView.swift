@@ -100,7 +100,7 @@ struct ProgramsView: View {
                 ExerciseContentsView(exercise: exercise)
             }
         } else {
-            secondaryView
+            StabView()
         }
     }
 
@@ -117,10 +117,6 @@ struct ProgramsView: View {
                     .frame(width: 25)
             }
         }
-    }
-
-    var secondaryView: some View {
-        StabView()
     }
 
 }
