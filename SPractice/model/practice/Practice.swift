@@ -15,6 +15,8 @@ import SwiftUI
     let clock: Clock
     let player: Player
 
+    let programService = ProgramService()
+
     @Published var isSoundOn: Bool
     var usePauses: Bool
 
@@ -32,7 +34,7 @@ import SwiftUI
         self.usePauses = settings.pauseAfterExercise
         self.isSoundOn = settings.playSounds
 
-        self.durationRemaining = program.duration
+        self.durationRemaining = programService.calculateDuration(for: program)
 
         self.player = Player()
         self.clock = Clock()
@@ -138,7 +140,7 @@ import SwiftUI
         isCompleted = false
         isCurrentExerciseStarted = false
 
-        durationRemaining = program.duration
+        durationRemaining = programService.calculateDuration(for: program)
         currentExerciseIndex = 0
         currentTaskIndex = 0
     }
@@ -276,7 +278,7 @@ import SwiftUI
     }
 
     func setDurationRemaining() {
-        durationRemaining = program.calculateDuration(from: currentExerciseIndex)
+        durationRemaining = programService.calculateDuration(for: program, from: currentExerciseIndex)
     }
 
     func resetDurationRemaining() {

@@ -21,27 +21,6 @@ protocol Program: HavingID, Named {
 
 extension Program {
 
-    var duration: Duration {
-        calculateDuration(from: 0)
-    }
-
-    func calculateDuration(from startIndex: Int) -> Duration {
-        var totalDuration = 0
-        for index in startIndex..<exercises.count {
-            let exercise = exercises[index]
-            var exerciseDuration: Int = 0
-            if case .known(let duration) = exercise.duration {
-                exerciseDuration = duration
-            } else if exercise.type == .tabata {
-                exerciseDuration = SettingsManager.tabataExerciseDuration
-            } else if exercise.isService {
-                exerciseDuration = SettingsManager.restDurationItem.value
-            }
-            totalDuration += exerciseDuration
-        }
-        return totalDuration == 0 ? (hasFlowExercises(fromIndex: startIndex) ? .unlimited : .unknown) : .known(totalDuration)
-    }
-
     var hasExercises: Bool {
         !exercises.isEmpty
     }

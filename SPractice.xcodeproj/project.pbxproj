@@ -158,6 +158,7 @@
 		C9E17F0F28DB35CB00A7A6A7 /* ExerciseDurationView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F0E28DB35CB00A7A6A7 /* ExerciseDurationView-ViewModel.swift */; };
 		C9E17F1228DB3EEE00A7A6A7 /* Listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1128DB3EEE00A7A6A7 /* Listener.swift */; };
 		C9E17F1428DB457800A7A6A7 /* ViewModelListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1328DB457800A7A6A7 /* ViewModelListener.swift */; };
+		C9E17F1628DB4BE600A7A6A7 /* ProgramService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1528DB4BE600A7A6A7 /* ProgramService.swift */; };
 		C9EB6D952881902B0026186C /* String-Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EB6D942881902B0026186C /* String-Empty.swift */; };
 		C9EB6D972882B9D10026186C /* Text-Truncated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EB6D962882B9D10026186C /* Text-Truncated.swift */; };
 		C9F13B1228CE69F100A2B39F /* ProgramPracticeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F13B1128CE69F100A2B39F /* ProgramPracticeSection.swift */; };
@@ -331,6 +332,7 @@
 		C9E17F0E28DB35CB00A7A6A7 /* ExerciseDurationView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseDurationView-ViewModel.swift"; sourceTree = "<group>"; };
 		C9E17F1128DB3EEE00A7A6A7 /* Listener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listener.swift; sourceTree = "<group>"; };
 		C9E17F1328DB457800A7A6A7 /* ViewModelListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelListener.swift; sourceTree = "<group>"; };
+		C9E17F1528DB4BE600A7A6A7 /* ProgramService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramService.swift; sourceTree = "<group>"; };
 		C9EB6D942881902B0026186C /* String-Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-Empty.swift"; sourceTree = "<group>"; };
 		C9EB6D962882B9D10026186C /* Text-Truncated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text-Truncated.swift"; sourceTree = "<group>"; };
 		C9F13B1128CE69F100A2B39F /* ProgramPracticeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramPracticeSection.swift; sourceTree = "<group>"; };
@@ -762,6 +764,7 @@
 			isa = PBXGroup;
 			children = (
 				C9D53FB428704E4000FD2B6F /* ValidationService.swift */,
+				C9E17F1528DB4BE600A7A6A7 /* ProgramService.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -1010,6 +1013,7 @@
 				C9A029032878478E00032FF9 /* DeleteAlert.swift in Sources */,
 				C9A0D01A2827CEC9000CF439 /* Squirrel.swift in Sources */,
 				C92F6C44286F0B0000D7BA59 /* ProgramDurationView.swift in Sources */,
+				C9E17F1628DB4BE600A7A6A7 /* ProgramService.swift in Sources */,
 				C9F30BD728CFD5A000A1C9E2 /* ExerciseDurationInfo.swift in Sources */,
 				C9F30BD328CFC66700A1C9E2 /* Text-Term.swift in Sources */,
 				C9A0D00828228078000CF439 /* ProgramsView.swift in Sources */,

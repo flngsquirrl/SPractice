@@ -13,8 +13,10 @@ struct ProgramDurationView: View {
     private let mode: DurationView.Mode
     private let showAsApproximate: Bool
 
+    private var programService = ProgramService()
+
     init<T>(for program: T, mode: DurationView.Mode = .padded) where T: Program {
-        self.duration = program.duration
+        self.duration = programService.calculateDuration(for: program)
         self.mode = mode
         self.showAsApproximate = program.hasFlowExercises
     }
