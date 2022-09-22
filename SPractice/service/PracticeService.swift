@@ -51,10 +51,15 @@ class PracticeService {
             return nil
         }
 
+        var exercise = PracticeExercise()
         let name = template.isService ? SettingsManager.restName : template.name
-        var exercise = PracticeExercise(type: template.type!, name: name, description: template.description, intensity: template.intensity!,
-                  isService: template.isService, isExample: template.isExample,
-                  exampleId: template.exampleId)
+        exercise.type = template.type!
+        exercise.name = name.trim()
+        exercise.description = template.description.trim()
+        exercise.intensity = template.intensity!
+        exercise.isService = template.isService
+        exercise.isExample = template.isExample
+        exercise.exampleId = template.exampleId
         exercise.tasks = prepareTasks(from: template)
 
         return exercise

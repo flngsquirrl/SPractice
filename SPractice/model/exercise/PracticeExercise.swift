@@ -10,28 +10,16 @@ import Foundation
 struct PracticeExercise: Exercise {
 
     let id = UUID()
-    let type: ExerciseType?
-    let name: String
-    let description: String
+    var type: ExerciseType?
+    var name: String = ""
+    var description: String = ""
     var intensity: Intensity?
-    var isService: Bool
+    var isService: Bool = false
 
-    var isExample: Bool
+    var isExample: Bool = false
     var exampleId: String?
 
-    var tasks: [Task]
-
-    init(type: ExerciseType, name: String, description: String, intensity: Intensity, isService: Bool = false,
-         isExample: Bool = false, exampleId: String? = nil, tasks: [Task] = []) {
-        self.type = type
-        self.name = name.trim()
-        self.description = description.trim()
-        self.intensity = intensity
-        self.isService = isService
-        self.isExample = isExample
-        self.exampleId = exampleId
-        self.tasks = tasks
-    }
+    var tasks: [Task] = []
 
     var unwrappedType: ExerciseType {
         type!
