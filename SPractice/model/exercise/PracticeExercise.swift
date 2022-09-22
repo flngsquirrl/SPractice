@@ -13,7 +13,7 @@ struct PracticeExercise: Exercise {
     let type: ExerciseType?
     let name: String
     let description: String
-    var exerciseIntensity: Intensity
+    var intensity: Intensity?
     var isService: Bool
 
     var isExample: Bool
@@ -26,7 +26,7 @@ struct PracticeExercise: Exercise {
         self.type = type
         self.name = name.trim()
         self.description = description.trim()
-        self.exerciseIntensity = intensity
+        self.intensity = intensity
         self.isService = isService
         self.isExample = isExample
         self.exampleId = exampleId
