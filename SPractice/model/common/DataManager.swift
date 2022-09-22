@@ -22,8 +22,7 @@ import Foundation
     func contains(_ item: Item) -> Bool
 }
 
-protocol HavingID: Identifiable where Self.ID == UUID {
-}
+protocol HavingID: Identifiable where Self.ID == UUID {}
 
 extension DataManager {
     func addNew(_ item: Item) {

@@ -7,8 +7,7 @@
 
 import Foundation
 
-@MainActor protocol SortableFilterableList: SortableList, FilterableList {
-}
+typealias SortableFilterableList = SortableList & FilterableList
 
 @MainActor protocol SortableList: AnyObject {
     associatedtype Item: Named, Created

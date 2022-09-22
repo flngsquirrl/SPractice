@@ -7,28 +7,16 @@
 
 import Foundation
 
-@MainActor class ProgramsManager: MainList {
+@MainActor class ProgramsManager: MainManager {
+    typealias Item = ProgramTemplate
 
     static let shared = ProgramsManager()
 
-    var dataManager = Programs.shared
-    var newItem: UUID?
-
-    @Published var selected: ProgramTemplate?
-
-    var sortingPropertyKey: String = "programsSortingProperty"
-    var sortingOrderKey: String = "programsSortingOrder"
-    var sortingProperty: SortingProperty = .date
-    var sortingOrder: SortingOrder = .desc
-
-    @Published var items = Programs.shared.items
-    var defaultExamples = ProgramTemplate.defaultExamples
+    var controller: ProgramsController
+    var dataManager: Programs
 
     init() {
-        initialSetup()
-    }
-
-    func prepareExample(from item: ProgramTemplate) -> ProgramTemplate {
-        ProgramTemplate(from: item)
+        dataManager = Programs.shared
+        controller = ProgramsController(items: Programs.shared.items)
     }
 }

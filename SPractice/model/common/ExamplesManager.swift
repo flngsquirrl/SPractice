@@ -10,12 +10,9 @@ import Foundation
 @MainActor protocol ExamplesManager {
     associatedtype Item: ExampleItem
 
-    var defaultExamples: [Item] {get}
-
     func isExampleExist(exampleId: String) -> Bool
     func getExample(exampleId: String) -> Item?
 
-    func prepareExample(from: Item) -> Item
     func restoreExample(_ item: Item)
     func resetExample(_ item: Item)
 
@@ -28,11 +25,20 @@ protocol ExampleItem {
     var isExample: Bool {get}
     var exampleId: String? {get}
 
+    static var defaultExamples: [Self] {get}
+
+    static func prepareExample(from: Self) -> Self
+
     func isEqualToExample(example: Self) -> Bool
     mutating func resetToExample(example: Self)
 }
 
 extension ExamplesManager {
+
+    var defaultExamples: [Self.Item] {
+        Self.Item.defaultExamples
+    }
+
     func areAnyExamplesDeleted() -> Bool {
         for example in defaultExamples {
             let exampleExists = isExampleExist(exampleId: example.exampleId!)

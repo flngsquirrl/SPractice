@@ -108,6 +108,10 @@ struct ExerciseTemplate: Exercise, Created, ExampleItem, Hashable, Codable {
         self.exampleId == example.exampleId
     }
 
+    static func prepareExample(from template: ExerciseTemplate) -> ExerciseTemplate {
+        ExerciseTemplate(from: template)
+    }
+
     mutating func resetToExample(example: ExerciseTemplate) {
         self.name = example.name
         self.type = example.type

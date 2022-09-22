@@ -7,29 +7,16 @@
 
 import Foundation
 
-@MainActor class ExercisesManager: MainList {
+class ExercisesManager: MainManager {
+
+    typealias Item = ExerciseTemplate
 
     static let shared = ExercisesManager()
 
+    var controller: ExercisesController
     var dataManager = Exercises.shared
-    var newItem: UUID?
-
-    @Published var selected: ExerciseTemplate?
-
-    var sortingPropertyKey: String = "exercisesSortingProperty"
-    var sortingOrderKey: String = "exercisesSortingOrder"
-    var sortingProperty: SortingProperty = .date
-    var sortingOrder: SortingOrder = .desc
-
-    @Published var items = Exercises.shared.items
-    var defaultExamples = ExerciseTemplate.defaultExamples
 
     init() {
-        initialSetup()
+        controller = ExercisesController(items: Exercises.shared.items)
     }
-
-    func prepareExample(from item: ExerciseTemplate) -> ExerciseTemplate {
-        ExerciseTemplate(from: item)
-    }
-
 }

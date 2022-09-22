@@ -7,7 +7,7 @@
 
 import Foundation
 
-@MainActor class PracticeSettingsManager: PersistentDataManager {
+class PracticeSettingsManager: PersistentDataManager {
 
     static var shared = PracticeSettingsManager()
 

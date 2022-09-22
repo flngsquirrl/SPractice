@@ -10,13 +10,14 @@ import SwiftUI
 struct ProgramsView: View {
 
     @EnvironmentObject var infoManager: InfoManager
+
     @ObservedObject var programsManager = ProgramsManager.shared
+    @ObservedObject var controller = ProgramsManager.shared.controller
 
     @State private var showDeleteConfirmation = false
     @State private var selectedToDelete: ProgramTemplate?
 
     @State private var showAddNewView = false
-    @State private var searchText = ""
 
     var body: some View {
         NavigationSplitView {
@@ -37,8 +38,7 @@ struct ProgramsView: View {
 
     var list: some View {
         ScrollViewReader { proxy in
-            let programs = programsManager.filter(by: searchText)
-            List(programs, selection: $programsManager.selected) { program in
+            List(controller.filteredItems, selection: $controller.selected) { program in
                 NavigationLink(value: program) {
                     ProgramShortDecorativeView(for: program, isAccented: program.id == selectedToDelete?.id, accentColor: .customAccentColor)
                 }
@@ -53,12 +53,12 @@ struct ProgramsView: View {
                 }
             }
             .listStyle(.insetGrouped)
-            .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
+            .searchable(text: $controller.searchText, placement: .navigationBarDrawer(displayMode: .always))
             .disableAutocorrection(true)
-            .onChange(of: programsManager.newItem) { _ in
-                if programsManager.newItem != nil {
+            .onChange(of: controller.newItem) { newItem in
+                if let newItem {
                     withAnimation {
-                        proxy.scrollTo(programsManager.newItem!, anchor: .center)
+                        proxy.scrollTo(newItem, anchor: .center)
                     }
                 }
             }
@@ -88,7 +88,7 @@ struct ProgramsView: View {
     }
 
     @ViewBuilder var detail: some View {
-        if let selected = programsManager.selected {
+        if let selected = controller.selected {
             NavigationStack {
                 ProgramDetailsView(for: selected) {
                     programsManager.updateItem($0)
@@ -106,8 +106,8 @@ struct ProgramsView: View {
 
     var listToolbar: some ToolbarContent {
         ToolbarItemGroup(placement: .navigationBarTrailing) {
-            SortingControl(sortingProperty: $programsManager.sortingProperty, sortingOrder: $programsManager.sortingOrder) {
-                programsManager.setSorting()
+            SortingControl(sortingProperty: $controller.sortingProperty, sortingOrder: $controller.sortingOrder) {
+                controller.setSorting()
             }
 
             Button {

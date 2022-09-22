@@ -9,13 +9,13 @@ import SwiftUI
 
 struct ExercisesView: View {
 
-    @ObservedObject private var exercisesManager = ExercisesManager.shared
+    @ObservedObject var exercisesManager = ExercisesManager.shared
+    @ObservedObject var controller = ExercisesManager.shared.controller
 
     @State private var showDeleteConfirmation = false
     @State private var selectedToDelete: ExerciseTemplate?
 
     @State private var showAddNewView = false
-    @State private var searchText = ""
 
     var body: some View {
         NavigationSplitView {
@@ -36,8 +36,7 @@ struct ExercisesView: View {
 
     var list: some View {
         ScrollViewReader { proxy in
-            let exercises = exercisesManager.filter(by: searchText)
-            List(exercises, selection: $exercisesManager.selected) { exercise in
+            List(controller.filteredItems, selection: $controller.selected) { exercise in
                 NavigationLink(value: exercise) {
                     let isAccented = exercise.id == selectedToDelete?.id
                     ExerciseShortDecorativeView(for: exercise, isAccented: isAccented)
@@ -52,12 +51,12 @@ struct ExercisesView: View {
                 }
             }
             .listStyle(.insetGrouped)
-            .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
+            .searchable(text: $controller.searchText, placement: .navigationBarDrawer(displayMode: .always))
             .disableAutocorrection(true)
-            .onChange(of: exercisesManager.newItem) { _ in
-                if exercisesManager.newItem != nil {
+            .onChange(of: controller.newItem) { newItem in
+                if let newItem {
                     withAnimation {
-                        proxy.scrollTo(exercisesManager.newItem!, anchor: .center)
+                        proxy.scrollTo(newItem, anchor: .center)
                     }
                 }
             }
@@ -87,7 +86,7 @@ struct ExercisesView: View {
     }
 
     @ViewBuilder var detail: some View {
-        if let selected = exercisesManager.selected {
+        if let selected = controller.selected {
             ExerciseDetailsView(for: selected) {
                 exercisesManager.updateItem($0)
             } onDelete: {
@@ -100,8 +99,8 @@ struct ExercisesView: View {
 
     var listToolbar: some ToolbarContent {
         ToolbarItemGroup(placement: .navigationBarTrailing) {
-            SortingControl(sortingProperty: $exercisesManager.sortingProperty, sortingOrder: $exercisesManager.sortingOrder) {
-                exercisesManager.setSorting()
+            SortingControl(sortingProperty: $controller.sortingProperty, sortingOrder: $controller.sortingOrder) {
+                controller.setSorting()
             }
 
             Button {

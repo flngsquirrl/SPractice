@@ -67,6 +67,10 @@ struct ProgramTemplate: Program, Created, ExampleItem, Codable, Hashable {
         return true
     }
 
+    static func prepareExample(from template: ProgramTemplate) -> ProgramTemplate {
+        ProgramTemplate(from: template)
+    }
+
     mutating func resetToExample(example: ProgramTemplate) {
         self.name = example.name
         self.description = example.description
