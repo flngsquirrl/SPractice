@@ -208,15 +208,15 @@ https://user-images.githubusercontent.com/95634326/190869969-7f9777dd-b92e-4690-
 <details open>
 <summary>Screenshots</summary>
 <p float="left">
-<img width="400" alt="ipad_programs_dark" src="https://user-images.githubusercontent.com/95634326/190858872-cb963fe5-2014-4a2e-862f-48405262c266.png#gh-dark-mode-only">
-<img width="400" alt="ipad_exercisses_dark" src="https://user-images.githubusercontent.com/95634326/190858947-131e6a4f-bc94-41a1-b83f-9c406e46177b.png#gh-dark-mode-only">
-<img width="400" alt="ipad_settings_dark" src="https://user-images.githubusercontent.com/95634326/190858951-fd4e1c20-0592-4eb7-a52f-aa81b9cec298.png#gh-dark-mode-only">
-<img width="400" alt="ipad_practice_dark" src="https://user-images.githubusercontent.com/95634326/190859143-9fad50a5-b079-4406-b6d8-b81573958b40.png#gh-dark-mode-only">
-    
-<img width="400" alt="ipad_programs_light" src="https://user-images.githubusercontent.com/95634326/190859003-f6639d28-70d0-4cc3-b8a0-bac6880bc92c.png#gh-light-mode-only">
-<img width="400" alt="ipad_exercises_light" src="https://user-images.githubusercontent.com/95634326/190859008-51591193-831b-4159-8f21-e195ed48c5e6.png#gh-light-mode-only">
-<img width="400" alt="ipad_settings_light" src="https://user-images.githubusercontent.com/95634326/190859010-86260c8d-6d63-48d1-839f-1fc0a95d4d10.png#gh-light-mode-only">
-<img width="400" alt="ipad_practice_light" src="https://user-images.githubusercontent.com/95634326/190859156-bf6b7e31-83a3-467c-af66-0c2ddbc46367.png#gh-light-mode-only">
+<img width="400" alt="ipad_programs_dark" src="https://user-images.githubusercontent.com/95634326/191806084-af91ab10-2aa8-4205-b671-5b4ff42aed6e.png#gh-dark-mode-only">
+<img width="400" alt="ipad_exercises_dark" src="https://user-images.githubusercontent.com/95634326/191806090-bc7348d7-289f-46ce-887f-81a80a17390f.png#gh-dark-mode-only">
+<img width="400" alt="ipad_settings_dark" src="https://user-images.githubusercontent.com/95634326/191806097-75ad8748-7b29-4193-ac4a-541408c85294.png#gh-dark-mode-only">
+<img width="400" alt="ipad_practice_dark" src="https://user-images.githubusercontent.com/95634326/191806105-69636de7-4d57-4d58-a073-0238a7a474c3.png#gh-dark-mode-only">
+
+<img width="400" alt="ipad_programs_light" src="https://user-images.githubusercontent.com/95634326/191806181-246ca083-1852-4a51-b7b0-9cc86bcf809f.png#gh-light-mode-only">
+<img width="400" alt="ipad_exercises_light" src="https://user-images.githubusercontent.com/95634326/191806185-627d87ee-25ad-44fb-922e-f8623bc3c51a.png#gh-light-mode-only">
+<img width="400" alt="ipad_settings_light" src="https://user-images.githubusercontent.com/95634326/191806189-391df87b-5005-491f-8264-f048fbca505a.png#gh-light-mode-only">
+<img width="400" alt="ipad_practice_light" src="https://user-images.githubusercontent.com/95634326/191806197-7425240c-d3b3-4457-95b6-244466ed4fd0.png#gh-light-mode-only">
 </p> 
 </details>
 
