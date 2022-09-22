@@ -79,7 +79,7 @@ struct ProgramEditor: View {
                             }
                         }
                         ExerciseShortView(for: exercise) {
-                            ExerciseIcon(for: exercise.exerciseType,
+                            ExerciseIcon(for: exercise.type,
                                          isIconAccented: !viewModel.isValidToPractice(exercise: exercise),
                                          accentColor: .red)
                         }

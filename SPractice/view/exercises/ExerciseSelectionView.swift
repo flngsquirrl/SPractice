@@ -147,7 +147,7 @@ struct ExerciseSelectionView: View {
                     )
 
                 ExerciseShortView(for: item.template) {
-                    ExerciseIcon(for: item.template.exerciseType)
+                    ExerciseIcon(for: item.template.type)
                 }
             }
             .rowLeadingAligned()

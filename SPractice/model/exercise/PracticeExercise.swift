@@ -10,7 +10,7 @@ import Foundation
 struct PracticeExercise: Exercise {
 
     let id = UUID()
-    let exerciseType: ExerciseType
+    let type: ExerciseType?
     let name: String
     let description: String
     var exerciseIntensity: Intensity
@@ -21,9 +21,9 @@ struct PracticeExercise: Exercise {
 
     var tasks: [Task]
 
-        self.exerciseType = type
     init(type: ExerciseType, name: String, description: String, intensity: Intensity, isService: Bool = false,
          isExample: Bool = false, exampleId: String? = nil, tasks: [Task] = []) {
+        self.type = type
         self.name = name.trim()
         self.description = description.trim()
         self.exerciseIntensity = intensity
@@ -33,8 +33,12 @@ struct PracticeExercise: Exercise {
         self.tasks = tasks
     }
 
+    var unwrappedType: ExerciseType {
+        type!
+    }
+
     var duration: Duration {
-        guard exerciseType != .flow else {
+        guard type != .flow else {
             return .unlimited
         }
         var result = 0

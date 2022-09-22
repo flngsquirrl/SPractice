@@ -40,7 +40,7 @@ struct PracticeExerciseView: View {
             }
             .frame(minHeight: 100)
 
-            Text("\(practice.currentExercise.exerciseType.rawValue)")
+            Text("\(practice.currentExercise.unwrappedType.rawValue)")
                 .font(.body.bold())
                 .foregroundColor(.secondary)
 

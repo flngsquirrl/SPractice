@@ -37,7 +37,7 @@ struct PracticeSummaryView: View {
                             }
 
                             ExerciseShortView(for: exercise) {
-                                ExerciseIcon(for: exercise.exerciseType)
+                                ExerciseIcon(for: exercise.type)
                             }
                             .foregroundColor(exercise.isService ? .secondary : .primary)
                         }

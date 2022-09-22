@@ -81,10 +81,6 @@ struct ExerciseTemplate: Exercise, Created, ExampleItem, Hashable, Codable {
                                 isService: example.isService, intensity: example.intensity, duration: example.duration)
     }
 
-    var exerciseType: ExerciseType? {
-        return type
-    }
-
     static var restTemplate: ExerciseTemplate {
         return ExerciseTemplate(type: .timer, isService: true, intensity: .rest)
     }
