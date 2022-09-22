@@ -12,11 +12,11 @@ import Foundation
 
     static let shared = ProgramsManager()
 
+    var dataManager: ProgramsDataManager
     var controller: ProgramsController
-    var dataManager: Programs
 
     init() {
-        dataManager = Programs.shared
-        controller = ProgramsController(items: Programs.shared.items)
+        dataManager = ProgramsDataManager()
+        controller = ProgramsController(items: dataManager.items)
     }
 }

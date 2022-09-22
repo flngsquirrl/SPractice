@@ -1,5 +1,5 @@
 //
-//  ProgramsManager.swift
+//  ProgramsDataManager.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 26.06.22.
@@ -7,18 +7,15 @@
 
 import Foundation
 
-@MainActor class Programs: ObservableObject, PersistentDataManager {
+@MainActor class ProgramsDataManager: ObservableObject, PersistentDataManager {
 
     typealias Item = ProgramTemplate
 
-    // @Published internal var items: [ProgramTemplate] = [.simple, .personal, .dailyShort, .shortForBack]
     @Published internal var items: [ProgramTemplate]
-
-    static let shared = Programs()
 
     let savePath = FileManager.documentsDirectory.appendingPathComponent("Programs")
 
-    private init() {
+    init() {
         do {
             let data = try Data(contentsOf: savePath)
             items = try JSONDecoder().decode([ProgramTemplate].self, from: data)
