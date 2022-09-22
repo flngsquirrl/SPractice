@@ -10,48 +10,13 @@ import Foundation
 struct PracticeProgram: Program {
 
     let id = UUID()
-    let name: String
-    let description: String
-    let baseExercises: [PracticeExercise]
+    var name: String = ""
+    var description: String = ""
+    var exercises: [PracticeExercise] = []
 
-    var useRest: Bool
+    var useRest: Bool = false
 
-    let isExample: Bool
+    var isExample: Bool = false
     var exampleId: String?
 
-    init(for template: ProgramTemplate, useRest: Bool = false) {
-        self.name = template.name.trim()
-        self.description = template.description.trim()
-
-        var baseExercises = [PracticeExercise]()
-        for exerciseTemplate in template.exercises {
-            let exercise = PracticeExercise(from: exerciseTemplate)
-            baseExercises.append(exercise!)
-        }
-        self.baseExercises = baseExercises
-
-        self.useRest = useRest
-
-        self.isExample = template.isExample
-        self.exampleId = template.exampleId
-    }
-
-    var exercises: [PracticeExercise] {
-        if !useRest {
-            return baseExercises
-        }
-
-        var all = [PracticeExercise]()
-        for (index, exercise) in baseExercises.enumerated() {
-            all.append(exercise)
-            if index != baseExercises.count - 1 {
-                let pause = PracticeExercise(from: ExerciseTemplate.restTemplate)
-                all.append(pause!)
-            }
-        }
-        return all
-    }
-
-    // examples
-    static let personal = PracticeProgram(for: .simpleYoga)
 }

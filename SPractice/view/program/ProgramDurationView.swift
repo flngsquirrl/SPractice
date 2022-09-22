@@ -50,10 +50,10 @@ struct ProgramDurationView_Previews: PreviewProvider {
     static var previews: some View {
         List {
             HStack {
-                ProgramDurationView(for: PracticeProgram.personal, mode: .extended)
+                ProgramDurationView(for: ProgramTemplate.simpleYoga, mode: .extended)
             }
             HStack {
-                ProgramDurationView(for: PracticeProgram.personal, mode: .padded)
+                ProgramDurationView(for: ProgramTemplate.simpleYoga, mode: .padded)
             }
         }
     }

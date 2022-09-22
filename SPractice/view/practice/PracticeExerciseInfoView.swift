@@ -42,6 +42,6 @@ struct PracticeExerciseInfoView: View {
 
 struct PracticeExerciseInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        PracticeExerciseInfoView(exercise: PracticeExercise(from: ExerciseTemplate.catCow)!)
+        PracticeExerciseInfoView(exercise: PracticeExercise.catCow)
     }
 }

@@ -13,6 +13,8 @@ extension ExerciseEditor {
 
         @Binding var template: EditorTemplate
 
+        let practiceService = PracticeService()
+
         @Published var isTypeSet: Bool = true
         @Published var minutes: Int = 0
         @Published var seconds: Int = 0
@@ -35,7 +37,7 @@ extension ExerciseEditor {
         }
 
         var practiceExercise: PracticeExercise {
-            return PracticeExercise(from: exercise)!
+            return practiceService.prepareForPractice(exercise)!
         }
 
         var isTypeDefined: Bool {

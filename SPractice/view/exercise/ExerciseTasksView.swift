@@ -34,6 +34,7 @@ struct ExerciseTasksView: View {
 
 struct ExerciseTasksView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseTasksView(tasks: PracticeExercise.vasihsthasana.tasks)
+        ExerciseTasksView(tasks: [Task.restTabataWarmUp, Task.activityTabata1,
+                                  Task.restTabata1, Task.restTabataCoolDown])
     }
 }

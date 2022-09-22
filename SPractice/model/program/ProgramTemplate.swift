@@ -88,13 +88,13 @@ struct ProgramTemplate: Program, Created, ExampleItem, Codable, Hashable {
     }
 
     static let simpleYoga = ProgramTemplate(name: "Simple yoga", description: "Demo yoga program",
-                                        exercises: [.getTemplate(from: .catCow), .getTemplate(from: .surjaNamascarA),
-                                                    .getTemplate(from: .balasana), .getTemplate(from: .vasihsthasana),
-                                                    ExerciseTemplate.getTemplate(from: .shavasana)],
-                                        isExample: true, exampleId: ProgramExampleId.simpleYoga.rawValue)
+                                            exercises: [.getTemplate(from: .catCow), .getTemplate(from: .surjaNamascarA),
+                                                        .getTemplate(from: .balasana), .getTemplate(from: .vasihsthasana),
+                                                        ExerciseTemplate.getTemplate(from: .shavasana)],
+                                            isExample: true, exampleId: ProgramExampleId.simpleYoga.rawValue)
 
     static let simpleWorkout = ProgramTemplate(name: "Simple workout", description: "Demo workout program",
                                                exercises: [.getTemplate(from: .plank), .getTemplate(from: .squats),
                                                            .getTemplate(from: .jumpRope)],
-                                        isExample: true, exampleId: ProgramExampleId.simpleWorkout.rawValue)
+                                               isExample: true, exampleId: ProgramExampleId.simpleWorkout.rawValue)
 }

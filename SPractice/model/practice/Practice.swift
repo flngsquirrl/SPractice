@@ -16,6 +16,7 @@ import SwiftUI
     let player: Player
 
     let programService = ProgramService()
+    let practiceService = PracticeService()
 
     @Published var isSoundOn: Bool
     var usePauses: Bool
@@ -30,7 +31,7 @@ import SwiftUI
     @Published var durationRemaining: Duration
 
     init(for template: ProgramTemplate, with settings: PracticeSettings) {
-        self.program = PracticeProgram(for: template, useRest: settings.addRestIntervals)
+        self.program = practiceService.prepareForPractice(template, useRest: settings.addRestIntervals)
         self.usePauses = settings.pauseAfterExercise
         self.isSoundOn = settings.playSounds
 

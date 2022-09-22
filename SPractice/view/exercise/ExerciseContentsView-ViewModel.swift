@@ -12,6 +12,8 @@ extension ExerciseContentsView {
 
         @Published var exercise: ExerciseTemplate
 
+        let practiceService = PracticeService()
+
         init(for template: ExerciseTemplate) {
             self.exercise = template
         }
@@ -21,7 +23,7 @@ extension ExerciseContentsView {
         }
 
         var tasks: [Task] {
-            PracticeExercise(from: exercise)!.tasks
+            practiceService.prepareForPractice(exercise)!.tasks
         }
     }
 }

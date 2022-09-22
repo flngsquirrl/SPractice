@@ -25,6 +25,7 @@ struct ExerciseTasksButton: View {
 
 struct ExerciseTasksButton_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseTasksButton(tasks: PracticeExercise(from: ExerciseTemplate.vasihsthasana)!.tasks)
+        ExerciseTasksButton(tasks: [Task.restTabataWarmUp, Task.activityTabata1,
+                                    Task.restTabata1, Task.restTabataCoolDown])
     }
 }
