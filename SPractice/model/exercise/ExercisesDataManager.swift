@@ -1,5 +1,5 @@
 //
-//  ExerciseManager.swift
+//  ExercisesDataManager.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 26.06.22.
@@ -7,15 +7,13 @@
 
 import Foundation
 
-@MainActor class Exercises: ObservableObject, PersistentDataManager {
+@MainActor class ExercisesDataManager: ObservableObject, PersistentDataManager {
 
     @Published internal var items: [ExerciseTemplate]
 
-    static let shared = Exercises()
-
     let savePath = FileManager.documentsDirectory.appendingPathComponent("Exercises")
 
-    private init() {
+    init() {
         do {
             let data = try Data(contentsOf: savePath)
             items = try JSONDecoder().decode([ExerciseTemplate].self, from: data)
