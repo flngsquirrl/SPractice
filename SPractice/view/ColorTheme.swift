@@ -18,6 +18,14 @@ extension ShapeStyle where Self == Color {
         white
     }
 
+    static var destructiveColor: Color {
+        red
+    }
+
+    static var invalidAccentColor: Color {
+        red
+    }
+
     static var mainColor: Color {
         lightOrange
     }

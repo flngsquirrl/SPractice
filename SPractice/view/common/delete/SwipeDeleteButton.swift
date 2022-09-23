@@ -17,7 +17,7 @@ struct SwipeDeleteButton: View {
         } label: {
             Label("Delete", systemImage: "trash")
         }
-        .tint(.red)
+        .tint(.destructiveColor)
     }
 }
 

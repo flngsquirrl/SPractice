@@ -21,7 +21,7 @@ struct ProgramSummaryView: View {
                 NavigationLink(value: exercise) {
                     let isExerciseValid = exerciseValidator.isValidToPractice(exercise)
                     ExerciseShortView(for: exercise) {
-                        ExerciseIcon(for: exercise.type, isIconAccented: !isExerciseValid, accentColor: .red)
+                        ExerciseIcon(for: exercise.type, isIconAccented: !isExerciseValid, accentColor: .invalidAccentColor)
                     }
                 }
                 .rowLeadingAligned()
