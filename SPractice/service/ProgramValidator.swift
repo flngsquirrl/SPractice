@@ -13,10 +13,6 @@ class ProgramValidator: TemplateValidator {
         isNameValid(of: template) && areExercisesValid(of: template)
     }
 
-    func isNameValid(of template: ProgramTemplate) -> Bool {
-        ValidationUtils.isNameValid(template.name)
-    }
-
     private func areExercisesValid(of template: ProgramTemplate) -> Bool {
         !template.exercises.isEmpty
     }

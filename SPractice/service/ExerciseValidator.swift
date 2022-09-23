@@ -20,10 +20,6 @@ class ExerciseValidator: TemplateValidator {
         isNameValid(of: template)
     }
 
-    func isNameValid(of template: ExerciseTemplate) -> Bool {
-        ValidationUtils.isNameValid(template.name)
-    }
-
     func isValidToPractice(_ template: ExerciseTemplate) -> Bool {
         guard template.isTypeSet else {
             return false
