@@ -21,7 +21,7 @@ protocol TemplateValidator {
 extension TemplateValidator {
 
     func isNameValid(of template: Template) -> Bool {
-        ValidationUtils.isNameValid(template.name)
+        !template.name.isEmptyString
     }
 
 }

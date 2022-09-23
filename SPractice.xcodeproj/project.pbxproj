@@ -163,7 +163,6 @@
 		C9E17F1628DB4BE600A7A6A7 /* ProgramService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1528DB4BE600A7A6A7 /* ProgramService.swift */; };
 		C9E17F1A28DB4C3100A7A6A7 /* TemplateValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1928DB4C3100A7A6A7 /* TemplateValidator.swift */; };
 		C9E17F1E28DB4E0600A7A6A7 /* ProgramValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1D28DB4E0600A7A6A7 /* ProgramValidator.swift */; };
-		C9E17F2028DB4E5200A7A6A7 /* ValidationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1F28DB4E5200A7A6A7 /* ValidationUtils.swift */; };
 		C9E17F2428DB845F00A7A6A7 /* ProgramsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F2328DB845F00A7A6A7 /* ProgramsController.swift */; };
 		C9E17F2628DBA11400A7A6A7 /* ExercisesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F2528DBA11400A7A6A7 /* ExercisesController.swift */; };
 		C9EB6D952881902B0026186C /* String-Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EB6D942881902B0026186C /* String-Empty.swift */; };
@@ -344,7 +343,6 @@
 		C9E17F1528DB4BE600A7A6A7 /* ProgramService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramService.swift; sourceTree = "<group>"; };
 		C9E17F1928DB4C3100A7A6A7 /* TemplateValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateValidator.swift; sourceTree = "<group>"; };
 		C9E17F1D28DB4E0600A7A6A7 /* ProgramValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramValidator.swift; sourceTree = "<group>"; };
-		C9E17F1F28DB4E5200A7A6A7 /* ValidationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationUtils.swift; sourceTree = "<group>"; };
 		C9E17F2328DB845F00A7A6A7 /* ProgramsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramsController.swift; sourceTree = "<group>"; };
 		C9E17F2528DBA11400A7A6A7 /* ExercisesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesController.swift; sourceTree = "<group>"; };
 		C9EB6D942881902B0026186C /* String-Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-Empty.swift"; sourceTree = "<group>"; };
@@ -783,7 +781,6 @@
 				C9E17F1928DB4C3100A7A6A7 /* TemplateValidator.swift */,
 				C9E17F1D28DB4E0600A7A6A7 /* ProgramValidator.swift */,
 				C9D53FB428704E4000FD2B6F /* ExerciseValidator.swift */,
-				C9E17F1F28DB4E5200A7A6A7 /* ValidationUtils.swift */,
 				C9E17F1528DB4BE600A7A6A7 /* ProgramService.swift */,
 				C910A61028DCA279006F6C4B /* PracticeService.swift */,
 			);
@@ -1055,7 +1052,6 @@
 				C9A0D02228280F3E000CF439 /* RightWing.swift in Sources */,
 				C9A0CFEE281AB484000CF439 /* PracticeProgram.swift in Sources */,
 				C97DE6C028B5155A005D53D1 /* PracticeSettings-ViewModel.swift in Sources */,
-				C9E17F2028DB4E5200A7A6A7 /* ValidationUtils.swift in Sources */,
 				C9F13B1928CF624600A2B39F /* ExamplesInfo.swift in Sources */,
 				C9692C7C284F787700373730 /* ExerciseShortView.swift in Sources */,
 				C9B49E8D28AAD894007713A1 /* EditorMode.swift in Sources */,
