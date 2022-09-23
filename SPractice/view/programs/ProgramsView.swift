@@ -43,13 +43,10 @@ struct ProgramsView: View {
                     ProgramShortDecorativeView(for: program, isAccented: program.id == selectedToDelete?.id, accentColor: .customAccentColor)
                 }
                 .swipeActions(edge: .trailing) {
-                    Button {
+                    SwipeDeleteButton {
                         selectedToDelete = program
                         showDeleteConfirmation = true
-                    } label: {
-                        Label("Delete", systemImage: "trash")
                     }
-                    .tint(.red)
                 }
             }
             .listStyle(.insetGrouped)
