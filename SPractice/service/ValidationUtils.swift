@@ -10,6 +10,6 @@ import Foundation
 enum ValidationUtils {
 
     static func isNameValid(_ name: String) -> Bool {
-        !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        !name.isEmptyString
     }
 }
