@@ -48,6 +48,7 @@ struct FlowSettingsView_Previews: PreviewProvider {
         NavigationStack {
             List {
                 FlowSettingsView()
+                    .environmentObject(SettingsManager())
             }
         }
     }

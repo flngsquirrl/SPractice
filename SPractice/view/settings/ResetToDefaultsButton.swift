@@ -39,5 +39,6 @@ struct ResetToDefaultsButton: View {
 struct ResetToDefaultsButton_Previews: PreviewProvider {
     static var previews: some View {
         ResetToDefaultsButton(subgroup: .tabata)
+            .environmentObject(SettingsManager())
     }
 }

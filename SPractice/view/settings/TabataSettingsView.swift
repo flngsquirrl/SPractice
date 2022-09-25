@@ -62,6 +62,7 @@ struct TabataSettingsView_Previews: PreviewProvider {
         NavigationStack {
             List {
                 TabataSettingsView()
+                    .environmentObject(SettingsManager())
             }
         }
     }

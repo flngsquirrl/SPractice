@@ -42,6 +42,7 @@ struct PauseSettingsView_Previews: PreviewProvider {
         NavigationStack {
             List {
                 RestSettingsView()
+                    .environmentObject(SettingsManager())
             }
         }
     }
