@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ExerciseShortView<E: Exercise, Icon: View>: View {
 
-    @ObservedObject var settings = SettingsManager.settings
+    @EnvironmentObject var settingsManager: SettingsManager
 
     private let exercise: E
     @ViewBuilder private var icon: Icon
@@ -41,7 +41,7 @@ struct ExerciseShortView<E: Exercise, Icon: View>: View {
 
     var name: String {
         if exercise.isService {
-            return SettingsManager.restName
+            return settingsManager.restName
         }
         return exercise.name
     }

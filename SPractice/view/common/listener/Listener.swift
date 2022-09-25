@@ -10,6 +10,6 @@ import Combine
 
 protocol Listener {
 
-    func listenTo(target: ObservableObjectPublisher)
-    func listenTo(targets: [ObservableObjectPublisher])
+    func listenTo(target: ObservableObjectPublisher, action: (() -> Void)?)
+    func listenTo(targets: [ObservableObjectPublisher], action: (() -> Void)?)
 }

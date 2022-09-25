@@ -35,7 +35,7 @@ struct Time: Equatable {
     }
 }
 
-class SettingsItem: ObservableObject, Codable {
+class SettingsItem: Codable {
 
     var name: SettingsItemName
     fileprivate(set) var value: String
@@ -94,84 +94,83 @@ protocol SettingsItemWrapper: ObservableObject {
 
 class SettingsItemStringWrapper: SettingsItemWrapper {
 
+    internal var settingsItem: SettingsItem
+
+    @Published var value: String {
+        willSet {
+            settingsItem.value = newValue
+        }
+    }
+
     init(for settingsItem: SettingsItem) {
         self.settingsItem = settingsItem
         self.value = settingsItem.value
     }
 
-    internal var settingsItem: SettingsItem
-
     func updateWith(_ settingsItem: SettingsItem) {
         self.settingsItem = settingsItem
         value = settingsItem.value
     }
-
-    @Published var value: String {
-        didSet {
-            settingsItem.value = value
-        }
-    }
 }
 
 class SettingsItemIntWrapper: SettingsItemWrapper {
+    internal var settingsItem: SettingsItem
+
+    @Published var value: Int {
+        willSet {
+            settingsItem.value = String(newValue)
+        }
+    }
 
     init(for settingsItem: SettingsItem) {
         self.settingsItem = settingsItem
         self.value = settingsItem.getIntValue()
     }
 
-    internal var settingsItem: SettingsItem
-
     func updateWith(_ settingsItem: SettingsItem) {
         self.settingsItem = settingsItem
         value = settingsItem.getIntValue()
     }
-
-    @Published var value: Int {
-        didSet {
-            settingsItem.value = String(value)
-        }
-    }
 }
 
 class SettingsItemBoolWrapper: SettingsItemWrapper {
+
+    internal var settingsItem: SettingsItem
+
+    @Published var value: Bool {
+        willSet {
+            settingsItem.value = String(newValue)
+        }
+    }
 
     init(for settingsItem: SettingsItem) {
         self.settingsItem = settingsItem
         self.value = settingsItem.getBoolValue()
     }
 
-    internal var settingsItem: SettingsItem
-
     func updateWith(_ settingsItem: SettingsItem) {
         self.settingsItem = settingsItem
         value = settingsItem.getBoolValue()
     }
-
-    @Published var value: Bool {
-        didSet {
-            settingsItem.value = String(value)
-        }
-    }
 }
 
 class SettingsItemTimeWrapper: SettingsItemWrapper {
+
+    internal var settingsItem: SettingsItem
+
+    @Published var value: Time {
+        willSet {
+            settingsItem.value = String(ClockTime.calculateDuration(minutes: newValue.minutes, seconds: newValue.seconds))
+        }
+    }
 
     init(for settingsItem: SettingsItem) {
         self.settingsItem = settingsItem
         self.value = settingsItem.getTimeValue()
     }
 
-    internal var settingsItem: SettingsItem
-
     func updateWith(_ settingsItem: SettingsItem) {
         self.settingsItem = settingsItem
         value = settingsItem.getTimeValue()
-    }
-
-    @Published var value: Time {
-        didSet {
-            settingsItem.value = String(ClockTime.calculateDuration(minutes: value.minutes, seconds: value.seconds))
-        }
     }
 }

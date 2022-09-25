@@ -9,21 +9,17 @@ import SwiftUI
 
 struct FlowSettingsView: View {
 
-    @ObservedObject private var flowAutoFinishItem = SettingsManager.flowAutoFinishItem
-    @ObservedObject private var flowAutoFinishAfterTimeItem = SettingsManager.flowAutoFinishAfterTimeItem
+    @EnvironmentObject var manager: SettingsManager
 
     var body: some View {
         Section {
-            Toggle("Auto-finish", isOn: $flowAutoFinishItem.value.animation())
+            Toggle("Auto-finish", isOn: $manager.flowAutoFinishItem.value.animation())
                 .decorated()
-                .onChange(of: flowAutoFinishItem.value) { _ in
-                    SettingsManager.saveSettings()
-                }
         } header: {
             Text("Practice")
         } footer: {
             VStack {
-                if flowAutoFinishItem.value {
+                if manager.flowAutoFinishItem.value {
                     Text("Flow exercises will be finished automatically")
                 } else {
                     Text("Flow exercises will be finished when you move to another exercise or finish the practice")
@@ -31,14 +27,12 @@ struct FlowSettingsView: View {
             }
         }
 
-        if flowAutoFinishItem.value {
+        if manager.flowAutoFinishItem.value {
             Section {
-                DurationControl(minutes: $flowAutoFinishAfterTimeItem.value.minutes, seconds: $flowAutoFinishAfterTimeItem.value.seconds) {
+                DurationControl(minutes: $manager.flowAutoFinishAfterTimeItem.value.minutes,
+                                seconds: $manager.flowAutoFinishAfterTimeItem.value.seconds) {
                     Text("After")
                     Spacer()
-                }
-                .onChange(of: flowAutoFinishAfterTimeItem.value) { _ in
-                    SettingsManager.saveSettings()
                 }
             } footer: {
                 Text("You can still finish earlier moving to another exercise or finishing the practice")

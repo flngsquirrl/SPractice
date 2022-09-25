@@ -157,9 +157,8 @@
 		C9DE152A2868B5500011324C /* ProgramsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE15292868B5500011324C /* ProgramsDataManager.swift */; };
 		C9DE152C2868FE170011324C /* ExerciseShortDecorativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE152B2868FE170011324C /* ExerciseShortDecorativeView.swift */; };
 		C9E0C42728801CDE00B8FBA8 /* SettingsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0C42628801CDE00B8FBA8 /* SettingsConstants.swift */; };
-		C9E17F0F28DB35CB00A7A6A7 /* ExerciseDurationView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F0E28DB35CB00A7A6A7 /* ExerciseDurationView-ViewModel.swift */; };
 		C9E17F1228DB3EEE00A7A6A7 /* Listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1128DB3EEE00A7A6A7 /* Listener.swift */; };
-		C9E17F1428DB457800A7A6A7 /* ViewModelListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1328DB457800A7A6A7 /* ViewModelListener.swift */; };
+		C9E17F1428DB457800A7A6A7 /* SignalChangeListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1328DB457800A7A6A7 /* SignalChangeListener.swift */; };
 		C9E17F1628DB4BE600A7A6A7 /* ProgramService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1528DB4BE600A7A6A7 /* ProgramService.swift */; };
 		C9E17F1A28DB4C3100A7A6A7 /* TemplateValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1928DB4C3100A7A6A7 /* TemplateValidator.swift */; };
 		C9E17F1E28DB4E0600A7A6A7 /* ProgramValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1D28DB4E0600A7A6A7 /* ProgramValidator.swift */; };
@@ -337,9 +336,8 @@
 		C9DE15292868B5500011324C /* ProgramsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramsDataManager.swift; sourceTree = "<group>"; };
 		C9DE152B2868FE170011324C /* ExerciseShortDecorativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseShortDecorativeView.swift; sourceTree = "<group>"; };
 		C9E0C42628801CDE00B8FBA8 /* SettingsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsConstants.swift; sourceTree = "<group>"; };
-		C9E17F0E28DB35CB00A7A6A7 /* ExerciseDurationView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseDurationView-ViewModel.swift"; sourceTree = "<group>"; };
 		C9E17F1128DB3EEE00A7A6A7 /* Listener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listener.swift; sourceTree = "<group>"; };
-		C9E17F1328DB457800A7A6A7 /* ViewModelListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelListener.swift; sourceTree = "<group>"; };
+		C9E17F1328DB457800A7A6A7 /* SignalChangeListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalChangeListener.swift; sourceTree = "<group>"; };
 		C9E17F1528DB4BE600A7A6A7 /* ProgramService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramService.swift; sourceTree = "<group>"; };
 		C9E17F1928DB4C3100A7A6A7 /* TemplateValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateValidator.swift; sourceTree = "<group>"; };
 		C9E17F1D28DB4E0600A7A6A7 /* ProgramValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramValidator.swift; sourceTree = "<group>"; };
@@ -633,7 +631,6 @@
 				C9B49E9428ACFF51007713A1 /* ExerciseIcon.swift */,
 				C9DE152B2868FE170011324C /* ExerciseShortDecorativeView.swift */,
 				C996981728646E53009836BD /* ExerciseDurationView.swift */,
-				C9E17F0E28DB35CB00A7A6A7 /* ExerciseDurationView-ViewModel.swift */,
 				C9969819286477CB009836BD /* ExerciseTypeView.swift */,
 				C9741A3B2860CD6200E1F670 /* ExerciseTypeImage.swift */,
 			);
@@ -778,6 +775,7 @@
 		C9D53FB628704EE900FD2B6F /* service */ = {
 			isa = PBXGroup;
 			children = (
+				C9D6F79328E0B37000A6A5DE /* settings */,
 				C9E17F1928DB4C3100A7A6A7 /* TemplateValidator.swift */,
 				C9E17F1D28DB4E0600A7A6A7 /* ProgramValidator.swift */,
 				C9D53FB428704E4000FD2B6F /* ExerciseValidator.swift */,
@@ -785,6 +783,14 @@
 				C910A61028DCA279006F6C4B /* PracticeService.swift */,
 			);
 			path = service;
+			sourceTree = "<group>";
+		};
+		C9D6F79328E0B37000A6A5DE /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				C9CEAA0C287C619F00D15A16 /* SettingsManager.swift */,
+			);
+			path = settings;
 			sourceTree = "<group>";
 		};
 		C9DE15222868B2C70011324C /* practice */ = {
@@ -800,7 +806,6 @@
 			children = (
 				C97DE6B828B3EA88005D53D1 /* practice */,
 				C9CEAA16287DCCFD00D15A16 /* SettingsGroup.swift */,
-				C9CEAA0C287C619F00D15A16 /* SettingsManager.swift */,
 				C9CEAA14287DC98E00D15A16 /* SettingsItem.swift */,
 			);
 			path = settings;
@@ -845,7 +850,7 @@
 			isa = PBXGroup;
 			children = (
 				C9E17F1128DB3EEE00A7A6A7 /* Listener.swift */,
-				C9E17F1328DB457800A7A6A7 /* ViewModelListener.swift */,
+				C9E17F1328DB457800A7A6A7 /* SignalChangeListener.swift */,
 			);
 			path = listener;
 			sourceTree = "<group>";
@@ -1009,7 +1014,6 @@
 				C9DE152C2868FE170011324C /* ExerciseShortDecorativeView.swift in Sources */,
 				C9321C9D28C7870C008C6BA4 /* ViewRouter.swift in Sources */,
 				C996981828646E53009836BD /* ExerciseDurationView.swift in Sources */,
-				C9E17F0F28DB35CB00A7A6A7 /* ExerciseDurationView-ViewModel.swift in Sources */,
 				C9D53FAF287040DD00FD2B6F /* ExerciseTasksView.swift in Sources */,
 				C9CEAA0A287C462F00D15A16 /* DurationControl.swift in Sources */,
 				C9D53FB82870507400FD2B6F /* AddProgramView-ViewModel.swift in Sources */,
@@ -1084,7 +1088,7 @@
 				C9F30BD128CFC5F900A1C9E2 /* ExerciseTypeInfo.swift in Sources */,
 				C91982572876E297005D049C /* InfoButton.swift in Sources */,
 				C9A0CFF2281B3733000CF439 /* PracticeExerciseView.swift in Sources */,
-				C9E17F1428DB457800A7A6A7 /* ViewModelListener.swift in Sources */,
+				C9E17F1428DB457800A7A6A7 /* SignalChangeListener.swift in Sources */,
 				C9ADD739287F602F00F465D5 /* ResetToDefaultsButton.swift in Sources */,
 				C9EB6D952881902B0026186C /* String-Empty.swift in Sources */,
 				C9A0D001281BE4C8000CF439 /* PlayerView.swift in Sources */,

@@ -7,7 +7,9 @@
 
 import Foundation
 
-class ProgramService {
+class ProgramService: ObservableObject {
+
+    var settingsManager = SettingsManager()
 
     func calculateDuration(for program: any Program, from startIndex: Int = 0) -> Duration {
         var totalDuration = 0
@@ -17,9 +19,9 @@ class ProgramService {
             if case .known(let duration) = exercise.duration {
                 exerciseDuration = duration
             } else if exercise.type == .tabata {
-                exerciseDuration = SettingsManager.tabataExerciseDuration
+                exerciseDuration = settingsManager.tabataExerciseDuration
             } else if exercise.isService {
-                exerciseDuration = SettingsManager.restDurationItem.value
+                exerciseDuration = settingsManager.restDurationItem.value
             }
             totalDuration += exerciseDuration
         }

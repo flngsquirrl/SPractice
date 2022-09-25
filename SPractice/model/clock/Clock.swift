@@ -25,11 +25,11 @@ import Foundation
     static let warningTime = 5
 
     static var stopCountingUpAutomatically: Bool {
-        SettingsManager.flowAutoFinishItem.value
+        SettingsManager().flowAutoFinishItem.value
     }
 
     static var maxCountUpTime: Int {
-        SettingsManager.flowAutoFinishAfterTime
+        SettingsManager().flowAutoFinishAfterTime
     }
 
     // examples

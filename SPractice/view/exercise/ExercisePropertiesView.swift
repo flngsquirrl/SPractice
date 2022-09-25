@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ExercisePropertiesView<T>: View where T: Exercise {
 
+    @EnvironmentObject var settingsManager: SettingsManager
+
     var exercise: T
 
     var body: some View {
@@ -65,7 +67,7 @@ struct ExercisePropertiesView<T>: View where T: Exercise {
 
     var name: String {
         if exercise.isService {
-            return SettingsManager.restName
+            return settingsManager.restName
         }
         return exercise.name
     }

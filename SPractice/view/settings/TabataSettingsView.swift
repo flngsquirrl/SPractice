@@ -9,18 +9,14 @@ import SwiftUI
 
 struct TabataSettingsView: View {
 
-    @ObservedObject var tabataWarmUpDurationItem = SettingsManager.tabataWarmUpDurationItem
-    @ObservedObject var tabataActivityDurationItem = SettingsManager.tabataActivityDurationItem
-    @ObservedObject var tabataRestDurationItem = SettingsManager.tabataRestDurationItem
-    @ObservedObject var tabataCoolDownDurationItem = SettingsManager.tabataCoolDownDurationItem
-    @ObservedObject var tabataCyclesItem = SettingsManager.tabataCyclesItem
+    @EnvironmentObject var manager: SettingsManager
 
     var body: some View {
         Section {
-            TabataItemIntervalView(value: $tabataWarmUpDurationItem.value, name: "warm-up", intensity: .rest)
-            TabataItemIntervalView(value: $tabataActivityDurationItem.value, name: "activity", intensity: .activity)
-            TabataItemIntervalView(value: $tabataRestDurationItem.value, name: "rest", intensity: .rest)
-            TabataItemIntervalView(value: $tabataCoolDownDurationItem.value, name: "cool-down", intensity: .rest)
+            TabataItemIntervalView(value: $manager.tabataWarmUpDurationItem.value, name: "warm-up", intensity: .rest)
+            TabataItemIntervalView(value: $manager.tabataActivityDurationItem.value, name: "activity", intensity: .activity)
+            TabataItemIntervalView(value: $manager.tabataRestDurationItem.value, name: "rest", intensity: .rest)
+            TabataItemIntervalView(value: $manager.tabataCoolDownDurationItem.value, name: "cool-down", intensity: .rest)
         } header: {
             Text("Tasks")
         } footer: {
@@ -32,10 +28,7 @@ struct TabataSettingsView: View {
             HStack {
                 Text("Number of cycles")
                 Spacer()
-                NumberSelectionControl(number: $tabataCyclesItem.value)
-                    .onChange(of: tabataCyclesItem.value) { _ in
-                        SettingsManager.saveSettings()
-                    }
+                NumberSelectionControl(number: $manager.tabataCyclesItem.value)
             }
         } footer: {
             Text("Repeating \"activity + rest\" sequences in one tabata exercise")
@@ -60,9 +53,6 @@ struct TabataItemIntervalView: View {
             Text(name)
             Spacer()
             DurationSecondsControl(seconds: $value, range: Self.range)
-        }
-        .onChange(of: value) { _ in
-            SettingsManager.saveSettings()
         }
     }
 }

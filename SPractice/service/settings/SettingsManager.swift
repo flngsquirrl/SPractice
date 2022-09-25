@@ -7,28 +7,50 @@
 
 import Foundation
 
-class SettingsManager {
-    static var settings = Settings()
+class SettingsManager: SignalChangeListener {
 
-    private init() {
+    var settings: Settings
+
+    var restNameItem: SettingsItemStringWrapper
+    var restDurationItem: SettingsItemIntWrapper
+    var flowAutoFinishItem: SettingsItemBoolWrapper
+    var flowAutoFinishAfterTimeItem: SettingsItemTimeWrapper
+    var tabataWarmUpDurationItem: SettingsItemIntWrapper
+    var tabataActivityDurationItem: SettingsItemIntWrapper
+    var tabataRestDurationItem: SettingsItemIntWrapper
+    var tabataCoolDownDurationItem: SettingsItemIntWrapper
+    var tabataCyclesItem: SettingsItemIntWrapper
+
+    override init() {
+        let baseSettings = Settings()
+        self.settings = baseSettings
+        restNameItem = SettingsItemStringWrapper(for: baseSettings.getItem(.restName))
+        restDurationItem = SettingsItemIntWrapper(for: baseSettings.getItem(.restDuration))
+        flowAutoFinishItem = SettingsItemBoolWrapper(for: baseSettings.getItem(.flowAutoFinish))
+        flowAutoFinishAfterTimeItem = SettingsItemTimeWrapper(for: baseSettings.getItem(.flowAutoFinishAfterTime))
+        tabataWarmUpDurationItem = SettingsItemIntWrapper(for: baseSettings.getItem(.tabataWarmUpDuration))
+        tabataActivityDurationItem = SettingsItemIntWrapper(for: baseSettings.getItem(.tabataActivityDuration))
+        tabataRestDurationItem = SettingsItemIntWrapper(for: baseSettings.getItem(.tabataRestDuration))
+        tabataCoolDownDurationItem = SettingsItemIntWrapper(for: baseSettings.getItem(.tabataCoolDownDuration))
+        tabataCyclesItem = SettingsItemIntWrapper(for: baseSettings.getItem(.tabataCycles))
+
+        super.init()
+
+        let targets = [restNameItem.objectWillChange, restDurationItem.objectWillChange,
+                       flowAutoFinishItem.objectWillChange, flowAutoFinishAfterTimeItem.objectWillChange,
+                       tabataWarmUpDurationItem.objectWillChange, tabataActivityDurationItem.objectWillChange,
+                       tabataRestDurationItem.objectWillChange, tabataCoolDownDurationItem.objectWillChange,
+                       tabataCyclesItem.objectWillChange]
+        listenTo(targets: targets) {            baseSettings.save()
+        }
     }
 
-    static var restNameItem: SettingsItemStringWrapper = SettingsItemStringWrapper(for: settings.getItem(.restName))
-    static var restDurationItem: SettingsItemIntWrapper = SettingsItemIntWrapper(for: settings.getItem(.restDuration))
-    static var flowAutoFinishItem: SettingsItemBoolWrapper = SettingsItemBoolWrapper(for: settings.getItem(.flowAutoFinish))
-    static var flowAutoFinishAfterTimeItem: SettingsItemTimeWrapper = SettingsItemTimeWrapper(for: settings.getItem(.flowAutoFinishAfterTime))
-    static var tabataWarmUpDurationItem: SettingsItemIntWrapper = SettingsItemIntWrapper(for: settings.getItem(.tabataWarmUpDuration))
-    static var tabataActivityDurationItem: SettingsItemIntWrapper = SettingsItemIntWrapper(for: settings.getItem(.tabataActivityDuration))
-    static var tabataRestDurationItem: SettingsItemIntWrapper = SettingsItemIntWrapper(for: settings.getItem(.tabataRestDuration))
-    static var tabataCoolDownDurationItem: SettingsItemIntWrapper = SettingsItemIntWrapper(for: settings.getItem(.tabataCoolDownDuration))
-    static var tabataCyclesItem: SettingsItemIntWrapper = SettingsItemIntWrapper(for: settings.getItem(.tabataCycles))
-
-    static var tabataExerciseDuration: Int {
+    var tabataExerciseDuration: Int {
         tabataWarmUpDurationItem.value + (tabataActivityDurationItem.value + tabataRestDurationItem.value)
             * tabataCyclesItem.value + tabataCoolDownDurationItem.value
     }
 
-    static var flowAutoFinishAfterTime: Int {
+    var flowAutoFinishAfterTime: Int {
         let setupValue = flowAutoFinishAfterTimeItem.value
         if setupValue.timeInSeconds == 0 {
             return settings.getDefault(.flowAutoFinishAfterTime).getIntValue()
@@ -36,7 +58,7 @@ class SettingsManager {
         return setupValue.timeInSeconds
     }
 
-    static var restName: String {
+    var restName: String {
         let setupValue = restNameItem.value.trimmingCharacters(in: .whitespacesAndNewlines)
         if setupValue.isEmpty {
             return settings.getDefault(.restName).value
@@ -44,11 +66,11 @@ class SettingsManager {
         return setupValue
     }
 
-    static func saveSettings() {
+    func saveSettings() {
         settings.save()
     }
 
-    static func resetToDefauls() {
+    func resetToDefauls() {
         settings.resetToDefauls()
 
         updateTabataWrappers()
@@ -56,7 +78,7 @@ class SettingsManager {
         updatePauseWrappers()
     }
 
-    static func resetToDefauls(subgroup: SettingsSubGroup) {
+    func resetToDefauls(subgroup: SettingsSubGroup) {
         settings.resetToDefauls(subgroup: subgroup)
 
         switch subgroup {
@@ -71,17 +93,17 @@ class SettingsManager {
         }
     }
 
-    static func updatePauseWrappers() {
+    func updatePauseWrappers() {
         restNameItem.updateWith(settings.getItem(.restName))
         restDurationItem.updateWith(settings.getItem(.restDuration))
     }
 
-    static func updateFlowWrappers() {
+    func updateFlowWrappers() {
         flowAutoFinishItem.updateWith(settings.getItem(.flowAutoFinish))
         flowAutoFinishAfterTimeItem.updateWith(settings.getItem(.flowAutoFinishAfterTime))
     }
 
-    static func updateTabataWrappers() {
+    func updateTabataWrappers() {
         tabataWarmUpDurationItem.updateWith(settings.getItem(.tabataWarmUpDuration))
         tabataActivityDurationItem.updateWith(settings.getItem(.tabataActivityDuration))
         tabataRestDurationItem.updateWith(settings.getItem(.tabataRestDuration))
@@ -89,16 +111,16 @@ class SettingsManager {
         tabataCyclesItem.updateWith(settings.getItem(.tabataCycles))
     }
 
-    static var hasChangesFromDefaults: Bool {
+    var hasChangesFromDefaults: Bool {
         settings.hasChangesFromDefaults
     }
 
-    static func hasChangesFromDefaults(in subgroup: SettingsSubGroup) -> Bool {
+    func hasChangesFromDefaults(in subgroup: SettingsSubGroup) -> Bool {
         settings.hasChangesFromDefaults(in: subgroup)
     }
 }
 
-class Settings: ObservableObject {
+class Settings {
 
     typealias SettingsType = [SettingsSubGroup: [SettingsItem]]
     var groups: SettingsType
@@ -130,8 +152,6 @@ class Settings: ObservableObject {
     }
 
     fileprivate func save() {
-        objectWillChange.send()
-
         let encoder = JSONEncoder()
 
         if let encoded = try? encoder.encode(groups) {

@@ -9,18 +9,14 @@ import SwiftUI
 
 struct RestSettingsView: View {
 
-    @ObservedObject private var nameItem = SettingsManager.restNameItem
-    @ObservedObject private var durationItem = SettingsManager.restDurationItem
+    @EnvironmentObject var manager: SettingsManager
 
     let range = Array(stride(from: 10, through: 60, by: 10))
 
     var body: some View {
         Section {
-            TextField("Exercise name", text: $nameItem.value)
+            TextField("Exercise name", text: $manager.restNameItem.value)
                 .disableAutocorrection(true)
-                .onChange(of: nameItem.value) { _ in
-                    SettingsManager.saveSettings()
-                }
         } footer: {
             HStack {
                 Text("Name of the exercise in practice")
@@ -31,10 +27,7 @@ struct RestSettingsView: View {
             HStack {
                 Text("Duration")
                 Spacer()
-                DurationSecondsControl(seconds: $durationItem.value, range: range)
-                    .onChange(of: durationItem.value) { _ in
-                        SettingsManager.saveSettings()
-                    }
+                DurationSecondsControl(seconds: $manager.restDurationItem.value, range: range)
             }
         } footer: {
             Text("You can use rest intervals to prepare for the next exercise")

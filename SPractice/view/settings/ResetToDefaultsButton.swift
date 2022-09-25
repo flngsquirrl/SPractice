@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ResetToDefaultsButton: View {
 
-    @ObservedObject var settings = SettingsManager.settings
+    @EnvironmentObject var manager: SettingsManager
 
     var subgroup: SettingsSubGroup
 
@@ -23,7 +23,7 @@ struct ResetToDefaultsButton: View {
         .alert(SettingsConstants.resetTitle, isPresented: $showResetConfirmation) {
             Button("Reset", role: .destructive) {
                 withAnimation {
-                    SettingsManager.resetToDefauls(subgroup: subgroup)
+                    manager.resetToDefauls(subgroup: subgroup)
                 }
             }
 
@@ -32,7 +32,7 @@ struct ResetToDefaultsButton: View {
     }
 
     var isResetDisabled: Bool {
-        !SettingsManager.hasChangesFromDefaults(in: subgroup)
+        !manager.hasChangesFromDefaults(in: subgroup)
     }
 }
 
