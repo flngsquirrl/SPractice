@@ -17,6 +17,7 @@ import SwiftUI
 
     let programService = ProgramService()
     let practiceService = PracticeService()
+    let audioPlayer = BasicAudioPlayer()
 
     @Published var isSoundOn: Bool
     var usePauses: Bool
@@ -262,7 +263,7 @@ import SwiftUI
         if isEnd {
             playEndSound()
         } else {
-            SoundManager.shared.player.play(type: .taskCountdown)
+            audioPlayer.play(type: .taskCountdown)
         }
     }
 
@@ -275,7 +276,7 @@ import SwiftUI
         } else {
             soundType = .endOfTask
         }
-        SoundManager.shared.player.play(type: soundType)
+        audioPlayer.play(type: soundType)
     }
 
     func setDurationRemaining() {

@@ -115,7 +115,6 @@
 		C9B49E9528ACFF51007713A1 /* ExerciseIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B49E9428ACFF51007713A1 /* ExerciseIcon.swift */; };
 		C9B49E9928AD258F007713A1 /* HideKeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B49E9828AD258F007713A1 /* HideKeyboardButton.swift */; };
 		C9B49E9B28AD5BEF007713A1 /* View-hideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B49E9A28AD5BEF007713A1 /* View-hideKeyboard.swift */; };
-		C9B49E9E28AEC8E2007713A1 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B49E9D28AEC8E2007713A1 /* SoundManager.swift */; };
 		C9B49EA028AEC941007713A1 /* SoundType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B49E9F28AEC941007713A1 /* SoundType.swift */; };
 		C9B5512128DC9F0E0043D09C /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B5512028DC9F0E0043D09C /* MainController.swift */; };
 		C9BF1EE628C6999400D67A99 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BF1EE528C6999400D67A99 /* OnboardingView.swift */; };
@@ -294,7 +293,6 @@
 		C9B49E9428ACFF51007713A1 /* ExerciseIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseIcon.swift; sourceTree = "<group>"; };
 		C9B49E9828AD258F007713A1 /* HideKeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboardButton.swift; sourceTree = "<group>"; };
 		C9B49E9A28AD5BEF007713A1 /* View-hideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-hideKeyboard.swift"; sourceTree = "<group>"; };
-		C9B49E9D28AEC8E2007713A1 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		C9B49E9F28AEC941007713A1 /* SoundType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundType.swift; sourceTree = "<group>"; };
 		C9B5512028DC9F0E0043D09C /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		C9BF1EE528C6999400D67A99 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -707,7 +705,6 @@
 			children = (
 				C9F2B42928C52FFA00DE6F65 /* AudioPlayer.swift */,
 				C9F2B42B28C5304100DE6F65 /* BasicAudioPlayer.swift */,
-				C9B49E9D28AEC8E2007713A1 /* SoundManager.swift */,
 				C9B49E9F28AEC941007713A1 /* SoundType.swift */,
 			);
 			path = sound;
@@ -1045,7 +1042,6 @@
 				C95011C928196FFD0043EC75 /* HomeView.swift in Sources */,
 				C9C2727C2848C91500F7DA0E /* Array-Wrapper.swift in Sources */,
 				C9D53FBC287064E200FD2B6F /* ProgramDurationSection.swift in Sources */,
-				C9B49E9E28AEC8E2007713A1 /* SoundManager.swift in Sources */,
 				C9D53FAD286F2C4800FD2B6F /* Duration.swift in Sources */,
 				C97DE6BC28B3EADB005D53D1 /* PracticeSettingsManager.swift in Sources */,
 				C9CEAA13287DA76A00D15A16 /* SettingsSubgroupView.swift in Sources */,
