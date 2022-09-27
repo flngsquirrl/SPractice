@@ -41,7 +41,8 @@ class SettingsManager: SignalChangeListener {
                        tabataWarmUpDurationItem.objectWillChange, tabataActivityDurationItem.objectWillChange,
                        tabataRestDurationItem.objectWillChange, tabataCoolDownDurationItem.objectWillChange,
                        tabataCyclesItem.objectWillChange]
-        listenTo(targets: targets) {            baseSettings.save()
+        listenTo(targets: targets) {
+            baseSettings.save()
         }
     }
 
