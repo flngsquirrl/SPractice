@@ -179,7 +179,6 @@
 		C9F30BD528CFC92700A1C9E2 /* View-Accented.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F30BD428CFC92700A1C9E2 /* View-Accented.swift */; };
 		C9F30BD728CFD5A000A1C9E2 /* ExerciseDurationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F30BD628CFD5A000A1C9E2 /* ExerciseDurationInfo.swift */; };
 		C9F30BD928CFD5B500A1C9E2 /* ExerciseIntensityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F30BD828CFD5B500A1C9E2 /* ExerciseIntensityInfo.swift */; };
-		C9F426F928D27E2B0028672D /* Text-Monospaced.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F426F828D27E2B0028672D /* Text-Monospaced.swift */; };
 		C9F604E2287AD57E00838462 /* ProgramShortDecorativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F604E1287AD57E00838462 /* ProgramShortDecorativeView.swift */; };
 /* End PBXBuildFile section */
 
@@ -357,7 +356,6 @@
 		C9F30BD428CFC92700A1C9E2 /* View-Accented.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-Accented.swift"; sourceTree = "<group>"; };
 		C9F30BD628CFD5A000A1C9E2 /* ExerciseDurationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDurationInfo.swift; sourceTree = "<group>"; };
 		C9F30BD828CFD5B500A1C9E2 /* ExerciseIntensityInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseIntensityInfo.swift; sourceTree = "<group>"; };
-		C9F426F828D27E2B0028672D /* Text-Monospaced.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text-Monospaced.swift"; sourceTree = "<group>"; };
 		C9F604E1287AD57E00838462 /* ProgramShortDecorativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramShortDecorativeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -376,7 +374,6 @@
 			isa = PBXGroup;
 			children = (
 				C915931E288758C100301338 /* Image-Decorated.swift */,
-				C9F426F828D27E2B0028672D /* Text-Monospaced.swift */,
 				C9EB6D962882B9D10026186C /* Text-Truncated.swift */,
 				C912749E28BFB25A0051B4C3 /* Toggle-Decorated.swift */,
 				C9ACC8F328AA78D000FC5343 /* View-If.swift */,
@@ -1076,7 +1073,6 @@
 				C9B49E9528ACFF51007713A1 /* ExerciseIcon.swift in Sources */,
 				C91110DC289BDCCC00B9BC03 /* MainManager.swift in Sources */,
 				C9CEAA08287C44EB00D15A16 /* DurationMinutesControl.swift in Sources */,
-				C9F426F928D27E2B0028672D /* Text-Monospaced.swift in Sources */,
 				C9F30BD528CFC92700A1C9E2 /* View-Accented.swift in Sources */,
 				C9B5512128DC9F0E0043D09C /* MainController.swift in Sources */,
 				C9F2B42C28C5304100DE6F65 /* BasicAudioPlayer.swift in Sources */,

@@ -22,7 +22,7 @@ struct DurationView: View {
     var body: some View {
         if mode == .padded {
             Text(paddedDuration)
-                .monospacedDigit(font: font)
+                .monospacedDigit()
         } else {
             Text(extendedDuration)
         }
