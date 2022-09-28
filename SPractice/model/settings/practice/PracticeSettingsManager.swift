@@ -9,8 +9,6 @@ import Foundation
 
 class PracticeSettingsManager: PersistentDataManager {
 
-    static var shared = PracticeSettingsManager()
-
     var items: [PracticeSettings]
     let saveKey = "practiceSettings"
 

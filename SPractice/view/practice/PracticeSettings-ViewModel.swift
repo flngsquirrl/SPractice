@@ -10,20 +10,22 @@ import Foundation
 extension PracticeSettingsView {
     @MainActor class ViewModel: ObservableObject {
 
+        let manager = PracticeSettingsManager()
+
         var template: ProgramTemplate
         @Published var settings: PracticeSettings
 
         init(for template: ProgramTemplate) {
             self.template = template
-            self.settings = PracticeSettingsManager.shared.getSettings(for: template.id)
+            self.settings = manager.getSettings(for: template.id)
         }
 
         func savePracticeSettings() {
-            PracticeSettingsManager.shared.updateOrAdd(settings)
+            manager.updateOrAdd(settings)
         }
 
         var hasChangedSettings: Bool {
-            let baseSettings = PracticeSettingsManager.shared.getSettings(for: template.id)
+            let baseSettings = manager.getSettings(for: template.id)
             return settings != baseSettings
         }
 
