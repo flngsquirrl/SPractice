@@ -6,10 +6,9 @@
 //
 
 import Foundation
-import SwiftUI
 
 extension PracticeView {
-    @MainActor class ViewModel: ObservableObject {
+    @MainActor class ViewModel: SignalChangeListener {
 
         var practice: Practice
         var settings: PracticeSettings
@@ -19,14 +18,21 @@ extension PracticeView {
         @Published var isPracticeDetailsShown = false
         @Published var needRestartConfirmation = false
 
-        init(for practice: Practice, with settings: PracticeSettings) {
-            self.practice = practice
+        private let settingsManager = PracticeSettingsManager()
+
+        init(for template: ProgramTemplate) {
+            let settings = settingsManager.getSettings(for: template.id)
             self.settings = settings
+            self.practice = Practice(for: template, with: settings)
+
+            super.init()
+
+            listenTo(target: practice.objectWillChange)
         }
 
         func saveSoundSetting(isOn: Bool) {
             settings.playSounds = isOn
-            PracticeSettingsManager.shared.updateOrAdd(settings)
+            settingsManager.updateOrAdd(settings)
         }
 
         func processRestartRequest() {
@@ -46,10 +52,8 @@ extension PracticeView {
         }
 
         func toggleSound() {
-            withAnimation {
-                practice.toggleSound()
-                saveSoundSetting(isOn: practice.isSoundOn)
-            }
+            practice.toggleSound()
+            saveSoundSetting(isOn: practice.isSoundOn)
         }
 
         func showSummary() {

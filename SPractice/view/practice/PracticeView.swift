@@ -15,14 +15,10 @@ struct PracticeView: View {
 
     @EnvironmentObject var activityMonitor: ScenePhaseMonitor
 
-    @ObservedObject var practice: Practice
     @ObservedObject var viewModel: ViewModel
 
     init(for template: ProgramTemplate) {
-        let settings = PracticeSettingsManager.shared.getSettings(for: template.id)
-        let practice = Practice(for: template, with: settings)
-        self.practice = practice
-        self.viewModel = ViewModel(for: practice, with: settings)
+        self.viewModel = ViewModel(for: template)
     }
 
     var body: some View {
@@ -33,15 +29,15 @@ struct PracticeView: View {
                         HStack(alignment: .top) {
                             VStack {
                                 Spacer()
-                                PracticeExerciseView(practice: practice)
+                                PracticeExerciseView(practice: viewModel.practice)
                                     .wrapped()
                                 Spacer()
                             }
                             VStack {
                                 Spacer()
-                                PracticeSequenceView(practice: practice)
+                                PracticeSequenceView(practice: viewModel.practice)
                                 Spacer()
-                                PlayerView(player: practice.player)
+                                PlayerView(player: viewModel.practice.player)
                                 Spacer()
                             }
                         }
@@ -49,19 +45,19 @@ struct PracticeView: View {
                     } else {
                         VStack {
                             Spacer()
-                            PracticeExerciseView(practice: practice)
+                            PracticeExerciseView(practice: viewModel.practice)
                                 .wrapped()
 
-                            PracticeSequenceView(practice: practice)
+                            PracticeSequenceView(practice: viewModel.practice)
                             Spacer()
-                            PlayerView(player: practice.player)
+                            PlayerView(player: viewModel.practice.player)
                             Spacer()
                         }
                         .frame(width: LayoutUtils.centralFrameWidth(parentContainerSize: geo.size))
                     }
                 }
                 .onDisappear {
-                    practice.pauseClock()
+                    viewModel.practice.pauseClock()
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
@@ -76,11 +72,11 @@ struct PracticeView: View {
                     }
                 }
                 .sheet(isPresented: $viewModel.isPracticeDetailsShown) {
-                    practice.resumeClock()
+                    viewModel.practice.resumeClock()
                 } content: {
-                    PracticeSummaryView(practice: practice)
+                    PracticeSummaryView(practice: viewModel.practice)
                 }
-                .alert(endOfPracticeTitle, isPresented: $practice.isCompleted) {
+                .alert(endOfPracticeTitle, isPresented: $viewModel.practice.isCompleted) {
                     restartAlertButton
                     closePracticeButton
                 }
@@ -98,7 +94,7 @@ struct PracticeView: View {
 
     var endOfPracticeTitle: String {
         var text: String
-        if practice.isStarted {
+        if viewModel.practice.isStarted {
             text = "You have finished the practice."
         } else {
             text = "You have reached the end of the practice."
@@ -114,7 +110,7 @@ struct PracticeView: View {
 
     var restartAlertButton: some View {
         Button("Restart") {
-            practice.restart()
+            viewModel.practice.restart()
         }
     }
 
@@ -134,9 +130,11 @@ struct PracticeView: View {
 
     var soundButton: some View {
         Button {
-            viewModel.toggleSound()
+            withAnimation {
+                viewModel.toggleSound()
+            }
         } label: {
-            Image(systemName: practice.isSoundOn ? "bell" : "bell.slash")
+            Image(systemName: viewModel.practice.isSoundOn ? "bell" : "bell.slash")
                 .frame(width: 25)
         }
     }
