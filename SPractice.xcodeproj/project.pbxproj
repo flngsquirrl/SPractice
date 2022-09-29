@@ -150,6 +150,7 @@
 		C9D53FB82870507400FD2B6F /* AddProgramView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D53FB72870507400FD2B6F /* AddProgramView-ViewModel.swift */; };
 		C9D53FBA2870519200FD2B6F /* EditProgramView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D53FB92870519200FD2B6F /* EditProgramView-ViewModel.swift */; };
 		C9D53FBC287064E200FD2B6F /* ProgramDurationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D53FBB287064E200FD2B6F /* ProgramDurationSection.swift */; };
+		C9D6F79628E4FC2300A6A5DE /* Survicate in Frameworks */ = {isa = PBXBuildFile; productRef = C9D6F79528E4FC2300A6A5DE /* Survicate */; };
 		C9DE151F2868AADE0011324C /* ExerciseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE151E2868AADE0011324C /* ExerciseType.swift */; };
 		C9DE15212868AB520011324C /* Intensity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE15202868AB520011324C /* Intensity.swift */; };
 		C9DE15282868B3CE0011324C /* ExercisesDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE15272868B3CE0011324C /* ExercisesDataManager.swift */; };
@@ -327,6 +328,7 @@
 		C9D53FB72870507400FD2B6F /* AddProgramView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddProgramView-ViewModel.swift"; sourceTree = "<group>"; };
 		C9D53FB92870519200FD2B6F /* EditProgramView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditProgramView-ViewModel.swift"; sourceTree = "<group>"; };
 		C9D53FBB287064E200FD2B6F /* ProgramDurationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDurationSection.swift; sourceTree = "<group>"; };
+		C9D6F79728E4FC7A00A6A5DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C9DE151E2868AADE0011324C /* ExerciseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseType.swift; sourceTree = "<group>"; };
 		C9DE15202868AB520011324C /* Intensity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intensity.swift; sourceTree = "<group>"; };
 		C9DE15272868B3CE0011324C /* ExercisesDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesDataManager.swift; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9D6F79628E4FC2300A6A5DE /* Survicate in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +456,7 @@
 		C95011C528196FFD0043EC75 /* SPractice */ = {
 			isa = PBXGroup;
 			children = (
+				C9D6F79728E4FC7A00A6A5DE /* Info.plist */,
 				C9F2B40028C4C08900DE6F65 /* sounds */,
 				C9A0D00F2823DE83000CF439 /* view */,
 				C9A0CFEF281AB554000CF439 /* model */,
@@ -895,6 +899,9 @@
 			dependencies = (
 			);
 			name = SPractice;
+			packageProductDependencies = (
+				C9D6F79528E4FC2300A6A5DE /* Survicate */,
+			);
 			productName = SPractice;
 			productReference = C95011C328196FFD0043EC75 /* SPractice.app */;
 			productType = "com.apple.product-type.application";
@@ -923,6 +930,9 @@
 				Base,
 			);
 			mainGroup = C95011BA28196FFD0043EC75;
+			packageReferences = (
+				C9D6F79428E4FC2300A6A5DE /* XCRemoteSwiftPackageReference "survicate-ios-sdk" */,
+			);
 			productRefGroup = C95011C428196FFD0043EC75 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1272,6 +1282,7 @@
 				DEVELOPMENT_TEAM = 755WLDCD84;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SPractice/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Need to save the logo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -1303,6 +1314,7 @@
 				DEVELOPMENT_TEAM = 755WLDCD84;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SPractice/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Need to save the logo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -1345,6 +1357,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C9D6F79428E4FC2300A6A5DE /* XCRemoteSwiftPackageReference "survicate-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Survicate/survicate-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C9D6F79528E4FC2300A6A5DE /* Survicate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C9D6F79428E4FC2300A6A5DE /* XCRemoteSwiftPackageReference "survicate-ios-sdk" */;
+			productName = Survicate;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C95011BB28196FFD0043EC75 /* Project object */;
 }

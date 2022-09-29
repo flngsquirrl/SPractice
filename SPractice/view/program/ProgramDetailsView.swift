@@ -5,6 +5,7 @@
 //  Created by Yuliya Charniak on 4.06.22.
 //
 
+import Survicate
 import SwiftUI
 
 struct ProgramDetailsView: View {
@@ -26,6 +27,9 @@ struct ProgramDetailsView: View {
             ProgramCardView(program: program)
             ProgramPracticeSection(program: program)
             ProgramSummaryView(program: program)
+        }
+        .onAppear {
+            SurvicateSdk.shared.enterScreen(value: "programDetails")
         }
         .listStyle(.insetGrouped)
         .sheet(isPresented: $showEditTemplateView) {

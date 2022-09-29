@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import Survicate
 
 @main
 struct SPracticeApp: App {
 
     init() {
+        SurvicateSdk.shared.initialize()
         UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = UIColor(Color.customAccentColor)
     }
 
