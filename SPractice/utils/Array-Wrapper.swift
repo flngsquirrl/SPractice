@@ -14,5 +14,4 @@ extension Array {
         array.append(element)
         return array
     }
-
 }

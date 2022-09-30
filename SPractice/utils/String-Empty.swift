@@ -16,5 +16,4 @@ extension String {
     var isEmptyString: Bool {
         self.trim().isEmpty
     }
-
 }
