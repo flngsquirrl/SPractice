@@ -9,15 +9,43 @@ import Foundation
 
 struct PracticeExercise: Exercise {
 
-    let id = UUID()
-    var type: ExerciseType?
-    var name: String = ""
-    var description: String = ""
-    var intensity: Intensity?
-    var isService: Bool = false
+    let template: ExerciseTemplate
 
-    var isExample: Bool = false
-    var exampleId: String?
+    init(template: ExerciseTemplate) {
+        self.template = template
+    }
+
+    var id: UUID {
+        template.id
+    }
+
+    var name: String {
+        template.name
+    }
+
+    var description: String {
+        template.description
+    }
+
+    var type: ExerciseType? {
+        template.type
+    }
+
+    var intensity: Intensity? {
+        template.intensity
+    }
+
+    var isService: Bool {
+        template.isService
+    }
+
+    var isExample: Bool {
+        template.isExample
+    }
+
+    var exampleId: String? {
+        template.exampleId
+    }
 
     var tasks: [Task] = []
 
@@ -40,5 +68,5 @@ struct PracticeExercise: Exercise {
 }
 
 extension PracticeExercise {
-    static let catCow = PracticeExercise(type: .flow, name: "Cat-Cow", description: "debug example", intensity: .activity, tasks: [Task.activity60])
+    static let catCow = PracticeExercise(template: ExerciseTemplate.catCow)
 }

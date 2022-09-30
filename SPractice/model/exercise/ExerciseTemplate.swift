@@ -11,7 +11,7 @@ struct ExerciseTemplate: Exercise, Created, ExampleItem, Hashable, Codable {
 
     private(set) var id: UUID
     private(set) var type: ExerciseType?
-    private(set) var name: String
+    var name: String
     private(set) var description: String
     private(set) var intensity: Intensity? // not set when type not set
     private(set) var duration: Duration

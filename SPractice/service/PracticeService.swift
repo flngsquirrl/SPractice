@@ -53,15 +53,11 @@ struct PracticeService {
             return nil
         }
 
-        var exercise = PracticeExercise()
+        var baseTemplate = template
         let name = template.isService ? settingsManager.restName : template.name
-        exercise.type = template.type!
-        exercise.name = name.trim()
-        exercise.description = template.description.trim()
-        exercise.intensity = template.intensity!
-        exercise.isService = template.isService
-        exercise.isExample = template.isExample
-        exercise.exampleId = template.exampleId
+        baseTemplate.name = name.trim()
+
+        var exercise = PracticeExercise(template: baseTemplate)
         exercise.tasks = prepareTasks(from: template)
 
         return exercise
