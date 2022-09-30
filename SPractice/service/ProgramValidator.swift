@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ProgramValidator: TemplateValidator {
+struct ProgramValidator: TemplateValidator {
 
     func isValid(_ template: ProgramTemplate) -> Bool {
         isNameValid(of: template) && areExercisesValid(of: template)

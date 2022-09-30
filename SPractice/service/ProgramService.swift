@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ProgramService: ObservableObject {
+struct ProgramService {
 
     var settingsManager = SettingsManager()
 
@@ -27,5 +27,4 @@ class ProgramService: ObservableObject {
         }
         return totalDuration == 0 ? (program.hasFlowExercises(fromIndex: startIndex) ? .unlimited : .unknown) : .known(totalDuration)
     }
-
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PracticeService: ObservableObject {
+struct PracticeService {
 
     var settingsManager = SettingsManager()
 
@@ -117,5 +117,4 @@ class PracticeService: ObservableObject {
         let task = Task(intensity: intensity, name: intensity.rawValue, duration: duration)
         return [Task].wrapElement(element: task)
     }
-
 }

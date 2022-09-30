@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ExerciseValidator: TemplateValidator {
+struct ExerciseValidator: TemplateValidator {
 
     private func isValidTimer(_ template: ExerciseTemplate) -> Bool {
         if !template.isService {
