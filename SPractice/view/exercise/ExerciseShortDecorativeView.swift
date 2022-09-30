@@ -37,21 +37,21 @@ struct ExerciseShortDecorativeView_Previews: PreviewProvider {
                 Text("simple")
                 ExerciseShortDecorativeView(for: ExerciseTemplate.catCow)
                 ExerciseShortDecorativeView(for: ExerciseTemplate.surjaNamascarA)
-                ExerciseShortDecorativeView(for: ExerciseTemplate.vasihsthasana)
+                ExerciseShortDecorativeView(for: ExerciseTemplate.vasisthasana)
             }
 
             Group {
                 Text("accented with default color")
                 ExerciseShortDecorativeView(for: ExerciseTemplate.catCow, isAccented: true)
                 ExerciseShortDecorativeView(for: ExerciseTemplate.surjaNamascarA, isAccented: true)
-                ExerciseShortDecorativeView(for: ExerciseTemplate.vasihsthasana, isAccented: true)
+                ExerciseShortDecorativeView(for: ExerciseTemplate.vasisthasana, isAccented: true)
             }
 
             Group {
                 Text("accented with non-default color")
                 ExerciseShortDecorativeView(for: ExerciseTemplate.catCow, isAccented: true, accentColor: .mint)
                 ExerciseShortDecorativeView(for: ExerciseTemplate.surjaNamascarA, isAccented: true, accentColor: .mint)
-                ExerciseShortDecorativeView(for: ExerciseTemplate.vasihsthasana, isAccented: true, accentColor: .mint)
+                ExerciseShortDecorativeView(for: ExerciseTemplate.vasisthasana, isAccented: true, accentColor: .mint)
             }
         }
     }

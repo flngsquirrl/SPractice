@@ -173,7 +173,7 @@ struct ExerciseEditor: View {
 struct ExerciseEditor_Previews: PreviewProvider {
 
     @State static private var defaultTemplate = ExerciseTemplate.template
-    @State static private var exampleTemplate = ExerciseEditor.EditorTemplate(from: ExerciseTemplate.vasihsthasana)
+    @State static private var exampleTemplate = ExerciseEditor.EditorTemplate(from: ExerciseTemplate.vasisthasana)
 
     static var previews: some View {
         //        NavigationStack {

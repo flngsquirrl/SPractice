@@ -125,7 +125,7 @@ struct ExerciseTemplate: Exercise, Created, ExampleItem, Hashable, Codable {
 extension ExerciseTemplate {
 
     static var defaultExamples: [ExerciseTemplate] {
-        [catCow, surjaNamascarA, balasana, vasihsthasana, shavasana, plank, squats, jumpRope]
+        [catCow, surjaNamascarA, balasana, vasisthasana, shavasana, plank, squats, jumpRope]
     }
 
     static let catCow = ExerciseTemplate(type: .timer, name: "Cat-Cow",
@@ -142,9 +142,9 @@ extension ExerciseTemplate {
                                                  description: "Sun Salutation, start in Tadasana, go for at least 5 cycles",
                                                  intensity: .activity, duration: .unlimited, isExample: true,
                                                  exampleId: ExerciseExampleId.surjaNamascarA.rawValue)
-    static let vasihsthasana = ExerciseTemplate(type: .tabata, name: "Vasisthasana",
+    static let vasisthasana = ExerciseTemplate(type: .tabata, name: "Vasisthasana",
                                                 description: "Side plank on the straight arm or on the elbow",
-                                                isExample: true, exampleId: ExerciseExampleId.vasihsthasana.rawValue)
+                                                isExample: true, exampleId: ExerciseExampleId.vasisthasana.rawValue)
 
     static let shavasana = ExerciseTemplate(type: .flow, name: "Shavasana",
                                             description: "Relax all your body lying on the back with arms and legs on the floor",

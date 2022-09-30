@@ -11,7 +11,7 @@ enum ExerciseExampleId: String, Codable {
     case catCow
     case surjaNamascarA
     case balasana
-    case vasihsthasana
+    case vasisthasana
     case shavasana
     case plank
     case squats

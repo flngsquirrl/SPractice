@@ -51,7 +51,7 @@ struct ExerciseDetailsView_Previews: PreviewProvider {
         }
 
         NavigationStack {
-            ExerciseDetailsView(for: .vasihsthasana, onChange: { _ in }, onDelete: { _ in })
+            ExerciseDetailsView(for: .vasisthasana, onChange: { _ in }, onDelete: { _ in })
         }
 
         NavigationStack {

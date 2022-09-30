@@ -18,7 +18,7 @@ struct ExerciseDurationInfo: View {
 
             Grid(alignment: .top) {
                 GridRow(alignment: .firstTextBaseline) {
-                    ExerciseDurationView(for: ExerciseTemplate.vasihsthasana).accented()
+                    ExerciseDurationView(for: ExerciseTemplate.vasisthasana).accented()
                         .frame(width: 60)
                     Text("defined: you set it for a timer exercise;\nfor a tabata exercises it is calculated based on Settings")
                         .gridColumnAlignment(.leading)
