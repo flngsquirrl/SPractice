@@ -37,6 +37,8 @@ struct PracticeExercise: Exercise {
         }
         return result > 0 ? .known(result) : .unknown
     }
+}
 
+extension PracticeExercise {
     static let catCow = PracticeExercise(type: .flow, name: "Cat-Cow", description: "debug example", intensity: .activity, tasks: [Task.activity60])
 }

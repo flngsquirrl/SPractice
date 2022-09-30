@@ -119,8 +119,10 @@ struct ExerciseTemplate: Exercise, Created, ExampleItem, Hashable, Codable {
         self.isExample = example.isExample
         self.exampleId = example.exampleId
     }
+}
 
-    // app examples
+// app examples
+extension ExerciseTemplate {
 
     static var defaultExamples: [ExerciseTemplate] {
         [catCow, surjaNamascarA, balasana, vasihsthasana, shavasana, plank, squats, jumpRope]
@@ -164,8 +166,10 @@ struct ExerciseTemplate: Exercise, Created, ExampleItem, Hashable, Codable {
                                          description: "Just keep jumping",
                                          intensity: .activity, duration: .known(120), isExample: true,
                                          exampleId: ExerciseExampleId.jumpRope.rawValue)
+}
 
-    // internal examples
+// internal examples
+extension ExerciseTemplate {
 
     static let catCowNoDuration = ExerciseTemplate(type: .timer, name: "Cat-Cow", intensity: .activity, duration: .unknown)
     static let catCowNoType = ExerciseTemplate(name: "Cat-Cow")
