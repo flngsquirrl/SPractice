@@ -5,6 +5,7 @@
 //  Created by Yuliya Charniak on 27.04.22.
 //
 
+import Survicate
 import SwiftUI
 
 @main
