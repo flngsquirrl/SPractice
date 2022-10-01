@@ -20,8 +20,8 @@ import Foundation
     var deletedExamplesNames: [String] {get}
 }
 
-protocol ExampleItem {
-    var name: String {get}
+protocol ExampleItem: Named {
+
     var isExample: Bool {get}
     var exampleId: String? {get}
 
