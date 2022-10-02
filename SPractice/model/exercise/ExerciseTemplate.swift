@@ -22,8 +22,8 @@ struct ExerciseTemplate: Exercise, Created, ExampleItem, Hashable, Codable {
 
     var creationDate: Date
 
-    private init(id: UUID = UUID(), type: ExerciseType? = nil, name: String = "", description: String = "", isService: Bool = false,
-                 intensity: Intensity? = .activity, duration: Duration = .unknown, isExample: Bool = false, exampleId: String? = nil) {
+    init(id: UUID = UUID(), type: ExerciseType? = nil, name: String = "", description: String = "", isService: Bool = false,
+         intensity: Intensity? = .activity, duration: Duration = .unknown, isExample: Bool = false, exampleId: String? = nil) {
         self.id = id
         self.type = type
         self.name = name.trim()
