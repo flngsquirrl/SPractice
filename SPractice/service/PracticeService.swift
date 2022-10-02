@@ -54,6 +54,7 @@ struct PracticeService {
         }
 
         var baseTemplate = template
+        baseTemplate.normalize()
         let name = template.isService ? settingsManager.restName : template.name
         baseTemplate.name = name.trim()
 
