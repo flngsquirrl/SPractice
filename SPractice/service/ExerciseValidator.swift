@@ -9,7 +9,7 @@ import Foundation
 
 struct ExerciseValidator: TemplateValidator {
 
-    private func isValidTimer(_ template: ExerciseTemplate) -> Bool {
+    private func isTimerValidToPractice(_ template: ExerciseTemplate) -> Bool {
         if !template.isService {
             return template.duration != .unknown
         }
@@ -26,7 +26,7 @@ struct ExerciseValidator: TemplateValidator {
         }
 
         if template.isTimer {
-            return isValidTimer(template)
+            return isTimerValidToPractice(template)
         }
 
         return true
