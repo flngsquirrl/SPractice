@@ -9,18 +9,18 @@ import Foundation
 
 struct ExerciseTemplate: Exercise, Created, ExampleItem, Hashable, Codable {
 
-    private(set) var id: UUID
-    private(set) var type: ExerciseType?
+    let id: UUID
+    var type: ExerciseType?
     var name: String
-    private(set) var description: String
-    private(set) var intensity: Intensity? // not set when type not set
-    private(set) var duration: Duration
+    var description: String
+    var intensity: Intensity? // not set when type not set
+    var duration: Duration
     private(set) var isService: Bool
 
     var isExample: Bool
     private(set) var exampleId: String?
 
-    private(set) var creationDate: Date
+    var creationDate: Date
 
     private init(id: UUID = UUID(), type: ExerciseType? = nil, name: String = "", description: String = "", isService: Bool = false,
                  intensity: Intensity? = .activity, duration: Duration = .unknown, isExample: Bool = false, exampleId: String? = nil) {
@@ -114,10 +114,8 @@ struct ExerciseTemplate: Exercise, Created, ExampleItem, Hashable, Codable {
         self.description = example.description
         self.intensity = example.intensity
         self.duration = example.duration
-        self.isService = example.isService
 
         self.isExample = example.isExample
-        self.exampleId = example.exampleId
     }
 }
 
