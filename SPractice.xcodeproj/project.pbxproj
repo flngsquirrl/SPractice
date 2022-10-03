@@ -164,6 +164,10 @@
 		C9E17F1E28DB4E0600A7A6A7 /* ProgramValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1D28DB4E0600A7A6A7 /* ProgramValidator.swift */; };
 		C9E17F2428DB845F00A7A6A7 /* ProgramsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F2328DB845F00A7A6A7 /* ProgramsController.swift */; };
 		C9E17F2628DBA11400A7A6A7 /* ExercisesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F2528DBA11400A7A6A7 /* ExercisesController.swift */; };
+		C9E39E0A28EB8A0200B65E43 /* AlamofireImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E39E0828EB8A0200B65E43 /* AlamofireImage.xcframework */; };
+		C9E39E0B28EB8A0200B65E43 /* AlamofireImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9E39E0828EB8A0200B65E43 /* AlamofireImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C9E39E0C28EB8A0200B65E43 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E39E0928EB8A0200B65E43 /* Alamofire.xcframework */; };
+		C9E39E0D28EB8A0200B65E43 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9E39E0928EB8A0200B65E43 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9EB6D952881902B0026186C /* String-Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EB6D942881902B0026186C /* String-Empty.swift */; };
 		C9EB6D972882B9D10026186C /* Text-Truncated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EB6D962882B9D10026186C /* Text-Truncated.swift */; };
 		C9F13B1228CE69F100A2B39F /* ProgramPracticeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F13B1128CE69F100A2B39F /* ProgramPracticeSection.swift */; };
@@ -192,6 +196,21 @@
 			remoteInfo = SPractice;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C9E39E0E28EB8A0200B65E43 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C9E39E0D28EB8A0200B65E43 /* Alamofire.xcframework in Embed Frameworks */,
+				C9E39E0B28EB8A0200B65E43 /* AlamofireImage.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C90B302628C2A8BC00B00DD3 /* View-RowLeadingAligned.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-RowLeadingAligned.swift"; sourceTree = "<group>"; };
@@ -353,6 +372,8 @@
 		C9E17F1D28DB4E0600A7A6A7 /* ProgramValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramValidator.swift; sourceTree = "<group>"; };
 		C9E17F2328DB845F00A7A6A7 /* ProgramsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramsController.swift; sourceTree = "<group>"; };
 		C9E17F2528DBA11400A7A6A7 /* ExercisesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesController.swift; sourceTree = "<group>"; };
+		C9E39E0828EB8A0200B65E43 /* AlamofireImage.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AlamofireImage.xcframework; path = Carthage/Build/AlamofireImage.xcframework; sourceTree = "<group>"; };
+		C9E39E0928EB8A0200B65E43 /* Alamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Alamofire.xcframework; path = Carthage/Build/Alamofire.xcframework; sourceTree = "<group>"; };
 		C9EB6D942881902B0026186C /* String-Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-Empty.swift"; sourceTree = "<group>"; };
 		C9EB6D962882B9D10026186C /* Text-Truncated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text-Truncated.swift"; sourceTree = "<group>"; };
 		C9F13B1128CE69F100A2B39F /* ProgramPracticeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramPracticeSection.swift; sourceTree = "<group>"; };
@@ -384,6 +405,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9E39E0C28EB8A0200B65E43 /* Alamofire.xcframework in Frameworks */,
+				C9E39E0A28EB8A0200B65E43 /* AlamofireImage.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +491,7 @@
 				C95011C528196FFD0043EC75 /* SPractice */,
 				C92E24CC28E9E43100FBF01E /* SPracticeTests */,
 				C95011C428196FFD0043EC75 /* Products */,
+				C9E39E0728EB8A0100B65E43 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -879,6 +903,15 @@
 			path = listener;
 			sourceTree = "<group>";
 		};
+		C9E39E0728EB8A0100B65E43 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C9E39E0928EB8A0200B65E43 /* Alamofire.xcframework */,
+				C9E39E0828EB8A0200B65E43 /* AlamofireImage.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C9F13B1328CF58BC00A2B39F /* info */ = {
 			isa = PBXGroup;
 			children = (
@@ -937,6 +970,7 @@
 				C95011C028196FFD0043EC75 /* Frameworks */,
 				C95011C128196FFD0043EC75 /* Resources */,
 				C9A2FE4E28AFA06500A3EA90 /* ShellScript */,
+				C9E39E0E28EB8A0200B65E43 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
