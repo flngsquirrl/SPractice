@@ -47,7 +47,7 @@ final class ExerciseValidatorTests: XCTestCase {
 
         let isValid = sut.isValidToPractice(template)
 
-        XCTAssertFalse(isValid, "Timer template with unknown duration should not be valid to practice")
+        XCTAssertFalse(isValid, "Template without type should not be valid to practice")
     }
 
     func testFlowIsValidToPractice() {
