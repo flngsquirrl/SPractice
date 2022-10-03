@@ -5,6 +5,7 @@
 //  Created by Yuliya Charniak on 2.07.22.
 //
 
+import Alamofire
 import Foundation
 
 struct ExerciseValidator: TemplateValidator {
