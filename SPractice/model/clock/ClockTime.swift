@@ -20,11 +20,11 @@ struct ClockTime {
     }
 
     var secondsPart: Int {
-        Self.getSeconds(of: timeInSeconds)
+        TimeCalculator.getSeconds(of: timeInSeconds)
     }
 
     var minutesPart: Int {
-        Self.getMinutes(of: timeInSeconds)
+        TimeCalculator.getMinutes(of: timeInSeconds)
     }
 
     var minutesFirstDigit: Int {

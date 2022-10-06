@@ -12,11 +12,11 @@ struct Time: Equatable {
     var seconds: Int
 
     init(_ timeInSeconds: Int) {
-        self.minutes = ClockTime.getMinutes(of: timeInSeconds)
-        self.seconds = ClockTime.getSeconds(of: timeInSeconds)
+        self.minutes = TimeCalculator.getMinutes(of: timeInSeconds)
+        self.seconds = TimeCalculator.getSeconds(of: timeInSeconds)
     }
 
     var timeInSeconds: Int {
-        ClockTime.calculateDuration(minutes: minutes, seconds: seconds)
+        TimeCalculator.calculateDuration(minutes: minutes, seconds: seconds)
     }
 }

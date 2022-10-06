@@ -24,10 +24,10 @@ extension ExerciseEditor {
             self.isTypeSet = self.template.type != nil
 
             if case .known(let time) = self.template.duration {
-                let minutes = self.template.type == .timer ? ClockTime.getMinutes(of: time) : 0
+                let minutes = self.template.type == .timer ? TimeCalculator.getMinutes(of: time) : 0
                 self._minutes = Published<Int>(initialValue: minutes)
 
-                let seconds = self.template.type == .timer ? ClockTime.getSeconds(of: time) : 0
+                let seconds = self.template.type == .timer ? TimeCalculator.getSeconds(of: time) : 0
                 self._seconds = Published<Int>(initialValue: seconds)
             }
         }
@@ -81,7 +81,7 @@ extension ExerciseEditor {
         }
 
         func setDuration() {
-            template.duration = .known(ClockTime.calculateDuration(minutes: minutes, seconds: seconds))
+            template.duration = .known(TimeCalculator.calculateDuration(minutes: minutes, seconds: seconds))
         }
 
         func onTypeSetChange(newValue: Bool) {

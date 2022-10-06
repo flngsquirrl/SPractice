@@ -29,11 +29,11 @@ struct DurationView: View {
     }
 
     var paddedDuration: String {
-        ClockTime.getPaddedPresentation(for: duration)
+        TimeFormatter.getPaddedPresentation(for: duration)
     }
 
     var extendedDuration: String {
-        ClockTime.getExtendedPresentation(for: duration)
+        TimeFormatter.getExtendedPresentation(for: duration)
     }
 }
 

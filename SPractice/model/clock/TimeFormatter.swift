@@ -1,25 +1,13 @@
 //
-//  Clock-Calculator.swift
+//  TimeFormatter.swift
 //  SPractice
 //
-//  Created by Yuliya Charniak on 3.06.22.
+//  Created by Yuliya Charniak on 6.10.22.
 //
 
 import Foundation
 
-extension ClockTime {
-
-    static func calculateDuration(minutes: Int, seconds: Int) -> Int {
-        minutes * 60 + seconds
-    }
-
-    static func getMinutes(of duration: Int) -> Int {
-        duration / 60
-    }
-
-    static func getSeconds(of duration: Int) -> Int {
-        duration % 60
-    }
+enum TimeFormatter {
 
     static func getExtendedPresentation(for duration: Int) -> String {
         guard let result = briefHrMinSecFormatter.string(from: TimeInterval(duration)) else {

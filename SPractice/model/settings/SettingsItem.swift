@@ -135,7 +135,7 @@ class SettingsItemBoolWrapper: SettingsItemHolder, SettingsItemWrapper {
 class SettingsItemTimeWrapper: SettingsItemHolder, SettingsItemWrapper {
 
     func convertToString(_ value: Time) -> String {
-        String(ClockTime.calculateDuration(minutes: value.minutes, seconds: value.seconds))
+        String(TimeCalculator.calculateDuration(minutes: value.minutes, seconds: value.seconds))
     }
 
     func convertToValue(_ string: String) -> Time {
