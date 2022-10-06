@@ -24,15 +24,15 @@ class SettingsManager: SignalChangeListener {
     override init() {
         let baseSettings = Settings()
         self.settings = baseSettings
-        restNameItem = SettingsItemStringWrapper(for: baseSettings.getItem(.restName))
-        restDurationItem = SettingsItemIntWrapper(for: baseSettings.getItem(.restDuration))
-        flowAutoFinishItem = SettingsItemBoolWrapper(for: baseSettings.getItem(.flowAutoFinish))
-        flowAutoFinishAfterTimeItem = SettingsItemTimeWrapper(for: baseSettings.getItem(.flowAutoFinishAfterTime))
-        tabataWarmUpDurationItem = SettingsItemIntWrapper(for: baseSettings.getItem(.tabataWarmUpDuration))
-        tabataActivityDurationItem = SettingsItemIntWrapper(for: baseSettings.getItem(.tabataActivityDuration))
-        tabataRestDurationItem = SettingsItemIntWrapper(for: baseSettings.getItem(.tabataRestDuration))
-        tabataCoolDownDurationItem = SettingsItemIntWrapper(for: baseSettings.getItem(.tabataCoolDownDuration))
-        tabataCyclesItem = SettingsItemIntWrapper(for: baseSettings.getItem(.tabataCycles))
+        restNameItem = SettingsItemStringWrapper(baseSettings.getItem(.restName))
+        restDurationItem = SettingsItemIntWrapper(baseSettings.getItem(.restDuration))
+        flowAutoFinishItem = SettingsItemBoolWrapper(baseSettings.getItem(.flowAutoFinish))
+        flowAutoFinishAfterTimeItem = SettingsItemTimeWrapper(baseSettings.getItem(.flowAutoFinishAfterTime))
+        tabataWarmUpDurationItem = SettingsItemIntWrapper(baseSettings.getItem(.tabataWarmUpDuration))
+        tabataActivityDurationItem = SettingsItemIntWrapper(baseSettings.getItem(.tabataActivityDuration))
+        tabataRestDurationItem = SettingsItemIntWrapper(baseSettings.getItem(.tabataRestDuration))
+        tabataCoolDownDurationItem = SettingsItemIntWrapper(baseSettings.getItem(.tabataCoolDownDuration))
+        tabataCyclesItem = SettingsItemIntWrapper(baseSettings.getItem(.tabataCycles))
 
         super.init()
 
@@ -54,7 +54,7 @@ class SettingsManager: SignalChangeListener {
     var flowAutoFinishAfterTime: Int {
         let setupValue = flowAutoFinishAfterTimeItem.value
         if setupValue.timeInSeconds == 0 {
-            return settings.getDefault(.flowAutoFinishAfterTime).getIntValue()
+            return SettingsItemIntWrapper(settings.getDefault(.flowAutoFinishAfterTime)).value
         }
         return setupValue.timeInSeconds
     }
@@ -95,21 +95,21 @@ class SettingsManager: SignalChangeListener {
     }
 
     func updatePauseWrappers() {
-        restNameItem.updateWith(settings.getItem(.restName))
-        restDurationItem.updateWith(settings.getItem(.restDuration))
+        restNameItem.settingsItem = settings.getItem(.restName)
+        restDurationItem.settingsItem = settings.getItem(.restDuration)
     }
 
     func updateFlowWrappers() {
-        flowAutoFinishItem.updateWith(settings.getItem(.flowAutoFinish))
-        flowAutoFinishAfterTimeItem.updateWith(settings.getItem(.flowAutoFinishAfterTime))
+        flowAutoFinishItem.settingsItem = settings.getItem(.flowAutoFinish)
+        flowAutoFinishAfterTimeItem.settingsItem = settings.getItem(.flowAutoFinishAfterTime)
     }
 
     func updateTabataWrappers() {
-        tabataWarmUpDurationItem.updateWith(settings.getItem(.tabataWarmUpDuration))
-        tabataActivityDurationItem.updateWith(settings.getItem(.tabataActivityDuration))
-        tabataRestDurationItem.updateWith(settings.getItem(.tabataRestDuration))
-        tabataCoolDownDurationItem.updateWith(settings.getItem(.tabataCoolDownDuration))
-        tabataCyclesItem.updateWith(settings.getItem(.tabataCycles))
+        tabataWarmUpDurationItem.settingsItem = settings.getItem(.tabataWarmUpDuration)
+        tabataActivityDurationItem.settingsItem = settings.getItem(.tabataActivityDuration)
+        tabataRestDurationItem.settingsItem = settings.getItem(.tabataRestDuration)
+        tabataCoolDownDurationItem.settingsItem = settings.getItem(.tabataCoolDownDuration)
+        tabataCyclesItem.settingsItem = settings.getItem(.tabataCycles)
     }
 
     var hasChangesFromDefaults: Bool {

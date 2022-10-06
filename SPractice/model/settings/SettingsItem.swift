@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 enum SettingsItemName: Codable {
     case tabataWarmUpDuration
@@ -50,28 +51,6 @@ class SettingsItem: Codable {
         self.value = item.value
     }
 
-    func getIntValue() -> Int {
-        guard let value = Int(value) else {
-            fatalError("Can not convert to Int the value of \(name)")
-        }
-        return value
-    }
-
-    func getBoolValue() -> Bool {
-        guard let result = Bool(value) else {
-            fatalError("Can not convert to Bool the value of \(name)")
-        }
-        return result
-    }
-
-    func getTimeValue() -> Time {
-        guard let timeInSeconds = Int(value) else {
-            fatalError("Can not convert to Bool the value of \(name)")
-        }
-        let time = Time(timeInSeconds)
-        return time
-    }
-
     static let defaultTabataWarmUpDuration = SettingsItem(name: .tabataWarmUpDuration, value: "10")
     static let defaultTabataActivityDuration = SettingsItem(name: .tabataActivityDuration, value: "20")
     static let defaultTabataRestDuration = SettingsItem(name: .tabataRestDuration, value: "10")
@@ -87,90 +66,97 @@ protocol SettingsItemWrapper: ObservableObject {
 
     associatedtype ValueType
 
-    var settingsItem: SettingsItem {get}
-
+    var settingsItem: SettingsItem {get set}
     var value: ValueType {get set}
+
+    func convertToString(_ value: ValueType) -> String
+    func convertToValue(_ string: String) -> ValueType
 }
 
-class SettingsItemStringWrapper: SettingsItemWrapper {
+extension SettingsItemWrapper where Self.ObjectWillChangePublisher == ObservableObjectPublisher {
 
-    internal var settingsItem: SettingsItem
-
-    @Published var value: String {
-        willSet {
-            settingsItem.value = newValue
+    var value: ValueType {
+        get {
+            convertToValue(settingsItem.value)
+        }
+        set {
+            settingsItem.value = convertToString(newValue)
+            objectWillChange.send()
         }
     }
 
-    init(for settingsItem: SettingsItem) {
-        self.settingsItem = settingsItem
-        self.value = settingsItem.value
+    func convertToString(_ value: ValueType) -> String {
+        fatalError("implement in specific class")
     }
 
-    func updateWith(_ settingsItem: SettingsItem) {
-        self.settingsItem = settingsItem
-        value = settingsItem.value
+    func convertToValue(_ string: String) -> ValueType {
+        fatalError("implement in specific class")
     }
 }
 
-class SettingsItemIntWrapper: SettingsItemWrapper {
-    internal var settingsItem: SettingsItem
+class SettingsItemHolder: ObservableObject {
 
-    @Published var value: Int {
+    var settingsItem: SettingsItem {
         willSet {
-            settingsItem.value = String(newValue)
+            objectWillChange.send()
         }
     }
 
-    init(for settingsItem: SettingsItem) {
+    init(_ settingsItem: SettingsItem) {
         self.settingsItem = settingsItem
-        self.value = settingsItem.getIntValue()
-    }
-
-    func updateWith(_ settingsItem: SettingsItem) {
-        self.settingsItem = settingsItem
-        value = settingsItem.getIntValue()
     }
 }
 
-class SettingsItemBoolWrapper: SettingsItemWrapper {
+class SettingsItemStringWrapper: SettingsItemHolder, SettingsItemWrapper {
 
-    internal var settingsItem: SettingsItem
-
-    @Published var value: Bool {
-        willSet {
-            settingsItem.value = String(newValue)
-        }
+    func convertToString(_ value: String) -> String {
+        value
     }
 
-    init(for settingsItem: SettingsItem) {
-        self.settingsItem = settingsItem
-        self.value = settingsItem.getBoolValue()
-    }
-
-    func updateWith(_ settingsItem: SettingsItem) {
-        self.settingsItem = settingsItem
-        value = settingsItem.getBoolValue()
+    func convertToValue(_ string: String) -> String {
+        string
     }
 }
 
-class SettingsItemTimeWrapper: SettingsItemWrapper {
+class SettingsItemIntWrapper: SettingsItemHolder, SettingsItemWrapper {
 
-    internal var settingsItem: SettingsItem
+    func convertToString(_ value: Int) -> String {
+        String(value)
+    }
 
-    @Published var value: Time {
-        willSet {
-            settingsItem.value = String(ClockTime.calculateDuration(minutes: newValue.minutes, seconds: newValue.seconds))
+    func convertToValue(_ string: String) -> Int {
+        guard let value = Int(settingsItem.value) else {
+            fatalError("Can not convert to Int the value of \(settingsItem.name)")
         }
+        return value
+    }
+}
+
+class SettingsItemBoolWrapper: SettingsItemHolder, SettingsItemWrapper {
+
+    func convertToString(_ value: Bool) -> String {
+        String(value)
     }
 
-    init(for settingsItem: SettingsItem) {
-        self.settingsItem = settingsItem
-        self.value = settingsItem.getTimeValue()
+    func convertToValue(_ string: String) -> Bool {
+        guard let result = Bool(settingsItem.value) else {
+            fatalError("Can not convert to Bool the value of \(settingsItem.name)")
+        }
+        return result
+    }
+}
+
+class SettingsItemTimeWrapper: SettingsItemHolder, SettingsItemWrapper {
+
+    func convertToString(_ value: Time) -> String {
+        String(ClockTime.calculateDuration(minutes: value.minutes, seconds: value.seconds))
     }
 
-    func updateWith(_ settingsItem: SettingsItem) {
-        self.settingsItem = settingsItem
-        value = settingsItem.getTimeValue()
+    func convertToValue(_ string: String) -> Time {
+        guard let timeInSeconds = Int(settingsItem.value) else {
+            fatalError("Can not convert to Bool the value of \(settingsItem.name)")
+        }
+        let time = Time(timeInSeconds)
+        return time
     }
 }
