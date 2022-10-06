@@ -9,31 +9,19 @@ import Foundation
 
 class SettingsManager: SignalChangeListener {
 
-    var settings: Settings
+    var settings = Settings()
 
-    var restNameItem: SettingsItemStringWrapper
-    var restDurationItem: SettingsItemIntWrapper
-    var flowAutoFinishItem: SettingsItemBoolWrapper
-    var flowAutoFinishAfterTimeItem: SettingsItemTimeWrapper
-    var tabataWarmUpDurationItem: SettingsItemIntWrapper
-    var tabataActivityDurationItem: SettingsItemIntWrapper
-    var tabataRestDurationItem: SettingsItemIntWrapper
-    var tabataCoolDownDurationItem: SettingsItemIntWrapper
-    var tabataCyclesItem: SettingsItemIntWrapper
+    lazy var restNameItem = SettingsItemStringWrapper(settings.getItem(.restName))
+    lazy var restDurationItem = SettingsItemIntWrapper(settings.getItem(.restDuration))
+    lazy var flowAutoFinishItem = SettingsItemBoolWrapper(settings.getItem(.flowAutoFinish))
+    lazy var flowAutoFinishAfterTimeItem = SettingsItemTimeWrapper(settings.getItem(.flowAutoFinishAfterTime))
+    lazy var tabataWarmUpDurationItem = SettingsItemIntWrapper(settings.getItem(.tabataWarmUpDuration))
+    lazy var tabataActivityDurationItem = SettingsItemIntWrapper(settings.getItem(.tabataActivityDuration))
+    lazy var tabataRestDurationItem = SettingsItemIntWrapper(settings.getItem(.tabataRestDuration))
+    lazy var tabataCoolDownDurationItem = SettingsItemIntWrapper(settings.getItem(.tabataCoolDownDuration))
+    lazy var tabataCyclesItem = SettingsItemIntWrapper(settings.getItem(.tabataCycles))
 
     override init() {
-        let baseSettings = Settings()
-        self.settings = baseSettings
-        restNameItem = SettingsItemStringWrapper(baseSettings.getItem(.restName))
-        restDurationItem = SettingsItemIntWrapper(baseSettings.getItem(.restDuration))
-        flowAutoFinishItem = SettingsItemBoolWrapper(baseSettings.getItem(.flowAutoFinish))
-        flowAutoFinishAfterTimeItem = SettingsItemTimeWrapper(baseSettings.getItem(.flowAutoFinishAfterTime))
-        tabataWarmUpDurationItem = SettingsItemIntWrapper(baseSettings.getItem(.tabataWarmUpDuration))
-        tabataActivityDurationItem = SettingsItemIntWrapper(baseSettings.getItem(.tabataActivityDuration))
-        tabataRestDurationItem = SettingsItemIntWrapper(baseSettings.getItem(.tabataRestDuration))
-        tabataCoolDownDurationItem = SettingsItemIntWrapper(baseSettings.getItem(.tabataCoolDownDuration))
-        tabataCyclesItem = SettingsItemIntWrapper(baseSettings.getItem(.tabataCycles))
-
         super.init()
 
         let targets = [restNameItem.objectWillChange, restDurationItem.objectWillChange,
@@ -41,8 +29,8 @@ class SettingsManager: SignalChangeListener {
                        tabataWarmUpDurationItem.objectWillChange, tabataActivityDurationItem.objectWillChange,
                        tabataRestDurationItem.objectWillChange, tabataCoolDownDurationItem.objectWillChange,
                        tabataCyclesItem.objectWillChange]
-        listenTo(targets: targets) {
-            baseSettings.save()
+        listenTo(targets: targets) { [weak self] in
+            self?.settings.save()
         }
     }
 
