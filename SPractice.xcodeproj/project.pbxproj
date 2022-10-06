@@ -12,6 +12,7 @@
 		C91110DC289BDCCC00B9BC03 /* MainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91110DB289BDCCC00B9BC03 /* MainManager.swift */; };
 		C912749F28BFB25A0051B4C3 /* Toggle-Decorated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C912749E28BFB25A0051B4C3 /* Toggle-Decorated.swift */; };
 		C91274A128BFBAD40051B4C3 /* PracticeView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91274A028BFBAD40051B4C3 /* PracticeView-ViewModel.swift */; };
+		C915508E28EF336E00CD37A4 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = C915508D28EF336E00CD37A4 /* Time.swift */; };
 		C915931F288758C100301338 /* Image-Decorated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C915931E288758C100301338 /* Image-Decorated.swift */; };
 		C91696A628A2543500053E90 /* ProgramsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91696A528A2543500053E90 /* ProgramsManager.swift */; };
 		C91696A928A2910000053E90 /* ExercisesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91696A828A2910000053E90 /* ExercisesManager.swift */; };
@@ -199,6 +200,7 @@
 		C91110DB289BDCCC00B9BC03 /* MainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainManager.swift; sourceTree = "<group>"; };
 		C912749E28BFB25A0051B4C3 /* Toggle-Decorated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Toggle-Decorated.swift"; sourceTree = "<group>"; };
 		C91274A028BFBAD40051B4C3 /* PracticeView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PracticeView-ViewModel.swift"; sourceTree = "<group>"; };
+		C915508D28EF336E00CD37A4 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		C915931E288758C100301338 /* Image-Decorated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image-Decorated.swift"; sourceTree = "<group>"; };
 		C91696A528A2543500053E90 /* ProgramsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramsManager.swift; sourceTree = "<group>"; };
 		C91696A828A2910000053E90 /* ExercisesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesManager.swift; sourceTree = "<group>"; };
@@ -547,6 +549,7 @@
 				C9A0D002281C03F5000CF439 /* Clock.swift */,
 				C9692C75284F4E9100373730 /* ClockTime.swift */,
 				C9CCCE95284A31B9005665C8 /* ClockTime-Calculator.swift */,
+				C915508D28EF336E00CD37A4 /* Time.swift */,
 			);
 			path = clock;
 			sourceTree = "<group>";
@@ -1065,6 +1068,7 @@
 				C9CCCE94284A311A005665C8 /* ExerciseEditor-ViewModel.swift in Sources */,
 				C9741A5F2863208100E1F670 /* TaskDetailsShortView.swift in Sources */,
 				C92F6C37286C525A00D7BA59 /* FileManager-Documents.swift in Sources */,
+				C915508E28EF336E00CD37A4 /* Time.swift in Sources */,
 				C9D156B228534F5C007F5176 /* EditExerciseView.swift in Sources */,
 				C92F6C46286F1B6500D7BA59 /* DurationView.swift in Sources */,
 				C9A0D029282BD603000CF439 /* Practice.swift in Sources */,

@@ -22,20 +22,6 @@ enum SettingsItemName: Codable {
     case restDuration
 }
 
-struct Time: Equatable {
-    var minutes: Int
-    var seconds: Int
-
-    init(_ timeInSeconds: Int) {
-        self.minutes = ClockTime.getMinutes(of: timeInSeconds)
-        self.seconds = ClockTime.getSeconds(of: timeInSeconds)
-    }
-
-    var timeInSeconds: Int {
-        ClockTime.calculateDuration(minutes: minutes, seconds: seconds)
-    }
-}
-
 class SettingsItem: Codable {
 
     var name: SettingsItemName
