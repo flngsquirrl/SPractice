@@ -2,3 +2,4 @@ line_length:
     warning: 150
     error: 200
     ignores_comments: true
+excluded: Carthage

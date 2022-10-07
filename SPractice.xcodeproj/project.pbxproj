@@ -45,6 +45,8 @@
 		C95011CB28196FFE0043EC75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C95011CA28196FFE0043EC75 /* Assets.xcassets */; };
 		C95011CE28196FFE0043EC75 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C95011CD28196FFE0043EC75 /* Preview Assets.xcassets */; };
 		C95011D52819703D0043EC75 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95011D42819703D0043EC75 /* ClockView.swift */; };
+		C95BAC8428F0CC6800618DBC /* Resolver.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95BAC8328F0CC6800618DBC /* Resolver.xcframework */; };
+		C95BAC8528F0CC6800618DBC /* Resolver.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C95BAC8328F0CC6800618DBC /* Resolver.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C95EE45428D1E87D000D7D3B /* InfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95EE45328D1E87D000D7D3B /* InfoManager.swift */; };
 		C95EE45628D1EDC2000D7D3B /* InfoPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95EE45528D1EDC2000D7D3B /* InfoPanel.swift */; };
 		C95F17852884431700E8446D /* SettingsLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95F17842884431700E8446D /* SettingsLink.swift */; };
@@ -195,6 +197,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C95BAC8628F0CC6800618DBC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C95BAC8528F0CC6800618DBC /* Resolver.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		C90B302628C2A8BC00B00DD3 /* View-RowLeadingAligned.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-RowLeadingAligned.swift"; sourceTree = "<group>"; };
 		C910A61028DCA279006F6C4B /* PracticeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeService.swift; sourceTree = "<group>"; };
@@ -236,6 +252,7 @@
 		C95011CA28196FFE0043EC75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C95011CD28196FFE0043EC75 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C95011D42819703D0043EC75 /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
+		C95BAC8328F0CC6800618DBC /* Resolver.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Resolver.xcframework; path = Carthage/Build/Resolver.xcframework; sourceTree = "<group>"; };
 		C95EE45328D1E87D000D7D3B /* InfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoManager.swift; sourceTree = "<group>"; };
 		C95EE45528D1EDC2000D7D3B /* InfoPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPanel.swift; sourceTree = "<group>"; };
 		C95F17842884431700E8446D /* SettingsLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLink.swift; sourceTree = "<group>"; };
@@ -388,6 +405,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C95BAC8428F0CC6800618DBC /* Resolver.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +490,7 @@
 				C95011C528196FFD0043EC75 /* SPractice */,
 				C92E24CC28E9E43100FBF01E /* SPracticeTests */,
 				C95011C428196FFD0043EC75 /* Products */,
+				C95BAC8228F0CC6700618DBC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -505,6 +524,14 @@
 				C95011CD28196FFE0043EC75 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C95BAC8228F0CC6700618DBC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C95BAC8328F0CC6800618DBC /* Resolver.xcframework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C95EE45128D0E07D000D7D3B /* editor */ = {
@@ -943,6 +970,7 @@
 				C95011C028196FFD0043EC75 /* Frameworks */,
 				C95011C128196FFD0043EC75 /* Resources */,
 				C9A2FE4E28AFA06500A3EA90 /* ShellScript */,
+				C95BAC8628F0CC6800618DBC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
