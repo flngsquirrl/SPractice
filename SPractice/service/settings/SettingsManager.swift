@@ -34,25 +34,12 @@ class SettingsManager: SignalChangeListener {
         }
     }
 
-    var tabataExerciseDuration: Int {
-        tabataWarmUpDurationItem.value + (tabataActivityDurationItem.value + tabataRestDurationItem.value)
-            * tabataCyclesItem.value + tabataCoolDownDurationItem.value
-    }
-
     var flowAutoFinishAfterTime: Int {
         let setupValue = flowAutoFinishAfterTimeItem.value
         if setupValue.timeInSeconds == 0 {
             return SettingsItemIntWrapper(settings.getDefault(.flowAutoFinishAfterTime)).value
         }
         return setupValue.timeInSeconds
-    }
-
-    var restName: String {
-        let setupValue = restNameItem.value.trimmingCharacters(in: .whitespacesAndNewlines)
-        if setupValue.isEmpty {
-            return settings.getDefault(.restName).value
-        }
-        return setupValue
     }
 
     func saveSettings() {
@@ -106,6 +93,49 @@ class SettingsManager: SignalChangeListener {
 
     func hasChangesFromDefaults(in subgroup: SettingsSubGroup) -> Bool {
         settings.hasChangesFromDefaults(in: subgroup)
+    }
+}
+
+extension SettingsManager: TabataSettingsProvider {
+
+    var tabataWarmUpDuration: Int {
+        tabataWarmUpDurationItem.value
+    }
+
+    var tabataActivityDuration: Int {
+        tabataActivityDurationItem.value
+    }
+
+    var tabataRestDuration: Int {
+        tabataRestDurationItem.value
+    }
+
+    var tabataCoolDownDuration: Int {
+        tabataCoolDownDurationItem.value
+    }
+
+    var tabataCycles: Int {
+        tabataCyclesItem.value
+    }
+
+    var tabataExerciseDuration: Int {
+        tabataWarmUpDurationItem.value + (tabataActivityDurationItem.value + tabataRestDurationItem.value)
+            * tabataCyclesItem.value + tabataCoolDownDurationItem.value
+    }
+}
+
+extension SettingsManager: RestSettingsProvider {
+
+    var restName: String {
+        let setupValue = restNameItem.value.trimmingCharacters(in: .whitespacesAndNewlines)
+        if setupValue.isEmpty {
+            return settings.getDefault(.restName).value
+        }
+        return setupValue
+    }
+
+    var restDuration: Int {
+        restDurationItem.value
     }
 }
 

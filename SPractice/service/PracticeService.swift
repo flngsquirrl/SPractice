@@ -10,7 +10,8 @@ import Resolver
 
 struct PracticeService {
 
-    @Injected private var settingsManager: SettingsManager
+    @Injected private var tabataSettings: TabataSettingsProvider
+    @Injected private var restSettings: RestSettingsProvider
 
     func prepareForPractice(_ template: ProgramTemplate, useRest: Bool = false) -> PracticeProgram {
         var program = PracticeProgram()
@@ -56,7 +57,7 @@ struct PracticeService {
 
         var baseTemplate = template
         baseTemplate.normalize()
-        let name = template.isService ? settingsManager.restName : template.name
+        let name = template.isService ? restSettings.restName : template.name
         baseTemplate.name = name.trim()
 
         var exercise = PracticeExercise(template: baseTemplate)
@@ -85,20 +86,20 @@ struct PracticeService {
     private func prepareTabataTasks(from template: ExerciseTemplate) -> [Task] {
         var tasks = [Task]()
 
-        let warmUp = Task(intensity: .rest, name: "warm-up", duration: .known(settingsManager.tabataWarmUpDurationItem.value))
+        let warmUp = Task(intensity: .rest, name: "warm-up", duration: .known(tabataSettings.tabataWarmUpDuration))
         tasks.append(warmUp)
 
-        let tabataCycles = settingsManager.tabataCyclesItem.value
+        let tabataCycles = tabataSettings.tabataCycles
         for number in 1...tabataCycles {
             let activity = Task(intensity: .activity, name: "\(Intensity.activity.rawValue) \(number)",
-                                duration: .known(settingsManager.tabataActivityDurationItem.value))
+                                duration: .known(tabataSettings.tabataActivityDuration))
             let rest = Task(intensity: .rest, name: "\(Intensity.rest.rawValue) \(number)",
-                            duration: .known(settingsManager.tabataRestDurationItem.value))
+                            duration: .known(tabataSettings.tabataRestDuration))
             tasks.append(activity)
             tasks.append(rest)
         }
 
-        let coolDown = Task(intensity: .rest, name: "cool-down", duration: .known(settingsManager.tabataCoolDownDurationItem.value))
+        let coolDown = Task(intensity: .rest, name: "cool-down", duration: .known(tabataSettings.tabataCoolDownDuration))
         tasks.append(coolDown)
 
         return tasks
@@ -111,7 +112,7 @@ struct PracticeService {
 
     private func prepareTimerTasks(from template: ExerciseTemplate) -> [Task] {
         let intensity: Intensity = template.isService ? .rest : template.intensity!
-        let duration: Duration = template.isService ? .known(settingsManager.restDurationItem.value) : template.duration
+        let duration: Duration = template.isService ? .known(restSettings.restDuration) : template.duration
         let task = Task(intensity: intensity, name: intensity.rawValue, duration: duration)
         return [Task].wrapElement(element: task)
     }

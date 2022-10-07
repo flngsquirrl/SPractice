@@ -48,6 +48,8 @@
 		C95BAC8428F0CC6800618DBC /* Resolver.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95BAC8328F0CC6800618DBC /* Resolver.xcframework */; };
 		C95BAC8528F0CC6800618DBC /* Resolver.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C95BAC8328F0CC6800618DBC /* Resolver.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C95BAC8828F0CD4B00618DBC /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BAC8728F0CD4B00618DBC /* Resolver.swift */; };
+		C95BAC8A28F0D12300618DBC /* TabataSettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BAC8928F0D12300618DBC /* TabataSettingsProvider.swift */; };
+		C95BAC8C28F0D30D00618DBC /* RestSettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BAC8B28F0D30D00618DBC /* RestSettingsProvider.swift */; };
 		C95EE45428D1E87D000D7D3B /* InfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95EE45328D1E87D000D7D3B /* InfoManager.swift */; };
 		C95EE45628D1EDC2000D7D3B /* InfoPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95EE45528D1EDC2000D7D3B /* InfoPanel.swift */; };
 		C95F17852884431700E8446D /* SettingsLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95F17842884431700E8446D /* SettingsLink.swift */; };
@@ -255,6 +257,8 @@
 		C95011D42819703D0043EC75 /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		C95BAC8328F0CC6800618DBC /* Resolver.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Resolver.xcframework; path = Carthage/Build/Resolver.xcframework; sourceTree = "<group>"; };
 		C95BAC8728F0CD4B00618DBC /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
+		C95BAC8928F0D12300618DBC /* TabataSettingsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabataSettingsProvider.swift; sourceTree = "<group>"; };
+		C95BAC8B28F0D30D00618DBC /* RestSettingsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestSettingsProvider.swift; sourceTree = "<group>"; };
 		C95EE45328D1E87D000D7D3B /* InfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoManager.swift; sourceTree = "<group>"; };
 		C95EE45528D1EDC2000D7D3B /* InfoPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPanel.swift; sourceTree = "<group>"; };
 		C95F17842884431700E8446D /* SettingsLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLink.swift; sourceTree = "<group>"; };
@@ -849,6 +853,8 @@
 			isa = PBXGroup;
 			children = (
 				C9CEAA0C287C619F00D15A16 /* SettingsManager.swift */,
+				C95BAC8928F0D12300618DBC /* TabataSettingsProvider.swift */,
+				C95BAC8B28F0D30D00618DBC /* RestSettingsProvider.swift */,
 			);
 			path = settings;
 			sourceTree = "<group>";
@@ -1136,6 +1142,7 @@
 				C9A0D01A2827CEC9000CF439 /* Squirrel.swift in Sources */,
 				C92F6C44286F0B0000D7BA59 /* ProgramDurationView.swift in Sources */,
 				C9E17F1628DB4BE600A7A6A7 /* ProgramService.swift in Sources */,
+				C95BAC8A28F0D12300618DBC /* TabataSettingsProvider.swift in Sources */,
 				C9F30BD728CFD5A000A1C9E2 /* ExerciseDurationInfo.swift in Sources */,
 				C915509028EF358100CD37A4 /* TimeCalculator.swift in Sources */,
 				C9F30BD328CFC66700A1C9E2 /* Text-Term.swift in Sources */,
@@ -1215,6 +1222,7 @@
 				C9ACC8F228A993FC00FC5343 /* ExamplesSettingsView-ViewModel.swift in Sources */,
 				C9B49EA028AEC941007713A1 /* SoundType.swift in Sources */,
 				C9D156AE28533DD7007F5176 /* ExerciseSelectionView-ViewModel.swift in Sources */,
+				C95BAC8C28F0D30D00618DBC /* RestSettingsProvider.swift in Sources */,
 				C9A0CFFF281BDDEA000CF439 /* PracticeView.swift in Sources */,
 				C9A0D024282813F2000CF439 /* ColorTheme.swift in Sources */,
 				C9A0CFF7281BD815000CF439 /* ExerciseTemplate.swift in Sources */,

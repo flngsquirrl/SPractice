@@ -10,7 +10,8 @@ import Resolver
 
 struct ProgramService {
 
-    @Injected private var settingsManager: SettingsManager
+    @Injected private var tabataSettings: TabataSettingsProvider
+    @Injected private var restSettings: RestSettingsProvider
 
     func calculateDuration(for program: any Program, from startIndex: Int = 0) -> Duration {
         var totalDuration = 0
@@ -20,9 +21,9 @@ struct ProgramService {
             if case .known(let duration) = exercise.duration {
                 exerciseDuration = duration
             } else if exercise.type == .tabata {
-                exerciseDuration = settingsManager.tabataExerciseDuration
+                exerciseDuration = tabataSettings.tabataExerciseDuration
             } else if exercise.isService {
-                exerciseDuration = settingsManager.restDurationItem.value
+                exerciseDuration = restSettings.restDuration
             }
             totalDuration += exerciseDuration
         }
