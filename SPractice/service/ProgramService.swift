@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import Resolver
 
 struct ProgramService {
 
-    var settingsManager = SettingsManager()
+    @Injected private var settingsManager: SettingsManager
 
     func calculateDuration(for program: any Program, from startIndex: Int = 0) -> Duration {
         var totalDuration = 0

@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import Resolver
 
 struct PracticeService {
 
-    var settingsManager = SettingsManager()
+    @Injected private var settingsManager: SettingsManager
 
     func prepareForPractice(_ template: ProgramTemplate, useRest: Bool = false) -> PracticeProgram {
         var program = PracticeProgram()
