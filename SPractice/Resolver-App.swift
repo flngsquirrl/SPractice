@@ -11,8 +11,7 @@ import Resolver
 extension Resolver: ResolverRegistering {
 
     public static func registerAllServices() {
-        let settingsManager = SettingsManager()
-        register { settingsManager }
+        register { SettingsManager() }
             .implements(RestSettingsProvider.self)
             .implements(TabataSettingsProvider.self)
     }
