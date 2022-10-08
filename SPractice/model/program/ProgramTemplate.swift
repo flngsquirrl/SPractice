@@ -20,8 +20,9 @@ struct ProgramTemplate: Program, Created, ExampleItem, Codable, Hashable {
 
     private(set) var creationDate: Date
 
-    private init(id: UUID = UUID(), name: String = "", description: String = "", exercises: [ExerciseTemplate] = [],
-                 isExample: Bool = false, exampleId: String? = nil) {
+    init(id: UUID = UUID(), name: String = "", description: String = "", exercises: [ExerciseTemplate] = [],
+         isExample: Bool = false, exampleId: String? = nil) {
+        
         self.id = id
         self.name = name.trim()
         self.description = description.trim()

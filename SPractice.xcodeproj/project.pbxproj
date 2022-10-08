@@ -47,9 +47,13 @@
 		C95011D52819703D0043EC75 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95011D42819703D0043EC75 /* ClockView.swift */; };
 		C95BAC8428F0CC6800618DBC /* Resolver.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95BAC8328F0CC6800618DBC /* Resolver.xcframework */; };
 		C95BAC8528F0CC6800618DBC /* Resolver.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C95BAC8328F0CC6800618DBC /* Resolver.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C95BAC8828F0CD4B00618DBC /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BAC8728F0CD4B00618DBC /* Resolver.swift */; };
+		C95BAC8828F0CD4B00618DBC /* Resolver-App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BAC8728F0CD4B00618DBC /* Resolver-App.swift */; };
 		C95BAC8A28F0D12300618DBC /* TabataSettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BAC8928F0D12300618DBC /* TabataSettingsProvider.swift */; };
 		C95BAC8C28F0D30D00618DBC /* RestSettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BAC8B28F0D30D00618DBC /* RestSettingsProvider.swift */; };
+		C95BAC9628F1BF2800618DBC /* MockTabataSettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BAC9528F1BF2800618DBC /* MockTabataSettingsProvider.swift */; };
+		C95BAC9828F1BF4D00618DBC /* ProgramServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BAC9728F1BF4D00618DBC /* ProgramServiceTests.swift */; };
+		C95BAC9B28F1C42200618DBC /* Resolver-Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BAC9A28F1C42200618DBC /* Resolver-Test.swift */; };
+		C95BAC9D28F1CB4C00618DBC /* MockRestSettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BAC9C28F1CB4C00618DBC /* MockRestSettingsProvider.swift */; };
 		C95EE45428D1E87D000D7D3B /* InfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95EE45328D1E87D000D7D3B /* InfoManager.swift */; };
 		C95EE45628D1EDC2000D7D3B /* InfoPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95EE45528D1EDC2000D7D3B /* InfoPanel.swift */; };
 		C95F17852884431700E8446D /* SettingsLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95F17842884431700E8446D /* SettingsLink.swift */; };
@@ -256,9 +260,13 @@
 		C95011CD28196FFE0043EC75 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C95011D42819703D0043EC75 /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		C95BAC8328F0CC6800618DBC /* Resolver.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Resolver.xcframework; path = Carthage/Build/Resolver.xcframework; sourceTree = "<group>"; };
-		C95BAC8728F0CD4B00618DBC /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
+		C95BAC8728F0CD4B00618DBC /* Resolver-App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver-App.swift"; sourceTree = "<group>"; };
 		C95BAC8928F0D12300618DBC /* TabataSettingsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabataSettingsProvider.swift; sourceTree = "<group>"; };
 		C95BAC8B28F0D30D00618DBC /* RestSettingsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestSettingsProvider.swift; sourceTree = "<group>"; };
+		C95BAC9528F1BF2800618DBC /* MockTabataSettingsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTabataSettingsProvider.swift; sourceTree = "<group>"; };
+		C95BAC9728F1BF4D00618DBC /* ProgramServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramServiceTests.swift; sourceTree = "<group>"; };
+		C95BAC9A28F1C42200618DBC /* Resolver-Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver-Test.swift"; sourceTree = "<group>"; };
+		C95BAC9C28F1CB4C00618DBC /* MockRestSettingsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRestSettingsProvider.swift; sourceTree = "<group>"; };
 		C95EE45328D1E87D000D7D3B /* InfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoManager.swift; sourceTree = "<group>"; };
 		C95EE45528D1EDC2000D7D3B /* InfoPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPanel.swift; sourceTree = "<group>"; };
 		C95F17842884431700E8446D /* SettingsLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLink.swift; sourceTree = "<group>"; };
@@ -443,6 +451,9 @@
 		C92E24CC28E9E43100FBF01E /* SPracticeTests */ = {
 			isa = PBXGroup;
 			children = (
+				C95BAC9E28F1D05A00618DBC /* dependency */,
+				C95BAC9928F1BF7900618DBC /* mock */,
+				C95BAC9728F1BF4D00618DBC /* ProgramServiceTests.swift */,
 				C92E24CD28E9E43100FBF01E /* ExerciseValidatorTests.swift */,
 			);
 			path = SPracticeTests;
@@ -518,7 +529,7 @@
 				C9D53FB628704EE900FD2B6F /* service */,
 				C92F6C38286C5A4D00D7BA59 /* utils */,
 				C95011C628196FFD0043EC75 /* SPracticeApp.swift */,
-				C95BAC8728F0CD4B00618DBC /* Resolver.swift */,
+				C95BAC8728F0CD4B00618DBC /* Resolver-App.swift */,
 				C95011CA28196FFE0043EC75 /* Assets.xcassets */,
 				C95011CC28196FFE0043EC75 /* Preview Content */,
 			);
@@ -539,6 +550,23 @@
 				C95BAC8328F0CC6800618DBC /* Resolver.xcframework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C95BAC9928F1BF7900618DBC /* mock */ = {
+			isa = PBXGroup;
+			children = (
+				C95BAC9528F1BF2800618DBC /* MockTabataSettingsProvider.swift */,
+				C95BAC9C28F1CB4C00618DBC /* MockRestSettingsProvider.swift */,
+			);
+			path = mock;
+			sourceTree = "<group>";
+		};
+		C95BAC9E28F1D05A00618DBC /* dependency */ = {
+			isa = PBXGroup;
+			children = (
+				C95BAC9A28F1C42200618DBC /* Resolver-Test.swift */,
+			);
+			path = dependency;
 			sourceTree = "<group>";
 		};
 		C95EE45128D0E07D000D7D3B /* editor */ = {
@@ -1078,7 +1106,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C95BAC9628F1BF2800618DBC /* MockTabataSettingsProvider.swift in Sources */,
+				C95BAC9D28F1CB4C00618DBC /* MockRestSettingsProvider.swift in Sources */,
 				C92E24CE28E9E43100FBF01E /* ExerciseValidatorTests.swift in Sources */,
+				C95BAC9828F1BF4D00618DBC /* ProgramServiceTests.swift in Sources */,
+				C95BAC9B28F1C42200618DBC /* Resolver-Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1253,7 +1285,7 @@
 				C9CEAA17287DCCFD00D15A16 /* SettingsGroup.swift in Sources */,
 				C9A0CFEC281AB382000CF439 /* PracticeExercise.swift in Sources */,
 				C92F6C42286F00EB00D7BA59 /* LayoutUtils.swift in Sources */,
-				C95BAC8828F0CD4B00618DBC /* Resolver.swift in Sources */,
+				C95BAC8828F0CD4B00618DBC /* Resolver-App.swift in Sources */,
 				C9A0D01E28280E77000CF439 /* SquirrelInWheelLogo.swift in Sources */,
 				C9321CA528C8C074008C6BA4 /* SquirrelInWheelIcon.swift in Sources */,
 				C95011C728196FFD0043EC75 /* SPracticeApp.swift in Sources */,
