@@ -69,14 +69,14 @@ final class ExerciseValidatorTests: XCTestCase {
         XCTAssertTrue(isValid, "Timer template with known duration should be valid to practice")
     }
 
-    func testTimerWithDurationUnknownIsNotValidToPractice() {
+    func testTimerWithZeroDurationIsNotValidToPractice() {
         var template = basicValidTemplate
         template.type = .timer
-        template.duration = .unknown
+        template.duration = .known(0)
 
         let isValid = sut.isValidToPractice(template)
 
-        XCTAssertFalse(isValid, "Timer template with unknown duration should not be valid to practice")
+        XCTAssertFalse(isValid, "Timer template with 0 duration should not be valid to practice")
     }
 
     func testTabataIsValidToPractice() {

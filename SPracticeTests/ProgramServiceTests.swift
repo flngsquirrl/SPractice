@@ -27,20 +27,20 @@ final class ProgramServiceTests: XCTestCase {
         sut = nil
     }
 
-    func testProgramTemplateWithFlowDurationUnlimited() {
-        let duration = sut.calculateDuration(for: ModelAssets.programTemplateWithFlow)
-        XCTAssertTrue(duration == .unlimited)
+    func testProgramTemplateWithFlowDurationKnownZero() {
+        let duration = sut.calculateDuration(of: ModelAssets.programTemplateWithFlow)
+        XCTAssertTrue(duration == .known(0))
     }
 
     func testProgramTemplateWithTimerDurationCorrect() {
-        let duration = sut.calculateDuration(for: ModelAssets.programTemplateWithTimerDurationSet)
+        let duration = sut.calculateDuration(of: ModelAssets.programTemplateWithTimerDurationSet)
 
         let expectedDuration = ModelAssets.programTemplateWithTimerDurationSet.exercises[0].duration
         XCTAssertTrue(duration == expectedDuration)
     }
 
     func testProgramTemplateWithTabataDurationCorrect() {
-        let duration = sut.calculateDuration(for: ModelAssets.programTemplateWithTabata)
+        let duration = sut.calculateDuration(of: ModelAssets.programTemplateWithTabata)
 
         let expectedDuration = Duration.known(tabataSettings.exerciseDuration)
         XCTAssertTrue(duration == expectedDuration)
@@ -57,7 +57,7 @@ enum ModelAssets {
         name: "programTemplateWithTimerDurationSet",
         exercises: [exerciseTemplateTimerDurationSet])
 
-    static let exerciseTemplateTabata = ExerciseTemplate(type: .tabata, name: "exerciseTemplateTabata", duration: .unknown)
+    static let exerciseTemplateTabata = ExerciseTemplate(type: .tabata, name: "exerciseTemplateTabata", duration: .setting)
     static let programTemplateWithTabata = ProgramTemplate(
         name: "programTemplateWithTabata",
         exercises: [exerciseTemplateTabata])

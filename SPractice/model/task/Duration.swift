@@ -9,6 +9,6 @@ import Foundation
 
 enum Duration: Codable, Hashable {
     case known(Int)
-    case unknown
+    case setting
     case unlimited
 }

@@ -36,7 +36,7 @@ struct PracticeSequenceView: View {
             HStack {
                 Text("remaining time")
                 Spacer()
-                ProgramDurationView(for: practice.durationRemaining, showAsApproximate: practice.isDurationRemainingApproximate)
+                ProgramDurationView(for: practice.remainingExercises, duration: practice.durationRemaining)
             }
             .foregroundColor(.secondary)
             .wrapped()

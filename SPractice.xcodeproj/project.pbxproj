@@ -23,6 +23,7 @@
 		C91B828E28896D1100900239 /* ExerciseExampleId.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91B828D28896D1100900239 /* ExerciseExampleId.swift */; };
 		C91B8290288B41AF00900239 /* ProgramCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91B828F288B41AF00900239 /* ProgramCardView.swift */; };
 		C91B8292288B491B00900239 /* RoundIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91B8291288B491B00900239 /* RoundIconButton.swift */; };
+		C922AD4B28F1FD5600207AD1 /* Collection-Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = C922AD4A28F1FD5600207AD1 /* Collection-Exercise.swift */; };
 		C92E24CE28E9E43100FBF01E /* ExerciseValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92E24CD28E9E43100FBF01E /* ExerciseValidatorTests.swift */; };
 		C92F6C37286C525A00D7BA59 /* FileManager-Documents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C36286C525A00D7BA59 /* FileManager-Documents.swift */; };
 		C92F6C3C286D9D2100D7BA59 /* ProgramSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F6C3B286D9D2100D7BA59 /* ProgramSummaryView.swift */; };
@@ -235,6 +236,7 @@
 		C91B828D28896D1100900239 /* ExerciseExampleId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseExampleId.swift; sourceTree = "<group>"; };
 		C91B828F288B41AF00900239 /* ProgramCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramCardView.swift; sourceTree = "<group>"; };
 		C91B8291288B491B00900239 /* RoundIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundIconButton.swift; sourceTree = "<group>"; };
+		C922AD4A28F1FD5600207AD1 /* Collection-Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection-Exercise.swift"; sourceTree = "<group>"; };
 		C92E24CB28E9E43100FBF01E /* SPracticeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SPracticeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C92E24CD28E9E43100FBF01E /* ExerciseValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseValidatorTests.swift; sourceTree = "<group>"; };
 		C92F6C36286C525A00D7BA59 /* FileManager-Documents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-Documents.swift"; sourceTree = "<group>"; };
@@ -914,6 +916,7 @@
 				C9DE15272868B3CE0011324C /* ExercisesDataManager.swift */,
 				C9DE151E2868AADE0011324C /* ExerciseType.swift */,
 				C91B828D28896D1100900239 /* ExerciseExampleId.swift */,
+				C922AD4A28F1FD5600207AD1 /* Collection-Exercise.swift */,
 			);
 			path = exercise;
 			sourceTree = "<group>";
@@ -1249,6 +1252,7 @@
 				C9ACC8EC28A81C9C00FC5343 /* SortingOptions.swift in Sources */,
 				C980FED928D203DF00543B72 /* View-addInfoPanel.swift in Sources */,
 				C9B1E746287C293F00C92571 /* TabataSettingsView.swift in Sources */,
+				C922AD4B28F1FD5600207AD1 /* Collection-Exercise.swift in Sources */,
 				C9741A5D2861F54600E1F670 /* IntensityImage.swift in Sources */,
 				C9B1E744287C266000C92571 /* SettingsView.swift in Sources */,
 				C9ACC8F228A993FC00FC5343 /* ExamplesSettingsView-ViewModel.swift in Sources */,

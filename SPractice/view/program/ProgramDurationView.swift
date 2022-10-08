@@ -12,35 +12,39 @@ struct ProgramDurationView: View {
     private let duration: Duration
     private let mode: DurationView.Mode
     private let showAsApproximate: Bool
+    private let showZeroAsUnknown: Bool
 
     private var programService = ProgramService()
 
     init<T>(for program: T, mode: DurationView.Mode = .padded) where T: Program {
-        self.duration = programService.calculateDuration(for: program)
+        self.duration = programService.calculateDuration(of: program)
         self.mode = mode
         self.showAsApproximate = program.hasFlowExercises
+        self.showZeroAsUnknown = true
     }
 
-    init(for duration: Duration, mode: DurationView.Mode = .padded, showAsApproximate: Bool = false) {
+    init<E>(for exercises: [E], duration: Duration, mode: DurationView.Mode = .padded) where E: Exercise {
         self.duration = duration
         self.mode = mode
-        self.showAsApproximate = showAsApproximate
+        self.showAsApproximate = exercises.hasFlowExercises()
+        self.showZeroAsUnknown = false
     }
 
     var body: some View {
-        switch duration {
-        case .known(let time):
-            HStack {
+        if case .known(let time) = duration {
+            if time != 0 || !showZeroAsUnknown {
+                HStack {
+                    if showAsApproximate {
+                        LayoutUtils.approximationMark
+                    }
+                    DurationView(duration: time, mode: mode)
+                }
+            } else {
                 if showAsApproximate {
                     LayoutUtils.approximationMark
+                } else {
+                    LayoutUtils.unknownDurationText
                 }
-                DurationView(duration: time, mode: mode)
-            }
-        case .unknown:
-            LayoutUtils.unknownDurationText
-        case .unlimited:
-            if showAsApproximate {
-                LayoutUtils.approximationMark
             }
         }
     }

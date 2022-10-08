@@ -104,7 +104,7 @@ extension ExerciseEditor {
         var name: String
         var description: String
         var intensity: Intensity? // not set when type not set
-        var duration: Duration
+        var duration: Duration? // not set when type not set
         var isService: Bool
 
         var isExample: Bool
@@ -125,10 +125,17 @@ extension ExerciseEditor {
         }
 
         mutating func updateDuration() {
-            if type == .flow {
-                duration = .unlimited
+            if let type {
+                switch type {
+                case .flow:
+                    duration = .unlimited
+                case .timer:
+                    duration = .known(0)
+                case .tabata:
+                    duration = .setting
+                }
             } else {
-                duration = .unknown
+                duration = nil
             }
         }
 
@@ -141,7 +148,6 @@ extension ExerciseEditor {
                 }
             } else {
                 intensity = nil
-                duration = .unknown
             }
         }
 

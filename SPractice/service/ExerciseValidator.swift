@@ -11,7 +11,9 @@ struct ExerciseValidator: TemplateValidator {
 
     private func isTimerValidToPractice(_ template: ExerciseTemplate) -> Bool {
         if !template.isService {
-            return template.duration != .unknown
+            if case .known(let time) = template.duration {
+                return time != 0
+            }
         }
         return true
     }

@@ -14,7 +14,7 @@ struct ExerciseTemplate: Exercise, Created, ExampleItem, Hashable, Codable {
     var name: String
     var description: String
     var intensity: Intensity? // not set when type not set
-    var duration: Duration
+    var duration: Duration?
     private(set) var isService: Bool
 
     var isExample: Bool
@@ -23,7 +23,7 @@ struct ExerciseTemplate: Exercise, Created, ExampleItem, Hashable, Codable {
     var creationDate: Date
 
     init(id: UUID = UUID(), type: ExerciseType? = nil, name: String = "", description: String = "", isService: Bool = false,
-         intensity: Intensity? = .activity, duration: Duration = .unknown, isExample: Bool = false, exampleId: String? = nil) {
+         intensity: Intensity? = .activity, duration: Duration? = nil, isExample: Bool = false, exampleId: String? = nil) {
         self.id = id
         self.type = type
         self.name = name.trim()
@@ -48,25 +48,23 @@ struct ExerciseTemplate: Exercise, Created, ExampleItem, Hashable, Codable {
                 self.duration = .unlimited
                 self.isService = false
             case .timer:
-                if case .known(let seconds) = duration {
-                    self.duration = seconds > 0 ? duration : .unknown
-                } else {
-                    self.duration = .unknown
+                guard case .known = duration else {
+                    self.duration = .known(0)
+                    return
+                }
+                if isService {
+                    self.name = ""
+                    self.duration = .setting
                 }
             case .tabata:
-                self.duration = .unknown
+                self.duration = .setting
                 self.isService = false
                 self.intensity = .mixed
             }
         } else {
             self.intensity = nil
-            self.duration = .unknown
+            self.duration = nil
             self.isService = false
-        }
-
-        if isService {
-            self.name = ""
-            self.duration = .unknown
         }
     }
 
@@ -169,6 +167,6 @@ extension ExerciseTemplate {
 // internal examples
 extension ExerciseTemplate {
 
-    static let catCowNoDuration = ExerciseTemplate(type: .timer, name: "Cat-Cow", intensity: .activity, duration: .unknown)
+    static let catCowNoDuration = ExerciseTemplate(type: .timer, name: "Cat-Cow", intensity: .activity, duration: .known(0))
     static let catCowNoType = ExerciseTemplate(name: "Cat-Cow")
 }

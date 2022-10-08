@@ -22,7 +22,7 @@ struct TaskDetailsShortView: View {
                 switch task.duration {
                 case .known(let time):
                     DurationView(duration: time, mode: .padded)
-                case .unknown:
+                case .setting:
                     LayoutUtils.unknownDurationText
                 case .unlimited:
                     LayoutUtils.unlimitedDurationImage

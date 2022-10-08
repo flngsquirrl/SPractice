@@ -53,7 +53,11 @@ struct PracticeExercise: Exercise {
         type!
     }
 
-    var duration: Duration {
+    var unwrappedDuration: Duration {
+        duration!
+    }
+
+    var duration: Duration? {
         guard type != .flow else {
             return .unlimited
         }
@@ -63,7 +67,7 @@ struct PracticeExercise: Exercise {
                 result += duration
             }
         }
-        return result > 0 ? .known(result) : .unknown
+        return .known(result)
     }
 }
 

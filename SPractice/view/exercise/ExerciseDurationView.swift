@@ -22,31 +22,44 @@ struct ExerciseDurationView<T>: View where T: Exercise {
     }
 
     var body: some View {
-        switch duration {
-        case .known(let time):
-            DurationView(duration: time, mode: mode)
-        case .unknown:
-            HStack {
-                LayoutUtils.unknownDurationText
-                if isVerbose {
-                    Text("not set")
+        if let duration {
+            if duration == .unlimited {
+                HStack {
+                    LayoutUtils.unlimitedDurationImage
+                }
+            } else if case .known(let time) = duration {
+                if time != 0 {
+                    DurationView(duration: time, mode: mode)
+                } else {
+                    unknownDuration
                 }
             }
-        case .unlimited:
-            HStack {
-                LayoutUtils.unlimitedDurationImage
+        } else {
+            unknownDuration
+        }
+    }
+
+    var unknownDuration: some View {
+        HStack {
+            LayoutUtils.unknownDurationText
+            if isVerbose {
+                Text("not set")
             }
         }
     }
 
-    var duration: Duration {
-        if template.type == .tabata {
-            return .known(settingsManager.exerciseDuration)
-        } else if template.isService {
-            return .known(settingsManager.restDurationItem.value)
-        } else {
-            return template.duration
+    var duration: Duration? {
+        if let duration = template.duration {
+            if duration == .setting {
+                if template.type == .tabata {
+                    return .known(settingsManager.exerciseDuration)
+                } else if template.isService {
+                    return .known(settingsManager.restDurationItem.value)
+                }
+            }
         }
+
+        return template.duration
     }
 }
 

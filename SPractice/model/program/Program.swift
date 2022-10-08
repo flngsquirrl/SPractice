@@ -30,10 +30,7 @@ extension Program {
     }
 
     func hasFlowExercises(fromIndex index: Int) -> Bool {
-        let subrange = Array(exercises[index...])
-        let exerciseMissingDuration = subrange.first(where: {
-            $0.type == .flow
-        })
-        return exerciseMissingDuration != nil
+        let exercises = exercises[index...]
+        return exercises.hasFlowExercises()
     }
 }

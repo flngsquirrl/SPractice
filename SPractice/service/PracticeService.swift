@@ -112,7 +112,7 @@ struct PracticeService {
 
     private func prepareTimerTasks(from template: ExerciseTemplate) -> [Task] {
         let intensity: Intensity = template.isService ? .rest : template.intensity!
-        let duration: Duration = template.isService ? .known(restSettings.restDuration) : template.duration
+        let duration: Duration = template.isService ? .known(restSettings.restDuration) : template.duration!
         let task = Task(intensity: intensity, name: intensity.rawValue, duration: duration)
         return [Task].wrapElement(element: task)
     }

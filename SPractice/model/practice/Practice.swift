@@ -36,7 +36,7 @@ import SwiftUI
         self.usePauses = settings.pauseAfterExercise
         self.isSoundOn = settings.playSounds
 
-        self.durationRemaining = programService.calculateDuration(for: program)
+        self.durationRemaining = programService.calculateDuration(of: program)
 
         self.player = Player()
         self.clock = Clock()
@@ -45,6 +45,10 @@ import SwiftUI
 
         prepareClock()
         preparePlayer()
+    }
+
+    var remainingExercises: [PracticeExercise] {
+        Array(program.exercises[currentExerciseIndex...])
     }
 
     var isFirstExercise: Bool {
@@ -142,7 +146,7 @@ import SwiftUI
         isCompleted = false
         isCurrentExerciseStarted = false
 
-        durationRemaining = programService.calculateDuration(for: program)
+        durationRemaining = programService.calculateDuration(of: program)
         currentExerciseIndex = 0
         currentTaskIndex = 0
     }
@@ -280,7 +284,7 @@ import SwiftUI
     }
 
     func setDurationRemaining() {
-        durationRemaining = programService.calculateDuration(for: program, from: currentExerciseIndex)
+        durationRemaining = programService.calculateDuration(of: remainingExercises)
     }
 
     func resetDurationRemaining() {

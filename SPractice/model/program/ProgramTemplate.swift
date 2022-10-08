@@ -87,15 +87,13 @@ struct ProgramTemplate: Program, Created, ExampleItem, Codable, Hashable {
     }
 
     func hasExercisesMissingDuration(excludeTabata: Bool = true) -> Bool {
-        let exerciseMissingDuration = exercises.first(where: {
-            if case .unknown = $0.duration {
-                let foundTabata = !excludeTabata && $0.type == .tabata
-                let foundOther = $0.type == .timer
-                return foundTabata || foundOther
+        let exerciseMissingDuration = exercises.contains {
+            if case .known(let time) = $0.duration {
+                return time == 0
             }
             return false
-        })
-        return exerciseMissingDuration != nil
+        }
+        return exerciseMissingDuration
     }
 
     var hasExercisesWithoutType: Bool {
