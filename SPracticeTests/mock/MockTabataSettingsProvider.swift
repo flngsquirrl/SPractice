@@ -37,7 +37,4 @@ struct MockTabataSettingsProvider: TabataSettingsProvider {
         Self.testCycles
     }
 
-    var tabataExerciseDuration: Int {
-        tabataWarmUpDuration + (tabataActivityDuration + tabataRestDuration) * tabataCycles + tabataCoolDownDuration
-    }
 }

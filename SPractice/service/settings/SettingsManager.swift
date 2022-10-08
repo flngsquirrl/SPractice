@@ -117,11 +117,6 @@ extension SettingsManager: TabataSettingsProvider {
     var tabataCycles: Int {
         tabataCyclesItem.value
     }
-
-    var tabataExerciseDuration: Int {
-        tabataWarmUpDurationItem.value + (tabataActivityDurationItem.value + tabataRestDurationItem.value)
-            * tabataCyclesItem.value + tabataCoolDownDurationItem.value
-    }
 }
 
 extension SettingsManager: RestSettingsProvider {

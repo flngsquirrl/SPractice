@@ -21,7 +21,7 @@ struct ProgramService {
             if case .known(let duration) = exercise.duration {
                 exerciseDuration = duration
             } else if exercise.type == .tabata {
-                exerciseDuration = tabataSettings.tabataExerciseDuration
+                exerciseDuration = tabataSettings.exerciseDuration
             } else if exercise.isService {
                 exerciseDuration = restSettings.restDuration
             }

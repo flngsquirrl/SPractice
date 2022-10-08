@@ -15,6 +15,11 @@ protocol TabataSettingsProvider {
     var tabataCoolDownDuration: Int {get}
     var tabataCycles: Int {get}
 
-    var tabataExerciseDuration: Int {get}
+}
 
+extension TabataSettingsProvider {
+
+    var exerciseDuration: Int {
+        tabataWarmUpDuration + (tabataActivityDuration + tabataRestDuration) * tabataCycles + tabataCoolDownDuration
+    }
 }
