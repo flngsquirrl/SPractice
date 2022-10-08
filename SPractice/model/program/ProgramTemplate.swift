@@ -22,7 +22,7 @@ struct ProgramTemplate: Program, Created, ExampleItem, Codable, Hashable {
 
     init(id: UUID = UUID(), name: String = "", description: String = "", exercises: [ExerciseTemplate] = [],
          isExample: Bool = false, exampleId: String? = nil) {
-        
+
         self.id = id
         self.name = name.trim()
         self.description = description.trim()
@@ -80,6 +80,30 @@ struct ProgramTemplate: Program, Created, ExampleItem, Codable, Hashable {
         self.exampleId = example.exampleId
 
         self.exercises = example.exercises
+    }
+
+    var hasExercisesMissingDuration: Bool {
+        hasExercisesMissingDuration()
+    }
+
+    func hasExercisesMissingDuration(excludeTabata: Bool = true) -> Bool {
+        let exerciseMissingDuration = exercises.first(where: {
+            if case .unknown = $0.duration {
+                let foundTabata = !excludeTabata && $0.type == .tabata
+                let foundOther = $0.type == .timer
+                return foundTabata || foundOther
+            }
+            return false
+        })
+        return exerciseMissingDuration != nil
+    }
+
+    var hasExercisesWithoutType: Bool {
+        let exerciseWithoutType = exercises.first(where: {
+            $0.type == nil
+        })
+
+        return exerciseWithoutType != nil
     }
 
     // examples

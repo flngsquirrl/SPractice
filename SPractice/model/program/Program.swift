@@ -36,29 +36,4 @@ extension Program {
         })
         return exerciseMissingDuration != nil
     }
-
-    var hasExercisesMissingDuration: Bool {
-        hasExercisesMissingDuration()
-    }
-
-    func hasExercisesMissingDuration(excludeTabata: Bool = true, excludeService: Bool = true) -> Bool {
-        let exerciseMissingDuration = exercises.first(where: {
-            if case .unknown = $0.duration {
-                let foundTabata = !excludeTabata && $0.type == .tabata
-                let foundService = !excludeService && $0.isService
-                let foundOther = $0.type == .timer && !$0.isService
-                return foundTabata || foundService || foundOther
-            }
-            return false
-        })
-        return exerciseMissingDuration != nil
-    }
-
-    var hasExercisesWithoutType: Bool {
-        let exerciseWithoutType = exercises.first(where: {
-            $0.type == nil
-        })
-
-        return exerciseWithoutType != nil
-    }
 }
