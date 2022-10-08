@@ -42,10 +42,6 @@ class SettingsManager: SignalChangeListener {
         return setupValue.timeInSeconds
     }
 
-    func saveSettings() {
-        settings.save()
-    }
-
     func resetToDefauls() {
         settings.resetToDefauls()
 
