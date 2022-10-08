@@ -7,6 +7,7 @@
 
 import AVFoundation
 import Foundation
+import Resolver
 import SwiftUI
 
 @MainActor class Practice: ObservableObject {
@@ -17,7 +18,8 @@ import SwiftUI
 
     let programService = ProgramService()
     let practiceService = PracticeService()
-    let audioPlayer = BasicAudioPlayer()
+
+    @Injected var audioPlayer: AudioPlayer
 
     @Published var isSoundOn: Bool
     var usePauses: Bool

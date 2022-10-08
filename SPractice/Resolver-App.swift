@@ -14,5 +14,8 @@ extension Resolver: ResolverRegistering {
         register { SettingsManager() }
             .implements(RestSettingsProvider.self)
             .implements(TabataSettingsProvider.self)
+
+        register { BasicAudioPlayer() }
+            .implements(AudioPlayer.self)
     }
 }
