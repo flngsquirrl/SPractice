@@ -9,8 +9,6 @@ import SwiftUI
 
 struct DurationView: View {
 
-    @Environment(\.font) var font
-
     enum Mode {
         case padded
         case extended
