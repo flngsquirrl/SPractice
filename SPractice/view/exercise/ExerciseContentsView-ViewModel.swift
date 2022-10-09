@@ -23,7 +23,7 @@ extension ExerciseContentsView {
         }
 
         var tasks: [Task] {
-            practiceService.prepareForPractice(exercise)!.tasks
+            practiceService.prepareForPractice(exercise)?.tasks ?? []
         }
     }
 }
