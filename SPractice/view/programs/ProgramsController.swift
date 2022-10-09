@@ -7,7 +7,7 @@
 
 import Foundation
 
-@MainActor class ProgramsController: ResetableCollectionDataManager<ProgramTemplate>, MainController {
+@MainActor class ProgramsController: ResetableCollectionDataManager<ProgramTemplate>, MainList {
 
     @Published var searchText = ""
 

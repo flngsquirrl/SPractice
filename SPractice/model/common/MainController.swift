@@ -7,19 +7,26 @@
 
 import Foundation
 
-@MainActor protocol MainController: ObservableObject, ResetableDataManager, SortableFilterableList, SortingSettingsManager
-    where Item: HavingID {
+protocol MainController {
 
-    var newItem: UUID? {get set}
-    var selected: Item? {get set}
-    var searchText: String {get}
+    associatedtype Item
 
     func onAdd(_ item: Item)
     func onUpdate(_ item: Item)
     func onDelete(_ item: Item)
 }
 
-extension MainController {
+typealias MainItem = HavingID & Named & Created
+
+@MainActor protocol MainList: MainController, ResetableDataManager, SortableFilterableList, SortingSettingsManager
+    where Item: MainItem {
+
+    var newItem: UUID? {get set}
+    var selected: Item? {get set}
+    var searchText: String {get}
+}
+
+extension MainList {
 
     func onAdd(_ item: Item) {
         add(item)
