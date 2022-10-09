@@ -26,7 +26,7 @@ extension SortingSettingsManager {
 
     func readSortingProperty() {
         let savedValue = UserDefaults.standard.string(forKey: sortingPropertyKey)
-        if let savedValue = savedValue {
+        if let savedValue {
             sortingProperty = SortingProperty(rawValue: savedValue)!
         } else {
             sortingProperty = .date
@@ -35,7 +35,7 @@ extension SortingSettingsManager {
 
     func readSortingOrder() {
         let savedValue = UserDefaults.standard.string(forKey: sortingOrderKey)
-        if let savedValue = savedValue {
+        if let savedValue {
             sortingOrder = SortingOrder(rawValue: savedValue)!
         } else {
             sortingOrder = .desc
