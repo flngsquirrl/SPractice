@@ -17,7 +17,7 @@ struct OnboardingView: View {
 
     @EnvironmentObject var viewRouter: ViewRouter
     @State private var selectedTab = IntroTab.exercises
-    @State private var isIntoEnded = false
+    @State private var isIntroEnded = false
 
     var body: some View {
         GeometryReader { geo in
@@ -39,7 +39,7 @@ struct OnboardingView: View {
                     .onChange(of: selectedTab) { _ in
                         if selectedTab == .app {
                             withAnimation {
-                                isIntoEnded = true
+                                isIntroEnded = true
                             }
                         }
                     }
@@ -47,14 +47,14 @@ struct OnboardingView: View {
                     VStack {
                         Spacer()
                         HStack {
-                            if !isIntoEnded {
+                            if !isIntroEnded {
                                 Button("Skip") {
                                     close()
                                 }
                                 .transition(.opacity)
                             }
                             Spacer()
-                            if isIntoEnded {
+                            if isIntroEnded {
                                 Button {
                                     close()
                                 } label: {
