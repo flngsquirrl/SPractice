@@ -17,6 +17,6 @@ import Foundation
 
     init() {
         dataManager = ProgramsDataManager()
-        controller = ProgramsController(items: dataManager.items)
+        controller = ProgramsController(items: dataManager.list())
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 @MainActor protocol MainManager: ObservableObject, ExamplesManager {
 
-    associatedtype MainDataManager: PersistentDataManager where MainDataManager.Item == Self.Item
+    associatedtype MainDataManager: DataManager where MainDataManager.Item == Self.Item, MainDataManager.Item: HavingID
     associatedtype MainDataController: MainController where MainDataController.Item == Self.Item
 
     var dataManager: MainDataManager {get}
@@ -20,14 +20,16 @@ import SwiftUI
     func deleteItem(_ item: Item)
 }
 
+protocol HavingID: Identifiable where Self.ID == UUID {}
+
 extension MainManager {
 
     func addItem(_ item: Item) {
-        controller.addNew(item)
+        controller.add(item)
         controller.applySorting()
         controller.newItem = item.id
 
-        dataManager.addNew(item)
+        dataManager.add(item)
     }
 
     func updateItem(_ item: Item) {
@@ -61,11 +63,11 @@ extension MainManager {
     }
 
     func isExampleExist(exampleId: String) -> Bool {
-        controller.items.contains {$0.exampleId == exampleId}
+        controller.list().contains {$0.exampleId == exampleId}
     }
 
     func getExample(exampleId: String) -> Item? {
-        controller.items.first {$0.exampleId == exampleId}
+        controller.list().first {$0.exampleId == exampleId}
     }
 
     func restoreExample(_ item: Item) {

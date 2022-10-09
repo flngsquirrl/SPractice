@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ExercisesController: MainController {
+class ExercisesController: ResetableCollectionDataManager<ExerciseTemplate>, MainController {
 
     @Published var searchText = ""
 
@@ -19,11 +19,15 @@ class ExercisesController: MainController {
 
     var newItem: UUID?
     @Published var selected: ExerciseTemplate?
-    @Published var items: [ExerciseTemplate]
 
     init(items: [ExerciseTemplate]) {
-        self.items = items
+        super.init()
+
+        add(items)
         initialSetup()
     }
 
+    func getItems() -> [ExerciseTemplate] {
+        list()
+    }
 }

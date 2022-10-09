@@ -7,29 +7,14 @@
 
 import Foundation
 
-class PracticeSettingsManager: PersistentDataManager {
+class PracticeSettingsManager: JsonPersistentDataManager<PracticeSettings> {
 
-    var items: [PracticeSettings]
-    let saveKey = "practiceSettings"
-
-    init() {
-        if let data = UserDefaults.standard.data(forKey: saveKey) {
-            if let decoded = try? JSONDecoder().decode([PracticeSettings].self, from: data) {
-                items = decoded
-                return
-            }
-        }
-        items = []
-    }
-
-    func save() {
-        if let encoded = try? JSONEncoder().encode(items) {
-            UserDefaults.standard.set(encoded, forKey: saveKey)
-        }
+    override func getFileName() -> String {
+        "PracticeSettings"
     }
 
     func getSettings(for programId: UUID) -> PracticeSettings {
-        let setting = items.first { $0.id == programId }
+        let setting = list().first { $0.id == programId }
         if let setting = setting {
             return setting
         } else {
@@ -38,7 +23,7 @@ class PracticeSettingsManager: PersistentDataManager {
     }
 
     func areRestIntervalsUsed(for programId: UUID) -> Bool {
-        let setting = items.first { $0.id == programId }
+        let setting = list().first { $0.id == programId }
         if let setting = setting {
             return setting.addRestIntervals
         }
@@ -46,7 +31,7 @@ class PracticeSettingsManager: PersistentDataManager {
     }
 
     func arePausesUsed(for programId: UUID) -> Bool {
-        let setting = items.first { $0.id == programId }
+        let setting = list().first { $0.id == programId }
         if let setting = setting {
             return setting.pauseAfterExercise
         }

@@ -113,7 +113,7 @@
 		C9ACC8E428A56AE100FC5343 /* ExerciseTasksButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC8E328A56AE100FC5343 /* ExerciseTasksButton.swift */; };
 		C9ACC8E628A5927D00FC5343 /* ProgramExampleId.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC8E528A5927D00FC5343 /* ProgramExampleId.swift */; };
 		C9ACC8E828A8141D00FC5343 /* ExamplesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC8E728A8141D00FC5343 /* ExamplesManager.swift */; };
-		C9ACC8EA28A81C1500FC5343 /* PersistentDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC8E928A81C1500FC5343 /* PersistentDataManager.swift */; };
+		C9ACC8EA28A81C1500FC5343 /* JsonPersistentDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC8E928A81C1500FC5343 /* JsonPersistentDataManager.swift */; };
 		C9ACC8EC28A81C9C00FC5343 /* SortingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC8EB28A81C9C00FC5343 /* SortingOptions.swift */; };
 		C9ACC8F028A93B7200FC5343 /* SaveItemToolbarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC8EF28A93B7200FC5343 /* SaveItemToolbarButton.swift */; };
 		C9ACC8F228A993FC00FC5343 /* ExamplesSettingsView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACC8F128A993FC00FC5343 /* ExamplesSettingsView-ViewModel.swift */; };
@@ -327,7 +327,7 @@
 		C9ACC8E328A56AE100FC5343 /* ExerciseTasksButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTasksButton.swift; sourceTree = "<group>"; };
 		C9ACC8E528A5927D00FC5343 /* ProgramExampleId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramExampleId.swift; sourceTree = "<group>"; };
 		C9ACC8E728A8141D00FC5343 /* ExamplesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplesManager.swift; sourceTree = "<group>"; };
-		C9ACC8E928A81C1500FC5343 /* PersistentDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentDataManager.swift; sourceTree = "<group>"; };
+		C9ACC8E928A81C1500FC5343 /* JsonPersistentDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonPersistentDataManager.swift; sourceTree = "<group>"; };
 		C9ACC8EB28A81C9C00FC5343 /* SortingOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingOptions.swift; sourceTree = "<group>"; };
 		C9ACC8EF28A93B7200FC5343 /* SaveItemToolbarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveItemToolbarButton.swift; sourceTree = "<group>"; };
 		C9ACC8F128A993FC00FC5343 /* ExamplesSettingsView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExamplesSettingsView-ViewModel.swift"; sourceTree = "<group>"; };
@@ -668,7 +668,7 @@
 				C99D28172879A05F00596FBD /* DataManager.swift */,
 				C9A028FB287833F200032FF9 /* SortableFilterableList.swift */,
 				C9ACC8E728A8141D00FC5343 /* ExamplesManager.swift */,
-				C9ACC8E928A81C1500FC5343 /* PersistentDataManager.swift */,
+				C9ACC8E928A81C1500FC5343 /* JsonPersistentDataManager.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -1203,7 +1203,7 @@
 				C9B49E8D28AAD894007713A1 /* EditorMode.swift in Sources */,
 				C910A61128DCA279006F6C4B /* PracticeService.swift in Sources */,
 				C9BF1EEC28C6A66C00D67A99 /* IntroProgramsView.swift in Sources */,
-				C9ACC8EA28A81C1500FC5343 /* PersistentDataManager.swift in Sources */,
+				C9ACC8EA28A81C1500FC5343 /* JsonPersistentDataManager.swift in Sources */,
 				C9E0C42728801CDE00B8FBA8 /* SettingsConstants.swift in Sources */,
 				C9CCCE98284B6DE5005665C8 /* ProgramDetailsView.swift in Sources */,
 				C9E17F1A28DB4C3100A7A6A7 /* TemplateValidator.swift in Sources */,

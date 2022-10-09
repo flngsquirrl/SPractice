@@ -7,7 +7,7 @@
 
 import Foundation
 
-@MainActor class ProgramsController: MainController {
+@MainActor class ProgramsController: ResetableCollectionDataManager<ProgramTemplate>, MainController {
 
     @Published var searchText = ""
 
@@ -19,11 +19,15 @@ import Foundation
 
     var newItem: UUID?
     @Published var selected: ProgramTemplate?
-    @Published var items: [ProgramTemplate]
 
     init(items: [ProgramTemplate]) {
-        self.items = items
+        super.init()
+
+        add(items)
         initialSetup()
     }
 
+    func getItems() -> [ProgramTemplate] {
+        list()
+    }
 }

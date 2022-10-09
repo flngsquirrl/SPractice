@@ -7,7 +7,7 @@
 
 import Foundation
 
-@MainActor protocol MainController: ObservableObject, DataManager, SortableFilterableList, SortingSettingsManager {
+@MainActor protocol MainController: ObservableObject, ResetableDataManager, SortableFilterableList, SortingSettingsManager {
     var newItem: UUID? {get set}
     var selected: Item? {get set}
     var searchText: String {get}
@@ -25,7 +25,8 @@ extension MainController {
     }
 
     func applySorting() {
-        items = sort()
+        let sortedItems = sort()
+        reset(to: sortedItems)
     }
 
     func setSorting() {

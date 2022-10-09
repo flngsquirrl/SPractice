@@ -18,6 +18,6 @@ class ExercisesManager: MainManager {
 
     init() {
         dataManager = ExercisesDataManager()
-        controller = ExercisesController(items: dataManager.items)
+        controller = ExercisesController(items: dataManager.list())
     }
 }

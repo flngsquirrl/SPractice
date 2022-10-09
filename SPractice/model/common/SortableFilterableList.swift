@@ -12,7 +12,7 @@ typealias SortableFilterableList = SortableList & FilterableList
 @MainActor protocol SortableList: AnyObject {
     associatedtype Item: Named, Created
 
-    var items: [Item] {get}
+    func getItems() -> [Item]
 
     var sortingProperty: SortingProperty {get}
     var sortingOrder: SortingOrder {get}
@@ -24,7 +24,7 @@ typealias SortableFilterableList = SortableList & FilterableList
 @MainActor protocol FilterableList: AnyObject {
     associatedtype Item: Named
 
-    var items: [Item] {get}
+    func getItems() -> [Item]
 
     func filter(by searchText: String) -> [Item]
     func filter(_ items: [Item], by searchText: String) -> [Item]
@@ -41,7 +41,7 @@ protocol Created {
 extension SortableList {
 
     func sort() -> [Item] {
-        sort(items)
+        sort(getItems())
     }
 
     func sort(_ items: [Item]) -> [Item] {
@@ -89,7 +89,7 @@ extension FilterableList {
     }
 
     func filter(by searchText: String) -> [Item] {
-        filter(items, by: searchText)
+        filter(getItems(), by: searchText)
     }
 
 }
