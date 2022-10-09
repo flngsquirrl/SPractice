@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ExercisesController: ResetableCollectionDataManager<ExerciseTemplate>, MainController {
+class ExercisesController: ResetableCollectionDataManager<ExerciseTemplate>, MainList {
 
     @Published var searchText = ""
 
