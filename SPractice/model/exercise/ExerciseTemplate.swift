@@ -23,7 +23,7 @@ struct ExerciseTemplate: Exercise, Created, ExampleItem, Hashable, Codable {
     var creationDate: Date
 
     init(id: UUID = UUID(), type: ExerciseType? = nil, name: String = "", description: String = "", isService: Bool = false,
-         intensity: Intensity? = .activity, duration: Duration? = nil, isExample: Bool = false, exampleId: String? = nil) {
+         intensity: Intensity? = nil, duration: Duration? = nil, isExample: Bool = false, exampleId: String? = nil) {
         self.id = id
         self.type = type
         self.name = name.trim()
@@ -84,7 +84,7 @@ struct ExerciseTemplate: Exercise, Created, ExampleItem, Hashable, Codable {
     }
 
     static var template: ExerciseTemplate {
-        ExerciseTemplate(type: .flow)
+        ExerciseTemplate(type: .flow, intensity: .activity)
     }
 
     func isEqualTo(exercise: ExerciseTemplate) -> Bool {
