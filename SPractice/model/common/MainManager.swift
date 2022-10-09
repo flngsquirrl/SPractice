@@ -25,49 +25,26 @@ protocol HavingID: Identifiable where Self.ID == UUID {}
 extension MainManager {
 
     func addItem(_ item: Item) {
-        controller.add(item)
-        controller.applySorting()
-        controller.newItem = item.id
-
+        controller.onAdd(item)
         dataManager.add(item)
     }
 
     func updateItem(_ item: Item) {
-        controller.update(item)
-        updateSelected(item)
-
+        controller.onUpdate(item)
         dataManager.update(item)
     }
 
-    private func updateSelected(_ item: Item) {
-        if let selected = controller.selected {
-            if item.id == selected.id {
-                controller.selected = item
-            }
-        }
-    }
-
-    private func resetSelected(_ item: Item) {
-        if let selected = controller.selected {
-            if item.id == selected.id {
-                controller.selected = nil
-            }
-        }
-    }
-
     func deleteItem(_ item: Item) {
-        controller.delete(item)
-        resetSelected(item)
-
+        controller.onDelete(item)
         dataManager.delete(item)
     }
 
     func isExampleExist(exampleId: String) -> Bool {
-        controller.list().contains {$0.exampleId == exampleId}
+        dataManager.list().contains {$0.exampleId == exampleId}
     }
 
     func getExample(exampleId: String) -> Item? {
-        controller.list().first {$0.exampleId == exampleId}
+        dataManager.list().first {$0.exampleId == exampleId}
     }
 
     func restoreExample(_ item: Item) {
