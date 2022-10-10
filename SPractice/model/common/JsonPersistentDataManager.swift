@@ -45,11 +45,9 @@ extension JsonPersisting {
 
     func save(_ items: [Item]) {
 
-        let data = try? Data(contentsOf: savePath)
         do {
-            if let data {
-                try data.write(to: savePath, options: [.atomic, .completeFileProtection])
-            }
+            let data = try JSONEncoder().encode(items)
+            try data.write(to: savePath, options: [.atomic, .completeFileProtection])
         } catch {
             print("Unable to save data to \(savePath)")
         }
