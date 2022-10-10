@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@MainActor protocol MainManager: ObservableObject, ExamplesManager {
+protocol MainManager: ObservableObject, ExamplesManager {
 
     associatedtype MainDataManager: DataManager where MainDataManager.Item == Self.Item, MainDataManager.Item: HavingID
     associatedtype MainDataController: MainController where MainDataController.Item == Self.Item
