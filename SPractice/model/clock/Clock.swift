@@ -117,8 +117,8 @@ import Foundation
     func start() {
         if !isTicking {
             timerSubscription = timer.autoconnect()
-                .sink { _ in
-                    self.processTimerTick()
+                .sink { [weak self] _ in
+                    self?.processTimerTick()
                 }
             isTicking = true
         }
