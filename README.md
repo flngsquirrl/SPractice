@@ -1,3 +1,5 @@
+<img width="200" alt="programs_dark" src="https://user-images.githubusercontent.com/95634326/194914734-ae3e3e84-9ff5-4c30-bea2-987974f26860.png"/>
+
 # SPractice
 
 ## Intro
