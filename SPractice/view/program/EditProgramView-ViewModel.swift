@@ -15,6 +15,7 @@ extension EditProgramView {
         @Published var editMode: EditMode = .inactive
 
         let programValidator = ProgramValidator()
+        var programExamplesManager = ProgramExamplesManager()
 
         init(template: ProgramTemplate) {
             self.template = template
@@ -26,7 +27,7 @@ extension EditProgramView {
 
         var showExampleUpdateConfirmation: Bool {
             if template.isExample {
-                let example = ProgramsManager.shared.getExample(exampleId: template.exampleId!)
+                let example = programExamplesManager.getExample(exampleId: template.exampleId!)
                 if let example = example {
                     if !template.isEqualToExample(example: example) {
                         return true

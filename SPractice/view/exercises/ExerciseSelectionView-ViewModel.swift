@@ -17,7 +17,11 @@ extension ExerciseSelectionView {
         @Published var itemsGroup: ItemsGroup = .all
         @Published var searchText = ""
 
-        @Published var selectionItems: [SelectionItem] = ExercisesManager.shared.dataManager.list().map {SelectionItem(for: $0)}
+        @Published var selectionItems: [SelectionItem] = []
+
+        func prepareItems() {
+            selectionItems = ExercisesManager.shared.listItems().map {SelectionItem(for: $0)}
+        }
 
         var sortedElements: [Item] {
             sort(filteredElements)

@@ -102,10 +102,6 @@ struct ExerciseTemplate: Exercise, Created, ExampleItem, Hashable, Codable {
         self.exampleId == example.exampleId
     }
 
-    static func prepareExample(from template: ExerciseTemplate) -> ExerciseTemplate {
-        ExerciseTemplate(from: template)
-    }
-
     mutating func resetToExample(example: ExerciseTemplate) {
         self.name = example.name
         self.type = example.type
@@ -119,10 +115,6 @@ struct ExerciseTemplate: Exercise, Created, ExampleItem, Hashable, Codable {
 
 // app examples
 extension ExerciseTemplate {
-
-    static var defaultExamples: [ExerciseTemplate] {
-        [catCow, surjaNamascarA, balasana, vasisthasana, shavasana, plank, squats, jumpRope]
-    }
 
     static let catCow = ExerciseTemplate(type: .timer, name: "Cat-Cow",
                                          description: "Gently change between two poses warming the body and bringing flexibility to the spine",

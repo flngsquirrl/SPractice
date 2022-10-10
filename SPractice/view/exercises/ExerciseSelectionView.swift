@@ -49,6 +49,9 @@ struct ExerciseSelectionView: View {
                     }
                 }
             }
+            .onAppear {
+                viewModel.prepareItems()
+            }
             .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always))
             .disableAutocorrection(true)
             .navigationBarTitleDisplayMode(.inline)

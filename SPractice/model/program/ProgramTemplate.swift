@@ -68,10 +68,6 @@ struct ProgramTemplate: Program, Created, ExampleItem, Codable, Hashable {
         return true
     }
 
-    static func prepareExample(from template: ProgramTemplate) -> ProgramTemplate {
-        ProgramTemplate(from: template)
-    }
-
     mutating func resetToExample(example: ProgramTemplate) {
         self.name = example.name
         self.description = example.description
@@ -105,10 +101,6 @@ struct ProgramTemplate: Program, Created, ExampleItem, Codable, Hashable {
     }
 
     // examples
-
-    static var defaultExamples: [ProgramTemplate] {
-        [simpleYoga, simpleWorkout]
-    }
 
     static let simpleYoga = ProgramTemplate(name: "Simple yoga", description: "Demo yoga program",
                                             exercises: [.getTemplate(from: .catCow), .getTemplate(from: .surjaNamascarA),

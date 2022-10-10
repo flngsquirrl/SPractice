@@ -12,6 +12,8 @@ extension EditExerciseView {
 
         @Published var template: ExerciseEditor.EditorTemplate
 
+        var examplesManager = ExerciseExamplesManager()
+
         let exerciseValidator = ExerciseValidator()
 
         init(template: ExerciseTemplate) {
@@ -29,7 +31,7 @@ extension EditExerciseView {
         var showExampleUpdateConfirmation: Bool {
             let exerciseTemplate = templateToSave
             if exerciseTemplate.isExample {
-                let example = ExercisesManager.shared.getExample(exampleId: exerciseTemplate.exampleId!)
+                let example = examplesManager.getExample(exampleId: exerciseTemplate.exampleId!)
                 if let example = example {
                     if !exerciseTemplate.isEqualToExample(example: example) {
                         return true

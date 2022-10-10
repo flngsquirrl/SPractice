@@ -193,6 +193,7 @@
 		C9F30BD728CFD5A000A1C9E2 /* ExerciseDurationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F30BD628CFD5A000A1C9E2 /* ExerciseDurationInfo.swift */; };
 		C9F30BD928CFD5B500A1C9E2 /* ExerciseIntensityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F30BD828CFD5B500A1C9E2 /* ExerciseIntensityInfo.swift */; };
 		C9F604E2287AD57E00838462 /* ProgramShortDecorativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F604E1287AD57E00838462 /* ProgramShortDecorativeView.swift */; };
+		C9FF682F28F4B73200E98B1A /* ExerciseExamplesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FF682E28F4B73200E98B1A /* ExerciseExamplesManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -407,6 +408,7 @@
 		C9F30BD628CFD5A000A1C9E2 /* ExerciseDurationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDurationInfo.swift; sourceTree = "<group>"; };
 		C9F30BD828CFD5B500A1C9E2 /* ExerciseIntensityInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseIntensityInfo.swift; sourceTree = "<group>"; };
 		C9F604E1287AD57E00838462 /* ProgramShortDecorativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramShortDecorativeView.swift; sourceTree = "<group>"; };
+		C9FF682E28F4B73200E98B1A /* ExerciseExamplesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseExamplesManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -917,6 +919,7 @@
 				C9DE151E2868AADE0011324C /* ExerciseType.swift */,
 				C91B828D28896D1100900239 /* ExerciseExampleId.swift */,
 				C922AD4A28F1FD5600207AD1 /* Collection-Exercise.swift */,
+				C9FF682E28F4B73200E98B1A /* ExerciseExamplesManager.swift */,
 			);
 			path = exercise;
 			sourceTree = "<group>";
@@ -1125,6 +1128,7 @@
 				C97DE6BA28B3EA9D005D53D1 /* PracticeSettings.swift in Sources */,
 				C9F2B42A28C52FFA00DE6F65 /* AudioPlayer.swift in Sources */,
 				C9ACC8F028A93B7200FC5343 /* SaveItemToolbarButton.swift in Sources */,
+				C9FF682F28F4B73200E98B1A /* ExerciseExamplesManager.swift in Sources */,
 				C92F6C3C286D9D2100D7BA59 /* ProgramSummaryView.swift in Sources */,
 				C9CEAA1B287EB83B00D15A16 /* SettingsLinkView.swift in Sources */,
 				C9A0CFF5281BD588000CF439 /* ProgramTemplate.swift in Sources */,

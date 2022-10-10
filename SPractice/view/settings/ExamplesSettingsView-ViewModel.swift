@@ -12,6 +12,9 @@ extension ExamplesSettingsView {
 
         @Published var restoreGroup: RestoreGroup = .all
 
+        var exerciseExamplesManager = ExerciseExamplesManager()
+        var programExamplesManager = ProgramExamplesManager()
+
         static let defaultResetText = "Reset modified examples to defaults"
         static let programsDetailsText = "Programs: "
         static let exercisesDetailsText = "Exercises: "
@@ -19,19 +22,19 @@ extension ExamplesSettingsView {
         static let defaultRestoreText = "Recreate deleted examples"
 
         var modifiedPrograms: [String] {
-            programsManager.modifiedExamplesNames
+            programExamplesManager.modifiedExamplesNames
         }
 
         var modifiedExercises: [String] {
-            exercisesManager.modifiedExamplesNames
+            exerciseExamplesManager.modifiedExamplesNames
         }
 
         var deletedPrograms: [String] {
-            programsManager.deletedExamplesNames
+            programExamplesManager.deletedExamplesNames
         }
 
         var deletedExercises: [String] {
-            exercisesManager.deletedExamplesNames
+            exerciseExamplesManager.deletedExamplesNames
         }
 
         private var programsManager: ProgramsManager {
@@ -97,11 +100,11 @@ extension ExamplesSettingsView {
         }
 
         var hasModifiedPrograms: Bool {
-            programsManager.areAnyExamplesModified()
+            programExamplesManager.areAnyExamplesModified()
         }
 
         var hasModifiedExercises: Bool {
-            exercisesManager.areAnyExamplesModified()
+            exerciseExamplesManager.areAnyExamplesModified()
         }
 
         var exercisesDeletedFooterText: String {
@@ -159,23 +162,23 @@ extension ExamplesSettingsView {
         }
 
         var hasDeletedPrograms: Bool {
-            programsManager.areAnyExamplesDeleted()
+            programExamplesManager.areAnyExamplesDeleted()
         }
 
         var hasDeletedExercises: Bool {
-            exercisesManager.areAnyExamplesDeleted()
+            exerciseExamplesManager.areAnyExamplesDeleted()
         }
 
         func resetModified() {
             switch restoreGroup {
             case .all:
-                programsManager.resetModifiedExamples()
-                exercisesManager.resetModifiedExamples()
+                programExamplesManager.resetModifiedExamples()
+                exerciseExamplesManager.resetModifiedExamples()
             case .programs:
-                programsManager.resetModifiedExamples()
+                programExamplesManager.resetModifiedExamples()
                 return
             case .exercises:
-                exercisesManager.resetModifiedExamples()
+                exerciseExamplesManager.resetModifiedExamples()
                 return
             }
         }
@@ -183,12 +186,12 @@ extension ExamplesSettingsView {
         func restoreDeleted() {
             switch restoreGroup {
             case .all:
-                programsManager.restoreDeletedExamples()
-                exercisesManager.restoreDeletedExamples()
+                programExamplesManager.restoreDeletedExamples()
+                exerciseExamplesManager.restoreDeletedExamples()
             case .programs:
-                programsManager.restoreDeletedExamples()
+                programExamplesManager.restoreDeletedExamples()
             case .exercises:
-                exercisesManager.restoreDeletedExamples()
+                exerciseExamplesManager.restoreDeletedExamples()
             }
         }
     }

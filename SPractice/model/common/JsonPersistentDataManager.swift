@@ -49,7 +49,6 @@ extension JsonPersisting {
     }
 
     func save(_ items: [Item]) {
-
         do {
             let data = try JSONEncoder().encode(items)
             try data.write(to: savePath, options: [.atomic, .completeFileProtection])
@@ -59,16 +58,29 @@ extension JsonPersisting {
     }
 }
 
-class JsonPersistentDataManager<T: Identifiable & Codable>: CollectionDataManager<T>, JsonPersisting, DefaultItemsProvider {
+typealias JsonItem = Identifiable & Codable
+
+protocol DefaultItemsProviding {
+
+    associatedtype Item
+
+    var defaultItems: [Item] {get}
+}
+
+class JsonPersistentDataManager<T: JsonItem>: CollectionDataManager<T>, JsonPersisting, DefaultItemsProviding {
 
     typealias Item = T
+
+    var defaultItems: [T] {
+        [T]()
+    }
 
     override init() {
         super.init()
 
         var items = load()
         if items.isEmpty {
-            items = getDefaultItems()
+            items = defaultItems
         }
         add(items)
     }

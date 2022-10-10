@@ -7,10 +7,10 @@
 
 import Foundation
 
-@MainActor class ProgramsDataManager: JsonPersistentDataManager<ProgramTemplate> {
+class ProgramsDataManager: JsonPersistentDataManager<ProgramTemplate> {
 
-    override func getDefaultItems() -> [ProgramTemplate] {
-        ProgramTemplate.defaultExamples
+    override var defaultItems: [ProgramTemplate] {
+        [.simpleYoga, .simpleWorkout]
     }
 
     override func getFileName() -> String {
