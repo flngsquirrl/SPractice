@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-protocol MainManager: ObservableObject, ExamplesManager {
+protocol MainManager: ObservableObject {
+
+    associatedtype Item
 
     associatedtype MainDataManager: DataManager where MainDataManager.Item == Self.Item, MainDataManager.Item: HavingID
     associatedtype MainDataController: MainController where MainDataController.Item == Self.Item
@@ -18,6 +20,7 @@ protocol MainManager: ObservableObject, ExamplesManager {
     func addItem(_ item: Item)
     func updateItem(_ item: Item)
     func deleteItem(_ item: Item)
+    func listItems() -> [Item]
 }
 
 protocol HavingID: Identifiable where Self.ID == UUID {}
@@ -39,19 +42,7 @@ extension MainManager {
         dataManager.delete(item)
     }
 
-    func isExampleExist(exampleId: String) -> Bool {
-        dataManager.list().contains {$0.exampleId == exampleId}
-    }
-
-    func getExample(exampleId: String) -> Item? {
-        dataManager.list().first {$0.exampleId == exampleId}
-    }
-
-    func restoreExample(_ item: Item) {
-        addItem(Self.Item.prepareExample(from: item))
-    }
-
-    func resetExample(_ item: Item) {
-        updateItem(item)
+    func listItems() -> [Item] {
+        dataManager.list()
     }
 }

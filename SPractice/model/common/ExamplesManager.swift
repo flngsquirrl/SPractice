@@ -7,8 +7,11 @@
 
 import Foundation
 
-@MainActor protocol ExamplesManager {
+protocol ExamplesManager {
     associatedtype Item: ExampleItem
+
+    var defaultExamples: [Item] {get}
+    func prepareExample(from: Item) -> Item
 
     func isExampleExist(exampleId: String) -> Bool
     func getExample(exampleId: String) -> Item?
@@ -25,19 +28,11 @@ protocol ExampleItem: Named {
     var isExample: Bool {get}
     var exampleId: String? {get}
 
-    static var defaultExamples: [Self] {get}
-
-    static func prepareExample(from: Self) -> Self
-
     func isEqualToExample(example: Self) -> Bool
     mutating func resetToExample(example: Self)
 }
 
 extension ExamplesManager {
-
-    var defaultExamples: [Self.Item] {
-        Self.Item.defaultExamples
-    }
 
     func areAnyExamplesDeleted() -> Bool {
         for example in defaultExamples {

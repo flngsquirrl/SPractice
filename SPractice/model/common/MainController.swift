@@ -18,7 +18,7 @@ protocol MainController {
 
 typealias MainItem = HavingID & Named & Created
 
-@MainActor protocol MainList: MainController, ResetableDataManager, SortableFilterableList, SortingSettingsManager
+protocol MainList: MainController, ResetableDataManager, SortableFilterableList, SortingSettingsManager
     where Item: MainItem {
 
     var newItem: UUID? {get set}

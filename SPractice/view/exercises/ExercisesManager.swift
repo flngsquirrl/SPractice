@@ -16,7 +16,7 @@ class ExercisesManager: MainManager {
     var dataManager: ExercisesDataManager
     var controller: ExercisesController
 
-    init() {
+    private init() {
         dataManager = ExercisesDataManager()
         controller = ExercisesController(items: dataManager.list())
     }

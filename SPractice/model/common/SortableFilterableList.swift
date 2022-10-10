@@ -9,7 +9,7 @@ import Foundation
 
 typealias SortableFilterableList = SortableList & FilterableList
 
-@MainActor protocol SortableList: AnyObject {
+protocol SortableList: AnyObject {
     associatedtype Item: Named, Created
 
     func getItems() -> [Item]
@@ -21,7 +21,7 @@ typealias SortableFilterableList = SortableList & FilterableList
     func sort(_ items: [Item]) -> [Item]
 }
 
-@MainActor protocol FilterableList: AnyObject {
+protocol FilterableList: AnyObject {
     associatedtype Item: Named
 
     func getItems() -> [Item]

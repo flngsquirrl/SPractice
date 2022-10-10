@@ -7,7 +7,7 @@
 
 import Foundation
 
-@MainActor protocol SortingSettingsManager: AnyObject {
+protocol SortingSettingsManager: AnyObject {
     var sortingPropertyKey: String {get}
     var sortingOrderKey: String {get}
 
