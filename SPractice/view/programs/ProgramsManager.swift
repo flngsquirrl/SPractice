@@ -7,7 +7,7 @@
 
 import Foundation
 
-@MainActor class ProgramsManager: MainManager {
+class ProgramsManager: MainManager {
     typealias Item = ProgramTemplate
 
     static let shared = ProgramsManager()
