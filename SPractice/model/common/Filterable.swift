@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Filterable {
+@MainActor protocol Filterable {
 
     associatedtype Item: Named
 

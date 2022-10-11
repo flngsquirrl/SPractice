@@ -10,7 +10,7 @@ import Foundation
 class ProgramsPersistenceManager: JsonPersistenceDataManager<ProgramTemplate> {
 
     override var defaultItems: [ProgramTemplate] {
-        ProgramExamplesManager.defaultExamples
+        [.simpleYoga, .simpleWorkout]
     }
 
     override func getFileName() -> String {

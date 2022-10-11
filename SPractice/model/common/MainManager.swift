@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-protocol MainManager: ObservableObject {
+@MainActor protocol MainManager: ObservableObject {
 
     associatedtype Item
 

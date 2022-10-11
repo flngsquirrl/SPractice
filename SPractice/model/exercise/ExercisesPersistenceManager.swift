@@ -10,7 +10,7 @@ import Foundation
 class ExercisesPersistenceManager: JsonPersistenceDataManager<ExerciseTemplate> {
 
     override var defaultItems: [ExerciseTemplate] {
-        ExerciseExamplesManager.defaultExamples
+        [.catCow, .surjaNamascarA, .balasana, .vasisthasana, .shavasana, .plank, .squats, .jumpRope]
     }
 
     override func getFileName() -> String {

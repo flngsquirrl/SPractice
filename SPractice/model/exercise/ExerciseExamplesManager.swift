@@ -8,7 +8,7 @@
 import Foundation
 import Resolver
 
-class ExerciseExamplesManager: ExamplesManager {
+@MainActor class ExerciseExamplesManager: ExamplesManager {
 
     typealias Item = ExerciseTemplate
 
@@ -39,7 +39,7 @@ class ExerciseExamplesManager: ExamplesManager {
     }
 }
 
-class ProgramExamplesManager: ExamplesManager {
+@MainActor class ProgramExamplesManager: ExamplesManager {
 
     typealias Item = ProgramTemplate
 
