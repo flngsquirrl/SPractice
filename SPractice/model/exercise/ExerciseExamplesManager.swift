@@ -34,7 +34,7 @@ class ExerciseExamplesManager: ExamplesManager {
         ExerciseTemplate(from: template)
     }
 
-    var defaultExamples: [Item] {
+    static var defaultExamples: [Item] {
         [.catCow, .surjaNamascarA, .balasana, .vasisthasana, .shavasana, .plank, .squats, .jumpRope]
     }
 }
@@ -50,7 +50,7 @@ class ProgramExamplesManager: ExamplesManager {
     }
 
     func getExample(exampleId: String) -> Item? {
-        defaultExamples.first {$0.exampleId == exampleId}
+        mainController.listItems().first {$0.exampleId == exampleId}
     }
 
     func restoreExample(_ item: Item) {
@@ -65,7 +65,7 @@ class ProgramExamplesManager: ExamplesManager {
         ProgramTemplate(from: template)
     }
 
-    var defaultExamples: [Item] {
+    static var defaultExamples: [Item] {
         [.simpleYoga, .simpleWorkout]
     }
 }
