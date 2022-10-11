@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 extension ExerciseSelectionView {
-    @MainActor class ViewModel: ObservableObject, SortableFilterableList {
+    @MainActor class ViewModel: ObservableObject, SortableFilterable {
 
         var exercisesManager: any ExercisesMainManager = ExercisesController.shared
 

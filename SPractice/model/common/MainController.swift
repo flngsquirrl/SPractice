@@ -10,8 +10,9 @@ import Foundation
 protocol HavingID: Identifiable where Self.ID == UUID {}
 
 typealias ManagedItem = HavingID & Named & Created
+typealias SortableFilterable = Sortable & Filterable
 
-protocol StateController: SortableFilterableList, ResetableDataManager, SortingSettingsManager where Item: ManagedItem {
+protocol StateController: SortableFilterable, ResetableDataManager, SortingSettingsManager where Item: ManagedItem {
 
     var newItem: UUID? {get set}
     var selected: Item? {get set}
