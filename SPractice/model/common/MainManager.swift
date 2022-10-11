@@ -17,5 +17,5 @@ import SwiftUI
     func listItems() -> [Item]
 }
 
-protocol ExercisesMainManager: MainManager where Item == ExerciseTemplate {}
-protocol ProgramsMainManager: MainManager where Item == ProgramTemplate {}
+@MainActor protocol ExercisesMainManager: MainManager where Item == ExerciseTemplate {}
+@MainActor protocol ProgramsMainManager: MainManager where Item == ProgramTemplate {}

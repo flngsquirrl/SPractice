@@ -27,9 +27,17 @@ class ProgramsController: ResetableCollectionDataManager<ProgramTemplate>, Progr
 
     var isLoaded = false
 
+    override init() {
+        super.init()
+
+        initialSetup()
+    }
+
     func getItems() -> [ProgramTemplate] {
         if !isLoaded {
-            add(persistenceManager.list())
+            let items = persistenceManager.list()
+            add(items)
+
             isLoaded = true
         }
 

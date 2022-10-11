@@ -108,5 +108,5 @@ extension BasicMainController {
     }
 }
 
-protocol ExercisesMainController: BasicMainController where Item == ExerciseTemplate {}
-protocol ProgramsMainController: BasicMainController where Item == ProgramTemplate {}
+@MainActor protocol ExercisesMainController: BasicMainController where Item == ExerciseTemplate {}
+@MainActor protocol ProgramsMainController: BasicMainController where Item == ProgramTemplate {}

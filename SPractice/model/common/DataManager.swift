@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol DataManager {
+@MainActor protocol DataManager {
 
     associatedtype Item
 
@@ -25,7 +25,7 @@ protocol DataManager {
     func list() -> [Item]
 }
 
-protocol ResetableDataManager: DataManager {
+@MainActor protocol ResetableDataManager: DataManager {
 
     func reset(to items: [Item])
 }
