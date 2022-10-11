@@ -11,6 +11,8 @@ import SwiftUI
 extension ExerciseSelectionView {
     @MainActor class ViewModel: ObservableObject, SortableFilterableList {
 
+        var exercisesManager: any ExercisesMainManager = ExercisesController.shared
+
         @AppStorage("exercisesSortingProperty") internal var sortingProperty: SortingProperty = .date
         @AppStorage("exercisesSortingOrder") internal var sortingOrder: SortingOrder = .desc
 
@@ -20,7 +22,7 @@ extension ExerciseSelectionView {
         @Published var selectionItems: [SelectionItem] = []
 
         func prepareItems() {
-            selectionItems = ExercisesManager.shared.listItems().map {SelectionItem(for: $0)}
+            selectionItems = exercisesManager.listItems().map {SelectionItem(for: $0)}
         }
 
         var sortedElements: [Item] {

@@ -37,14 +37,6 @@ extension ExamplesSettingsView {
             exerciseExamplesManager.deletedExamplesNames
         }
 
-        private var programsManager: ProgramsManager {
-            ProgramsManager.shared
-        }
-
-        private var exercisesManager: ExercisesManager {
-            ExercisesManager.shared
-        }
-
         var resetFooterText: String {
             switch restoreGroup {
             case .all:

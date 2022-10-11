@@ -7,7 +7,11 @@
 
 import Foundation
 
-class ExercisesController: ResetableCollectionDataManager<ExerciseTemplate>, MainList {
+class ExercisesController: ResetableCollectionDataManager<ExerciseTemplate>, ExercisesMainController, ExercisesMainManager {
+
+    static var shared = ExercisesController()
+
+    var persistenceManager = ExercisesPersistenceManager()
 
     @Published var searchText = ""
 
@@ -20,14 +24,16 @@ class ExercisesController: ResetableCollectionDataManager<ExerciseTemplate>, Mai
     var newItem: UUID?
     @Published var selected: ExerciseTemplate?
 
-    init(items: [ExerciseTemplate]) {
-        super.init()
-
-        add(items)
-        initialSetup()
-    }
+    var isLoaded = false
 
     func getItems() -> [ExerciseTemplate] {
-        list()
+        if !isLoaded {
+            add(persistenceManager.list())
+            initialSetup()
+
+            isLoaded = true
+        }
+
+        return list()
     }
 }
