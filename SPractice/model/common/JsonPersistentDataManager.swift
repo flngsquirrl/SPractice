@@ -17,7 +17,7 @@ protocol Persisting {
 
 protocol JsonPersisting: Persisting where Item: Codable {
 
-    var savePath: URL {get}
+    func getFileName() -> String
 }
 
 protocol DefaultItemsProvider {
@@ -28,6 +28,11 @@ protocol DefaultItemsProvider {
 }
 
 extension JsonPersisting {
+
+    var savePath: URL {
+        let fileName = getFileName()
+        return FileManager.documentsDirectory.appendingPathComponent(fileName)
+    }
 
     func load() -> [Item] {
         var items = [Item]()
@@ -99,11 +104,6 @@ class JsonPersistentDataManager<T: Identifiable & Codable>: CollectionDataManage
 
     func getFileName() -> String {
         "\(type(of: self))"
-    }
-
-    var savePath: URL {
-        let fileName = getFileName()
-        return FileManager.documentsDirectory.appendingPathComponent(fileName)
     }
 
     func getDefaultItems() -> [T] {
