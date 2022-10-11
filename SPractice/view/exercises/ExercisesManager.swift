@@ -13,11 +13,11 @@ class ExercisesManager: MainManager {
 
     static let shared = ExercisesManager()
 
-    var dataManager: ExercisesDataManager
+    var dataManager: ExercisesPersistenceManager
     var controller: ExercisesController
 
     private init() {
-        dataManager = ExercisesDataManager()
+        dataManager = ExercisesPersistenceManager()
         controller = ExercisesController(items: dataManager.list())
     }
 }

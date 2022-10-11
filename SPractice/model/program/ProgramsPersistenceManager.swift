@@ -1,5 +1,5 @@
 //
-//  ProgramsDataManager.swift
+//  ProgramsPersistenceManager.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 26.06.22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ProgramsDataManager: JsonPersistentDataManager<ProgramTemplate> {
+class ProgramsPersistenceManager: JsonPersistenceDataManager<ProgramTemplate> {
 
     override var defaultItems: [ProgramTemplate] {
         [.simpleYoga, .simpleWorkout]
