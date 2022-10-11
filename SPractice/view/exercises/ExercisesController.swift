@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ExercisesController: ResetableCollectionDataManager<ExerciseTemplate>, ExercisesMainController, ExercisesMainManager {
+@MainActor class ExercisesController: ResetableCollectionDataManager<ExerciseTemplate>, ExercisesMainController, ExercisesMainManager {
 
     static var shared = ExercisesController()
 
@@ -26,10 +26,16 @@ class ExercisesController: ResetableCollectionDataManager<ExerciseTemplate>, Exe
 
     var isLoaded = false
 
+    override init() {
+        super.init()
+
+        initialSetup()
+    }
+
     func getItems() -> [ExerciseTemplate] {
         if !isLoaded {
-            add(persistenceManager.list())
-            initialSetup()
+            let items = persistenceManager.list()
+            add(items)
 
             isLoaded = true
         }
