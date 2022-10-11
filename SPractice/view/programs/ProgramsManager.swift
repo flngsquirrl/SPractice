@@ -12,11 +12,11 @@ class ProgramsManager: MainManager {
 
     static let shared = ProgramsManager()
 
-    var dataManager: ProgramsDataManager
+    var dataManager: ProgramsPersistenceManager
     var controller: ProgramsController
 
     init() {
-        dataManager = ProgramsDataManager()
+        dataManager = ProgramsPersistenceManager()
         controller = ProgramsController(items: dataManager.list())
     }
 }

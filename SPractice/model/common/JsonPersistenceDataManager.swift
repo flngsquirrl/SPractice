@@ -67,7 +67,7 @@ protocol DefaultItemsProviding {
     var defaultItems: [Item] {get}
 }
 
-class JsonPersistentDataManager<T: JsonItem>: CollectionDataManager<T>, JsonPersisting, DefaultItemsProviding {
+class JsonPersistenceDataManager<T: JsonItem>: CollectionDataManager<T>, JsonPersisting, DefaultItemsProviding {
 
     typealias Item = T
 
