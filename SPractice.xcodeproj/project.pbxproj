@@ -663,8 +663,8 @@
 			children = (
 				C91110DB289BDCCC00B9BC03 /* MainManager.swift */,
 				C9B5512028DC9F0E0043D09C /* MainController.swift */,
-				C99D28172879A05F00596FBD /* DataManager.swift */,
 				C9ACC8E728A8141D00FC5343 /* ExamplesManager.swift */,
+				C99D28172879A05F00596FBD /* DataManager.swift */,
 				C9ACC8E928A81C1500FC5343 /* JsonPersistenceDataManager.swift */,
 				C9A028FB287833F200032FF9 /* Sortable.swift */,
 				C9FF683028F59BDA00E98B1A /* Filterable.swift */,
