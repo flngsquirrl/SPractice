@@ -17,41 +17,42 @@ typealias SortableFilterable = Sortable & Filterable
     var newItem: UUID? {get set}
     var selected: Item? {get set}
     var searchText: String {get}
-
-    var filteredItems: [Item] {get}
-
-    func setSorting()
 }
 
 typealias MainController = MainManager & StateController
 
-@MainActor protocol BasicMainController: MainController {
+@MainActor protocol MainDataController: MainController {
 
     associatedtype MainDataManager: DataManager where MainDataManager.Item == Self.Item
 
-    var persistenceManager: MainDataManager {get set}
+    var dataManager: MainDataManager {get set}
+    var isDataLoaded: Bool {get set}
+
+    var filteredItems: [Item] {get}
+
+    func setSorting()
     func initialSetup()
 }
 
-extension BasicMainController {
+extension MainDataController {
 
     func addItem(_ item: Item) {
         onAdd(item)
-        persistenceManager.add(item)
+        dataManager.add(item)
     }
 
     func updateItem(_ item: Item) {
         onUpdate(item)
-        persistenceManager.update(item)
+        dataManager.update(item)
     }
 
     func deleteItem(_ item: Item) {
         onDelete(item)
-        persistenceManager.delete(item)
+        dataManager.delete(item)
     }
 
     func listItems() -> [Item] {
-        persistenceManager.list()
+        dataManager.list()
     }
 
     private func onAdd(_ item: Item) {
@@ -90,11 +91,6 @@ extension BasicMainController {
         filter(by: searchText)
     }
 
-    func initialSetup() {
-        readSortingSetup()
-        applySorting()
-    }
-
     private func applySorting() {
         let sortedItems = sort()
         reset(to: sortedItems)
@@ -106,7 +102,23 @@ extension BasicMainController {
         applySorting()
         saveSorting()
     }
+
+    func getItems() -> [Item] {
+        if !isDataLoaded {
+            let items = dataManager.list()
+            add(items)
+
+            isDataLoaded = true
+        }
+
+        return list()
+    }
+
+    func initialSetup() {
+        readSortingSetup()
+        applySorting()
+    }
 }
 
-@MainActor protocol ExercisesMainController: BasicMainController where Item == ExerciseTemplate {}
-@MainActor protocol ProgramsMainController: BasicMainController where Item == ProgramTemplate {}
+@MainActor protocol ExercisesDataController: MainDataController where Item == ExerciseTemplate {}
+@MainActor protocol ProgramsDataController: MainDataController where Item == ProgramTemplate {}

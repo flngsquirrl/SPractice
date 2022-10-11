@@ -7,13 +7,17 @@
 
 import Foundation
 
-@MainActor class ExercisesController: ResetableCollectionDataManager<ExerciseTemplate>, ExercisesMainController, ExercisesMainManager {
+typealias ExercisesDataManager = ResetableCollectionDataManager<ExerciseTemplate> & ExercisesDataController & ExercisesMainManager
+
+class ExercisesController: ExercisesDataManager {
 
     static var shared = ExercisesController()
 
-    var persistenceManager = ExercisesPersistenceManager()
+    var dataManager = ExercisesPersistenceManager()
 
     @Published var searchText = ""
+    var newItem: UUID?
+    @Published var selected: ExerciseTemplate?
 
     var sortingPropertyKey: String = "exercisesSortingProperty"
     var sortingOrderKey: String = "exercisesSortingOrder"
@@ -21,25 +25,11 @@ import Foundation
     var sortingProperty: SortingProperty = .date
     var sortingOrder: SortingOrder = .desc
 
-    var newItem: UUID?
-    @Published var selected: ExerciseTemplate?
-
-    var isLoaded = false
+    var isDataLoaded = false
 
     override init() {
         super.init()
 
         initialSetup()
-    }
-
-    func getItems() -> [ExerciseTemplate] {
-        if !isLoaded {
-            let items = persistenceManager.list()
-            add(items)
-
-            isLoaded = true
-        }
-
-        return list()
     }
 }

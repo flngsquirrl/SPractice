@@ -7,14 +7,17 @@
 
 import Foundation
 
-class ProgramsController: ResetableCollectionDataManager<ProgramTemplate>, ProgramsMainController,
-    ProgramsMainManager {
+typealias ProgramsDataManager = ResetableCollectionDataManager<ProgramTemplate> & ProgramsDataController & ProgramsMainManager
+
+class ProgramsController: ProgramsDataManager {
 
     static var shared = ProgramsController()
 
-    var persistenceManager = ProgramsPersistenceManager()
+    var dataManager = ProgramsPersistenceManager()
 
     @Published var searchText = ""
+    var newItem: UUID?
+    @Published var selected: ProgramTemplate?
 
     var sortingPropertyKey: String = "programsSortingProperty"
     var sortingOrderKey: String = "programsSortingOrder"
@@ -22,25 +25,11 @@ class ProgramsController: ResetableCollectionDataManager<ProgramTemplate>, Progr
     var sortingProperty: SortingProperty = .date
     var sortingOrder: SortingOrder = .desc
 
-    var newItem: UUID?
-    @Published var selected: ProgramTemplate?
-
-    var isLoaded = false
+    var isDataLoaded = false
 
     override init() {
         super.init()
 
         initialSetup()
-    }
-
-    func getItems() -> [ProgramTemplate] {
-        if !isLoaded {
-            let items = persistenceManager.list()
-            add(items)
-
-            isLoaded = true
-        }
-
-        return list()
     }
 }
