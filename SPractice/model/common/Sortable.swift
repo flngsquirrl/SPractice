@@ -1,5 +1,5 @@
 //
-//  SortableFilterableList.swift
+//  Sortable.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 8.07.22.
@@ -7,9 +7,7 @@
 
 import Foundation
 
-typealias SortableFilterableList = SortableList & FilterableList
-
-protocol SortableList: AnyObject {
+protocol Sortable {
     associatedtype Item: Named, Created
 
     func getItems() -> [Item]
@@ -21,15 +19,6 @@ protocol SortableList: AnyObject {
     func sort(_ items: [Item]) -> [Item]
 }
 
-protocol FilterableList: AnyObject {
-    associatedtype Item: Named
-
-    func getItems() -> [Item]
-
-    func filter(by searchText: String) -> [Item]
-    func filter(_ items: [Item], by searchText: String) -> [Item]
-}
-
 protocol Named {
     var name: String {get}
 }
@@ -38,7 +27,7 @@ protocol Created {
     var creationDate: Date {get}
 }
 
-extension SortableList {
+extension Sortable {
 
     func sort() -> [Item] {
         sort(getItems())
@@ -76,20 +65,4 @@ extension SortableList {
         }
         return result
     }
-}
-
-extension FilterableList {
-
-    func filter(_ items: [Item], by searchText: String) -> [Item] {
-        if searchText.isEmpty {
-            return items
-        } else {
-            return items.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
-        }
-    }
-
-    func filter(by searchText: String) -> [Item] {
-        filter(getItems(), by: searchText)
-    }
-
 }
