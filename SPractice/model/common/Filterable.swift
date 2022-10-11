@@ -11,7 +11,7 @@ import Foundation
 
     associatedtype Item: Named
 
-    func getItems() -> [Item]
+    var items: [Item] {get}
 
     func filter(by searchText: String) -> [Item]
     func filter(_ items: [Item], by searchText: String) -> [Item]
@@ -28,6 +28,6 @@ extension Filterable {
     }
 
     func filter(by searchText: String) -> [Item] {
-        filter(getItems(), by: searchText)
+        filter(items, by: searchText)
     }
 }

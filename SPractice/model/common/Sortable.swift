@@ -10,7 +10,7 @@ import Foundation
 @MainActor protocol Sortable {
     associatedtype Item: Named, Created
 
-    func getItems() -> [Item]
+    var items: [Item] {get}
 
     var sortingProperty: SortingProperty {get}
     var sortingOrder: SortingOrder {get}
@@ -30,7 +30,7 @@ protocol Created {
 extension Sortable {
 
     func sort() -> [Item] {
-        sort(getItems())
+        sort(items)
     }
 
     func sort(_ items: [Item]) -> [Item] {

@@ -103,7 +103,7 @@ extension MainDataController {
         saveSorting()
     }
 
-    func getItems() -> [Item] {
+    var items: [Item] {
         if !isDataLoaded {
             let items = dataManager.list()
             add(items)
