@@ -7,34 +7,59 @@
 
 import Foundation
 
-protocol MainController {
+protocol HavingID: Identifiable where Self.ID == UUID {}
 
-    associatedtype Item
+typealias ManagedItem = HavingID & Named & Created
 
-    func onAdd(_ item: Item)
-    func onUpdate(_ item: Item)
-    func onDelete(_ item: Item)
-}
-
-typealias MainItem = HavingID & Named & Created
-
-protocol MainList: MainController, ResetableDataManager, SortableFilterableList, SortingSettingsManager
-    where Item: MainItem {
+protocol StateController: SortableFilterableList, ResetableDataManager, SortingSettingsManager where Item: ManagedItem {
 
     var newItem: UUID? {get set}
     var selected: Item? {get set}
     var searchText: String {get}
+
+    var filteredItems: [Item] {get}
+
+    func setSorting()
 }
 
-extension MainList {
+typealias MainController = MainManager & StateController
 
-    func onAdd(_ item: Item) {
+protocol BasicMainController: MainController {
+
+    associatedtype MainDataManager: DataManager where MainDataManager.Item == Self.Item
+
+    var persistenceManager: MainDataManager {get set}
+    func initialSetup()
+}
+
+extension BasicMainController {
+
+    func addItem(_ item: Item) {
+        onAdd(item)
+        persistenceManager.add(item)
+    }
+
+    func updateItem(_ item: Item) {
+        onUpdate(item)
+        persistenceManager.update(item)
+    }
+
+    func deleteItem(_ item: Item) {
+        onDelete(item)
+        persistenceManager.delete(item)
+    }
+
+    func listItems() -> [Item] {
+        persistenceManager.list()
+    }
+
+    private func onAdd(_ item: Item) {
         add(item)
         applySorting()
         newItem = item.id
     }
 
-    func onUpdate(_ item: Item) {
+    private func onUpdate(_ item: Item) {
         update(item)
         updateSelected(item)
     }
@@ -69,9 +94,11 @@ extension MainList {
         applySorting()
     }
 
-    func applySorting() {
+    private func applySorting() {
         let sortedItems = sort()
         reset(to: sortedItems)
+
+        saveSorting()
     }
 
     func setSorting() {
@@ -79,3 +106,6 @@ extension MainList {
         saveSorting()
     }
 }
+
+protocol ExercisesMainController: BasicMainController where Item == ExerciseTemplate {}
+protocol ProgramsMainController: BasicMainController where Item == ProgramTemplate {}

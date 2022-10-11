@@ -11,8 +11,7 @@ struct ProgramsView: View {
 
     @EnvironmentObject var infoManager: InfoManager
 
-    @ObservedObject var programsManager = ProgramsManager.shared
-    @ObservedObject var controller = ProgramsManager.shared.controller
+    @ObservedObject var controller = ProgramsController.shared
 
     @State private var showDeleteConfirmation = false
     @State private var selectedToDelete: ProgramTemplate?
@@ -68,7 +67,7 @@ struct ProgramsView: View {
             }
             .alert(deleteAlertTitle, isPresented: $showDeleteConfirmation, presenting: selectedToDelete) { item in
                 DeleteAlertContent(item: item) {
-                    programsManager.deleteItem($0)
+                    controller.deleteItem($0)
                 }
             }
         }
@@ -80,7 +79,7 @@ struct ProgramsView: View {
 
     var addItemView: some View {
         AddProgramView {
-            programsManager.addItem($0)
+            controller.addItem($0)
         }
     }
 
@@ -88,9 +87,9 @@ struct ProgramsView: View {
         if let selected = controller.selected {
             NavigationStack {
                 ProgramDetailsView(for: selected) {
-                    programsManager.updateItem($0)
+                    controller.updateItem($0)
                 } onDelete: {
-                    programsManager.deleteItem($0)
+                    controller.deleteItem($0)
                 }
             }
             .navigationDestination(for: ExerciseTemplate.self) { exercise in

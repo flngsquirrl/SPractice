@@ -7,7 +7,12 @@
 
 import Foundation
 
-class ProgramsController: ResetableCollectionDataManager<ProgramTemplate>, MainList {
+class ProgramsController: ResetableCollectionDataManager<ProgramTemplate>, ProgramsMainController,
+    ProgramsMainManager {
+
+    static var shared = ProgramsController()
+
+    var persistenceManager = ProgramsPersistenceManager()
 
     @Published var searchText = ""
 
@@ -20,14 +25,14 @@ class ProgramsController: ResetableCollectionDataManager<ProgramTemplate>, MainL
     var newItem: UUID?
     @Published var selected: ProgramTemplate?
 
-    init(items: [ProgramTemplate]) {
-        super.init()
-
-        add(items)
-        initialSetup()
-    }
+    var isLoaded = false
 
     func getItems() -> [ProgramTemplate] {
-        list()
+        if !isLoaded {
+            add(persistenceManager.list())
+            isLoaded = true
+        }
+
+        return list()
     }
 }

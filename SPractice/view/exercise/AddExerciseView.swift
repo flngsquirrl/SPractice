@@ -14,6 +14,8 @@ struct AddExerciseView: View {
     var navigatedFromProgram: Bool = false
     var onAdd: (ExerciseTemplate) -> Void
 
+    var exercisesManager: any ExercisesMainManager = ExercisesController.shared
+
     @StateObject private var viewModel = ViewModel()
 
     init(navigatedFromProgram: Bool = false, onAdd: @escaping (ExerciseTemplate) -> Void) {
@@ -30,7 +32,7 @@ struct AddExerciseView: View {
                     ToolbarItem(placement: .confirmationAction) {
                         Button("Add") {
                             if viewModel.template.saveAsTemplate {
-                                ExercisesManager.shared.addItem(viewModel.templateToAdd)
+                                exercisesManager.addItem(viewModel.templateToAdd)
                             }
                             onAdd(viewModel.templateToAdd)
                             dismiss()

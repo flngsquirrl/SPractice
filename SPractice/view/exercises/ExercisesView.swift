@@ -9,8 +9,7 @@ import SwiftUI
 
 struct ExercisesView: View {
 
-    @ObservedObject var exercisesManager = ExercisesManager.shared
-    @ObservedObject var controller = ExercisesManager.shared.controller
+    @ObservedObject var controller = ExercisesController.shared
 
     @State private var showDeleteConfirmation = false
     @State private var selectedToDelete: ExerciseTemplate?
@@ -69,7 +68,7 @@ struct ExercisesView: View {
             }
             .alert(deleteAlertTitle, isPresented: $showDeleteConfirmation, presenting: selectedToDelete) { item in
                 DeleteAlertContent(item: item) {
-                    exercisesManager.deleteItem($0)
+                    controller.deleteItem($0)
                 }
             }
         }
@@ -81,16 +80,16 @@ struct ExercisesView: View {
 
     var addItemView: some View {
         AddExerciseView {
-            exercisesManager.addItem($0)
+            controller.addItem($0)
         }
     }
 
     @ViewBuilder var detail: some View {
         if let selected = controller.selected {
             ExerciseDetailsView(for: selected) {
-                exercisesManager.updateItem($0)
+                controller.updateItem($0)
             } onDelete: {
-                exercisesManager.deleteItem($0)
+                controller.deleteItem($0)
             }
         } else {
             StabView()

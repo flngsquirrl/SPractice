@@ -11,8 +11,8 @@ struct ExamplesSettingsView: View {
 
     @StateObject var viewModel = ViewModel()
 
-    @ObservedObject var programs = ProgramsManager.shared.dataManager
-    @ObservedObject var exercises = ExercisesManager.shared.dataManager
+//    @ObservedObject var programs = ProgramsManager.shared.dataManager
+//    @ObservedObject var exercises = ExercisesManager.shared.dataManager
 
     enum RestoreGroup: String, CaseIterable {
         case all

@@ -12,22 +12,22 @@ class ExerciseExamplesManager: ExamplesManager {
 
     typealias Item = ExerciseTemplate
 
-    var mainManager = ExercisesManager.shared
+    var mainController = ExercisesController.shared
 
     func isExampleExist(exampleId: String) -> Bool {
-        mainManager.listItems().contains {$0.exampleId == exampleId}
+        mainController.listItems().contains {$0.exampleId == exampleId}
     }
 
     func getExample(exampleId: String) -> Item? {
-        mainManager.listItems().first {$0.exampleId == exampleId}
+        mainController.listItems().first {$0.exampleId == exampleId}
     }
 
     func restoreExample(_ item: Item) {
-        mainManager.addItem(prepareExample(from: item))
+        mainController.addItem(prepareExample(from: item))
     }
 
     func resetExample(_ item: Item) {
-        mainManager.updateItem(item)
+        mainController.updateItem(item)
     }
 
     func prepareExample(from template: Item) -> Item {
@@ -43,10 +43,10 @@ class ProgramExamplesManager: ExamplesManager {
 
     typealias Item = ProgramTemplate
 
-    var mainManager = ProgramsManager()
+    var mainController = ProgramsController.shared
 
     func isExampleExist(exampleId: String) -> Bool {
-        mainManager.listItems().contains {$0.exampleId == exampleId}
+        mainController.listItems().contains {$0.exampleId == exampleId}
     }
 
     func getExample(exampleId: String) -> Item? {
@@ -54,11 +54,11 @@ class ProgramExamplesManager: ExamplesManager {
     }
 
     func restoreExample(_ item: Item) {
-        mainManager.addItem(prepareExample(from: item))
+        mainController.addItem(prepareExample(from: item))
     }
 
     func resetExample(_ item: Item) {
-        mainManager.updateItem(item)
+        mainController.updateItem(item)
     }
 
     func prepareExample(from template: Item) -> Item {
