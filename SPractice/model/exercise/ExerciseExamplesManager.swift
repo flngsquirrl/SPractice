@@ -12,7 +12,7 @@ class ExerciseExamplesManager: ExamplesManager {
 
     typealias Item = ExerciseTemplate
 
-    var mainController = ExercisesController.shared
+    var mainController: any ExercisesMainManager = ExercisesController.shared
 
     func isExampleExist(exampleId: String) -> Bool {
         mainController.listItems().contains {$0.exampleId == exampleId}
@@ -43,7 +43,7 @@ class ProgramExamplesManager: ExamplesManager {
 
     typealias Item = ProgramTemplate
 
-    var mainController = ProgramsController.shared
+    var mainController: any ProgramsMainManager = ProgramsController.shared
 
     func isExampleExist(exampleId: String) -> Bool {
         mainController.listItems().contains {$0.exampleId == exampleId}
