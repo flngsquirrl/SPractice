@@ -10,7 +10,7 @@ import Foundation
 protocol ExamplesManager {
     associatedtype Item: ExampleItem
 
-    var defaultExamples: [Item] {get}
+    static var defaultExamples: [Item] {get}
     func prepareExample(from: Item) -> Item
 
     func isExampleExist(exampleId: String) -> Bool
@@ -33,6 +33,10 @@ protocol ExampleItem: Named {
 }
 
 extension ExamplesManager {
+
+    var defaultExamples: [Item] {
+        Self.defaultExamples
+    }
 
     func areAnyExamplesDeleted() -> Bool {
         for example in defaultExamples {
