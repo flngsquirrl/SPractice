@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Sortable {
+@MainActor protocol Sortable {
     associatedtype Item: Named, Created
 
     func getItems() -> [Item]

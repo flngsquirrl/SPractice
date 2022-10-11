@@ -12,7 +12,7 @@ protocol HavingID: Identifiable where Self.ID == UUID {}
 typealias ManagedItem = HavingID & Named & Created
 typealias SortableFilterable = Sortable & Filterable
 
-protocol StateController: SortableFilterable, ResetableDataManager, SortingSettingsManager where Item: ManagedItem {
+@MainActor protocol StateController: SortableFilterable, ResetableDataManager, SortingSettingsManager where Item: ManagedItem {
 
     var newItem: UUID? {get set}
     var selected: Item? {get set}
@@ -25,7 +25,7 @@ protocol StateController: SortableFilterable, ResetableDataManager, SortingSetti
 
 typealias MainController = MainManager & StateController
 
-protocol BasicMainController: MainController {
+@MainActor protocol BasicMainController: MainController {
 
     associatedtype MainDataManager: DataManager where MainDataManager.Item == Self.Item
 

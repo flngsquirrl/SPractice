@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ExamplesManager {
+@MainActor protocol ExamplesManager {
     associatedtype Item: ExampleItem
 
     static var defaultExamples: [Item] {get}
