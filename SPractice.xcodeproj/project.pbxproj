@@ -524,7 +524,7 @@
 		C95011C528196FFD0043EC75 /* SPractice */ = {
 			isa = PBXGroup;
 			children = (
-				C9F2B40028C4C08900DE6F65 /* sounds */,
+				C9FF683228FADC0700E98B1A /* resources */,
 				C9A0D00F2823DE83000CF439 /* view */,
 				C9A0CFEF281AB554000CF439 /* model */,
 				C9D53FB628704EE900FD2B6F /* service */,
@@ -979,6 +979,14 @@
 				C9F2B42228C5089100DE6F65 /* happy-bell.wav */,
 			);
 			path = sounds;
+			sourceTree = "<group>";
+		};
+		C9FF683228FADC0700E98B1A /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				C9F2B40028C4C08900DE6F65 /* sounds */,
+			);
+			path = resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
