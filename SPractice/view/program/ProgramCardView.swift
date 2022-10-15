@@ -14,7 +14,7 @@ struct ProgramCardView<T>: View where T: Program {
     var body: some View {
         Section {
             HStack(alignment: .center) {
-                if program.isExample {
+                if isExample {
                     ExampleMark()
                 }
                 Text(program.name)
@@ -25,7 +25,7 @@ struct ProgramCardView<T>: View where T: Program {
                     .foregroundColor(.secondary)
             }
         } footer: {
-            if program.isExample {
+            if isExample {
                 HStack(spacing: 0) {
                     Text("This is an example ")
                     InfoButton(for: .example, isFooter: true)
@@ -33,6 +33,10 @@ struct ProgramCardView<T>: View where T: Program {
             }
         }
         .rowLeadingAligned()
+    }
+
+    var isExample: Bool {
+        return ExampleUtils.isExample(item: program)
     }
 
     var showDescription: Bool {

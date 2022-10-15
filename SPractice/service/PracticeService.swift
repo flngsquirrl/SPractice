@@ -28,9 +28,6 @@ struct PracticeService {
         program.exercises = prepareForPractice(exercises: baseExercises, useRest: useRest)
         program.useRest = useRest
 
-        program.isExample = template.isExample
-        program.exampleId = template.exampleId
-
         return program
     }
 

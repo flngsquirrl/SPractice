@@ -16,7 +16,4 @@ struct PracticeProgram: Program {
 
     var useRest: Bool = false
 
-    var isExample: Bool = false
-    var exampleId: String?
-
 }
