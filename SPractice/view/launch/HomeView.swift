@@ -58,7 +58,15 @@ struct HomeView: View {
 }
 
 struct HomeView_Previews: PreviewProvider {
+
+    static var activityMonitor = ScenePhaseMonitor()
+    static var settingsManager = SettingsManager()
+    static var infoManager = InfoManager()
+
     static var previews: some View {
         HomeView()
+            .environmentObject(activityMonitor)
+            .environmentObject(settingsManager)
+            .environmentObject(infoManager)
     }
 }

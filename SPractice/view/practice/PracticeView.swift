@@ -149,7 +149,11 @@ struct PracticeView: View {
 }
 
 struct PracticeView_Previews: PreviewProvider {
+
+    static var activityMonitor = ScenePhaseMonitor()
+
     static var previews: some View {
         PracticeView(for: .simpleYoga)
+            .environmentObject(activityMonitor)
     }
 }

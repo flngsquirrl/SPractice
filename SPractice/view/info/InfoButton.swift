@@ -32,7 +32,11 @@ struct InfoButton: View {
 }
 
 struct InfoButton_Previews: PreviewProvider {
+    static var infoManager = InfoManager()
+
     static var previews: some View {
         InfoButton(for: .example)
+            .environmentObject(infoManager)
+
     }
 }

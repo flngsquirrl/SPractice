@@ -55,7 +55,12 @@ struct InfoPanel: View {
 }
 
 struct InfoPanel_Previews: PreviewProvider {
+    static var infoManager = InfoManager()
+
     static var previews: some View {
-        InfoPanel()
+        infoManager.showInfo(for: .execiseType)
+
+        return InfoPanel()
+            .environmentObject(infoManager)
     }
 }

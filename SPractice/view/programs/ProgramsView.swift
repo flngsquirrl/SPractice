@@ -9,8 +9,6 @@ import SwiftUI
 
 struct ProgramsView: View {
 
-    @EnvironmentObject var infoManager: InfoManager
-
     @ObservedObject var controller = ProgramsController.shared
 
     @State private var showDeleteConfirmation = false
@@ -119,7 +117,10 @@ struct ProgramsView: View {
 
 struct ProgramsView_Previews: PreviewProvider {
 
+    static var infoManager = InfoManager()
+
     static var previews: some View {
         ProgramsView()
+            .environmentObject(infoManager)
     }
 }

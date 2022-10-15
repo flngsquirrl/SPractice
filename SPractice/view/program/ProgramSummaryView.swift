@@ -31,9 +31,14 @@ struct ProgramSummaryView: View {
 }
 
 struct ProgramSummaryView_Previews: PreviewProvider {
+    static var infoManager = InfoManager()
+    static var settingsManager = SettingsManager()
+
     static var previews: some View {
         List {
             ProgramSummaryView(program: .simpleYoga)
+                .environmentObject(infoManager)
+                .environmentObject(settingsManager)
         }
     }
 }
