@@ -12,6 +12,8 @@ class BasicAudioPlayer: AudioPlayer {
 
     var audioPlayer: AVAudioPlayer?
 
+    static let soundType = "wav"
+
     init() {
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.ambient)
@@ -22,9 +24,9 @@ class BasicAudioPlayer: AudioPlayer {
     }
 
     func play(type: SoundType) {
-        let path = Bundle.main.path(forResource: type.rawValue, ofType: "wav")
+        let path = Bundle.main.path(forResource: type.rawValue, ofType: Self.soundType)
         guard let path = path else {
-            print("Sound file is not found: " + type.rawValue + ".wav")
+            print("Sound file is not found: " + type.rawValue + ".\(Self.soundType))")
             return
         }
 
