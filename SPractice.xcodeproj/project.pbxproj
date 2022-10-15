@@ -77,6 +77,7 @@
 		C97DE6BE28B5142E005D53D1 /* PracticeSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97DE6BD28B5142E005D53D1 /* PracticeSettingsView.swift */; };
 		C97DE6C028B5155A005D53D1 /* PracticeSettings-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97DE6BF28B5155A005D53D1 /* PracticeSettings-ViewModel.swift */; };
 		C980FED928D203DF00543B72 /* View-addInfoPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C980FED828D203DF00543B72 /* View-addInfoPanel.swift */; };
+		C986551728FAFEE100E5F10E /* ExampleUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C986551628FAFEE100E5F10E /* ExampleUtils.swift */; };
 		C996981828646E53009836BD /* ExerciseDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C996981728646E53009836BD /* ExerciseDurationView.swift */; };
 		C996981A286477CB009836BD /* ExerciseTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9969819286477CB009836BD /* ExerciseTypeView.swift */; };
 		C99D20E228719BB300F655C8 /* IntensityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99D20E128719BB300F655C8 /* IntensityView.swift */; };
@@ -291,6 +292,7 @@
 		C97DE6BD28B5142E005D53D1 /* PracticeSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeSettingsView.swift; sourceTree = "<group>"; };
 		C97DE6BF28B5155A005D53D1 /* PracticeSettings-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PracticeSettings-ViewModel.swift"; sourceTree = "<group>"; };
 		C980FED828D203DF00543B72 /* View-addInfoPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-addInfoPanel.swift"; sourceTree = "<group>"; };
+		C986551628FAFEE100E5F10E /* ExampleUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUtils.swift; sourceTree = "<group>"; };
 		C996981728646E53009836BD /* ExerciseDurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDurationView.swift; sourceTree = "<group>"; };
 		C9969819286477CB009836BD /* ExerciseTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTypeView.swift; sourceTree = "<group>"; };
 		C99D20E128719BB300F655C8 /* IntensityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntensityView.swift; sourceTree = "<group>"; };
@@ -650,6 +652,15 @@
 			path = practice;
 			sourceTree = "<group>";
 		};
+		C986551528FAFECF00E5F10E /* example */ = {
+			isa = PBXGroup;
+			children = (
+				C9ACC8E728A8141D00FC5343 /* ExamplesManager.swift */,
+				C986551628FAFEE100E5F10E /* ExampleUtils.swift */,
+			);
+			path = example;
+			sourceTree = "<group>";
+		};
 		C98675D128B6B49F00F06D6A /* player */ = {
 			isa = PBXGroup;
 			children = (
@@ -661,9 +672,9 @@
 		C99D28192879AA7E00596FBD /* common */ = {
 			isa = PBXGroup;
 			children = (
+				C986551528FAFECF00E5F10E /* example */,
 				C91110DB289BDCCC00B9BC03 /* MainManager.swift */,
 				C9B5512028DC9F0E0043D09C /* MainController.swift */,
-				C9ACC8E728A8141D00FC5343 /* ExamplesManager.swift */,
 				C99D28172879A05F00596FBD /* DataManager.swift */,
 				C9ACC8E928A81C1500FC5343 /* JsonPersistenceDataManager.swift */,
 				C9A028FB287833F200032FF9 /* Sortable.swift */,
@@ -1291,6 +1302,7 @@
 				C95011D52819703D0043EC75 /* ClockView.swift in Sources */,
 				C9741A382860862900E1F670 /* ProgramEditor-ViewModel.swift in Sources */,
 				C9CEAA1D287EC63600D15A16 /* RestartIconButton.swift in Sources */,
+				C986551728FAFEE100E5F10E /* ExampleUtils.swift in Sources */,
 				C92F6C3E286DDFF400D7BA59 /* View-Wrapped.swift in Sources */,
 				C9B1E748287C295900C92571 /* FlowSettingsView.swift in Sources */,
 				C9ACBA2128A440E70067F07F /* AboutSettingsView.swift in Sources */,

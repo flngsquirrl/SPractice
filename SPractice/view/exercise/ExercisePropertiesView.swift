@@ -16,10 +16,8 @@ struct ExercisePropertiesView<T>: View where T: Exercise {
     var body: some View {
         Section {
             HStack(alignment: .center) {
-                if let exercise = exercise as? ExampleExercise {
-                    if exercise.isExample {
-                        ExampleMark()
-                    }
+                if isExample {
+                    ExampleMark()
                 }
                 Text(name)
                     .font(.headline)
@@ -68,8 +66,7 @@ struct ExercisePropertiesView<T>: View where T: Exercise {
     }
 
     var isExample: Bool {
-        let example = exercise as? (any ExampleExercise)
-        return example != nil
+        return ExampleUtils.isExample(item: exercise)
     }
 
     var name: String {
