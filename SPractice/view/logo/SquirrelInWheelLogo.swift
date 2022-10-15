@@ -28,7 +28,7 @@ struct SquirrelInWheelLogo: View {
         }
 }
 
-struct WingShape_Previews: PreviewProvider {
+struct SquirrelInWheelLogo_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             ZStack {
