@@ -15,9 +15,18 @@ protocol Exercise: HavingID, Named {
     var duration: Duration? {get}
     var intensity: Intensity? {get}
     var isService: Bool {get}
+}
+
+protocol ExampleItem: Named {
+
     var isExample: Bool {get}
     var exampleId: String? {get}
+
+    func isEqualToExample(example: Self) -> Bool
+    mutating func resetToExample(example: Self)
 }
+
+protocol ExampleExercise: Exercise, ExampleItem {}
 
 extension Exercise {
     var isTimer: Bool {

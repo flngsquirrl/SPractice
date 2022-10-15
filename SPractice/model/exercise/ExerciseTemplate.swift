@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ExerciseTemplate: Exercise, Created, ExampleItem, Hashable, Codable {
+struct ExerciseTemplate: ExampleExercise, Created, ExampleItem, Hashable, Codable {
 
     let id: UUID
     var type: ExerciseType?
@@ -68,15 +68,22 @@ struct ExerciseTemplate: Exercise, Created, ExampleItem, Hashable, Codable {
         }
     }
 
-    init<T>(from template: T, changeId: Bool = true, resetExampleState: Bool = false) where T: Exercise {
-        self.init(id: changeId ? UUID() : template.id, type: template.type, name: template.name, description: template.description,
-                  isService: template.isService, intensity: template.intensity, duration: template.duration,
-                  isExample: resetExampleState ? false : template.isExample, exampleId: template.exampleId)
+    mutating func update<T: Exercise>(from template: T) {
+        self.type = template.type
+        self.name = template.name
+        self.description = template.description
+        self.intensity = template.intensity
+        self.duration = template.duration
+        self.isService = template.isService
+    }
+
+    init<T: Exercise>(from template: T) {
+        self.init(type: template.type, name: template.name, description: template.description,
+                  isService: template.isService, intensity: template.intensity, duration: template.duration)
     }
 
     static func getTemplate(from example: ExerciseTemplate) -> ExerciseTemplate {
-        return ExerciseTemplate(type: example.type, name: example.name, description: example.description,
-                                isService: example.isService, intensity: example.intensity, duration: example.duration)
+        return ExerciseTemplate(from: example)
     }
 
     static var restTemplate: ExerciseTemplate {

@@ -16,8 +16,10 @@ struct ExercisePropertiesView<T>: View where T: Exercise {
     var body: some View {
         Section {
             HStack(alignment: .center) {
-                if exercise.isExample {
-                    ExampleMark()
+                if let exercise = exercise as? ExampleExercise {
+                    if exercise.isExample {
+                        ExampleMark()
+                    }
                 }
                 Text(name)
                     .font(.headline)
@@ -27,7 +29,7 @@ struct ExercisePropertiesView<T>: View where T: Exercise {
                     .foregroundColor(.secondary)
             }
         } footer: {
-            if exercise.isExample {
+            if isExample {
                 HStack(spacing: 0) {
                     Text("This is an example ")
                     InfoButton(for: .example, isFooter: true)
@@ -63,6 +65,11 @@ struct ExercisePropertiesView<T>: View where T: Exercise {
                 }
             }
         }
+    }
+
+    var isExample: Bool {
+        let example = exercise as? (any ExampleExercise)
+        return example != nil
     }
 
     var name: String {

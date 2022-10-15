@@ -15,11 +15,15 @@ extension AddExerciseView {
         let exerciseValidator = ExerciseValidator()
 
         var templateToAdd: ExerciseTemplate {
-            ExerciseTemplate(from: template.exercise)
+            exerciseTemplate
+        }
+
+        var exerciseTemplate: ExerciseTemplate {
+            ExerciseTemplate(from: template)
         }
 
         var isAddDisabled: Bool {
-            !exerciseValidator.isValid(template.exercise)
+            !exerciseValidator.isValid(exerciseTemplate)
         }
     }
 }

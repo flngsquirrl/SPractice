@@ -23,15 +23,6 @@ import Foundation
     var deletedExamplesNames: [String] {get}
 }
 
-protocol ExampleItem: Named {
-
-    var isExample: Bool {get}
-    var exampleId: String? {get}
-
-    func isEqualToExample(example: Self) -> Bool
-    mutating func resetToExample(example: Self)
-}
-
 extension ExamplesManager {
 
     var defaultExamples: [Item] {

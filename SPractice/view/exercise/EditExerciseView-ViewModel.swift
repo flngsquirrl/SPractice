@@ -10,22 +10,24 @@ import Foundation
 extension EditExerciseView {
     @MainActor class ViewModel: ObservableObject {
 
-        @Published var template: ExerciseEditor.EditorTemplate
+        var template: ExerciseTemplate
+        @Published var editorTemplate: ExerciseEditor.EditorTemplate
 
         var examplesManager = ExerciseExamplesManager()
-
         let exerciseValidator = ExerciseValidator()
 
         init(template: ExerciseTemplate) {
-            self.template = ExerciseEditor.EditorTemplate(from: template)
+            self.template = template
+            self.editorTemplate = ExerciseEditor.EditorTemplate(from: template)
         }
 
         var templateToSave: ExerciseTemplate {
-            template.exercise
+            template.update(from: ExerciseTemplate(from: editorTemplate))
+            return template
         }
 
         var isSaveDisabled: Bool {
-            !exerciseValidator.isValid(template.exercise)
+            !exerciseValidator.isValid(templateToSave)
         }
 
         var showExampleUpdateConfirmation: Bool {
