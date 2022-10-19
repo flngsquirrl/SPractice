@@ -16,7 +16,7 @@ typealias SortableFilterable = Sortable & Filterable
 
     var newItem: UUID? {get set}
     var selected: Item? {get set}
-    var searchText: String {get}
+    var searchText: String {get set}
 }
 
 typealias MainController = MainManager & StateController

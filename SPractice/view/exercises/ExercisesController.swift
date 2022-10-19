@@ -7,6 +7,8 @@
 
 import Foundation
 
+typealias Controller = MainDataController & MainManager
+
 typealias ExercisesDataManager = ResetableCollectionDataManager<ExerciseTemplate> & ExercisesDataController & ExercisesMainManager
 
 class ExercisesController: ExercisesDataManager {
