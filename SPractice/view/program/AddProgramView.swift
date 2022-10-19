@@ -7,17 +7,13 @@
 
 import SwiftUI
 
-struct AddProgramView: View {
+struct AddProgramView: View, AddProcessor {
 
     @Environment(\.dismiss) var dismiss
 
-    var onAdd: (ProgramTemplate) -> Void
+    var onAdd: ((ProgramTemplate) -> Void)?
 
     @StateObject private var viewModel = ViewModel()
-
-    init(onAdd: @escaping (ProgramTemplate) -> Void) {
-        self.onAdd = onAdd
-    }
 
     var body: some View {
         NavigationStack {
@@ -27,7 +23,7 @@ struct AddProgramView: View {
                 .toolbar {
                     ToolbarItemGroup(placement: .confirmationAction) {
                         Button("Add") {
-                            onAdd(viewModel.newTemplate)
+                            onAdd?(viewModel.newTemplate)
                             dismiss()
                         }
                         .disabled(viewModel.isAddDisabled)
