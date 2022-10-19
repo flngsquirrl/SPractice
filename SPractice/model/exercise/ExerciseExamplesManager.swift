@@ -31,7 +31,7 @@ import Resolver
     }
 
     func prepareExample(from template: Item) -> Item {
-        ExerciseTemplate(from: template)
+        ExerciseTemplate(from: template, resetExample: false)
     }
 
     static var defaultExamples: [Item] {

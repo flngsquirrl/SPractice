@@ -77,9 +77,15 @@ struct ExerciseTemplate: ExampleExercise, Created, ExampleItem, Hashable, Codabl
         self.isService = template.isService
     }
 
-    init<T: Exercise>(from template: T) {
+    init<T: Exercise>(from template: T, resetExample: Bool = true) {
         self.init(type: template.type, name: template.name, description: template.description,
                   isService: template.isService, intensity: template.intensity, duration: template.duration)
+    }
+
+    init(from template: ExerciseTemplate, resetExample: Bool = true) {
+        self.init(type: template.type, name: template.name, description: template.description,
+                  isService: template.isService, intensity: template.intensity, duration: template.duration,
+                  isExample: resetExample ? false : template.isExample, exampleId: resetExample ? nil : template.exampleId)
     }
 
     static func getTemplate(from example: ExerciseTemplate) -> ExerciseTemplate {
