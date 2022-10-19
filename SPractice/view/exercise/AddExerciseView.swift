@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-struct AddExerciseView: View {
+struct AddExerciseView: View, AddProcessor {
 
     @Environment(\.dismiss) var dismiss
 
     var navigatedFromProgram: Bool = false
-    var onAdd: (ExerciseTemplate) -> Void
+    var onAdd: ((ExerciseTemplate) -> Void)?
 
     var exercisesManager: any ExercisesMainManager = ExercisesController.shared
 
     @StateObject private var viewModel = ViewModel()
 
-    init(navigatedFromProgram: Bool = false, onAdd: @escaping (ExerciseTemplate) -> Void) {
+    init(navigatedFromProgram: Bool = false, onAdd: ((ExerciseTemplate) -> Void)? = nil) {
         self.navigatedFromProgram = navigatedFromProgram
         self.onAdd = onAdd
     }
@@ -34,7 +34,7 @@ struct AddExerciseView: View {
                             if viewModel.template.saveAsTemplate {
                                 exercisesManager.addItem(viewModel.templateToAdd)
                             }
-                            onAdd(viewModel.templateToAdd)
+                            onAdd?(viewModel.templateToAdd)
                             dismiss()
                         }
                         .disabled(viewModel.isAddDisabled)
@@ -53,6 +53,6 @@ struct AddExerciseView: View {
 
 struct AddExerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        AddExerciseView { _ in }
+        AddExerciseView()
     }
 }

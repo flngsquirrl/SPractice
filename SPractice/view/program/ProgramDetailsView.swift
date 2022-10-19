@@ -7,44 +7,47 @@
 
 import SwiftUI
 
-struct ProgramDetailsView: View {
+struct ProgramDetailsView: View, UpdateProcessor, DeleteProcessor {
 
     private var program: ProgramTemplate
-    private var onChange: (ProgramTemplate) -> Void
-    private var onDelete: (ProgramTemplate) -> Void
+    var onUpdate: ((ProgramTemplate) -> Void)?
+    var onDelete: ((ProgramTemplate) -> Void)?
 
     @State private var showEditTemplateView = false
 
-    init(for program: ProgramTemplate, onChange: @escaping (ProgramTemplate) -> Void, onDelete: @escaping (ProgramTemplate) -> Void) {
+    init(for program: ProgramTemplate) {
         self.program = program
-        self.onChange = onChange
-        self.onDelete = onDelete
     }
 
     var body: some View {
-        List {
-            ProgramCardView(program: program)
-            ProgramPracticeSection(program: program)
-            ProgramSummaryView(program: program)
-        }
-        .listStyle(.insetGrouped)
-        .sheet(isPresented: $showEditTemplateView) {
-            NavigationStack {
-                EditProgramView(for: program, onSave: onChange)
+        NavigationStack {
+            List {
+                ProgramCardView(program: program)
+                ProgramPracticeSection(program: program)
+                ProgramSummaryView(program: program)
             }
-            .accentColor(.customAccentColor)
-        }
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItemGroup(placement: .navigationBarTrailing) {
-                DeleteToolbarButton(item: program) {
-                    onDelete($0)
+            .listStyle(.insetGrouped)
+            .sheet(isPresented: $showEditTemplateView) {
+                NavigationStack {
+                    EditProgramView(for: program, onSave: onUpdate ?? { _ in })
                 }
+                .accentColor(.customAccentColor)
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    DeleteToolbarButton(item: program) {
+                        onDelete?($0)
+                    }
 
-                Button("Edit") {
-                    showEditTemplateView = true
+                    Button("Edit") {
+                        showEditTemplateView = true
+                    }
                 }
             }
+        }
+        .navigationDestination(for: ExerciseTemplate.self) { exercise in
+            ExerciseContentsView(exercise: exercise)
         }
     }
 }
@@ -52,7 +55,7 @@ struct ProgramDetailsView: View {
 struct ProgramDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            ProgramDetailsView(for: .simpleYoga) { _ in } onDelete: { _ in }
+            ProgramDetailsView(for: .simpleYoga)
         }
     }
 }

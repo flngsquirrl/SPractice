@@ -122,3 +122,5 @@ extension MainDataController {
 
 @MainActor protocol ExercisesDataController: MainDataController where Item == ExerciseTemplate {}
 @MainActor protocol ProgramsDataController: MainDataController where Item == ProgramTemplate {}
+
+typealias Controller = MainDataController & MainManager
