@@ -12,16 +12,17 @@ protocol HavingID: Identifiable where Self.ID == UUID {}
 typealias ManagedItem = HavingID & Named & Created
 typealias SortableFilterable = Sortable & Filterable
 
-@MainActor protocol StateController: SortableFilterable, ResetableDataManager, SortingSettingsManager where Item: ManagedItem {
+@MainActor protocol StateController: AnyObject {
+
+    associatedtype Item
 
     var newItem: UUID? {get set}
     var selected: Item? {get set}
     var searchText: String {get set}
 }
 
-typealias MainController = MainManager & StateController
-
-@MainActor protocol MainDataController: MainController {
+@MainActor protocol MainController: MainManager, StateController, SortableFilterable, ResetableDataManager, SortingSettingsManager
+    where Item: ManagedItem {
 
     associatedtype MainDataManager: DataManager where MainDataManager.Item == Self.Item
 
@@ -34,7 +35,7 @@ typealias MainController = MainManager & StateController
     func initialSetup()
 }
 
-extension MainDataController {
+extension MainController {
 
     func addItem(_ item: Item) {
         onAdd(item)
@@ -120,7 +121,5 @@ extension MainDataController {
     }
 }
 
-@MainActor protocol ExercisesDataController: MainDataController where Item == ExerciseTemplate {}
-@MainActor protocol ProgramsDataController: MainDataController where Item == ProgramTemplate {}
-
-typealias Controller = MainDataController & MainManager
+@MainActor protocol ExercisesMainController: MainController where Item == ExerciseTemplate {}
+@MainActor protocol ProgramsMainController: MainController where Item == ProgramTemplate {}

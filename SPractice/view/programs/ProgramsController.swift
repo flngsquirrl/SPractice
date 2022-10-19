@@ -7,9 +7,7 @@
 
 import Foundation
 
-typealias ProgramsDataManager = ResetableCollectionDataManager<ProgramTemplate> & ProgramsDataController & ProgramsMainManager
-
-class ProgramsController: ProgramsDataManager {
+class ProgramsController: ResetableCollectionDataManager<ProgramTemplate>, ProgramsMainController, ProgramsMainManager {
 
     static var shared = ProgramsController()
 
