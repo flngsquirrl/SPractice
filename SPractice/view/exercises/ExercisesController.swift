@@ -7,9 +7,7 @@
 
 import Foundation
 
-typealias ExercisesDataManager = ResetableCollectionDataManager<ExerciseTemplate> & ExercisesDataController & ExercisesMainManager
-
-class ExercisesController: ExercisesDataManager {
+class ExercisesController: ResetableCollectionDataManager<ExerciseTemplate>, ExercisesMainController, ExercisesMainManager {
 
     static var shared = ExercisesController()
 

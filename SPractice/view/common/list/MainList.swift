@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct MainList<T: ListComponentsProvider, C: Controller>: View where C.Item == T.Item {
+struct MainList<T: ListComponentsProvider, C: MainController>: View where C.Item == T.Item {
 
     @ObservedObject var controller: C
     @State var componentsProvider: T
