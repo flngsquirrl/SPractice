@@ -19,7 +19,10 @@ struct ExercisesView: View {
 }
 
 struct ExercisesView_Previews: PreviewProvider {
+    static var infoManager = InfoManager()
+
     static var previews: some View {
         ExercisesView()
+            .environmentObject(infoManager)
     }
 }
