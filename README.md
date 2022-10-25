@@ -252,3 +252,15 @@ iPhone, iPad
 Implemented with Swift and SwiftUI.  
 Exercise and program templates are stored as JSON files in the app directory on the device.  
 The application doesn't need access to any of the user's private information.
+
+## Build instructions
+
+- clone the repo
+```
+git clone https://github.com/flngsquirrl/SPractice.git
+```
+- download Carthage dependencies
+```
+carthage bootstrap --use-xcframeworks --platform iOS
+```
+- build the project in Xcode
