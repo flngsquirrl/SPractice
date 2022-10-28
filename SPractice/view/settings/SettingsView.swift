@@ -17,10 +17,10 @@ struct SettingsView: View {
                 Section {
                     let subgroups = SettingsGroup.hierarchy[group]!
                     ForEach(subgroups, id: \.self) { subgroup in
-                        NavigationLink(subgroup.rawValue, value: subgroup)
+                        NavigationLink(subgroup.title, value: subgroup)
                     }
                 } header: {
-                    Text(group.rawValue)
+                    Text(group.title)
                 }
             }
             .listStyle(.insetGrouped)

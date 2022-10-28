@@ -17,7 +17,7 @@ struct SettingsSubgroupDetailsView: View {
         List {
             getSubgroupView(subgroup)
         }
-        .navigationTitle(subgroup.rawValue)
+        .navigationTitle(subgroup.title)
         .navigationBarTitleDisplayMode(.inline)
     }
 

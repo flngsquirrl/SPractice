@@ -136,6 +136,7 @@
 		C9B5512128DC9F0E0043D09C /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B5512028DC9F0E0043D09C /* MainController.swift */; };
 		C9B93779290C7208007D1CD9 /* SettingsItemWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B93778290C7208007D1CD9 /* SettingsItemWrapper.swift */; };
 		C9B9377B290C7274007D1CD9 /* SettingsItemHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B9377A290C7274007D1CD9 /* SettingsItemHolder.swift */; };
+		C9B9377E290C830C007D1CD9 /* SettingsGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B9377D290C830C007D1CD9 /* SettingsGroup.swift */; };
 		C9BF1EE628C6999400D67A99 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BF1EE528C6999400D67A99 /* OnboardingView.swift */; };
 		C9BF1EE828C69EB300D67A99 /* IntroExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BF1EE728C69EB300D67A99 /* IntroExercisesView.swift */; };
 		C9BF1EEA28C6A30D00D67A99 /* IntroAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BF1EE928C6A30D00D67A99 /* IntroAppView.swift */; };
@@ -154,7 +155,7 @@
 		C9CEAA11287D964900D15A16 /* NumberSelectionControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAA10287D964900D15A16 /* NumberSelectionControl.swift */; };
 		C9CEAA13287DA76A00D15A16 /* SettingsSubgroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAA12287DA76A00D15A16 /* SettingsSubgroupView.swift */; };
 		C9CEAA15287DC98E00D15A16 /* SettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAA14287DC98E00D15A16 /* SettingsItem.swift */; };
-		C9CEAA17287DCCFD00D15A16 /* SettingsGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAA16287DCCFD00D15A16 /* SettingsGroup.swift */; };
+		C9CEAA17287DCCFD00D15A16 /* SettingsSubGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAA16287DCCFD00D15A16 /* SettingsSubGroup.swift */; };
 		C9CEAA1B287EB83B00D15A16 /* SettingsLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAA1A287EB83B00D15A16 /* SettingsLinkView.swift */; };
 		C9CEAA1D287EC63600D15A16 /* RestartIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAA1C287EC63600D15A16 /* RestartIconButton.swift */; };
 		C9D156AE28533DD7007F5176 /* ExerciseSelectionView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D156AD28533DD7007F5176 /* ExerciseSelectionView-ViewModel.swift */; };
@@ -357,6 +358,7 @@
 		C9B5512028DC9F0E0043D09C /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		C9B93778290C7208007D1CD9 /* SettingsItemWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemWrapper.swift; sourceTree = "<group>"; };
 		C9B9377A290C7274007D1CD9 /* SettingsItemHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemHolder.swift; sourceTree = "<group>"; };
+		C9B9377D290C830C007D1CD9 /* SettingsGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsGroup.swift; sourceTree = "<group>"; };
 		C9BF1EE528C6999400D67A99 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		C9BF1EE728C69EB300D67A99 /* IntroExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroExercisesView.swift; sourceTree = "<group>"; };
 		C9BF1EE928C6A30D00D67A99 /* IntroAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroAppView.swift; sourceTree = "<group>"; };
@@ -375,7 +377,7 @@
 		C9CEAA10287D964900D15A16 /* NumberSelectionControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberSelectionControl.swift; sourceTree = "<group>"; };
 		C9CEAA12287DA76A00D15A16 /* SettingsSubgroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSubgroupView.swift; sourceTree = "<group>"; };
 		C9CEAA14287DC98E00D15A16 /* SettingsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItem.swift; sourceTree = "<group>"; };
-		C9CEAA16287DCCFD00D15A16 /* SettingsGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsGroup.swift; sourceTree = "<group>"; };
+		C9CEAA16287DCCFD00D15A16 /* SettingsSubGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSubGroup.swift; sourceTree = "<group>"; };
 		C9CEAA1A287EB83B00D15A16 /* SettingsLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLinkView.swift; sourceTree = "<group>"; };
 		C9CEAA1C287EC63600D15A16 /* RestartIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartIconButton.swift; sourceTree = "<group>"; };
 		C9D156AD28533DD7007F5176 /* ExerciseSelectionView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseSelectionView-ViewModel.swift"; sourceTree = "<group>"; };
@@ -925,6 +927,7 @@
 		C9CCCE9D284BA82A005665C8 /* settings */ = {
 			isa = PBXGroup;
 			children = (
+				C9B9377D290C830C007D1CD9 /* SettingsGroup.swift */,
 				C9B1E743287C266000C92571 /* SettingsView.swift */,
 				C9CEAA12287DA76A00D15A16 /* SettingsSubgroupView.swift */,
 				C9CEA9FF287C2DFF00D15A16 /* SettingsSubgroupDetailsView.swift */,
@@ -977,7 +980,7 @@
 		C9DE15232868B2D90011324C /* settings */ = {
 			isa = PBXGroup;
 			children = (
-				C9CEAA16287DCCFD00D15A16 /* SettingsGroup.swift */,
+				C9CEAA16287DCCFD00D15A16 /* SettingsSubGroup.swift */,
 				C9CEAA14287DC98E00D15A16 /* SettingsItem.swift */,
 			);
 			path = settings;
@@ -1207,6 +1210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9B9377E290C830C007D1CD9 /* SettingsGroup.swift in Sources */,
 				C9A0D02B282BE586000CF439 /* Player.swift in Sources */,
 				C97DE6BA28B3EA9D005D53D1 /* PracticeSettings.swift in Sources */,
 				C9F2B42A28C52FFA00DE6F65 /* AudioPlayer.swift in Sources */,
@@ -1379,7 +1383,7 @@
 				C92F6C3E286DDFF400D7BA59 /* View-Wrapped.swift in Sources */,
 				C9B1E748287C295900C92571 /* FlowSettingsView.swift in Sources */,
 				C9ACBA2128A440E70067F07F /* AboutSettingsView.swift in Sources */,
-				C9CEAA17287DCCFD00D15A16 /* SettingsGroup.swift in Sources */,
+				C9CEAA17287DCCFD00D15A16 /* SettingsSubGroup.swift in Sources */,
 				C9A0CFEC281AB382000CF439 /* PracticeExercise.swift in Sources */,
 				C92F6C42286F00EB00D7BA59 /* LayoutUtils.swift in Sources */,
 				C95BAC8828F0CD4B00618DBC /* Resolver-App.swift in Sources */,
