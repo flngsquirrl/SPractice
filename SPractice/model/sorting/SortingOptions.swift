@@ -8,13 +8,13 @@
 import Foundation
 
 enum SortingProperty: String, CaseIterable {
-    case date = "creation time"
-    case name = "name"
+    case date
+    case name
 }
 
 enum SortingOrder: String, CaseIterable {
-    case asc = "ascending"
-    case desc = "descending"
+    case asc
+    case desc
 
     var opposite: SortingOrder {
         if self == .asc {
