@@ -663,15 +663,6 @@
 			path = task;
 			sourceTree = "<group>";
 		};
-		C97DE6B828B3EA88005D53D1 /* practice */ = {
-			isa = PBXGroup;
-			children = (
-				C97DE6B928B3EA9D005D53D1 /* PracticeSettings.swift */,
-				C97DE6BB28B3EADB005D53D1 /* PracticeSettingsManager.swift */,
-			);
-			path = practice;
-			sourceTree = "<group>";
-		};
 		C986551528FAFECF00E5F10E /* example */ = {
 			isa = PBXGroup;
 			children = (
@@ -844,6 +835,7 @@
 				C9E17F1028DB3ECB00A7A6A7 /* listener */,
 				C9B93775290C4BD3007D1CD9 /* exercises */,
 				C9B93776290C4C14007D1CD9 /* programs */,
+				C9B9377C290C73BC007D1CD9 /* practice */,
 				C9B93777290C7151007D1CD9 /* settings */,
 			);
 			path = controller;
@@ -881,6 +873,14 @@
 				C9B9377A290C7274007D1CD9 /* SettingsItemHolder.swift */,
 			);
 			path = settings;
+			sourceTree = "<group>";
+		};
+		C9B9377C290C73BC007D1CD9 /* practice */ = {
+			isa = PBXGroup;
+			children = (
+				C97DE6BB28B3EADB005D53D1 /* PracticeSettingsManager.swift */,
+			);
+			path = practice;
 			sourceTree = "<group>";
 		};
 		C9BF1EE428C6995E00D67A99 /* onboarding */ = {
@@ -969,6 +969,7 @@
 			isa = PBXGroup;
 			children = (
 				C9A0D028282BD603000CF439 /* Practice.swift */,
+				C97DE6B928B3EA9D005D53D1 /* PracticeSettings.swift */,
 			);
 			path = practice;
 			sourceTree = "<group>";
@@ -976,7 +977,6 @@
 		C9DE15232868B2D90011324C /* settings */ = {
 			isa = PBXGroup;
 			children = (
-				C97DE6B828B3EA88005D53D1 /* practice */,
 				C9CEAA16287DCCFD00D15A16 /* SettingsGroup.swift */,
 				C9CEAA14287DC98E00D15A16 /* SettingsItem.swift */,
 			);
