@@ -505,7 +505,6 @@
 				C9321C9A28C786DA008C6BA4 /* ContentView.swift */,
 				C95011C828196FFD0043EC75 /* HomeView.swift */,
 				C9321CA628C9FAEB008C6BA4 /* WelcomeView.swift */,
-				C9321CA928CA282C008C6BA4 /* ActivityMonitor.swift */,
 			);
 			path = launch;
 			sourceTree = "<group>";
@@ -840,6 +839,7 @@
 		C9B93773290C3C9D007D1CD9 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				C9321CA928CA282C008C6BA4 /* ActivityMonitor.swift */,
 				C9B93774290C3CE3007D1CD9 /* launch */,
 			);
 			path = controller;
