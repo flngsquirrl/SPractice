@@ -514,7 +514,6 @@
 			children = (
 				C9A0D00728228078000CF439 /* ProgramsView.swift */,
 				C9112D9D290065A90041D6C6 /* ProgramsComponents.swift */,
-				C9E17F2328DB845F00A7A6A7 /* ProgramsController.swift */,
 			);
 			path = programs;
 			sourceTree = "<group>";
@@ -841,6 +840,7 @@
 				C9321CA928CA282C008C6BA4 /* ActivityMonitor.swift */,
 				C9B93774290C3CE3007D1CD9 /* launch */,
 				C9B93775290C4BD3007D1CD9 /* exercises */,
+				C9B93776290C4C14007D1CD9 /* programs */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -859,6 +859,14 @@
 				C9E17F2528DBA11400A7A6A7 /* ExercisesController.swift */,
 			);
 			path = exercises;
+			sourceTree = "<group>";
+		};
+		C9B93776290C4C14007D1CD9 /* programs */ = {
+			isa = PBXGroup;
+			children = (
+				C9E17F2328DB845F00A7A6A7 /* ProgramsController.swift */,
+			);
+			path = programs;
 			sourceTree = "<group>";
 		};
 		C9BF1EE428C6995E00D67A99 /* onboarding */ = {
