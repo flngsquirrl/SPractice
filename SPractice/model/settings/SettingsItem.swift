@@ -70,14 +70,6 @@ extension SettingsItemWrapper where Self.ObjectWillChangePublisher == Observable
             objectWillChange.send()
         }
     }
-
-    func convertToString(_ value: ValueType) -> String {
-        fatalError("implement in specific class")
-    }
-
-    func convertToValue(_ string: String) -> ValueType {
-        fatalError("implement in specific class")
-    }
 }
 
 class SettingsItemHolder: ObservableObject {
