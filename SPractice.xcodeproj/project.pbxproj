@@ -494,6 +494,7 @@
 			isa = PBXGroup;
 			children = (
 				C92F6C45286F1B6500D7BA59 /* DurationView.swift */,
+				C915509128EF359800CD37A4 /* TimeFormatter.swift */,
 			);
 			path = time;
 			sourceTree = "<group>";
@@ -633,7 +634,6 @@
 				C9692C75284F4E9100373730 /* ClockTime.swift */,
 				C915508D28EF336E00CD37A4 /* Time.swift */,
 				C915508F28EF358100CD37A4 /* TimeCalculator.swift */,
-				C915509128EF359800CD37A4 /* TimeFormatter.swift */,
 			);
 			path = clock;
 			sourceTree = "<group>";
