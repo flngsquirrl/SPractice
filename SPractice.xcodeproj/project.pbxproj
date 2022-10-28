@@ -645,7 +645,6 @@
 			children = (
 				C9692C7E2850A35A00373730 /* ExercisesView.swift */,
 				C9112D9B290065600041D6C6 /* ExercisesComponents.swift */,
-				C9E17F2528DBA11400A7A6A7 /* ExercisesController.swift */,
 				C9692C842850F47500373730 /* ExerciseSelectionView.swift */,
 				C9D156AD28533DD7007F5176 /* ExerciseSelectionView-ViewModel.swift */,
 			);
@@ -841,6 +840,7 @@
 			children = (
 				C9321CA928CA282C008C6BA4 /* ActivityMonitor.swift */,
 				C9B93774290C3CE3007D1CD9 /* launch */,
+				C9B93775290C4BD3007D1CD9 /* exercises */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -851,6 +851,14 @@
 				C9321C9C28C7870C008C6BA4 /* ViewRouter.swift */,
 			);
 			path = launch;
+			sourceTree = "<group>";
+		};
+		C9B93775290C4BD3007D1CD9 /* exercises */ = {
+			isa = PBXGroup;
+			children = (
+				C9E17F2528DBA11400A7A6A7 /* ExercisesController.swift */,
+			);
+			path = exercises;
 			sourceTree = "<group>";
 		};
 		C9BF1EE428C6995E00D67A99 /* onboarding */ = {
