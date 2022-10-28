@@ -1,5 +1,5 @@
 //
-//  ListView.swift
+//  MainList.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 19.10.22.
