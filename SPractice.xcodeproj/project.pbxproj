@@ -725,7 +725,6 @@
 				C9DE15222868B2C70011324C /* practice */,
 				C98675D128B6B49F00F06D6A /* player */,
 				C9DE15252868B34A0011324C /* program */,
-				C9B49E9C28AEC8BD007713A1 /* sound */,
 				C9DE15232868B2D90011324C /* settings */,
 				C91696A728A268D800053E90 /* sorting */,
 				C99D28192879AA7E00596FBD /* common */,
@@ -932,6 +931,7 @@
 			isa = PBXGroup;
 			children = (
 				C9D6F79328E0B37000A6A5DE /* settings */,
+				C9B49E9C28AEC8BD007713A1 /* sound */,
 				C9E17F1928DB4C3100A7A6A7 /* TemplateValidator.swift */,
 				C9E17F1D28DB4E0600A7A6A7 /* ProgramValidator.swift */,
 				C9D53FB428704E4000FD2B6F /* ExerciseValidator.swift */,
