@@ -614,7 +614,6 @@
 			isa = PBXGroup;
 			children = (
 				C9112D96290063D00041D6C6 /* list */,
-				C9E17F1028DB3ECB00A7A6A7 /* listener */,
 				C99E491628CCECEB008DC90B /* delete */,
 				C95EE45228D0E0A2000D7D3B /* duration */,
 				C95EE45128D0E07D000D7D3B /* editor */,
@@ -839,6 +838,7 @@
 			children = (
 				C9321CA928CA282C008C6BA4 /* ActivityMonitor.swift */,
 				C9B93774290C3CE3007D1CD9 /* launch */,
+				C9E17F1028DB3ECB00A7A6A7 /* listener */,
 				C9B93775290C4BD3007D1CD9 /* exercises */,
 				C9B93776290C4C14007D1CD9 /* programs */,
 			);
@@ -1012,7 +1012,8 @@
 				C9E17F1128DB3EEE00A7A6A7 /* Listener.swift */,
 				C9E17F1328DB457800A7A6A7 /* SignalChangeListener.swift */,
 			);
-			path = listener;
+			name = listener;
+			path = ../view/common/listener;
 			sourceTree = "<group>";
 		};
 		C9F13B1328CF58BC00A2B39F /* info */ = {
