@@ -11,7 +11,7 @@ struct ContentView: View {
 
     @Environment(\.scenePhase) var scenePhase
 
-    @StateObject var activityMonitor = ScenePhaseMonitor()
+    @StateObject var activityMonitor = ActivityMonitor()
     @StateObject var viewRouter = ViewRouter()
 
     @StateObject var infoManager = InfoManager()

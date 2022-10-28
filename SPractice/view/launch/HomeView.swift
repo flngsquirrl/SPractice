@@ -59,7 +59,7 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
 
-    static var activityMonitor = ScenePhaseMonitor()
+    static var activityMonitor = ActivityMonitor()
     static var settingsManager = SettingsManager()
     static var infoManager = InfoManager()
 

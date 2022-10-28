@@ -13,7 +13,7 @@ struct PracticeView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.verticalSizeClass) var sizeClass
 
-    @EnvironmentObject var activityMonitor: ScenePhaseMonitor
+    @EnvironmentObject var activityMonitor: ActivityMonitor
 
     @ObservedObject var viewModel: ViewModel
 
@@ -150,7 +150,7 @@ struct PracticeView: View {
 
 struct PracticeView_Previews: PreviewProvider {
 
-    static var activityMonitor = ScenePhaseMonitor()
+    static var activityMonitor = ActivityMonitor()
 
     static var previews: some View {
         PracticeView(for: .simpleYoga)

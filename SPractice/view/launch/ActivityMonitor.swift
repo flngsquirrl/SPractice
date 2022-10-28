@@ -1,5 +1,5 @@
 //
-//  ScenePhaseMonitor.swift
+//  ActivityMonitor.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 8.09.22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ScenePhaseMonitor: ObservableObject {
+class ActivityMonitor: ObservableObject {
 
     @Published var isActive = true
 
