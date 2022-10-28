@@ -33,7 +33,7 @@ class ViewRouter: ObservableObject {
         }
     }
 
-    var isOnBoard: Bool {
+    private var isOnBoard: Bool {
         UserDefaults.standard.bool(forKey: UserDefaultsKey.isOnBoard.rawValue)
     }
 

@@ -505,7 +505,6 @@
 				C9321C9A28C786DA008C6BA4 /* ContentView.swift */,
 				C95011C828196FFD0043EC75 /* HomeView.swift */,
 				C9321CA628C9FAEB008C6BA4 /* WelcomeView.swift */,
-				C9321C9C28C7870C008C6BA4 /* ViewRouter.swift */,
 				C9321CA928CA282C008C6BA4 /* ScenePhaseMonitor.swift */,
 			);
 			path = launch;
@@ -841,8 +840,17 @@
 		C9B93773290C3C9D007D1CD9 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				C9B93774290C3CE3007D1CD9 /* launch */,
 			);
 			path = controller;
+			sourceTree = "<group>";
+		};
+		C9B93774290C3CE3007D1CD9 /* launch */ = {
+			isa = PBXGroup;
+			children = (
+				C9321C9C28C7870C008C6BA4 /* ViewRouter.swift */,
+			);
+			path = launch;
 			sourceTree = "<group>";
 		};
 		C9BF1EE428C6995E00D67A99 /* onboarding */ = {
