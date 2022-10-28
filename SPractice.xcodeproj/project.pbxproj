@@ -134,6 +134,8 @@
 		C9B49E9B28AD5BEF007713A1 /* View-hideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B49E9A28AD5BEF007713A1 /* View-hideKeyboard.swift */; };
 		C9B49EA028AEC941007713A1 /* SoundType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B49E9F28AEC941007713A1 /* SoundType.swift */; };
 		C9B5512128DC9F0E0043D09C /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B5512028DC9F0E0043D09C /* MainController.swift */; };
+		C9B93779290C7208007D1CD9 /* SettingsItemWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B93778290C7208007D1CD9 /* SettingsItemWrapper.swift */; };
+		C9B9377B290C7274007D1CD9 /* SettingsItemHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B9377A290C7274007D1CD9 /* SettingsItemHolder.swift */; };
 		C9BF1EE628C6999400D67A99 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BF1EE528C6999400D67A99 /* OnboardingView.swift */; };
 		C9BF1EE828C69EB300D67A99 /* IntroExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BF1EE728C69EB300D67A99 /* IntroExercisesView.swift */; };
 		C9BF1EEA28C6A30D00D67A99 /* IntroAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BF1EE928C6A30D00D67A99 /* IntroAppView.swift */; };
@@ -353,6 +355,8 @@
 		C9B49E9A28AD5BEF007713A1 /* View-hideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-hideKeyboard.swift"; sourceTree = "<group>"; };
 		C9B49E9F28AEC941007713A1 /* SoundType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundType.swift; sourceTree = "<group>"; };
 		C9B5512028DC9F0E0043D09C /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		C9B93778290C7208007D1CD9 /* SettingsItemWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemWrapper.swift; sourceTree = "<group>"; };
+		C9B9377A290C7274007D1CD9 /* SettingsItemHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemHolder.swift; sourceTree = "<group>"; };
 		C9BF1EE528C6999400D67A99 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		C9BF1EE728C69EB300D67A99 /* IntroExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroExercisesView.swift; sourceTree = "<group>"; };
 		C9BF1EE928C6A30D00D67A99 /* IntroAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroAppView.swift; sourceTree = "<group>"; };
@@ -840,6 +844,7 @@
 				C9E17F1028DB3ECB00A7A6A7 /* listener */,
 				C9B93775290C4BD3007D1CD9 /* exercises */,
 				C9B93776290C4C14007D1CD9 /* programs */,
+				C9B93777290C7151007D1CD9 /* settings */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -866,6 +871,16 @@
 				C9E17F2328DB845F00A7A6A7 /* ProgramsController.swift */,
 			);
 			path = programs;
+			sourceTree = "<group>";
+		};
+		C9B93777290C7151007D1CD9 /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				C9CEAA0C287C619F00D15A16 /* SettingsManager.swift */,
+				C9B93778290C7208007D1CD9 /* SettingsItemWrapper.swift */,
+				C9B9377A290C7274007D1CD9 /* SettingsItemHolder.swift */,
+			);
+			path = settings;
 			sourceTree = "<group>";
 		};
 		C9BF1EE428C6995E00D67A99 /* onboarding */ = {
@@ -944,7 +959,6 @@
 		C9D6F79328E0B37000A6A5DE /* settings */ = {
 			isa = PBXGroup;
 			children = (
-				C9CEAA0C287C619F00D15A16 /* SettingsManager.swift */,
 				C95BAC8928F0D12300618DBC /* TabataSettingsProvider.swift */,
 				C95BAC8B28F0D30D00618DBC /* RestSettingsProvider.swift */,
 			);
@@ -1210,6 +1224,7 @@
 				C9A0CFEA281AB32B000CF439 /* Task.swift in Sources */,
 				C9A0D027282A613A000CF439 /* PracticeSequenceView.swift in Sources */,
 				C9692C7F2850A35A00373730 /* ExercisesView.swift in Sources */,
+				C9B93779290C7208007D1CD9 /* SettingsItemWrapper.swift in Sources */,
 				C91274A128BFBAD40051B4C3 /* PracticeView-ViewModel.swift in Sources */,
 				C9445C6D285E00D000DF2A08 /* ExerciseDetailsView.swift in Sources */,
 				C9CCCE94284A311A005665C8 /* ExerciseEditor-ViewModel.swift in Sources */,
@@ -1315,6 +1330,7 @@
 				C9ACC8F428AA78D000FC5343 /* View-If.swift in Sources */,
 				C9A028FC287833F200032FF9 /* Sortable.swift in Sources */,
 				C9CEAA00287C2DFF00D15A16 /* SettingsSubgroupDetailsView.swift in Sources */,
+				C9B9377B290C7274007D1CD9 /* SettingsItemHolder.swift in Sources */,
 				C9741A322860857F00E1F670 /* AddProgramView.swift in Sources */,
 				C915509228EF359800CD37A4 /* TimeFormatter.swift in Sources */,
 				C9BF1EE628C6999400D67A99 /* OnboardingView.swift in Sources */,
