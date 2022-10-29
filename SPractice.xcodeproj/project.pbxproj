@@ -686,8 +686,6 @@
 		C99D28192879AA7E00596FBD /* common */ = {
 			isa = PBXGroup;
 			children = (
-				C91110DB289BDCCC00B9BC03 /* MainManager.swift */,
-				C9B5512028DC9F0E0043D09C /* MainController.swift */,
 				C9A028FB287833F200032FF9 /* Sortable.swift */,
 				C9FF683028F59BDA00E98B1A /* Filterable.swift */,
 			);
@@ -840,6 +838,7 @@
 				C9B93777290C7151007D1CD9 /* settings */,
 				C9B93783290D5585007D1CD9 /* storage */,
 				C986551528FAFECF00E5F10E /* example */,
+				C9B93786290D58D7007D1CD9 /* main */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -906,6 +905,15 @@
 				C9ACC8E928A81C1500FC5343 /* JsonPersistenceManager.swift */,
 			);
 			path = storage;
+			sourceTree = "<group>";
+		};
+		C9B93786290D58D7007D1CD9 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				C91110DB289BDCCC00B9BC03 /* MainManager.swift */,
+				C9B5512028DC9F0E0043D09C /* MainController.swift */,
+			);
+			path = main;
 			sourceTree = "<group>";
 		};
 		C9BF1EE428C6995E00D67A99 /* onboarding */ = {
