@@ -18,5 +18,8 @@ extension Resolver: ResolverRegistering {
 
         register { BasicAudioPlayer() }
             .implements(AudioPlayer.self)
+
+        register { BasicDurationService() }
+            .implements(DurationService.self)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  ProgramService.swift
+//  DurationService.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 21.09.22.
@@ -8,7 +8,13 @@
 import Foundation
 import Resolver
 
-struct ProgramService {
+protocol DurationService {
+
+    func calculateDuration(of program: any Program) -> Duration
+    func calculateDuration(of exercises: [any Exercise]) -> Duration
+}
+
+struct BasicDurationService: DurationService {
 
     @Injected private var tabataSettings: TabataSettingsProvider
     @Injected private var restSettings: RestSettingsProvider

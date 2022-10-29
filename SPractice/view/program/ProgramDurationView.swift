@@ -14,7 +14,7 @@ struct ProgramDurationView: View {
     private let showAsApproximate: Bool
     private let showZeroAsUnknown: Bool
 
-    private var programService = ProgramService()
+    private var programService = BasicDurationService()
 
     init<T>(for program: T, mode: DurationView.Mode = .padded) where T: Program {
         self.duration = programService.calculateDuration(of: program)

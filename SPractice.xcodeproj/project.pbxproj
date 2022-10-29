@@ -177,7 +177,7 @@
 		C9E0C42728801CDE00B8FBA8 /* SettingsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0C42628801CDE00B8FBA8 /* SettingsConstants.swift */; };
 		C9E17F1228DB3EEE00A7A6A7 /* Listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1128DB3EEE00A7A6A7 /* Listener.swift */; };
 		C9E17F1428DB457800A7A6A7 /* SignalChangeListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1328DB457800A7A6A7 /* SignalChangeListener.swift */; };
-		C9E17F1628DB4BE600A7A6A7 /* ProgramService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1528DB4BE600A7A6A7 /* ProgramService.swift */; };
+		C9E17F1628DB4BE600A7A6A7 /* DurationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1528DB4BE600A7A6A7 /* DurationService.swift */; };
 		C9E17F1A28DB4C3100A7A6A7 /* TemplateValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1928DB4C3100A7A6A7 /* TemplateValidator.swift */; };
 		C9E17F1E28DB4E0600A7A6A7 /* ProgramValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F1D28DB4E0600A7A6A7 /* ProgramValidator.swift */; };
 		C9E17F2428DB845F00A7A6A7 /* ProgramsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E17F2328DB845F00A7A6A7 /* ProgramsController.swift */; };
@@ -399,7 +399,7 @@
 		C9E0C42628801CDE00B8FBA8 /* SettingsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsConstants.swift; sourceTree = "<group>"; };
 		C9E17F1128DB3EEE00A7A6A7 /* Listener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listener.swift; sourceTree = "<group>"; };
 		C9E17F1328DB457800A7A6A7 /* SignalChangeListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalChangeListener.swift; sourceTree = "<group>"; };
-		C9E17F1528DB4BE600A7A6A7 /* ProgramService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramService.swift; sourceTree = "<group>"; };
+		C9E17F1528DB4BE600A7A6A7 /* DurationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationService.swift; sourceTree = "<group>"; };
 		C9E17F1928DB4C3100A7A6A7 /* TemplateValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateValidator.swift; sourceTree = "<group>"; };
 		C9E17F1D28DB4E0600A7A6A7 /* ProgramValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramValidator.swift; sourceTree = "<group>"; };
 		C9E17F2328DB845F00A7A6A7 /* ProgramsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramsController.swift; sourceTree = "<group>"; };
@@ -962,7 +962,7 @@
 				C9E17F1928DB4C3100A7A6A7 /* TemplateValidator.swift */,
 				C9E17F1D28DB4E0600A7A6A7 /* ProgramValidator.swift */,
 				C9D53FB428704E4000FD2B6F /* ExerciseValidator.swift */,
-				C9E17F1528DB4BE600A7A6A7 /* ProgramService.swift */,
+				C9E17F1528DB4BE600A7A6A7 /* DurationService.swift */,
 				C910A61028DCA279006F6C4B /* PracticeService.swift */,
 			);
 			path = service;
@@ -1276,7 +1276,7 @@
 				C9FF683128F59BDA00E98B1A /* Filterable.swift in Sources */,
 				C9A0D01A2827CEC9000CF439 /* Squirrel.swift in Sources */,
 				C92F6C44286F0B0000D7BA59 /* ProgramDurationView.swift in Sources */,
-				C9E17F1628DB4BE600A7A6A7 /* ProgramService.swift in Sources */,
+				C9E17F1628DB4BE600A7A6A7 /* DurationService.swift in Sources */,
 				C95BAC8A28F0D12300618DBC /* TabataSettingsProvider.swift in Sources */,
 				C9F30BD728CFD5A000A1C9E2 /* ExerciseDurationInfo.swift in Sources */,
 				C915509028EF358100CD37A4 /* TimeCalculator.swift in Sources */,

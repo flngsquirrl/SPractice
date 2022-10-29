@@ -16,10 +16,10 @@ import SwiftUI
     let clock: Clock
     let player: Player
 
-    let programService = ProgramService()
     let practiceService = PracticeService()
 
     @Injected var audioPlayer: AudioPlayer
+    @Injected var durationService: DurationService
 
     @Published var isSoundOn: Bool
     var usePauses: Bool
@@ -31,14 +31,12 @@ import SwiftUI
 
     @Published var currentExerciseIndex = 0
     @Published var currentTaskIndex = 0
-    @Published var durationRemaining: Duration
+    @Published var durationRemaining: Duration = .known(0)
 
     init(for template: ProgramTemplate, with settings: PracticeSettings) {
         self.program = practiceService.prepareForPractice(template, useRest: settings.addRestIntervals)
         self.usePauses = settings.pauseAfterExercise
         self.isSoundOn = settings.playSounds
-
-        self.durationRemaining = programService.calculateDuration(of: program)
 
         self.player = Player()
         self.clock = Clock()
@@ -148,7 +146,7 @@ import SwiftUI
         isCompleted = false
         isCurrentExerciseStarted = false
 
-        durationRemaining = programService.calculateDuration(of: program)
+        durationRemaining = durationService.calculateDuration(of: program)
         currentExerciseIndex = 0
         currentTaskIndex = 0
     }
@@ -286,7 +284,7 @@ import SwiftUI
     }
 
     func setDurationRemaining() {
-        durationRemaining = programService.calculateDuration(of: remainingExercises)
+        durationRemaining = durationService.calculateDuration(of: remainingExercises)
     }
 
     func resetDurationRemaining() {
