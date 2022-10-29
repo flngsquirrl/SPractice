@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ExercisesPersistenceManager: JsonPersistenceDataManager<ExerciseTemplate> {
+class ExercisesPersistenceManager: JsonPersistenceManager<ExerciseTemplate> {
 
     override var defaultItems: [ExerciseTemplate] {
         [.catCow, .surjaNamascarA, .balasana, .vasisthasana, .shavasana, .plank, .squats, .jumpRope]

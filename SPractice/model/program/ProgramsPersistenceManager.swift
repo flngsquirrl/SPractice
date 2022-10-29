@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ProgramsPersistenceManager: JsonPersistenceDataManager<ProgramTemplate> {
+class ProgramsPersistenceManager: JsonPersistenceManager<ProgramTemplate> {
 
     override var defaultItems: [ProgramTemplate] {
         [.simpleYoga, .simpleWorkout]
