@@ -5,17 +5,18 @@
 //  Created by Yuliya Charniak on 6.09.22.
 //
 
+import Resolver
 import SwiftUI
 
 struct ContentView: View {
 
     @Environment(\.scenePhase) var scenePhase
 
+    @Injected var settingsManager: SettingsManager
+
     @StateObject var activityMonitor = ActivityMonitor()
     @StateObject var viewRouter = ViewRouter()
-
     @StateObject var infoManager = InfoManager()
-    var settingsManager = SettingsManager()
 
     var body: some View {
         Group {
