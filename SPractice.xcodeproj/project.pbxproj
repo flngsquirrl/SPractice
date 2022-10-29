@@ -687,8 +687,6 @@
 				C986551528FAFECF00E5F10E /* example */,
 				C91110DB289BDCCC00B9BC03 /* MainManager.swift */,
 				C9B5512028DC9F0E0043D09C /* MainController.swift */,
-				C99D28172879A05F00596FBD /* DataManager.swift */,
-				C9ACC8E928A81C1500FC5343 /* JsonPersistenceManager.swift */,
 				C9A028FB287833F200032FF9 /* Sortable.swift */,
 				C9FF683028F59BDA00E98B1A /* Filterable.swift */,
 			);
@@ -839,6 +837,7 @@
 				C9B93781290D4C3A007D1CD9 /* clock */,
 				C98675D128B6B49F00F06D6A /* player */,
 				C9B93777290C7151007D1CD9 /* settings */,
+				C9B93783290D5585007D1CD9 /* storage */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -855,6 +854,7 @@
 			isa = PBXGroup;
 			children = (
 				C9E17F2528DBA11400A7A6A7 /* ExercisesController.swift */,
+				C9DE15272868B3CE0011324C /* ExercisesPersistenceManager.swift */,
 			);
 			path = exercises;
 			sourceTree = "<group>";
@@ -863,6 +863,7 @@
 			isa = PBXGroup;
 			children = (
 				C9E17F2328DB845F00A7A6A7 /* ProgramsController.swift */,
+				C9DE15292868B5500011324C /* ProgramsPersistenceManager.swift */,
 			);
 			path = programs;
 			sourceTree = "<group>";
@@ -892,6 +893,15 @@
 				C9A0D002281C03F5000CF439 /* Clock.swift */,
 			);
 			path = clock;
+			sourceTree = "<group>";
+		};
+		C9B93783290D5585007D1CD9 /* storage */ = {
+			isa = PBXGroup;
+			children = (
+				C99D28172879A05F00596FBD /* DataManager.swift */,
+				C9ACC8E928A81C1500FC5343 /* JsonPersistenceManager.swift */,
+			);
+			path = storage;
 			sourceTree = "<group>";
 		};
 		C9BF1EE428C6995E00D67A99 /* onboarding */ = {
@@ -1000,7 +1010,6 @@
 				C967287B2874553600B4990C /* Exercise.swift */,
 				C9A0CFEB281AB382000CF439 /* PracticeExercise.swift */,
 				C9A0CFF6281BD815000CF439 /* ExerciseTemplate.swift */,
-				C9DE15272868B3CE0011324C /* ExercisesPersistenceManager.swift */,
 				C9DE151E2868AADE0011324C /* ExerciseType.swift */,
 				C91B828D28896D1100900239 /* ExerciseExampleId.swift */,
 				C922AD4A28F1FD5600207AD1 /* Collection-Exercise.swift */,
@@ -1015,7 +1024,6 @@
 				C967287D287457B500B4990C /* Program.swift */,
 				C9A0CFED281AB484000CF439 /* PracticeProgram.swift */,
 				C9A0CFF4281BD588000CF439 /* ProgramTemplate.swift */,
-				C9DE15292868B5500011324C /* ProgramsPersistenceManager.swift */,
 				C9ACC8E528A5927D00FC5343 /* ProgramExampleId.swift */,
 			);
 			path = program;
