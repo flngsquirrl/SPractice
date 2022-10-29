@@ -636,7 +636,6 @@
 		C9692C74284F4E6D00373730 /* clock */ = {
 			isa = PBXGroup;
 			children = (
-				C9A0D002281C03F5000CF439 /* Clock.swift */,
 				C9692C75284F4E9100373730 /* ClockTime.swift */,
 				C915508D28EF336E00CD37A4 /* Time.swift */,
 				C915508F28EF358100CD37A4 /* TimeCalculator.swift */,
@@ -838,6 +837,7 @@
 				C9B93775290C4BD3007D1CD9 /* exercises */,
 				C9B93776290C4C14007D1CD9 /* programs */,
 				C9B9377C290C73BC007D1CD9 /* practice */,
+				C9B93781290D4C3A007D1CD9 /* clock */,
 				C9B93777290C7151007D1CD9 /* settings */,
 			);
 			path = controller;
@@ -883,6 +883,14 @@
 				C97DE6BB28B3EADB005D53D1 /* PracticeSettingsManager.swift */,
 			);
 			path = practice;
+			sourceTree = "<group>";
+		};
+		C9B93781290D4C3A007D1CD9 /* clock */ = {
+			isa = PBXGroup;
+			children = (
+				C9A0D002281C03F5000CF439 /* Clock.swift */,
+			);
+			path = clock;
 			sourceTree = "<group>";
 		};
 		C9BF1EE428C6995E00D67A99 /* onboarding */ = {
