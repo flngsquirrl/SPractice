@@ -880,6 +880,7 @@
 		C9B9377C290C73BC007D1CD9 /* practice */ = {
 			isa = PBXGroup;
 			children = (
+				C9A0D028282BD603000CF439 /* Practice.swift */,
 				C97DE6BB28B3EADB005D53D1 /* PracticeSettingsManager.swift */,
 			);
 			path = practice;
@@ -979,7 +980,6 @@
 		C9DE15222868B2C70011324C /* practice */ = {
 			isa = PBXGroup;
 			children = (
-				C9A0D028282BD603000CF439 /* Practice.swift */,
 				C97DE6B928B3EA9D005D53D1 /* PracticeSettings.swift */,
 			);
 			path = practice;
