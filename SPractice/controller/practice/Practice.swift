@@ -79,10 +79,6 @@ import SwiftUI
         currentExercise.tasks[currentTaskIndex]
     }
 
-    var isDurationRemainingApproximate: Bool {
-        program.hasFlowExercises(fromIndex: currentExerciseIndex)
-    }
-
     func run() {
         if !isStarted {
             start()
