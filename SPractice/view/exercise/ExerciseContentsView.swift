@@ -10,6 +10,7 @@ import SwiftUI
 struct ExerciseContentsView: InfoContentHolder {
 
     @ObservedObject private var viewModel: ViewModel
+    @ObservedObject var infoController = InfoController()
 
     init(exercise: ExerciseTemplate) {
         viewModel = ViewModel(for: exercise)

@@ -7,15 +7,16 @@
 
 import SwiftUI
 
-struct AddProgramView: View, AddProcessor {
+struct AddProgramView: InfoContentHolder, AddProcessor {
 
     @Environment(\.dismiss) var dismiss
+    @ObservedObject var infoController = InfoController()
 
     var onAdd: ((ProgramTemplate) -> Void)?
 
     @StateObject private var viewModel = ViewModel()
 
-    var body: some View {
+    var content: some View {
         NavigationStack {
             ProgramEditor(for: $viewModel.newTemplate, mode: .add, editMode: $viewModel.editMode)
                 .navigationTitle("New program")

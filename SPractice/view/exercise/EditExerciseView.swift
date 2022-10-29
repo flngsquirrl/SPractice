@@ -7,9 +7,10 @@
 
 import SwiftUI
 
-struct EditExerciseView: View {
+struct EditExerciseView: InfoContentHolder {
 
     @Environment(\.dismiss) var dismiss
+    @ObservedObject var infoController = InfoController()
 
     @ObservedObject private var viewModel: ViewModel
 
@@ -20,7 +21,7 @@ struct EditExerciseView: View {
         self.onSave = onSave
     }
 
-    var body: some View {
+    var content: some View {
         ExerciseEditor(for: $viewModel.editorTemplate, mode: .edit)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {

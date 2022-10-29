@@ -7,9 +7,10 @@
 
 import SwiftUI
 
-struct EditProgramView: View {
+struct EditProgramView: InfoContentHolder {
 
     @Environment(\.dismiss) var dismiss
+    @ObservedObject var infoController = InfoController()
 
     var onSave: (ProgramTemplate) -> Void
 
@@ -20,7 +21,7 @@ struct EditProgramView: View {
         self.onSave = onSave
     }
 
-    var body: some View {
+    var content: some View {
         ProgramEditor(for: $viewModel.template, mode: .edit, editMode: $viewModel.editMode)
             .navigationTitle("Program")
             .navigationBarTitleDisplayMode(.inline)

@@ -29,7 +29,7 @@ struct MainList<T: ListComponentsProvider, C: MainController>: View where C.Item
                     listToolbar
                 }
         } detail: {
-            detail.addInfoPanel()
+            detail
         }
         .navigationSplitViewStyle(.balanced)
         .accentColor(.customAccentColor)

@@ -8,10 +8,11 @@
 import SwiftUI
 
 extension View {
-    func addInfoPanel() -> some View {
+    func addInfoPanel(controller: InfoController) -> some View {
         ZStack {
             self.zIndex(0)
             InfoPanel().zIndex(1)
         }
+        .environmentObject(controller)
      }
 }

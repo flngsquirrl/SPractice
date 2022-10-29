@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProgramEditor: InfoContentHolder {
+struct ProgramEditor: View {
 
     @ObservedObject var viewModel: ViewModel
 
@@ -27,7 +27,7 @@ struct ProgramEditor: InfoContentHolder {
         self._editMode = editMode
     }
 
-    var content: some View {
+    var body: some View {
         Form {
             Section {
                 TextField("Name", text: $viewModel.template.name)

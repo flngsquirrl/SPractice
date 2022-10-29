@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct ExerciseDetailsView: View, UpdateProcessor, DeleteProcessor {
+struct ExerciseDetailsView: InfoContentHolder, UpdateProcessor, DeleteProcessor {
+
+    @ObservedObject var infoController = InfoController()
 
     private var exercise: ExerciseTemplate
     var onUpdate: ((ExerciseTemplate) -> Void)?
@@ -19,7 +21,7 @@ struct ExerciseDetailsView: View, UpdateProcessor, DeleteProcessor {
         self.exercise = exercise
     }
 
-    var body: some View {
+    var content: some View {
         ExerciseContentsView(exercise: exercise)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

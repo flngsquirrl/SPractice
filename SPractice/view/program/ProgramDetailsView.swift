@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ProgramDetailsView: View, UpdateProcessor, DeleteProcessor {
 
+    @ObservedObject var infoController = InfoController()
+
     private var program: ProgramTemplate
     var onUpdate: ((ProgramTemplate) -> Void)?
     var onDelete: ((ProgramTemplate) -> Void)?
@@ -45,6 +47,7 @@ struct ProgramDetailsView: View, UpdateProcessor, DeleteProcessor {
                     }
                 }
             }
+            .addInfoPanel(controller: infoController)
         }
         .navigationDestination(for: ExerciseTemplate.self) { exercise in
             ExerciseContentsView(exercise: exercise)

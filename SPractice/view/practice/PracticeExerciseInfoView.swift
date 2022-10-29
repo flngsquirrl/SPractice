@@ -10,6 +10,7 @@ import SwiftUI
 struct PracticeExerciseInfoView: InfoContentHolder {
 
     @Environment(\.dismiss) var dismiss
+    @ObservedObject var infoController = InfoController()
 
     var exercise: PracticeExercise
 

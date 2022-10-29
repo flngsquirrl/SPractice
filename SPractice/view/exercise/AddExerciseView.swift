@@ -7,9 +7,10 @@
 
 import SwiftUI
 
-struct AddExerciseView: View, AddProcessor {
+struct AddExerciseView: InfoContentHolder, AddProcessor {
 
     @Environment(\.dismiss) var dismiss
+    @ObservedObject var infoController = InfoController()
 
     var navigatedFromProgram: Bool = false
     var onAdd: ((ExerciseTemplate) -> Void)?
@@ -23,7 +24,7 @@ struct AddExerciseView: View, AddProcessor {
         self.onAdd = onAdd
     }
 
-    var body: some View {
+    var content: some View {
         NavigationStack {
             ExerciseEditor(for: $viewModel.template, mode: .add, navigatedFromProgram: navigatedFromProgram)
                 .navigationTitle("New exercise")

@@ -13,11 +13,12 @@ protocol InfoContentHolder: View {
     associatedtype Content: View
 
     var content: Content {get}
+    var infoController: InfoController {get}
 }
 
 extension InfoContentHolder {
 
     var body: some View {
-        content.addInfoPanel()
+        content.addInfoPanel(controller: infoController)
     }
 }

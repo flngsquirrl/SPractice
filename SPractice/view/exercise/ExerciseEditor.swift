@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExerciseEditor: InfoContentHolder {
+struct ExerciseEditor: View {
 
     @ObservedObject private var viewModel: ViewModel
 
@@ -23,7 +23,7 @@ struct ExerciseEditor: InfoContentHolder {
         self.navigatedFromProgram = navigatedFromProgram
     }
 
-    var content: some View {
+    var body: some View {
         Form {
             Section {
                 TextField("Name", text: $viewModel.template.name)
