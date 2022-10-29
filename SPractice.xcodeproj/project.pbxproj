@@ -674,14 +674,6 @@
 			path = player;
 			sourceTree = "<group>";
 		};
-		C99D28192879AA7E00596FBD /* common */ = {
-			isa = PBXGroup;
-			children = (
-				C9FF683028F59BDA00E98B1A /* Filterable.swift */,
-			);
-			path = common;
-			sourceTree = "<group>";
-		};
 		C99E491628CCECEB008DC90B /* delete */ = {
 			isa = PBXGroup;
 			children = (
@@ -708,7 +700,6 @@
 				C9DE15222868B2C70011324C /* practice */,
 				C9DE15252868B34A0011324C /* program */,
 				C9DE15232868B2D90011324C /* settings */,
-				C99D28192879AA7E00596FBD /* common */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -826,6 +817,7 @@
 				C98675D128B6B49F00F06D6A /* player */,
 				C9B93777290C7151007D1CD9 /* settings */,
 				C9B93787290D592E007D1CD9 /* sorting */,
+				C9B93788290D59E6007D1CD9 /* filtering */,
 				C9B93783290D5585007D1CD9 /* storage */,
 				C986551528FAFECF00E5F10E /* example */,
 				C9B93786290D58D7007D1CD9 /* main */,
@@ -914,6 +906,14 @@
 				C9ACC8EB28A81C9C00FC5343 /* SortingOptions.swift */,
 			);
 			path = sorting;
+			sourceTree = "<group>";
+		};
+		C9B93788290D59E6007D1CD9 /* filtering */ = {
+			isa = PBXGroup;
+			children = (
+				C9FF683028F59BDA00E98B1A /* Filterable.swift */,
+			);
+			path = filtering;
 			sourceTree = "<group>";
 		};
 		C9BF1EE428C6995E00D67A99 /* onboarding */ = {
