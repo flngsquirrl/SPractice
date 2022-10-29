@@ -719,7 +719,6 @@
 				C9DE15242868B32E0011324C /* exercise */,
 				C9DE15262868B3560011324C /* task */,
 				C9DE15222868B2C70011324C /* practice */,
-				C98675D128B6B49F00F06D6A /* player */,
 				C9DE15252868B34A0011324C /* program */,
 				C9DE15232868B2D90011324C /* settings */,
 				C91696A728A268D800053E90 /* sorting */,
@@ -838,6 +837,7 @@
 				C9B93776290C4C14007D1CD9 /* programs */,
 				C9B9377C290C73BC007D1CD9 /* practice */,
 				C9B93781290D4C3A007D1CD9 /* clock */,
+				C98675D128B6B49F00F06D6A /* player */,
 				C9B93777290C7151007D1CD9 /* settings */,
 			);
 			path = controller;
