@@ -810,6 +810,7 @@
 			isa = PBXGroup;
 			children = (
 				C9B93789290D5A5F007D1CD9 /* activity */,
+				C9B9378C290DACFA007D1CD9 /* info */,
 				C9B93774290C3CE3007D1CD9 /* launch */,
 				C9E17F1028DB3ECB00A7A6A7 /* listener */,
 				C9B93775290C4BD3007D1CD9 /* exercises */,
@@ -924,6 +925,14 @@
 				C9321CA928CA282C008C6BA4 /* ActivityMonitor.swift */,
 			);
 			path = activity;
+			sourceTree = "<group>";
+		};
+		C9B9378C290DACFA007D1CD9 /* info */ = {
+			isa = PBXGroup;
+			children = (
+				C95EE45328D1E87D000D7D3B /* InfoManager.swift */,
+			);
+			path = info;
 			sourceTree = "<group>";
 		};
 		C9BF1EE428C6995E00D67A99 /* onboarding */ = {
@@ -1073,7 +1082,6 @@
 		C9F13B1328CF58BC00A2B39F /* info */ = {
 			isa = PBXGroup;
 			children = (
-				C95EE45328D1E87D000D7D3B /* InfoManager.swift */,
 				C91982562876E297005D049C /* InfoButton.swift */,
 				C95EE45528D1EDC2000D7D3B /* InfoPanel.swift */,
 				C9F13B1828CF624600A2B39F /* ExamplesInfo.swift */,
