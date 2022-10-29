@@ -23,7 +23,7 @@ struct AddProgramView: View, AddProcessor {
                 .toolbar {
                     ToolbarItemGroup(placement: .confirmationAction) {
                         Button("Add") {
-                            onAdd?(viewModel.newTemplate)
+                            onAdd?(viewModel.templateToSave)
                             dismiss()
                         }
                         .disabled(viewModel.isAddDisabled)

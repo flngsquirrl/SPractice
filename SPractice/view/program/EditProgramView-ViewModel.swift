@@ -39,10 +39,12 @@ extension EditProgramView {
         }
 
         func prepareTemplate(markAsNonExample: Bool) -> ProgramTemplate {
+            var result = template
+            result.trim()
             if markAsNonExample {
-                template.isExample = false
+                result.isExample = false
             }
-            return template
+            return result
         }
     }
 }

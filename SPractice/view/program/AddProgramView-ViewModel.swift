@@ -20,6 +20,12 @@ extension AddProgramView {
             programValidator.isValid(newTemplate)
         }
 
+        var templateToSave: ProgramTemplate {
+            var result = newTemplate
+            result.trim()
+            return result
+        }
+
         var isAddDisabled: Bool {
             !programValidator.isValid(newTemplate)
         }

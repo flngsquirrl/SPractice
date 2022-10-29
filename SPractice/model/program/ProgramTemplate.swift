@@ -68,6 +68,11 @@ struct ProgramTemplate: ExampleProgram, Created, ExampleItem, Codable, Hashable 
         return true
     }
 
+    mutating func trim() {
+        name = name.trim()
+        description = description.trim()
+    }
+
     mutating func resetToExample(example: ProgramTemplate) {
         self.name = example.name
         self.description = example.description
