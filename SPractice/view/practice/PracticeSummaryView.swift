@@ -7,15 +7,11 @@
 
 import SwiftUI
 
-struct PracticeSummaryView: View {
+struct PracticeSummaryView: InfoContentHolder {
 
     @Environment(\.dismiss) var dismiss
 
     var practice: Practice
-
-    var body: some View {
-        content.addInfoPanel()
-    }
 
     @MainActor
     var content: some View {

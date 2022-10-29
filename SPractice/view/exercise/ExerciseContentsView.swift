@@ -7,16 +7,12 @@
 
 import SwiftUI
 
-struct ExerciseContentsView: View {
+struct ExerciseContentsView: InfoContentHolder {
 
     @ObservedObject private var viewModel: ViewModel
 
     init(exercise: ExerciseTemplate) {
         viewModel = ViewModel(for: exercise)
-    }
-
-    var body: some View {
-        content.addInfoPanel()
     }
 
     var content: some View {

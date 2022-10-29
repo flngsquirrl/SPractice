@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct PracticeExerciseInfoView: View {
+struct PracticeExerciseInfoView: InfoContentHolder {
 
     @Environment(\.dismiss) var dismiss
 
     var exercise: PracticeExercise
 
-    var body: some View {
+    var content: some View {
         NavigationStack {
             List {
                 ExercisePropertiesView(exercise: exercise)

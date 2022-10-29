@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExerciseEditor: View {
+struct ExerciseEditor: InfoContentHolder {
 
     @ObservedObject private var viewModel: ViewModel
 
@@ -21,10 +21,6 @@ struct ExerciseEditor: View {
         self.viewModel = ViewModel(for: template)
         self.mode = mode
         self.navigatedFromProgram = navigatedFromProgram
-    }
-
-    var body: some View {
-        content.addInfoPanel()
     }
 
     var content: some View {

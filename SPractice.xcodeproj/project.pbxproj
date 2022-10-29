@@ -138,6 +138,7 @@
 		C9B9377B290C7274007D1CD9 /* SettingsItemHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B9377A290C7274007D1CD9 /* SettingsItemHolder.swift */; };
 		C9B9377E290C830C007D1CD9 /* SettingsGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B9377D290C830C007D1CD9 /* SettingsGroup.swift */; };
 		C9B93785290D56E4007D1CD9 /* ProgramExamplesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B93784290D56E4007D1CD9 /* ProgramExamplesManager.swift */; };
+		C9B9378B290DA90C007D1CD9 /* InfoContentHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B9378A290DA90C007D1CD9 /* InfoContentHolder.swift */; };
 		C9BF1EE628C6999400D67A99 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BF1EE528C6999400D67A99 /* OnboardingView.swift */; };
 		C9BF1EE828C69EB300D67A99 /* IntroExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BF1EE728C69EB300D67A99 /* IntroExercisesView.swift */; };
 		C9BF1EEA28C6A30D00D67A99 /* IntroAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BF1EE928C6A30D00D67A99 /* IntroAppView.swift */; };
@@ -361,6 +362,7 @@
 		C9B9377A290C7274007D1CD9 /* SettingsItemHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemHolder.swift; sourceTree = "<group>"; };
 		C9B9377D290C830C007D1CD9 /* SettingsGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsGroup.swift; sourceTree = "<group>"; };
 		C9B93784290D56E4007D1CD9 /* ProgramExamplesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramExamplesManager.swift; sourceTree = "<group>"; };
+		C9B9378A290DA90C007D1CD9 /* InfoContentHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoContentHolder.swift; sourceTree = "<group>"; };
 		C9BF1EE528C6999400D67A99 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		C9BF1EE728C69EB300D67A99 /* IntroExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroExercisesView.swift; sourceTree = "<group>"; };
 		C9BF1EE928C6A30D00D67A99 /* IntroAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroAppView.swift; sourceTree = "<group>"; };
@@ -1082,6 +1084,7 @@
 				C9F30BD228CFC66700A1C9E2 /* Text-Term.swift */,
 				C9F30BD428CFC92700A1C9E2 /* View-Accented.swift */,
 				C980FED828D203DF00543B72 /* View-addInfoPanel.swift */,
+				C9B9378A290DA90C007D1CD9 /* InfoContentHolder.swift */,
 			);
 			path = info;
 			sourceTree = "<group>";
@@ -1324,6 +1327,7 @@
 				C9321C9B28C786DA008C6BA4 /* ContentView.swift in Sources */,
 				C9A0D02228280F3E000CF439 /* RightWing.swift in Sources */,
 				C9A0CFEE281AB484000CF439 /* PracticeProgram.swift in Sources */,
+				C9B9378B290DA90C007D1CD9 /* InfoContentHolder.swift in Sources */,
 				C97DE6C028B5155A005D53D1 /* PracticeSettings-ViewModel.swift in Sources */,
 				C9F13B1928CF624600A2B39F /* ExamplesInfo.swift in Sources */,
 				C9692C7C284F787700373730 /* ExerciseShortView.swift in Sources */,

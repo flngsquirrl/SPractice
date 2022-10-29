@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProgramEditor: View {
+struct ProgramEditor: InfoContentHolder {
 
     @ObservedObject var viewModel: ViewModel
 
@@ -25,10 +25,6 @@ struct ProgramEditor: View {
         self.viewModel = ViewModel(for: template)
         self.mode = mode
         self._editMode = editMode
-    }
-
-    var body: some View {
-        content.addInfoPanel()
     }
 
     var content: some View {
