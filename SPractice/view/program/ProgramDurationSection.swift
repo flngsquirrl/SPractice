@@ -26,12 +26,12 @@ struct ProgramDurationSection<T>: View where T: Program {
 }
 
 struct ProgramDurationSection_Previews: PreviewProvider {
-    static var infoManager = InfoManager()
+    static var infoController = InfoController()
 
     static var previews: some View {
         List {
             ProgramDurationSection(program: ProgramTemplate.simpleYoga)
-                .environmentObject(infoManager)
+                .environmentObject(infoController)
         }
     }
 }

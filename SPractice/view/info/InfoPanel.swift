@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InfoPanel: View {
 
-    @EnvironmentObject var infoManager: InfoManager
+    @EnvironmentObject var infoController: InfoController
 
     private static var infoPages: [InfoPage: AnyView] = [
         .example: AnyView(ExamplesInfo()),
@@ -19,7 +19,7 @@ struct InfoPanel: View {
         .programDuration: AnyView(ProgramDurationInfo())]
 
     var body: some View {
-        if infoManager.showInfo {
+        if infoController.showInfo {
             VStack {
                 Spacer()
 
@@ -34,7 +34,7 @@ struct InfoPanel: View {
                     .padding(.bottom, 20)
                     .onTapGesture {
                         withAnimation {
-                            infoManager.hideInfo()
+                            infoController.hideInfo()
                         }
                     }
             }
@@ -43,7 +43,7 @@ struct InfoPanel: View {
     }
 
     var content: AnyView {
-        if let page = infoManager.page {
+        if let page = infoController.page {
             if let info = Self.infoPages[page] {
                 return info
             }
@@ -55,12 +55,12 @@ struct InfoPanel: View {
 }
 
 struct InfoPanel_Previews: PreviewProvider {
-    static var infoManager = InfoManager()
+    static var infoController = InfoController()
 
     static var previews: some View {
-        infoManager.showInfo(for: .execiseType)
+        infoController.showInfo(for: .execiseType)
 
         return InfoPanel()
-            .environmentObject(infoManager)
+            .environmentObject(infoController)
     }
 }

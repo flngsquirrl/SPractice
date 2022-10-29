@@ -63,12 +63,12 @@ struct HomeView_Previews: PreviewProvider {
 
     static var activityMonitor = ActivityMonitor()
     static var settingsManager = SettingsManager()
-    static var infoManager = InfoManager()
+    static var infoController = InfoController()
 
     static var previews: some View {
         HomeView()
             .environmentObject(activityMonitor)
             .environmentObject(settingsManager)
-            .environmentObject(infoManager)
+            .environmentObject(infoController)
     }
 }

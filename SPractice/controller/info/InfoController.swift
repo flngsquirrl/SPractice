@@ -15,7 +15,7 @@ enum InfoPage {
     case programDuration
 }
 
-@MainActor class InfoManager: ObservableObject {
+@MainActor class InfoController: ObservableObject {
 
     @Published var showInfo: Bool = false
     var page: InfoPage?

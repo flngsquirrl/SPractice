@@ -16,7 +16,7 @@ struct ContentView: View {
 
     @StateObject var activityMonitor = ActivityMonitor()
     @StateObject var viewRouter = ViewRouter()
-    @StateObject var infoManager = InfoManager()
+    @StateObject var infoController = InfoController()
 
     var body: some View {
         Group {
@@ -25,7 +25,7 @@ struct ContentView: View {
                 HomeView()
                     .environmentObject(activityMonitor)
                     .environmentObject(settingsManager)
-                    .environmentObject(infoManager)
+                    .environmentObject(infoController)
                     .transition(.opacity)
             case .onboarding:
                 OnboardingView()

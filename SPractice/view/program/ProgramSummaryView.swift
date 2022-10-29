@@ -31,7 +31,7 @@ struct ProgramSummaryView: View {
 }
 
 struct ProgramSummaryView_Previews: PreviewProvider {
-    static var infoManager = InfoManager()
+    static var infoManager = InfoController()
     static var settingsManager = SettingsManager()
 
     static var previews: some View {

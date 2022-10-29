@@ -20,10 +20,10 @@ struct ProgramsView: View {
 
 struct ProgramsView_Previews: PreviewProvider {
 
-    static var infoManager = InfoManager()
+    static var infoController = InfoController()
 
     static var previews: some View {
         ProgramsView()
-            .environmentObject(infoManager)
+            .environmentObject(infoController)
     }
 }

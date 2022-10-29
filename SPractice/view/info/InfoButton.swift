@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InfoButton: View {
 
-    @EnvironmentObject var infoManager: InfoManager
+    @EnvironmentObject var infoController: InfoController
 
     var page: InfoPage
     var isFooter: Bool
@@ -22,7 +22,7 @@ struct InfoButton: View {
     var body: some View {
         Button {
             withAnimation {
-                infoManager.showInfo(for: page)
+                infoController.showInfo(for: page)
             }
         } label: {
             Image(systemName: "info.circle")
@@ -32,11 +32,11 @@ struct InfoButton: View {
 }
 
 struct InfoButton_Previews: PreviewProvider {
-    static var infoManager = InfoManager()
+    static var infoController = InfoController()
 
     static var previews: some View {
         InfoButton(for: .example)
-            .environmentObject(infoManager)
+            .environmentObject(infoController)
 
     }
 }

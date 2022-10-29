@@ -57,7 +57,7 @@
 		C95BAC9828F1BF4D00618DBC /* ProgramServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BAC9728F1BF4D00618DBC /* ProgramServiceTests.swift */; };
 		C95BAC9B28F1C42200618DBC /* Resolver-Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BAC9A28F1C42200618DBC /* Resolver-Test.swift */; };
 		C95BAC9D28F1CB4C00618DBC /* MockRestSettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BAC9C28F1CB4C00618DBC /* MockRestSettingsProvider.swift */; };
-		C95EE45428D1E87D000D7D3B /* InfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95EE45328D1E87D000D7D3B /* InfoManager.swift */; };
+		C95EE45428D1E87D000D7D3B /* InfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95EE45328D1E87D000D7D3B /* InfoController.swift */; };
 		C95EE45628D1EDC2000D7D3B /* InfoPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95EE45528D1EDC2000D7D3B /* InfoPanel.swift */; };
 		C95F17852884431700E8446D /* SettingsLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95F17842884431700E8446D /* SettingsLink.swift */; };
 		C967287C2874553600B4990C /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967287B2874553600B4990C /* Exercise.swift */; };
@@ -281,7 +281,7 @@
 		C95BAC9728F1BF4D00618DBC /* ProgramServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramServiceTests.swift; sourceTree = "<group>"; };
 		C95BAC9A28F1C42200618DBC /* Resolver-Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver-Test.swift"; sourceTree = "<group>"; };
 		C95BAC9C28F1CB4C00618DBC /* MockRestSettingsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRestSettingsProvider.swift; sourceTree = "<group>"; };
-		C95EE45328D1E87D000D7D3B /* InfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoManager.swift; sourceTree = "<group>"; };
+		C95EE45328D1E87D000D7D3B /* InfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoController.swift; sourceTree = "<group>"; };
 		C95EE45528D1EDC2000D7D3B /* InfoPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPanel.swift; sourceTree = "<group>"; };
 		C95F17842884431700E8446D /* SettingsLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLink.swift; sourceTree = "<group>"; };
 		C967287B2874553600B4990C /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
@@ -930,7 +930,7 @@
 		C9B9378C290DACFA007D1CD9 /* info */ = {
 			isa = PBXGroup;
 			children = (
-				C95EE45328D1E87D000D7D3B /* InfoManager.swift */,
+				C95EE45328D1E87D000D7D3B /* InfoController.swift */,
 			);
 			path = info;
 			sourceTree = "<group>";
@@ -1298,7 +1298,7 @@
 				C996981A286477CB009836BD /* ExerciseTypeView.swift in Sources */,
 				C95EE45628D1EDC2000D7D3B /* InfoPanel.swift in Sources */,
 				C9E17F1228DB3EEE00A7A6A7 /* Listener.swift in Sources */,
-				C95EE45428D1E87D000D7D3B /* InfoManager.swift in Sources */,
+				C95EE45428D1E87D000D7D3B /* InfoController.swift in Sources */,
 				C9D156B028534E88007F5176 /* AddExerciseView.swift in Sources */,
 				C9CEAA0D287C619F00D15A16 /* SettingsManager.swift in Sources */,
 				C99D28182879A05F00596FBD /* DataManager.swift in Sources */,
