@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PracticeSettingsManager: JsonPersistenceDataManager<PracticeSettings> {
+class PracticeSettingsManager: JsonPersistenceManager<PracticeSettings> {
 
     override func getFileName() -> String {
         "PracticeSettings"
