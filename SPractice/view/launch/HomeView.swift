@@ -11,25 +11,21 @@ struct HomeView: View {
 
     @State private var contentType: ContentType = .programs
 
+    private var tabsOrder: [ContentType] = [.programs, .exercises, .settings]
+    private var tabs: [ContentType: AnyView]  = [
+        .programs: AnyView(ProgramsView()),
+        .exercises: AnyView(ExercisesView()),
+        .settings: AnyView(SettingsView())]
+
     var body: some View {
         TabView(selection: $contentType) {
-            ProgramsView()
-                .tabItem {
-                    Label(ContentType.programs.rawValue, systemImage: ContentType.programs.image)
-                }
-                .tag(ContentType.programs)
-
-            ExercisesView()
-                .tabItem {
-                    Label(ContentType.exercises.rawValue, systemImage: ContentType.exercises.image)
-                }
-                .tag(ContentType.exercises)
-
-            SettingsView()
-                .tabItem {
-                    Label(ContentType.settings.rawValue, systemImage: ContentType.settings.image)
-                }
-                .tag(ContentType.settings)
+            ForEach(tabsOrder, id: \.self) { tabType in
+                tabs[tabType]?
+                    .tabItem {
+                        Label(tabType.title, systemImage: tabType.image)
+                    }
+                    .tag(tabType)
+            }
         }
         .onAppear {
             let tabBarAppearance = UITabBarAppearance()
@@ -38,11 +34,13 @@ struct HomeView: View {
         }
         .accentColor(.customAccentColor)
     }
+}
 
+extension HomeView {
     enum ContentType: String, CaseIterable {
-        case programs = "Programs"
-        case exercises = "Exercises"
-        case settings = "Settings"
+        case programs
+        case exercises
+        case settings
 
         var image: String {
             switch self {
@@ -53,6 +51,10 @@ struct HomeView: View {
             case .settings:
                 return "gearshape"
             }
+        }
+
+        var title: String {
+            rawValue.capitalized
         }
     }
 }
