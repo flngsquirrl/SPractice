@@ -14,9 +14,9 @@ struct ContentView: View {
 
     @Injected var settingsManager: SettingsManager
 
-    @StateObject var activityMonitor = ActivityMonitor()
     @StateObject var viewRouter = ViewRouter()
-    @StateObject var infoController = InfoController()
+    var activityMonitor = ActivityMonitor()
+    var infoController = InfoController()
 
     var body: some View {
         Group {
