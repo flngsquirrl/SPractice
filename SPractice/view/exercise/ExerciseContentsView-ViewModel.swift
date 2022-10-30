@@ -21,9 +21,5 @@ extension ExerciseContentsView {
         var showTasks: Bool {
             exercise.isTypeSet && exercise.type == .tabata
         }
-
-        var tasks: [Task] {
-            practiceService.prepareForPractice(exercise)?.tasks ?? []
-        }
     }
 }

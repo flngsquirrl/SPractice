@@ -20,7 +20,7 @@ struct PracticeExerciseInfoView: InfoContentHolder {
                 ExercisePropertiesView(exercise: exercise)
 
                 if showTasks {
-                    ExerciseTasksButton(tasks: exercise.tasks)
+                    TasksButton(tasks: exercise.tasks)
                 }
             }
             .navigationTitle("Exercise")

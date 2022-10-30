@@ -36,10 +36,6 @@ extension ExerciseEditor {
             return ExerciseTemplate(from: template)
         }
 
-        var practiceExercise: PracticeExercise {
-            return practiceService.prepareForPractice(exercise)!
-        }
-
         var isTypeDefined: Bool {
             template.type != nil
         }

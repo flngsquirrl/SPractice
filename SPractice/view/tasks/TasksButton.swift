@@ -1,5 +1,5 @@
 //
-//  ExerciseTasksButton.swift
+//  TasksButton.swift
 //  SPractice
 //
 //  Created by Yuliya Charniak on 13.07.22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExerciseTasksButton: View {
+struct TasksButton: View {
 
     var tasks: [Task]
 
@@ -18,14 +18,14 @@ struct ExerciseTasksButton: View {
             showTasks = true
         }
         .sheet(isPresented: $showTasks) {
-            ExerciseTasksView(tasks: tasks)
+            TasksView(tasks: tasks)
         }
     }
 }
 
-struct ExerciseTasksButton_Previews: PreviewProvider {
+struct TasksButton_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseTasksButton(tasks: [Task.restTabataWarmUp, Task.activityTabata1,
-                                    Task.restTabata1, Task.restTabataCoolDown])
+        TasksButton(tasks: [Task.restTabataWarmUp, Task.activityTabata1,
+                            Task.restTabata1, Task.restTabataCoolDown])
     }
 }

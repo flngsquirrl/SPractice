@@ -22,7 +22,7 @@ struct ExerciseContentsView: InfoContentHolder {
 
             if viewModel.showTasks {
                 Section {
-                    ExerciseTasksButton(tasks: viewModel.tasks)
+                    ExerciseTasksView(for: viewModel.exercise)
                 } footer: {
                     SettingsLinkView(text: "Sequence and duration of the tasks are based on", settingsSubGroup: .tabata)
                 }

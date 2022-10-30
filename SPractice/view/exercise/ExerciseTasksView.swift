@@ -2,39 +2,27 @@
 //  ExerciseTasksView.swift
 //  SPractice
 //
-//  Created by Yuliya Charniak on 2.07.22.
+//  Created by Yuliya Charniak on 30.10.22.
 //
 
 import SwiftUI
 
 struct ExerciseTasksView: View {
 
-    var tasks: [Task]
+    @EnvironmentObject var settingsManager: SettingsManager
+    @ObservedObject var viewModel: ViewModel
 
-    @Environment(\.dismiss) var dismiss
+    init(for exercise: ExerciseTemplate) {
+        self.viewModel = ViewModel(exercise: exercise)
+    }
 
     var body: some View {
-        NavigationStack {
-            List(tasks) { task in
-                TaskDetailsShortView(task: task)
-            }
-            .navigationTitle("Tasks")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Close") {
-                        dismiss()
-                    }
-                }
-            }
-        }
-        .accentColor(.customAccentColor)
+        TasksButton(tasks: viewModel.tasks)
     }
 }
 
 struct ExerciseTasksView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseTasksView(tasks: [Task.restTabataWarmUp, Task.activityTabata1,
-                                  Task.restTabata1, Task.restTabataCoolDown])
+        ExerciseTasksView(for: .catCow)
     }
 }
