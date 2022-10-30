@@ -9,4 +9,5 @@ import Foundation
 
 protocol AudioPlayer {
     func play(type: SoundType)
+    func prepareToPlay(type: SoundType)
 }

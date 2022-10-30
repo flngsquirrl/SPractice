@@ -45,6 +45,7 @@ import SwiftUI
 
         prepareClock()
         preparePlayer()
+        prepareAudio()
     }
 
     var remainingExercises: [PracticeExercise] {
@@ -194,6 +195,10 @@ import SwiftUI
     func moveToPreviousExercise() {
         currentExerciseIndex -= 1
         onMoveToExercise()
+    }
+
+    func prepareAudio() {
+        audioPlayer.prepareToPlay(type: .taskCountdown)
     }
 
     func onMoveToExercise() {

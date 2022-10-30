@@ -10,6 +10,7 @@ import Foundation
 
 class BasicAudioPlayer: AudioPlayer {
 
+    var preparedType: SoundType?
     var audioPlayer: AVAudioPlayer?
 
     static let soundType = "wav"
@@ -23,7 +24,7 @@ class BasicAudioPlayer: AudioPlayer {
         }
     }
 
-    func play(type: SoundType) {
+    func prepareToPlay(type: SoundType) {
         let path = Bundle.main.path(forResource: type.rawValue, ofType: Self.soundType)
         guard let path = path else {
             print("Sound file is not found: " + type.rawValue + ".\(Self.soundType))")
@@ -34,9 +35,22 @@ class BasicAudioPlayer: AudioPlayer {
 
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
-            audioPlayer?.play()
+            audioPlayer?.prepareToPlay()
+            preparedType = type
         } catch {
             print("Failed to set up AVAudioPlayer.")
         }
+    }
+
+    func play(type: SoundType) {
+        if preparedType != type {
+            prepareToPlay(type: type)
+        }
+        play()
+    }
+
+    func play() {
+        audioPlayer?.play()
+        preparedType = nil
     }
 }
