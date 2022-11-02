@@ -32,12 +32,8 @@ struct ContentView: View {
             case .welcome:
                 WelcomeView()
                     .transition(.opacity)
-                    .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                            withAnimation {
-                                viewRouter.goHome()
-                            }
-                        }
+                    .task {
+                        await goHome()
                     }
             default:
                 Color.mainColor
@@ -50,6 +46,13 @@ struct ContentView: View {
             } else {
                 activityMonitor.inactivate()
             }
+        }
+    }
+
+    private func goHome() async {
+        try? await _Concurrency.Task.sleep(seconds: 1)
+        withAnimation {
+            viewRouter.goHome()
         }
     }
 }

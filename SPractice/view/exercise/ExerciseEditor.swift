@@ -29,11 +29,9 @@ struct ExerciseEditor: View {
                 TextField("Name", text: $viewModel.template.name)
                     .disableAutocorrection(true)
                     .focused($fieldInFocus, equals: .name)
-                    .onAppear {
+                    .task {
                         if mode == .add {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
-                                fieldInFocus = .name
-                            }
+                            await setInitialFocus()
                         }
                     }
 
@@ -129,6 +127,11 @@ struct ExerciseEditor: View {
 
     func toggleFocus() {
         fieldInFocus = FocusableField.moveFocusFrom(field: fieldInFocus)
+    }
+
+    private func setInitialFocus() async {
+        try? await _Concurrency.Task.sleep(seconds: 0.75)
+        fieldInFocus = .name
     }
 
     @ViewBuilder var intensityControl: some View {

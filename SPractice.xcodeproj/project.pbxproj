@@ -68,6 +68,7 @@
 		C9692C7C284F787700373730 /* ExerciseShortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C7B284F787700373730 /* ExerciseShortView.swift */; };
 		C9692C7F2850A35A00373730 /* ExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C7E2850A35A00373730 /* ExercisesView.swift */; };
 		C9692C852850F47500373730 /* ExerciseSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9692C842850F47500373730 /* ExerciseSelectionView.swift */; };
+		C973D7F62913214A001E3D6B /* Task-Sleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = C973D7F52913214A001E3D6B /* Task-Sleep.swift */; };
 		C9741A322860857F00E1F670 /* AddProgramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A312860857F00E1F670 /* AddProgramView.swift */; };
 		C9741A34286085E400E1F670 /* EditProgramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A33286085E400E1F670 /* EditProgramView.swift */; };
 		C9741A362860860C00E1F670 /* ProgramEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9741A352860860C00E1F670 /* ProgramEditor.swift */; };
@@ -294,6 +295,7 @@
 		C9692C7B284F787700373730 /* ExerciseShortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseShortView.swift; sourceTree = "<group>"; };
 		C9692C7E2850A35A00373730 /* ExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesView.swift; sourceTree = "<group>"; };
 		C9692C842850F47500373730 /* ExerciseSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSelectionView.swift; sourceTree = "<group>"; };
+		C973D7F52913214A001E3D6B /* Task-Sleep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task-Sleep.swift"; sourceTree = "<group>"; };
 		C9741A312860857F00E1F670 /* AddProgramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProgramView.swift; sourceTree = "<group>"; };
 		C9741A33286085E400E1F670 /* EditProgramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProgramView.swift; sourceTree = "<group>"; };
 		C9741A352860860C00E1F670 /* ProgramEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramEditor.swift; sourceTree = "<group>"; };
@@ -491,6 +493,7 @@
 				C9C2727B2848C91500F7DA0E /* Array-Wrapper.swift */,
 				C92F6C36286C525A00D7BA59 /* FileManager-Documents.swift */,
 				C9EB6D942881902B0026186C /* String-Empty.swift */,
+				C973D7F52913214A001E3D6B /* Task-Sleep.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -1399,6 +1402,7 @@
 				C9A0D001281BE4C8000CF439 /* PlayerView.swift in Sources */,
 				C9B49E9B28AD5BEF007713A1 /* View-hideKeyboard.swift in Sources */,
 				C9F30BD928CFD5B500A1C9E2 /* ExerciseIntensityInfo.swift in Sources */,
+				C973D7F62913214A001E3D6B /* Task-Sleep.swift in Sources */,
 				C9CEAA11287D964900D15A16 /* NumberSelectionControl.swift in Sources */,
 				C9741A3C2860CD6300E1F670 /* ExerciseTypeImage.swift in Sources */,
 				C95F17852884431700E8446D /* SettingsLink.swift in Sources */,
