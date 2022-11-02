@@ -54,7 +54,7 @@
 		C95BAC8A28F0D12300618DBC /* TabataSettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BAC8928F0D12300618DBC /* TabataSettingsProvider.swift */; };
 		C95BAC8C28F0D30D00618DBC /* RestSettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BAC8B28F0D30D00618DBC /* RestSettingsProvider.swift */; };
 		C95BAC9628F1BF2800618DBC /* MockTabataSettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BAC9528F1BF2800618DBC /* MockTabataSettingsProvider.swift */; };
-		C95BAC9828F1BF4D00618DBC /* ProgramServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BAC9728F1BF4D00618DBC /* ProgramServiceTests.swift */; };
+		C95BAC9828F1BF4D00618DBC /* BasicDurationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BAC9728F1BF4D00618DBC /* BasicDurationServiceTests.swift */; };
 		C95BAC9B28F1C42200618DBC /* Resolver-Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BAC9A28F1C42200618DBC /* Resolver-Test.swift */; };
 		C95BAC9D28F1CB4C00618DBC /* MockRestSettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95BAC9C28F1CB4C00618DBC /* MockRestSettingsProvider.swift */; };
 		C95EE45428D1E87D000D7D3B /* InfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95EE45328D1E87D000D7D3B /* InfoController.swift */; };
@@ -280,7 +280,7 @@
 		C95BAC8928F0D12300618DBC /* TabataSettingsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabataSettingsProvider.swift; sourceTree = "<group>"; };
 		C95BAC8B28F0D30D00618DBC /* RestSettingsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestSettingsProvider.swift; sourceTree = "<group>"; };
 		C95BAC9528F1BF2800618DBC /* MockTabataSettingsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTabataSettingsProvider.swift; sourceTree = "<group>"; };
-		C95BAC9728F1BF4D00618DBC /* ProgramServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramServiceTests.swift; sourceTree = "<group>"; };
+		C95BAC9728F1BF4D00618DBC /* BasicDurationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicDurationServiceTests.swift; sourceTree = "<group>"; };
 		C95BAC9A28F1C42200618DBC /* Resolver-Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver-Test.swift"; sourceTree = "<group>"; };
 		C95BAC9C28F1CB4C00618DBC /* MockRestSettingsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRestSettingsProvider.swift; sourceTree = "<group>"; };
 		C95EE45328D1E87D000D7D3B /* InfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoController.swift; sourceTree = "<group>"; };
@@ -479,7 +479,7 @@
 			children = (
 				C95BAC9E28F1D05A00618DBC /* dependency */,
 				C95BAC9928F1BF7900618DBC /* mock */,
-				C95BAC9728F1BF4D00618DBC /* ProgramServiceTests.swift */,
+				C95BAC9728F1BF4D00618DBC /* BasicDurationServiceTests.swift */,
 				C92E24CD28E9E43100FBF01E /* ExerciseValidatorTests.swift */,
 			);
 			path = SPracticeTests;
@@ -1269,7 +1269,7 @@
 				C95BAC9628F1BF2800618DBC /* MockTabataSettingsProvider.swift in Sources */,
 				C95BAC9D28F1CB4C00618DBC /* MockRestSettingsProvider.swift in Sources */,
 				C92E24CE28E9E43100FBF01E /* ExerciseValidatorTests.swift in Sources */,
-				C95BAC9828F1BF4D00618DBC /* ProgramServiceTests.swift in Sources */,
+				C95BAC9828F1BF4D00618DBC /* BasicDurationServiceTests.swift in Sources */,
 				C95BAC9B28F1C42200618DBC /* Resolver-Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

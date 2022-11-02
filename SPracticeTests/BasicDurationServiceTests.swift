@@ -10,16 +10,16 @@ import XCTest
 
 @testable import SPractice
 
-final class ProgramServiceTests: XCTestCase {
+final class BasicDurationServiceTests: XCTestCase {
 
-    var sut: ProgramService!
+    var sut: BasicDurationService!
     @LazyInjected var tabataSettings: TabataSettingsProvider
 
     override func setUpWithError() throws {
         try super.setUpWithError()
 
         Resolver.registerMockServices()
-        sut = ProgramService()
+        sut = BasicDurationService()
     }
 
     override func tearDownWithError() throws {
