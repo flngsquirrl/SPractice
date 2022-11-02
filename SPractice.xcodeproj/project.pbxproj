@@ -774,8 +774,7 @@
 				C96728812874E0FF00B4990C /* common */,
 				C9A028FD2878353200032FF9 /* sorting */,
 				C9A0D0182827CE9F000CF439 /* logo */,
-				C9A0D023282813F2000CF439 /* ColorTheme.swift */,
-				C92F6C41286F00EB00D7BA59 /* LayoutUtils.swift */,
+				C9A25B3B29129BB300639B85 /* layout */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -799,6 +798,15 @@
 				C95011D42819703D0043EC75 /* ClockView.swift */,
 			);
 			path = clock;
+			sourceTree = "<group>";
+		};
+		C9A25B3B29129BB300639B85 /* layout */ = {
+			isa = PBXGroup;
+			children = (
+				C9A0D023282813F2000CF439 /* ColorTheme.swift */,
+				C92F6C41286F00EB00D7BA59 /* LayoutUtils.swift */,
+			);
+			path = layout;
 			sourceTree = "<group>";
 		};
 		C9B49E9C28AEC8BD007713A1 /* sound */ = {
