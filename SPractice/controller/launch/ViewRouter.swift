@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 class ViewRouter: ObservableObject {
 
     enum ViewType {
