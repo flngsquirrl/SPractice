@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 class ActivityMonitor: ObservableObject {
 
     @Published var isActive = true
