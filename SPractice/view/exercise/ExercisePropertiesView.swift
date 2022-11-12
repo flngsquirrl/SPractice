@@ -87,6 +87,8 @@ struct ExercisePropertiesView<T>: View where T: Exercise {
 
 struct ExerciseDetailsContent_Previews: PreviewProvider {
     static var previews: some View {
-        ExercisePropertiesView(exercise: PracticeExercise.catCow)
+        List {
+            ExercisePropertiesView(exercise: PracticeExercise.catCow)
+        }
     }
 }
