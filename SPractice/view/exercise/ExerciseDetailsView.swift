@@ -48,14 +48,17 @@ struct ExerciseDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             ExerciseDetailsView(for: .catCow)
+                .environmentObject(SettingsManager())
         }
 
         NavigationStack {
             ExerciseDetailsView(for: .vasisthasana)
+                .environmentObject(SettingsManager())
         }
 
         NavigationStack {
             ExerciseDetailsView(for: .surjaNamascarA)
+                .environmentObject(SettingsManager())
         }
     }
 }

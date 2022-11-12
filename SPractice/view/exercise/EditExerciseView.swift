@@ -54,6 +54,7 @@ struct EditExerciseView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             EditExerciseView(for: ExerciseTemplate.catCow) { _ in }
+                .environmentObject(SettingsManager())
         }
     }
 }

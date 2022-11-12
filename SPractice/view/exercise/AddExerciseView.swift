@@ -55,5 +55,6 @@ struct AddExerciseView: InfoContentHolder, AddProcessor {
 struct AddExerciseView_Previews: PreviewProvider {
     static var previews: some View {
         AddExerciseView()
+            .environmentObject(SettingsManager())
     }
 }

@@ -89,6 +89,8 @@ struct ExerciseDetailsContent_Previews: PreviewProvider {
     static var previews: some View {
         List {
             ExercisePropertiesView(exercise: PracticeExercise.catCow)
+                .environmentObject(SettingsManager())
+                .environmentObject(InfoController())
         }
     }
 }

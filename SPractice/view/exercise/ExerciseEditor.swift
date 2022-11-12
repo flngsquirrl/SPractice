@@ -181,6 +181,8 @@ struct ExerciseEditor_Previews: PreviewProvider {
 
         NavigationStack {
             ExerciseEditor(for: $exampleTemplate, mode: .edit)
+                .environmentObject(SettingsManager())
+                .environmentObject(InfoController())
         }
     }
 }
