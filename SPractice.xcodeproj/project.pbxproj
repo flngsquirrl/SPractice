@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C90884B3292189E800CB6DF0 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = C90884B2292189E800CB6DF0 /* OrderedCollections */; };
 		C90B302728C2A8BC00B00DD3 /* View-RowLeadingAligned.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90B302628C2A8BC00B00DD3 /* View-RowLeadingAligned.swift */; };
 		C910A61128DCA279006F6C4B /* PracticeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C910A61028DCA279006F6C4B /* PracticeService.swift */; };
 		C91110DC289BDCCC00B9BC03 /* MainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91110DB289BDCCC00B9BC03 /* MainManager.swift */; };
@@ -447,6 +448,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C90884B3292189E800CB6DF0 /* OrderedCollections in Frameworks */,
 				C95BAC8428F0CC6800618DBC /* Resolver.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1177,6 +1179,9 @@
 			dependencies = (
 			);
 			name = SPractice;
+			packageProductDependencies = (
+				C90884B2292189E800CB6DF0 /* OrderedCollections */,
+			);
 			productName = SPractice;
 			productReference = C95011C328196FFD0043EC75 /* SPractice.app */;
 			productType = "com.apple.product-type.application";
@@ -1209,6 +1214,9 @@
 				Base,
 			);
 			mainGroup = C95011BA28196FFD0043EC75;
+			packageReferences = (
+				C90884B1292189E800CB6DF0 /* XCRemoteSwiftPackageReference "swift-collections" */,
+			);
 			productRefGroup = C95011C428196FFD0043EC75 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1650,6 +1658,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1681,6 +1690,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1725,6 +1735,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C90884B1292189E800CB6DF0 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C90884B2292189E800CB6DF0 /* OrderedCollections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C90884B1292189E800CB6DF0 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = OrderedCollections;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C95011BB28196FFD0043EC75 /* Project object */;
 }
