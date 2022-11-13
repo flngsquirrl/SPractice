@@ -5,21 +5,21 @@
 //  Created by Yuliya Charniak on 27.04.22.
 //
 
+import OrderedCollections
 import SwiftUI
 
 struct HomeView: View {
 
     @State private var contentType: ContentType = .programs
 
-    private var tabsOrder: [ContentType] = [.programs, .exercises, .settings]
-    private var tabs: [ContentType: AnyView]  = [
+    private var tabs: OrderedDictionary<ContentType, AnyView> = [
         .programs: AnyView(ProgramsView()),
         .exercises: AnyView(ExercisesView()),
         .settings: AnyView(SettingsView())]
 
     var body: some View {
         TabView(selection: $contentType) {
-            ForEach(tabsOrder, id: \.self) { tabType in
+            ForEach(tabs.keys, id: \.self) { tabType in
                 tabs[tabType]?
                     .tabItem {
                         Label(tabType.title, systemImage: tabType.image)
