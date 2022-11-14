@@ -27,6 +27,7 @@ struct DurationSecondsControl: View {
             Text("\(Self.secondsUnit)")
                 .foregroundColor(.secondary)
         }
+        .fixedSize()
     }
 
     static var secondsUnit: String {

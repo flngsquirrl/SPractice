@@ -27,6 +27,7 @@ struct DurationMinutesControl: View {
             Text("\(Self.minutesUnit)")
                 .foregroundColor(.secondary)
         }
+        .fixedSize()
     }
 
     static var minutesUnit: String {
