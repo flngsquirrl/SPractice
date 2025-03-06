@@ -5,7 +5,7 @@
 ## Intro
 
 How do you practice? Do you prefer workout or yoga?  
-Well, good news are, you can combine or alternate.  
+Well, good news is you can combine or alternate.  
 And use your time wisely.
 
 This is an application for you personal practice.
